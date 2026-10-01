@@ -9,6 +9,8 @@
     layout <name> [same image flags]   rebuild the layout + moodboard of an existing job (alias: moodboard)
     blueprint <name> [--then-video] photoreal stills + A3 drawing sheet PDF (on request)
     video <name>                    30 s walkthrough MP4 (on request; run it in the background)
+    site <name> [--rounds N]        frontend engine: the room as a web page, browser-judged, evolved
+                                    under the se_new policy (ACCEPT only if V holds and J rose)
     status <name> · list · check <job.json>
 """
 from __future__ import annotations
@@ -40,12 +42,14 @@ def main(argv=None) -> int:
         a.add_argument("what", help="brief" if c == "make" else "bundled example id")
         a.add_argument("--brand", default=""); a.add_argument("--name", default="")
         a.add_argument("--full", action="store_true"); a.add_argument("--blueprint", action="store_true")
+        a.add_argument("--site", action="store_true", help="also build the web page (frontend engine)")
         _imgs(a)
     for c in ("layout", "moodboard"):
         a = sub.add_parser(c); a.add_argument("name"); _imgs(a)
     for c in ("blueprint", "video", "status"):
         sub.add_parser(c).add_argument("name")
     sub.choices["blueprint"].add_argument("--then-video", action="store_true", help="render the MP4 right after")
+    a = sub.add_parser("site"); a.add_argument("name"); a.add_argument("--rounds", type=int, default=6)
     sub.add_parser("list")
     sub.add_parser("check").add_argument("file")
     a = ap.parse_args(argv)
@@ -59,9 +63,11 @@ def main(argv=None) -> int:
             _layout(name, a)
             if a.full or a.blueprint:
                 pipeline.blueprint(name)
+            if a.site:
+                pipeline.site(name)
             if a.full:
                 pipeline.video(name)
-            print(f"=== 보고 ===\n작업 {name}: 시놉시스 · 레이아웃 PDF · 무드보드 PDF" + (" · 청사진" if a.full or a.blueprint else "") + (" · MP4" if a.full else "") +
+            print(f"=== 보고 ===\n작업 {name}: 시놉시스 · 레이아웃 PDF · 무드보드 PDF" + (" · 청사진" if a.full or a.blueprint else "") + (" · MP4" if a.full else "") + (" · 웹 페이지" if a.site else "") +
                   (f"\n청사진·영상이 필요하면: python3 -m gentle_monster blueprint {name} · video {name}" if not a.full else ""))
         elif a.cmd in ("layout", "moodboard"):
             _layout(a.name, a)
@@ -71,6 +77,9 @@ def main(argv=None) -> int:
                 pipeline.video(a.name)
         elif a.cmd == "video":
             pipeline.video(a.name)
+        elif a.cmd == "site":
+            r = pipeline.site(a.name, rounds=a.rounds)
+            return 0 if r["ships"] else 1
         elif a.cmd == "status":
             print(json.dumps(pipeline.status(a.name), ensure_ascii=False))
         elif a.cmd == "list":

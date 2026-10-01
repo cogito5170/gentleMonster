@@ -8,8 +8,8 @@ Actions
     example                          번들 시놉시스(gm|tb|ac|ae) -- "예제/샘플" 과 브랜드
     make                             새 브리프 -> 시놉시스 + 레이아웃 PDF + 무드보드 (기본)
     layout                           있는 작업의 레이아웃·무드보드 다시 (새 사진·레퍼런스로)
-    blueprint · video                있는 작업에 대해 (요청 시)
-`steps` lists the on-request steps asked for on top (blueprint, video) -- "전부" asks for both.
+    blueprint · video · site         있는 작업에 대해 (요청 시). site = frontend engine (웹 페이지)
+`steps` lists the on-request steps asked for on top (blueprint, video, site) -- "전부" asks for blueprint + video.
 
 Job reference: an existing job name in the text, or 방금/최근/아까/그거/이거/마지막/직전 -> the newest job.
 A request for blueprint/video with no job and a long enough brief becomes make + those steps.
@@ -32,6 +32,7 @@ _W = {
     "example": ("예제", "샘플", "example", "예시"),
     "video": ("영상", "동영상", "mp4", "비디오", "워크스루", "walkthrough", "video", "걸어가는"),
     "blueprint": ("청사진", "도면", "렌더", "blueprint", "실사", "평면도"),
+    "site": ("사이트", "웹페이지", "웹 페이지", "홈페이지", "랜딩", "프론트", "frontend", "website", "web page", "site"),
     "full": ("전부", "풀세트", "다 만들어", "다 뽑아", "모두", "full"),
     "layout": ("무드보드", "레이아웃", "moodboard", "layout", "다시", "재구성", "바꿔", "넣어"),
     "latest": ("방금", "최근", "아까", "그거", "이거", "마지막", "직전", "위에 거", "위의"),
@@ -42,6 +43,14 @@ _FILLER = r"(해줘|해 줘|해주세요|만들어 줘|만들어줘|뽑아줘|�
 
 def _has(t: str, key: str) -> bool:
     return any(w in t for w in _W[key])
+
+
+def _act(steps) -> str:
+    """One on-request action for an existing job. site rides along with the others (discord_cmd chains it)."""
+    core = [s for s in steps if s != "site"]
+    if not core:
+        return "site"
+    return core[0] if len(core) == 1 else "full"
 
 
 def parse(text: str, jobs=(), n_images: int = 0) -> dict:
@@ -72,10 +81,12 @@ def parse(text: str, jobs=(), n_images: int = 0) -> dict:
         r["steps"] = ["blueprint", "video"]
     else:
         r["steps"] = [s for s in ("blueprint", "video") if _has(low, s)]
+    if _has(low, "site"):
+        r["steps"].append("site")
 
     # brief = text minus job name, command words and fillers
     b = t.replace(r["job"], " ") if r["job"] else t
-    for k in ("list", "status", "example", "video", "blueprint", "full", "latest", "layout", "ref"):
+    for k in ("list", "status", "example", "video", "blueprint", "site", "full", "latest", "layout", "ref"):
         for w in _W[k]:
             b = re.sub(re.escape(w), " ", b, flags=re.I)
     if r["example"]:
@@ -93,8 +104,7 @@ def parse(text: str, jobs=(), n_images: int = 0) -> dict:
         return dict(r, action="example")
     if r["job"]:
         if r["steps"]:
-            act = r["steps"][0] if len(r["steps"]) == 1 else "full"
-            return dict(r, action=act)
+            return dict(r, action=_act(r["steps"]))
         if _has(low, "layout") or n_images:
             return dict(r, action="layout")
         return dict(r, action="status")
@@ -106,7 +116,7 @@ def parse(text: str, jobs=(), n_images: int = 0) -> dict:
         return dict(r, action="missing_job", job=b)        # a name was given and it does not exist -- never guess another job
     if r["steps"] and jobs and not brief_ok:
         r["job"] = jobs[-1]; r["why"].append(f"no job named -> newest job {jobs[-1]}")
-        return dict(r, action=r["steps"][0] if len(r["steps"]) == 1 else "full")
+        return dict(r, action=_act(r["steps"]))
     if n_images and jobs:
         r["job"] = jobs[-1]; r["why"].append(f"images with no brief -> rebuild newest job {jobs[-1]}")
         return dict(r, action="layout")

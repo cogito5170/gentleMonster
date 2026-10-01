@@ -2,6 +2,8 @@
 
     <synopsis>  ->  <layout PDF + moodboard PDF>   default: every request gets these
                 ->  <blueprint PDF + MP4>   only when the user asks for it
+                ->  <site>                  on request: the frontend engine (engine/) -- a web page of the room,
+                                            judged in a browser and evolved under the se_new policy
 
 A job lives in one folder (paths.OUT/<name>/): job.json is the single source every step reads,
 so the blueprint and the video always show the room the layout PDF described.
@@ -157,6 +159,20 @@ def video(name: str, workers: int = 0, crf: int = 26, log=print) -> str:
     return mp4
 
 
+def site(name: str, rounds: int = 6, log=print) -> dict:
+    """On request. The job as a web page: tokens -> page -> browser judge -> se_new policy, `rounds` operators tried."""
+    from gentle_monster import engine
+    job = load_job(name)
+    t = time.time()
+    r = engine.build(job, paths.job_dir(name) / "site", rounds=rounds, log=log)
+    for f in (r["html"], r["tokens"], r["report"]):
+        _out(f, log)
+    bad = [k for k, ok in r["V"].items() if not ok]
+    log(f"[site] {r['accepted']} accepted · {r['rejected']} rejected · J {r['score']:.4f} · "
+        + ("every invariant holds" if not bad else "DOES NOT SHIP -- invariant failed: " + ", ".join(bad)) + f" · {time.time() - t:.0f} s")
+    return r
+
+
 def status(name: str) -> dict:
     d = paths.job_dir(name)
-    return {k: (d / f).is_file() for k, f in (("synopsis", "job.json"), ("layout", "layout.pdf"), ("moodboard", "moodboard.pdf"), ("blueprint", "blueprint.pdf"))} | {"video": bool(list(d.glob("*.mp4")))}
+    return {k: (d / f).is_file() for k, f in (("synopsis", "job.json"), ("layout", "layout.pdf"), ("moodboard", "moodboard.pdf"), ("blueprint", "blueprint.pdf"), ("site", "site/index.html"))} | {"video": bool(list(d.glob("*.mp4")))}

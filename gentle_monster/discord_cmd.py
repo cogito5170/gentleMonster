@@ -10,6 +10,7 @@ The text is read as natural language by gentle_monster.intent (no model call):
     !젠몬 <브리프>                       시놉시스 + 레이아웃 PDF + 무드보드 PDF (기본)
     !젠몬 탬버린즈 예제로 무드보드         번들 시놉시스 (모델 호출 없음)
     !젠몬 방금 거 청사진 / 영상도          최근 작업에 청사진 / MP4 (요청 시)
+    !젠몬 방금 거 웹 사이트로             최근 작업을 웹 페이지로 (frontend engine, 요청 시)
     !젠몬 (사진·레퍼런스 첨부) 이 레이아웃처럼 무드보드 다시
     !젠몬 <브리프>, 청사진이랑 영상까지 전부
     !젠몬 목록 · !젠몬 상태 <작업>
@@ -33,6 +34,7 @@ HELP = (f"`{PREFIX} <브리프>` — 공간 **시놉시스**(Gemini, 코드가 �
         "**레퍼런스 레이아웃** 그림을 같이 첨부하면 종이색·여백·밀도를 재서 따른다(Gemini 가 있으면 펼침 순서도 읽는다).\n"
         f"`{PREFIX} 탬버린즈 예제로 무드보드` — 들어 있는 시놉시스(젠틀몬스터·탬버린즈·아크네·이솝). 모델 호출 없음.\n"
         f"`{PREFIX} 방금 거 청사진` · `{PREFIX} 방금 거 영상도` — 요청 시: 실사 렌더 + A3 도면 / 동선을 걷는 30초 MP4(수십 분).\n"
+        f"`{PREFIX} 방금 거 웹 사이트로` — 요청 시: 공간을 웹 페이지로(스크롤 = 동선). 브라우저 심판이 대비·폰 폭·접근성을 재고, 나아졌다고 잰 변경만 받는다(se_new 정책).\n"
         f"`{PREFIX} 방금 거 이 사진들로 무드보드 다시` · `{PREFIX} <브리프>, 청사진이랑 영상까지 전부` · `{PREFIX} 목록` · `{PREFIX} 상태 <작업>`.\n"
         "치수는 가정이고 실측이 아니다. 청사진·영상은 요청이 있을 때만 만든다.")
 
@@ -67,6 +69,11 @@ def _launch(runner, argv, findword):
         return f"못 띄웠다: {type(e).__name__}: {e}"
 
 
+def _q(x: str) -> str:
+    import shlex
+    return shlex.quote(str(x))
+
+
 def _job(name: str) -> "str | None":
     from gentle_monster import paths
     return name if (paths.OUT / name / "job.json").is_file() else None
@@ -93,7 +100,8 @@ def _images(images=None) -> "list[str]":
 
 
 _KO = {"make": "시놉시스 → 레이아웃 PDF → 무드보드 PDF", "example": "번들 시놉시스 → 레이아웃 PDF → 무드보드 PDF",
-       "layout": "레이아웃·무드보드 다시 짓기", "blueprint": "청사진(실사 렌더 + A3 도면)", "video": "30초 1인칭 MP4", "full": "청사진 → MP4"}
+       "layout": "레이아웃·무드보드 다시 짓기", "blueprint": "청사진(실사 렌더 + A3 도면)", "video": "30초 1인칭 MP4", "full": "청사진 → MP4",
+       "site": "웹 페이지(frontend engine: 토큰 → 페이지 → 브라우저 심판 → se_new 정책)"}
 
 
 def run(text, runner=None, allow_write: bool = True, images=None):
@@ -128,13 +136,15 @@ def run(text, runner=None, allow_write: bool = True, images=None):
     if act == "example":
         ex = it["example"] or "gm"
         name = f"ex_{ex}_{time.strftime('%m%d%H%M%S')}"
-        argv = py + ["example", ex, "--name", name] + img + (["--full"] if it["steps"] == ["blueprint", "video"] else ["--blueprint"] if "blueprint" in it["steps"] else [])
+        argv = py + ["example", ex, "--name", name] + img + (["--full"] if {"blueprint", "video"} <= set(it["steps"]) else ["--blueprint"] if "blueprint" in it["steps"] else []) + (["--site"] if "site" in it["steps"] else [])
         return f"작업 `{name}` — {_KO['example']}.\n{why}{seen}" + _launch(runner, argv, name)
     if act == "make":
         name = f"gm_{time.strftime('%m%d%H%M%S')}"
         steps = it["steps"]
-        argv = py + ["make", it["brief"], "--name", name] + img + (["--full"] if "video" in steps else ["--blueprint"] if steps else [])
-        more = " → 청사진" if steps else ""
+        argv = (py + ["make", it["brief"], "--name", name] + img + (["--full"] if "video" in steps else ["--blueprint"] if "blueprint" in steps else [])
+                + (["--site"] if "site" in steps else []))
+        more = " → 웹 페이지" if "site" in steps else ""
+        more += " → 청사진" if "blueprint" in steps or "video" in steps else ""
         more += " → MP4" if "video" in steps else ""
         return (f"작업 `{name}` — {_KO['make']}{more}.\n{why}{seen}"
                 + ("" if "video" in steps else f"청사진·영상은 요청 시에만: `{PREFIX} 방금 거 청사진` · `{PREFIX} 방금 거 영상`\n") + _launch(runner, argv, name))
@@ -142,8 +152,13 @@ def run(text, runner=None, allow_write: bool = True, images=None):
         return f"작업을 못 찾았다. 먼저 `{PREFIX} <브리프>` 로 시놉시스를 만든다 (`{PREFIX} 목록`)."
     if act == "layout":
         return f"작업 `{job}` — {_KO['layout']}.\n{why}{seen}" + _launch(runner, py + ["layout", job] + img, f"gentle_monster layout {job}")
+    if act == "site":
+        return f"작업 `{job}` — {_KO['site']}. 1분 안팎.\n{why}" + _launch(runner, py + ["site", job], f"gentle_monster site {job}")
     if act in ("blueprint", "video", "full"):
         what = {"blueprint": ["blueprint", job], "video": ["video", job], "full": ["blueprint", job, "--then-video"]}[act]
+        if "site" in it["steps"]:                                  # 웹 페이지는 짧으니 먼저, 같은 프로세스 줄에서
+            return (f"작업 `{job}` — {_KO['site']} → {_KO[act]}.\n{why}"
+                    + _launch(runner, ["/bin/sh", "-c", " ".join(_q(x) for x in py + ["site", job]) + " && " + " ".join(_q(x) for x in py + what)], f"gentle_monster site {job}"))
         note = "수 분 걸린다." if act == "blueprint" else "30초 영상, 수십 분 걸린다. 끝나면 이 채널에 올린다."
         return f"작업 `{job}` — {_KO[act]}. {note}\n{why}" + _launch(runner, py + what, f"gentle_monster {what[0]} {job}")
     return HELP
