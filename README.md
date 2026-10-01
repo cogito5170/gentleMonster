@@ -56,6 +56,13 @@ job 의 팔레트·조명·재료가 **디자인 토큰**(W3C DTCG 로 내보냄
 기본은 REJECT, 거절도 원장에 적고, 그 원장이 연산자 무게 π 를 [0.25, 4] 안에서 배운다.
 자세한 것 · 만들면서 잡은 거짓 초록 · 이 심판이 못 잡는 것: [`docs/FRONTEND_ENGINE.md`](docs/FRONTEND_ENGINE.md).
 
+## 앱 — World Trip 화면
+
+`gentle_monster/apps/worldtrip/` 은 [worldTrip](https://github.com/cogito5170/worldTrip) 엔진(세계여행 계획)의 프론트엔드다.
+같은 잡지 문법으로 계획 · 경로 · 날짜 · 예산 보드 · 도시 펼침 · 청사진(A3 가로)을 그린다. 엔진 쪽에서 `worldtrip app` 한 줄이면
+이 폴더를 받아 붙이고 브라우저를 연다. 화면은 엔진 심판의 V 를 지킨다 -- `python3 -m gentle_monster.apps.check`.
+자세한 것: [`gentle_monster/apps/worldtrip/README.md`](gentle_monster/apps/worldtrip/README.md).
+
 ## 디스코드 봇에 붙이기 (선택)
 
 `gentle_monster.discord_cmd.run(text, images=[첨부 경로])` 는 `!젠몬 <아무 말>` 을 자연어로 읽는다(모델 호출 없음):
@@ -82,6 +89,7 @@ job 의 팔레트·조명·재료가 **디자인 토큰**(W3C DTCG 로 내보냄
 | `gentle_monster/web/scene.js` · `tour.js` | three.js r170 PBR 장면 · 도면 동선을 따라 걷는 30초 워크스루 |
 | `gentle_monster/render.py` | 스틸, 그리고 프레임을 ffmpeg(libx264)로 잇는 영상 |
 | `gentle_monster/engine/` | frontend engine: `tokens`(genome → 토큰 · DTCG) · `compose`(페이지) · `judge`(브라우저 심판 V · J) · `policy`(se_new 개선결정 · π) |
+| `gentle_monster/apps/worldtrip/` | World Trip 앱 화면(정적 PWA) — worldTrip 엔진에 붙는다 · `apps/check.py` 가 엔진 심판의 V 를 이 앱에 건다 |
 | `render3d/` | 2D 평면도(matplotlib) — gentle_monster 가 쓰는 부분만 |
 
 ## 테스트
@@ -89,6 +97,7 @@ job 의 팔레트·조명·재료가 **디자인 토큰**(W3C DTCG 로 내보냄
 ```bash
 python3 tests/test_gentle_monster.py      # 브라우저가 없으면 브라우저 부분은 '건너뜀'
 python3 tests/test_engine.py              # 엔진: 정책 분기 · RED(깨뜨린 페이지가 그 검사만 실패) · GREEN
+python3 tests/test_worldtrip_app.py       # World Trip 화면: 정적 검사 · V GREEN(고정 응답) · RED 여섯
 ```
 
 ## 한계

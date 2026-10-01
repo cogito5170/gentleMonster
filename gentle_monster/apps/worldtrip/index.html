@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>World Trip</title>
+<meta name="description" content="출처 있는 세계여행 계획 — 짐작이 아니라 판정">
+<meta name="theme-color" content="#111111">
+<!-- 엔진 주소. 비우면 이 화면을 내준 곳(같은 출처)의 엔진을 쓴다. ?api=https://... 로 바꿀 수 있다 -->
+<meta name="worldtrip-api" content="">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="app.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="bar">
+  <a class="mark" href="#plan" aria-label="World Trip 처음으로">WORLD&nbsp;TRIP</a>
+  <nav class="tabs" aria-label="화면">
+    <a href="#plan" data-tab="plan">Plan</a>
+    <a href="#explore" data-tab="explore">Explore</a>
+    <a href="#ledger" data-tab="ledger">Ledger</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ================= PLAN ================= -->
+  <section id="view-plan" class="view" aria-labelledby="mast">
+    <div class="cover">
+      <h1 id="mast" class="mast">World<br>Trip</h1>
+      <div class="cover-side">
+        <p class="cap">Issue 01 · Sourced itinerary</p>
+        <p class="lede">출처 있는 여행. 짐작이 아니라 판정.</p>
+        <p class="small muted">도시는 그래프로 잇고, 나라는 트리로 묶는다. 생성자가 계획을 짜고, LLM 이 아닌 심판이 모든 돈을 날짜별로 다시 더한다. 모르는 값은 0 이 아니다.</p>
+      </div>
+    </div>
+
+    <form id="brief" class="brief" autocomplete="off">
+      <div class="col">
+        <p class="cap">01 · When</p>
+        <label>출발일<input name="start_date" type="date" required></label>
+        <label>박수<input name="nights" type="number" min="1" max="60" value="8" required></label>
+        <label>인원<input name="travelers" type="number" min="1" max="10" value="2" required></label>
+      </div>
+      <div class="col">
+        <p class="cap">02 · Money</p>
+        <label>총 예산 (원)<input name="budget_krw" type="number" min="0" step="100000" value="12000000" inputmode="numeric"></label>
+        <fieldset class="seg" aria-label="등급">
+          <legend>등급</legend>
+          <label><input type="radio" name="style" value="budget">Budget</label>
+          <label><input type="radio" name="style" value="mid" checked>Mid</label>
+          <label><input type="radio" name="style" value="comfort">Comfort</label>
+        </fieldset>
+        <fieldset class="seg" aria-label="예산 판정 기준">
+          <legend>예산 판정</legend>
+          <label><input type="radio" name="budget_basis" value="max" checked>최대가</label>
+          <label><input type="radio" name="budget_basis" value="mid">가운데값</label>
+        </fieldset>
+      </div>
+      <div class="col wide">
+        <p class="cap">03 · Where</p>
+        <div class="field"><span class="flabel">지역</span><div id="regions" class="chips"></div></div>
+        <div class="field"><span class="flabel">꼭 갈 도시</span><div id="must" class="chips"></div></div>
+        <div class="row2">
+          <label>최대 도시 수<input name="max_cities" type="number" min="1" max="8" value="3"></label>
+          <label>도시당 최소 박수<input name="default_min_nights" type="number" min="1" max="14" value="2"></label>
+        </div>
+      </div>
+      <div class="col wide">
+        <p class="cap">04 · What for</p>
+        <div id="interests" class="chips"></div>
+        <button class="go" type="submit">계획 세우기 <span aria-hidden="true">→</span></button>
+      </div>
+    </form>
+
+    <div id="result" aria-live="polite"></div>
+  </section>
+
+  <!-- ================= EXPLORE ================= -->
+  <section id="view-explore" class="view" hidden aria-labelledby="ex-h">
+    <div class="sect-head"><p class="cap">Index</p><h2 id="ex-h" class="h-xl">Region · Country · City</h2>
+      <p class="small muted">트리의 각 도시 옆 점은 원장이 아는 것이다 — 숙소 · 식비 · 교통 · 명소 · 고민 · 후기. 빈 점은 '모름'.</p></div>
+    <div id="explore-map" class="mapbox"></div>
+    <div class="explore">
+      <div id="tree" class="tree"></div>
+      <div id="guide" class="guide"><p class="muted small">도시를 고르면 여기 펼쳐진다.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= LEDGER ================= -->
+  <section id="view-ledger" class="view" hidden aria-labelledby="lg-h">
+    <div class="sect-head"><p class="cap">Colophon</p><h2 id="lg-h" class="h-xl">Ledger &amp; Evidence</h2></div>
+    <div id="ledger-body"></div>
+  </section>
+</main>
+
+<!-- 청사진: A3 가로 한 장. 화면에서는 '청사진' 을 누를 때만, 인쇄하면 이것만 -->
+<div id="blueprint" class="blueprint" hidden></div>
+</body>
+</html>
