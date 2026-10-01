@@ -1,0 +1,6 @@
+out/
+logs/
+photos/
+inbox/
+__pycache__/
+*.pyc

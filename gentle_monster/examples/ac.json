@@ -1,0 +1,398 @@
+{
+ "brand": "Acne Studios",
+ "title": "Monolithic Fusion",
+ "subtitle": "A sanctum of raw granite and mirror aluminium",
+ "line": "Granite split from the early earth pierces a chamber of mirror aluminium.",
+ "synopsis": "Rough granite monoliths, as if freshly split from the early earth, pierce a mirror-smooth aluminium chamber. The cold metal walls bend light and passing silhouettes into geometry, and a custom luminous textile ceiling pours out soft artificial daylight. Between raw nature and precision industry, garments hang casually over heavy stone like sacred relics.",
+ "keywords": [
+  "Material collision",
+  "Monochrome",
+  "Bent reflection"
+ ],
+ "quote": "Raw nature against precision industry. The garment becomes a relic.",
+ "why": [
+  {
+   "t": "Off-axis entry",
+   "d": "The door sits at the west edge, so the first view lands on a monolith piercing the chamber wall."
+  },
+  {
+   "t": "The monolith is the door",
+   "d": "The chamber opens only beside the stones that break through the aluminium."
+  },
+  {
+   "t": "Three plinth heights",
+   "d": "Inner monoliths at 0.9, 1.2 and 1.4 m, with garments draped like relics."
+  },
+  {
+   "t": "Trade stays outside",
+   "d": "Fitting and payment sit outside the chamber."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#0c0c0c",
+   "name": "Shadow"
+  },
+  {
+   "hex": "#212121",
+   "name": "Granite shade"
+  },
+  {
+   "hex": "#5e5e5e",
+   "name": "Granite"
+  },
+  {
+   "hex": "#c9ccd0",
+   "name": "Mirror aluminium"
+  },
+  {
+   "hex": "#7d723e",
+   "name": "Sodium light"
+  }
+ ],
+ "materials": [
+  {
+   "name": "Split granite",
+   "where": "plinths",
+   "preset": "granite"
+  },
+  {
+   "name": "Mirror aluminium",
+   "where": "chamber walls",
+   "preset": "mirror_aluminium"
+  },
+  {
+   "name": "Lit textile",
+   "where": "ceiling",
+   "preset": "textile_light"
+  },
+  {
+   "name": "Wet asphalt",
+   "where": "reflection reference",
+   "preset": "polished_concrete"
+  }
+ ],
+ "accent": "#9aa3a8",
+ "room": {
+  "floor": "polished_concrete",
+  "wall": "concrete",
+  "ceiling": "black_stone",
+  "light": "daylight"
+ },
+ "layout": {
+  "name": "03 Monolithic Fusion — Acne Studios",
+  "W": 18,
+  "D": 12,
+  "H": 4.5,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 1,
+    "y0": -0.1,
+    "x1": 3,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "chamber",
+    "type": "zone",
+    "x0": 4,
+    "y0": 2,
+    "x1": 15,
+    "y1": 10,
+    "h": 0,
+    "label": "Mirror-aluminium chamber",
+    "zone": "exp",
+    "shape": "light_ceiling",
+    "material": "textile_light"
+   },
+   {
+    "id": "w_front",
+    "type": "block",
+    "x0": 4,
+    "y0": 2,
+    "x1": 15,
+    "y1": 2.15,
+    "h": 4.2,
+    "label": "Aluminium wall",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_back",
+    "type": "block",
+    "x0": 4,
+    "y0": 9.85,
+    "x1": 15,
+    "y1": 10,
+    "h": 4.2,
+    "label": "Aluminium wall",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_left",
+    "type": "block",
+    "x0": 4,
+    "y0": 2,
+    "x1": 4.15,
+    "y1": 5.4,
+    "h": 4.2,
+    "label": "Aluminium wall",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_left2",
+    "type": "block",
+    "x0": 4,
+    "y0": 7.2,
+    "x1": 4.15,
+    "y1": 10,
+    "h": 4.2,
+    "label": "Aluminium wall",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_right",
+    "type": "block",
+    "x0": 14.85,
+    "y0": 2,
+    "x1": 15,
+    "y1": 6.8,
+    "h": 4.2,
+    "label": "Aluminium wall",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_right2",
+    "type": "block",
+    "x0": 14.85,
+    "y0": 8.6,
+    "x1": 15,
+    "y1": 10,
+    "h": 4.2,
+    "label": "Aluminium wall",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "mono_a",
+    "type": "island",
+    "x0": 5.5,
+    "y0": 3.4,
+    "x1": 7.3,
+    "y1": 5.0,
+    "h": 1.2,
+    "label": "Granite monolith (garments)",
+    "zone": "sale",
+    "shape": "rock",
+    "material": "granite",
+    "cloth": "#e7b7b5"
+   },
+   {
+    "id": "mono_b",
+    "type": "island",
+    "x0": 9,
+    "y0": 6.4,
+    "x1": 11.6,
+    "y1": 8.0,
+    "h": 0.9,
+    "label": "Granite monolith (garments)",
+    "zone": "sale",
+    "shape": "rock",
+    "material": "granite",
+    "cloth": "#1b1b1b"
+   },
+   {
+    "id": "mono_c",
+    "type": "island",
+    "x0": 12.4,
+    "y0": 3.0,
+    "x1": 14.0,
+    "y1": 5.6,
+    "h": 1.4,
+    "label": "Granite monolith (garments)",
+    "zone": "sale",
+    "shape": "rock",
+    "material": "granite",
+    "cloth": "#c9c3b6"
+   },
+   {
+    "id": "pierce_l",
+    "type": "block",
+    "x0": 3.1,
+    "y0": 5.5,
+    "x1": 4.9,
+    "y1": 6.3,
+    "h": 3.2,
+    "label": "Monolith (through wall)",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "granite"
+   },
+   {
+    "id": "pierce_r",
+    "type": "block",
+    "x0": 14.2,
+    "y0": 7.7,
+    "x1": 16.4,
+    "y1": 8.5,
+    "h": 3.8,
+    "label": "Monolith (through wall)",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "granite"
+   },
+   {
+    "id": "fit",
+    "type": "room",
+    "x0": 15.5,
+    "y0": 10,
+    "x1": 18,
+    "y1": 12,
+    "h": 2.6,
+    "label": "Fitting room",
+    "zone": "",
+    "shape": "box",
+    "material": "lime_plaster"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 1,
+    "y0": 10.8,
+    "x1": 4,
+    "y1": 11.6,
+    "h": 1.0,
+    "label": "Pay",
+    "zone": "pay",
+    "shape": "box",
+    "material": "aluminium"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      2,
+      0.4
+     ],
+     [
+      2,
+      6.75
+     ],
+     [
+      5.2,
+      6.75
+     ],
+     [
+      8,
+      5.6
+     ],
+     [
+      10.3,
+      5.2
+     ],
+     [
+      13.2,
+      6.2
+     ],
+     [
+      13.6,
+      8.9
+     ],
+     [
+      9,
+      9.1
+     ],
+     [
+      5.4,
+      8.4
+     ],
+     [
+      4.4,
+      6.75
+     ],
+     [
+      2.4,
+      7.0
+     ],
+     [
+      2.5,
+      10.4
+     ]
+    ],
+    "color": "#6b7075"
+   }
+  ],
+  "entry": [
+   2,
+   0
+  ],
+  "exit": [
+   2,
+   0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    2,
+    4.6
+   ],
+   "d": 2.6,
+   "look": [
+    4.0,
+    1.7,
+    5.9
+   ],
+   "h": 1.62,
+   "cap": "Stone breaks through the metal wall.",
+   "sub": "The monolith is the door. I slip through the gap beside it."
+  },
+  {
+   "at": [
+    6.2,
+    6.3
+   ],
+   "d": 3.2,
+   "look": [
+    9.6,
+    1.6,
+    9.95
+   ],
+   "h": 1.62,
+   "cap": "The cold walls bend the light, and me with it.",
+   "sub": "My silhouette folds into the aluminium under a luminous textile sky."
+  },
+  {
+   "at": [
+    10.3,
+    5.2
+   ],
+   "d": 3.0,
+   "look": [
+    10.3,
+    0.95,
+    7.2
+   ],
+   "h": 1.3,
+   "cap": "Garments rest on the rock like relics.",
+   "sub": "Nothing is displayed. Everything is placed."
+  }
+ ]
+}

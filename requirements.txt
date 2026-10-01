@@ -1,0 +1,5 @@
+playwright        # headless Chromium: PDFs, photoreal stills, video frames  (then: python -m playwright install chromium)
+pillow            # photo measurement, reference-layout detection
+numpy
+matplotlib        # 2D plan
+imageio-ffmpeg    # ffmpeg binary for the MP4

@@ -1,0 +1,322 @@
+{
+ "brand": "Tamburins",
+ "title": "Residue of Scent",
+ "subtitle": "A silent white horse and solidified scent",
+ "line": "A white snowfield where even the wind has stopped. The scent is somewhere in the wax.",
+ "synopsis": "A pure white snowfield where even the wind has stopped. At its centre a giant robot horse, frozen a moment before the leap, twitches its muscles. Graphite dust and lumps of red wax settle on the floor; every step releases friction and a heavy woody scent. Products hide in the cracks of huge candle sculptures, so visitors reach in, touch the material and find the origin of the scent.",
+ "keywords": [
+  "Sensory subtraction",
+  "Cracks",
+  "Found by hand"
+ ],
+ "quote": "Scent is found by hand, not taken from a shelf.",
+ "why": [
+  {
+   "t": "Sound from the first step",
+   "d": "A 3 m band of graphite and red wax runs from the door to the horse; each step releases friction and scent."
+  },
+  {
+   "t": "The horse is on axis",
+   "d": "It stands on the door axis, caught just before the leap."
+  },
+  {
+   "t": "Candles within reach",
+   "d": "Candle sculptures ring the horse; products hide in their cracks and must be found by hand."
+  },
+  {
+   "t": "The snowfield stays empty",
+   "d": "No fixtures in the white field; the low retail area is intended."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#f7f8f5",
+   "name": "Snowfield"
+  },
+  {
+   "hex": "#d0cead",
+   "name": "Beeswax"
+  },
+  {
+   "hex": "#9c946e",
+   "name": "Dry leaf"
+  },
+  {
+   "hex": "#423621",
+   "name": "Graphite"
+  },
+  {
+   "hex": "#8e1f1f",
+   "name": "Red wax"
+  }
+ ],
+ "materials": [
+  {
+   "name": "Mineral white",
+   "where": "walls, ceiling",
+   "preset": "mineral_white"
+  },
+  {
+   "name": "Graphite dust",
+   "where": "floor path",
+   "preset": "graphite_wax"
+  },
+  {
+   "name": "Red wax",
+   "where": "floor, candles",
+   "preset": "red_wax"
+  },
+  {
+   "name": "Cracked candle",
+   "where": "product display",
+   "preset": "candle_wax"
+  }
+ ],
+ "accent": "#b8322a",
+ "room": {
+  "floor": "mineral_white",
+  "wall": "mineral_white",
+  "ceiling": "mineral_white",
+  "light": "white_gallery"
+ },
+ "layout": {
+  "name": "02 Residue of Scent — Tamburins",
+  "W": 16,
+  "D": 12,
+  "H": 5,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 7,
+    "y0": -0.1,
+    "x1": 9,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "field",
+    "type": "zone",
+    "x0": 1,
+    "y0": 1.5,
+    "x1": 15,
+    "y1": 10,
+    "h": 0,
+    "label": "White snowfield",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "floor",
+    "type": "zone",
+    "x0": 6.5,
+    "y0": 0.3,
+    "x1": 9.5,
+    "y1": 5,
+    "h": 0,
+    "label": "Graphite + wax floor",
+    "zone": "exp",
+    "shape": "floor_patch",
+    "material": "graphite_wax"
+   },
+   {
+    "id": "horse",
+    "type": "figure",
+    "x0": 6.5,
+    "y0": 5.6,
+    "x1": 9.5,
+    "y1": 7.4,
+    "h": 3.5,
+    "label": "Robot horse (pre-leap)",
+    "zone": "exp",
+    "shape": "creature",
+    "material": "white_gloss",
+    "hero": true
+   },
+   {
+    "id": "candle0",
+    "type": "island",
+    "x0": 2,
+    "y0": 5.8,
+    "x1": 3.6,
+    "y1": 7.199999999999999,
+    "h": 1.8,
+    "label": "Candle sculpture (products in cracks)",
+    "zone": "sale",
+    "shape": "candle_cluster",
+    "material": "candle_wax"
+   },
+   {
+    "id": "candle1",
+    "type": "island",
+    "x0": 12.4,
+    "y0": 5.8,
+    "x1": 14.0,
+    "y1": 7.199999999999999,
+    "h": 1.8,
+    "label": "Candle sculpture (products in cracks)",
+    "zone": "sale",
+    "shape": "candle_cluster",
+    "material": "candle_wax"
+   },
+   {
+    "id": "candle2",
+    "type": "island",
+    "x0": 3.4,
+    "y0": 8.8,
+    "x1": 5.0,
+    "y1": 10.200000000000001,
+    "h": 1.8,
+    "label": "Candle sculpture (products in cracks)",
+    "zone": "sale",
+    "shape": "candle_cluster",
+    "material": "candle_wax"
+   },
+   {
+    "id": "candle3",
+    "type": "island",
+    "x0": 11,
+    "y0": 8.8,
+    "x1": 12.6,
+    "y1": 10.200000000000001,
+    "h": 1.8,
+    "label": "Candle sculpture (products in cracks)",
+    "zone": "sale",
+    "shape": "candle_cluster",
+    "material": "candle_wax"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 12.5,
+    "y0": 10.8,
+    "x1": 15,
+    "y1": 11.6,
+    "h": 1.0,
+    "label": "Wrap + pay",
+    "zone": "pay",
+    "shape": "box",
+    "material": "mineral_white"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 0,
+    "y0": 10.5,
+    "x1": 3,
+    "y1": 12,
+    "h": 3,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "mineral_white"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      8,
+      0.4
+     ],
+     [
+      8,
+      4.8
+     ],
+     [
+      4.6,
+      5.6
+     ],
+     [
+      4.2,
+      7.6
+     ],
+     [
+      5.4,
+      8.4
+     ],
+     [
+      6.2,
+      10.6
+     ],
+     [
+      10.4,
+      10.6
+     ],
+     [
+      10.6,
+      8.2
+     ],
+     [
+      13.2,
+      7.6
+     ],
+     [
+      13.8,
+      10.3
+     ]
+    ],
+    "color": "#8e1f1f"
+   }
+  ],
+  "entry": [
+   8,
+   0
+  ],
+  "exit": [
+   8,
+   0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    8,
+    1.4
+   ],
+   "d": 2.6,
+   "look": [
+    8,
+    0.05,
+    3.2
+   ],
+   "h": 1.62,
+   "cap": "Graphite and red wax under every step.",
+   "sub": "The floor answers with friction and a heavy woody scent."
+  },
+  {
+   "at": [
+    8,
+    3.3
+   ],
+   "d": 3.0,
+   "look": [
+    8,
+    2.3,
+    6.5
+   ],
+   "h": 1.62,
+   "cap": "A white horse, frozen a moment before the leap.",
+   "sub": "Its muscles still twitch. The room holds its breath."
+  },
+  {
+   "at": [
+    4.2,
+    7.4
+   ],
+   "d": 3.4,
+   "look": [
+    2.8,
+    0.75,
+    6.5
+   ],
+   "h": 1.15,
+   "cap": "Nothing sits on a shelf.",
+   "sub": "I reach into the crack of the candle to find the scent."
+  }
+ ]
+}
