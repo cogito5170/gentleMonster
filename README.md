@@ -63,6 +63,10 @@ job 의 팔레트·조명·재료가 **디자인 토큰**(W3C DTCG 로 내보냄
 이 폴더를 받아 붙이고 브라우저를 연다. 화면은 엔진 심판의 V 를 지킨다 -- `python3 -m gentle_monster.apps.check`.
 자세한 것: [`gentle_monster/apps/worldtrip/README.md`](gentle_monster/apps/worldtrip/README.md).
 
+`gentle_monster/apps/worldplan/` 은 [worldplan](https://github.com/cogito5170/worldplan) 엔진(여러 시간대 회의 배치)의
+프론트엔드다. 같은 갈래로 `worldplan app` 이 받아 붙인다. 토큰은 이 엔진이 짓고(`apps/worldplan_tokens.py`),
+화면 검사는 `python3 -m gentle_monster.apps.check --app worldplan`. 자세한 것: [`gentle_monster/apps/worldplan/README.md`](gentle_monster/apps/worldplan/README.md).
+
 ## 디스코드 봇에 붙이기 (선택)
 
 `gentle_monster.discord_cmd.run(text, images=[첨부 경로])` 는 `!젠몬 <아무 말>` 을 자연어로 읽는다(모델 호출 없음):
@@ -90,6 +94,7 @@ job 의 팔레트·조명·재료가 **디자인 토큰**(W3C DTCG 로 내보냄
 | `gentle_monster/render.py` | 스틸, 그리고 프레임을 ffmpeg(libx264)로 잇는 영상 |
 | `gentle_monster/engine/` | frontend engine: `tokens`(genome → 토큰 · DTCG) · `compose`(페이지) · `judge`(브라우저 심판 V · J) · `policy`(se_new 개선결정 · π) |
 | `gentle_monster/apps/worldtrip/` | World Trip 앱 화면(정적 PWA) — worldTrip 엔진에 붙는다 · `apps/check.py` 가 엔진 심판의 V 를 이 앱에 건다 |
+| `gentle_monster/apps/worldplan/` | worldplan 앱 화면(정적) — worldplan 엔진에 붙는다 · 토큰은 `apps/worldplan_tokens.py` · 같은 `apps/check.py --app worldplan` |
 | `render3d/` | 2D 평면도(matplotlib) — gentle_monster 가 쓰는 부분만 |
 
 ## 테스트
@@ -98,6 +103,7 @@ job 의 팔레트·조명·재료가 **디자인 토큰**(W3C DTCG 로 내보냄
 python3 tests/test_gentle_monster.py      # 브라우저가 없으면 브라우저 부분은 '건너뜀'
 python3 tests/test_engine.py              # 엔진: 정책 분기 · RED(깨뜨린 페이지가 그 검사만 실패) · GREEN
 python3 tests/test_worldtrip_app.py       # World Trip 화면: 정적 검사 · V GREEN(고정 응답) · RED 여섯
+python3 tests/test_worldplan_app.py       # worldplan 화면: 정적 검사(토큰이 엔진과 같나 포함) · V GREEN · RED 여섯
 ```
 
 ## 한계

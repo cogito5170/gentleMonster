@@ -1,0 +1,48 @@
+{
+ "engine": "0.1.0",
+ "input_sha256": "209dd978c0a3d4890fc2ddae16b059747f749f49a54c8bdc0fb796a95af3ad58",
+ "tzdata": "system 2025b (/usr/share/zoneinfo)",
+ "search": {
+  "status": "infeasible_proven",
+  "nodes": 0,
+  "elapsed_s": 0.001,
+  "hit_limit": null,
+  "candidates_per_event": {
+   "kickoff": 24,
+   "design": 64,
+   "latam": 135,
+   "wrap": 0
+  },
+  "optimality": "15분 격자 위에서 모든 일정을 다 넣는 배치가 없다 -- 탐색이 끝까지 돌아 보였다"
+ },
+ "not_checked": [
+  "체류지 사이 이동 시간(비행·시차 적응)은 재지 않는다 -- stays 의 날짜 경계만 본다",
+  "공휴일 데이터베이스가 없다 -- 입력 holidays 에 준 날만 휴일로 안다",
+  "참가자의 실제 캘린더와 동기화하지 않는다 -- busy 는 입력에 준 것뿐이다",
+  "회의실·장비 같은 자원 제약은 없다",
+  "격자(slot_minutes) 밖의 시작 시각은 생성자가 보지 않는다(심판은 어떤 분이든 잰다)"
+ ],
+ "invalidated_if": [
+  "입력이 한 글자라도 바뀌면(input_sha256=209dd978c0a3…) 이 판정은 그 입력에 대한 것이 아니다",
+  "tz 데이터베이스가 지금 판(system 2025b (/usr/share/zoneinfo))과 다르면(나라가 DST 규칙을 바꾸면) 다시 판정해야 한다",
+  "이 시간대들의 규칙에 기댄다: America/New_York, America/Sao_Paulo, Asia/Seoul, Europe/Berlin"
+ ],
+ "verdict": "REJECT",
+ "reason": "모든 일정을 넣는 배치를 못 냈다 -- 일부만 넣은 계획은 성공이 아니다",
+ "diagnostics": [
+  {
+   "event": "wrap",
+   "candidates": 0,
+   "why": "이 참가자 혼자서도 이 창 안에 연속으로 비는 시간이 없다(업무시간·휴일·busy)",
+   "participants": [
+    "anna",
+    "sam",
+    "lu"
+   ]
+  }
+ ],
+ "ledger": {
+  "seq": 2,
+  "hash": "eebd472a6de4c9b9410978287518932e3adbbf3cb4a8bbcf82680e0d5791a71e"
+ }
+}
