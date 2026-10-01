@@ -1,0 +1,305 @@
+{
+ "brand": "Aesop",
+ "title": "The Stratified Apothecary",
+ "subtitle": "An apothecary library laid down in strata",
+ "line": "Red river clay laid down over centuries, and a brass basin holding running water.",
+ "synopsis": "Red clay laid down by a river over centuries and reclaimed local timber stack like tree rings into the walls. At the centre a heavy brass basin holds running water; drops echo low under the domed ceiling. Amber bottles, shelved like books, sink into the strata. Visitors wash their hands under the brass tap, a cleansing ritual that draws them into the history of the place.",
+ "keywords": [
+  "Strata",
+  "Genius loci",
+  "Cleansing ritual"
+ ],
+ "quote": "A ritual of water turns a shop into a place.",
+ "why": [
+  {
+   "t": "Three walls are the shelf",
+   "d": "Strata clay walls hold amber bottles in their layers; no freestanding display."
+  },
+  {
+   "t": "First act: wash your hands",
+   "d": "The brass basin sits on the door axis."
+  },
+  {
+   "t": "Ritual, then browse",
+   "d": "The route circles the basin, then opens to the walls and the counter."
+  },
+  {
+   "t": "Unsealed brass",
+   "d": "The tap darkens where hands touch it; every visit leaves a layer."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#d9ceba",
+   "name": "Sand"
+  },
+  {
+   "hex": "#a2a6a2",
+   "name": "Shallow water"
+  },
+  {
+   "hex": "#62635d",
+   "name": "Bedrock"
+  },
+  {
+   "hex": "#9a4a32",
+   "name": "Red clay"
+  },
+  {
+   "hex": "#b08d57",
+   "name": "Brass"
+  }
+ ],
+ "materials": [
+  {
+   "name": "Strata clay",
+   "where": "walls",
+   "preset": "strata_clay"
+  },
+  {
+   "name": "Raw brass",
+   "where": "basin, tap",
+   "preset": "brass"
+  },
+  {
+   "name": "Amber glass",
+   "where": "shelves",
+   "preset": "amber_glass"
+  },
+  {
+   "name": "Lime plaster",
+   "where": "dome",
+   "preset": "lime_plaster"
+  }
+ ],
+ "accent": "#c0703f",
+ "room": {
+  "floor": "wood",
+  "wall": "strata_clay",
+  "ceiling": "lime_plaster",
+  "light": "warm_spot",
+  "dome": true
+ },
+ "layout": {
+  "name": "04 The Stratified Apothecary — Aesop",
+  "W": 12,
+  "D": 10,
+  "H": 4.2,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 5,
+    "y0": -0.1,
+    "x1": 7,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "dome",
+    "type": "zone",
+    "x0": 2,
+    "y0": 1.5,
+    "x1": 10,
+    "y1": 8.2,
+    "h": 0,
+    "label": "Under the dome",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "wl",
+    "type": "wall_shelf",
+    "x0": 0,
+    "y0": 1.5,
+    "x1": 0.6,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "Strata clay wall + amber shelves",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "strata_clay"
+   },
+   {
+    "id": "wb",
+    "type": "wall_shelf",
+    "x0": 0.6,
+    "y0": 9.4,
+    "x1": 11.4,
+    "y1": 10,
+    "h": 2.6,
+    "label": "Strata clay wall + amber shelves",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "strata_clay"
+   },
+   {
+    "id": "wr",
+    "type": "wall_shelf",
+    "x0": 11.4,
+    "y0": 1.5,
+    "x1": 12,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "Strata clay wall + amber shelves",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "strata_clay"
+   },
+   {
+    "id": "basin",
+    "type": "island",
+    "x0": 5,
+    "y0": 4.2,
+    "x1": 7,
+    "y1": 5.8,
+    "h": 0.9,
+    "label": "Brass basin (cleansing ritual)",
+    "zone": "exp",
+    "shape": "basin",
+    "material": "brass",
+    "hero": true
+   },
+   {
+    "id": "counter",
+    "type": "checkout",
+    "x0": 3.5,
+    "y0": 8.1,
+    "x1": 8.5,
+    "y1": 8.7,
+    "h": 1.0,
+    "label": "Consult + pay counter",
+    "zone": "pay",
+    "shape": "box",
+    "material": "wood"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 9.6,
+    "y0": 7.8,
+    "x1": 11.4,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "strata_clay"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      6,
+      0.4
+     ],
+     [
+      6,
+      3.2
+     ],
+     [
+      3.8,
+      5
+     ],
+     [
+      6,
+      7.0
+     ],
+     [
+      8.2,
+      5
+     ],
+     [
+      6,
+      3.2
+     ],
+     [
+      1.6,
+      4
+     ],
+     [
+      1.6,
+      7.3
+     ],
+     [
+      6,
+      7.3
+     ],
+     [
+      10.3,
+      7.3
+     ],
+     [
+      10.3,
+      3
+     ],
+     [
+      6.8,
+      0.4
+     ]
+    ],
+    "color": "#9a4a32"
+   }
+  ],
+  "entry": [
+   6,
+   0
+  ],
+  "exit": [
+   6,
+   0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    6,
+    3.2
+   ],
+   "d": 3.6,
+   "look": [
+    6,
+    0.88,
+    4.95
+   ],
+   "h": 1.38,
+   "cap": "A brass basin at the centre. I wash my hands first.",
+   "sub": "Drops fall and ripple. The sound stays low under the dome."
+  },
+  {
+   "at": [
+    1.6,
+    5.8
+   ],
+   "d": 2.8,
+   "look": [
+    0.6,
+    1.45,
+    5.8
+   ],
+   "h": 1.55,
+   "cap": "Amber bottles sink into the strata like books.",
+   "sub": "Centuries of clay, stacked like tree rings."
+  },
+  {
+   "at": [
+    6,
+    7.3
+   ],
+   "d": 2.4,
+   "look": [
+    6,
+    2.9,
+    3.6
+   ],
+   "h": 1.55,
+   "cap": "The dome listens.",
+   "sub": "Every visit repeats the same gesture. That is how a space becomes a place."
+  }
+ ]
+}
