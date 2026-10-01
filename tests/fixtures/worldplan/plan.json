@@ -1,0 +1,192 @@
+{
+ "engine": "0.1.0",
+ "input_sha256": "3faede62424a907342af5fba765507b28f85c46758074417bf5dc6363180cf80",
+ "tzdata": "system 2025b (/usr/share/zoneinfo)",
+ "search": {
+  "status": "proven_optimal",
+  "nodes": 9119,
+  "elapsed_s": 0.047,
+  "hit_limit": null,
+  "candidates_per_event": {
+   "kickoff": 24,
+   "design": 64,
+   "latam": 135,
+   "wrap": 14
+  },
+  "optimality": "탐색이 한도 안에서 끝까지 돌았다 -- 이 비용함수와 15분 격자 위에서는 더 싼 배치가 없다. 격자 밖·다른 비용함수에 대해서는 말하지 않는다"
+ },
+ "not_checked": [
+  "체류지 사이 이동 시간(비행·시차 적응)은 재지 않는다 -- stays 의 날짜 경계만 본다",
+  "공휴일 데이터베이스가 없다 -- 입력 holidays 에 준 날만 휴일로 안다",
+  "참가자의 실제 캘린더와 동기화하지 않는다 -- busy 는 입력에 준 것뿐이다",
+  "회의실·장비 같은 자원 제약은 없다",
+  "격자(slot_minutes) 밖의 시작 시각은 생성자가 보지 않는다(심판은 어떤 분이든 잰다)"
+ ],
+ "invalidated_if": [
+  "입력이 한 글자라도 바뀌면(input_sha256=3faede62424a…) 이 판정은 그 입력에 대한 것이 아니다",
+  "tz 데이터베이스가 지금 판(system 2025b (/usr/share/zoneinfo))과 다르면(나라가 DST 규칙을 바꾸면) 다시 판정해야 한다",
+  "이 시간대들의 규칙에 기댄다: America/New_York, America/Sao_Paulo, Asia/Seoul, Europe/Berlin"
+ ],
+ "verdict": "ACCEPT",
+ "reason": "심판이 하드 제약 8개를 다시 재서 위반 0건, 비용 대조 일치",
+ "plan": {
+  "kickoff": {
+   "title": "글로벌 킥오프",
+   "start_utc": "2026-10-05T10:00+00:00",
+   "end_utc": "2026-10-05T11:00+00:00",
+   "people": [
+    {
+     "participant": "kim",
+     "role": "required",
+     "ok": true,
+     "tz": "Asia/Seoul",
+     "local_start": "2026-10-05T19:00+09:00",
+     "local_end": "2026-10-05T20:00+09:00",
+     "outside_core_minutes": 60
+    },
+    {
+     "participant": "anna",
+     "role": "required",
+     "ok": true,
+     "tz": "Europe/Berlin",
+     "local_start": "2026-10-05T12:00+02:00",
+     "local_end": "2026-10-05T13:00+02:00",
+     "outside_core_minutes": 0
+    },
+    {
+     "participant": "sam",
+     "role": "required",
+     "ok": true,
+     "tz": "America/New_York",
+     "local_start": "2026-10-05T06:00-04:00",
+     "local_end": "2026-10-05T07:00-04:00",
+     "outside_core_minutes": 60
+    },
+    {
+     "participant": "lu",
+     "role": "optional",
+     "available": false,
+     "tz": "America/Sao_Paulo",
+     "local_start": "2026-10-05T07:00-03:00",
+     "why": "현지 07:00~08:00 (America/Sao_Paulo, 2026-10-05 기준) 이 업무시간 09:00~18:00 밖이다"
+    }
+   ]
+  },
+  "design": {
+   "title": "설계 리뷰",
+   "start_utc": "2026-10-08T08:00+00:00",
+   "end_utc": "2026-10-08T09:30+00:00",
+   "people": [
+    {
+     "participant": "kim",
+     "role": "required",
+     "ok": true,
+     "tz": "Europe/Berlin",
+     "local_start": "2026-10-08T10:00+02:00",
+     "local_end": "2026-10-08T11:30+02:00",
+     "outside_core_minutes": 0
+    },
+    {
+     "participant": "anna",
+     "role": "required",
+     "ok": true,
+     "tz": "Europe/Berlin",
+     "local_start": "2026-10-08T10:00+02:00",
+     "local_end": "2026-10-08T11:30+02:00",
+     "outside_core_minutes": 0
+    }
+   ]
+  },
+  "latam": {
+   "title": "남미 동기화",
+   "start_utc": "2026-10-05T13:00+00:00",
+   "end_utc": "2026-10-05T13:30+00:00",
+   "people": [
+    {
+     "participant": "sam",
+     "role": "required",
+     "ok": true,
+     "tz": "America/New_York",
+     "local_start": "2026-10-05T09:00-04:00",
+     "local_end": "2026-10-05T09:30-04:00",
+     "outside_core_minutes": 0
+    },
+    {
+     "participant": "lu",
+     "role": "required",
+     "ok": true,
+     "tz": "America/Sao_Paulo",
+     "local_start": "2026-10-05T10:00-03:00",
+     "local_end": "2026-10-05T10:30-03:00",
+     "outside_core_minutes": 0
+    }
+   ]
+  },
+  "wrap": {
+   "title": "주간 마무리",
+   "start_utc": "2026-10-08T13:00+00:00",
+   "end_utc": "2026-10-08T13:45+00:00",
+   "people": [
+    {
+     "participant": "kim",
+     "role": "required",
+     "ok": true,
+     "tz": "Europe/Berlin",
+     "local_start": "2026-10-08T15:00+02:00",
+     "local_end": "2026-10-08T15:45+02:00",
+     "outside_core_minutes": 0
+    },
+    {
+     "participant": "anna",
+     "role": "required",
+     "ok": true,
+     "tz": "Europe/Berlin",
+     "local_start": "2026-10-08T15:00+02:00",
+     "local_end": "2026-10-08T15:45+02:00",
+     "outside_core_minutes": 0
+    },
+    {
+     "participant": "sam",
+     "role": "required",
+     "ok": true,
+     "tz": "America/New_York",
+     "local_start": "2026-10-08T09:00-04:00",
+     "local_end": "2026-10-08T09:45-04:00",
+     "outside_core_minutes": 0
+    },
+    {
+     "participant": "lu",
+     "role": "required",
+     "ok": true,
+     "tz": "America/Sao_Paulo",
+     "local_start": "2026-10-08T10:00-03:00",
+     "local_end": "2026-10-08T10:45-03:00",
+     "outside_core_minutes": 0
+    }
+   ]
+  }
+ },
+ "cost": {
+  "outside_core_minutes": 120,
+  "optional_missing": 1,
+  "total": 1500,
+  "solver_total": 1500
+ },
+ "judge": {
+  "checks_run": [
+   "J0_complete",
+   "J1_horizon_window",
+   "J2_work_hours",
+   "J3_busy",
+   "J4_double_booking",
+   "J5_precedence",
+   "J6_daily_cap",
+   "J7_cost_crosscheck"
+  ],
+  "violations": []
+ },
+ "ledger": {
+  "seq": 1,
+  "hash": "2bd9c634acd6b817bd554352ed115418b5d66fb321fbb215dd86a5e3b63c7e19"
+ }
+}

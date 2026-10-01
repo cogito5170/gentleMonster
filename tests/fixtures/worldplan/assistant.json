@@ -1,0 +1,28 @@
+{
+ "answer": "지금 베를린: 2026-10-01 11:00 (CEST, UTC+02:00)",
+ "result": {
+  "instant_utc": "2026-10-01T09:00+00:00",
+  "zones": [
+   {
+    "tz": "Europe/Berlin",
+    "local": "2026-10-01T11:00+02:00",
+    "abbr": "CEST",
+    "utc_offset_minutes": 120,
+    "dst": true,
+    "weekday": "Thu"
+   }
+  ],
+  "tzdata": "system 2025b (/usr/share/zoneinfo)"
+ },
+ "by": "walp",
+ "route": "시각 변환",
+ "tokens": {
+  "input": 0,
+  "cache_creation": 0,
+  "cache_read": 0,
+  "output": 0,
+  "total": 0
+ },
+ "cost_usd": 0.0,
+ "ms": 3.4
+}

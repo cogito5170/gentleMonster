@@ -20,6 +20,9 @@
 
     python3 -m gentle_monster.apps.check                 # 고정 응답으로
     python3 -m gentle_monster.apps.check --url URL        # 떠 있는 worldtrip 앱으로
+    python3 -m gentle_monster.apps.check --app worldplan  # worldplan 앱(apps/worldplan) -- 계획 ACCEPT · REJECT · 물어보기
+
+worldplan 은 tests/fixtures/worldplan/ 을 쓰고, 판정(V)은 worldtrip 과 **같은 함수**(_judge)로 낸다.
 
 이 검사가 **못** 보는 것: engine/judge 와 같다(그림 위 글의 대비, 가상 요소 ::after 가 가리는 정도).
 그리고 표시하는 **값이 맞는지**는 보지 않는다 -- 그것은 worldtrip 엔진의 심판(T0–T7) 몫이다.
@@ -40,6 +43,8 @@ from gentle_monster.engine.judge import _JS_DOC, _JS_TEXT
 
 APP = Path(__file__).resolve().parent / "worldtrip"
 FIXTURES = Path(__file__).resolve().parents[2] / "tests" / "fixtures" / "worldtrip"
+WP_APP = Path(__file__).resolve().parent / "worldplan"
+WP_FIXTURES = Path(__file__).resolve().parents[2] / "tests" / "fixtures" / "worldplan"
 MAX_BYTES = 1_500_000
 
 
@@ -108,6 +113,68 @@ def measure(url: "str | None" = None, fixtures: Path = FIXTURES, app: Path = APP
         if srv is not None:
             srv.shutdown()
             srv.server_close()
+    return _judge(raw, ext, errs, app, url, fixtures if srv is not None else None)
+
+
+def _wp_route(fx: Path, state: str):
+    def handle(route):
+        u = urlparse(route.request.url).path
+        name = {"/sample.json": "sample", "/api/assistant": "assistant",
+                "/api/plan": "plan_reject" if state == "plan_reject" else "plan"}.get(u)
+        if not name:
+            return route.fulfill(status=404, body="{}", content_type="application/json")
+        route.fulfill(status=200, body=(fx / f"{name}.json").read_text(encoding="utf-8"), content_type="application/json")
+    return handle
+
+
+def measure_worldplan(url: "str | None" = None, fixtures: Path = WP_FIXTURES, app: Path = WP_APP) -> dict:
+    """worldplan 앱(apps/worldplan)을 잰다. 상태: 계획 ACCEPT · 거절 REJECT · 물어보기 답 x 375 · 1440."""
+    from playwright.sync_api import sync_playwright
+    srv = None
+    if url is None:
+        srv, url = _serve_static(app)
+    origin = "{0.scheme}://{0.netloc}".format(urlparse(url))
+    ext, errs, raw = [], [], {}
+    try:
+        with sync_playwright() as p:
+            b = paths.launch(p, gl=False)
+            for w in (375, 1440):
+                for state in ("plan", "plan_reject", "ask"):
+                    ctx = b.new_context(viewport={"width": w, "height": 900}, reduced_motion="reduce")
+                    ctx.route(lambda u: not u.startswith(origin), lambda r: (ext.append(r.request.url), r.abort()))
+                    pg = ctx.new_page()
+                    if srv is not None:
+                        pg.route(lambda u: u.startswith(origin) and urlparse(u).path in ("/sample.json", "/api/plan", "/api/assistant"),
+                                 _wp_route(fixtures, state))
+                    pg.on("pageerror", lambda e_: errs.append(str(e_)))
+                    verdict = None
+                    try:
+                        pg.goto(url, wait_until="load")
+                        pg.wait_for_selector("#people .row", timeout=15000)
+                        if state == "ask":
+                            pg.fill("#ask-q", "지금 베를린 몇 시야")
+                            pg.click("#ask button[type=submit]")
+                            pg.wait_for_selector("#ask-log .meta", timeout=60000)
+                        else:
+                            pg.click("#plan")
+                            pg.wait_for_selector("#out .badge", timeout=60000)
+                            verdict = pg.evaluate("() => (document.querySelector('#out .badge')||{}).textContent || ''")
+                    except Exception as e:  # noqa: BLE001 -- 안 그려진 화면도 재서 '안 그려졌다' 로 낸다
+                        errs.append(f"{w}-{state}: 화면이 다 그려지지 않았다 ({type(e).__name__})")
+                        verdict = "" if state != "ask" else None
+                    pg.wait_for_timeout(150)
+                    raw[f"{w}-{state}"] = {"doc": pg.evaluate(_JS_DOC), "text": pg.evaluate(_JS_TEXT), "verdict": verdict}
+                    ctx.close()
+            b.close()
+    finally:
+        if srv is not None:
+            srv.shutdown()
+            srv.server_close()
+    return _judge(raw, ext, errs, app, url, fixtures if srv is not None else None)
+
+
+def _judge(raw: dict, ext: list, errs: list, app: Path, url: str, fixtures: "Path | None") -> dict:
+    """그려진 화면들(raw: '폭-상태' -> doc · text · verdict)에서 V 를 낸다. 모든 앱이 같은 코드를 쓴다."""
     v, facts = {}, {"states": {}}
     for k, r in raw.items():
         facts["states"][k] = {"verdict": r["verdict"], "overflow": r["doc"]["overflow"], "cut": r["text"]["cut"][:3]}
@@ -127,19 +194,20 @@ def measure(url: "str | None" = None, fixtures: Path = FIXTURES, app: Path = APP
     size = sum(f.stat().st_size for f in app.iterdir() if f.is_file())
     v["weight"] = size <= MAX_BYTES
     # 사소한 설명 죽이기: 결과 화면이 실제로 그려졌나(빈 화면은 넘칠 것도 대비가 낮을 것도 없다)
-    drawn = {k: r["verdict"] for k, r in raw.items() if not k.endswith("explore")}
+    drawn = {k: r["verdict"] for k, r in raw.items() if not k.endswith("explore") and r["verdict"] is not None}
     v["rendered"] = all(x.strip().lower() in ("accept", "reject") for x in drawn.values()) and len(items) > 50
     facts.update({"min-contrast": min((x["ratio"] for x in items), default=None), "low-contrast": low[:6], "unmeasured": unm[:6],
                   "external": ext[:6], "errors": [e[:200] for e in errs[:3]], "min-font-375": min(sizes375, default=None),
-                  "text-items": len(items), "bytes": size, "fixtures": str(fixtures) if srv is not None else None, "url": url})
+                  "text-items": len(items), "bytes": size, "fixtures": str(fixtures) if fixtures is not None else None, "url": url})
     return {"V": v, "ships": all(v.values()), "facts": facts}
 
 
 def main(argv=None) -> int:
-    ap = argparse.ArgumentParser(prog="gentle_monster.apps.check", description="worldtrip 앱 화면을 엔진 심판의 V 로 잰다")
+    ap = argparse.ArgumentParser(prog="gentle_monster.apps.check", description="앱 화면을 엔진 심판의 V 로 잰다")
+    ap.add_argument("--app", choices=("worldtrip", "worldplan"), default="worldtrip")
     ap.add_argument("--url", help="떠 있는 앱 주소 (없으면 정적 파일 + 고정 응답)")
     a = ap.parse_args(argv)
-    r = measure(a.url)
+    r = (measure_worldplan if a.app == "worldplan" else measure)(a.url)
     print(json.dumps(r, ensure_ascii=False, indent=1))
     return 0 if r["ships"] else 1
 
