@@ -10,6 +10,7 @@
 | [cover.md](cover.md) | 커버: SPA, 세 가지 대상, 문구, 질문, 사진 선택 | 확정 (P 표기 확인 필요) |
 | [philosophy.md](philosophy.md) | 지원자 노트를 다듬은 철학: 공간 · 좋은 공간 · 사진 · 삶의 목표 | 확정 |
 | [01_style.md](01_style.md) | 01 STYLE 지면: 여는 글, Q1–Q3, 풀쿼트, SECTOR A, 지면 수정 사항 | 확정 (빈칸은 지원자가 채움) |
+| [02_picture.md](02_picture.md) | 02 PICTURE 지면: 여는 글, Q1–Q3, MY PICTURE, 단어 한 장(One To One), 03 으로 넘기는 줄 | 방향 제안 (빈칸은 지원자가 채움) |
 
 ## 원칙
 

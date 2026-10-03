@@ -20,6 +20,19 @@
 
 각 섹션의 여는 글은 "그래서 내 첫 번째(두 번째, 세 번째) 이야기는 ○○이다"로 끝난다. 같은 형식이 반복되어 섹션이 바뀌는 지점이 분명해진다.
 
+## 페이지 지도 (현재 시안)
+
+| 쪽 | 머리말 | 내용 | 원고 |
+|---|---|---|---|
+| 커버 | — | SPA · STYLE / PICTURE / ARCHITECTURE · "Where Did You Last Stop?" | [cover.md](cover.md) |
+| 1 | STYLE | 여는 글 · Q1 · Q2 · 스타일 사진 | [01_style.md](01_style.md) |
+| 2 | MOOD | Q3 · MY STYLE (색 · 범주 · "그날 갈 장소에 맞춘다") | [01_style.md](01_style.md) |
+| 3 | — | 풀쿼트 "I stop for people whose style is their own." + 거리 사진 (STYLE → PICTURE 다리) | — |
+| 4 | PICTURE | 여는 글 · Q1 · Q2 | [02_picture.md](02_picture.md) |
+| 5 | MOMENT | Q3 · MY PICTURE | [02_picture.md](02_picture.md) |
+| + | — | 단어 한 장 (One To One 방식, 사진 한 장 + 단어 하나) | [02_picture.md](02_picture.md) |
+| 6 | — | 풀쿼트 + 사진 → 03 ARCHITECTURE | [02_picture.md](02_picture.md) |
+
 ## 01 STYLE 안의 흐름
 
 ```
