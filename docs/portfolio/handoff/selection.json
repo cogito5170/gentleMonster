@@ -1,7 +1,7 @@
 {
  "schema": "hj_selection/1",
  "question": "본인을 소개하시오. 자신의 강점은 무엇입니까?",
- "limit_chars": 1000,
+ "limit_chars": 1200,
  "selected": {
   "case": "C1",
   "type": "T1 헤드라인 증명형",
@@ -18,7 +18,20 @@
   "placement": "A — ② 강점 뒤, ③ 포부 앞 한 문단(약 100~150자)",
   "user_raw": "A안으로 채택.",
   "content": null,
-  "remedy": null,
-  "status": "사용자 사실(약점 내용, 보완 행동) 대기"
- }
+  "remedy": "무채색 기반의 패션에서 컬러 포인트와 개성 있는 패션 아이템으로 바꿔나가고 있다.",
+  "status": "편집 세션 집필(CMD-HJ8)",
+  "path": "P-W1+ (보완 있는 그림자형)",
+  "remedy_user_note": "포트폴리오의 패션 스타일이 무채색 기반이기에 P-W1+에서 이를 언급하여 보완하는 것이 좋을 것이라고 판단."
+ },
+ "limit_history": [
+  {
+   "limit": 1000,
+   "from": "문항 원래 제한"
+  },
+  {
+   "limit": 1200,
+   "user_raw": "글자 제한을 1200자로 늘려라.",
+   "date": "2026-10-08"
+  }
+ ]
 }

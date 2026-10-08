@@ -1,0 +1,40 @@
+{
+ "schema": "hj_handoff/1",
+ "directive": "CMD-HJ8",
+ "user_requests": [
+  {
+   "raw": "무채색 기반의 패션에서 컬러 포인트와 개성 있는 패션 아이템으로 바꿔나가고 있다. 포트폴리오의 패션 스타일이 무채색 기반이기에 P-W1+에서 이를 언급하여 보완하는 것이 좋을 것이라고 판단. 의견을 제시할 것."
+  },
+  {
+   "raw": "글자 제한을 1200자로 늘려라."
+  }
+ ],
+ "new_user_fact": {
+  "id": "F38",
+  "quote": "무채색 기반의 패션에서 컬러 포인트와 개성 있는 패션 아이템으로 바꿔나가고 있다.",
+  "tense": "진행형(바꿔나가고 있다) — 완료형으로 바꾸지 않는다",
+  "note": "포트폴리오 01 STYLE의 COLOR '검정 · 올리브 · 베이지 · 회색', '원색 없이'와 맞물림. 구체 색·아이템 이름은 없음(지어내지 않음)"
+ },
+ "hub_opinion_given_to_user": [
+  "P-W1+의 보완 행동(WG4)을 채운다",
+  "절제/과감 ↔ 무채색/컬러 포인트로 같은 뿌리(W1)",
+  "C1에 없던 공고 '패션' 요건(G1 위반 1위)에 답한다",
+  "옷 → 디자인(매장 오브제·색)으로 다리를 놓아야 가볍게 읽히지 않는다",
+  "C1 강점 셋째 '시선을 끄는 색과 한발 물러서는 색'과 이어진다"
+ ],
+ "limit_chars": 1200,
+ "base_text": "selection.json current_text (C1, 848자) + 약점 문단",
+ "weakness_bases": [
+  "CMD-HJ6.result.json options R-B",
+  "CMD-HJ6.result.json options R-C"
+ ],
+ "path": "CMD-HJ7 application_to_user.recommendation_for_user_choice P-W1+",
+ "user_rules": [
+  "합니다체, 지칭어 없음",
+  "추상적·감정적 표현 피함",
+  "사실 변경·새 경험 금지",
+  "'해 본 적이 없습니다' 사실 고정",
+  "'절제와 과감', '톤을 맞추는 역할' 유지",
+  "C1 나머지 문장은 그대로"
+ ]
+}
