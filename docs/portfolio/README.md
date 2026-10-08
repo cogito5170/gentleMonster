@@ -13,6 +13,7 @@
 | [02_picture.md](02_picture.md) | 02 PICTURE 지면: 여는 글, Q1–Q3, MY PICTURE, 단어 한 장(One To One), 03 으로 넘기는 줄 | 방향 제안 (빈칸은 지원자가 채움) |
 | [cover_letter.md](cover_letter.md) | 자기소개서 "지원한 이유, 왜 젠틀몬스터여야 하는가?" — 단계별로 완성, 약 634자 | 마무리 (퇴고 남음) |
 | [self_intro.md](self_intro.md) | 자기소개 "본인을 소개하시오. 자신의 강점은 무엇입니까?" (850자) — 단계별 작성 기록 | 퇴고 중 |
+| [my_style_rewrite.md](my_style_rewrite.md) | 고교 자기소개서 문체 분석 + 그 문체(합니다체)로 다시 쓴 지원동기 · 자기소개 (각 700자 이내) | 제안 |
 | [questions.md](questions.md) | 작업 중 사용자가 보낸 질문 · 요청 44개 원문과, 각 질문으로 나온 결과 | 기록 |
 
 ## 원칙
