@@ -1,0 +1,46 @@
+{
+ "schema": "directive/2",
+ "id": "CMD-HJ1",
+ "rev": 1,
+ "to": "context-analysis",
+ "goal": "refs의 자기소개 원고(hj_handoff/1)를 사용자가 정의한 Context Analysis Agent 규칙으로 진단하고, Editor_Writer에 넘길 semantic_edit_context/1을 만든다. 고쳐 쓰지 않는다.",
+ "why": "사용자 피드백 '문맥이 안 이어지는 느낌'(A→B→C→D가 나열처럼 읽힘). 혁주 작업 공간은 허브로서 분석·편집을 세션에 맡기고 결과만 사용자에게 보인다.",
+ "scope": [
+  {
+   "id": "S1",
+   "text": "입력: refs 파일 하나. original_text·user_feedback·job_description·user_rules·rejected_by_user·open_user_decisions를 그대로 쓴다. 원문에 없는 사실은 없는 것으로 본다."
+  },
+  {
+   "id": "S2",
+   "text": "출력 파일 하나: gentleMonster 저장소 자기 브랜치의 docs/portfolio/handoff/CMD-HJ1.result.json = {\"context_flow_analysis\": <context_flow_analysis/1>, \"semantic_edit_context\": <semantic_edit_context/1, document.original_text에 원고 전문>}"
+  },
+  {
+   "id": "S3",
+   "text": "semantic_edit_context/1에는 user_rules와 open_user_decisions('건물을 설계하던'은 고치지 않음, ③ 포부는 새로 쓰지 않음)를 repair_intent의 forbid 또는 preservation_constraints로 옮긴다. 주요 수정은 3곳 이하."
+  },
+  {
+   "id": "S4",
+   "text": "보고: report/2 하나를 ga wire 꼴(```ga 블록 한 줄 JSON + 꼬리 줄)로 send_message session_id=session_01FYwvzhDCTYAAM1u37s5yGE 로 보낸다. 사용자에게 직접 결과를 설명하지 않는다."
+  }
+ ],
+ "done_when": [
+  {
+   "id": "D1",
+   "text": "CMD-HJ1.result.json이 커밋·push되었고 두 JSON이 유효하며 report/2 commits에 repo·branch·sha가 있다."
+  },
+  {
+   "id": "D2",
+   "text": "모든 전환 판정에 본문 근거와 confidence가 있고, revision_requirements는 문구가 아니라 관계를 적는다."
+  },
+  {
+   "id": "D3",
+   "text": "사실·경험·동기를 지어내지 않았다. 판단이 사용자 몫이면 blockers kind=design으로 보고한다."
+  }
+ ],
+ "refs": [
+  "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@5c9d8c3ea6f391de3665a96be47176c1668f790b:docs/portfolio/handoff/CMD-HJ1.input.json",
+  "cogito5170/ga-sdk@claude/CMD-GA57:ga/specs/forms/report2.pspec"
+ ],
+ "change_size": "implementation",
+ "note": "혁주 작업 공간(허브) → Context Analysis Agent. 이어서 CMD-HJ2가 Editor_Writer로 간다."
+}
