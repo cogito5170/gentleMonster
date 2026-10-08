@@ -15,6 +15,7 @@
 | [self_intro.md](self_intro.md) | 자기소개 "본인을 소개하시오. 자신의 강점은 무엇입니까?" (850자) — 단계별 작성 기록 | 퇴고 중 |
 | [my_style_rewrite.md](my_style_rewrite.md) | 고교 자기소개서 문체 분석 + 그 문체(합니다체)로 다시 쓴 지원동기 · 자기소개 (각 700자 이내) | 제안 |
 | [case_studies.md](case_studies.md) | 대기업 합격 자기소개서 학습 — 사례별 분석, 유형화, 공통 유형 요약 | 사례 3건 분석 완료 |
+| [three_types.md](three_types.md) | 합격 사례 유형을 적용한 세 가지 TYPE (서사형 · 문제 해결형 · 헤드라인 증명형) — 지원동기 · 자기소개 각 700자 이내 | 제안 |
 | [questions.md](questions.md) | 작업 중 사용자가 보낸 질문 · 요청 44개 원문과, 각 질문으로 나온 결과 | 기록 |
 
 ## 원칙
