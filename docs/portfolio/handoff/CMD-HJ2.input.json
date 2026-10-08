@@ -1,0 +1,27 @@
+{
+ "schema": "hj_handoff/1",
+ "directive": "CMD-HJ2",
+ "user_request": {
+  "raw": "본인을 소개하시오. 자신의 강점은 무엇입니까? (1000자 이내) 를 작성하여라",
+  "received_after": "CMD-HJ1",
+  "meaning": "흐름 수정을 반영한 1000자 이내 완성본(③ 포부 포함)을 원함"
+ },
+ "semantic_edit_context_ref": "cogito5170/gentleMonster@claude/modest-cannon-ha8zs3@3d83a62d21d4d772ab748a718785a0d372c05540:docs/portfolio/handoff/CMD-HJ1.result.json#semantic_edit_context",
+ "semantic_edit_context_copy": "같은 파일이 cogito5170/gentleMonster@claude/clever-knuth-1dezlo:docs/portfolio/handoff/CMD-HJ1.result.json 에도 있음(허브는 고치지 않음)",
+ "overrides_by_latest_user_request": [
+  {
+   "field": "preservation_constraints.do_not_write / editor_authority.not_allowed.write_aspiration_section / repair_intent[].forbid '③ 포부 새로 쓰기'",
+   "new_rule": "③ 포부를 쓴다. 단, original_text와 CMD-HJ1.input.json의 job_description에 이미 있는 것만 재료로 쓴다(매장을 설계하려는 방향, 그 틀 안을 채우는 일, 아트 오브제·가구·마감재 기획, 스토어·팝업 공간 기획). 새 동기·감정·경험·목표 수치는 지어내지 않는다. 소제목·①의 '틀 → 그 안' 줄기를 받아 글을 닫는다."
+  },
+  {
+   "field": "preservation_constraints.length.rule",
+   "new_rule": "제목·①·②·③ 전체가 공백·줄바꿈 포함 len() 1000자 이하."
+  }
+ ],
+ "unchanged": [
+  "frozen_spans '건물을 설계하던'은 그대로",
+  "deferred_to_user B→C(인턴→깨달음)는 고치지 않음",
+  "그 밖의 모든 제약은 semantic_edit_context 그대로"
+ ],
+ "input_ref": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@5c9d8c3ea6f391de3665a96be47176c1668f790b:docs/portfolio/handoff/CMD-HJ1.input.json"
+}
