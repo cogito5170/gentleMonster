@@ -18,6 +18,7 @@
 | [three_types.md](three_types.md) | 합격 사례 유형을 적용한 세 가지 TYPE (서사형 · 문제 해결형 · 헤드라인 증명형) — 700자판 · 1000자판 | 제안 |
 | [collaborators.md](collaborators.md) | 젠틀몬스터 협업 오브제 · 가구 디자이너 · 아티스트 조사 (출처 · 신뢰도 표시) | 조사 |
 | [questions.md](questions.md) | 작업 중 사용자가 보낸 질문 · 요청 44개 원문과, 각 질문으로 나온 결과 | 기록 |
+| [agent_protocol.md](agent_protocol.md) | 작업 공간 ↔ analysis agent ↔ editor agent 전달 규약 (ga_message/1 봉투, 본문 형식, 경로, 공통 규칙). 원문 메시지는 agent_log/ | 운영 중 |
 
 ## 원칙
 
