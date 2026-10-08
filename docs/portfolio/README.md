@@ -12,7 +12,7 @@
 | [01_style.md](01_style.md) | 01 STYLE 지면: 여는 글, Q1–Q3, 풀쿼트, SECTOR A, 지면 수정 사항 | 확정 (빈칸은 지원자가 채움) |
 | [02_picture.md](02_picture.md) | 02 PICTURE 지면: 여는 글, Q1–Q3, MY PICTURE, 단어 한 장(One To One), 03 으로 넘기는 줄 | 방향 제안 (빈칸은 지원자가 채움) |
 | [cover_letter.md](cover_letter.md) | 자기소개서 "지원한 이유, 왜 젠틀몬스터여야 하는가?" — 단계별로 완성, 약 634자 | 마무리 (퇴고 남음) |
-| [self_intro.md](self_intro.md) | 자기소개 "본인을 소개하시오. 자신의 강점은 무엇입니까?" (850자) — 단계별 작성 기록 | 퇴고 중 |
+| [self_intro.md](self_intro.md) | 자기소개 "본인을 소개하시오. 자신의 강점은 무엇입니까?" — 단계별 작성 기록, TYPE 조합안 | 조합안 (포부 남음) |
 | [my_style_rewrite.md](my_style_rewrite.md) | 고교 자기소개서 문체 분석 + 그 문체(합니다체)로 다시 쓴 지원동기 · 자기소개 (각 700자 이내) | 제안 |
 | [case_studies.md](case_studies.md) | 대기업 합격 자기소개서 학습 — 사례별 분석, 유형화, 공통 유형 요약 | 사례 3건 분석 완료 |
 | [three_types.md](three_types.md) | 합격 사례 유형을 적용한 세 가지 TYPE (서사형 · 문제 해결형 · 헤드라인 증명형) — 700자판 · 1000자판 | 제안 |
