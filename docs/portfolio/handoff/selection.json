@@ -16,12 +16,14 @@
  "next": "사용자가 추가 정보(M1~M6)를 주면 C1 구조 안에서 2차를 만든다",
  "weakness": {
   "placement": "A — ② 강점 뒤, ③ 포부 앞 한 문단(약 100~150자)",
-  "user_raw": "A안으로 채택.",
+  "user_raw": "WC1과 WC5를 조합하여라.",
   "content": null,
   "remedy": "무채색 기반의 패션에서 컬러 포인트와 개성 있는 패션 아이템으로 바꿔나가고 있다.",
-  "status": "편집 세션 집필(CMD-HJ8)",
+  "status": "편집 세션 조합(CMD-HJ12)",
   "path": "P-W1+ (보완 있는 그림자형)",
-  "remedy_user_note": "포트폴리오의 패션 스타일이 무채색 기반이기에 P-W1+에서 이를 언급하여 보완하는 것이 좋을 것이라고 판단."
+  "remedy_user_note": "포트폴리오의 패션 스타일이 무채색 기반이기에 P-W1+에서 이를 언급하여 보완하는 것이 좋을 것이라고 판단.",
+  "cases_file": "weakness_cases/cases_5.md",
+  "selection": "WC1 + WC5 조합"
  },
  "limit_history": [
   {
