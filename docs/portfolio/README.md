@@ -14,7 +14,7 @@
 | [cover_letter.md](cover_letter.md) | 자기소개서 "지원한 이유, 왜 젠틀몬스터여야 하는가?" — 단계별로 완성, 약 634자 | 마무리 (퇴고 남음) |
 | [self_intro.md](self_intro.md) | 자기소개 "본인을 소개하시오. 자신의 강점은 무엇입니까?" (850자) — 단계별 작성 기록 | 퇴고 중 |
 | [my_style_rewrite.md](my_style_rewrite.md) | 고교 자기소개서 문체 분석 + 그 문체(합니다체)로 다시 쓴 지원동기 · 자기소개 (각 700자 이내) | 제안 |
-| [case_studies.md](case_studies.md) | 대기업 합격 자기소개서 학습 — 사례별 분석과 유형화 | 사례 1 (올리브영) 완료 |
+| [case_studies.md](case_studies.md) | 대기업 합격 자기소개서 학습 — 사례별 분석과 유형화 | 사례 1 (올리브영) · 2 (제일기획) 완료 |
 | [questions.md](questions.md) | 작업 중 사용자가 보낸 질문 · 요청 44개 원문과, 각 질문으로 나온 결과 | 기록 |
 
 ## 원칙
