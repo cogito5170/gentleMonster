@@ -141,6 +141,20 @@ def crosshair(x, y, s=1.4, stroke="sub"):
     ln(x - s, y, x + s, y, stroke, 0.2); ln(x, y - s, x, y + s, stroke, 0.2)
 
 
+_ZONE = []
+
+
+def zone(name):
+    """named group (Illustrator shows the id as the group name); closes the previous zone."""
+    zone_end()
+    w(f'<g id="{name}">'); _ZONE.append(name)
+
+
+def zone_end():
+    while _ZONE:
+        w('</g>'); _ZONE.pop()
+
+
 def tag(cx, cy, n, rr=2.3):
     w(f'<circle cx="{cx:.2f}" cy="{cy:.2f}" r="{rr}" fill="{INK}"/>')
     t(cx, cy + 0.95 * rr / 2.3, n, 7 * rr / 2.3, "#FFFFFF", 700, "middle")

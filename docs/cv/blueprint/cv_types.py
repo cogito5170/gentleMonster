@@ -47,15 +47,19 @@ def nav_pills(y=8.8, right=203, items=("CONTACT", "SKILLS", "EXPERIENCE", "EDUCA
 def type1():
     M, CW, G = 7, 196, 2.5
     hw = (CW - G) / 2
+    zone("T1_01_BACKGROUND")
     r(0, 0, 210, 297, "bg")
+    zone("T1_02_NAV")
     t(M + 1, 12.6, "JEONG HYEOKJU", 7, "text", 600, ls=0.35)
     nav_pills()
+    zone("T1_03_HERO")
     photo(M, 17, CW, 95, "PHOTO 01", "인물 사진 ____ (흑백 또는 저채도)", rx=1.6, at=(168, 28))
     t(15, 72, "JEONG", 51, "text", 100, ls=1.6)
     t(15, 91, "HYEOKJU", 51, "text", 100, ls=1.6)
     t(16, 99.5, JOB, 6.4, "text", 500, ls=0.2)
     t(16, 103.6, IDENT, 5.6, "sub", 400, fam=KR)
     arrow(170, 102.5, "PAGE 2 · 자기소개서")
+    zone("T1_04_STRENGTH_CARDS")
     cw = (CW - 3 * G) / 4
     for i, (n, en, ko, d) in enumerate(STRENGTHS):
         x = M + i * (cw + G)
@@ -64,6 +68,7 @@ def type1():
         t(x + 3.5, 123.8, ko, 5.2, "sub", 500, fam=KR)
         para(x + 3.5, 128.4, d, cw - 7, 5.0, fill="sub", fam=KR)
         arrow(x + 5.4, 136.4, "P.2", 1.7)
+    zone("T1_05_ABOUT")
     r(M, 143, hw, 44, "card", rx=1.6)
     t(M + 5, 149.5, "ABOUT", 5, "text", 600, ls=0.3)
     t(M + 5, 158.5, TITLE_KO[0], 12, "text", 400, fam=KR)
@@ -71,6 +76,7 @@ def type1():
     t(M + 5, 172, "PROFILE", 4.8, "text", 600, ls=0.25); lines(M + 5, 175.8, PROFILE, 5.2, fill="sub", fam=KR)
     t(M + 50, 172, "INTERESTS", 4.8, "text", 600, ls=0.25); lines(M + 50, 175.8, INTERESTS, 5.2, fill="sub", fam=KR)
     photo(M + hw + G, 143, hw, 44, "PHOTO 02", "____ (공간 · 마감재 · 오브제)", rx=1.6)
+    zone("T1_06_EDUCATION_EXPERIENCE")
     for k, (title, body, slot) in enumerate((("EDUCATION", EDU, "____ – ____"), ("EXPERIENCE", EXP, "____"))):
         y = 189.5 + k * (44 + G)
         r(M, y, hw, 44, "card", rx=1.6)
@@ -79,6 +85,7 @@ def type1():
         for j, s in enumerate(body):
             para(M + 5, y + 13 + j * 4.2, s, hw - 10, 5.8, fill="sub", fam=KR)
         arrow(M + hw - 26, y + 37, slot)
+    zone("T1_07_SKILLS")
     x2 = M + hw + G
     r(x2, 189.5, hw, 90.5, "card", rx=1.6)
     t(x2 + 5, 196.5, "SKILLS", 7, "text", 600, ls=0.3)
@@ -86,17 +93,21 @@ def type1():
     t(x2 + 5, 201, FLOW, 4.4, "sub", 400, ls=0.1)
     for i, tool in enumerate(TOOLS):
         skill_h(x2 + 5 + (i % 2) * 45, 206 + (i // 2) * 24.5, tool, rr=6, name_pt=6, small=5)
+    zone("T1_08_FOOTER_CONTACT")
     yF = 282.5
     r(M, yF, CW, 290 - yF, "card", rx=1.6)
     t(M + 4, yF + 4.7, "CONTACT", 5.6, "text", 600, ls=0.25)
     for i, s in enumerate(CONTACT):
         t(M + 30 + i * 36, yF + 4.7, s, 5.2, "sub", 400, fam=KR)
     arrow(M + CW - 28, yF + 3.75, "GET IN TOUCH", 1.7)
+    zone_end()
 
 
 # ================================================================== TYPE 2 · SIDEBAR (ref 4 split + content refs)
 def type2():
+    zone("T2_01_BACKGROUND")
     r(0, 0, 210, 297, "bg")
+    zone("T2_02_SIDEBAR")
     r(0, 0, 80, 297, "side")
     photo(0, 0, 80, 112, "PHOTO 01", "인물 사진 ____ (세로 5:7)")
     t(8, 128, "JEONG", 30, "text", 200, ls=0.8)
@@ -120,11 +131,13 @@ def type2():
         t(X, y + 5, label, 5, "sub", 600, ls=0.35)
         if right:
             t(X + RW, y + 5, right, 4.8, "sub", 500, "end", ls=0.15)
+    zone("T2_03_ABOUT")
     sec(12, "ABOUT")
     t(X, 27, TITLE_KO[0], 15, "text", 400, fam=KR)
     t(X, 34.5, TITLE_KO[1], 15, "text", 400, fam=KR)
     t(X, 44, "PROFILE", 4.8, "text", 600, ls=0.25); lines(X, 48, PROFILE, 5.4, fill="sub", fam=KR)
     t(X + 55, 44, "INTERESTS", 4.8, "text", 600, ls=0.25); lines(X + 55, 48, INTERESTS, 5.4, fill="sub", fam=KR)
+    zone("T2_04_STRENGTHS")
     sec(66, "WHAT I BRING  ·  강점")
     for i, (n, en, ko, d) in enumerate(STRENGTHS):
         y = 75 + i * 9.4
@@ -132,6 +145,7 @@ def type2():
         t(X + 9, y + 3.4, f"{en}  ·  {ko}", 6.2, "text", 600, fam=KR, ls=0.1)
         t(X + 9, y + 7, d, 5.2, "sub", 400, fam=KR)
         ln(X, y + 9, X + RW, y + 9, "line", 0.15)
+    zone("T2_05_EDUCATION_EXPERIENCE")
     sec(118, "EDUCATION  ·  EXPERIENCE")
     for k, (title, body, per) in enumerate((("EDUCATION", EDU, "____ – ____"), ("EXPERIENCE", EXP, "____"))):
         y = 127 + k * 17
@@ -139,19 +153,23 @@ def type2():
         t(X + 28, y + 3, title, 6.2, "text", 600, ls=0.2)
         for j, s in enumerate(body):
             para(X + 28, y + 7 + j * 3.4, s, RW - 28, 5.4, fill="sub", fam=KR)
+    zone("T2_06_SKILLS")
     sec(166, "SKILLS", "LANGUAGE  ____")
     t(X, 175.5, FLOW, 4.4, "sub", 400, ls=0.1)
     for i, tool in enumerate(TOOLS):
         skill_h(X + (i % 3) * 37, 180 + (i // 3) * 15.5, tool, rr=4.4, name_pt=5.6, small=4.6, line="____")
+    zone("T2_07_NUMBERS")
     sec(214, "NUMBERS")
     for i, (lab, n, ko) in enumerate((("B.ARCH", "5", "5년제"), ("STUDIOS", "7", "설계 7학기"), ("TOOLS", "6", "2D–편집"), ("INTERN", "1", "건축사사무소"))):
         x = X + i * 27.5
         t(x, 229, n, 16, "text", 200)
         t(x + 6.5, 225.5, lab, 4.6, "sub", 600, ls=0.2); t(x + 6.5, 229, ko, 4.8, "sub", 400, fam=KR)
+    zone("T2_08_COVER_LETTER_LINK")
     ln(X, 262, X + RW, 262, "line", 0.25)
     t(X, 275, "COVER LETTER", 14, "text", 200, ls=0.3)
     t(X, 281.5, "본인 소개와 강점 — 다음 장", 5.4, "sub", 400, fam=KR)
     arrow(X + RW - 22, 276, "PAGE 2", 2.4, 5.4)
+    zone_end()
 
 
 # ================================================================== TYPE 3 · SWISS GRID (ref 3)
