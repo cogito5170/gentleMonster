@@ -5,7 +5,7 @@ The inks come from the mood reference (an indexed, error-diffused image: #110f08
 is kept for the stop light only.
 Small type and the architectural drawing layer are drawn AFTER the dither so they stay crisp.
 
-python -m gentle_monster.cv3d.post <page> <dir> [--exposures a.png:x,y,w,h:opacity ...]
+python -m gentle_monster.relief.post <page> <dir> [--exposures a.png:x,y,w,h:opacity ...]
 """
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 
-ASSETS = Path(os.environ.get("GM_CV3D_ASSETS", Path(__file__).with_name("assets")))
+ASSETS = Path(os.environ.get("RELIEF_ASSETS", Path(__file__).with_name("assets")))
 INKS = ["#110f08", "#3e3e39", "#5f5f5b", "#848484", "#b0afa6", "#ceccbe", "#a8392c"]
 GRID = 15  # module in page mm (architect's grid: 14 x 19.8 modules on A4)
 

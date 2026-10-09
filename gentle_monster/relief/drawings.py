@@ -11,7 +11,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 import os
-ASSETS = Path(os.environ.get("GM_CV3D_ASSETS", Path(__file__).with_name("assets")))
+ASSETS = Path(os.environ.get("RELIEF_ASSETS", Path(__file__).with_name("assets")))
 INK = (17, 15, 8); PAPER = (226, 223, 213); GREY = (132, 132, 132); RED = (168, 57, 44)
 
 

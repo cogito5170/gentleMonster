@@ -15,10 +15,10 @@ import os
 import bpy
 from mathutils import Vector
 
-from gentle_monster.cv3d import engine as E
-from gentle_monster.cv3d.engine import Page
-from gentle_monster.cv3d.objects import OBJECTS, spec_lines
-from gentle_monster.cv3d import svgpage
+from gentle_monster.relief import engine as E
+from gentle_monster.relief.engine import Page
+from gentle_monster.relief.objects import OBJECTS, spec_lines
+from gentle_monster.relief import svgpage
 from pathlib import Path
 
 LAYOUTS = Path(__file__).with_name("layouts")
@@ -534,7 +534,7 @@ def experience(pg: Page):
 def home(pg: Page):
     """TYPE 1 card grid, built: cards are panels off a dark wall, the hero is a window into a lit room
     (FRAME & INTERIOR), PHOTO 02 is a niche of finishing materials, the skill badges are metal rings."""
-    G = svgpage.read(os.environ.get("GM_CV3D_LAYOUT") or LAYOUTS / "type1_card_grid.svg")
+    G = svgpage.read(os.environ.get("RELIEF_LAYOUT") or LAYOUTS / "type1_card_grid.svg")
     MMm = E.MM
     pg.world("hdri/royal_esplanade_1k.hdr", 0.04)
     card = E.mat_basic("card", "#1c1c1b", rough=0.6, spec=0.3)

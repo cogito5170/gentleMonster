@@ -1,4 +1,4 @@
-"""Render one sheet: python -m gentle_monster.cv3d.render <page> <out_dir> [width samples]
+"""Render one sheet: python -m gentle_monster.relief.render <page> <out_dir> [width samples]
 
 Writes <out_dir>/<page>.png (the 3D set), any extra exposures, and <out_dir>/<page>.json
 (type runs, drawing lines and exposure boxes for post.py).
@@ -7,7 +7,7 @@ import json
 import sys
 from pathlib import Path
 
-from gentle_monster.cv3d import pages
+from gentle_monster.relief import pages
 
 name, out = sys.argv[1], Path(sys.argv[2])
 w = int(sys.argv[3]) if len(sys.argv) > 3 else 1240

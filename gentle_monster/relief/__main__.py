@@ -1,12 +1,12 @@
-"""cv3d command line.
+"""RELIEF command line.
 
-    python -m gentle_monster.cv3d assets                 fetch fonts, HDRIs and the head scan into $GM_CV3D_ASSETS
-    python -m gentle_monster.cv3d list                   the sheets the engine knows
-    python -m gentle_monster.cv3d sheet home             render + vintage print one sheet  -> out/home_final.png
-    python -m gentle_monster.cv3d home --layout my.svg   the homepage CV from any TYPE 1 layout SVG -> out/CV_HOME.pdf
-    python -m gentle_monster.cv3d book                   cover, plan, picture, object, experience -> out/SPA_BOOK.pdf
+    python -m gentle_monster.relief assets                 fetch fonts, HDRIs and the head scan into $RELIEF_ASSETS
+    python -m gentle_monster.relief list                   the sheets the engine knows
+    python -m gentle_monster.relief sheet home             render + vintage print one sheet  -> out/home_final.png
+    python -m gentle_monster.relief home --layout my.svg   the homepage CV from any TYPE 1 layout SVG -> out/CV_HOME.pdf
+    python -m gentle_monster.relief book                   cover, plan, picture, object, experience -> out/SPA_BOOK.pdf
 
-Options: --out DIR (default out/cv3d), --width PX (1240 = A4 at 150 dpi), --samples N (96), --draft (520 px, 24 samples).
+Options: --out DIR (default out/relief), --width PX (1240 = A4 at 150 dpi), --samples N (96), --draft (520 px, 24 samples).
 Rendering needs Blender as a Python module: run with the interpreter that has `bpy` (pip install bpy==5.1.2, Python 3.13).
 """
 from __future__ import annotations
@@ -49,7 +49,7 @@ SCAN = ["LeePerrySmith.glb", "Map-COL.jpg", "Map-SPEC.jpg", "Infinite-Level_02_T
 
 
 def assets_dir():
-    return Path(os.environ.get("GM_CV3D_ASSETS", Path.home() / ".cache" / "gm_cv3d"))
+    return Path(os.environ.get("RELIEF_ASSETS", Path.home() / ".cache" / "gm_relief"))
 
 
 def fetch(url, dest):
@@ -80,8 +80,8 @@ def cmd_assets(a):
 
 
 def _run(module, *args):
-    env = dict(os.environ, GM_CV3D_ASSETS=str(assets_dir()))
-    subprocess.run([sys.executable, "-m", f"gentle_monster.cv3d.{module}", *map(str, args)], check=True, env=env)
+    env = dict(os.environ, RELIEF_ASSETS=str(assets_dir()))
+    subprocess.run([sys.executable, "-m", f"gentle_monster.relief.{module}", *map(str, args)], check=True, env=env)
 
 
 def sheet(name, out, width, samples):
@@ -100,20 +100,20 @@ def pdf(pngs, path, title):
 
 
 def main():
-    ap = argparse.ArgumentParser(prog="python -m gentle_monster.cv3d", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser(prog="python -m gentle_monster.relief", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("cmd", choices=["assets", "list", "sheet", "home", "book"])
     ap.add_argument("name", nargs="?")
-    ap.add_argument("--out", default="out/cv3d"); ap.add_argument("--width", type=int, default=1240); ap.add_argument("--samples", type=int, default=96)
+    ap.add_argument("--out", default="out/relief"); ap.add_argument("--width", type=int, default=1240); ap.add_argument("--samples", type=int, default=96)
     ap.add_argument("--draft", action="store_true"); ap.add_argument("--layout")
     a = ap.parse_args()
     out = Path(a.out); w, s = (520, 24) if a.draft else (a.width, a.samples)
     if a.cmd == "assets":
         return cmd_assets(a)
     if a.cmd == "list":
-        from gentle_monster.cv3d.pages import PAGES
+        from gentle_monster.relief.pages import PAGES
         print("\n".join(PAGES)); return
     if a.layout:
-        os.environ["GM_CV3D_LAYOUT"] = str(Path(a.layout).resolve())
+        os.environ["RELIEF_LAYOUT"] = str(Path(a.layout).resolve())
     out.mkdir(parents=True, exist_ok=True)
     if a.cmd == "sheet":
         print(sheet(a.name, out, w, s))

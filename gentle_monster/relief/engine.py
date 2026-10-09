@@ -1,4 +1,4 @@
-"""cv3d engine: a 2D page laid out inside a 3D set and rendered with Blender Cycles.
+"""RELIEF engine: a 2D page laid out inside a 3D set and rendered with Blender Cycles.
 
 The page is A4 (210 x 297 mm). One page millimetre is one world centimetre, so the page is a 2.10 x 2.97 m
 wall with a floor sweeping out in front of it. The camera looks straight at the wall with a long lens.
@@ -11,7 +11,7 @@ scale, so an element keeps its page position and apparent size at any depth:
     0 < d < 0.3    mounted, extruded, casting shadows  2.5D
     on the floor   objects standing in the room        3D
 
-Runs inside Blender's Python (pip `bpy` 5.x). Assets (fonts, HDRI, head scan) come from GM_CV3D_ASSETS.
+Runs inside Blender's Python (pip `bpy` 5.x). Assets (fonts, HDRI, head scan) come from RELIEF_ASSETS.
 """
 from __future__ import annotations
 
@@ -23,7 +23,7 @@ import bpy
 import bmesh
 from mathutils import Vector
 
-ASSETS = Path(os.environ.get("GM_CV3D_ASSETS", Path(__file__).with_name("assets")))
+ASSETS = Path(os.environ.get("RELIEF_ASSETS", Path(__file__).with_name("assets")))
 PW, PH = 2.10, 2.97          # page in metres (1 page mm = 1 cm)
 MM = 0.01                    # one page millimetre in metres
 
