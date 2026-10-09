@@ -194,7 +194,7 @@ def report_md(checks: list, title: str) -> str:
     cnt = Counter(c["status"] for c in checks)
     lines = [f"# QA report -- {title}\n", f"**Overall: {v}** -- " + ", ".join(f"{k} {cnt.get(k, 0)}" for k in STATUSES) +
              ". NOT_CHECKED is not a pass.\n"]
-    for area in ("research", "creative", "production"):
+    for area in dict.fromkeys(c["area"] for c in checks):          # every area, in the order checks were made
         lines.append(f"\n## {area.capitalize()} QA\n\n| status | check | detail |\n|---|---|---|")
         lines += [f"| {c['status']} | {c['check']} | {str(c['detail']).replace('|', '/')} |" for c in checks if c["area"] == area]
     return "\n".join(lines) + "\n"

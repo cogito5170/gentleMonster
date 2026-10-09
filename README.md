@@ -80,7 +80,7 @@ python3 -m gentle_monster magazine "Gentle Monster의 브랜드 세계관을 중
 조사: [`docs/REPOSITORY_AUDIT.md`](docs/REPOSITORY_AUDIT.md) · Drift 원문: [`research/drift/SE_NEW_DRIFT.md`](research/drift/SE_NEW_DRIFT.md).
 
 내 사진으로 만드는 호: `python3 -m gentle_monster photo-issue editorial/issues/spa_00_stops.json` — 사진은 `photos/`(git 밖),
-글은 `docs/portfolio/` 의 원문 그대로, 레이아웃은 MCA 레퍼런스 문법. 자세한 것: 같은 문서의 '사진 호'.
+글은 `docs/portfolio/` 의 원문 그대로, 레이아웃은 MCA 레퍼런스 문법. 자세한 것: 같은 문서의 '사진 호', 디자인 결정은 [`docs/SPA00_DESIGN.md`](docs/SPA00_DESIGN.md).
 
 ## 디스코드 봇에 붙이기 (선택)
 

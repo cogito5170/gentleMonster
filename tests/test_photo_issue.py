@@ -12,6 +12,7 @@ Run: python3 tests/test_photo_issue.py
 from __future__ import annotations
 
 import copy
+import re
 import json
 import os
 import shutil
@@ -79,6 +80,38 @@ ok(PI.light({"mono": False, "dark": 0.8, "brightness": 0.1, "warmth": 0, "satura
 ok(PI.light({"mono": True, "dark": 0.1, "brightness": 0.5, "warmth": 0, "saturation": 0.0}) == "흑백", "a grey frame reads as 흑백")
 ok(PI.light({"mono": False, "dark": 0.1, "brightness": 0.5, "warmth": 0.12, "saturation": 0.3}) == "해 질 녘", "a warm frame reads as 해 질 녘")
 
+print("[stencil]")
+try:
+    from PIL import ImageFont
+    import numpy as np
+    font = ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf", 1000)
+    svg = PI.masthead_svg("SPA")
+
+    def rows(ch, x0, x1):
+        im = Image.new("L", (800, 1000), 0); ImageDraw.Draw(im).text((0, 0), ch, font=font, fill=255)
+        a = np.asarray(im) > 128
+        ys = [y for y in range(200, 950) if a[y, x0:x1].any()]
+        runs = []
+        for y in ys:
+            if runs and y == runs[-1][1] + 1:
+                runs[-1][1] = y
+            else:
+                runs.append([y, y])
+        return runs
+    cuts = [tuple(map(int, m)) for m in re.findall(r'<rect x="(\d+)" y="(\d+)" width="(\d+)" height="(\d+)" fill="#000"', svg)]
+    covers = lambda run, c: c[1] <= run[0] and c[1] + c[3] >= run[1]
+    s_runs, p_runs = rows("S", 316, 350), rows("P", 215, 240)
+    ok(covers(s_runs[0], cuts[0]) and covers(s_runs[-1], cuts[1]), f"S: cuts break the top and bottom curves {s_runs[0]} {s_runs[-1]}")
+    pc = cuts[2]
+    ok(all(covers(r, (0, pc[1], 0, pc[3])) for r in p_runs), f"P: the bowl is lifted off the stem at every join {p_runs}")
+except (OSError, ImportError) as ex:
+    print(f"  건너뜀  stencil ({ex})")
+
+print("[typography rules]")
+ok(PI.KO_SPACING.search("SKP-S 의 주제") and PI.KO_SPACING.search("‘Sunshine’ 도 숨을") and not PI.KO_SPACING.search("SKP-S의 주제"),
+   "RED/GREEN: a space before a Korean particle after a Latin word is caught; none is not")
+ok(PI.X(0) == 8.0 and abs(PI.X(11) + PI.COL - 92.0) < 0.01, "the 12 columns fill the 84 cqw measure exactly")
+
 if not PDF.available():
     print("  건너뜀  build (Chromium not found)")
 else:
@@ -95,6 +128,25 @@ else:
     ok(r["verdict"] in ("PASS", "WARNING"), f"verdict {r['verdict']} (WARNING: the lens cites snippets)")
     html = Path(r["html"]).read_text(encoding="utf-8")
     ok("독립 콘셉트 매거진" in html and "Gemini" not in html, "independence line on the back; no model named in the page")
+
+    for name in ("blocks sit on the 12-column grid", "no faux-bold Korean", "smallest text at print size", "no text block overlaps another (print",
+                 "no text block overlaps another (375", "story sections appear", "Day → Dusk runs bright to dark", "the night stop comes after",
+                 "contents page numbers", "no space between a Latin word", "text contrast"):
+        ok(status(r["checks"], name) == "PASS", f"GREEN: {name}")
+
+    print("[RED: break the layout on purpose]")
+    red = Path(r["dir"]).parent / "red"
+    shutil.copytree(Path(r["dir"]), red)
+    h = (red / "index.html").read_text(encoding="utf-8")
+    h = h.replace('<p lang="en">Introduction</p>', '<p lang="en" style="margin-top:50cqw">Introduction</p>', 1)          # onto the lead text
+    h = h.replace('<p class="lead" style="margin-bottom:1.2em">', '<p class="lead" style="margin-bottom:1.2em;font-weight:700">', 1)
+    h = h.replace('data-col="4" style="left:', 'data-col="4" style="margin-left:1.3cqw;left:', 1)
+    (red / "index.html").write_text(h, encoding="utf-8")
+    m = PDF.measure(red / "index.html", 869, 1134, "qa-print")
+    pg = {p["i"]: p for p in m["pages"]}
+    ok(any(p.get("clash") for p in m["pages"]), "RED: a title pushed onto the text is reported as an overlap")
+    ok(any(p.get("faux") for p in m["pages"]), "RED: Korean set bold is reported as faux bold")
+    ok(any(abs(c_["x"] - PI.X(c_["col"])) > 0.3 for p in m["pages"] for c_ in p.get("cols", [])), "RED: a block nudged 1.3 cqw off its column is reported")
 
     print("[build: screenshot-size stand-ins]")
     small = Path(임시) / "small"

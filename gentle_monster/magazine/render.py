@@ -61,8 +61,31 @@ QA_JS = r"""
      var x=el.getBoundingClientRect().left, d=Math.min.apply(null,lines.map(function(L){return Math.abs(L-x)}));
      if(d>1.5) off.push({el:el.className||el.tagName,dx:Math.round(d*10)/10});
    });
+   var faux=[], minfs=99, cols=[];
+   p.querySelectorAll('*').forEach(function(el){
+     var own=''; el.childNodes.forEach(function(n){ if(n.nodeType===3) own+=n.textContent; });
+     if(!own.trim()) return;
+     var cs2=getComputedStyle(el), fs=parseFloat(cs2.fontSize);
+     if(cs2.display!=='none' && cs2.visibility!=='hidden' && cs2.opacity>0.2 && fs<minfs) minfs=fs;
+     if(hangul.test(own) && parseInt(cs2.fontWeight)>=600) faux.push(own.trim().slice(0,20));
+   });
+   p.querySelectorAll('[data-col]').forEach(function(el){
+     var b=el.getBoundingClientRect(); cols.push({col:parseFloat(el.dataset.col),x:(b.left-r.left)/r.width*100,mirror:el.dataset.mirror||''});
+   });
+   var blocks=[], clash=[];
+   p.querySelectorAll(':scope > *').forEach(function(el){
+     if(el.closest('[data-bleed]')||el.classList.contains('ghost')||el.classList.contains('folio')) return;
+     if(!(el.innerText||'').trim()) return;
+     var b=el.getBoundingClientRect(); if(b.width>0&&b.height>0) blocks.push([el,b]);
+   });
+   for(var a1=0;a1<blocks.length;a1++) for(var a2=a1+1;a2<blocks.length;a2++){
+     var A1=blocks[a1][1], A2=blocks[a2][1];
+     var w=Math.min(A1.right,A2.right)-Math.max(A1.left,A2.left), h=Math.min(A1.bottom,A2.bottom)-Math.max(A1.top,A2.top);
+     if(w>2&&h>2) clash.push(((blocks[a1][0].innerText||'').trim().slice(0,14))+' / '+((blocks[a2][0].innerText||'').trim().slice(0,14)));
+   }
    var txt=p.innerText||'';
    out.pages.push({i:i+1,id:p.id,type:p.dataset.type,overflow:over,images:imgs,grid_off:off,hangul:hangul.test(txt),chars:txt.length,
+                   faux:faux,minfs:minfs,cols:cols,clash:clash,
                    self_scroll:p.scrollHeight>p.clientHeight+2});
   });
   var wide=[]; document.querySelectorAll('body *').forEach(function(el){var b=el.getBoundingClientRect();
