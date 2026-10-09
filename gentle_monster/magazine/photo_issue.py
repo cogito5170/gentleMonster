@@ -54,6 +54,8 @@ def check_texts(spec: dict) -> list[str]:
         for t in b["a"]:
             if t not in doc(spec["qa_source"]):
                 bad.append(f"Q&A: '{t[:30]}' not in {spec['qa_source']}")
+    if c.get("values") and c["values"] not in doc(c.get("values_source", "")):
+        bad.append(f"cover values: '{c['values'][:30]}' not in {c.get('values_source')}")
     if spec.get("last_question_ko") and spec["last_question_ko"] not in doc(c["source"]):
         bad.append(f"last page: '{spec['last_question_ko']}' not in {c['source']}")
     for k_, t in spec.get("layout", {}).get("pull_quotes", {}).items():
@@ -142,7 +144,7 @@ def RIGHT(side: str) -> float:
 
 # technique id -> (name, where it comes from)
 TECHNIQUES = {
-    "masthead_overlap": ("마스트헤드 오버랩 — 제호가 사진 위에 놓인다", "매거진 URL 카탈로그 · 레이아웃"),
+    "stencil_masthead": ("스텐실 제호 — 획을 재서 끊은 브리지", "MCA 레퍼런스 보드 · 대표하는 텍스트"),
     "masthead_top": ("마스트헤드 상단 배치", "매거진 URL 카탈로그 · 레이아웃 (12/29)"),
     "coverlines": ("커버라인", "매거진 URL 카탈로그 · 레이아웃 (7/29)"),
     "newsstand": ("가판대 표지 — 커버라인과 쪽 번호, 호수 · 계절, 바코드 칸", "매거진 URL 카탈로그 · 커버라인 + 판매 잡지의 관례"),
@@ -377,6 +379,7 @@ img{{display:block;width:100%;height:100%;object-fit:cover}}
 .scrim-b{{position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(rgba(10,11,10,0),rgba(10,11,10,.62))}}
 .cline{{border-top:1px solid rgba(246,243,236,.7);padding:.8cqw 0 1.1cqw;display:grid;grid-template-columns:{pt(30)}cqw 1fr;align-items:baseline}}
 .barcode{{background:#fff;padding:1.2cqw 1.4cqw .8cqw;color:#111}} .barcode svg{{display:block;width:100%;height:5.4cqw}}
+.mast{{position:absolute;left:-3cqw;top:3.4cqw;width:103cqw;height:auto;display:block}}
 .mast-ov{{color:#f6f3ec;font-family:var(--serif);font-weight:400;line-height:.8;letter-spacing:-.06em;white-space:nowrap}}
 .mani{{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;font-size:{pt(44)}cqw;line-height:1.08;letter-spacing:-.025em}}
 .mani sup{{font-family:var(--sans);font-size:.24em;vertical-align:0;margin:0 0 .5em;color:var(--accent-text)}}
@@ -444,16 +447,30 @@ def build(spec_path, name: str = "", pdf: bool = True) -> dict:
         with _I.open(m["path"]) as _im:                       # the file's own size -- measure() works on a 1000 px thumbnail
             assets[k]["source_pixels"] = list(_im.size)
     cov = _k(spec["cover"]["photo"])
-    measured_accent = accent_of(meas[cov], meas[cov]["path"]) if cov in assets else {"raw": INK, "text": INK, "share": 0}
+    # The cover is now a grey lot with no vivid pixel, so the red is checked against the issue's photographs:
+    # the photo whose vivid hue covers most of its frame (the cover first, if it has one).
+    measured_accent = {"raw": INK, "text": INK, "share": 0, "photo": None}
+    for k in [cov] + [k for k in assets if k != cov]:
+        if k in assets:
+            a_ = accent_of(meas[k], meas[k]["path"])
+            if a_["share"] > measured_accent["share"]:
+                measured_accent = {**a_, "photo": k}
     src_of = lambda k: f'img/{Path(assets[k]["local_path"]).name}' if k in assets else ""
     aspect = 468 / 258
     credit_name = spec["credit"].split(": ")[-1]
 
-    def img(n, pos=None):
+    def img(n, pos=None, bw=False):
         k = _k(n)
         if k not in assets:
             return f'<div class="cap">사진 {k} 없음</div>'
-        return (f'<img src="{e(src_of(k))}" alt="{e(spec["photos"][k])}" data-photo="{k}" data-srcpx="{assets[k]["source_pixels"][0]}" '
+        srcf = src_of(k)
+        if bw:                                           # gallery wall prints: a grey copy, baked (no CSS filter in the PDF)
+            bwp = out / "img" / f"{k}_bw.jpg"
+            if not bwp.exists():
+                from PIL import Image as _I, ImageOps as _O
+                _O.autocontrast(_I.open(assets[k]["local_path"]).convert("L"), cutoff=1).save(bwp, "JPEG", quality=84, optimize=True)
+            srcf = f"img/{k}_bw.jpg"
+        return (f'<img src="{e(srcf)}" alt="{e(spec["photos"][k])}" data-photo="{k}" data-srcpx="{assets[k]["source_pixels"][0]}" '
                 f'style="object-position:{pos or focus.get(k, "50% 50%")}">')
 
     pages, refs = [], {}
@@ -507,31 +524,23 @@ def build(spec_path, name: str = "", pdf: bool = True) -> dict:
                       "html": f'<section class="page {cls}" id="p{n:02d}" data-type="{kind}" data-label="{e(label)}" data-side="{side}">{inner}{f}</section>'})
 
     c = spec["cover"]
-    # ===== 1 cover (newsstand) ===============================================================================
-    lines = [("Where Did You Last Stop?", "포토 에세이 — 열다섯 번의 멈춤", "opener"), ("Night", "빨간불 앞에서 멈춘다", "night"),
-             ("Why Pictures", "사진에 관한 세 물음", "why"), ("Looking Closer", "한 장을 세 번, 하루의 색", "closer"),
-             ("The Gentle Monster Lens", "왜 이 표지인가", "lens")]
-    page(f'<div class="a" style="inset:0" data-bleed data-technique="full_bleed">{img(cov, pos=spec.get("cover_focus", "80% 55%"))}'
-         f'<div class="grain" data-technique="grain"></div><div class="scrim-t" data-technique="scrim"></div><div class="scrim-b"></div></div>'
-         + f'<div class="a top furn on-photo" lang="en" data-technique="masthead_top" style="left:{INNER}cqw;right:{OUTER}cqw;top:{pt(16)}cqw;display:flex;'
-           f'justify-content:space-between;border-bottom:1px solid rgba(246,243,236,.7);padding-bottom:{pt(5)}cqw;color:#f6f3ec">'
-           f'<span>Issue 00 — Autumn 2026</span><span>Independent concept magazine</span></div>'
-         + f'<div class="a mast-ov" lang="en" data-bleed data-technique="masthead_overlap" style="left:{INNER - 1.8:.2f}cqw;top:7.4cqw;font-size:45cqw">'
-           f'{e(spec["masthead"])}</div>'
-         + at(0, 47, 4, "furn on-photo", '<p style="color:#f6f3ec;line-height:1.8">' + "<br>".join(e(x) for x in c["left"]) + "</p>",
-              tech="grotesk_caps", lang="en")
-         + at(7, 47, 5, "on-photo", "CLINES", tech="newsstand")
-         + at(0, None, 8, "on-photo", f'<p data-technique="serif_display" lang="en" class="title" style="font-size:{pt(44)}cqw;margin-bottom:{pt(12)}cqw">'
-              f'“{e(c["question"])}”</p><p class="lead" lang="en" style="margin-bottom:{pt(12)}cqw">' + "<br>".join(e(x) for x in c["right"])
-              + '</p><p class="byline" lang="en" style="color:#f6f3ec">' + " ".join(e(x) for x in c["byline"]) + "</p>", bottom=round(BOTTOM, 3), tech="coverlines")
-         + at(9, None, 3, "barcode", f'{barcode_svg("SPA-00")}<p class="furn" lang="en" style="color:#111;margin-top:.5cqw;line-height:1.5">'
-              f'SPA-00 · Concept issue<br>Not for sale</p>', bottom=round(BOTTOM, 3)),
+    # ===== 1 cover -- the MCA reference: representative text · one strong photograph · design values ==============
+    ph_h = round(SPAN(12) / aspect, 3)
+    ctop = 41.5
+    small = f'font-size:max({pt(7.6)}cqw,8.5px);line-height:1.42'
+    page(masthead_svg(spec["masthead"]).replace('<svg class="mast"', '<svg class="mast" data-technique="masthead_top stencil_masthead"', 1)
+         + at(0, ctop, 12, "", f'<div style="height:{ph_h}cqw">{img(cov)}</div>', tech="full_bleed" if False else "white_space")
+         + at(0, ctop + ph_h + 5.5, 4, "", f'<p class="gothic" lang="en" style="{small};text-transform:uppercase;letter-spacing:.04em">'
+              f'{e(spec["masthead"])}<br>Magazine<br><br>Issue 00<br>Autumn 2026<br><br>' + "<br>".join(e(x) for x in c["left"]) + "</p>",
+              tech="grotesk_caps")
+         + at(5, ctop + ph_h + 5.5, 7, "", f'<p lang="en" style="font-family:var(--sans);{small}">' + "<br>".join(e(x) for x in c["right"])
+              + f'</p><p lang="en" style="font-family:var(--sans);{small};margin-top:1.2em;color:var(--grey)" data-technique="coverlines">{e(c["values"])}</p>')
+         + at(0, None, 4, "", f'<p class="gothic" lang="en" style="{small};text-transform:uppercase;letter-spacing:.04em">' + "<br>".join(e(x) for x in c["byline"]) + "</p>",
+              bottom=round(BOTTOM, 3))
+         + at(5, None, 7, "", f'<p lang="en" style="font-family:var(--sans);font-weight:600;{small}" data-technique="serif_display">“{e(c["question"])}”</p>',
+              bottom=round(BOTTOM, 3)),
          "cover", "cover", [cov], "표지")
-    # ===== 2 | 3 contents ==================================================================================
-    cp = L_["contents_photo"]
-    page(bleed(cp) + at(0, None, 6, "on-photo", caption(cp, light=True), bottom=round(BOTTOM + 2.5, 3)), "bleed-page", "photo", [cp], "contents",
-         furn="Contents")
-    lc = sum(1 for k in meas if not meas[k].get("missing") and meas[k]["light"].startswith(("밤", "흑백")))
+    # ===== 2 contents | 3 introduction (reference: the contents + introduction spread) =================================
     mbox = [("Photographs & words", credit_name), ("Edit & layout", "gentle_monster magazine"), ("Mood", "VISUAL INDEX catalogue"),
             ("Type", "Caladea · Noto Serif KR · Inter · Pretendard"), ("Format", f"{W_MM} × {H_MM} mm · 26 pp."),
             ("Independent", "젠틀몬스터가 발행 · 승인하지 않은 독립 콘셉트 매거진")]
@@ -541,34 +550,44 @@ def build(spec_path, name: str = "", pdf: bool = True) -> dict:
          + at(0, None, 12, "cap mbox", "".join(f'<div><b lang="en">{e(k)}</b>{e(v)}</div>' for k, v in mbox), bottom=round(BOTTOM + 3, 3),
               tech="masthead_box"),
          "text", "contents", [], "contents", furn="Contents")
-    # ===== 4 | 5 feature opener ================================================================================
-    op = L_["opener_photo"]
-    page(bleed(op) + at(0, None, 6, "on-photo", caption(op, light=True), bottom=round(BOTTOM + 2.5, 3)), "bleed-page", "photo", [op], "opener")
     it = spec["intro"]
-    n_dark = lc
-    page(at(0, round(TOP + 2, 3), 12, "", f'<p class="kicker" lang="en">Photo essay</p>', tech="feature_opener")
-         + at(0, round(TOP + 7, 3), 11, "title", f'<p lang="en">Where Did You<br>Last Stop?</p>', tech="serif_display")
-         + at(0, 44, 9, "lead", "".join(f'<p class="ko" lang="ko" style="font-size:{T["lead"]}cqw;line-height:1.66;margin-bottom:.35em">{e(x)}</p>'
-                                         for x in it["ko"]))
-         + at(0, 66, 12, "", f'<p class="byline" lang="en" style="border-top:1px solid var(--ink);padding-top:{pt(6)}cqw">Words &amp; photographs — {e(credit_name)}</p>')
-         + at(0, 74, 5, "cap", f'<p class="kicker" lang="en" style="color:var(--ink);margin-bottom:.8em">In this issue</p>'
-              f'<p>사진 {len(assets)}장 — 그중 {n_dark}장은 밤이거나 흑백이다(잰 값). 단어 두 개, 선언 하나, 물음 세 개.</p>', tech="white_space")
-         + at(6, 74, 6, "body", f'<p lang="en" class="dropcap" data-technique="drop_cap">{e(it["en"])}</p>', tech="text_columns", lang="en"),
-         "text", "opener", [], "opener", furn="Photo essay")
-    # ===== 6 | 7 day spread (canoe across the gutter) ============================================================
+    page(at(0, round(TOP + 2, 3), 12, "", f'<p class="kicker" lang="en" style="text-align:center">Introduction</p>'
+            f'<p class="byline" lang="en" style="text-align:center;margin-top:{pt(6)}cqw">{e(credit_name)}</p>', tech="feature_opener")
+         + at(0, 24, 11, "title", f'<p lang="en">Where Did You<br>Last Stop?</p>', tech="serif_display")
+         + at(0, 70, 7, "", "".join(f'<p class="ko" lang="ko" style="font-size:{T["lead"]}cqw;line-height:1.7;margin-bottom:.35em">{e(x)}</p>' for x in it["ko"]),
+              tech="text_page")
+         + at(0, 98, 6, "body", f'<p lang="en" class="dropcap" data-technique="drop_cap">{e(it["en"])}</p>', tech="text_columns", lang="en")
+         + at(7, 98, 5, "cap", f'<p class="kicker" lang="en" style="color:var(--ink);margin-bottom:.8em">In this issue</p>'
+              f'<p>사진 {len(assets)}장 — 그중 {sum(1 for k in meas if not meas[k].get("missing") and meas[k]["light"].startswith(("밤", "흑백")))}장은 '
+              f'밤이거나 흑백이다(잰 값). 단어 두 개, 선언 하나, 물음 세 개.</p>', tech="white_space"),
+         "text", "intro", [], "intro", furn="Introduction")
+    # ===== 4 | 5 15 stops -- the gallery wall (reference: installation view, black-and-white prints) ===================
+    ks = sorted(k for k in spec["photos"] if k in assets)
+    st = story["stops"]
+    half = (len(ks) + 1) // 2
+    for side_i, chunk in enumerate((ks[:half], ks[half:])):
+        sd = side_of()
+        th = round(SPAN(5) / aspect, 3)
+        cols = (0, 6) if sd == "l" else (1, 7)
+        head = (section(st["en"], "Fig. 01—15 · black and white") if sd == "l" else
+                at(1, round(TOP, 3), 11, "", f'<div class="sh"><p class="section" lang="ko">{e("열다섯 번 멈춘 자리")}</p><p class="furn" lang="en">Gallery wall</p></div>'))
+        cells = "".join(at(cols[i % 2], 22 + (i // 2) * (th + 7.2), 5, "hz",
+                           f'<div style="height:{th}cqw;overflow:hidden;box-shadow:0 .5cqw 1.4cqw rgba(30,33,30,.18)" data-technique="desaturate">{img(k, bw=True)}</div>'
+                           f'<p class="cap" style="margin-top:{pt(5)}cqw"><b>{k}</b>{e(meas[k]["light"])}</p>') for i, k in enumerate(chunk))
+        page(f'<div data-technique="contact_sheet">{head}{cells}</div>', "", "wall", chunk, "stops")
+    # ===== 6 | 7 day spread (canoe across the gutter) ===========================================================
     ds = L_["day_spread"]
-    dk = _k(ds)
     page(f'<div class="a split l" data-bleed data-technique="split_spread">{img(ds)}<div class="grain"></div></div>', "bleed-page", "spread", [ds], "day")
     page(f'<div class="a split r" data-bleed data-technique="full_bleed">{img(ds)}<div class="grain"></div><div class="scrim-b"></div></div>'
          + at(6, None, 6, "on-photo", caption(ds, light=True), bottom=round(BOTTOM + 2.5, 3)), "bleed-page", "spread", [ds], "day")
-    # ===== 8 | 9 small-in-white + full bleed =======================================================================
+    # ===== 8 | 9 single image in white + full bleed ================================================================
     s1, s2 = L_["sea_pair"]
     page(fig(s1, 3, round(TOP + 8, 3), 9)
          + at(0, 72, 10, "pull ko", f'<p lang="ko" data-technique="pull_quote">“{e(L_["pull_quotes"]["day"])}”</p>', tech="asymmetric")
          + at(0, 98, 4, "cap", f'<p>— {e(credit_name)}, 02 PICTURE</p>'),
          "", "photo", [s1], "day")
     page(bleed(s2) + at(0, None, 6, "on-photo", caption(s2, light=True), bottom=round(BOTTOM + 2.5, 3)), "bleed-page", "photo", [s2], "day")
-    # ===== 10 | 11 one to one (show-through) =========================================================================
+    # ===== 10 | 11 one to one (reference: enxada / faca) ===========================================================
     ws = spec["words"]
     for i, w in enumerate(ws):
         ghost = ws[i + 1]["word"] if i + 1 < len(ws) else ""
@@ -578,33 +597,31 @@ def build(spec_path, name: str = "", pdf: bool = True) -> dict:
              + at(0, 80, 12, "", f'<p style="font-family:var(--gothic);font-weight:700;font-size:{T["word"]}cqw;text-align:center;line-height:1;letter-spacing:-.03em">{e(w["word"])}</p>',
                   tech="white_space"),
              "", "word", [w["photo"]], "turn")
-    # ===== 12 | 13 night ===================================================================================
+    # ===== 12 | 13 night ==================================================================================
     ns = spec["night_spread"]
     nk = _k(ns)
     page(f'<div class="a split l" data-bleed data-technique="split_spread">{img(ns)}<div class="grain"></div></div>', "night", "spread", [ns], "night")
     page(f'<div class="a split r" data-bleed>{img(ns)}<div class="grain"></div></div>'
          + at(6, None, 6, "on-photo", caption(ns, light=True), bottom=round(BOTTOM + 2.5, 3)), "night", "spread", [ns], "night")
-    # ===== 14 stop | 15 manifesto =============================================================================
-    so = story["stop"]
-    page(at(0, round(TOP, 3), 12, "", f'<p class="kicker" lang="en">Stop — Fig. {nk}</p>')
-         + at(0, 36, 12, "", image_in_type("STOP", src_of(nk), band=(0.40, 0.86)), tech="image_in_type")
-         + at(0, 78, 5, "cap", f'<p>{e(so["ko"])}. 글자를 밤 사진으로 채웠다 — 낱말이 곧 장면이다.</p>'),
-         "", "stop", [ns], "stop")
+    # ===== 14 manifesto | 15 black-and-white photograph (reference: vertical lines + b/w print) ============================
     mf = spec["manifesto"]
     side = side_of()
     page(f'<div class="a mani" lang="en" data-col="1" data-mirror="{side}" data-technique="experimental_type" style="left:{X(1, side)}cqw;bottom:{round(BOTTOM + 4, 3)}cqw;height:100cqw">'
          + "".join(f"<div>{e(l)}<sup>{i}</sup></div>" for i, l in enumerate(mf["lines"], 1)) + "</div>"
          + at(8, round(TOP, 3), 4, "", f'<p class="kicker" lang="en">Manifesto</p><p class="cap" style="margin-top:.8em">{e(credit_name)}, philosophy.md</p>'),
          "text", "manifesto", [], "manifesto")
-    # ===== 16 duotone | 17 pair =================================================================================
-    du = spec["duotone"]
-    page(f'<div class="a duo" style="inset:0" data-bleed data-technique="duotone">{img(du)}<div class="grain"></div><div class="scrim-b"></div></div>'
-         + at(0, None, 6, "on-photo", caption(du, f'{spec["photos"][_k(du)]} — 듀오톤', light=True), bottom=round(BOTTOM + 2.5, 3)),
-         "night", "photo", [du], "manifesto")
-    p1, p2 = L_["pair"]
-    ph = round(SPAN(12) / aspect, 3)
-    page(fig(p1, 0, round(TOP, 3), 12) + fig(p2, 0, round(TOP + ph + 10, 3), 12), "", "pair", [p1, p2], "manifesto")
-    # ===== 18 | 19 why pictures (article) ========================================================================
+    mp = mf["photo"]
+    page(bleed(mp) + at(0, None, 6, "on-photo", caption(mp, light=True), bottom=round(BOTTOM + 2.5, 3)), "bleed-page", "photo", [mp], "manifesto")
+    # ===== 16 STOP | 17 the object (14 -- outside 2-4, the most Gentle Monster object) ==========================
+    so = story["stop"]
+    page(at(0, round(TOP, 3), 12, "", f'<p class="kicker" lang="en">Stop — Fig. {nk}</p>')
+         + at(0, 36, 12, "", image_in_type("STOP", src_of(nk), band=(0.40, 0.86)), tech="image_in_type")
+         + at(0, 78, 5, "cap", f'<p>멈춤 — 글자 속의 밤. 글자를 밤 사진으로 채웠다 — 낱말이 곧 장면이다.</p>'),
+         "", "stop", [ns], "stop")
+    ob = L_["object_page"]
+    page(bleed(ob, pos="78% 55%") + at(0, None, 7, "on-photo", caption(ob, f'{spec["photos"][_k(ob)]} — 사물이 생물처럼 보이는 순간', light=True),
+                                        bottom=round(BOTTOM + 2.5, 3)), "bleed-page", "photo", [ob], "stop")
+    # ===== 18 | 19 why pictures (article) ===================================================================
     wp = L_["why_photo"]
     page(at(0, round(TOP + 4, 3), 11, "pull", f'<p class="ko" lang="ko" style="font-size:{pt(26)}cqw;line-height:1.45" data-technique="pull_quote">'
             f'“{e(L_["pull_quotes"]["why"])}”</p>')
@@ -627,13 +644,12 @@ def build(spec_path, name: str = "", pdf: bool = True) -> dict:
          + at(0, round(TOP + 9, 3), 12, "", f'<p class="byline" lang="en">Questions &amp; answers — {e(credit_name)}</p>')
          + at(0, 25, 6, "", "".join(qa_cols[0]), tech="text_columns") + at(6, 25, 6, "", "".join(qa_cols[1])),
          "text", "qa", [], "why")
-    # ===== 20 | 21 looking closer ===============================================================================
+    # ===== 20 | 21 looking closer ============================================================================
     z = spec["zoom"]
     zk = _k(z["photo"])
     cl = story["closer"]
     zh = round(SPAN(8) / aspect, 3)
     frames = ""
-    sd = side_of()
     for i, sc in enumerate(z["scales"]):
         top = 24 + i * (zh + 5.6)
         w = sc * 100
@@ -647,7 +663,6 @@ def build(spec_path, name: str = "", pdf: bool = True) -> dict:
          + at(4, None, 8, "cap", f'<p><b>{zk}</b>{e(spec["photos"][zk])} — 같은 사진을 ×1 · ×2.2 · ×4.4로 당겼다. 확대할수록 사진의 낱알이 드러난다.</p>',
               bottom=round(BOTTOM + 2, 3)),
          "", "zoom", [z["photo"]], "closer")
-    ks = sorted(k for k in spec["photos"] if k in assets)
     order = sorted(ks, key=lambda k: -meas[k]["brightness"])
     sd = side_of()
     bw = (SPAN(12) - (len(order) - 1) * 0.5) / len(order)
@@ -663,53 +678,58 @@ def build(spec_path, name: str = "", pdf: bool = True) -> dict:
          + at(0, None, 8, "cap", '<p>열다섯 장에서 잰 색 — 사진마다 여섯 색과 그 비율을, 잰 밝기 순서로 놓았다(왼쪽이 가장 밝다). '
               '지면의 사진은 채도를 낮췄지만 이 띠는 원본에서 잰 색이다.</p>', bottom=round(BOTTOM + 2, 3)),
          "", "timeline", [], "closer")
-    # ===== 22 lens | 23 index ====================================================================================
-    Lz = spec["lens"]
-    cw = round(SPAN(3) / aspect, 3)
-    cands = "".join(at(i * 3, 26, 3, "", f'<div style="height:{cw}cqw">{img(n, pos="50% 50%")}</div>'
-                       f'<p class="cap" style="margin-top:{pt(4)}cqw{";color:var(--accent-text)" if n == Lz["chosen"] else ""}"><b'
-                       f'{" style=" + chr(34) + "color:var(--accent-text)" + chr(34) if n == Lz["chosen"] else ""}>{_k(n)}</b>'
-                       f'{"표지" if n == Lz["chosen"] else ""}</p>') for i, n in enumerate(Lz["candidates"]))
-    paras = "".join(f'<p class="ko" lang="ko" style="margin-bottom:.95em">{e(r["text"])}{cite(r["claims"])}</p>' for r in Lz["reading"])
-    others = "".join(f'<p style="margin-bottom:.6em"><b>{k}</b>{e(t)}</p>' for k, t in Lz["others"].items())
-    page(section(Lz["title"], "The Gentle Monster lens", lang="ko")
-         + at(0, round(TOP + 9, 3), 12, "", '<p class="byline" lang="en">Column — the editor</p>')
-         + cands + at(0, 26 + cw + 7, 12, "cols2", paras, tech="text_columns")
-         + at(0, None, 12, "cap cols2", f'{others}<p style="margin-bottom:.6em">{e(Lz["note"])}</p><ol class="refs">REFS</ol>', bottom=round(BOTTOM + 3, 3)),
-         "text", "lens", Lz["candidates"], "lens")
+    # ===== 22 collage | 23 index (reference: collage + biography list) ==============================================
+    p1, p2 = L_["pair"]
+    cells = "".join(f'<div style="overflow:hidden" class="{"duo" if n == p1 else ""}"{" data-technique=" + chr(34) + "duotone" + chr(34) if n == p1 else ""}>{img(n)}</div>'
+                    for n in (p1, p2, 13, 3, 5, 8))
+    page(f'<div class="a" data-bleed data-technique="full_bleed" style="inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr);gap:.35cqw;'
+         f'background:var(--paper)">{cells}<div class="grain" data-technique="grain"></div></div>', "", "collage", [p1, p2, 13, 3, 5, 8], "index")
     ix = story["index"]
     rows = "".join(
         f'<div class="irow"><div style="height:{pt(20)}cqw;overflow:hidden">{img(k)}</div><span class="cap" style="color:var(--ink)">{k}</span>'
-        f'<span class="cap" style="color:var(--ink)">{e(spec["photos"][k])}<br><span class="pill" data-technique="pill_tags">{e(moods.get(k, ""))}</span></span><span class="cap">{e(meas[k]["light"])}</span>'
+        f'<span class="cap" style="color:var(--ink)">{e(spec["photos"][k])}<br><span class="pill" data-technique="pill_tags">{e(moods.get(k, ""))}</span></span>'
+        f'<span class="cap">{e(meas[k]["light"])}</span>'
         f'<span class="cap">{meas[k]["brightness"]:.2f}</span><span class="cap">{meas[k]["saturation"]:.2f}</span><span>'
         + "".join(f'<i class="sw" style="background:{hx}"></i>' for hx, _ in meas[k].get("palette", [])[:5]) + "</span></div>" for k in ks)
-    page(section(ix["en"], "Seen · measured")
+    page(section("Index of Photographs", "Seen · measured")
          + at(0, 22, 12, "", '<div class="irow h furn"><span></span><span>No.</span><span>보이는 것</span><span>빛</span><span>밝기</span><span>채도</span>'
               f'<span>색 (잰 값)</span></div>{rows}', tech="contact_sheet")
          + at(0, None, 12, "cap", f'<p>{e(spec["photos_note"])} 빛 · 밝기 · 채도 · 색은 원본 사진에서 잰 값이다(밝기 · 채도 0–1). '
               f'무드 낱말은 {e(spec["moods"]["note"])}</p>', bottom=round(BOTTOM + 2, 3)),
          "text", "index", ks, "index")
-    # ===== 24 notes | 25 last page ===============================================================================
+    # ===== 24 lens | 25 notes =================================================================================
+    Lz = spec["lens"]
+    cw = round(SPAN(3) / aspect, 3)
+    cands = "".join(at(i * 3, 30, 3, "", f'<div style="height:{cw}cqw">{img(n, pos="50% 50%")}</div>'
+                       f'<p class="cap" style="margin-top:{pt(4)}cqw{";color:var(--accent-text)" if n == Lz["chosen"] else ""}"><b'
+                       f'{" style=" + chr(34) + "color:var(--accent-text)" + chr(34) if n == Lz["chosen"] else ""}>{_k(n)}</b>'
+                       f'{"표지" if n == Lz["chosen"] else ("범위 밖" if n not in (1, 2, 12) else "")}</p>') for i, n in enumerate(Lz["candidates"]))
+    paras = "".join(f'<p class="ko" lang="ko" style="margin-bottom:.95em">{e(r["text"])}{cite(r["claims"])}</p>' for r in Lz["reading"])
+    others = "".join(f'<p style="margin-bottom:.6em"><b>{k}</b>{e(t)}</p>' for k, t in Lz["others"].items())
+    page(section(Lz["title"], "The Gentle Monster lens", lang="ko")
+         + at(0, round(TOP + 9, 3), 12, "", f'<p class="byline" lang="en">Column — the editor</p><p class="cap" style="margin-top:.6em">{e(Lz["scope"])}</p>')
+         + cands + at(0, 30 + cw + 7, 12, "cols2", paras, tech="text_columns")
+         + at(0, None, 12, "cap cols2", f'{others}<p style="margin-bottom:.6em">{e(Lz["note"])}</p><ol class="refs">REFS</ol>', bottom=round(BOTTOM + 3, 3)),
+         "text", "lens", Lz["candidates"], "lens")
     page(section(story["notes"]["en"], "Techniques · sources · colophon")
          + at(0, 22, 12, "cap tlist", "TECHS")
          + at(0, None, 6, "cap", "NOTUSED", bottom=round(BOTTOM + 2, 3))
          + at(6, None, 6, "cap", f'<p class="kicker" lang="en" style="margin-bottom:.6em">Mood reference</p><p>{e(spec["mood_reference"]["name"])}</p>'
-              f'<p style="margin-top:.4em">{e(spec["mood_reference"]["substitutions"])}</p>', bottom=round(BOTTOM + 2, 3)),
+              f'<p style="margin-top:.4em">{e(spec["reference_note"])}</p>', bottom=round(BOTTOM + 2, 3)),
          "text", "notes", [], "notes")
-    lp = L_["last_photo"]
-    page(fig(lp, 0, round(TOP + 4, 3), 12)
-         + at(0, 80, 12, "", f'<p class="title" lang="en" style="font-size:{pt(40)}cqw">“{e(c["question"])}”</p>'
-              f'<p class="ko lead" lang="ko" style="margin-top:{pt(10)}cqw;color:var(--grey)">{e(spec["last_question_ko"])}</p>', tech="white_space"),
-         "", "last", [lp], "last")
-    # ===== 26 back cover =========================================================================================
+    # ===== 26 back cover (reference: full-bleed greenery, a thin white frame, text, barcode) ========================
     b = spec["back"]
+    fr = 5.2
     page(f'<div class="a" style="inset:0" data-bleed data-technique="full_bleed">{img(b["photo"])}<div class="grain"></div></div>'
-         + at(1, 12, 10, "box", f'<div style="padding:3.2cqw 3.4cqw"><p class="ko" lang="ko" style="font-size:{T["lead"]}cqw;line-height:1.66;margin-bottom:1em">{e(b["ko"])}</p>'
-              f'<p class="body" lang="en" style="margin-bottom:1.4em;font-family:var(--serif);line-height:1.5">{e(b["en"])}</p>'
-              f'<p class="title" lang="en" style="font-size:{pt(22)}cqw">“{e(c["question"])}”</p></div>')
-         + f'<div class="a band furn" lang="en" data-technique="footer_band" style="color:{PAPER}"><span>{e(spec["masthead"])} 00 — {e(spec["credit"])}</span>'
-           f'<span lang="ko">독립 콘셉트 매거진 · 젠틀몬스터가 발행 · 승인하지 않았습니다</span></div>',
-         "text", "back", [b["photo"]], "back")
+         + f'<div class="a" data-bleed style="left:{fr}cqw;right:{fr}cqw;top:{fr}cqw;bottom:{fr}cqw;border:1px solid rgba(255,255,255,.85)"></div>'
+         + at(1, 12, 7, "on-photo", f'<p class="kicker" lang="en" style="color:#f6f3ec">{e(spec["masthead"])} 00 — Where Did You Last Stop?</p>'
+              f'<p class="ko" lang="ko" style="font-size:{T["lead"]}cqw;line-height:1.66;margin:{pt(8)}cqw 0 {pt(8)}cqw;color:#f6f3ec">{e(b["ko"])}</p>'
+              f'<p lang="en" style="font-size:{T["body"]}cqw;line-height:1.5;color:#f6f3ec">{e(b["en"])}</p>')
+         + at(1, None, 3, "barcode", f'{barcode_svg("SPA-00")}<p class="furn" lang="en" style="color:#111;margin-top:.5cqw;line-height:1.5">'
+              f'SPA-00 · Concept issue<br>Not for sale</p>', bottom=round(BOTTOM + 1, 3), tech="newsstand")
+         + at(5, None, 6, "on-photo", f'<p class="furn" lang="en" style="color:#e9e6dd;line-height:1.6">{e(spec["credit"])}<br>'
+              f'<span lang="ko">독립 콘셉트 매거진 · 젠틀몬스터가 발행 · 승인하지 않았습니다</span></p>', bottom=round(BOTTOM + 1, 3), tech="footer_band"),
+         "bleed-page", "back", [b["photo"]], "back")
 
     # ---- fill-ins that need every page first
     first = {}
@@ -718,16 +738,12 @@ def build(spec_path, name: str = "", pdf: bool = True) -> dict:
     toc = "".join(f'<a href="#p{first[s_["id"]]:02d}" class="toc"><span class="num-l" style="font-size:{pt(19)}cqw;line-height:1">{first[s_["id"]]:02d}</span>'
                   f'<span><span lang="en" style="display:block;font-size:{T["lead"]}cqw;line-height:1.2">{e(s_["en"])}</span>'
                   f'<span class="cap" style="display:block;margin-top:.2em">{e(s_["ko"])}</span></span>'
-                  f'<span class="furn" lang="en" style="text-align:right">{"Feature" if s_["id"] in ("opener", "why") else ("Column" if s_["id"] == "lens" else "")}</span></a>'
+                  f'<span class="furn" lang="en" style="text-align:right">{"Feature" if s_["id"] in ("intro", "why") else ("Column" if s_["id"] == "lens" else "")}</span></a>'
                   for s_ in spec["story"] if s_["id"] != "contents" and first.get(s_["id"]))
-    pages[2]["html"] = pages[2]["html"].replace("TOC", toc, 1)
-    clines = "".join(f'<div class="cline"><span class="num-l" style="font-size:{pt(9)}cqw;color:#f6f3ec">{first[k]:02d}</span><span>'
-                     f'<span lang="en" style="font-size:{pt(15)}cqw;line-height:1.1;display:block">{e(t)}</span>'
-                     f'<span class="cap" style="color:#e4e0d6">{e(ko_)}</span></span></div>' for t, ko_, k in lines if first.get(k))
-    pages[0]["html"] = pages[0]["html"].replace("CLINES", clines, 1)
+    pages[1]["html"] = pages[1]["html"].replace("TOC", toc, 1)
     used = {}
     for p in pages:
-        for t in re.findall(r'data-technique="([a-z_]+)"', p["html"]):
+        for t in (t for g in re.findall(r'data-technique="([a-z_ ]+)"', p["html"]) for t in g.split()):
             used.setdefault(t, [])
             if p["n"] not in used[t]:
                 used[t].append(p["n"])
@@ -803,8 +819,8 @@ def qa(spec, pages, html_path, pres, meas, assets, bad_text, missing, want_pdf, 
     import colorsys
     hue = lambda hx: colorsys.rgb_to_hls(*(int(hx[i:i + 2], 16) / 255 for i in (1, 3, 5)))[0]
     dh = abs(hue(ACCENT_RAW) - hue(measured_accent["raw"])) * 360
-    out.append(C("mood", "catalogue red agrees with the cover photo's measured red", "PASS" if min(dh, 360 - dh) <= 15 else "WARNING",
-                 f"{ACCENT_RAW} vs measured {measured_accent['raw']}: hue apart {min(dh, 360 - dh):.1f}°"))
+    out.append(C("mood", "catalogue red agrees with the photographs' measured red", "PASS" if min(dh, 360 - dh) <= 15 else "WARNING",
+                 f"{ACCENT_RAW} vs measured {measured_accent['raw']} (photo {measured_accent.get('photo')}): hue apart {min(dh, 360 - dh):.1f}°"))
     # techniques
     absent = [t for t in TECHNIQUES if t not in used]
     out.append(C("techniques", "every registered technique is on a page", "FAIL" if absent else "PASS", ", ".join(absent) or f"{len(used)} techniques"))

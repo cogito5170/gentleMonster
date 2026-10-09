@@ -7,7 +7,7 @@
  "rights": "own",
  "masthead": "SPA",
  "cover": {
-  "photo": 14,
+  "photo": 2,
   "left": [
    "STYLE",
    "PICTURE",
@@ -22,7 +22,9 @@
    "IN GENTLE MONSTER"
   ],
   "question": "Where Did You Last Stop?",
-  "source": "docs/portfolio/cover.md"
+  "source": "docs/portfolio/cover.md",
+  "values": "People shape spaces, and spaces shape people back. I design the moment in between, when someone stops.",
+  "values_source": "docs/portfolio/philosophy.md"
  },
  "photos": {
   "01": "물에 든 사람들, 곶 위의 호텔, 해 질 무렵의 바다",
@@ -118,10 +120,10 @@
  ],
  "qa_source": "docs/portfolio/02_picture.md",
  "back": {
-  "photo": 2,
+  "photo": 9,
   "ko": "사람은 공간을 만들고, 공간은 다시 사람을 만든다. 나는 그 사이에서, 사람이 발걸음을 멈추는 순간을 설계한다.",
   "en": "People shape spaces, and spaces shape people back. I design the moment in between, when someone stops.",
-  "why": "cover.md: 표지는 '멈춤', 마지막 장은 '멈춘 뒤 남는 자리' -- 흐린 날 빈 주차장의 차",
+  "why": "레퍼런스 보드의 뒤표지(초록 숲 풀블리드 + 흰 테두리 + 바코드) — 절벽 위 풀 사이로 내려다본 해변. 흐린 날 빈 주차장(02)은 표지로 갔다(젠틀몬스터의 눈으로 고른 2–4번 중 하나).",
   "source": "docs/portfolio/philosophy.md"
  },
  "lens": {
@@ -132,40 +134,42 @@
    12,
    14
   ],
-  "chosen": 14,
+  "chosen": 2,
   "reading": [
    {
-    "text": "젠틀몬스터의 공간에서는 기계가 살아 있는 것처럼 군다. 베이징 SKP-S의 ‘Future Farm’에서는 로봇 양이 숨을 쉬고, 회사의 로봇 연구실은 여섯 다리로 걷는 ‘THE PROBE’를 만들었다. 하우스 노웨어 서울의 거대한 닥스훈트 ‘Sunshine’도 숨을 쉰다.",
+    "text": "하우스 도산의 1층에는 상품이 없고 설치물만 있다. 공간 자체가 무대이고, 그 위에 놓인 하나의 대상이 사람을 멈추게 한다. 흐린 날 빈 주차장의 차 한 대가 정확히 그 구조다 — 비어 있는 땅, 하나의 사물.",
     "claims": [
-     "clm-skp-future-farm",
-     "clm-gm-robotics-lab",
-     "clm-hn-sunshine"
+     "clm-hd-floors",
+     "clm-hd-ground-floor-provocation"
     ]
    },
    {
-    "text": "파란 통 기차는 그 반대편에서 같은 일을 한다. 버려질 법한 통이 바퀴와 주황 불빛을 달고 줄지어 서서, 사물이 생물처럼 보인다. 웅덩이가 그것을 한 번 더 세운다.",
-    "claims": []
+    "text": "하우스 도산은 BCHO 건축이 설계한 5층 콘크리트 건물이다. 사진의 회색 바닥과 안개는 같은 재료의 말로 읽힌다 — 색을 덜어 낸 자리에 질감과 빛만 남는다.",
+    "claims": [
+     "clm-hd-opening"
+    ]
    },
    {
-    "text": "SKP-S의 주제는 ‘디지털-아날로그의 미래’다. 기술의 미래와 아날로그의 노스탤지어가 만나는 자리다. 낡은 놀이기구는 노스탤지어이고, 줄지어 선 기계는 미래다.",
+    "text": "SKP-S의 주제는 ‘디지털-아날로그의 미래’, 기술의 미래와 아날로그의 노스탤지어가 만나는 자리다. 안개 속에 멈춘 차는 미래의 장면처럼도, 지나간 장면처럼도 보인다.",
     "claims": [
      "clm-skp-theme"
     ]
    },
    {
-    "text": "하우스 도산의 1층에는 상품이 없고 설치물만 있다. 이 표지도 상품을 보여 주지 않는다. 멈추게 하는 장면 하나를 보여 준다.",
+    "text": "범위 밖의 14번 — 파란 통 기차 — 는 가장 젠틀몬스터다운 ‘사물’이다. 로봇 양이 숨 쉬고 여섯 다리 로봇이 걷는 것처럼, 버려질 법한 통이 생물처럼 보인다. 그래서 안쪽 한 쪽을 통째로 준다.",
     "claims": [
-     "clm-hd-floors",
-     "clm-hd-ground-floor-provocation"
+     "clm-skp-future-farm",
+     "clm-gm-robotics-lab"
     ]
    }
   ],
   "others": {
-   "12": "‘멈춤’ 이야기에는 가장 강하다. 처음 표지로 골랐던 사진이다. 다만 영화 같은 거리 사진에 가깝고, 사물이 다른 것이 되는 순간은 약하다.",
-   "02": "조용하고 정돈되어 있다. 낯섦보다 고요에 가깝다. 그래서 뒤표지에 둔다 — 멈춘 뒤에 남는 자리.",
-   "01": "아름답지만 엽서에 가깝다. 이 장면은 다른 것이 되지 않는다."
+   "12": "‘멈춤’ 이야기에는 가장 강하다. 다만 영화 같은 거리 사진에 가깝다.",
+   "01": "아름답지만 엽서에 가깝다. 다른 것이 되지 않는다.",
+   "14": "범위(2–4) 밖. 가장 젠틀몬스터다운 사물 — 안쪽 한 쪽으로."
   },
-  "note": "편집자의 읽기다. 근거로 단 출처는 모두 검색 결과의 조각으로만 확인했다(원문 미열람)."
+  "note": "편집자의 읽기다. 근거로 단 출처는 모두 검색 결과의 조각으로만 확인했다(원문 미열람).",
+  "scope": "사용자의 물음: 2–4번(해변 · 빈 주차장 · 밤 빨간불) 중 젠틀몬스터가 가장 추구할 이미지. 14(파란 통 기차)는 범위 밖이지만 함께 놓는다."
  },
  "focus": {
   "02": "68% 55%",
@@ -188,9 +192,14 @@
    "ko": "차례"
   },
   {
-   "id": "opener",
-   "en": "Where Did You Last Stop?",
-   "ko": "포토 에세이 — 열다섯 번의 멈춤"
+   "id": "intro",
+   "en": "Introduction",
+   "ko": "여는 글 — 두 번째로 멈추는 곳"
+  },
+  {
+   "id": "stops",
+   "en": "15 Stops",
+   "ko": "열다섯 번 멈춘 자리 — 갤러리 벽"
   },
   {
    "id": "day",
@@ -208,14 +217,14 @@
    "ko": "밤 — 빨간불 앞에서 멈춘다"
   },
   {
-   "id": "stop",
-   "en": "Stop",
-   "ko": "멈춤 — 글자 속의 밤"
-  },
-  {
    "id": "manifesto",
    "en": "Manifesto",
    "ko": "선언"
+  },
+  {
+   "id": "stop",
+   "en": "Stop",
+   "ko": "멈춤 — 글자 속의 밤 · 생물이 된 사물"
   },
   {
    "id": "why",
@@ -228,24 +237,19 @@
    "ko": "가까이 보기 — 한 장을 세 번, 하루의 색"
   },
   {
+   "id": "index",
+   "en": "Index",
+   "ko": "콜라주와 사진 색인"
+  },
+  {
    "id": "lens",
    "en": "The Gentle Monster Lens",
    "ko": "젠틀몬스터의 눈으로 고른 표지"
   },
   {
-   "id": "index",
-   "en": "Index of Photographs",
-   "ko": "사진 색인 — 보이는 것과 잰 것"
-  },
-  {
    "id": "notes",
    "en": "Notes & Credits",
    "ko": "기법 · 출처 · 판권"
-  },
-  {
-   "id": "last",
-   "en": "Last Page",
-   "ko": "마지막 쪽"
   }
  ],
  "story_note": "하루를 따라 걷는다: 전체를 한 번 보고, 낮에서 해 질 녘, 새싹(낮)과 전구(밤)가 넘어가는 경첩, 밤의 빨간불에서 멈춘다. 그다음 선언, 기록, 물음. 뒤표지는 멈춘 뒤 남는 자리(cover.md 의 결정).",
@@ -363,7 +367,9 @@
    "day": "카메라를 들면 평소에 그냥 지나치던 것을 보게 된다.",
    "why": "사진은 그 순간으로 나를 다시 데려다 놓는다."
   },
-  "pull_source": "docs/portfolio/02_picture.md"
+  "pull_source": "docs/portfolio/02_picture.md",
+  "object_page": 14
  },
- "last_question_ko": "당신이 마지막으로 멈춘 곳은 어디인가?"
+ "last_question_ko": "당신이 마지막으로 멈춘 곳은 어디인가?",
+ "reference_note": "MCA 레퍼런스 보드의 메모: 대표하는 텍스트 · 커버 사진 강력한 한 장 · 디자인에 대한 가치관"
 }

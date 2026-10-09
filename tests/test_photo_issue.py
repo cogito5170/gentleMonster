@@ -158,7 +158,9 @@ else:
     red = Path(r["dir"]).parent / "red"
     shutil.copytree(Path(r["dir"]), red)
     h = (red / "index.html").read_text(encoding="utf-8")
-    h = h.replace('data-technique="white_space" style="', 'data-technique="white_space" style="margin-top:-24cqw;', 1)   # 'In this issue' onto the standfirst
+    i = h.index('>In this issue')                                    # anchored on the block, not on the first white_space
+    j = h.rindex('data-technique="white_space" style="', 0, i) + len('data-technique="white_space" style="')
+    h = h[:j] + 'margin-left:-20cqw;' + h[j:]                          # 'In this issue' slid onto the English body beside it
     h = h.replace('<p class="ko" lang="ko" style="font-size:', '<p class="ko" lang="ko" style="font-weight:700;font-size:', 1)   # Korean set bold
     h = h.replace('data-technique="text_columns" style="', 'data-technique="text_columns" style="margin-left:1.3cqw;', 1)
     (red / "index.html").write_text(h, encoding="utf-8")
