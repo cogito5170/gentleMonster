@@ -1,0 +1,330 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>JEONG HYEOKJU CV</title></head><body>
+<title>JEONG HYEOKJU CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@400;500&display=swap">
+<style>
+/* Layout: A4 sheets on a gallery-grey ground, the way Gentle Monster isolates a product on #efefef.
+   Each sheet is drawn at 794 x 1123 units and scales with its container (no reflow). */
+:root {
+  --gallery: #efefef;     /* product-shot ground, measured from the article */
+  --paper: #ffffff;
+  --ink: #0a0a0a;
+  --ink-2: #4a4a48;       /* secondary text: 9.1:1 on paper, 8.0:1 on gallery */
+  --concrete: #9b9996;    /* store concrete, measured; rules and swatch frames only */
+  --rule: #d6d6d3;
+  --stop: #d8261b;        /* the one colour: the red light on the cover photo */
+  --wide: "Archivo", "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Instrument Serif", "Noto Serif KR", "Times New Roman", serif;
+  --text: "Noto Serif KR", "Instrument Serif", "Times New Roman", serif;
+  --sans-kr: "Noto Sans KR", "Archivo", sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--gallery); color: var(--ink); font-family: var(--text); -webkit-font-smoothing: antialiased; }
+.wrap { padding-inline: 16px; padding-block: 40px 64px; display: grid; justify-items: center; gap: 40px; }
+.intro { width: min(794px, 100%); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: var(--wide); font-stretch: 125%; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-2); }
+
+.sheet { width: min(794px, 100%); aspect-ratio: 210 / 297; background: var(--paper); container-type: inline-size; position: relative; overflow: hidden; box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 24px 60px -30px rgba(0,0,0,.35); }
+.page > * { flex-shrink: 0; }
+.page { --u: calc(100cqw / 794); position: absolute; inset: 0; padding: calc(var(--u) * 40) calc(var(--u) * 44); display: flex; flex-direction: column; font-size: calc(var(--u) * 11); line-height: 1.62; word-break: keep-all; }
+
+/* Running header */
+.run { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--wide); font-stretch: 125%; font-weight: 400; font-size: calc(var(--u) * 7.5); letter-spacing: .24em; text-transform: uppercase; color: var(--ink); }
+.run b { font-weight: 700; }
+
+/* Pills on a hairline: the article's section dividers (About / Brand / Collaboration / Display) */
+.sec { display: grid; grid-template-columns: calc(var(--u) * 150) 1fr; column-gap: calc(var(--u) * 24); }
+.divider { grid-column: 1 / -1; display: flex; align-items: center; gap: calc(var(--u) * 10); margin-bottom: calc(var(--u) * 16); }
+.divider::after { content: ""; flex: 1; height: 1px; background: var(--ink); }
+.pill { display: inline-flex; align-items: center; height: calc(var(--u) * 20); padding: 0 calc(var(--u) * 10); border-radius: 999px; background: var(--ink); color: var(--paper); font-family: var(--wide); font-stretch: 100%; font-weight: 600; font-size: calc(var(--u) * 9); letter-spacing: .01em; }
+.pill.open { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+.label { font-family: var(--wide); font-stretch: 125%; font-size: calc(var(--u) * 7.5); line-height: 1.5; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-2); }
+
+/* Page 1 */
+.name { margin: calc(var(--u) * 34) 0 0; font-family: var(--wide); font-stretch: 125%; font-weight: 250; font-size: calc(var(--u) * 82); line-height: .88; letter-spacing: -.015em; text-transform: uppercase; }
+.name-row { display: flex; justify-content: space-between; align-items: flex-end; gap: calc(var(--u) * 24); }
+.who { text-align: right; padding-bottom: calc(var(--u) * 6); }
+.who .ko { display: block; font-family: var(--text); font-weight: 600; font-size: calc(var(--u) * 15); letter-spacing: .02em; }
+.who .role { display: block; margin-top: calc(var(--u) * 4); font-family: var(--serif); font-style: italic; font-size: calc(var(--u) * 15); line-height: 1.2; }
+
+.field { position: relative; margin-top: calc(var(--u) * 22); height: calc(var(--u) * 196); background: var(--gallery); }
+.field .disc { position: absolute; width: calc(var(--u) * 136); height: calc(var(--u) * 136); right: calc(var(--u) * 64); top: calc(var(--u) * 30); border-radius: 50%; background: var(--stop); }
+.field .q { position: absolute; left: calc(var(--u) * 22); bottom: calc(var(--u) * 18); margin: 0; font-family: var(--serif); font-style: italic; font-size: calc(var(--u) * 40); line-height: 1; letter-spacing: -.01em; }
+.field .cap { position: absolute; left: calc(var(--u) * 22); top: calc(var(--u) * 18); margin: 0; width: calc(var(--u) * 170); font-size: calc(var(--u) * 8.5); line-height: 1.5; color: var(--ink-2); }
+.field .cap b { display: block; font-family: var(--wide); font-stretch: 125%; font-weight: 600; font-size: calc(var(--u) * 7); letter-spacing: .2em; color: var(--ink); }
+
+.about { margin-top: calc(var(--u) * 24); }
+.lede { margin: 0; font-family: var(--text); font-weight: 600; font-size: calc(var(--u) * 15.5); line-height: 1.55; }
+.lede-en { margin: calc(var(--u) * 8) 0 0; font-family: var(--serif); font-style: italic; font-size: calc(var(--u) * 15); line-height: 1.3; color: var(--ink-2); }
+.about .body { margin: calc(var(--u) * 10) 0 0; max-width: 60ch; }
+.good { margin: calc(var(--u) * 10) 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 16); }
+.good li { border-top: 1px solid var(--rule); padding-top: calc(var(--u) * 8); }
+.good .n { font-family: var(--serif); font-size: calc(var(--u) * 22); line-height: 1; display: block; margin-bottom: calc(var(--u) * 4); }
+
+.space { margin-top: auto; padding-top: calc(var(--u) * 18); }
+.works { margin: 0; padding: 0; list-style: none; grid-column: 1 / -1; }
+.work { display: grid; grid-template-columns: calc(var(--u) * 34) calc(var(--u) * 140) 1fr calc(var(--u) * 150); column-gap: calc(var(--u) * 16); padding: calc(var(--u) * 9) 0; border-top: 1px solid var(--rule); align-items: baseline; }
+.work:last-child { border-bottom: 1px solid var(--rule); }
+.work .no { font-family: var(--serif); font-size: calc(var(--u) * 20); line-height: 1; }
+.work .brand { font-family: var(--wide); font-stretch: 125%; font-weight: 600; font-size: calc(var(--u) * 8); letter-spacing: .16em; text-transform: uppercase; }
+.work .title { font-family: var(--serif); font-size: calc(var(--u) * 19); line-height: 1.05; }
+.work .title small { display: block; margin-top: calc(var(--u) * 3); font-family: var(--text); font-size: calc(var(--u) * 10); line-height: 1.45; color: var(--ink-2); }
+.work .kw { font-size: calc(var(--u) * 9); line-height: 1.45; color: var(--ink-2); }
+.work.gm .no { color: var(--stop); }
+
+.foot { margin-top: calc(var(--u) * 18); display: flex; justify-content: space-between; font-family: var(--wide); font-stretch: 125%; font-size: calc(var(--u) * 7); letter-spacing: .22em; text-transform: uppercase; color: var(--ink-2); }
+
+/* Page 2 */
+.stack { display: grid; gap: calc(var(--u) * 21); margin-top: calc(var(--u) * 30); }
+.spa { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(var(--u) * 14); }
+.spa div { border-top: 1px solid var(--ink); padding-top: calc(var(--u) * 8); }
+.spa .w { display: block; font-family: var(--wide); font-stretch: 125%; font-weight: 300; font-size: calc(var(--u) * 17); letter-spacing: .02em; text-transform: uppercase; line-height: 1.1; }
+.spa .d { display: block; margin-top: calc(var(--u) * 6); font-size: calc(var(--u) * 10); line-height: 1.5; color: var(--ink-2); }
+.p { margin: 0; }
+.p + .p { margin-top: calc(var(--u) * 6); }
+.flow { margin: calc(var(--u) * 4) 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: calc(var(--u) * 6); }
+.flow li { font-family: var(--sans-kr); font-size: calc(var(--u) * 9); line-height: 1; padding: calc(var(--u) * 5) calc(var(--u) * 9); border: 1px solid var(--ink); border-radius: 999px; }
+.flow li.arrow { border: 0; padding-inline: 0; color: var(--ink-2); }
+.meta { margin-top: calc(var(--u) * 8); font-size: calc(var(--u) * 9); color: var(--ink-2); }
+.words { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(var(--u) * 14); margin-top: calc(var(--u) * 10); }
+.word { background: var(--gallery); height: calc(var(--u) * 92); display: flex; align-items: flex-end; justify-content: space-between; padding: calc(var(--u) * 10) calc(var(--u) * 12); }
+.word b { font-family: var(--text); font-weight: 600; font-size: calc(var(--u) * 26); line-height: 1; }
+.word span { font-family: var(--serif); font-style: italic; font-size: calc(var(--u) * 12); color: var(--ink-2); }
+.chips { display: grid; grid-template-columns: repeat(5, 1fr); gap: calc(var(--u) * 8); }
+.chip i { display: block; height: calc(var(--u) * 46); }
+.chip span { display: block; margin-top: calc(var(--u) * 5); font-family: var(--wide); font-stretch: 100%; font-size: calc(var(--u) * 8); line-height: 1.35; color: var(--ink-2); }
+.chip span b { color: var(--ink); font-weight: 600; }
+.kv { display: grid; grid-template-columns: calc(var(--u) * 78) 1fr; gap: calc(var(--u) * 3) calc(var(--u) * 12); margin-top: calc(var(--u) * 12); font-size: calc(var(--u) * 10); line-height: 1.5; }
+.kv dt { font-family: var(--wide); font-stretch: 125%; font-size: calc(var(--u) * 7); letter-spacing: .2em; text-transform: uppercase; color: var(--ink-2); padding-top: calc(var(--u) * 2); }
+.kv dd { margin: 0; }
+.cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 20); }
+.refs { margin: 0; padding: 0; list-style: none; display: grid; gap: calc(var(--u) * 5); font-size: calc(var(--u) * 9.5); line-height: 1.5; }
+.refs em { font-family: var(--serif); font-size: calc(var(--u) * 11.5); }
+.blank { display: inline-block; min-width: calc(var(--u) * 180); border-bottom: 1px dashed var(--concrete); color: var(--ink-2); font-family: var(--sans-kr); font-size: calc(var(--u) * 8.5); }
+
+/* Page 3: notes */
+.notes-title { margin: calc(var(--u) * 40) 0 0; font-family: var(--serif); font-size: calc(var(--u) * 46); line-height: 1; letter-spacing: -.01em; }
+.notes-title i { display: block; color: var(--ink-2); }
+.notes-sub { margin: calc(var(--u) * 10) 0 0; max-width: 62ch; color: var(--ink-2); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 22) calc(var(--u) * 28); margin-top: calc(var(--u) * 26); }
+.note h3 { margin: 0 0 calc(var(--u) * 8); display: flex; align-items: center; gap: calc(var(--u) * 8); font-weight: 400; }
+.note h3::after { content: ""; flex: 1; height: 1px; background: var(--ink); }
+.note ol { margin: 0; padding-left: calc(var(--u) * 14); display: grid; gap: calc(var(--u) * 5); font-size: calc(var(--u) * 10); line-height: 1.55; }
+.note ol li::marker { font-family: var(--serif); }
+.spec { margin-top: calc(var(--u) * 8); display: grid; gap: calc(var(--u) * 6); }
+.spec div { display: flex; align-items: baseline; justify-content: space-between; gap: calc(var(--u) * 10); border-top: 1px solid var(--rule); padding-top: calc(var(--u) * 5); }
+.spec .s1 { font-family: var(--wide); font-stretch: 125%; font-weight: 250; font-size: calc(var(--u) * 20); text-transform: uppercase; line-height: 1; }
+.spec .s2 { font-family: var(--serif); font-style: italic; font-size: calc(var(--u) * 22); line-height: 1; }
+.spec .s3 { font-family: var(--text); font-size: calc(var(--u) * 12); }
+.spec small { font-size: calc(var(--u) * 8.5); color: var(--ink-2); text-align: right; }
+.sw { display: grid; grid-template-columns: repeat(4, 1fr); gap: calc(var(--u) * 6); margin-top: calc(var(--u) * 8); }
+.sw div i { display: block; height: calc(var(--u) * 30); border: 1px solid var(--rule); }
+.sw div span { display: block; margin-top: calc(var(--u) * 3); font-family: var(--wide); font-size: calc(var(--u) * 7.5); line-height: 1.35; color: var(--ink-2); }
+.src { margin-top: auto; font-size: calc(var(--u) * 8); line-height: 1.6; color: var(--ink-2); }
+.src a { color: var(--ink); text-underline-offset: 2px; }
+.src a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+</style>
+
+<div class="wrap">
+  <div class="intro"><span>Jeong Hyeokju — CV</span><span>3 sheets · A4</span></div>
+
+  <!-- ============ SHEET 1 ============ -->
+  <section class="sheet" aria-label="CV page 1">
+    <div class="page">
+      <div class="run"><span><b>Gentle Monster</b> — Spatial Design</span><span>Curriculum Vitae · 2026 · 01 / 03</span></div>
+
+      <div class="name-row">
+        <h1 class="name">Jeong<br>Hyeokju</h1>
+        <div class="who"><span class="ko">정혁주</span><span class="role">Spatial Designer,<br>in Gentle Monster</span></div>
+      </div>
+
+      <div class="field" role="img" aria-label="Two red lights on a grey field">
+        <span class="disc"></span>
+        <p class="q">Where did you last stop?</p>
+        <p class="cap"><b>Object 01 — Stop light</b>비 오는 밤, 차 안에서 본 두 개의 빨간불. 포트폴리오 표지 사진에서 가져온 이 지면의 유일한 색.</p>
+      </div>
+
+      <div class="sec about">
+        <div class="divider"><span class="pill">About</span></div>
+        <div class="label">Philosophy</div>
+        <div>
+          <p class="lede">사람은 공간을 만들고, 공간은 다시 사람을 만든다. 나는 그 사이에서, 사람이 발걸음을 멈추는 순간을 설계한다.</p>
+          <p class="lede-en">People shape spaces, and spaces shape people back. I design the moment in between, when someone stops.</p>
+          <ul class="good">
+            <li><span class="n">i.</span>발걸음을 멈추고 머물고 싶어지는 공간</li>
+            <li><span class="n">ii.</span>기억에 남아 다시 찾게 되는 공간</li>
+          </ul>
+          <p class="body">그런 공간에는 일상과 동떨어진 경험이 있다. 나는 사람들에게 좋은 공간의 경험을 선물하고, 누군가 그곳에서 잠시 멈춰 작은 위안을 얻기를 바란다.</p>
+        </div>
+      </div>
+
+      <div class="sec space">
+        <div class="divider"><span class="pill">Space</span></div>
+        <ol class="works">
+          <li class="work gm"><span class="no">01</span><span class="brand">Gentle Monster</span><span class="title">The Synthetic Titan<small>기억을 이식받은 거인의 정원. 서기 3000년, 감정을 복원하려 만든 거인 티탄의 뇌 속을 걸으며 안경을 채집한다.</small></span><span class="kw">낯설게 하기 · 숨 쉬는 기계 · 채집</span></li>
+          <li class="work"><span class="no">02</span><span class="brand">Tamburins</span><span class="title">Residue of Scent<small>침묵하는 백마와 고체화된 잔향. 바람이 멈춘 설원, 제품은 거대 양초의 균열 속에 묻혀 있다.</small></span><span class="kw">감각 덜어내기 · 균열 · 손으로 찾기</span></li>
+          <li class="work"><span class="no">03</span><span class="brand">Acne Studios</span><span class="title">Monolithic Fusion<small>원시 암석과 미래 알루미늄의 성소. 화강암 모놀리스가 거울 알루미늄 챔버를 관통한다.</small></span><span class="kw">물성 충돌 · 모노크롬 · 휘어진 반사</span></li>
+          <li class="work"><span class="no">04</span><span class="brand">Aesop</span><span class="title">The Stratified Apothecary<small>지층이 축적한 약제사의 서재. 붉은 점토와 재생 목재의 벽, 황동 세면대의 물소리.</small></span><span class="kw">지층 · 장소성 · 정화의 의식</span></li>
+        </ol>
+      </div>
+
+      <div class="foot"><span>Spatial synopsis series, 2026</span><span>Synopsis → Layout → Moodboard → Blueprint → Walkthrough</span></div>
+    </div>
+  </section>
+
+  <!-- ============ SHEET 2 ============ -->
+  <section class="sheet" aria-label="CV page 2">
+    <div class="page">
+      <div class="run"><span><b>Jeong Hyeokju</b> — 정혁주</span><span>Curriculum Vitae · 2026 · 02 / 03</span></div>
+
+      <div class="stack">
+        <div class="sec">
+          <div class="divider"><span class="pill">Portfolio</span></div>
+          <div class="label">SPA, 2026<br>Book</div>
+          <div>
+            <div class="spa">
+              <div><span class="w">Style</span><span class="d">스타일이 좋은 사람 앞에서 멈춘다. 옷은 누구나 살 수 있지만 스타일은 그 사람만 만든다.</span></div>
+              <div><span class="w">Picture</span><span class="d">사진 같은 장면 앞에서 멈춘다. 빛, 색, 사람, 장소가 한순간에 맞아떨어질 때.</span></div>
+              <div><span class="w">Architecture</span><span class="d">좋은 공간 앞에서 멈춘다. 좋은 사진 뒤에는 늘 좋은 장소가 있었다.</span></div>
+            </div>
+            <p class="meta">"A Person with Style, A Moment like A Photograph, A Building That Holds Me — I Stop." 표지가 묻고 세 섹션이 차례로 답하는 책.</p>
+          </div>
+        </div>
+
+        <div class="sec">
+          <div class="divider"><span class="pill">Process</span></div>
+          <div class="label">Space design<br>pipeline</div>
+          <div>
+            <p class="p">브리프 한 줄에서 공간 시놉시스를 쓰고, 레이아웃과 잡지형 무드보드, A3 청사진, 동선을 따라 걷는 30초 워크스루까지 만드는 작업 흐름을 직접 짜서 쓴다.</p>
+            <ul class="flow" aria-label="Pipeline steps">
+              <li>브리프</li><li class="arrow" aria-hidden="true">→</li><li>시놉시스</li><li class="arrow" aria-hidden="true">→</li><li>레이아웃 PDF</li><li class="arrow" aria-hidden="true">→</li><li>무드보드 PDF</li><li class="arrow" aria-hidden="true">→</li><li>청사진 · 실사 렌더</li><li class="arrow" aria-hidden="true">→</li><li>30초 워크스루</li>
+            </ul>
+            <p class="meta">Python · Chromium(Playwright) · three.js · Gemini API — AI와 함께 만든 도구.</p>
+          </div>
+        </div>
+
+        <div class="sec">
+          <div class="divider"><span class="pill">Picture</span></div>
+          <div class="label">One to One<br>word series</div>
+          <div>
+            <p class="p">밤의 불빛, 해 질 녘, 거리의 사람을 찍는다. 사진 한 장에 단어 하나, 단어는 내가 실제로 멈춰서 본 것을 부른다.</p>
+            <div class="words">
+              <div class="word"><b>웅덩이</b><span>puddle</span></div>
+              <div class="word"><b>새싹</b><span>sprout</span></div>
+              <div class="word"><b>전구</b><span>bulb</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec">
+          <div class="divider"><span class="pill">Style</span></div>
+          <div class="label">Sector A<br>My style</div>
+          <div>
+            <div class="chips">
+              <div class="chip"><i style="background:#1d1b19"></i><span><b>Black</b><br>#1D1B19</span></div>
+              <div class="chip"><i style="background:#2c2716"></i><span><b>Olive</b><br>#2C2716</span></div>
+              <div class="chip"><i style="background:#c4b29b"></i><span><b>Beige</b><br>#C4B29B</span></div>
+              <div class="chip"><i style="background:#c3bfb1"></i><span><b>Off-white</b><br>#C3BFB1</span></div>
+              <div class="chip"><i style="background:#445162"></i><span><b>Slate</b><br>#445162</span></div>
+            </div>
+            <dl class="kv">
+              <dt>Eyewear</dt><dd>뿔테 안경, 반투명 선글라스, 검정 선글라스</dd>
+              <dt>Clothes</dt><dd>오버핏 롱코트 · 올리브 파카 · 밝은 재킷 · 통 넓은 바지 · 회색 니트</dd>
+              <dt>Scent</dt><dd>딥디크, 조말론, 버버리</dd>
+              <dt>Rule</dt><dd>헤어 스타일, 옷의 톤과 향의 무드를 그날 갈 장소에 맞춘다.</dd>
+            </dl>
+          </div>
+        </div>
+
+        <div class="sec">
+          <div class="divider"><span class="pill">Research</span></div>
+          <div class="label">Reading</div>
+          <ul class="refs">
+            <li><em>Ostranenie</em> — 빅토르 슈클로프스키, 낯설게 하기</li>
+            <li><em>Simulacra</em> — 장 보드리야르, 원본보다 강한 복제</li>
+            <li><em>The Experience Economy</em> — Pine &amp; Gilmore · 베른트 슈미트의 SEEM</li>
+            <li>배예은 · 박찬일(2020), 「오브제를 활용한 젠틀몬스터의 공간마케팅 전략 특성과 공간디자인 연구」</li>
+            <li>매장 비교: 탬버린즈 · 아크네 스튜디오 · 발렌시아가 · 도버 스트리트 마켓 · 이솝</li>
+          </ul>
+        </div>
+
+        <div class="sec">
+          <div class="divider"><span class="pill open">Record</span></div>
+          <div class="label">To be filled<br>by the applicant</div>
+          <dl class="kv" style="margin-top:0">
+            <dt>Education</dt><dd><span class="blank">학교 · 전공 · 기간</span></dd>
+            <dt>Experience</dt><dd><span class="blank">회사 · 역할 · 기간</span></dd>
+            <dt>Contact</dt><dd><span class="blank">이메일 · 전화 · 인스타그램</span></dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="foot" style="margin-top:auto;padding-top:calc(var(--u)*12)"><span>I stop for people whose style is their own.</span><span>Every good picture had a good place behind it.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ SHEET 3 ============ -->
+  <section class="sheet" aria-label="Editorial notes">
+    <div class="page">
+      <div class="run"><span><b>Editorial notes</b> — 이 CV를 짠 규칙</span><span>03 / 03</span></div>
+
+      <h2 class="notes-title">Gentle Monster,<i>read as a magazine.</i></h2>
+      <p class="notes-sub">[A to Z] 젠틀몬스터 아티클의 사진 38장과 캠페인 영상 썸네일, 그리고 캠페인·웹사이트를 다룬 기사와 논문에서 지면 규칙을 뽑았다. 색은 아티클 이미지에서 직접 쟀다.</p>
+
+      <div class="grid2">
+        <div class="note">
+          <h3><span class="pill">Layout</span></h3>
+          <ol>
+            <li>빈 들판에 오브제 하나. 매장 사진은 넓은 회색 방 한가운데 거대한 키네틱 조형물 하나를 둔다. 지면도 큰 여백에 강한 형태 하나만 둔다.</li>
+            <li>제품은 <b>#EFEFEF</b> 위에 고립시킨다. 그림자도 배경도 없이 사물만 남긴다.</li>
+            <li>섹션은 가는 선 위의 검은 알약 라벨로 나눈다(About · Brand · Collaboration · Display).</li>
+            <li>글은 작게, 가장자리에 붙인다. 캡션은 모서리, 제목은 지면 폭을 다 쓴다.</li>
+          </ol>
+        </div>
+        <div class="note">
+          <h3><span class="pill">Type</span></h3>
+          <div class="spec">
+            <div><span class="s1">Wide caps</span><small>로고: 넓고 가는 대문자 산세리프<br>2019년 "더 얇고 가볍게" 바뀐 로고 서체 → Archivo 125% · 250</small></div>
+            <div><span class="s2">Serif, italic</span><small>공식 사이트 제목: 자체 세리프<br>본문: Times → Instrument Serif</small></div>
+            <div><span class="s3">본문은 명조로 작게</span><small>한글 본문 → Noto Serif KR</small></div>
+          </div>
+        </div>
+        <div class="note">
+          <h3><span class="pill">Direction</span></h3>
+          <ol>
+            <li>극단적 병치. 고전 건축과 외계 형태(GENTLE FENDI, AES+F), 순백 배경과 테크노(BOLD), 교외 마을과 공포(The Hunt).</li>
+            <li>제품은 주인공이 아니라 세계의 일부. 안경은 장면 속에 조용히 등장한다.</li>
+            <li>설명보다 무드가 먼저. 초현실, 몽환, 불안을 먼저 보여주고 말은 나중에 한다.</li>
+          </ol>
+        </div>
+        <div class="note">
+          <h3><span class="pill">Color</span></h3>
+          <div class="sw">
+            <div><i style="background:#efefef"></i><span>#EFEFEF<br>제품 바탕</span></div>
+            <div><i style="background:#000000"></i><span>#000000<br>라벨 · 로고</span></div>
+            <div><i style="background:#9b9996"></i><span>#9B9996<br>매장 콘크리트</span></div>
+            <div><i style="background:#9d9280"></i><span>#9D9280<br>스톤</span></div>
+            <div><i style="background:#3fed40"></i><span>#3FED40<br>크로마 그린</span></div>
+            <div><i style="background:#d36934"></i><span>#D36934<br>앰부시 렌즈</span></div>
+            <div><i style="background:#720707"></i><span>#720707<br>디스플레이 레드</span></div>
+            <div><i style="background:#030d3c"></i><span>#030D3C<br>울트라마린 카펫</span></div>
+          </div>
+          <ol style="margin-top:calc(var(--u)*8)">
+            <li>무채색 위에 센 색 하나만. 이 CV의 한 색은 표지 사진의 빨간불(#D8261B)이다.</li>
+          </ol>
+        </div>
+      </div>
+
+      <p class="src">출처: [A to Z] 젠틀몬스터(이건희, 2021.05.30, PDF) ·
+        <a href="https://koreascience.kr/article/JAKO202432438345394.page">Expressionistic Visual Aesthetics in Gentle Monster's Fashion Films</a> ·
+        <a href="https://hero-magazine.com/article/148063/fendi-gentle-monster">Hero: Fendi × Gentle Monster</a> ·
+        <a href="https://theimpression.com/gentle-monster-bold-collection-2nd-drop-2023-ad-campaign-review/">The Impression: BOLD 2023</a> ·
+        <a href="https://theimpression.com/gentle-monster-fall-2025-ad-campaign-review/">The Impression: Fall 2025</a> ·
+        <a href="https://x.com/_GentleMonster_/status/1055757762905296896">Gentle Monster on X: 2019 logo font</a> ·
+        <a href="https://norrly.io/inspiration/gentlemonster-com">gentlemonster.com design breakdown</a>.
+        영상은 직접 재생하지 못했고 아티클 속 썸네일과 위 기사로 대신했다.</p>
+    </div>
+  </section>
+</div>
+</body></html>
