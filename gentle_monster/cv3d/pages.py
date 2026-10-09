@@ -10,6 +10,7 @@ Facts on the sheets come from docs/portfolio (the applicant's own notes). Blank 
 from __future__ import annotations
 
 import math
+import os
 
 import bpy
 from mathutils import Vector
@@ -17,6 +18,10 @@ from mathutils import Vector
 from gentle_monster.cv3d import engine as E
 from gentle_monster.cv3d.engine import Page
 from gentle_monster.cv3d.objects import OBJECTS, spec_lines
+from gentle_monster.cv3d import svgpage
+from pathlib import Path
+
+LAYOUTS = Path(__file__).with_name("layouts")
 
 INK = "#110f08"
 PAPER = "#ceccbe"
@@ -215,8 +220,10 @@ def picture(pg: Page):
     pg.world("hdri/royal_esplanade_1k.hdr", 0.16)
     lacquer = E.mat_basic("lacquer", INK, rough=0.25, coat=0.8)
     xs = [13, 77, 141]
-    for i, n in enumerate(("photo_puddle", "photo_sprout", "photo_bulb")):
-        pg.image(pg.out(n + ".png"), xs[i], 48, 56, 70, d=0.02 + 0.01 * i, thickness=0.002, rough=0.3)
+    # three niches set into the wall (tonal boxes), each holding the thing the word names, in 3D
+    D = 0.16
+    niches = [_niche(pg, xs[i], 48, 56, 70, D, tone, i) for i, tone in enumerate(("#e6e3da", "#dcd9cf", "#141414"))]
+    _puddle(pg, niches[0]); _sprout(pg, niches[1]); _bulbs(pg, niches[2])
     for i, w in enumerate(("웅덩이", "새싹", "전구")):
         pg.text(w, "NotoSerifKR-Bold.ttf", 16, xs[i], 146, d=0.03, extrude=0.01, mat=lacquer)
     # a camera on a plinth: the instrument
@@ -238,7 +245,7 @@ def picture(pg: Page):
             dict(s="bulb", font="InstrumentSerif-Italic.ttf", size=5, x=141, y=156),
             dict(s="단어는 사진의 주인공이 아니라\n내가 실제로 멈춰서 본 것을 부른다.", font="NotoSerifKR-Bold.ttf", size=4.6, x=13, y=196, leading=1.5),
             dict(s="밤의 불빛, 해 질 녘, 거리의 사람.\n좋은 사진 뒤에는 늘 좋은 장소가 있었다.", font="NotoSerifKR-Reg.ttf", size=3.1, x=13, y=222, leading=1.6),
-            dict(s="Prints: the author's photographs re-staged in 3D. Originals are not reproduced.", font="InstrumentSerif-Italic.ttf", size=3.0, x=13, y=279),
+            dict(s="Three niches, three words: what I stopped for, set back into the wall.", font="InstrumentSerif-Italic.ttf", size=3.0, x=13, y=279),
         ],
         lines=[
             dict(kind="crop", m=5, n=4),
@@ -249,6 +256,68 @@ def picture(pg: Page):
         ],
         exposures=[],
     )
+
+
+def _niche(pg: Page, px, py, w, h, D, tone, i):
+    """A box recessed... built proud of the wall: back, four sides, all in one tone; returns its inner frame."""
+    m = E.mat_paper(f"niche{i}", tone, grain=0.06)
+    t = 1.6  # wall thickness in page mm
+    pg.box(px, py, w, h, 0.004, m, d=0.0)                     # back
+    pg.box(px, py, w, t, D, m, d=0.0)                         # top
+    pg.box(px, py + h - t, w, t, D, m, d=0.0)                 # bottom
+    pg.box(px, py + t, t, h - 2 * t, D, m, d=0.0)             # left
+    pg.box(px + w - t, py + t, t, h - 2 * t, D, m, d=0.0)     # right
+    floor = pg.at(px + w / 2, py + h - t, D * 0.5)            # centre of the niche floor (world)
+    return dict(px=px, py=py, w=w, h=h, D=D, floor=floor, k=pg.k(D * 0.5), dark=tone == "#141414")
+
+
+def _puddle(pg: Page, n):
+    """A free-form pool of still water on the niche floor, two striped barrels behind it, mirrored."""
+    f = n["floor"]; k = n["k"]
+    water = E.mat_basic("pool", "#0b0f11", rough=0.015, coat=1.0)
+    pts = []
+    for j in range(72):
+        a = j / 72 * math.tau; r = 1 + 0.16 * math.sin(2 * a + 0.7) + 0.08 * math.sin(5 * a + 1.9)
+        pts.append((0.22 * k * r * math.cos(a), 0.055 * k * r * math.sin(a)))
+    cu = E._curve_shape("pool", [pts], 0.006 * k, 0.012 * k)          # a thick, rounded body of still liquid
+    ob = bpy.data.objects.new("pool", cu); ob.data.materials.append(water); pg.link(ob)
+    ob.location = (f.x, f.y - 0.015, f.z + 0.018 * k); ob.rotation_euler = (math.radians(-14), 0, 0)
+    blue = E.mat_basic("barrelblue", "#3f6f95", rough=0.35, coat=0.4); black = E.mat_basic("barrelblack", "#151515", rough=0.4)
+    for j in range(2):
+        _cyl((f.x - 0.1 * k + j * 0.2 * k, f.y + 0.05, f.z + 0.11 * k), 0.07 * k, 0.19 * k, blue if j == 0 else black, rot=(0, math.radians(90), 0))
+        _sphere((f.x - 0.1 * k + j * 0.2 * k - 0.098 * k, f.y + 0.02, f.z + 0.13 * k), 0.009 * k, E.mat_emit(f"tail{j}", "#ff2a1a", 12))
+
+
+def _sprout(pg: Page, n):
+    """A rough stone seed in a bed of sand; a stem and two leaves rising toward the light."""
+    f = n["floor"]; k = n["k"] * 1.6
+    sand = E.mat_stone("nsand", "#cfc8b0", "#a9a088", "#e3dcc6", scale=200, rough=0.95, bump=0.4)
+    _cube((f.x, f.y, f.z + 0.004), (0.32 * k, 0.12, 0.008), sand, bevel=0)
+    seed = E.rough_ball((f.x, f.y, f.z + 0.065 * k), 0.07 * k, 0.012 * k, E.mat_stone("seed", "#6b6656", "#3e3a30", "#9c9682", scale=60, rough=0.9, bump=0.5))
+    seed.scale = (1.25, 1.0, 0.85)
+    stem = E.mat_basic("nstem", "#5f7a2c", rough=0.55, sss=0.2); leaf = E.mat_basic("nleaf", "#6f8f30", rough=0.45, sss=0.35)
+    E.tube((f.x, f.y, f.z + 0.12 * k), (f.x + 0.004, f.y, f.z + 0.3 * k), 0.006 * k, stem)
+    for sgn, a in ((-1, 28), (1, -24)):
+        lf = _sphere((f.x + sgn * 0.055 * k, f.y, f.z + 0.31 * k), 0.06 * k, leaf, scale=(1.0, 0.16, 0.3))
+        lf.rotation_euler = (0, math.radians(a), 0)
+
+
+def _bulbs(pg: Page, n):
+    """A string of small lit bulbs sagging across the black niche, its wire and the glow on the walls."""
+    f = n["floor"]; k = n["k"]
+    left = pg.at(n["px"] + 4, n["py"] + 14, n["D"] * 0.55); right = pg.at(n["px"] + n["w"] - 4, n["py"] + 10, n["D"] * 0.55)
+    glow = E.mat_emit("nbulb", "#fff1d6", 22); wire = E.mat_basic("nwire", "#0a0a0a", rough=0.6)
+    prev = None
+    for row, sag in ((0, 0.16), (1, 0.1)):
+        prev = None
+        for j in range(10):
+            t = j / 9
+            p = left.lerp(right, t); p.z -= sag * k * math.sin(math.pi * t) + row * 0.14 * k; p.y += row * 0.03
+            _sphere(p, 0.011 * k, glow, seg=16)
+            if prev is not None:
+                E.tube(prev, p, 0.0012, wire, 8)
+            prev = p
+    pg.point((f.x, f.y - 0.02, f.z + 0.35 * k), 6, "#fff1d6", 0.05)
 
 
 def _photo_cam(pg: Page, loc, target, lens):
@@ -460,7 +529,109 @@ def experience(pg: Page):
     )
 
 
+# ---------------------------------------------------------------- CV 1/2: the homepage (TYPE 1 card grid)
+
+def home(pg: Page):
+    """TYPE 1 card grid, built: cards are panels off a dark wall, the hero is a window into a lit room
+    (FRAME & INTERIOR), PHOTO 02 is a niche of finishing materials, the skill badges are metal rings."""
+    G = svgpage.read(os.environ.get("GM_CV3D_LAYOUT") or LAYOUTS / "type1_card_grid.svg")
+    MMm = E.MM
+    pg.world("hdri/royal_esplanade_1k.hdr", 0.04)
+    card = E.mat_basic("card", "#1c1c1b", rough=0.6, spec=0.3)
+    pillm = E.mat_basic("pill", "#262625", rough=0.5)
+    pill_hi = E.mat_basic("pillhi", "#4a4a47", rough=0.45)
+    bezel = E.mat_basic("bezel", "#2a2a29", rough=0.35, metal=0.6)
+    ink = E.mat_basic("headline", "#0e0e0d", rough=0.3, coat=0.6)
+    hero = [i for i in G["T1_03_HERO"] if i["kind"] == "rect"][0]
+    ph2 = [i for i in G["T1_05_ABOUT"] if i["kind"] == "rect" and i["fill"] == "#2E2E2E" and i["w"] > 60][0]
+    pg.openings([(hero["x"], hero["y"], hero["w"], hero["h"]), (ph2["x"], ph2["y"], ph2["w"], ph2["h"])])
+    for r in (hero, ph2):
+        pg.slab(r["x"] - 0.6, r["y"] - 0.6, r["w"] + 1.2, r["h"] + 1.2, r["rx"] + 0.6, 0.014, bezel, d=0.0, ring=1.4)
+
+    # INTERIOR: a pale concrete room behind the hero window, the Probe standing in it
+    hx0, hx1 = (hero["x"] - 105) * MMm, (hero["x"] + hero["w"] - 105) * MMm
+    hz0 = pg.Zb + (297 - hero["y"] - hero["h"]) * MMm; hz1 = pg.Zb + (297 - hero["y"]) * MMm
+    concrete = E.mat_stone("roomconcrete", "#a6a49d", "#8c8a84", "#bebcb5", scale=5, rough=0.9, bump=0.12)
+    fz = hz0 - 0.55
+    pg.room(hx0 - 1.2, hx1 + 1.2, 0.0, 4.2, fz, hz1 + 1.4, concrete)
+    _probe(0.45, 2.2, 0.82, z0=fz)
+    pg.area(Vector((-1.4, 1.2, hz1 + 1.3)), Vector((0.4, 2.2, fz)), 1.6, 700, "#f4f1ea")
+    pg.area(Vector((-1.6, 0.6, hz0 + 0.4)), Vector((0.4, 2.2, fz + 1.0)), 1.2, 160, "#e9eef5")
+
+    # PHOTO 02 niche: finishing materials on a shelf of the niche floor
+    nx0, nx1 = (ph2["x"] - 105) * MMm, (ph2["x"] + ph2["w"] - 105) * MMm
+    nz0 = pg.Zb + (297 - ph2["y"] - ph2["h"]) * MMm; nz1 = pg.Zb + (297 - ph2["y"]) * MMm
+    pg.room(nx0, nx1, 0.0, 0.42, nz0 - 0.005, nz1, E.mat_basic("nichegrey", "#8d8b85", rough=0.85))
+    fz2 = nz0
+    samples = [
+        ((nx0 + 0.13, 0.12), (0.16, 0.16, 0.3), E.mat_stone("s_concrete", "#a5a39c", "#86847e", "#c2c0b9", scale=8, rough=0.9, bump=0.2)),
+        ((nx0 + 0.37, 0.12), (0.24, 0.14, 0.07), E.mat_stone("s_oak", "#9a7b57", "#6e5338", "#b89a72", scale=3, rough=0.6, bump=0.1)),
+        ((nx0 + 0.56, 0.1), (0.06, 0.06, 0.34), E.mat_basic("s_brass", "#b08d57", rough=0.22, metal=1.0)),
+        ((nx0 + 0.73, 0.12), (0.18, 0.18, 0.03), E.mat_stone("s_marble", "#e7e5e0", "#b8b6b0", "#f4f3ef", scale=4, rough=0.15, bump=0.02)),
+    ]
+    for (x, y), (w, d, h), m in samples:
+        _cube((x, y, fz2 + h / 2), (w, d, h), m, bevel=0.003)
+    E.pod((nx0 + 0.88, 0.14, fz2 + 0.02), 0.34, 0.07, E.mat_mesh("s_mesh", "#121212", scale=2400, solid=True), twist=0.2, yaw=0.4)
+    pg.area(Vector(((nx0 + nx1) / 2, 0.2, nz1 - 0.02)), Vector(((nx0 + nx1) / 2, 0.2, fz2)), 0.6, 60, "#f4f1ea")
+
+    # FRAME & INTERIOR, set in thin metal letters standing off the window
+    for t in G["T1_03_HERO"]:
+        if t["kind"] == "text" and t["s"] in ("FRAME", "& INTERIOR"):
+            pg.text(t["s"], "Archivo-Thin.ttf", t["size"], t["x"], t["y"], d=0.035, extrude=0.008, mat=ink, bevel=0.0008)
+
+    # nav pills and cards: panels at two depths
+    for gid, items in G.items():
+        for r in items:
+            if r["kind"] != "rect" or r is hero or r is ph2 or gid == "T1_01_BACKGROUND":
+                continue
+            if r["fill"] == "#2E2E2E":
+                continue                                                  # label plates of the old placeholders
+            if gid == "T1_02_NAV":
+                pg.slab(r["x"], r["y"], r["w"], r["h"], r["rx"], 0.004, pill_hi if (r["fill"] or "").startswith("url") else pillm, d=0.004)
+            else:
+                pg.slab(r["x"], r["y"], r["w"], r["h"], r["rx"], 0.01, card, d=0.006)
+
+    # skill badges: a dark track ring and a broken chrome ring (no proficiency values yet)
+    chrome = E.mat_basic("ringchrome", "#cfcfcc", rough=0.15, metal=1.0)
+    track = E.mat_basic("ringtrack", "#333331", rough=0.5)
+    dz = 0.016 + 0.004
+    for c in [i for i in G["T1_07_SKILLS"] if i["kind"] == "circle" and i["r"] > 4]:
+        n = 30
+        for j in range(n):
+            a0 = j / n * math.tau; a1 = (j + 0.62) / n * math.tau
+            p0 = pg.at(c["cx"] + c["r"] * math.cos(a0), c["cy"] + c["r"] * math.sin(a0), dz)
+            p1 = pg.at(c["cx"] + c["r"] * math.cos(a1), c["cy"] + c["r"] * math.sin(a1), dz)
+            E.tube(p0, p1, 0.0032, chrome, 10)
+        bpy.ops.mesh.primitive_torus_add(major_radius=c["r"] * MMm * pg.k(dz - 0.002), minor_radius=0.0016, major_segments=96, minor_segments=8)
+        tor = bpy.context.active_object; tor.location = pg.at(c["cx"], c["cy"], dz - 0.002); tor.rotation_euler = (math.radians(90), 0, 0)
+        tor.data.materials.append(track)
+
+    pg.area(Vector((-2.6, -3.0, pg.Zb + 3.6)), Vector((0, 0, pg.Zb + 1.4)), 2.6, 260, "#f4f1ea")
+    pg.area(Vector((2.6, -3.4, pg.Zb + 0.6)), Vector((0, 0, pg.Zb + 1.2)), 2.0, 80, "#e9eef5")
+
+    # flat layer: every text except the 3D headline and the old placeholder labels; buttons and arrows as lines
+    runs, lines = [], []
+    skip = {"FRAME", "& INTERIOR", "PHOTO 01", "인물 사진 ____ (흑백 또는 저채도)", "PHOTO 02", "____ (공간 · 마감재 · 오브제)"}
+    for gid, items in G.items():
+        for t in items:
+            if t["kind"] == "text" and t["s"] not in skip:
+                if gid == "T1_03_HERO":                                   # type inside the lit window reads dark
+                    runs.append(svgpage.run(t, color="#110f08" if t["color"].upper() == "#ECE8E1" else "#3e3e39"))
+                else:
+                    runs.append(svgpage.run(t))
+            elif t["kind"] == "line" and (t["color"] or "").upper() != "#454545":
+                lines.append(dict(kind="seg", x0=t["x0"], y0=t["y0"], x1=t["x1"], y1=t["y1"], w=0.25, color="#110f08" if gid == "T1_03_HERO" else t["color"]))
+            elif t["kind"] == "circle" and t["r"] < 4:
+                lines.append(dict(kind="circle", cx=t["cx"], cy=t["cy"], r=t["r"], w=0.22, color="#110f08" if gid == "T1_03_HERO" else (t["stroke"] or "#8E8B86")))
+    runs += [
+        dict(s="INTERIOR · THE PROBE · 1:10", font="Archivo-Semi.ttf", size=1.7, x=197, y=23.5, align="RIGHT", track=0.12, color="#110f08"),
+        dict(s="MATERIALS — 콘크리트 · 오크 · 황동 · 대리석 · 메시", font="NotoSansKR-Med.ttf", size=1.7, x=110.5, y=183.6, color="#ECE8E1"),
+    ]
+    return dict(runs=runs, lines=lines, exposures=[])
+
+
 PAGES = {
+    "home": (home, dict(ground="#0d0d0c", floor_from=-0.5, exposure=0.0)),
     "cover": (cover, dict(ground="#c9c7bd", floor_from=0.9, exposure=-0.35)),
     "plan": (plan, dict(ground="#c9c7bd", floor_from=0.75, exposure=-0.3)),
     "picture": (picture, dict(ground="#c9c7bd", floor_from=0.75, exposure=-0.3)),

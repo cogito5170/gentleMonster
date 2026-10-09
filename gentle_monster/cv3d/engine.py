@@ -285,6 +285,56 @@ class Page:
                 uv.data[li].uv = (v.x + 0.5, v.z + 0.5)
         return ob
 
+    # ---------------------------------------------------------------- 2.5D panels and openings
+    def slab(self, px, py, w, h, r, depth, mat, d=0.0, ring=None):
+        """A rounded-rectangle panel standing d off the wall; its front face is the page rect (px, py, w, h).
+        ring=t makes it a frame of border t (mm) instead of a solid panel."""
+        cx, cy = px + w / 2, py + h / 2
+        loops = [[(x * MM, y * MM) for x, y in rounded_rect(0, 0, w, h, max(r, 0.01), 8)]]
+        if ring:
+            loops.append([(x * MM, y * MM) for x, y in rounded_rect(0, 0, w - 2 * ring, h - 2 * ring, max(r - ring * 0.5, 0.01), 8)])
+        cu = _curve_shape("slab", loops, depth / 2, 0.0)
+        ob = bpy.data.objects.new("slab", cu); ob.data.materials.append(mat); self.link(ob)
+        kk = self.k(d + depth / 2)
+        ob.location = self.at(cx, cy, d + depth / 2); ob.scale = (kk, kk, kk); ob.rotation_euler = (math.radians(90), 0, 0)
+        return ob
+
+    def openings(self, rects):
+        """Cut page rects out of the wall (shader mask: transparent where the wall lies inside a rect)."""
+        nt = self.ground.node_tree; p = nt.nodes["Principled BSDF"]; out = nt.nodes["Material Output"]
+        geo = nt.nodes.new("ShaderNodeNewGeometry"); sep = nt.nodes.new("ShaderNodeSeparateXYZ")
+        nt.links.new(geo.outputs["Position"], sep.inputs[0])
+        acc = None
+        for (px, py, w, h) in rects:
+            x0, x1 = (px - 105) * MM, (px + w - 105) * MM
+            z0, z1 = self.Zb + (297 - py - h) * MM, self.Zb + (297 - py) * MM
+            terms = []
+            for (axis, lo, hi) in (("X", x0, x1), ("Z", z0, z1), ("Y", -0.002, 0.002)):
+                a = nt.nodes.new("ShaderNodeMath"); a.operation = "GREATER_THAN"; a.inputs[1].default_value = lo
+                b = nt.nodes.new("ShaderNodeMath"); b.operation = "LESS_THAN"; b.inputs[1].default_value = hi
+                nt.links.new(sep.outputs[axis], a.inputs[0]); nt.links.new(sep.outputs[axis], b.inputs[0])
+                m = nt.nodes.new("ShaderNodeMath"); m.operation = "MULTIPLY"
+                nt.links.new(a.outputs[0], m.inputs[0]); nt.links.new(b.outputs[0], m.inputs[1]); terms.append(m)
+            m1 = nt.nodes.new("ShaderNodeMath"); m1.operation = "MULTIPLY"; nt.links.new(terms[0].outputs[0], m1.inputs[0]); nt.links.new(terms[1].outputs[0], m1.inputs[1])
+            m2 = nt.nodes.new("ShaderNodeMath"); m2.operation = "MULTIPLY"; nt.links.new(m1.outputs[0], m2.inputs[0]); nt.links.new(terms[2].outputs[0], m2.inputs[1])
+            if acc is None:
+                acc = m2
+            else:
+                mx = nt.nodes.new("ShaderNodeMath"); mx.operation = "MAXIMUM"; nt.links.new(acc.outputs[0], mx.inputs[0]); nt.links.new(m2.outputs[0], mx.inputs[1]); acc = mx
+        tr = nt.nodes.new("ShaderNodeBsdfTransparent"); mix = nt.nodes.new("ShaderNodeMixShader")
+        nt.links.new(acc.outputs[0], mix.inputs[0]); nt.links.new(p.outputs[0], mix.inputs[1]); nt.links.new(tr.outputs[0], mix.inputs[2])
+        nt.links.new(mix.outputs[0], out.inputs["Surface"])
+
+    def room(self, x0, x1, y0, y1, z0, z1, mat):
+        """A closed box room behind the wall (y > 0): floor, ceiling, back and side walls."""
+        parts = [(((x0 + x1) / 2, (y0 + y1) / 2, z0 - 0.01), (x1 - x0, y1 - y0, 0.02)),
+                 (((x0 + x1) / 2, (y0 + y1) / 2, z1 + 0.01), (x1 - x0, y1 - y0, 0.02)),
+                 (((x0 + x1) / 2, y1 + 0.01, (z0 + z1) / 2), (x1 - x0, 0.02, z1 - z0)),
+                 ((x0 - 0.01, (y0 + y1) / 2, (z0 + z1) / 2), (0.02, y1 - y0, z1 - z0)),
+                 ((x1 + 0.01, (y0 + y1) / 2, (z0 + z1) / 2), (0.02, y1 - y0, z1 - z0))]
+        for loc, sc in parts:
+            bpy.ops.mesh.primitive_cube_add(size=1); ob = bpy.context.active_object; ob.location = loc; ob.scale = sc; ob.data.materials.append(mat)
+
     # ---------------------------------------------------------------- files
     out_dir = None
 

@@ -116,6 +116,11 @@ def draw_lines(im: Image.Image, lines):
             for gy in range(0, 298, GRID):
                 if L.get("rows", True):
                     d.line([(L.get("x0", 0) * s, gy * s), (L.get("x1", 210) * s, gy * s)], fill=c, width=1)
+        elif k == "seg":
+            d.line([(L["x0"] * s, L["y0"] * s), (L["x1"] * s, L["y1"] * s)], fill=c, width=wd)
+        elif k == "circle":
+            r = L["r"] * s
+            d.ellipse([L["cx"] * s - r, L["cy"] * s - r, L["cx"] * s + r, L["cy"] * s + r], outline=c, width=wd)
         elif k == "rule":
             d.line([(L["x0"] * s, L["y0"] * s), (L["x1"] * s, L["y1"] * s)], fill=c, width=wd)
         elif k == "dim":  # dimension line with ticks and a label in the middle
