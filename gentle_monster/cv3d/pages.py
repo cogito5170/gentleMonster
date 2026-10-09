@@ -326,17 +326,17 @@ def object_(pg: Page):
     _mark = set(bpy.data.objects)
     # 1 The Synthetic Titan: a faceted black-mesh head in a chrome cage
     T = OBJECTS["titan"]["params"]
-    rig, head = _head_with_glasses(pg, 0.3, Vector((xs[0], cy, top)), math.radians(16), skin=False, glasses=False)
+    rig, head = _head_with_glasses(pg, 0.24, Vector((xs[0], cy, top)), math.radians(16), skin=False, glasses=False)
     head.data.materials.clear(); head.data.materials.append(E.mat_mesh("titanmesh", "#121212", scale=2500, solid=True))
     st = head.modifiers.new("st", "SIMPLE_DEFORM"); st.deform_method = "STRETCH"; st.factor = T["stretch"]; st.deform_axis = "Z"
     tw = head.modifiers.new("tw", "SIMPLE_DEFORM"); tw.deform_method = "TWIST"; tw.angle = math.radians(T["twist_deg"]); tw.deform_axis = "Z"
     E.faceted(head, T["facets"])
-    E.cage(xs[0], cy, 0.38, 0.34, 0.62, 0.004, chrome, bays=2, z0=top)
+    E.cage(xs[0], cy, 0.34, 0.3, 0.46, 0.004, chrome, bays=2, z0=top)
     acr = E.mat_acrylic("shards", "#9aa3a8", 0.35)
     import random; rnd = random.Random(7)
     for i in range(T["shards"]):
-        a = rnd.random() * math.tau; r = 0.1 + rnd.random() * 0.06
-        E.shard((xs[0] + r * math.cos(a), cy + r * math.sin(a), top + 0.12 + rnd.random() * 0.42), 0.012 + rnd.random() * 0.018, acr,
+        a = rnd.random() * math.tau; r = 0.08 + rnd.random() * 0.05
+        E.shard((xs[0] + r * math.cos(a), cy + r * math.sin(a), top + 0.1 + rnd.random() * 0.3), 0.012 + rnd.random() * 0.018, acr,
                 (rnd.random() * 3, rnd.random() * 3, rnd.random() * 3))
     E.group_scale([o for o in bpy.data.objects if o not in _mark], (xs[0], cy, top), K); _mark = set(bpy.data.objects)
     # 2 Residue of Scent: a porous bone-white cluster, red wax settling at its foot
@@ -390,7 +390,7 @@ def object_(pg: Page):
             dict(s="TAMBURINS\n증식하는 세포 군집", font="NotoSerifKR-Reg.ttf", size=2.4, x=60, y=262, leading=1.6),
             dict(s="ACNE STUDIOS\n화강암 구체 · 강철 레일", font="NotoSerifKR-Reg.ttf", size=2.4, x=107, y=262, leading=1.6),
             dict(s="AESOP\n지층 · 액체형 주조 수반", font="NotoSerifKR-Reg.ttf", size=2.4, x=154, y=262, leading=1.6),
-            *[dict(s="\n".join(spec_lines(k)), font="ArchivoExp-Reg.ttf", size=1.55, x=13 + i * 47, y=272, leading=1.7, color="#3e3e39")
+            *[dict(s="\n".join(spec_lines(k)), font="ArchivoExp-Reg.ttf", size=1.5, x=13 + i * 47, y=272, leading=1.75, color="#3e3e39")
               for i, k in enumerate(("titan", "scent", "monolith", "apothecary"))],
         ],
         lines=[

@@ -55,7 +55,7 @@ OBJECTS = {
         curvature=dict(gentle_sharp="sharp", surface="plane facets", change="twisting upward", continuity="creased"),
         material=dict(name="black mesh facets / acrylic lens shards / chrome cage", roughness=0.4, gloss=0.4, transparency=0.35, density=0.7, weight=0.8, flexibility=0.0),
         composition=["one body", "proliferation of shards around it", "vertical"],
-        params=dict(stretch=0.9, twist_deg=38, facets=0.012, shards=14),
+        params=dict(stretch=0.35, twist_deg=30, facets=0.012, shards=14),
     ),
     "scent": dict(
         title="Residue of Scent", where="object",
@@ -85,11 +85,11 @@ OBJECTS = {
 
 
 def spec_lines(key):
-    """Four short lines for the sheet, in the architect's shorthand."""
+    """Four short lines for the sheet, in the architect's shorthand (fits a 44 mm column)."""
     o = OBJECTS[key]; f, c, m = o["form"], o["curvature"], o["material"]
     return [
-        f"FORM  {f['type']} · {' + '.join(f['deform'])} · {' / '.join(f['silhouette'])}",
-        f"CURV  {c['gentle_sharp']} · {c['surface']} · {c['continuity']}",
-        f"MAT   R{m['roughness']:.1f} G{m['gloss']:.1f} T{m['transparency']:.1f} D{m['density']:.1f} W{m['weight']:.1f} F{m['flexibility']:.1f}",
-        f"COMP  {' · '.join(o['composition'][:2])}",
+        f"FORM  {'+'.join(f['deform'])} / {f['silhouette'][0]}",
+        f"CURV  {c['gentle_sharp']} / {c['continuity'].split(' ')[0]}",
+        f"MAT   R{m['roughness']:.1f} G{m['gloss']:.1f} T{m['transparency']:.1f} W{m['weight']:.1f}",
+        f"COMP  {o['composition'][0]}",
     ]
