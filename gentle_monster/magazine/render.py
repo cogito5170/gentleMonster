@@ -67,7 +67,7 @@ QA_JS = r"""
      if(!own.trim()) return;
      var cs2=getComputedStyle(el), fs=parseFloat(cs2.fontSize);
      if(cs2.display!=='none' && cs2.visibility!=='hidden' && cs2.opacity>0.2 && fs<minfs) minfs=fs;
-     if(hangul.test(own) && parseInt(cs2.fontWeight)>=600) faux.push(own.trim().slice(0,20));
+     if(hangul.test(own) && parseInt(cs2.fontWeight)>=600) faux.push(cs2.fontWeight+'|'+cs2.fontFamily.split(',')[0].replace(/"/g,'')+'|'+own.trim().slice(0,20));
    });
    p.querySelectorAll('[data-col]').forEach(function(el){
      var b=el.getBoundingClientRect(); cols.push({col:parseFloat(el.dataset.col),x:(b.left-r.left)/r.width*100,mirror:el.dataset.mirror||''});
@@ -91,6 +91,7 @@ QA_JS = r"""
   var wide=[]; document.querySelectorAll('body *').forEach(function(el){var b=el.getBoundingClientRect();
     if(b.right>innerWidth+1 && wide.length<6 && !el.closest('.nav')) wide.push((el.tagName+'.'+(el.className||'')).slice(0,40)+':'+Math.round(b.right));});
   out.too_wide=wide;
+  out.fonts=[]; if(document.fonts) document.fonts.forEach(function(f){ if(f.status==='loaded') out.fonts.push(f.family.replace(/"/g,'')+' '+f.weight); });
   var s=document.createElement('script'); s.type='application/json'; s.id='qa-result'; s.textContent=JSON.stringify(out);
   document.body.appendChild(s);
  }

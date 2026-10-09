@@ -100,9 +100,10 @@ def _k(n) -> str:
 # ------------------------------------------------------------------ design system
 # Mood: the VISUAL INDEX catalogue (spec "mood_reference"): warm paper, green-black ink, a serif display over
 #   tracked sans capitals, ink rules, photographs desaturated to .78, one red.
-# Fonts (only what Chromium can use here): Caladea (serif, TrueType -- Bitstream Charter is Type 1 and Chromium
-#   silently replaced it with Times), Inter / Inter Display (sans; light numbers, medium labels), WenQuanYi Zen Hei
-#   (Korean, one weight -- never bold).
+# Fonts: Caladea (Latin serif, TrueType -- Bitstream Charter is Type 1 and Chromium silently swapped it for Times),
+#   Inter / Inter Display (Latin sans), and two vendored OFL Korean families (fonts/SOURCE.md): Noto Serif KR
+#   (명조 -- Korean body, standfirst, pull quotes) and Pretendard (고딕, Inter-based -- labels, captions, the
+#   One-to-One words in bold as 02_picture.md asks). Korean now has real weights; QA fails a weight with no face.
 # Page: 230 x 300 mm. Mirrored margins as in a bound magazine -- inner 20 mm, outer 16 mm, top 14, bottom 18 --
 #   12 columns, 4 mm gutters. Every block declares its column and page side; QA measures its left edge.
 # Type, in points on paper: body 9.5 (Korean 9, leading 1.75), standfirst 13, title 54, section 30, pull quote 22,
@@ -152,7 +153,7 @@ TECHNIQUES = {
     "asymmetric": ("비대칭 배치 — 넓은 여백 속 한 장 + 맞은편 풀블리드", "매거진 URL 카탈로그 · 비대칭 레이아웃"),
     "feature_opener": ("피처 오프너 — 키커 · 제목 · 스탠드퍼스트 · 바이라인", "판매 잡지의 관례"),
     "text_columns": ("두 단 본문", "매거진 URL 카탈로그 · 텍스트 중심 지면"),
-    "serif_display": ("세리프 디스플레이 + 산세리프 메타데이터", "VISUAL INDEX · Typography"),
+    "serif_display": ("세리프 디스플레이 + 산세리프 메타데이터 — 한글 본문은 명조(Noto Serif KR), 라벨은 고딕(Pretendard)", "VISUAL INDEX · Typography"),
     "grotesk_caps": ("그로테스크 올캡스 · 넓은 트래킹", "매거진 URL 카탈로그 · 타이포그래피"),
     "pull_quote": ("풀쿼트", "판매 잡지의 관례"),
     "drop_cap": ("드롭캡", "판매 잡지의 관례"),
@@ -317,14 +318,25 @@ def duotone_svg() -> str:
             '</feComponentTransfer></filter></svg>')
 
 
+FONT_DIR = Path(__file__).resolve().parent / "fonts"
+FACES = [("Pretendard", w, f"Pretendard-{n}.woff2", "woff2") for w, n in ((300, "Light"), (400, "Regular"), (500, "Medium"), (600, "SemiBold"), (700, "Bold"))] + \
+        [("Noto Serif KR", w, f"NotoSerifKR-{n}.otf", "opentype") for w, n in ((400, "Regular"), (600, "SemiBold"))]
+KO_WEIGHTS = {"Pretendard": {300, 400, 500, 600, 700}, "Noto Serif KR": {400, 600}}
+
+
+def font_faces() -> str:
+    return "".join(f'@font-face{{font-family:"{fam}";font-weight:{w};font-style:normal;font-display:block;src:url("fonts/{fn}") format("{fmt}")}}'
+                   for fam, w, fn, fmt in FACES)
+
+
 def css() -> str:
-    ko = '"WenQuanYi Zen Hei","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic"'
+    ko = '"Pretendard","WenQuanYi Zen Hei","Apple SD Gothic Neo","Malgun Gothic"'
     T = {k: pt(v) for k, v in TYPE.items()}
-    return f"""
+    return font_faces() + f"""
 :root{{--paper:{PAPER};--ink:{INK};--muted:{MUTE_RAW};--line:{LINE};--accent:{ACCENT_RAW};--accent-text:{ACCENT_TEXT};--grey:{GREY};
   --night:{NIGHT};--night-ink:{NIGHT_INK};
-  --serif:Caladea,"Liberation Serif",Georgia,{ko},serif;--sans:Inter,"Liberation Sans",Arial,{ko},sans-serif;
-  --display:"Inter Display",Inter,"Liberation Sans",{ko},sans-serif}}
+  --serif:Caladea,"Noto Serif KR","Liberation Serif",Georgia,serif;--sans:Inter,{ko},"Liberation Sans",Arial,sans-serif;
+  --gothic:{ko},Inter,sans-serif;--display:"Inter Display",Inter,{ko},sans-serif}}
 *{{box-sizing:border-box;font-synthesis:none}} html{{background:#262724}}
 body{{margin:0;color:var(--ink);font-family:var(--serif);word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;
   font-kerning:normal;text-rendering:optimizeLegibility;hanging-punctuation:first}}
@@ -341,7 +353,8 @@ img{{display:block;width:100%;height:100%;object-fit:cover}}
 .cap b{{font-weight:500;color:var(--ink);margin-right:.6em}}
 .kicker{{font-family:var(--sans);font-size:max({T['furn']}cqw,8.5px);letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--accent-text)}}
 .body{{font-size:max({T['body']}cqw,10.5px);line-height:1.52}}
-.body:lang(ko),.ko{{font-family:var(--sans);font-size:max({T['body_ko']}cqw,10.5px);line-height:1.78;letter-spacing:-.005em}}
+.body:lang(ko),.ko{{font-family:var(--serif);font-size:max({T['body_ko']}cqw,10.5px);line-height:1.8;letter-spacing:-.01em}}
+.gothic{{font-family:var(--gothic)}}
 .lead{{font-size:{T['lead']}cqw;line-height:1.5}} .lead:lang(ko),.lead .ko{{line-height:1.66;letter-spacing:-.01em}}
 .pull{{font-size:{T['pull']}cqw;line-height:1.3;letter-spacing:-.015em}}
 .section{{font-size:{T['section']}cqw;line-height:1.02;letter-spacing:-.025em}}
@@ -520,7 +533,7 @@ def build(spec_path, name: str = "", pdf: bool = True) -> dict:
          furn="Contents")
     lc = sum(1 for k in meas if not meas[k].get("missing") and meas[k]["light"].startswith(("밤", "흑백")))
     mbox = [("Photographs & words", credit_name), ("Edit & layout", "gentle_monster magazine"), ("Mood", "VISUAL INDEX catalogue"),
-            ("Type", "Caladea · Inter · WenQuanYi Zen Hei"), ("Format", f"{W_MM} × {H_MM} mm · 26 pp."),
+            ("Type", "Caladea · Noto Serif KR · Inter · Pretendard"), ("Format", f"{W_MM} × {H_MM} mm · 26 pp."),
             ("Independent", "젠틀몬스터가 발행 · 승인하지 않은 독립 콘셉트 매거진")]
     page(at(0, round(TOP, 3), 12, "", f'<p class="kicker" lang="en">Issue 00 — Autumn 2026</p>'
             f'<p class="section" lang="en" style="font-size:{pt(40)}cqw;margin-top:{pt(6)}cqw">Contents</p>', tech="serif_display")
@@ -560,9 +573,9 @@ def build(spec_path, name: str = "", pdf: bool = True) -> dict:
     for i, w in enumerate(ws):
         ghost = ws[i + 1]["word"] if i + 1 < len(ws) else ""
         page(fig(w["photo"], 1, 22, 10, cap=False)
-             + (at(0, 80, 12, "ghost", f'<p style="font-family:var(--sans);font-size:{T["word"]}cqw;text-align:center;line-height:1">{e(ghost)}</p>',
+             + (at(0, 80, 12, "ghost", f'<p style="font-family:var(--gothic);font-weight:700;font-size:{T["word"]}cqw;text-align:center;line-height:1">{e(ghost)}</p>',
                    tech="show_through") if ghost else "")
-             + at(0, 80, 12, "", f'<p style="font-family:var(--sans);font-size:{T["word"]}cqw;text-align:center;line-height:1;letter-spacing:-.02em">{e(w["word"])}</p>',
+             + at(0, 80, 12, "", f'<p style="font-family:var(--gothic);font-weight:700;font-size:{T["word"]}cqw;text-align:center;line-height:1;letter-spacing:-.03em">{e(w["word"])}</p>',
                   tech="white_space"),
              "", "word", [w["photo"]], "turn")
     # ===== 12 | 13 night ===================================================================================
@@ -730,6 +743,13 @@ def build(spec_path, name: str = "", pdf: bool = True) -> dict:
     body = "".join(p["html"] for p in pages).replace('<ol class="refs">REFS</ol>', f'<ol class="refs">{ref_html}</ol>')
     doc = (f'<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
            f'<title>{e(spec["title"])}</title><style>{css()}</style></head><body>{duotone_svg()}<main>{body}</main><script>{R.QA_JS}</script></body></html>')
+    (out / "fonts").mkdir(exist_ok=True)
+    for _, _, fn, _ in FACES:
+        if (FONT_DIR / fn).is_file() and not (out / "fonts" / fn).is_file():
+            (out / "fonts" / fn).write_bytes((FONT_DIR / fn).read_bytes())
+    for lic in ("LICENSE-Pretendard.txt", "LICENSE-NotoSerifCJK.txt"):
+        if (FONT_DIR / lic).is_file():
+            (out / "fonts" / lic).write_bytes((FONT_DIR / lic).read_bytes())
     hp = out / "index.html"
     hp.write_text(doc, encoding="utf-8")
     pres = PDF.render(hp, out / "magazine.pdf") if pdf else None
@@ -831,8 +851,23 @@ def qa(spec, pages, html_path, pres, meas, assets, bad_text, missing, want_pdf, 
                          ", ".join(sorted(set(wrong_side))[:6]) or f"inner {INNER * 2.3:.0f} mm · outer {OUTER * 2.3:.0f} mm"))
             n_cols = sum(len(p.get("cols", [])) for p in P)
             out.append(C("layout", "blocks sit on the mirrored 12-column grid (±0.3 cqw)", "FAIL" if off else "PASS", ", ".join(off[:6]) or f"{n_cols} blocks"))
-            faux = [f"p{p['i']}:{f}" for p in P for f in p.get("faux", [])]
-            out.append(C("typography", "no faux-bold Korean (the Korean face has one weight)", "FAIL" if faux else "PASS", ", ".join(faux[:4]) or "none"))
+            faux = []
+            for p in P:
+                for f in p.get("faux", []):
+                    w_, fam, txt = (f.split("|", 2) + ["", ""])[:3]
+                    fam_ko = next((k for k in KO_WEIGHTS if k in (fam or "")), None)
+                    # Hangul falls through Latin-first stacks to the Korean face: judge the Korean face the stack reaches
+                    if fam_ko is None:
+                        fam_ko = "Noto Serif KR" if fam in ("Caladea",) else "Pretendard"
+                    if int(w_ or 0) not in KO_WEIGHTS[fam_ko]:
+                        faux.append(f"p{p['i']}:{fam_ko} {w_} {txt}")
+            out.append(C("typography", "Korean weights all have a real face (no faux bold)", "FAIL" if faux else "PASS",
+                         ", ".join(faux[:4]) or "Pretendard 300–700 · Noto Serif KR 400/600"))
+            loaded = set(pr.get("fonts", []))
+            need = {f"{fam} {w}" for fam, w, _, _ in FACES}
+            used_faces = {x for x in loaded if x.split(" ")[0] in ("Pretendard", "Noto")}
+            out.append(C("typography", "vendored Korean fonts load in the browser", "PASS" if used_faces else "FAIL",
+                         ", ".join(sorted(used_faces)) or f"none of {len(need)} faces loaded"))
             mins = min(p.get("minfs", 99) for p in P)
             out.append(C("typography", "smallest text at print size ≥ 6.5 pt", "PASS" if mins * 0.75 >= 6.5 else "FAIL", f"{mins * 0.75:.1f} pt"))
             broken = [i["src"] for p in P for i in p["images"] if not i["ok"]]
@@ -856,8 +891,8 @@ def qa(spec, pages, html_path, pres, meas, assets, bad_text, missing, want_pdf, 
             out.append(C("image", "no photo cropped to less than 40% of its frame (spreads excepted)", "WARNING" if heavy else "PASS",
                          ", ".join(f"p{p_} keeps {f:.0%}" for f, p_ in heavy[:5]) or (f"smallest kept {min(crops)[0]:.0%}" if crops else "—")))
             han = [p for p in P if p["hangul"]]
-            fonts = [f for f in QA.ko_fonts() if f.startswith("WenQuanYi")]
-            out.append(C("typography", "Hangul has a font", "PASS" if fonts or not han else "FAIL", ", ".join(fonts[:1]) or "none"))
+            out.append(C("typography", "Hangul has a font", "PASS" if (used_faces or not han) else "FAIL",
+                         "Pretendard + Noto Serif KR (vendored)" if used_faces else "only system fallback"))
         if mob.get("ok"):
             if mob["viewport"][0] != 375:
                 out.append(C("layout", "phone width 375 px", "NOT_CHECKED", f"viewport {mob['viewport'][0]}"))

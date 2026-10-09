@@ -117,6 +117,13 @@ ok("<pattern" in svg and "background-clip" not in svg, "image-in-type is an SVG 
 bc = PI.barcode_svg("SPA-00")
 ok(bc.count("<rect") == 8 * 5, "the barcode encodes exactly '*SPA-00*' (8 characters × 5 bars) -- no ISSN, no price")
 
+print("[fonts]")
+for fam, w, fn, fmt in PI.FACES:
+    ok((PI.FONT_DIR / fn).is_file(), f"vendored font present: {fn}")
+ok(all((PI.FONT_DIR / f).is_file() for f in ("LICENSE-Pretendard.txt", "LICENSE-NotoSerifCJK.txt", "SOURCE.md")), "font licences and provenance are vendored with them")
+ok("Open Font License" in (PI.FONT_DIR / "LICENSE-NotoSerifCJK.txt").read_text() and "Pretendard" in (PI.FONT_DIR / "LICENSE-Pretendard.txt").read_text(),
+   "both licences are the OFL texts")
+
 print("[typography rules]")
 ok(PI.KO_SPACING.search("SKP-S 의 주제") and PI.KO_SPACING.search("‘Sunshine’ 도 숨을") and not PI.KO_SPACING.search("SKP-S의 주제"),
    "RED/GREEN: a space before a Korean particle after a Latin word is caught; none is not")
@@ -141,9 +148,9 @@ else:
     html = Path(r["html"]).read_text(encoding="utf-8")
     ok("독립 콘셉트 매거진" in html and "Gemini" not in html, "independence line on the back; no model named in the page")
 
-    for name in ("blocks sit on the mirrored 12-column grid", "no faux-bold Korean", "smallest text at print size", "no text block overlaps another (print",
+    for name in ("blocks sit on the mirrored 12-column grid", "Korean weights all have a real face", "smallest text at print size", "no text block overlaps another (print",
                  "no text block overlaps another (375", "story sections appear", "the night stop comes after",
-                 "contents page numbers", "no space between a Latin word", "text contrast", "VISUAL INDEX tokens are the page's tokens",
+                 "contents page numbers", "no space between a Latin word", "text contrast", "vendored Korean fonts load in the browser", "VISUAL INDEX tokens are the page's tokens",
                  "photos at the catalogue's saturate(.78)", "every registered technique is on a page", "at least 20 techniques", "even page count"):     # 'catalogue red agrees' is about the real cover photo, not stand-ins
         ok(status(r["checks"], name) == "PASS", f"GREEN: {name}")
 
@@ -158,7 +165,7 @@ else:
     m = PDF.measure(red / "index.html", 869, 1134, "qa-print")
     pg = {p["i"]: p for p in m["pages"]}
     ok(any(p.get("clash") for p in m["pages"]), "RED: a title pushed onto the text is reported as an overlap")
-    ok(any(p.get("faux") for p in m["pages"]), "RED: Korean set bold is reported as faux bold")
+    ok(any(f.startswith("700|") for p in m["pages"] for f in p.get("faux", [])), "RED: Korean serif set at 700 (Noto Serif KR has 400/600 only) is reported")
     ok(any(abs(c_["x"] - PI.X(c_["col"], c_["mirror"] or "r")) > 0.3 for p in m["pages"] for c_ in p.get("cols", [])), "RED: a block nudged 1.3 cqw off its column is reported")
 
     print("[build: screenshot-size stand-ins]")
