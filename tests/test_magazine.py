@@ -131,8 +131,15 @@ print("[QA verdict]")
 ok(QA.verdict([QA._c("x", "a", "PASS"), QA._c("x", "b", "NOT_CHECKED")]) == "WARNING", "NOT_CHECKED is not a pass")
 ok(QA.verdict([QA._c("x", "a", "PASS"), QA._c("x", "b", "FAIL"), QA._c("x", "c", "WARNING")]) == "FAIL", "one FAIL fails the issue")
 
+print("[no Gemini]")
+pkg = 뿌리 / "gentle_monster" / "magazine"
+hits = [f.name for f in pkg.glob("*.py") if re.search(r"\bimport\s+llm\b|from\s+gentle_monster\s+import[^\n]*\bllm\b|gentle_monster\.llm|generativelanguage|gemini",
+                                                      f.read_text(encoding="utf-8").replace("DRIFT writes with Gemini", ""), re.I)]
+ok(not hits, f"no file in gentle_monster/magazine calls Gemini or imports llm: {hits}")
+
 print("[build]")
 r = MB.build(BRIEF, name="t1")
+ok("gentle_monster.llm" not in sys.modules, "importing and building the magazine never loads gentle_monster.llm (Gemini)")
 out = Path(r["dir"])
 ok(r["verdict"] != "FAIL", f"the real build does not FAIL QA (verdict {r['verdict']})")
 for fn in ("index.html", "plan.json", "hypotheses.json", "assets.json", "qa.json", "QA_REPORT.md", "tokens.json"):

@@ -13,6 +13,13 @@ python3 tests/test_magazine.py              # 63개 검사, RED 9개 포함
 결과는 `out/<이름>/magazine/` 에 쌓인다(git 밖):
 `index.html` · `magazine.pdf` · `assets/*.svg` · `plan.json` · `hypotheses.json` · `assets.json` · `tokens.json` · `qa.json` · `QA_REPORT.md`.
 
+## 규칙 — Gemini 를 쓰지 않는다
+
+**사용자 지시(2026-10-09): "Gemini 쓰지 않는다".** 매거진 시스템(`gentle_monster/magazine/`)은 Gemini 도, 다른 언어
+모델도 부르지 않는다. 키가 있어도 마찬가지다. `gentle_monster/llm.py` 를 import 하지 않으며, `tests/test_magazine.py` 가
+패키지의 모든 파일에서 그 import 가 없는지와 빌드 중 `llm` 모듈이 로드되지 않는지를 확인한다. 글을 더 좋게 하려면
+템플릿과 연구 원장을 고친다.
+
 ## 단계와 파일
 
 | 단계 | 파일 | 하는 일 |
@@ -73,8 +80,8 @@ python3 tests/test_magazine.py              # 63개 검사, RED 9개 포함
 
 - **원문 열람.** 외부 접속이 되는 환경에서 `sources.json` 의 URL 을 열어 `verification: fulltext` 로 올리기. 지금은 0/63.
 - **실제 이미지.** 권리가 확인된 이미지(브랜드 프레스 키트의 사용 조건 등)를 `--image … --rights licensed` 로. 권리 확인은 사람이 한다.
-- **지면 글.** 지금 글은 원장에서 조립한다(템플릿 + 인용). 문장 품질을 올리려면 모델 단계가 필요하다 — 이 저장소의 규칙대로
-  Gemini(`gentle_monster/llm.py`)로, 원장을 벗어나지 못하게 묶어서. 아직 없다.
+- **지면 글.** 지금 글은 원장에서 조립한다(템플릿 + 인용). 문장 품질은 템플릿과 연구 원장(인용의 질 · 원문 열람)을
+  손봐서 올린다 — 모델 단계는 두지 않는다(아래 규칙).
 - **매거진 편집 축 조사.** 활자 · 격자 · 이미지 시퀀스 · 인쇄 사양은 거의 조사하지 못했다(원장 `not_checked` 10번).
 - **한글 지면.** CJK 글꼴이 설치된 곳에서는 한글 본문이 가능하다. 지금은 QA 가 보이는 한글을 경고한다.
 - 디스코드 `!젠몬` 자연어 경로에는 아직 안 붙였다.
