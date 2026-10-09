@@ -13,6 +13,27 @@ python3 tests/test_magazine.py              # 77개 검사, RED 13개 포함
 결과는 `out/<이름>/magazine/` 에 쌓인다(git 밖):
 `index.html` · `magazine.pdf` · `assets/*.svg` · `plan.json` · `hypotheses.json` · `assets.json` · `tokens.json` · `qa.json` · `QA_REPORT.md`.
 
+## 사진 호 — 내 사진으로 만드는 매거진 (`photo-issue`)
+
+```bash
+python3 -m gentle_monster photo-issue editorial/issues/spa_00_stops.json --name spa00
+python3 tests/test_photo_issue.py
+```
+
+연구 호와 따로 있는 두 번째 형식이다. 사용자의 사진이 주인공이고, 문법은 사용자가 준 레퍼런스(MCA Magazine 보드:
+스텐실 제호 · 강한 표지 사진 한 장 · 번호 붙은 차례 · 갤러리 벽 · 단어 한 장 · 콜라주와 색인 · 세운 선언문 · 두 쪽에 걸친
+풀블리드 · 테두리 글상자를 얹은 뒤표지)를 따른다. 젠틀몬스터는 표지를 고르는 눈으로 들어온다(연구 원장에 인용).
+
+| 무엇 | 어디 |
+|---|---|
+| 편집 결정(어느 사진을 어디에, 어떤 단어) | `editorial/issues/spa_00_stops.json` |
+| 글 | 사용자의 글만 — `docs/portfolio/` 에서 **글자 그대로**. `check_texts()` 가 원문에 그대로 있는지 확인한다 |
+| 사진 | `photos/stops/01–15.png` — **git 에 넣지 않는다**(`photos/` 는 무시 목록). 보낸 스크린샷에서 잘라 낸 것 |
+| 잰 값 | 빛(밤 · 흑백 · 해 질 녘 · 흐림 · 낮), 밝기, 채도 — 색인 쪽과 물 시퀀스 순서에 쓴다 |
+
+QA 는 사진의 **인쇄 해상도**를 브라우저에서 잰다(실제로 놓인 크기 ÷ 원본 픽셀). 지금 사진은 468 px 스크린샷 조각이라
+인쇄 해상도가 **FAIL**(최저 22 dpi)이다 — 웹은 괜찮고, 인쇄에는 원본이 필요하다. 이 판은 이것 하나로 FAIL 이다.
+
 ## 규칙 — Gemini 를 쓰지 않는다
 
 **사용자 지시(2026-10-09): "Gemini 쓰지 않는다".** 매거진 시스템(`gentle_monster/magazine/`)은 Gemini 도, 다른 언어

@@ -1,0 +1,170 @@
+{
+ "id": "spa-00-stops",
+ "title": "SPA 00 — Where Did You Last Stop?",
+ "photo_dir": "photos/stops",
+ "photo_note": "15 photos cut from the grid screenshot the user sent (2026-10-09). The user's own photographs (\"내가 찍은 사진\"). Screenshot crops, 468 x 258 px each -- not originals.",
+ "credit": "Photographs: JEONG HYEOKJU",
+ "rights": "own",
+ "masthead": "SPA",
+ "cover": {
+  "photo": 14,
+  "left": [
+   "STYLE",
+   "PICTURE",
+   "ARCHITECTURE"
+  ],
+  "right": [
+   "A Person with Style, A Moment like A Photograph,",
+   "A Building That Holds Me — I Stop."
+  ],
+  "byline": [
+   "JEONG HYEOKJU",
+   "IN GENTLE MONSTER"
+  ],
+  "question": "Where Did You Last Stop?",
+  "source": "docs/portfolio/cover.md"
+ },
+ "photos": {
+  "01": "물에 든 사람들, 곶 위의 호텔, 해 질 무렵의 바다",
+  "02": "흑백, 비어 있는 주차장의 차 한 대",
+  "03": "노을 아래 여섯 명이 젓는 카누",
+  "04": "흑백, 창틀 너머 밤 테라스의 줄 전구",
+  "05": "넓은 바다에 흩어진 사람들",
+  "06": "그릴 연기 속 모자 쓴 사람의 뒷모습",
+  "07": "밤하늘의 네온 십자가, 아래의 가로등 빛",
+  "08": "물속의 사람들, 건너편 호텔들",
+  "09": "절벽 위 풀 사이로 내려다본 해변",
+  "10": "노을 속 혼자 노 젓는 사람",
+  "11": "흑백, 나무 아래 휴대폰을 보는 사람과 표지판",
+  "12": "밤, 젖은 도로, 빨간불 — 차 안에서",
+  "13": "흐린 날, 바위 너머의 바다",
+  "14": "파란 통으로 만든 기차, 주황 고깔, 웅덩이에 비친 그림자",
+  "15": "모래 위에 돋은 새싹"
+ },
+ "photos_note": "보이는 것만 적었다(편집자 기술). 장소 · 날짜 · 카메라는 사진에서 확인할 수 없어 적지 않는다.",
+ "intro": {
+  "ko": [
+   "두 번째로 내가 멈추는 곳은 장면 앞이다.",
+   "빛, 색, 사람, 장소가 한순간에 맞아떨어질 때가 있다. 그때 나는 카메라를 꺼낸다.",
+   "그래서 내 두 번째 이야기는 사진이다."
+  ],
+  "en": "The second place I stop is in front of a scene. Sometimes light, color, a person and a place all line up at once — that's when I take out my camera.",
+  "source": "docs/portfolio/02_picture.md",
+  "omitted": "'앞 페이지의 사진도 그랬다 ...' -- that photo is not in this issue (02_picture.md says to drop the line in that case)"
+ },
+ "words": [
+  {
+   "photo": 15,
+   "word": "새싹"
+  },
+  {
+   "photo": 4,
+   "word": "전구"
+  }
+ ],
+ "words_source": "docs/portfolio/02_picture.md (단어 한 장 후보 2·3위; 1위 '웅덩이'의 사진은 이번 호 표지라 피했다)",
+ "manifesto": {
+  "lines": [
+   "People shape spaces,",
+   "and spaces shape people back.",
+   "I design the moment in between,",
+   "when someone stops."
+  ],
+  "check": "People shape spaces, and spaces shape people back. I design the moment in between, when someone stops.",
+  "photo": 11,
+  "source": "docs/portfolio/philosophy.md"
+ },
+ "collage": [
+  6,
+  7,
+  9,
+  13,
+  1,
+  8
+ ],
+ "night_spread": 12,
+ "sea_sequence": [
+  5,
+  8,
+  1,
+  3,
+  10
+ ],
+ "qa_text": [
+  {
+   "q": "사진은 왜 중요한가?",
+   "a": [
+    "사람은 쉽게 잊는다. 좋았던 장소도, 그날의 빛도 시간이 지나면 흐려진다.",
+    "사진은 그 순간으로 나를 다시 데려다 놓는다. 사진 한 장을 보면 그날의 날씨, 소리, 냄새까지 같이 떠오른다."
+   ]
+  },
+  {
+   "q": "나는 왜 사진을 찍는가?",
+   "a": [
+    "카메라를 들면 평소에 그냥 지나치던 것을 보게 된다. 벽의 색, 빛이 들어오는 방향, 사람이 서 있는 위치.",
+    "사진을 찍는 동안 나는 계속 관찰한다. 그러면 아무렇지 않던 길에도 이야기가 생긴다."
+   ]
+  },
+  {
+   "q": "좋은 사진이란?",
+   "a": [
+    "첫째, 오래 보게 되는 사진이다.",
+    "한 번 보고 넘기지 않고, 계속 들여다보게 되는 것.",
+    "둘째, 하나의 이야기가 되는 사진이다.",
+    "사람, 빛, 색, 장소가 서로 어울려 한 장면이 되는 것.",
+    "좋은 사진은 좋은 스타일, 좋은 공간과 같다. 멈추게 하고, 다시 떠오르게 한다."
+   ]
+  }
+ ],
+ "qa_source": "docs/portfolio/02_picture.md",
+ "back": {
+  "photo": 2,
+  "ko": "사람은 공간을 만들고, 공간은 다시 사람을 만든다. 나는 그 사이에서, 사람이 발걸음을 멈추는 순간을 설계한다.",
+  "en": "People shape spaces, and spaces shape people back. I design the moment in between, when someone stops.",
+  "why": "cover.md: 표지는 '멈춤', 마지막 장은 '멈춘 뒤 남는 자리' -- 흐린 날 빈 주차장의 차",
+  "source": "docs/portfolio/philosophy.md"
+ },
+ "lens": {
+  "title": "젠틀몬스터의 눈으로 고른 표지",
+  "candidates": [
+   1,
+   2,
+   12,
+   14
+  ],
+  "chosen": 14,
+  "reading": [
+   {
+    "text": "젠틀몬스터의 공간에는 기계가 살아 있는 것처럼 군다. 베이징 SKP-S 의 Future Farm 에서는 로봇 양이 숨을 쉬고, 회사의 로봇 연구실은 여섯 다리로 걷는 THE PROBE 를 만들었고, 하우스 노웨어 서울의 거대한 닥스훈트 'Sunshine' 도 숨을 쉰다.",
+    "claims": [
+     "clm-skp-future-farm",
+     "clm-gm-robotics-lab",
+     "clm-hn-sunshine"
+    ]
+   },
+   {
+    "text": "파란 통 기차는 그 반대편에서 같은 일을 한다. 버려질 법한 통이 바퀴와 주황 불빛을 달고 줄지어 서서, 사물이 생물처럼 보인다. 웅덩이가 그것을 한 번 더 세운다.",
+    "claims": []
+   },
+   {
+    "text": "SKP-S 의 주제는 '디지털-아날로그의 미래', 기술의 미래와 아날로그의 노스탤지어가 만나는 자리다. 낡은 놀이기구는 노스탤지어이고, 줄지어 선 기계는 미래다.",
+    "claims": [
+     "clm-skp-theme"
+    ]
+   },
+   {
+    "text": "하우스 도산의 1층에는 상품이 없고 설치물만 있다. 표지도 상품을 보여 주지 않는다 — 멈추게 하는 장면 하나를 보여 준다.",
+    "claims": [
+     "clm-hd-floors",
+     "clm-hd-ground-floor-provocation"
+    ]
+   }
+  ],
+  "others": {
+   "12": "밤 · 빨간불은 '멈춤' 이야기에는 가장 강하다(cover.md 의 원래 선택). 다만 영화적인 거리 사진에 가깝고, 젠틀몬스터식 낯섦 — 사물이 다른 것이 되는 순간 — 은 약하다.",
+   "02": "흑백의 빈 주차장은 조용하고 정돈되어 있다. 낯섦보다 고요에 가깝다 — 그래서 마지막 장에 둔다.",
+   "01": "해변과 호텔은 아름답지만 엽서에 가깝다. 이 장면은 다른 것이 되지 않는다."
+  },
+  "note": "편집자의 읽기다. 근거로 단 출처는 모두 검색 조각으로만 확인했다(원문 미열람)."
+ }
+}

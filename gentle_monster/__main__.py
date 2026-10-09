@@ -16,6 +16,7 @@
                               editorial system: research catalogue -> Drift -> >= 3 directions -> plan ->
                               HTML + PDF -> QA (PASS/WARNING/FAIL/NOT_CHECKED). No model call.
     research                  regenerate research/*.md from research/sources.json and print coverage
+    photo-issue <spec.json> [--name N]   a magazine around your own photos (editorial/issues/*.json)
 """
 from __future__ import annotations
 
@@ -62,6 +63,7 @@ def main(argv=None) -> int:
     a.add_argument("--rights", action="append", default=[], help="own | licensed | public_domain | cc0 | cc-by, per --image")
     a.add_argument("--no-pdf", action="store_true"); a.add_argument("--sources", default=None, help="another research catalogue")
     sub.add_parser("research")
+    a = sub.add_parser("photo-issue"); a.add_argument("spec"); a.add_argument("--name", default=""); a.add_argument("--no-pdf", action="store_true")
     a = ap.parse_args(argv)
     try:
         if a.cmd in ("make", "example"):
@@ -105,6 +107,14 @@ def main(argv=None) -> int:
                 print(f"  {hid}  {st:8s} {tot:5}  {t}")
             print(f"=== 선택: {r['chosen']} · {r['pages']}쪽 ===\nHTML {r['html']}\nPDF  {r['pdf'] or '(없음: ' + str((r['pdf_result'] or {}).get('error', '요청 안 함')) + ')'}")
             print(f"QA {r['verdict']}: " + ", ".join(f"{c['status']} {c['check']}" for c in r["checks"] if c["status"] != "PASS"))
+            print(f"보고서 {r['dir']}/QA_REPORT.md")
+            return 0 if r["verdict"] != "FAIL" else 1
+        elif a.cmd == "photo-issue":
+            from gentle_monster.magazine import photo_issue as PI
+            r = PI.build(a.spec, name=a.name, pdf=not a.no_pdf)
+            print(f"{r['pages']}쪽\nHTML {r['html']}\nPDF  {r['pdf'] or (r['pdf_result'] or {}).get('error', '요청 안 함')}")
+            print("잰 표지 후보(채도 x 대비 x 윤곽):", ", ".join(r["measured_cover_rank"]))
+            print(f"QA {r['verdict']}: " + "; ".join(f"{c['status']} {c['check']}" for c in r["checks"] if c["status"] != "PASS"))
             print(f"보고서 {r['dir']}/QA_REPORT.md")
             return 0 if r["verdict"] != "FAIL" else 1
         elif a.cmd == "research":

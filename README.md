@@ -79,6 +79,9 @@ python3 -m gentle_monster magazine "Gentle Monster의 브랜드 세계관을 중
 권리가 확인 안 된 이미지는 싣지 않고 출처로만 적는다. 자세한 것: [`docs/MAGAZINE_SYSTEM.md`](docs/MAGAZINE_SYSTEM.md) ·
 조사: [`docs/REPOSITORY_AUDIT.md`](docs/REPOSITORY_AUDIT.md) · Drift 원문: [`research/drift/SE_NEW_DRIFT.md`](research/drift/SE_NEW_DRIFT.md).
 
+내 사진으로 만드는 호: `python3 -m gentle_monster photo-issue editorial/issues/spa_00_stops.json` — 사진은 `photos/`(git 밖),
+글은 `docs/portfolio/` 의 원문 그대로, 레이아웃은 MCA 레퍼런스 문법. 자세한 것: 같은 문서의 '사진 호'.
+
 ## 디스코드 봇에 붙이기 (선택)
 
 `gentle_monster.discord_cmd.run(text, images=[첨부 경로])` 는 `!젠몬 <아무 말>` 을 자연어로 읽는다(모델 호출 없음):
@@ -116,7 +119,8 @@ python3 tests/test_gentle_monster.py      # 브라우저가 없으면 브라우�
 python3 tests/test_engine.py              # 엔진: 정책 분기 · RED(깨뜨린 페이지가 그 검사만 실패) · GREEN
 python3 tests/test_worldtrip_app.py       # World Trip 화면: 정적 검사 · V GREEN(고정 응답) · RED 여섯
 python3 tests/test_worldplan_app.py       # worldplan 화면: 정적 검사(토큰이 엔진과 같나 포함) · V GREEN · RED 여섯
-python3 tests/test_magazine.py            # 편집 시스템: 원장 · Drift 규칙 · 권리 · QA RED 아홉 · 빌드(HTML·PDF)
+python3 tests/test_magazine.py            # 편집 시스템: 원장 · Drift 규칙 · 권리 · QA RED · 빌드(HTML·PDF)
+python3 tests/test_photo_issue.py         # 사진 호: 글 원문 그대로 · 모든 사진 · 인쇄 해상도(RED: 468 px) · 빠진 사진
 ```
 
 ## 한계

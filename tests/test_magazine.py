@@ -147,8 +147,10 @@ ok(QA.verdict([QA._c("x", "a", "PASS"), QA._c("x", "b", "FAIL"), QA._c("x", "c",
 
 print("[no Gemini]")
 pkg = 뿌리 / "gentle_monster" / "magazine"
-hits = [f.name for f in pkg.glob("*.py") if re.search(r"\bimport\s+llm\b|from\s+gentle_monster\s+import[^\n]*\bllm\b|gentle_monster\.llm|generativelanguage|gemini",
-                                                      f.read_text(encoding="utf-8").replace("DRIFT writes with Gemini", ""), re.I)]
+CALLS = r"\bimport\s+llm\b|from\s+gentle_monster\s+import[^\n]*\bllm\b|gentle_monster\.llm|generativelanguage\.googleapis|GEMINI_API_KEY|google\.generativeai|from\s+google\s+import\s+genai"
+hits = [f.name for f in pkg.glob("*.py") if re.search(CALLS, f.read_text(encoding="utf-8"))]   # calls, not the word in a comment
+ok(re.search(CALLS, "from gentle_monster import llm") and re.search(CALLS, "url = 'https://generativelanguage.googleapis.com'")
+   and not re.search(CALLS, "# writes no prose with a model (no Gemini)"), "the guard matches calls and ignores the word in prose")
 ok(not hits, f"no file in gentle_monster/magazine calls Gemini or imports llm: {hits}")
 
 print("[build]")

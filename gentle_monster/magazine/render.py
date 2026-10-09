@@ -44,12 +44,15 @@ QA_JS = r"""
    p.querySelectorAll(':scope > *, .entries > *, .cols-2 > *, .cols-3 > *, figure, table, .refs').forEach(function(el){
      var b=el.getBoundingClientRect();
      if(getComputedStyle(el).position==='absolute' && el.tagName==='FIGURE') return;
+     if(el.closest('[data-bleed]')) return;   // bleeds past the trim on purpose (a spread split over two pages)
      if(b.width>0 && (b.bottom>r.bottom+1 || b.right>r.right+1)) over.push((el.className||el.tagName)+'');
    });
    p.querySelectorAll('img').forEach(function(im){
      var b=im.getBoundingClientRect();
      imgs.push({src:im.getAttribute('src'),ok:im.complete&&im.naturalWidth>0,nat:im.naturalWidth?im.naturalWidth/im.naturalHeight:0,
-                shown:b.height?b.width/b.height:0,fit:getComputedStyle(im).objectFit});
+                shown:b.height?b.width/b.height:0,fit:getComputedStyle(im).objectFit,
+                nw:im.naturalWidth,nh:im.naturalHeight,rw:b.width,rh:b.height,
+                pw:p.getBoundingClientRect().width,ph:p.getBoundingClientRect().height});
    });
    var cs=getComputedStyle(p), pl=parseFloat(cs.paddingLeft), pr=parseFloat(cs.paddingRight), gap=parseFloat(cs.columnGap)||0;
    var inner=r.width-pl-pr, col=(inner-gap*11)/12, lines=[];
