@@ -120,7 +120,8 @@ ok(bc.count("<rect") == 8 * 5, "the barcode encodes exactly '*SPA-00*' (8 charac
 print("[typography rules]")
 ok(PI.KO_SPACING.search("SKP-S 의 주제") and PI.KO_SPACING.search("‘Sunshine’ 도 숨을") and not PI.KO_SPACING.search("SKP-S의 주제"),
    "RED/GREEN: a space before a Korean particle after a Latin word is caught; none is not")
-ok(PI.X(0) == 8.0 and abs(PI.X(11) + PI.COL - 92.0) < 0.01, "the 12 columns fill the 84 cqw measure exactly")
+ok(abs(PI.X(11, "r") + PI.COL - (100 - PI.OUTER)) < 0.01 and abs(PI.X(11, "l") + PI.COL - (100 - PI.INNER)) < 0.01 and PI.X(0, "l") < PI.X(0, "r"),
+   "mirrored grid: 12 columns fill each page; the binding side is wider")
 
 if not PDF.available():
     print("  건너뜀  build (Chromium not found)")
@@ -129,7 +130,7 @@ else:
     big = Path(임시) / "big"
     stand_ins(big, 4000, 2205)   # a full-height page of a 16:9 photo needs ~1,800 px of height at 150 dpi
     r = PI.build(spec_with(big), name="big")
-    ok(r["pdf_result"] and r["pdf_result"]["pages"] == r["pages"] == 22, f"22 pages in HTML and PDF ({r['pdf_result'] and r['pdf_result']['pages']})")
+    ok(r["pdf_result"] and r["pdf_result"]["pages"] == r["pages"] == 26, f"26 pages in HTML and PDF ({r['pdf_result'] and r['pdf_result']['pages']})")
     ok(status(r["checks"], "every photo appears") == "PASS", "every photo appears at least once")
     ok(status(r["checks"], "text overflow") == "PASS", "nothing overflows at print size")
     pres_ = next(c for c in r["checks"] if c["check"].startswith("print resolution"))
@@ -140,8 +141,8 @@ else:
     html = Path(r["html"]).read_text(encoding="utf-8")
     ok("독립 콘셉트 매거진" in html and "Gemini" not in html, "independence line on the back; no model named in the page")
 
-    for name in ("blocks sit on the 12-column grid", "no faux-bold Korean", "smallest text at print size", "no text block overlaps another (print",
-                 "no text block overlaps another (375", "story sections appear", "Day → Dusk runs bright to dark", "the night stop comes after",
+    for name in ("blocks sit on the mirrored 12-column grid", "no faux-bold Korean", "smallest text at print size", "no text block overlaps another (print",
+                 "no text block overlaps another (375", "story sections appear", "the night stop comes after",
                  "contents page numbers", "no space between a Latin word", "text contrast", "VISUAL INDEX tokens are the page's tokens",
                  "photos at the catalogue's saturate(.78)", "every registered technique is on a page", "at least 20 techniques", "even page count"):     # 'catalogue red agrees' is about the real cover photo, not stand-ins
         ok(status(r["checks"], name) == "PASS", f"GREEN: {name}")
@@ -150,15 +151,15 @@ else:
     red = Path(r["dir"]).parent / "red"
     shutil.copytree(Path(r["dir"]), red)
     h = (red / "index.html").read_text(encoding="utf-8")
-    h = h.replace('data-technique="pull_quote" style="', 'data-technique="pull_quote" style="margin-top:50cqw;', 1)   # onto the lead text
-    h = h.replace('<p style="margin-bottom:.8em">', '<p style="margin-bottom:.8em;font-weight:700">', 1)              # Korean set bold
-    h = h.replace('data-col="5" data-technique="text_page" style="', 'data-col="5" data-technique="text_page" style="margin-left:1.3cqw;', 1)
+    h = h.replace('data-technique="white_space" style="', 'data-technique="white_space" style="margin-top:-24cqw;', 1)   # 'In this issue' onto the standfirst
+    h = h.replace('<p class="ko" lang="ko" style="font-size:', '<p class="ko" lang="ko" style="font-weight:700;font-size:', 1)   # Korean set bold
+    h = h.replace('data-technique="text_columns" style="', 'data-technique="text_columns" style="margin-left:1.3cqw;', 1)
     (red / "index.html").write_text(h, encoding="utf-8")
     m = PDF.measure(red / "index.html", 869, 1134, "qa-print")
     pg = {p["i"]: p for p in m["pages"]}
     ok(any(p.get("clash") for p in m["pages"]), "RED: a title pushed onto the text is reported as an overlap")
     ok(any(p.get("faux") for p in m["pages"]), "RED: Korean set bold is reported as faux bold")
-    ok(any(abs(c_["x"] - PI.X(c_["col"])) > 0.3 for p in m["pages"] for c_ in p.get("cols", [])), "RED: a block nudged 1.3 cqw off its column is reported")
+    ok(any(abs(c_["x"] - PI.X(c_["col"], c_["mirror"] or "r")) > 0.3 for p in m["pages"] for c_ in p.get("cols", [])), "RED: a block nudged 1.3 cqw off its column is reported")
 
     print("[build: screenshot-size stand-ins]")
     small = Path(임시) / "small"

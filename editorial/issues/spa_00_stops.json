@@ -183,19 +183,19 @@
  },
  "story": [
   {
-   "id": "stops",
-   "en": "15 Stops",
-   "ko": "열다섯 번 멈춘 자리"
+   "id": "contents",
+   "en": "Contents",
+   "ko": "차례"
+  },
+  {
+   "id": "opener",
+   "en": "Where Did You Last Stop?",
+   "ko": "포토 에세이 — 열다섯 번의 멈춤"
   },
   {
    "id": "day",
-   "en": "Day → Dusk",
+   "en": "Day to Dusk",
    "ko": "낮에서 해 질 녘으로"
-  },
-  {
-   "id": "closer",
-   "en": "Looking Closer",
-   "ko": "가까이 보기 — 한 장을 세 번, 하루의 색"
   },
   {
    "id": "turn",
@@ -218,14 +218,14 @@
    "ko": "선언"
   },
   {
-   "id": "index",
-   "en": "Index",
-   "ko": "보이는 것과 잰 것"
-  },
-  {
    "id": "why",
    "en": "Why Pictures",
    "ko": "사진에 관한 세 물음"
+  },
+  {
+   "id": "closer",
+   "en": "Looking Closer",
+   "ko": "가까이 보기 — 한 장을 세 번, 하루의 색"
   },
   {
    "id": "lens",
@@ -233,9 +233,19 @@
    "ko": "젠틀몬스터의 눈으로 고른 표지"
   },
   {
-   "id": "techniques",
-   "en": "Techniques",
-   "ko": "이 책에 쓴 기법"
+   "id": "index",
+   "en": "Index of Photographs",
+   "ko": "사진 색인 — 보이는 것과 잰 것"
+  },
+  {
+   "id": "notes",
+   "en": "Notes & Credits",
+   "ko": "기법 · 출처 · 판권"
+  },
+  {
+   "id": "last",
+   "en": "Last Page",
+   "ko": "마지막 쪽"
   }
  ],
  "story_note": "하루를 따라 걷는다: 전체를 한 번 보고, 낮에서 해 질 녘, 새싹(낮)과 전구(밤)가 넘어가는 경첩, 밤의 빨간불에서 멈춘다. 그다음 선언, 기록, 물음. 뒤표지는 멈춘 뒤 남는 자리(cover.md 의 결정).",
@@ -334,5 +344,26 @@
   ]
  },
  "duotone": 11,
- "masthead_style": "overlap"
+ "masthead_style": "overlap",
+ "layout": {
+  "contents_photo": 9,
+  "opener_photo": 1,
+  "day_spread": 3,
+  "sea_pair": [
+   5,
+   8
+  ],
+  "pair": [
+   6,
+   7
+  ],
+  "why_photo": 10,
+  "last_photo": 13,
+  "pull_quotes": {
+   "day": "카메라를 들면 평소에 그냥 지나치던 것을 보게 된다.",
+   "why": "사진은 그 순간으로 나를 다시 데려다 놓는다."
+  },
+  "pull_source": "docs/portfolio/02_picture.md"
+ },
+ "last_question_ko": "당신이 마지막으로 멈춘 곳은 어디인가?"
 }
