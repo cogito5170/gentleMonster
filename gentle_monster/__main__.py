@@ -12,6 +12,10 @@
     site <name> [--rounds N]        frontend engine: the room as a web page, browser-judged, evolved
                                     under the se_new policy (ACCEPT only if V holds and J rose)
     status <name> · list · check <job.json>
+    magazine "<brief>" [--name N] [--image PATH --credit C --rights own|licensed|...] [--no-pdf]
+                              editorial system: research catalogue -> Drift -> >= 3 directions -> plan ->
+                              HTML + PDF -> QA (PASS/WARNING/FAIL/NOT_CHECKED). No model call.
+    research                  regenerate research/*.md from research/sources.json and print coverage
 """
 from __future__ import annotations
 
@@ -52,6 +56,12 @@ def main(argv=None) -> int:
     a = sub.add_parser("site"); a.add_argument("name"); a.add_argument("--rounds", type=int, default=6)
     sub.add_parser("list")
     sub.add_parser("check").add_argument("file")
+    a = sub.add_parser("magazine"); a.add_argument("brief"); a.add_argument("--name", default="")
+    a.add_argument("--image", action="append", default=[], help="a photo you may publish (repeatable)")
+    a.add_argument("--credit", action="append", default=[], help="credit line per --image, same order")
+    a.add_argument("--rights", action="append", default=[], help="own | licensed | public_domain | cc0 | cc-by, per --image")
+    a.add_argument("--no-pdf", action="store_true"); a.add_argument("--sources", default=None, help="another research catalogue")
+    sub.add_parser("research")
     a = ap.parse_args(argv)
     try:
         if a.cmd in ("make", "example"):
@@ -85,6 +95,27 @@ def main(argv=None) -> int:
         elif a.cmd == "list":
             for d in sorted(p for p in paths.OUT.glob("*") if (p / "job.json").is_file()):
                 print(d.name, json.dumps(pipeline.status(d.name)))
+        elif a.cmd == "magazine":
+            from gentle_monster.magazine import build as MB
+            imgs = [(str(paths.resolve_photo(p)), (a.credit[i] if i < len(a.credit) else ""), (a.rights[i] if i < len(a.rights) else "unknown"))
+                    for i, p in enumerate(a.image)]
+            r = MB.build(a.brief, name=a.name, images=imgs, pdf=False if a.no_pdf else None, cat_path=a.sources)
+            print("=== 방향 ===")
+            for hid, t, st, tot in r["directions"]:
+                print(f"  {hid}  {st:8s} {tot:5}  {t}")
+            print(f"=== 선택: {r['chosen']} · {r['pages']}쪽 ===\nHTML {r['html']}\nPDF  {r['pdf'] or '(없음: ' + str((r['pdf_result'] or {}).get('error', '요청 안 함')) + ')'}")
+            print(f"QA {r['verdict']}: " + ", ".join(f"{c['status']} {c['check']}" for c in r["checks"] if c["status"] != "PASS"))
+            print(f"보고서 {r['dir']}/QA_REPORT.md")
+            return 0 if r["verdict"] != "FAIL" else 1
+        elif a.cmd == "research":
+            from gentle_monster.magazine import build as MB, catalogue as CAT
+            cat = CAT.load()
+            bad = CAT.validate(cat)
+            for f in MB.write_research_docs():
+                print("wrote", f)
+            print(json.dumps(CAT.coverage(cat), ensure_ascii=False, indent=1))
+            print("catalogue problems:", len(bad), *bad[:10], sep="\n  ")
+            return 0 if not bad else 1
         elif a.cmd == "check":
             bad = spec.check(spec.load(a.file))
             print("ok" if not bad else "\n".join(bad))

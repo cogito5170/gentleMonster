@@ -1,0 +1,58 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Research source",
+ "type": "object",
+ "required": [
+  "id",
+  "title",
+  "url",
+  "kind",
+  "verification",
+  "accessed"
+ ],
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^src-"
+  },
+  "title": {
+   "type": "string"
+  },
+  "url": {
+   "type": "string",
+   "pattern": "^https?://"
+  },
+  "publisher": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "kind": {
+   "enum": [
+    "official",
+    "press",
+    "secondary",
+    "blog",
+    "retailer",
+    "repository"
+   ]
+  },
+  "verification": {
+   "enum": [
+    "fulltext",
+    "snippet"
+   ],
+   "description": "fulltext = the page was read; snippet = only a search-result fragment was seen"
+  },
+  "accessed": {
+   "type": "string"
+  },
+  "query": {
+   "type": "string"
+  },
+  "notes": {
+   "type": "string"
+  }
+ }
+}

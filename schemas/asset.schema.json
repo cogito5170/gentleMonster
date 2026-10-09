@@ -1,0 +1,123 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Asset catalogue entry",
+ "type": "object",
+ "required": [
+  "asset_id",
+  "source_title",
+  "source_url",
+  "direct_image_url",
+  "creator",
+  "publication_date",
+  "asset_type",
+  "license",
+  "attribution",
+  "local_path",
+  "dimensions",
+  "retrieval_status",
+  "rights_status",
+  "verification_status",
+  "related_research_items"
+ ],
+ "properties": {
+  "asset_id": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "source_title": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "source_url": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "direct_image_url": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "creator": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "publication_date": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "asset_type": {
+   "enum": [
+    "official_campaign",
+    "editorial",
+    "independent_photography",
+    "reference_page",
+    "generated_plate",
+    "user_photo"
+   ]
+  },
+  "license": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "attribution": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "local_path": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "dimensions": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "items": {
+    "type": "integer"
+   }
+  },
+  "retrieval_status": {
+   "enum": [
+    "retrieved",
+    "generated",
+    "provided",
+    "not_attempted",
+    "blocked",
+    "failed"
+   ]
+  },
+  "rights_status": {
+   "type": "string",
+   "description": "publishable only if one of own, generated, licensed, public_domain, cc0, cc-by"
+  },
+  "verification_status": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "related_research_items": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  }
+ }
+}

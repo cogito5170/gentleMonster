@@ -67,6 +67,18 @@ job 의 팔레트·조명·재료가 **디자인 토큰**(W3C DTCG 로 내보냄
 프론트엔드다. 같은 갈래로 `worldplan app` 이 받아 붙인다. 토큰은 이 엔진이 짓고(`apps/worldplan_tokens.py`),
 화면 검사는 `python3 -m gentle_monster.apps.check --app worldplan`. 자세한 것: [`gentle_monster/apps/worldplan/README.md`](gentle_monster/apps/worldplan/README.md).
 
+## 편집 시스템 — 연구에서 매거진까지
+
+```bash
+python3 -m gentle_monster magazine "Gentle Monster의 브랜드 세계관을 중심으로, 미래의 유물과 인간의 감각을 주제로 한 실험적 매거진, HTML과 PDF"
+```
+
+연구 원장(`research/sources.json`: 출처 93 · 주장 63, 각자 **읽은 정도**와 종류) → **Drift**(se_new 의 DRIFT 규칙을 개념에
+옮긴 것: 원장 · 한 걸음에 연산자 하나 · 물려받음을 재고 · 식은 것을 다시 부르고 · 4걸음마다 끼어들기) → 방향 4개 비교 →
+쪽별 계획 → HTML + PDF(230 × 300 mm) → QA(PASS / WARNING / FAIL / NOT_CHECKED). 모델 호출 없음.
+권리가 확인 안 된 이미지는 싣지 않고 출처로만 적는다. 자세한 것: [`docs/MAGAZINE_SYSTEM.md`](docs/MAGAZINE_SYSTEM.md) ·
+조사: [`docs/REPOSITORY_AUDIT.md`](docs/REPOSITORY_AUDIT.md) · Drift 원문: [`research/drift/SE_NEW_DRIFT.md`](research/drift/SE_NEW_DRIFT.md).
+
 ## 디스코드 봇에 붙이기 (선택)
 
 `gentle_monster.discord_cmd.run(text, images=[첨부 경로])` 는 `!젠몬 <아무 말>` 을 자연어로 읽는다(모델 호출 없음):
@@ -104,6 +116,7 @@ python3 tests/test_gentle_monster.py      # 브라우저가 없으면 브라우�
 python3 tests/test_engine.py              # 엔진: 정책 분기 · RED(깨뜨린 페이지가 그 검사만 실패) · GREEN
 python3 tests/test_worldtrip_app.py       # World Trip 화면: 정적 검사 · V GREEN(고정 응답) · RED 여섯
 python3 tests/test_worldplan_app.py       # worldplan 화면: 정적 검사(토큰이 엔진과 같나 포함) · V GREEN · RED 여섯
+python3 tests/test_magazine.py            # 편집 시스템: 원장 · Drift 규칙 · 권리 · QA RED 아홉 · 빌드(HTML·PDF)
 ```
 
 ## 한계

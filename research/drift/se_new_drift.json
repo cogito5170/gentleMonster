@@ -1,0 +1,96 @@
+{
+ "id": "se_new-drift",
+ "answer": "SE_NEW's Drift is a methodology defined inside the se_new repository itself (owner cogito5170). It is NOT the Dutch art studio DRIFT (Lonneke Gordijn & Ralph Nauta); the two are unrelated and are kept apart here.",
+ "repository": "https://github.com/cogito5170/se_new",
+ "files": [
+  "novel/DRIFT.md",
+  "novel/shock.py",
+  "novel/diffusion.py",
+  "mathdrift/README.md",
+  "mathdrift/measure.py",
+  "mathdrift/ops.py",
+  ".claude/skills/drift/SKILL.md"
+ ],
+ "commit": "79dab33ccaf8a99720991139a503848e4c351f64",
+ "commit_date": "2026-09-30T16:06:00+00:00",
+ "author": "se_new repository (cogito5170); author of the text is not named in the files",
+ "verification": "fulltext -- read in a local checkout of the repository; every quote below is re-checked verbatim by qa.research when a checkout is present",
+ "core_claims": [
+  "DRIFT = Diffusion (확산) · Rhythm (리듬) · Intrusion (충격) · Freewriting (자유) · Truth (원장): free continuous writing without a plot, from a first sentence",
+  "Everything drawn is a starting point, not a script; only two things are unbreakable: no contradiction with what was already written, and no coincidence that solves the problem",
+  "The structure is the way mathematics extends: conservative extension that keeps the earlier system true while widening it (axioms = ledger, consistency = contradiction gate, new axiom = event, open problem = unclosed thread, bridge = fold)",
+  "Diffusion asks for new things AND bringing back earlier things one level up; cooling props (식은 소품) from the ledger are fuel, not a ban list",
+  "Intrusion: every ~2,000 chars a third party breaks the escalation; drawn from combined axes, seeded, never solving the problem",
+  "Gates are minimal; measures are returned as numbers but do not kill the text (과잉 기각은 글 자체를 없앤다)",
+  "mathdrift carries the same rules to search spaces: one operator per step from a fixed list, lineage enforced by the ledger, far jumps rare (JUMP_SHARE 0.2), inheritance needs >= 2 shared words"
+ ],
+ "applied_here": "gentle_monster/magazine/drift.py ports these rules to editorial concepts: ledger + lineage gate, one operator per step (detach/refine/associate/invert/revive/fold/leap), measured new/kept terms, cooling nodes revived, intrusions every 4 steps from WHO x HOW x MARK axes, and a second hard gate against presenting fiction as brand fact.",
+ "interpretation_not_in_source": [
+  "Mapping 'contradiction' to 'presenting a fiction as a fact about the brand' is this project's reading, not a sentence in DRIFT.md",
+  "The outside disciplines (excavation, conservation, optometry ...) and their editorial devices are this project's lexicon; DRIFT.md draws events from WHO/HOW/MARK axes for prose, not disciplines",
+  "DRIFT generates prose with a model (Gemini); this magazine engine writes no prose with a model -- its text is composed from the research catalogue"
+ ],
+ "operating_principle_note": "'Research broadly. Extract principles. Let ideas drift across disciplines. Transform the relationships. Produce something original.' is the project's operating principle from the brief -- it is NOT a quotation from SE_NEW.",
+ "quotes": [
+  {
+   "file": "novel/DRIFT.md",
+   "text": "줄거리를 먼저 짜지 않는다. 첫 문장 하나에서 끝까지 흘러간다."
+  },
+  {
+   "file": "novel/DRIFT.md",
+   "text": "**그것들은 전부 출발점이지 각본이 아니다.**"
+  },
+  {
+   "file": "novel/DRIFT.md",
+   "text": "꺾이지 않는 것은 둘뿐이다. **앞에서 쓴 것과 어긋나지 않기**(모순), **우연이 문제를 풀지\n않기**(편의주의). 나머지는 전부 자유다."
+  },
+  {
+   "file": "novel/DRIFT.md",
+   "text": "이 구조는 **수학의 확장 방식을 소설로 옮긴 것**이다."
+  },
+  {
+   "file": "novel/DRIFT.md",
+   "text": "**앞의\n것을 품은 채로 바깥을 넓힌다.**"
+  },
+  {
+   "file": "novel/DRIFT.md",
+   "text": "| 증명의 흐름 | **표류** — 결론을 정해 두지 않고 한 줄이 다음 줄을 부른다 |"
+  },
+  {
+   "file": "novel/DRIFT.md",
+   "text": "핵심은 **식은 소품**이다."
+  },
+  {
+   "file": "novel/DRIFT.md",
+   "text": "제약은 하나뿐이다 — **사건은 문제를 풀지 않는다.**"
+  },
+  {
+   "file": "novel/DRIFT.md",
+   "text": "**게이트는 최소로 만든다. 자유도가 이 방식의 전부다.**"
+  },
+  {
+   "file": "novel/shock.py",
+   "text": "**사건은 미리 정해두지 않는다.** 목록 하나를 돌려 쓰면 세 번째부터 예측된다."
+  },
+  {
+   "file": "mathdrift/README.md",
+   "text": "그래서 **발산 단계에는 게이트를 안 건다.** 엄밀성은 나중에 요구한다."
+  },
+  {
+   "file": "mathdrift/README.md",
+   "text": "한 번에 연산자 **하나**만 건다"
+  },
+  {
+   "file": "mathdrift/measure.py",
+   "text": "**한 낱말이 겹친 것은 물려받은 것이 아니다.**"
+  },
+  {
+   "file": "mathdrift/ops.py",
+   "text": "JUMP_SHARE = 0.2"
+  },
+  {
+   "file": "novel/diffusion.py",
+   "text": "FUEL_AGE = 8"
+  }
+ ]
+}

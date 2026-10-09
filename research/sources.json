@@ -1,0 +1,1881 @@
+{
+ "generated": "2026-10-09",
+ "method": "Desk research on 2026-10-09 using the WebSearch tool (mode 'standard') only, including allowed_domains searches restricted to official domains (gentlemonster.com, mykita.com, jacquesmariemage.com, kuboraum.com, retrosuperfuture.com, tamburins.com). WebFetch FAILED for every attempted URL (https://gentlemonster.com/au/stories/skp, https://en.wikipedia.org/wiki/Haus_Nowhere, https://en.wikipedia.org/wiki/Gentle_Monster, domusweb.it) with 'getaddrinfo ENOTFOUND'; curl via the agent proxy returned 403 on CONNECT (en.wikipedia.org; proxy log also shows www.gentlemonster.com and www.032c.com denied). No page was read in full, so every source is verification='snippet'. WebSearch output is a summary of results with quoted fragments; evidence below is copied from those fragments or closely paraphrased. 'official' kind = brand/magazine's own domain, but still only seen via search. Nothing was invented; items not found are in not_checked. | Post-check: claims marked 'high' were downgraded to 'medium' because no source was read in full (catalogue.validate rule: a snippet never carries high confidence).",
+ "sources": [
+  {
+   "id": "src-gm-contact-legacy",
+   "title": "Official Site (legacy contact page)",
+   "url": "http://www.gentlemonster.com/contact/index.php",
+   "publisher": "Gentle Monster",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=gentlemonster.com): \"high-end experimentation\" OR \"high-end experiments\" Gentle Monster",
+   "notes": "Only result for an allowed_domains search on gentlemonster.com. Legacy (old PHP) URL; may no longer be live. WebFetch to gentlemonster.com failed (DNS), so wording is as relayed by the search tool."
+  },
+  {
+   "id": "src-fashionbi-gm",
+   "title": "gentle monster (brand profile)",
+   "url": "https://fashionbi.com/financials/brands/gentle-monster",
+   "publisher": "FashionBI",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster \"Innovational High-End Experiments\"",
+   "notes": ""
+  },
+  {
+   "id": "src-hfa-matthews",
+   "title": "matthews asia koreas gentle monster",
+   "url": "https://hedgefundalpha.com/news/matthews-asia-koreas-gentle-monster/",
+   "publisher": "Hedge Fund Alpha (Matthews Asia commentary)",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster \"Innovational High-End Experiments\"",
+   "notes": ""
+  },
+  {
+   "id": "src-fashionunited-gm",
+   "title": "Gentle Monster (company profile)",
+   "url": "https://fashionunited.com/companies/gentle-monster",
+   "publisher": "FashionUnited",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster \"Innovational High-End Experiments\" ; WebSearch: Gentle Monster \"five focuses\" Product Space Styling Culture Redesign Technology",
+   "notes": ""
+  },
+  {
+   "id": "src-end-gm",
+   "title": "Gentle Monster Womens",
+   "url": "https://www.endclothing.com/au/women/brands/gentle-monster",
+   "publisher": "END. Clothing",
+   "kind": "retailer",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster \"Innovational High-End Experiments\"",
+   "notes": ""
+  },
+  {
+   "id": "src-surface-gm",
+   "title": "Gentle Monster",
+   "url": "https://www.surfacemag.com/?p=34266",
+   "publisher": "Surface",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster \"five focuses\" Product Space Styling Culture Redesign Technology",
+   "notes": ""
+  },
+  {
+   "id": "src-substack-gm",
+   "title": "Meet 'Gentle Monster'",
+   "url": "https://dasomc.substack.com/p/meet-gentle-monster",
+   "publisher": "Substack (dasomc)",
+   "kind": "blog",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster \"five focuses\" Product Space Styling Culture Redesign Technology",
+   "notes": ""
+  },
+  {
+   "id": "src-wiki-gm",
+   "title": "Gentle Monster",
+   "url": "https://en.wikipedia.org/wiki/Gentle_Monster",
+   "publisher": "Wikipedia",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster founded 2011 Hankook Kim IICOMBINED company",
+   "notes": "WebFetch failed (DNS: en.wikipedia.org). Content seen only through search-tool summary."
+  },
+  {
+   "id": "src-zoominfo-iicombined",
+   "title": "Gentle Monster (IICOMBINED Co Ltd)",
+   "url": "https://www.zoominfo.com/c/iicombined-co-ltd/414906133",
+   "publisher": "ZoomInfo",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster founded 2011 Hankook Kim IICOMBINED company",
+   "notes": ""
+  },
+  {
+   "id": "src-gm-redefinition",
+   "title": "REDEFINITION OF EYEWEAR",
+   "url": "https://www.gentlemonster.com/us/stories/re-definition",
+   "publisher": "Gentle Monster",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=gentlemonster.com): Gentle Monster about brand story experimental",
+   "notes": ""
+  },
+  {
+   "id": "src-gm-moncler",
+   "title": "GENTLE MONSTER (Moncler Genius story)",
+   "url": "https://gentlemonster.com/us/stories/monclergenius",
+   "publisher": "Gentle Monster",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=gentlemonster.com): Gentle Monster about brand story experimental",
+   "notes": ""
+  },
+  {
+   "id": "src-gm-haus-dosan",
+   "title": "GENTLE MONSTER - HAUS DOSAN (story)",
+   "url": "https://www.gentlemonster.com/us/stories/haus-dosan",
+   "publisher": "Gentle Monster",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=gentlemonster.com): Gentle Monster HAUS DOSAN stories",
+   "notes": ""
+  },
+  {
+   "id": "src-gm-zepeto",
+   "title": "GENTLE MONSTER (ZEPETO story)",
+   "url": "https://www.gentlemonster.com/us/stories/zepeto",
+   "publisher": "Gentle Monster",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=gentlemonster.com): Gentle Monster HAUS DOSAN stories",
+   "notes": ""
+  },
+  {
+   "id": "src-designboom-hausdosan",
+   "title": "GENTLE MONSTER opens experimental retail space HAUS DOSAN in seoul",
+   "url": "https://www.designboom.com/design/gentle-monster-haus-dosan-seoul-02-26-2021/",
+   "publisher": "designboom",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster Frederik Heyman Haus Dosan installation real and virtual ; WebSearch: Gentle Monster robot lab robotics team in-house robots stores",
+   "notes": ""
+  },
+  {
+   "id": "src-domus-hausdosan",
+   "title": "The future of retail in an impressive five storey building in Seoul",
+   "url": "https://www.domusweb.it/en/news/gallery/2021/03/14/the-future-of-retail-in-an-impressive-five-storey-building-in-seoul.html",
+   "publisher": "Domus",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster HAUS DOSAN Unopened Future Frederik Heyman The Probe Nudake Tamburins floors ; WebSearch: Gentle Monster Frederik Heyman Haus Dosan installation real and virtual",
+   "notes": "WebFetch failed (DNS: www.domusweb.it)."
+  },
+  {
+   "id": "src-paper-heyman",
+   "title": "arca frederik heyman gentle monster",
+   "url": "https://www.papermag.com/arca-frederik-heyman-gentle-monster",
+   "publisher": "PAPER",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster Frederik Heyman Haus Dosan installation real and virtual",
+   "notes": ""
+  },
+  {
+   "id": "src-homedecor-hausdosan",
+   "title": "Gentle Monster Haus Dosan's futuristic dystopian retail and dining experience",
+   "url": "https://www.homeanddecor.com.sg/shopping/review/gentle-monster-haus-dosans-futuristic-dystopian-retail-and-dining-experience",
+   "publisher": "Home & Decor (Singapore)",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster Frederik Heyman Haus Dosan installation real and virtual",
+   "notes": ""
+  },
+  {
+   "id": "src-insideretail-hd",
+   "title": "insideretail.asia (Haus Dosan item)",
+   "url": "https://insideretail.asia/?p=50239",
+   "publisher": "Inside Retail Asia",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster HAUS DOSAN Unopened Future Frederik Heyman The Probe Nudake Tamburins floors",
+   "notes": "Search summary attributed the 'Haus Shanghai this May' plan to coverage in this result set; exact attribution among the listed results not certain."
+  },
+  {
+   "id": "src-gm-skp-legacy",
+   "title": "SKP-S (legacy story)",
+   "url": "https://www.gentlemonster.com/legacy/story/en/skp.html",
+   "publisher": "Gentle Monster",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=gentlemonster.com): SKP-S Digital-Analog Future Mars sheep Future Farm",
+   "notes": ""
+  },
+  {
+   "id": "src-gm-skp-au",
+   "title": "Digital-Analog Future",
+   "url": "https://gentlemonster.com/au/stories/skp",
+   "publisher": "Gentle Monster",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebFetch https://gentlemonster.com/au/stories/skp (FAILED: getaddrinfo ENOTFOUND) ; seen as result in WebSearch: Gentle Monster SKP-S Beijing \"Digital-Analog Future\" robotic sheep Mars December 2019",
+   "notes": "Direct fetch failed. Page title 'Digital-Analog Future' and a quoted line were relayed via search summary only."
+  },
+  {
+   "id": "src-insideretail-skp",
+   "title": "Mars and AI at forefront in bizarre SKP Beijing department store",
+   "url": "https://insideretail.asia/2019/12/11/mars-and-ai-at-forefront-in-bizarre-skp-beijing-department-store/",
+   "publisher": "Inside Retail Asia",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster SKP-S Beijing \"Digital-Analog Future\" robotic sheep Mars December 2019",
+   "notes": ""
+  },
+  {
+   "id": "src-chinadaily-skp",
+   "title": "China Daily (SKP South, Jan 2020)",
+   "url": "https://www.chinadaily.com.cn/a/202001/11/WS5e193715a310cf3e35583e80.html",
+   "publisher": "China Daily",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster SKP-S Beijing \"Digital-Analog Future\" robotic sheep Mars December 2019",
+   "notes": ""
+  },
+  {
+   "id": "src-iads-skp",
+   "title": "skp s",
+   "url": "https://www.iads.org/department-stores/skp-s",
+   "publisher": "IADS",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster SKP-S Beijing \"Digital-Analog Future\" robotic sheep Mars December 2019",
+   "notes": ""
+  },
+  {
+   "id": "src-wiki-hausnowhere",
+   "title": "Haus Nowhere",
+   "url": "https://en.wikipedia.org/wiki/Haus_Nowhere",
+   "publisher": "Wikipedia",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "\"Haus Nowhere\" wikipedia retail store Gentle Monster IICOMBINED",
+   "notes": "Appeared as a result in two searches and was summarised in one; a separate site:en.wikipedia.org search did NOT surface it. WebFetch failed (DNS). Treat as existing but not read."
+  },
+  {
+   "id": "src-jingdaily-hn-sh",
+   "title": "revamped haus nowhere opens in shanghai",
+   "url": "https://jingdaily.com/intels/2024-03/07/revamped-haus-nowhere-opens-in-shanghai",
+   "publisher": "Jing Daily",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Haus Nowhere Wikipedia Gentle Monster Shanghai Beijing opened",
+   "notes": ""
+  },
+  {
+   "id": "src-jingdaily-hn-seoul",
+   "title": "haus nowhere seoul to open in seongsu",
+   "url": "https://jingdaily.com/intels/2025-08/15/haus-nowhere-seoul-to-open-in-seongsu",
+   "publisher": "Jing Daily",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Haus Nowhere Seoul Seongsu opened 2024 Gentle Monster",
+   "notes": ""
+  },
+  {
+   "id": "src-complex-hn-seoul",
+   "title": "Gentle Monster's New Store in Seoul Is Its Craziest Yet",
+   "url": "https://www.complex.com/style/a/shinnie-park/gentle-monsters-new-flagship-haus-nowhere-seoul",
+   "publisher": "Complex",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Haus Nowhere Seoul Seongsu opened 2024 Gentle Monster",
+   "notes": ""
+  },
+  {
+   "id": "src-highsnobiety-hn-seoul",
+   "title": "Gentle Monster Haus Nowhere Seoul",
+   "url": "https://www.highsnobiety.com/p/gentle-monster-haus-nowhere-seoul/",
+   "publisher": "Highsnobiety",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Haus Nowhere Seoul Seongsu opened 2024 Gentle Monster",
+   "notes": ""
+  },
+  {
+   "id": "src-gm-haus-shanghai",
+   "title": "GENTLE MONSTER - HAUS SHANGHAI (story)",
+   "url": "https://www.gentlemonster.com/us/stories/haus-shanghai",
+   "publisher": "Gentle Monster",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=gentlemonster.com): Gentle Monster HAUS Shanghai legacy story layout defies traditional commercial space",
+   "notes": ""
+  },
+  {
+   "id": "src-gm-hn-shanghai-store",
+   "title": "HAUS NOWHERE Shanghai (store page)",
+   "url": "https://www.gentlemonster.com/int/en/stores/detail/779149670609076624",
+   "publisher": "Gentle Monster",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=gentlemonster.com): Gentle Monster HAUS Shanghai legacy story layout defies traditional commercial space",
+   "notes": ""
+  },
+  {
+   "id": "src-theimpression-vegas",
+   "title": "Gentle Monster store opens in Las Vegas at Caesars Palace",
+   "url": "https://theimpression.com/gentle-monster-store-opens-in-las-vegas-at-caesars-palace/",
+   "publisher": "The Impression",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster robot lab robotics team in-house robots stores",
+   "notes": ""
+  },
+  {
+   "id": "src-rli-houston",
+   "title": "Gentle Monster Opens New Boutique in Houston, Texas",
+   "url": "https://www.rli.uk.com/gentle-monster-opens-new-boutique-in-houston-texas/",
+   "publisher": "Retail & Leisure International",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster robot lab robotics team in-house robots stores",
+   "notes": ""
+  },
+  {
+   "id": "src-designboom-quantum",
+   "title": "surreal installations: avant-garde south korean brand gentle monster quantum project",
+   "url": "https://www.designboom.com/design/surreal-installations-avant-garde-south-korean-brand-gentle-monster-quantum-project-08-29-2018/",
+   "publisher": "designboom",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster store design rotating installations every 21 days quantum project",
+   "notes": ""
+  },
+  {
+   "id": "src-vmag-bold2025",
+   "title": "Tilda Swinton Introduces Gentle Monster's 2025 'BOLD' Collection",
+   "url": "https://vmagazine.com/article/tilda-swinton-introduces-gentle-monsters-2025-bold-collection/",
+   "publisher": "V Magazine",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster BOLD collection eyewear",
+   "notes": ""
+  },
+  {
+   "id": "src-theimpression-bold2025",
+   "title": "Gentle Monster Unveils 2025 BOLD Collection",
+   "url": "https://theimpression.com/gentle-monster-unveils-2025-bold-collection/",
+   "publisher": "The Impression",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster BOLD collection eyewear",
+   "notes": ""
+  },
+  {
+   "id": "src-hypebae-bold2023",
+   "title": "gentle monster bold sunglasses eyewear collection thug club",
+   "url": "https://hypebae.com/2023/4/gentle-monster-bold-sunglasses-eyewear-collection-thug-club-release-date-info",
+   "publisher": "Hypebae",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster BOLD collection eyewear",
+   "notes": ""
+  },
+  {
+   "id": "src-paper-jentlegarden",
+   "title": "jennie gentle monster jentle garden",
+   "url": "https://www.papermag.com/jennie-gentle-monster-jentle-garden",
+   "publisher": "PAPER",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Jentle Garden Jennie Gentle Monster collaboration 2020",
+   "notes": ""
+  },
+  {
+   "id": "src-nylon-jennie",
+   "title": "How to buy BLACKPINK Jennie x Gentle Monster 2022 collab",
+   "url": "https://www.nylon.com/fashion/how-to-buy-blackpink-jennie-gentle-monster-2022-collab",
+   "publisher": "NYLON",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Jentle Garden Jennie Gentle Monster collaboration 2020",
+   "notes": ""
+  },
+  {
+   "id": "src-russh-jennie",
+   "title": "jennie gentle monster collaboration",
+   "url": "https://www.russh.com/jennie-gentle-monster-collaboration/",
+   "publisher": "RUSSH",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Jentle Garden Jennie Gentle Monster collaboration 2020",
+   "notes": ""
+  },
+  {
+   "id": "src-nss-mugler",
+   "title": "gentle monster mugler collab",
+   "url": "https://nssmag.com/en/fashion/37368/gentle-monster-mugler-collab",
+   "publisher": "nss magazine",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster Maison Margiela collaboration Mugler Alexander Wang Fendi eyewear",
+   "notes": ""
+  },
+  {
+   "id": "src-highxtar-margiela",
+   "title": "Gentle Monster confirms upcoming collaboration with Maison Margiela",
+   "url": "https://highxtar.com/en/gentle-monster-confirms-upcoming-collaboration-with-maison-margiela/",
+   "publisher": "HIGHXTAR",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster Maison Margiela collaboration Mugler Alexander Wang Fendi eyewear",
+   "notes": ""
+  },
+  {
+   "id": "src-culted-gm",
+   "title": "Gentle Monster collaborations that go hard",
+   "url": "https://culted.com/gentle-monster-jennie-kim-mugler-moncler-ambush-fashion-glasses-eye-wear/",
+   "publisher": "Culted",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster Maison Margiela collaboration Mugler Alexander Wang Fendi eyewear",
+   "notes": ""
+  },
+  {
+   "id": "src-hypebeast-gm",
+   "title": "Gentle Monster (brand page)",
+   "url": "https://hypebeast.com/brands/gentle-monster",
+   "publisher": "Hypebeast",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster Maison Margiela collaboration Mugler Alexander Wang Fendi eyewear",
+   "notes": ""
+  },
+  {
+   "id": "src-hunger-wang",
+   "title": "Hunger Wants: Gentle Monster x Alexander Wang eyewear collection",
+   "url": "https://hungermag.com/editorial/hunger-wants-gentle-monster-x-alexander-wang-eyewear-collection",
+   "publisher": "Hunger",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster Alexander Wang collaboration eyewear",
+   "notes": ""
+  },
+  {
+   "id": "src-designscene-wang",
+   "title": "designscene.net (Alexander Wang x Gentle Monster M.PRI$$)",
+   "url": "https://designscene.net/?p=382217",
+   "publisher": "Design Scene",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Gentle Monster Alexander Wang collaboration eyewear",
+   "notes": ""
+  },
+  {
+   "id": "src-hypebae-ghs",
+   "title": "gentle monster 2024 optical campaign collection release date",
+   "url": "https://hypebae.com/2023/10/gentle-monster-2024-optical-campaign-collection-release-date",
+   "publisher": "Hypebae",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: \"Gentle High School\" Gentle Monster",
+   "notes": ""
+  },
+  {
+   "id": "src-theimpression-ghs",
+   "title": "Gentle Monster Optical Collection 2024 ad campaign review",
+   "url": "https://theimpression.com/gentle-monster-optical-collection-2024-ad-campaign-review/",
+   "publisher": "The Impression",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: \"Gentle High School\" Gentle Monster",
+   "notes": ""
+  },
+  {
+   "id": "src-wiki-mykita",
+   "title": "Mykita",
+   "url": "https://en.wikipedia.org/wiki/Mykita",
+   "publisher": "Wikipedia",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: MYKITA Berlin founded 2003 Manufactory handmade stainless steel sheet hinge no screws",
+   "notes": ""
+  },
+  {
+   "id": "src-mykita-moves-haus",
+   "title": "MYKITA MOVES HAUS",
+   "url": "https://mykita.com/en/journal/mykita-moves-haus-new-era-modern-manufactory",
+   "publisher": "MYKITA",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=mykita.com): MYKITA Haus Berlin manufactory about",
+   "notes": ""
+  },
+  {
+   "id": "src-mykita-responsibility",
+   "title": "MYKITA Responsibility",
+   "url": "https://mykita.com/en/mykitahaus/about/responsibility",
+   "publisher": "MYKITA",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=mykita.com): MYKITA Haus Berlin manufactory about",
+   "notes": ""
+  },
+  {
+   "id": "src-mykita-steel",
+   "title": "GUIDE TO OUR EYEWEAR MATERIALS: STAINLESS STEEL",
+   "url": "https://mykita.com/en/journal/guide-to-our-materials-stainless-steel",
+   "publisher": "MYKITA",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: MYKITA Berlin founded 2003 Manufactory handmade stainless steel sheet hinge no screws",
+   "notes": ""
+  },
+  {
+   "id": "src-wiki-jmm",
+   "title": "Jacques Marie Mage",
+   "url": "https://en.wikipedia.org/wiki/Jacques_Marie_Mage",
+   "publisher": "Wikipedia",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Jacques Marie Mage Jerome Mage founded 2014 Los Angeles limited edition eyewear Japan handmade",
+   "notes": ""
+  },
+  {
+   "id": "src-jmm-craft",
+   "title": "Craftsmanship",
+   "url": "https://jacquesmariemage.com/pages/craftsmanship",
+   "publisher": "Jacques Marie Mage",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=jacquesmariemage.com): Jacques Marie Mage about craftsmanship limited editions",
+   "notes": ""
+  },
+  {
+   "id": "src-mrporter-jmm",
+   "title": "The Decade Collection: The Founder Of Jacques Marie Mage On Crafting Luxury And Beauty",
+   "url": "https://www.mrporter.com/en-ca/journal/fashion/jacques-marie-mage-25179800",
+   "publisher": "MR PORTER",
+   "kind": "retailer",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Jacques Marie Mage Jerome Mage founded 2014 Los Angeles limited edition eyewear Japan handmade",
+   "notes": ""
+  },
+  {
+   "id": "src-wiki-kuboraum",
+   "title": "Kuboraum",
+   "url": "https://en.wikipedia.org/wiki/Kuboraum",
+   "publisher": "Wikipedia",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Kuboraum Berlin \"masks\" eyewear Livio Graziottin Sergio Eusebi handmade Italy",
+   "notes": ""
+  },
+  {
+   "id": "src-kuboraum-home",
+   "title": "Kuboraum masks",
+   "url": "https://www.kuboraum.com/",
+   "publisher": "Kuboraum",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=kuboraum.com): Kuboraum masks about philosophy",
+   "notes": ""
+  },
+  {
+   "id": "src-ssense-kuboraum",
+   "title": "Kuboraum for Men",
+   "url": "https://www.ssense.com/en-aq/men/designers/kuboraum",
+   "publisher": "SSENSE",
+   "kind": "retailer",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Kuboraum Berlin \"masks\" eyewear Livio Graziottin Sergio Eusebi handmade Italy",
+   "notes": ""
+  },
+  {
+   "id": "src-rsf-home",
+   "title": "RETROSUPERFUTURE",
+   "url": "https://retrosuperfuture.com/pages/retrosuperfuture",
+   "publisher": "RETROSUPERFUTURE",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=retrosuperfuture.com): RETROSUPERFUTURE about brand handmade Italy",
+   "notes": ""
+  },
+  {
+   "id": "src-fmd-rsf",
+   "title": "RETROSUPERFUTURE (brand profile)",
+   "url": "https://fashionmodeldirectory.com/brands/retrosuperfuture",
+   "publisher": "Fashion Model Directory",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: RETROSUPERFUTURE Super sunglasses founded 2007 Milan handmade Italy Andrea Cipolla?",
+   "notes": ""
+  },
+  {
+   "id": "src-tamburins-home",
+   "title": "TAMBURINS Official Online Store",
+   "url": "https://www.tamburins.com/en/",
+   "publisher": "TAMBURINS",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch (allowed_domains=tamburins.com): Tamburins brand story",
+   "notes": ""
+  },
+  {
+   "id": "src-boingboing-sunshine",
+   "title": "\"Sunshine\" is a 30-foot-long animated dachshund sculpture",
+   "url": "https://boingboing.net/2026/04/06/sunshine-is-a-30-foot-long-animated-dachshund-sculpture.html",
+   "publisher": "Boing Boing",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Tamburins fragrance brand IICOMBINED stores art installation sculpture concept",
+   "notes": ""
+  },
+  {
+   "id": "src-trendland-tamburins",
+   "title": "Tamburins Fantasy Fragrances",
+   "url": "https://trendland.com/tamburins-couture-inspired-cosmetics-south-korea/",
+   "publisher": "Trendland",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Tamburins fragrance brand IICOMBINED stores art installation sculpture concept",
+   "notes": ""
+  },
+  {
+   "id": "src-hypebae-nudake",
+   "title": "nudake gentle monster dessert brand seoul flagship opening",
+   "url": "https://hypebae.com/2021/1/nudake-gentle-monster-dessert-brand-seoul-flagship-opening-cake-menu-location-info",
+   "publisher": "Hypebae",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Nudake dessert brand Gentle Monster \"fashion\" art dessert concept Peak cake ; WebSearch: NUDAKE official \"new perspective\" dessert brand meaning name NU DAKE launched 2020",
+   "notes": ""
+  },
+  {
+   "id": "src-visitgangnam-nudake",
+   "title": "Nudake Haus Dosan - Sweetness Between Art and Gourmet",
+   "url": "https://visitgangnam.net/en/places/nudake-haus-dosan-sweetness-between-art-and-gourmet",
+   "publisher": "Visit Gangnam",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Nudake dessert brand Gentle Monster \"fashion\" art dessert concept Peak cake",
+   "notes": ""
+  },
+  {
+   "id": "src-wiki-032c",
+   "title": "032c",
+   "url": "https://en.wikipedia.org/wiki/032c",
+   "publisher": "Wikipedia",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: 032c magazine founded 2000 Berlin Joerg Koch biannual \"what's next\"",
+   "notes": ""
+  },
+  {
+   "id": "src-highsnobiety-032c",
+   "title": "032c (tag page)",
+   "url": "https://highsnobiety.com/tag/032c/",
+   "publisher": "Highsnobiety",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: 032c magazine founded 2000 Berlin Joerg Koch biannual \"what's next\"",
+   "notes": ""
+  },
+  {
+   "id": "src-magculture-032c30",
+   "title": "032c 30",
+   "url": "https://magculture.com/blogs/journal/032c-30",
+   "publisher": "magCulture",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: 032c magazine design Mike Meire red cover \"workshop\" Berlin print format issue",
+   "notes": ""
+  },
+  {
+   "id": "src-ssense-meire",
+   "title": "Nothing is Sacred for Creative Director Mike Meire",
+   "url": "https://www.ssense.com/en-gb/editorial/culture/nothing-is-sacred-for-creative-director-mike-meire",
+   "publisher": "SSENSE",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: 032c magazine design Mike Meire red cover \"workshop\" Berlin print format issue",
+   "notes": ""
+  },
+  {
+   "id": "src-wiki-dazed",
+   "title": "Dazed",
+   "url": "https://en.wikipedia.org/wiki/Dazed",
+   "publisher": "Wikipedia",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Dazed & Confused magazine founded 1991 Jefferson Hack Rankin history",
+   "notes": ""
+  },
+  {
+   "id": "src-another-dazed30",
+   "title": "Dazed & Confused magazine history: 30",
+   "url": "https://www.anothermag.com/fashion-beauty/13581/dazed-confused-magazine-history-30-jefferson-hack-rankin-katie-grand-rizzoli",
+   "publisher": "AnOther",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Dazed & Confused magazine founded 1991 Jefferson Hack Rankin history",
+   "notes": ""
+  },
+  {
+   "id": "src-wiki-face",
+   "title": "The Face (magazine)",
+   "url": "https://en.wikipedia.org/wiki/The_Face_(magazine)",
+   "publisher": "Wikipedia",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: The Face magazine founded 1980 Nick Logan Neville Brody typography relaunch 2019",
+   "notes": ""
+  },
+  {
+   "id": "src-itsnicethat-face",
+   "title": "\"The time just feels right\": Stuart Brumfitt and Mirko Borsche on The Face relaunch",
+   "url": "https://www.itsnicethat.com/articles/the-face-relaunch-stuart-brumfitt-mirko-borsche-publication-graphic-design-170419",
+   "publisher": "It's Nice That",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: The Face magazine founded 1980 Nick Logan Neville Brody typography relaunch 2019",
+   "notes": ""
+  },
+  {
+   "id": "src-magculture-amag-bahnsen",
+   "title": "a magazine curated by cecilie bahnsen",
+   "url": "https://magculture.com/products/a-magazine-curated-by-cecilie-bahnsen",
+   "publisher": "magCulture",
+   "kind": "retailer",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: \"A Magazine Curated By\" each issue guest curated by a different designer Antwerp",
+   "notes": ""
+  },
+  {
+   "id": "src-perimeter-amag-margiela",
+   "title": "a magazine curated by maison margiela 2004 limited edition reprint",
+   "url": "https://www.perimeterbooks.com/products/a-magazine-curated-by-maison-margiela-2004-limited-edition-reprint",
+   "publisher": "Perimeter Books",
+   "kind": "retailer",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: \"A Magazine Curated By\" each issue guest curated by a different designer Antwerp",
+   "notes": ""
+  },
+  {
+   "id": "src-perimeter-amag27",
+   "title": "A Magazine 27 curated by Glenn Martens",
+   "url": "https://www.perimeterbooks.com/collections/magazines/products/a-magazine-27-curated-by-glenn-martens",
+   "publisher": "Perimeter Books",
+   "kind": "retailer",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: \"A Magazine Curated By\" each issue guest curated by a different designer Antwerp",
+   "notes": ""
+  },
+  {
+   "id": "src-purple-30yrs",
+   "title": "the 30yrs issue 38 F/W 2022 part 0",
+   "url": "https://purple.fr/magazine/350563-autosave-v1/the-30yrs-issue-38-f-w-2022-part-0/",
+   "publisher": "Purple",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Purple magazine Olivier Zahm Elein Fleiss founded 1992 Paris Purple Fashion",
+   "notes": ""
+  },
+  {
+   "id": "src-wiki-purple",
+   "title": "Purple (magazine)",
+   "url": "https://en.wikipedia.org/wiki/Purple_(magazine)",
+   "publisher": "Wikipedia",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Purple magazine Olivier Zahm Elein Fleiss founded 1992 Paris Purple Fashion",
+   "notes": "Search summary reports the article carries a 'relies excessively on a single source' maintenance notice."
+  },
+  {
+   "id": "src-lensculture-purple",
+   "title": "Purple Anthology: Art Prose Fashion Music Architecture Sex",
+   "url": "https://www.lensculture.com/books/3311-purple-anthology-art-prose-fashion-music-architecture-sex",
+   "publisher": "LensCulture",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Purple Fashion magazine thick issue format Olivier Zahm diary photography snapshot aesthetic Juergen Teller Terry Richardson",
+   "notes": ""
+  },
+  {
+   "id": "src-wiki-document",
+   "title": "Document Journal",
+   "url": "https://en.wikipedia.org/wiki/Document_Journal",
+   "publisher": "Wikipedia",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Document Journal magazine founded 2012 New York Nick Vogelson biannual art fashion culture",
+   "notes": ""
+  },
+  {
+   "id": "src-agents-document",
+   "title": "The Agents Club (Sheriff Projects portfolio, Document Journal SS25)",
+   "url": "https://theagents.club/sheriff-projects-paris/portfolio/media/2427376",
+   "publisher": "The Agents Club",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Document Journal magazine founded 2012 New York Nick Vogelson biannual art fashion culture",
+   "notes": ""
+  },
+  {
+   "id": "src-eflux-kaleidoscope",
+   "title": "Kaleidoscope: launch issue out now",
+   "url": "https://www.e-flux.com/announcements/38336/launch-issue-out-now",
+   "publisher": "e-flux",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Kaleidoscope magazine Milan Alessio Ascari contemporary art design biannual founded 2009",
+   "notes": ""
+  },
+  {
+   "id": "src-presses-reel-kaleidoscope",
+   "title": "Kaleidoscope (new formula art directed by OK-RM)",
+   "url": "https://www.lespressesdureel.com/EN/ouvrage.php?id=2348",
+   "publisher": "Les presses du reel",
+   "kind": "retailer",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Kaleidoscope magazine Milan Alessio Ascari contemporary art design biannual founded 2009",
+   "notes": ""
+  },
+  {
+   "id": "src-wiki-system",
+   "title": "System (magazine)",
+   "url": "https://en.wikipedia.org/wiki/System_(magazine)",
+   "publisher": "Wikipedia",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: System magazine Jonathan Wingfield Thomas Lenthal fashion \"long-form\" conversations biannual",
+   "notes": ""
+  },
+  {
+   "id": "src-system-ed21",
+   "title": "editors letter (Issue 21)",
+   "url": "https://system-magazine.com/issues/issue-21/editors-letter",
+   "publisher": "System",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: System magazine Jonathan Wingfield Thomas Lenthal fashion \"long-form\" conversations biannual",
+   "notes": ""
+  },
+  {
+   "id": "src-1granary-system",
+   "title": "Jonathan Wingfield interview: how does System stay relevant?",
+   "url": "https://1granary.com/interviews/jonathan-wingfield-system-magazine/",
+   "publisher": "1 Granary",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: System magazine Jonathan Wingfield Thomas Lenthal fashion \"long-form\" conversations biannual",
+   "notes": ""
+  },
+  {
+   "id": "src-wiki-apartamento",
+   "title": "Apartamento",
+   "url": "https://en.wikipedia.org/wiki/Apartamento",
+   "publisher": "Wikipedia",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Apartamento magazine \"everyday life interiors\" Marco Velardi Omar Sosa founded 2008 Barcelona",
+   "notes": ""
+  },
+  {
+   "id": "src-magculture-apt33",
+   "title": "apartamento 33",
+   "url": "https://magculture.com/products/apartamento-33",
+   "publisher": "magCulture",
+   "kind": "retailer",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: Apartamento magazine \"everyday life interiors\" Marco Velardi Omar Sosa founded 2008 Barcelona",
+   "notes": ""
+  },
+  {
+   "id": "src-wiki-pinup",
+   "title": "Pin-Up (magazine)",
+   "url": "https://en.wikipedia.org/wiki/Pin-Up_(magazine)",
+   "publisher": "Wikipedia",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: PIN-UP magazine \"architectural entertainment\" Felix Burrichter founded 2006 New York",
+   "notes": ""
+  },
+  {
+   "id": "src-pinup-legacy-letter",
+   "title": "PIN-UP 'LEGACY' ISSUE: LETTER FROM THE EDITOR",
+   "url": "https://pinupmagazine.org/articles/new-pinup-30-the-legacy-issue-editors-letter",
+   "publisher": "PIN-UP",
+   "kind": "official",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: PIN-UP magazine \"architectural entertainment\" Felix Burrichter founded 2006 New York",
+   "notes": ""
+  },
+  {
+   "id": "src-designmiami-pinup",
+   "title": "In the Mix: PIN-UP turns 15",
+   "url": "https://shop.designmiami.com/blogs/news/pin-up-turns-15",
+   "publisher": "Design Miami",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: PIN-UP magazine \"architectural entertainment\" Felix Burrichter founded 2006 New York",
+   "notes": ""
+  },
+  {
+   "id": "src-ocula-drift",
+   "title": "studio drift",
+   "url": "https://ocula.com/artists/studio-drift/",
+   "publisher": "Ocula",
+   "kind": "secondary",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: DRIFT art studio Lonneke Gordijn Ralph Nauta founded 2007 Amsterdam drone installations Franchise Freedom",
+   "notes": ""
+  },
+  {
+   "id": "src-pamono-drift",
+   "title": "Studio Drift",
+   "url": "https://www.pamono.dk/designers/studio-drift",
+   "publisher": "Pamono",
+   "kind": "retailer",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: DRIFT art studio Lonneke Gordijn Ralph Nauta founded 2007 Amsterdam drone installations Franchise Freedom",
+   "notes": ""
+  },
+  {
+   "id": "src-dezeen-franchise",
+   "title": "Franchise Freedom by Studio Drift",
+   "url": "https://www.dezeen.com/2017/12/07/studio-drift-franchise-freedom-drone-swarm-performance-art-basel-miami-beach/amp/",
+   "publisher": "Dezeen",
+   "kind": "press",
+   "verification": "snippet",
+   "accessed": "2026-10-09",
+   "query": "WebSearch: DRIFT art studio Lonneke Gordijn Ralph Nauta founded 2007 Amsterdam drone installations Franchise Freedom",
+   "notes": ""
+  }
+ ],
+ "claims": [
+  {
+   "id": "clm-gm-philosophy-wording",
+   "subject": "gentle_monster",
+   "dimension": "brand_philosophy",
+   "evidence": "Brand describes its philosophy as \"Innovational High-End Experiments\" (relayed from gentlemonster.com legacy contact page); same wording in FashionBI profile (\"constantly develops its self under a philosophy of 'innovational high-end experiments'\") and Matthews Asia commentary.",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-gm-contact-legacy",
+    "src-fashionbi-gm",
+    "src-hfa-matthews"
+   ],
+   "confidence": "medium",
+   "conflicts": "Wording varies: FashionUnited and END. Clothing use \"high-end experimentation\"; the search summary says both variants appear on the official site. No current (non-legacy) official page confirmed."
+  },
+  {
+   "id": "clm-gm-philosophy-variant",
+   "subject": "gentle_monster",
+   "dimension": "brand_philosophy",
+   "evidence": "FashionUnited: the brand \"constantly develops itself under a philosophy of 'high-end experimentation'\"; END. Clothing frames it as a design aesthetic of \"high-end experimentation\".",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-fashionunited-gm",
+    "src-end-gm"
+   ],
+   "confidence": "medium",
+   "conflicts": "Variant of \"Innovational High-End Experiments\" (see clm-gm-philosophy-wording)."
+  },
+  {
+   "id": "clm-gm-five-focuses",
+   "subject": "gentle_monster",
+   "dimension": "brand_philosophy",
+   "evidence": "\"We strive to astonish the world with our main five focuses\": Product, Space, Styling, Culture Redesign and Technology.",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-gm-contact-legacy",
+    "src-fashionunited-gm",
+    "src-surface-gm",
+    "src-substack-gm"
+   ],
+   "confidence": "medium",
+   "conflicts": "A Substack post lists a different set, \"PSSCS\" (Product, Space, Styling, Culture&Campaign, Service) - likely older/variant wording. Official confirmation only via legacy page relayed by search."
+  },
+  {
+   "id": "clm-gm-founding",
+   "subject": "gentle_monster",
+   "dimension": "cultural_positioning",
+   "evidence": "Founded in 2011 in Seoul; founder Hankook Kim (Kim Han-kook); parent company IICOMBINED, which also runs Tamburins, NUDAKE, ATiiSSU and Nuflaat.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-wiki-gm",
+    "src-fashionunited-gm",
+    "src-zoominfo-iicombined"
+   ],
+   "confidence": "medium",
+   "conflicts": "ZoomInfo says it was \"founded in 2011 by Jay Oh and Hankook Kim\"; no other source seen names Jay Oh.",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-gm-redefinition",
+   "subject": "gentle_monster",
+   "dimension": "product_concept",
+   "evidence": "Official \"Redefinition of Eyewear\" art project \"questions the definition and nature of eyewear\" to move past its conventional meaning, with collaborations with nine global artists.",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-gm-redefinition"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-gm-quantum",
+   "subject": "gentle_monster",
+   "dimension": "spatial_experience",
+   "evidence": "Quantum project (Hongdae, Seoul): a series of 36 spatial installations, redesigned every 25 days through collaborations with artists and brands, running 29 months starting with 'Blank Desert'.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-designboom-quantum"
+   ],
+   "confidence": "medium",
+   "conflicts": "A 21-day cycle (sometimes repeated online) was NOT confirmed; the only detailed source says 25 days."
+  },
+  {
+   "id": "clm-gm-robotics-lab",
+   "subject": "gentle_monster",
+   "dimension": "spatial_experience",
+   "evidence": "In-house Robotics Lab: THE PROBE, a six-legged walking robot made by Gentle Monster's own robot lab after a year of research; the Las Vegas store's 'Giant Head Trio' was 'brought to life by Gentle Monster's in-house Robotics Lab'.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-designboom-hausdosan",
+    "src-gm-haus-dosan",
+    "src-theimpression-vegas",
+    "src-rli-houston"
+   ],
+   "confidence": "medium",
+   "conflicts": "",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-hd-unopened-future",
+   "subject": "haus_dosan",
+   "dimension": "spatial_experience",
+   "evidence": "\"HAUS DOSAN sets the precedent in Gentle Monster's history as the first project, titled UNOPENED: FUTURE. Upon entering, the space focuses on conveying new emotions by eliminating the typical functions and features expected from a standard retail store.\"",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-gm-haus-dosan",
+    "src-domus-hausdosan"
+   ],
+   "confidence": "medium",
+   "conflicts": "",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-hd-opening",
+   "subject": "haus_dosan",
+   "dimension": "spatial_experience",
+   "evidence": "Officially opened to the public from 24 February 2021; five-storey concrete building in Dosan designed by BCHO Architects, formerly the Queenmama Market concept store.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-domus-hausdosan",
+    "src-designboom-hausdosan",
+    "src-hypebae-nudake",
+    "src-wiki-hausnowhere"
+   ],
+   "confidence": "medium",
+   "conflicts": "",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-hd-floors",
+   "subject": "haus_dosan",
+   "dimension": "spatial_experience",
+   "evidence": "Floors: B1 NUDAKE's first flagship in Korea (theme 'TASTE OF MEDITATION'); 1F Frederik Heyman installation, no product; 2F optical (video work by Jonas Lindstroem); 3F sunglasses with THE PROBE; 4F Tamburins' second flagship.",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-gm-haus-dosan",
+    "src-domus-hausdosan",
+    "src-designboom-hausdosan"
+   ],
+   "confidence": "medium",
+   "conflicts": "Paper says the Heyman installation spans two stories; the official page calls it a 'multi-floor 3D installation'; Domus/designboom place it on the first floor.",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-hd-heyman",
+   "subject": "haus_dosan",
+   "dimension": "art_direction",
+   "evidence": "\"The center of the floor showcases a multi-floor 3D installation designed in collaboration with Frederik Heyman.\" Paper: a massive concrete structure \"resembles an excised section of an abandoned warehouse, punctured by chrome spires and lengths of wire and tubing\".",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-gm-haus-dosan",
+    "src-paper-heyman",
+    "src-homedecor-hausdosan"
+   ],
+   "confidence": "medium",
+   "conflicts": "",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-hd-ground-floor-provocation",
+   "subject": "haus_dosan",
+   "dimension": "spatial_experience",
+   "evidence": "Ground floor described as dedicated to 'emotional provocation' where you won't find any product, only artist installations.",
+   "kind": "interpretation",
+   "source_ids": [
+    "src-designboom-hausdosan",
+    "src-domus-hausdosan"
+   ],
+   "confidence": "medium",
+   "conflicts": "Exact source of the phrase 'emotional provocation' among the listed results not pinned down by the search tool."
+  },
+  {
+   "id": "clm-hd-arca",
+   "subject": "haus_dosan",
+   "dimension": "art_direction",
+   "evidence": "An exclusive soundtrack by Venezuelan artist Arca played through floors 1-3, 'directly inspired by Heyman's installation'.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-domus-hausdosan",
+    "src-paper-heyman"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-hd-zepeto",
+   "subject": "haus_dosan",
+   "dimension": "spatial_experience",
+   "evidence": "Gentle Monster built a ZEPETO metaverse copy of HAUS DOSAN, described as 'the world's first photo scanned metaverse store'.",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-gm-zepeto"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-skp-theme",
+   "subject": "skp_s",
+   "dimension": "campaign_narrative",
+   "evidence": "SKP-S Beijing, where Gentle Monster led the creative direction, is built around a \"Digital-Analog Future\" theme; \"Mars is illustrated as the median where the two ends meet, creating a world of absurdity that keeps visitors curious and weirdly entertained.\"",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-gm-skp-legacy",
+    "src-gm-skp-au"
+   ],
+   "confidence": "medium",
+   "conflicts": "China Daily (Jan 2020, on the new south tower) calls the theme \"Digital-Simulative Future\".",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-skp-opening",
+   "subject": "skp_s",
+   "dimension": "spatial_experience",
+   "evidence": "SKP-S opened in December 2019 as a collaboration between SKP and Gentle Monster.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-insideretail-skp",
+    "src-iads-skp"
+   ],
+   "confidence": "medium",
+   "conflicts": "",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-skp-future-farm",
+   "subject": "skp_s",
+   "dimension": "spatial_experience",
+   "evidence": "Future Farm, first episode of the ground/first-floor Art Experiment Space: \"AI replicants create a virtual reality ... clones of robotic sheep breathe, move, and sound identical to their original sources.\"",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-insideretail-skp",
+    "src-chinadaily-skp",
+    "src-gm-skp-legacy"
+   ],
+   "confidence": "medium",
+   "conflicts": "An allowed_domains search of gentlemonster.com returned Future Farm text WITHOUT any mention of sheep; sheep are attested by press (China Daily: 'mechanical sheep flock to the Future Farm installation'). China Daily places it on the first floor of the new south tower."
+  },
+  {
+   "id": "clm-skp-next-humankind",
+   "subject": "skp_s",
+   "dimension": "campaign_narrative",
+   "evidence": "Gentle Monster's 3F flagship titled \"Next Humankind\": \"an imagination of a new humankind traveling through a wormhole between Mars and Earth\".",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-gm-skp-legacy",
+    "src-insideretail-skp"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-hn-definition",
+   "subject": "haus_nowhere",
+   "dimension": "spatial_experience",
+   "evidence": "Haus Nowhere is a multi-brand retail and exhibition concept from IICOMBINED housing its brands plus exhibitions, installations and food & beverage venues; by Dec 2025 five locations: two Seoul, Shanghai, Shenzhen, Bangkok.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-wiki-hausnowhere"
+   ],
+   "confidence": "medium",
+   "conflicts": "Wikipedia article seen only via search summary; a site:en.wikipedia.org search did not surface it."
+  },
+  {
+   "id": "clm-hn-shanghai",
+   "subject": "haus_nowhere",
+   "dimension": "spatial_experience",
+   "evidence": "HAUS Shanghai on Huaihai Middle Road reopened as Haus Nowhere on 7 March 2024 (Jing Daily); official HAUS SHANGHAI copy says the layout 'defies the traditional layout of commercial space that prioritize efficiency and function'.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-jingdaily-hn-sh",
+    "src-gm-haus-shanghai",
+    "src-gm-hn-shanghai-store",
+    "src-wiki-hausnowhere",
+    "src-insideretail-hd"
+   ],
+   "confidence": "medium",
+   "conflicts": "Wikipedia (via summary) dates the Shanghai location's opening to Sept 2021 as the second site; 2021 HAUS Shanghai vs 2024 rename as Haus Nowhere. A Feb 2021 report said 'Haus Shanghai' was planned for 'this May'."
+  },
+  {
+   "id": "clm-hn-seoul",
+   "subject": "haus_nowhere",
+   "dimension": "spatial_experience",
+   "evidence": "HAUS NOWHERE SEOUL (Seongsu-dong, 433 Ttukseom-ro) opened September 2025 as IICOMBINED's new headquarters and multi-brand space, a different brand per public floor (Gentle Monster, Tamburins, ATiiSSU, NUDAKE, Nuflaat).",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-complex-hn-seoul",
+    "src-jingdaily-hn-seoul",
+    "src-highsnobiety-hn-seoul"
+   ],
+   "confidence": "medium",
+   "conflicts": "Height: Complex says 13 stories; Highsnobiety/Inside Retail say 14.",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-hn-sunshine",
+   "subject": "haus_nowhere",
+   "dimension": "art_direction",
+   "evidence": "Ground-floor attraction at Haus Nowhere Seoul: a giant animatronic dachshund \"Sunshine\", made by IICOMBINED for Tamburins' Sunshine fragrance; it \"breathes\" and twitches its ears.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-boingboing-sunshine",
+    "src-wiki-hausnowhere"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-gm-bold-2025",
+   "subject": "gentle_monster",
+   "dimension": "product_concept",
+   "evidence": "2025 BOLD collection: conceptualisation of the shield shape through an eye-catching bridge construction; traditional nose pads removed; campaign fronted by Tilda Swinton inside HAUS NOWHERE Seoul, with pop-ups in Seoul, Beijing, Tokyo.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-vmag-bold2025",
+    "src-theimpression-bold2025"
+   ],
+   "confidence": "medium",
+   "conflicts": "Release dates differ slightly across reports."
+  },
+  {
+   "id": "clm-gm-bold-2023",
+   "subject": "gentle_monster",
+   "dimension": "product_concept",
+   "evidence": "Original BOLD (2023), 'the first iteration in a series of unique capsule collections'; signature silver-toned star motifs on the arm; TECHNO-01 made with Korean label THUG CLUB.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-hypebae-bold2023"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-gm-jennie",
+   "subject": "gentle_monster",
+   "dimension": "collaboration_strategy",
+   "evidence": "Jennie (BLACKPINK) collaborations: 'Jentle Home' (2020, inspired by a childhood dollhouse); 'Jentle Garden' (2022, campaign shot by Hugo Comte, village-like pop-ups in five cities).",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-paper-jentlegarden",
+    "src-nylon-jennie",
+    "src-russh-jennie"
+   ],
+   "confidence": "medium",
+   "conflicts": "The brief's 'Gentle Garden' appears to be 'Jentle Garden' (Jennie, 2022). A 2023 'Jentle Salon' was mentioned only by low-quality pages - not verified."
+  },
+  {
+   "id": "clm-gm-margiela",
+   "subject": "gentle_monster",
+   "dimension": "collaboration_strategy",
+   "evidence": "Maison Margiela x Gentle Monster reinterprets Margiela signatures (black mask, unfinished thread, fabric details) through Gentle Monster's aesthetic.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-highxtar-margiela",
+    "src-hypebeast-gm"
+   ],
+   "confidence": "medium",
+   "conflicts": "Count disagrees: Culted calls it the second collaboration; Hypebeast calls the latest the duo's third (20 pieces: 8 sun, 12 optical)."
+  },
+  {
+   "id": "clm-gm-mugler",
+   "subject": "gentle_monster",
+   "dimension": "collaboration_strategy",
+   "evidence": "Mugler x Gentle Monster: Spiral 01 inspired by the 'Fourmis' glasses from the 1997 Les Insectes collection; Spiral 02 a Gentle Monster silhouette with side embossing and chrome logo.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-nss-mugler"
+   ],
+   "confidence": "medium",
+   "conflicts": "Release year not given in what was seen."
+  },
+  {
+   "id": "clm-gm-wang",
+   "subject": "gentle_monster",
+   "dimension": "collaboration_strategy",
+   "evidence": "Alexander Wang x Gentle Monster: 'CEO' frames (2018, nod to Wang's FW18 show) and 'M.PRI$$' cat-eye (debuted FW19 runway, on sale Sept 2019).",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-hunger-wang",
+    "src-designscene-wang"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-gm-lvmh",
+   "subject": "gentle_monster",
+   "dimension": "cultural_positioning",
+   "evidence": "Brand received a $60 million investment for a seven percent stake from LVMH in 2017.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-culted-gm",
+    "src-hypebeast-gm"
+   ],
+   "confidence": "low",
+   "conflicts": "Search tool did not make clear which of the two results carried this figure."
+  },
+  {
+   "id": "clm-gm-high-school",
+   "subject": "gentle_monster",
+   "dimension": "campaign_narrative",
+   "evidence": "'GENTLE HIGH SCHOOL' was the campaign for the 2024 Optical Collection (launched Nov 2023), starring Nana Komatsu and Shinichi Osawa in martial-arts and mechanics courses; special edition in a school-backpack package; pop-ups in Seoul and Beijing issued student IDs.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-hypebae-ghs",
+    "src-theimpression-ghs"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-gm-moncler-swipe",
+   "subject": "gentle_monster",
+   "dimension": "campaign_narrative",
+   "evidence": "Moncler Genius collaboration copy: Gentle Monster \"aims to liberate our suppressed emotions through the act of the 'SWIPE' motion\".",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-gm-moncler"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-mykita-founding",
+   "subject": "mykita",
+   "dimension": "brand_philosophy",
+   "evidence": "Founded in Berlin in 2003; the name derives from 'Kita' (Kindertagesstaette) after the firm's first premises in a former day nursery; all products hand-assembled at the MYKITA HAUS manufactory in Berlin.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-wiki-mykita",
+    "src-mykita-responsibility"
+   ],
+   "confidence": "medium",
+   "conflicts": "Founder lists differ (Wikipedia: Gottschling, D. Haffmans, P. Haffmans, Krueger; retailers add Neckel, Neumeister). Responsibility page adds that some processes take place at other EU facilities.",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-mykita-steel",
+   "subject": "mykita",
+   "dimension": "material_language",
+   "evidence": "Signature stainless-steel frames made of Swedish spring steel with 90 percent recycled content; spiral hinge 'engineered without screws or adhesives'; first metal collection No1 (2004) cut from sheet metal.",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-mykita-responsibility",
+    "src-mykita-steel",
+    "src-wiki-mykita"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-mykita-haus",
+   "subject": "mykita",
+   "dimension": "spatial_experience",
+   "evidence": "In November 2024 MYKITA moved to a 3,800 sq m red-brick building on Koepenicker Strasse by the Spree; 'over 110 skilled artisans meticulously craft each frame there'; design, prototyping, interior architecture and visual identity are developed in-house.",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-mykita-moves-haus"
+   ],
+   "confidence": "medium",
+   "conflicts": "Older MYKITA page places the HAUS in a 1902 listed building in Kreuzberg (pre-move)."
+  },
+  {
+   "id": "clm-jmm-founding",
+   "subject": "jacques_marie_mage",
+   "dimension": "brand_philosophy",
+   "evidence": "Founded by Jerome Mage, Los Angeles; luxury eyewear made in limited production runs.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-wiki-jmm",
+    "src-mrporter-jmm"
+   ],
+   "confidence": "medium",
+   "conflicts": "Founding year conflicts: Wikipedia text 2014, infobox 2015; a retailer blog says 2013. CB Insights names a different founder (unreliable)."
+  },
+  {
+   "id": "clm-jmm-craft",
+   "subject": "jacques_marie_mage",
+   "dimension": "material_language",
+   "evidence": "Official: designed in Los Angeles, handcrafted in Japan and Italy; titanium line described as a 300-step process with close to 100 artisans over 18 months; Heritage buffalo-horn frames limited to 10 per day; product listings state batch sizes (e.g. 30 or 200 pieces).",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-jmm-craft"
+   ],
+   "confidence": "medium",
+   "conflicts": "Brand's own marketing figures, not independently checked."
+  },
+  {
+   "id": "clm-kuboraum-masks",
+   "subject": "kuboraum",
+   "dimension": "brand_philosophy",
+   "evidence": "Kuboraum calls its eyewear 'masks'; founded in Berlin in 2012 by designer Livio Graziottin and anthropologist Sergio Eusebi; slogan 'dreamed in Berlin, handmade in Italy'.",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-kuboraum-home",
+    "src-wiki-kuboraum",
+    "src-ssense-kuboraum"
+   ],
+   "confidence": "medium",
+   "conflicts": "",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-kuboraum-shelter",
+   "subject": "kuboraum",
+   "dimension": "product_concept",
+   "evidence": "Product copy: the masks are 'cubical rooms where we shelter ourselves, free to live our intimacy and look at the world through two lenses'; site frames the project as independence from an industrial logic built on market research and trends.",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-kuboraum-home"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-rsf-founding",
+   "subject": "retrosuperfuture",
+   "dimension": "brand_philosophy",
+   "evidence": "Italian eyewear brand founded in Milan in 2007 by Daniel Beckerman.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-fmd-rsf",
+    "src-rsf-home"
+   ],
+   "confidence": "medium",
+   "conflicts": "'Andrea Cipolla' (from the query) is not supported by any source seen."
+  },
+  {
+   "id": "clm-rsf-manufacture",
+   "subject": "retrosuperfuture",
+   "dimension": "material_language",
+   "evidence": "Frames 'produced by some of the world's best eyewear manufacturers, known for their experimentation with new production techniques, finishings, materials and detailing'; described as 'premium eyewear handmade in Italy'; acetate, metal or both.",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-rsf-home"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-tamburins-positioning",
+   "subject": "tamburins",
+   "dimension": "brand_philosophy",
+   "evidence": "Tamburins presents itself as a cosmetics/fragrance label aiming for 'sensory art and beauty' (Korean-language page) and focused on 'unconventional beauty'.",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-tamburins-home"
+   ],
+   "confidence": "low",
+   "conflicts": "Wording relayed by search summary from official pages; founding history/about page not found."
+  },
+  {
+   "id": "clm-tamburins-installations",
+   "subject": "tamburins",
+   "dimension": "spatial_experience",
+   "evidence": "Store design is core: Trendland reports that of a 20-person team, 14 work on store art installations and brand visuals; the 'Sunshine' animatronic dachshund (30-50 ft versions) appeared at HAUS NOWHERE Seoul and pop-ups in Bangkok and Tokyo.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-trendland-tamburins",
+    "src-boingboing-sunshine"
+   ],
+   "confidence": "low",
+   "conflicts": "Team figures from a single trend article."
+  },
+  {
+   "id": "clm-nudake-concept",
+   "subject": "nudake",
+   "dimension": "brand_philosophy",
+   "evidence": "NUDAKE, an 'artistic dessert brand' operating under Gentle Monster, had cafes in Shanghai and Beijing before its first Seoul flagship at HAUS DOSAN (opening 24 Feb 2021); desserts displayed like art pieces.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-hypebae-nudake",
+    "src-visitgangnam-nudake"
+   ],
+   "confidence": "medium",
+   "conflicts": "Meaning of the name 'NUDAKE' not found."
+  },
+  {
+   "id": "clm-nudake-peak",
+   "subject": "nudake",
+   "dimension": "material_language",
+   "evidence": "Signature Peak Cake: black (ink) pastry crust filled with matcha cream; other items Pine Cone and Fog Cake.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-hypebae-nudake"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-032c-format",
+   "subject": "032c",
+   "dimension": "editorial_voice",
+   "evidence": "Berlin bi-annual, English-language contemporary culture magazine covering art, fashion and politics; edited by Joerg Koch; name refers to a bold red in the Pantone Matching System.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-wiki-032c",
+    "src-highsnobiety-032c"
+   ],
+   "confidence": "medium",
+   "conflicts": "Founding year 2000 (Highsnobiety, some Wikipedia copies) vs 2001 (other Wikipedia copies/infobox). Co-founder Sandra von Mayer-Myrtenhain credited by Wikipedia.",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-032c-cover-red",
+   "subject": "032c",
+   "dimension": "cover_strategy",
+   "evidence": "The bright Pantone 032c red began appearing on covers in 2007 and became the signature, part of Mike Meire's redesign (issue one had been designed to look like a Pantone colour sample).",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-magculture-032c30"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-032c-meire-type",
+   "subject": "032c",
+   "dimension": "typography",
+   "evidence": "Meire made the text less readable, turned the logo from white to black and stretched the font, asking 'what does a dangerous magazine look like?'; associated with 'the new ugly'.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-ssense-meire"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-dazed-origin",
+   "subject": "dazed",
+   "dimension": "print_materiality",
+   "evidence": "Founded 1991 in London by Jefferson Hack and Rankin; first issue a single A2 newsprint sheet / folded poster, black-and-white and irregular before moving to full colour.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-another-dazed30",
+    "src-wiki-dazed"
+   ],
+   "confidence": "medium",
+   "conflicts": "Founders' ages at launch differ across sources."
+  },
+  {
+   "id": "clm-dazed-now",
+   "subject": "dazed",
+   "dimension": "editorial_voice",
+   "evidence": "Published as Dazed & Confused until February 2014, now Dazed, a quarterly from Dazed Media; editorial policy encouraged cross-pollination across art, fashion, film and photography.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-wiki-dazed"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-face-brody",
+   "subject": "the_face",
+   "dimension": "typography",
+   "evidence": "Founded 1980 by Nick Logan; art director Neville Brody (1981-86) created its constructivist-inspired visual identity.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-wiki-face"
+   ],
+   "confidence": "medium",
+   "conflicts": "",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-face-relaunch",
+   "subject": "the_face",
+   "dimension": "visual_identity",
+   "evidence": "Closed by Emap in 2004; relaunched online April 2019 and in print September 2019, with Bureau Borsche (Mirko Borsche) on art/creative direction and Stuart Brumfitt as editor.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-wiki-face",
+    "src-itsnicethat-face"
+   ],
+   "confidence": "medium",
+   "conflicts": "2026 status conflicts: Wikipedia says it was saved from closure via C86 Holdings acquisition; another source reports a sudden closure announcement.",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-amag-curator",
+   "subject": "a_magazine_curated_by",
+   "dimension": "cover_strategy",
+   "evidence": "Biannual 'exploring the creative sphere of a selected designer in each issue'; invites a guest curator (designer, group or house) to develop personalised content; published in Antwerp.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-magculture-amag-bahnsen",
+    "src-perimeter-amag27"
+   ],
+   "confidence": "medium",
+   "conflicts": "",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-amag-origin",
+   "subject": "a_magazine_curated_by",
+   "dimension": "editorial_voice",
+   "evidence": "The Maison Martin Margiela issue (2004) was 'the first ever issue to bear the Curated By title', after issues N A to N E.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-perimeter-amag-margiela"
+   ],
+   "confidence": "medium",
+   "conflicts": "Founding by Walter Van Beirendonck was also mentioned, but the search tool did not attribute it to a specific result - not included as a claim."
+  },
+  {
+   "id": "clm-purple-origin",
+   "subject": "purple",
+   "dimension": "editorial_voice",
+   "evidence": "Originally titled Purple Prose, founded by art collector Elein Fleiss and art critic Olivier Zahm, first published September 1992 (per Purple's own site).",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-purple-30yrs",
+    "src-wiki-purple"
+   ],
+   "confidence": "medium",
+   "conflicts": "Wikipedia gives October 1992."
+  },
+  {
+   "id": "clm-purple-photography",
+   "subject": "purple",
+   "dimension": "photography",
+   "evidence": "Purple 'revolutionized fashion photography in the nineties by commissioning fine artists to shoot fashion editorials', producing 'a raw, improvisational aesthetic' (contributors incl. Terry Richardson, Juergen Teller, Richard Prince, Vanessa Beecroft).",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-lensculture-purple"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-document-format",
+   "subject": "document_journal",
+   "dimension": "print_materiality",
+   "evidence": "Independent culture/arts/fashion magazine founded in New York in 2012, editor-in-chief and creative director Nick Vogelson; published biannually (spring and fall) and printed in book format.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-wiki-document",
+    "src-agents-document"
+   ],
+   "confidence": "medium",
+   "conflicts": "Status conflict: Wikipedia infobox lists final issue 2025; an agency portfolio describes an SS2025 edition in the present tense."
+  },
+  {
+   "id": "clm-kaleidoscope-scope",
+   "subject": "kaleidoscope",
+   "dimension": "editorial_voice",
+   "evidence": "Founded in Milan in 2009 (Alessio Ascari); focus on contemporary art 'with incursions into related fields, such as architecture, design, and fashion'.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-eflux-kaleidoscope"
+   ],
+   "confidence": "medium",
+   "conflicts": "Frequency conflicts: e-flux launch announcement says bimonthly, older listings quarterly, a recent store listing biannual."
+  },
+  {
+   "id": "clm-kaleidoscope-okrm",
+   "subject": "kaleidoscope",
+   "dimension": "visual_identity",
+   "evidence": "A 'new formula art directed by OK-RM' (London studio).",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-presses-reel-kaleidoscope"
+   ],
+   "confidence": "low",
+   "conflicts": ""
+  },
+  {
+   "id": "clm-system-longform",
+   "subject": "system",
+   "dimension": "long_form",
+   "evidence": "Anglo-French biannual geared toward fashion-industry insiders; long-form interviews paired with image portfolios; editor's letter: team wanted long-form journalism on designers, CEOs, creatives and new talent.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-wiki-system",
+    "src-system-ed21",
+    "src-1granary-system"
+   ],
+   "confidence": "medium",
+   "conflicts": "Founding date conflict: Wikipedia text 2003 vs editor's letter 'when we founded System, in the spring of 2013' (2013 better supported).",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-apartamento-voice",
+   "subject": "apartamento",
+   "dimension": "editorial_voice",
+   "evidence": "'Everyday life interiors magazine' (magCulture; also the Abrams 10th-anniversary book title); founded 2008 in Barcelona by Omar Sosa, Nacho Alegre and Marco Velardi as a more personal alternative to sterile design/architecture magazines.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-wiki-apartamento",
+    "src-magculture-apt33"
+   ],
+   "confidence": "medium",
+   "conflicts": "",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-pinup-tagline",
+   "subject": "pin_up",
+   "dimension": "editorial_voice",
+   "evidence": "Subtitle 'The Magazine for Architectural Entertainment'; biannual; founded by Felix Burrichter in New York in 2006; editor's letter: the byline 'collided words and worlds' in a way that seemed 'frivolous at best' to the design establishment.",
+   "kind": "official_statement",
+   "source_ids": [
+    "src-wiki-pinup",
+    "src-pinup-legacy-letter",
+    "src-designmiami-pinup"
+   ],
+   "confidence": "medium",
+   "conflicts": "",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-drift-studio",
+   "subject": "drift_studio",
+   "dimension": "cultural_positioning",
+   "evidence": "DRIFT (Studio Drift) is a Dutch art studio established by Lonneke Gordijn and Ralph Nauta, working from Amsterdam with scientists, programmers, musicians and engineers. Unrelated to the SE_NEW 'Drift' methodology.",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-ocula-drift",
+    "src-pamono-drift"
+   ],
+   "confidence": "medium",
+   "conflicts": "Founding year: Ocula 2007; Pamono 2006.",
+   "confidence_note": "downgraded from 'high' on 2026-10-09: every source was seen as a search snippet only, none read in full"
+  },
+  {
+   "id": "clm-drift-franchise",
+   "subject": "drift_studio",
+   "dimension": "art_direction",
+   "evidence": "Franchise Freedom: drone swarm imitating starling murmurations, debuted Miami Beach 2017 (Art Basel week), later Amsterdam 2018 (300 drones) and Central Park 2023 (1,000 drones).",
+   "kind": "reported_fact",
+   "source_ids": [
+    "src-dezeen-franchise"
+   ],
+   "confidence": "medium",
+   "conflicts": ""
+  }
+ ],
+ "not_checked": [
+  "FULL TEXT OF EVERY SOURCE: WebFetch failed with DNS errors for gentlemonster.com (incl. https://gentlemonster.com/au/stories/skp), en.wikipedia.org and www.domusweb.it; curl through the proxy returned 403 CONNECT for en.wikipedia.org (and the proxy log shows 403s for www.gentlemonster.com and www.032c.com). Every claim is therefore snippet-level, taken from WebSearch result summaries.",
+  "WebSearch returns a model-written synthesis of results with quoted fragments, not raw SERP snippets; quoted wording may have been lightly altered and attribution to a specific URL within a result set is sometimes ambiguous (flagged in claim notes).",
+  "Haus Nowhere Wikipedia page: appeared as a result and was summarised once, but a site:en.wikipedia.org search did not surface it; not read.",
+  "'Gentle Garden' as a Gentle Monster collection/program name: not found; results point to 'Jentle Garden' (Jennie, 2022). 'Jentle Salon' (2023) not verified.",
+  "Gentle Monster x Fendi: searched, no result.",
+  "Current (non-legacy) official wording of 'Innovational High-End Experiments' / five focuses: only a legacy gentlemonster.com/contact page surfaced.",
+  "Tamburins founding date, founder and official 'about' text: not found.",
+  "NUDAKE name meaning / official brand statement: not found.",
+  "Robotics lab claim that Gentle Monster has 'more than 100 in-house artists': seen in a search summary but not attributable to a specific source; omitted.",
+  "Magazines - typography, grid_system, image_sequencing, pacing and print specs (paper stock, trim size, page counts) were not researched beyond 032c (type) and Dazed/Document (format); cover strategies for Dazed, Document Journal, Kaleidoscope, System, Apartamento, PIN-UP not checked.",
+  "A Magazine Curated By founding by Walter Van Beirendonck: mentioned in a summary without clear source; omitted.",
+  "Gentle Monster store-level details beyond HAUS DOSAN, SKP-S, HAUS SHANGHAI/NOWHERE (e.g., London, Las Vegas themes) only lightly touched."
+ ]
+}

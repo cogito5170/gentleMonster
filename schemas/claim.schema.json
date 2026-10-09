@@ -1,0 +1,80 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Research claim (one piece of evidence, one subject, one dimension)",
+ "type": "object",
+ "required": [
+  "id",
+  "subject",
+  "dimension",
+  "evidence",
+  "kind",
+  "source_ids",
+  "confidence"
+ ],
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^clm-"
+  },
+  "subject": {
+   "type": "string"
+  },
+  "dimension": {
+   "enum": [
+    "brand_philosophy",
+    "product_concept",
+    "material_language",
+    "visual_identity",
+    "art_direction",
+    "campaign_narrative",
+    "spatial_experience",
+    "collaboration_strategy",
+    "cultural_positioning",
+    "editorial_voice",
+    "cover_strategy",
+    "typography",
+    "grid_system",
+    "image_sequencing",
+    "photography",
+    "color_system",
+    "pacing",
+    "long_form",
+    "visual_essays",
+    "caption_credit",
+    "print_materiality"
+   ]
+  },
+  "evidence": {
+   "type": "string",
+   "minLength": 1
+  },
+  "kind": {
+   "enum": [
+    "official_statement",
+    "reported_fact",
+    "interpretation"
+   ]
+  },
+  "source_ids": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "string"
+   }
+  },
+  "confidence": {
+   "enum": [
+    "high",
+    "medium",
+    "low"
+   ],
+   "description": "'high' only when a source was read in full"
+  },
+  "conflicts": {
+   "type": "string"
+  },
+  "confidence_note": {
+   "type": "string"
+  }
+ }
+}

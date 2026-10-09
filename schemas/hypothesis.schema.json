@@ -1,0 +1,54 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Design hypothesis (one Drift direction)",
+ "type": "object",
+ "required": [
+  "hypothesis_id",
+  "title",
+  "research_sources",
+  "observed_principles",
+  "cross_domain_associations",
+  "transformation_rule",
+  "intended_reader_experience",
+  "layout_implications",
+  "image_direction",
+  "typography_implications",
+  "content_implications",
+  "risks",
+  "validation_criteria",
+  "scores",
+  "path",
+  "status"
+ ],
+ "properties": {
+  "scores": {
+   "type": "object",
+   "required": [
+    "source_traceability",
+    "conceptual_distance",
+    "editorial_coherence",
+    "visual_originality",
+    "brand_relevance",
+    "feasibility",
+    "rights_compliance"
+   ]
+  },
+  "status": {
+   "enum": [
+    "kept",
+    "excluded"
+   ]
+  },
+  "path": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "op",
+     "label"
+    ]
+   }
+  }
+ }
+}
