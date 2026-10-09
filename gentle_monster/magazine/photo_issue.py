@@ -233,14 +233,20 @@ CODE39 = {"0": "nnnwwnwnn", "1": "wnnwnnnnw", "2": "nnwwnnnnw", "3": "wnwwnnnnn"
           "S": "nnwnnnwwn", "-": "nwnnnnwnw", "*": "nwnnwnwnn"}
 
 
-def smooth_copy(src: Path, dst: Path, factor: int = 3) -> None:
+DESAT = 0.78
+
+
+def smooth_copy(src: Path, dst: Path, factor: int = 2) -> None:
     """A display copy resampled (Lanczos) so viewers that scale with nearest-neighbour do not show stair-steps.
     It adds no detail: print resolution is still judged on the source pixels (data-srcpx), never on this copy."""
-    from PIL import Image, ImageFilter
+    from PIL import Image, ImageEnhance, ImageFilter
     im = Image.open(src).convert("RGB")
+    # the catalogue's saturate(.78), baked into the file: a CSS filter makes Chromium rasterise every placement
+    # into the PDF (35 MB). Measured afterwards by qa() on the files themselves.
+    im = ImageEnhance.Color(im).enhance(DESAT)
     if im.width < 1600:
         im = im.resize((im.width * factor, im.height * factor), Image.LANCZOS).filter(ImageFilter.UnsharpMask(radius=1.2, percent=40, threshold=2))
-    im.save(dst, "JPEG", quality=90, optimize=True)
+    im.save(dst, "JPEG", quality=84, optimize=True, progressive=True)
 
 
 def image_in_type(word: str, href: str, band=(0.4, 0.86), size=360) -> str:
@@ -290,7 +296,7 @@ main{{display:flex;flex-wrap:wrap;justify-content:center;padding:28px 0}}
 .page.night{{background:var(--night);color:var(--night-ink)}}
 .page.cover{{margin-right:46vw}} @media (max-width:1100px){{.page{{width:min(100vw - 32px,560px)}} .page.cover{{margin-right:0}}}}
 .a{{position:absolute}} p{{margin:0}}
-img{{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.78)}} img.nat{{height:auto;aspect-ratio:468/258}}
+img{{display:block;width:100%;height:100%;object-fit:cover}} img.nat{{height:auto;aspect-ratio:468/258}}
 .duo img{{filter:url(#duotone)}}
 /* type */
 .cap{{font-size:max({T['cap']}cqw,8.5px);line-height:1.45;color:var(--grey);letter-spacing:.01em}}
@@ -696,7 +702,16 @@ def qa(spec, pages, html_path, pres, meas, assets, bad_text, missing, want_pdf, 
     miss = [f"{k} {v}" for k, v in toks.items() if v.lower() not in html_text.lower()]
     out.append(C("mood", "VISUAL INDEX tokens are the page's tokens", "FAIL" if miss or not toks else "PASS",
                  ", ".join(miss) or ", ".join(f"{k} {v}" for k, v in toks.items())))
-    out.append(C("mood", "photos at the catalogue's saturate(.78)", "PASS" if "saturate(.78)" in html_text else "FAIL"))
+    import numpy as np
+    ratios = []
+    for k, a in assets.items():                         # measured on the files as printed, against the source
+        sv = lambda pth: float(np.asarray(PH._load(pth, 300).convert("HSV"))[..., 1].mean())
+        s0 = sv(meas[k]["path"])
+        if s0 > 8:                                       # a grey photo has nothing to desaturate
+            ratios.append(sv(a["local_path"]) / s0)
+    mr = sum(ratios) / len(ratios) if ratios else 0
+    out.append(C("mood", "photos at the catalogue's saturate(.78) (measured on the files)", "PASS" if 0.72 <= mr <= 0.86 else "FAIL",
+                 f"mean saturation ratio {mr:.2f} over {len(ratios)} colour photos"))
     import colorsys
     hue = lambda hx: colorsys.rgb_to_hls(*(int(hx[i:i + 2], 16) / 255 for i in (1, 3, 5)))[0]
     dh = abs(hue(ACCENT_RAW) - hue(measured_accent["raw"])) * 360

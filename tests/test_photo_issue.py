@@ -143,7 +143,7 @@ else:
     for name in ("blocks sit on the 12-column grid", "no faux-bold Korean", "smallest text at print size", "no text block overlaps another (print",
                  "no text block overlaps another (375", "story sections appear", "Day → Dusk runs bright to dark", "the night stop comes after",
                  "contents page numbers", "no space between a Latin word", "text contrast", "VISUAL INDEX tokens are the page's tokens",
-                 "photos at the catalogue's saturate", "every registered technique is on a page", "at least 20 techniques", "even page count"):     # 'catalogue red agrees' is about the real cover photo, not stand-ins
+                 "photos at the catalogue's saturate(.78)", "every registered technique is on a page", "at least 20 techniques", "even page count"):     # 'catalogue red agrees' is about the real cover photo, not stand-ins
         ok(status(r["checks"], name) == "PASS", f"GREEN: {name}")
 
     print("[RED: break the layout on purpose]")
