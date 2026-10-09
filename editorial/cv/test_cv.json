@@ -1,0 +1,121 @@
+{
+  "id": "cv_test",
+  "note": "테스트용 CV. 값이 null 인 칸은 지어 넣지 않고 [빈칸] 으로 찍는다 -- 지원자가 채운다. 글은 source 의 원문과 글자 단위로 맞춘다.",
+  "photo_dir": "photos/stops",
+  "name": [
+    "JEONG",
+    "HYEOKJU"
+  ],
+  "name_source": "docs/portfolio/README.md",
+  "role": "Spatial Design",
+  "applying": "Gentle Monster",
+  "contact": [
+    {
+      "label": "Phone",
+      "value": null
+    },
+    {
+      "label": "Email",
+      "value": null
+    },
+    {
+      "label": "Portfolio",
+      "value": null
+    },
+    {
+      "label": "Instagram",
+      "value": null
+    }
+  ],
+  "portrait": {
+    "photo": 2,
+    "note": "임시 — 본인이 찍은 사진 02. 인물 사진(흑백 권장)으로 바꿀 자리"
+  },
+  "profile": {
+    "source": "docs/portfolio/philosophy.md",
+    "ko": "사람은 공간을 만들고, 공간은 다시 사람을 만든다. 나는 그 사이에서, 사람이 발걸음을 멈추는 순간을 설계한다.",
+    "en": "People shape spaces, and spaces shape people back. I design the moment in between, when someone stops.",
+    "more": "공간은 배경이 아니다. 사람은 늘 공간 안에 있고, 공간은 그 사람이 어떻게 걷고, 어디서 멈추고, 무엇을 기억할지를 조용히 정한다."
+  },
+  "education": [
+    {
+      "school": null,
+      "major": null,
+      "years": null,
+      "line": null
+    }
+  ],
+  "projects": [
+    {
+      "title": "SPA 00 — Where Did You Last Stop?",
+      "kind": "개인 작업 · 사진 매거진",
+      "what": "직접 찍은 사진 15장과 포트폴리오 원고로 엮은 26쪽 매거진. 스타일 · 사진 · 건축, 세 가지 앞에서 멈추는 순간을 다룬다.",
+      "years": null,
+      "fact_source": "docs/portfolio/cover.md"
+    },
+    {
+      "title": null,
+      "kind": null,
+      "what": null,
+      "years": null
+    }
+  ],
+  "tools": [
+    {
+      "name": null,
+      "can": null
+    },
+    {
+      "name": null,
+      "can": null
+    },
+    {
+      "name": null,
+      "can": null
+    },
+    {
+      "name": null,
+      "can": null
+    }
+  ],
+  "skills": [
+    {
+      "t": "Photography",
+      "on": true
+    },
+    {
+      "t": null,
+      "on": false
+    },
+    {
+      "t": null,
+      "on": false
+    },
+    {
+      "t": null,
+      "on": true
+    },
+    {
+      "t": null,
+      "on": false
+    }
+  ],
+  "languages": [
+    {
+      "lang": "Korean",
+      "level": null
+    },
+    {
+      "lang": "English",
+      "level": null
+    }
+  ],
+  "photographs": [
+    3,
+    12,
+    14,
+    9
+  ],
+  "question": "Where Did You Last Stop?",
+  "question_source": "docs/portfolio/cover.md"
+}
