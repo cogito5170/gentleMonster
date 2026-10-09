@@ -1,0 +1,326 @@
+{
+ "aspiration_types_5": {
+  "schema": "aspiration_types_5/1",
+  "budget": {
+   "limit": 1200,
+   "text_without_aspiration": 1104,
+   "aspiration_max": 96,
+   "current_aspiration_chars": 54,
+   "method": "공백 · 줄바꿈 포함 len()"
+  },
+  "types": [
+   {
+    "id": "AT1",
+    "name": "소제목 회수형",
+    "basis": "writing_grammar G7 관통 키워드를 처음과 끝에",
+    "grammar": {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/CMD-HJ3.result.json",
+     "quote": "관통 키워드 하나를 처음과 끝에 둔다"
+    },
+    "definition": "소제목의 '틀 / 그 안'을 포부에서 다시 불러 글을 닫는다. 지금 포부가 이 유형이다.",
+    "opens_with": "틀(건축에서 배운 것)",
+    "closes_with": "그 안을 채운다는 행동"
+   },
+   {
+    "id": "AT2",
+    "name": "직무 줄 대응형",
+    "basis": "writing_grammar G1 (공고 줄마다 답하는 문장) · case_studies 공통 유형 7 직무 언어 번역",
+    "definition": "채용 공고 담당업무의 낱말(스토어 · 팝업 공간 기획)로 포부를 직접 말한다. 평가자가 직무와의 연결을 바로 찾는다.",
+    "opens_with": "담당업무의 공간 이름 (스토어 · 팝업)",
+    "closes_with": "그 공간에서 할 일 하나"
+   },
+   {
+    "id": "AT3",
+    "name": "포트폴리오 관통형 (멈춤)",
+    "basis": "case_studies 공통 유형 10 관통 정체성 · 사례 2 W 여정 맺음",
+    "grammar": {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/CMD-HJ3.result.json",
+     "quote": "여정 맺음"
+    },
+    "definition": "포트폴리오와 철학 원고의 동사 '멈춘다'로 자기소개를 닫아, 지원서 · 포트폴리오가 한 사람의 말로 이어지게 한다.",
+    "opens_with": "사람(이용자)의 행동 — 멈춤",
+    "closes_with": "그 순간을 설계한다는 문장"
+   },
+   {
+    "id": "AT4",
+    "name": "기준 맺음형",
+    "basis": "case_studies 사례 3 Y 배움을 기준으로 맺기",
+    "grammar": {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/CMD-HJ3.result.json",
+     "quote": "기준으로 맺는다"
+    },
+    "definition": "다짐 대신 앞으로 지킬 기준 하나를 말하고 닫는다. 회사명 없이 끝난다.",
+    "opens_with": "공간을 볼 때의 기준 (판단 대상)",
+    "closes_with": "'기준으로 삼겠습니다' 류 — 회사명 없음"
+   },
+   {
+    "id": "AT5",
+    "name": "회사명 다짐형",
+    "basis": "case_studies 사례 1 · 2 K 회사명 다짐으로 맺기",
+    "grammar": {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/CMD-HJ3.result.json",
+     "quote": "회사명 다짐"
+    },
+    "definition": "회사명과 직무명으로 어떤 디자이너가 되겠다고 닫는다. 가장 흔한 형식이라 앞부분에 사용자 고유의 말이 있어야 한다.",
+    "opens_with": "C1 본문의 핵심 하나 (틀 · 공간 기획)",
+    "closes_with": "'젠틀몬스터의 공간 설계 디자이너가 되겠습니다' 류"
+   }
+  ]
+ },
+ "case_brief": {
+  "schema": "persona_brief/1",
+  "for": "CMD-HJ21 Editor_Writer: ③ 포부 5케이스 집필",
+  "host_text_chars": 1158,
+  "aspiration_max": 96,
+  "rules_all_cases": [
+   "사실은 refs 인용만",
+   "각 케이스 96자 이하 (③ 포부 머리말 제외)",
+   "합니다체 · 지칭어 없음",
+   "약점 문단 마지막 문장과 짜임 · 낱말이 겹치지 않게"
+  ],
+  "cases": [
+   {
+    "id": "AC1",
+    "type": "AT1",
+    "first_phrase_role": "'틀'을 주어 · 목적어로 받는 구절",
+    "lead_facts": [
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/selection.json#current_text",
+      "quote": "〈틀을 배우고, 그 안을 채우는 건축학도〉"
+     },
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/selection.json#current_text",
+      "quote": "그 틀 안의 실내 공간을 다룰 때 더 큰 흥미를 느껴"
+     },
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/selection.json#current_text",
+      "quote": "건축에서 배운 틀 위에서, 스토어와 팝업 공간의 그 안을 사람이 직접 겪는 장면으로 채우겠습니다."
+     }
+    ],
+    "avoid": [
+     "약점 문단 마지막 문장과의 겹침: '~위에(서)' 짜임, '과감' · '절제' · '함께' · '다루다' 낱말",
+     "추상 다짐: 최선 · 노력 · 성장하겠다 · 발전하겠다",
+     "새 사실 (경험 · 성과 · 수치 · 동기)",
+     "지칭어 (저는 · 제가 · 저를 · 나는 · 내)",
+     "AI 관련 말 · 클로드 · 챗GPT",
+     "거절 소재: 홍대점 · 설계 프로젝트 내용 · 이솝 · 알바 알토 · 아르텍 · '내 눈은 늘 그 안에 머물렀다' 류 · '도전하지 않으면 아쉬울 것 같아' · '손으로'",
+     "96자 초과 (공백 · 줄바꿈 포함 len(), ③ 포부 머리말 제외 본문만)",
+     "지금 포부의 '틀 위에서' (약점 문단 '절제 위에'와 같은 짜임) — 틀을 다른 짜임으로 받는다 (예: '틀을 읽고', '틀 안을')"
+    ],
+    "char_target": {
+     "target": 60,
+     "min": 45,
+     "max": 80
+    },
+    "risk": "지금 포부와 가장 비슷해 바꾼 효과가 적다. '틀' · '그 안'이 소제목 · ① · 포부에 세 번 — 관통이자 반복"
+   },
+   {
+    "id": "AC2",
+    "type": "AT2",
+    "first_phrase_role": "담당업무의 공간 이름(스토어 · 팝업 공간)",
+    "lead_facts": [
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/selection.json#current_text",
+      "quote": "공간 기획에"
+     },
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/selection.json#current_text",
+      "quote": "이 감각을 아트 오브제와 가구, 마감재를 기획하는 데 쓰겠습니다."
+     }
+    ],
+    "avoid": [
+     "약점 문단 마지막 문장과의 겹침: '~위에(서)' 짜임, '과감' · '절제' · '함께' · '다루다' 낱말",
+     "추상 다짐: 최선 · 노력 · 성장하겠다 · 발전하겠다",
+     "새 사실 (경험 · 성과 · 수치 · 동기)",
+     "지칭어 (저는 · 제가 · 저를 · 나는 · 내)",
+     "AI 관련 말 · 클로드 · 챗GPT",
+     "거절 소재: 홍대점 · 설계 프로젝트 내용 · 이솝 · 알바 알토 · 아르텍 · '내 눈은 늘 그 안에 머물렀다' 류 · '도전하지 않으면 아쉬울 것 같아' · '손으로'",
+     "96자 초과 (공백 · 줄바꿈 포함 len(), ③ 포부 머리말 제외 본문만)",
+     "'아트 오브제 · 가구 · 마감재'를 다시 나열하는 것 (강점 셋째 마지막 문장과 그대로 겹침) — 스토어 · 팝업만 쓴다",
+     "'기획하는 데 쓰겠습니다' 짜임 (강점 셋째와 같음)"
+    ],
+    "char_target": {
+     "target": 70,
+     "min": 50,
+     "max": 90
+    },
+    "risk": "직무 연결이 가장 분명하지만, 공고 문구를 옮기기만 하면 사용자 고유의 말이 없다. 강점 첫째('공간 기획')와 낱말이 겹치지 않게"
+   },
+   {
+    "id": "AC3",
+    "type": "AT3",
+    "first_phrase_role": "사람이 멈추는 순간",
+    "lead_facts": [
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/philosophy.md",
+      "quote": "나는 그 사이에서, 사람이 발걸음을 멈추는 순간을 설계한다.",
+      "note": "지원자 노트를 다듬은 글(README 상태: 확정). 말씨는 다듬은 것이므로 뜻만 가져온다"
+     },
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/philosophy.md",
+      "quote": "멈춘다 · 머문다 · 다시 온다"
+     },
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/cover.md",
+      "quote": "\"Where Did You Last Stop?\""
+     },
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/storyline.md",
+      "quote": "커버가 묻고, 세 섹션이 차례로 답하고, 마지막에 다시 묻는다."
+     }
+    ],
+    "avoid": [
+     "약점 문단 마지막 문장과의 겹침: '~위에(서)' 짜임, '과감' · '절제' · '함께' · '다루다' 낱말",
+     "추상 다짐: 최선 · 노력 · 성장하겠다 · 발전하겠다",
+     "새 사실 (경험 · 성과 · 수치 · 동기)",
+     "지칭어 (저는 · 제가 · 저를 · 나는 · 내)",
+     "AI 관련 말 · 클로드 · 챗GPT",
+     "거절 소재: 홍대점 · 설계 프로젝트 내용 · 이솝 · 알바 알토 · 아르텍 · '내 눈은 늘 그 안에 머물렀다' 류 · '도전하지 않으면 아쉬울 것 같아' · '손으로'",
+     "96자 초과 (공백 · 줄바꿈 포함 len(), ③ 포부 머리말 제외 본문만)",
+     "Q1 축 문장 '이용자가 멈추고, 이끌리고, 그 경험을 기억하는' 세 동사를 그대로 쓰는 것 — 멈춤 하나만",
+     "철학 원고의 '선물하는 사람' · '작은 위안' (감정 · 추상)",
+     "영문 문구 'Where Did You Last Stop?'을 자기소개서 본문에 넣는 것 — 포트폴리오의 몫"
+    ],
+    "char_target": {
+     "target": 55,
+     "min": 40,
+     "max": 75
+    },
+    "risk": "지원동기(Q1) 확정 축 '이용자가 멈추고, 이끌리고, 그 경험을 기억하는 공간'과 '멈춤'이 겹친다. Q1과 함께 읽히므로 두 글이 같은 말로 끝나면 반복으로 보일 수 있다 — 대신 지원서 전체의 관통 키워드로 읽힐 수도 있다(사용자 판단). C1 본문에는 '멈춤'이 한 번도 없어, 포부에서 처음 나온다"
+   },
+   {
+    "id": "AC4",
+    "type": "AT4",
+    "first_phrase_role": "공간을 판단할 기준 하나 — 사람이 직접 겪는가",
+    "lead_facts": [
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/self_intro.md",
+      "quote": "① 맞다 · ④ 맞다 (\"사람이 직접 겪는\" 유지)",
+      "note": "지원자가 '사람이 직접 겪는'을 유지하라고 확인함"
+     },
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/selection.json#current_text",
+      "quote": "건축에서 배운 틀 위에서, 스토어와 팝업 공간의 그 안을 사람이 직접 겪는 장면으로 채우겠습니다."
+     },
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/selection.json#current_text",
+      "quote": "그 틀 안의 실내 공간을 다룰 때 더 큰 흥미를 느껴"
+     }
+    ],
+    "avoid": [
+     "약점 문단 마지막 문장과의 겹침: '~위에(서)' 짜임, '과감' · '절제' · '함께' · '다루다' 낱말",
+     "추상 다짐: 최선 · 노력 · 성장하겠다 · 발전하겠다",
+     "새 사실 (경험 · 성과 · 수치 · 동기)",
+     "지칭어 (저는 · 제가 · 저를 · 나는 · 내)",
+     "AI 관련 말 · 클로드 · 챗GPT",
+     "거절 소재: 홍대점 · 설계 프로젝트 내용 · 이솝 · 알바 알토 · 아르텍 · '내 눈은 늘 그 안에 머물렀다' 류 · '도전하지 않으면 아쉬울 것 같아' · '손으로'",
+     "96자 초과 (공백 · 줄바꿈 포함 len(), ③ 포부 머리말 제외 본문만)",
+     "회사명 (이 유형은 회사명 없이 닫는다 — AT5와 구별)",
+     "기준을 두 개 이상 늘어놓는 것"
+    ],
+    "char_target": {
+     "target": 65,
+     "min": 45,
+     "max": 85
+    },
+    "risk": "기준 문장이 추상적이 되기 쉽다. '사람이 직접 겪는'(사용자가 유지를 확인한 말)처럼 이미 쓴 구체어로 기준을 세운다"
+   },
+   {
+    "id": "AC5",
+    "type": "AT5",
+    "first_phrase_role": "C1 본문의 핵심 한 구절 (틀 또는 공간 기획) + 회사명",
+    "lead_facts": [
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/selection.json#current_text",
+      "quote": "공간 디자인으로 전향해 젠틀몬스터에 지원했습니다."
+     },
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/selection.json#current_text",
+      "quote": "하나의 생각을 끝까지 형태로 밀고 가는 이 과정을 공간 기획에 가져가겠습니다."
+     },
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@e1be4ff34cb9bc9f420257a04e26fbdb4ac334ca:docs/portfolio/handoff/selection.json#current_text",
+      "quote": "〈틀을 배우고, 그 안을 채우는 건축학도〉"
+     }
+    ],
+    "avoid": [
+     "약점 문단 마지막 문장과의 겹침: '~위에(서)' 짜임, '과감' · '절제' · '함께' · '다루다' 낱말",
+     "추상 다짐: 최선 · 노력 · 성장하겠다 · 발전하겠다",
+     "새 사실 (경험 · 성과 · 수치 · 동기)",
+     "지칭어 (저는 · 제가 · 저를 · 나는 · 내)",
+     "AI 관련 말 · 클로드 · 챗GPT",
+     "거절 소재: 홍대점 · 설계 프로젝트 내용 · 이솝 · 알바 알토 · 아르텍 · '내 눈은 늘 그 안에 머물렀다' 류 · '도전하지 않으면 아쉬울 것 같아' · '손으로'",
+     "96자 초과 (공백 · 줄바꿈 포함 len(), ③ 포부 머리말 제외 본문만)",
+     "'젠틀몬스터' 외 다른 칭찬 · 평가 수식",
+     "'성장하는 디자이너' 류 추상 다짐"
+    ],
+    "char_target": {
+     "target": 70,
+     "min": 50,
+     "max": 90
+    },
+    "risk": "가장 흔한 맺음이라 앞 구절이 비면 상투적이다. '젠틀몬스터'가 ① · 약점 문단에 이어 세 번째로 나온다"
+   }
+  ]
+ },
+ "risks": [
+  {
+   "id": "R1",
+   "what": "지금 포부가 약점 문단 마지막 문장과 짜임이 겹친다",
+   "evidence": [
+    "건축에서 배운 틀 위에서, 스토어와 팝업 공간의 그 안을 사람이 직접 겪는 장면으로 채우겠습니다.",
+    "건축에서 익힌 절제 위에 과감을 더해, 절제와 과감을 한 공간에서 함께 다루고자 합니다."
+   ],
+   "detail": "'틀 위에서' ↔ '절제 위에'. 두 문단이 연달아 '~위에'로 끝나 같은 말버릇으로 읽힌다. 다섯 케이스 모두 '위에'를 쓰지 않게 했다",
+   "confidence": 0.86
+  },
+  {
+   "id": "R2",
+   "what": "AT3(멈춤)은 지원동기(Q1) 축과 겹친다",
+   "evidence": [
+    "**이용자가 멈추고, 이끌리고, 그 경험을 기억하는 공간을 설계한다.**"
+   ],
+   "detail": "Q1의 확정 축은 '멈추고, 이끌리고, 그 경험을 기억하는 공간'이다. 자기소개 포부가 같은 동사로 닫히면 두 문항이 같은 결론을 반복한다. 반대로 지원서 전체를 꿰는 키워드로 읽힐 수도 있다",
+   "confidence": 0.74
+  },
+  {
+   "id": "R3",
+   "what": "경험 · 기억 계열 말은 Q1 최종본과도 겹친다",
+   "evidence": [
+    "젠틀몬스터는 이용자의 경험을 중심으로 동선과 공간을 구상하는 곳이라고 생각했고",
+    "공간에서의 경험이 젠틀몬스터의 이미지로 남는 곳, 그래서 젠틀몬스터여야 한다."
+   ],
+   "detail": "'이용자의 경험', '경험이 … 이미지로 남는'. 포부에서 '경험' · '기억'을 쓰면 Q1 맺음과 가까워진다",
+   "confidence": 0.68
+  },
+  {
+   "id": "R4",
+   "what": "AT2는 강점 셋째 마지막 문장과 겹친다",
+   "evidence": [
+    "이 감각을 아트 오브제와 가구, 마감재를 기획하는 데 쓰겠습니다."
+   ],
+   "detail": "공고의 '아트 오브제 · 가구 · 마감재'는 이미 강점 셋째가 받았다. 포부에서는 스토어 · 팝업만 쓴다",
+   "confidence": 0.84
+  },
+  {
+   "id": "R5",
+   "what": "강점 세 개가 모두 '~겠습니다'로 닫힌다",
+   "evidence": [
+    "하나의 생각을 끝까지 형태로 밀고 가는 이 과정을 공간 기획에 가져가겠습니다.",
+    "매장 컨셉도 같은 방식으로 모델과 이미지로 옮겨 전하겠습니다.",
+    "이 감각을 아트 오브제와 가구, 마감재를 기획하는 데 쓰겠습니다."
+   ],
+   "detail": "포부까지 '~겠습니다'면 같은 맺음이 네 번 이어진다(G7). AT4는 '기준으로 삼겠습니다'처럼 동사를 바꾸거나, '~하는 디자이너입니다/이고자 합니다' 같은 다른 맺음을 고를 수 있다. 다만 약점 문단이 이미 '~하고자 합니다'로 끝나 그 짜임도 피한다",
+   "confidence": 0.62
+  },
+  {
+   "id": "R6",
+   "what": "철학 원고 인용의 성격",
+   "evidence": [
+    "나는 그 사이에서, 사람이 발걸음을 멈추는 순간을 설계한다."
+   ],
+   "detail": "philosophy.md는 '지원자 노트를 다듬은 글'이다. 뜻(멈추는 순간을 설계)은 사용자 것이지만 문장은 다듬어진 것이므로 그대로 옮기기보다 뜻을 가져온다",
+   "confidence": 0.7
+  }
+ ]
+}
