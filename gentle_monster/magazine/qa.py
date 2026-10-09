@@ -20,6 +20,17 @@ def _c(area, name, status, detail=""):
     return {"area": area, "check": name, "status": status, "detail": detail}
 
 
+def ko_fonts() -> list:
+    """Fonts that cover Korean, asked of fontconfig. The first version of this check grepped font names for
+    cjk|noto|nanum and concluded there was none -- WenQuanYi Zen Hei covers Hangul and was missed."""
+    import subprocess
+    try:
+        p = subprocess.run(["fc-list", ":lang=ko", "family"], capture_output=True, text=True, timeout=20)
+        return sorted({l.split(",")[0].strip() for l in p.stdout.splitlines() if l.strip()})
+    except (OSError, subprocess.TimeoutExpired):
+        return []
+
+
 def research(cat: dict, drift_src: "dict | None", se_new: "Path | None" = None, check_links: bool = False) -> list:
     out = []
     bad = CAT.validate(cat)
@@ -103,7 +114,7 @@ def creative(plan: dict, rendered: list, html_text: str, assets: list) -> list:
                       f"most-cited reference [{top_ref}] carries {frac:.0%} of {sum(uses.values())} citations"))
     else:
         out.append(_c("creative", "no over-dependence on one source", "FAIL", "no citations rendered"))
-    ind = html_text.count("independent concept magazine")
+    ind = html_text.count("독립 콘셉트 매거진")
     out.append(_c("creative", "independence statement on cover and colophon", "PASS" if ind >= 2 else "FAIL", f"{ind} occurrences"))
     return out
 
@@ -147,7 +158,12 @@ def production(rendered: list, html_path: Path, pdf_res: "dict | None", tokens: 
             out.append(_c("production", "image ratios (no distortion; crops only on full-bleed)", "FAIL" if bad_ratio or crops else "PASS",
                           "; ".join(bad_ratio + crops) or "ok"))
             han = [f"p{p['i']}" for p in pr["pages"] if p["hangul"]]
-            out.append(_c("production", "no unrenderable Hangul (no CJK font installed)", "WARNING" if han else "PASS", ", ".join(han) or "none visible"))
+            fonts = ko_fonts()
+            from gentle_monster.magazine import design as DS
+            ours = [f for f in fonts if f'"{f}"' in DS.KO]          # a real face from our stack, not a bitmap fallback
+            out.append(_c("production", "Hangul has a font", "PASS" if ours or not han else ("WARNING" if fonts else "FAIL"),
+                          f"{len(han)} pages show Hangul; from our stack: {', '.join(ours) or 'none'}"
+                          + ("" if ours else f"; fallback only: {', '.join(fonts[:3]) or 'none'}")))
         if mob.get("ok"):
             vw, w, wide = mob["viewport"][0], mob["doc_scroll_w"], mob.get("too_wide", [])
             if vw != 375:   # the browser refused the size; a pass at another width says nothing about 375

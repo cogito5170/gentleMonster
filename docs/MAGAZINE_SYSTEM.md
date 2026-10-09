@@ -7,7 +7,7 @@
 python3 -m gentle_monster magazine "Gentle Monster의 브랜드 세계관을 중심으로, 미래의 유물과 인간의 감각을 주제로 한 실험적 매거진 ... HTML과 PDF" --name future_relics
 python3 -m gentle_monster magazine "<브리프>" --image photos/a.jpg --credit "Photo: 이름" --rights own   # 권리를 밝힌 사진은 실린다
 python3 -m gentle_monster research          # research/*.md 를 원장에서 다시 만든다 + 범위(coverage) 출력
-python3 tests/test_magazine.py              # 63개 검사, RED 9개 포함
+python3 tests/test_magazine.py              # 77개 검사, RED 13개 포함
 ```
 
 결과는 `out/<이름>/magazine/` 에 쌓인다(git 밖):
@@ -47,10 +47,14 @@ python3 tests/test_magazine.py              # 63개 검사, RED 9개 포함
 ## QA 가 실제로 재는 것
 
 브라우저가 재는 것은 브라우저로 잰다. 인쇄 크기(869 × 1134 px, `html.print-sim`)에서 넘침 · 그림 로드 · 격자선 정렬 ·
-그림 비율(늘림 금지, 잘림은 풀블리드만) · 보이는 한글(CJK 글꼴이 없다). 375 px 에서 가로 스크롤과 **페이지에 가려
+그림 비율(늘림 금지, 잘림은 풀블리드만) · 보이는 한글에 실제 한글 글꼴(우리 글꼴 목록 안의 것)이 있는가 — fontconfig 에 `:lang=ko` 로 묻는다. 375 px 에서 가로 스크롤과 **페이지에 가려
 잘린 내용**. PDF 쪽수 = HTML 쪽수.
 
 ### 만들면서 잡은 거짓 신호
+
+0. **"한글 글꼴이 없다" 는 틀렸다.** 글꼴 이름을 `cjk|noto|nanum` 으로 grep 해서 WenQuanYi Zen Hei 를 놓쳤고, 그 판단으로
+   첫 판 지면을 영문으로 냈다. 이제 지면은 한국어(출처의 원문 인용만 영어 그대로)이고, 검사는 fontconfig 에 언어(`:lang=ko`)로
+   묻는다. Unifont 같은 비트맵 대체 글꼴만 있으면 PASS 가 아니다.
 
 1. **375 px 가 실은 500 px 였다.** `chrome --headless=new --window-size=375,…` 는 뷰포트를 500 으로 올린다.
    첫 판은 "문서 폭 500 px → FAIL" 이라고 했다 — 거짓 빨강이다. 이제 뷰포트를 같이 받아, 요청한 폭이 아니면
@@ -71,7 +75,7 @@ python3 tests/test_magazine.py              # 63개 검사, RED 9개 포함
 | 4 | 독창적인 편집 콘셉트 후보 | 됨 — 방향 4개, 비교표 |
 | 5 | 선택된 방향과 쪽별 계획 | 됨 — `plan.json` |
 | 6 | 실제 이미지와 출처 메타데이터 | **반쯤.** 메타데이터는 있다. 실제 이미지는 하나도 못 받았다(접속 차단) → 레퍼런스는 보류, 지면은 생성 도판 |
-| 7 | 웹에서 열리는 매거진 | 됨 — 18쪽 |
+| 7 | 웹에서 열리는 매거진 | 됨 — 18쪽, 한국어. 표지 · 차례 → 본문(사실 · 실험) → 부록(가지 않은 방향 · 이미지 목록 · 비평 · 참고 문헌 · 판권) |
 | 8 | 실제 생성된 PDF | 됨 — 18쪽, 230 × 300 mm |
 | 9 | QA 보고서 | 됨 — WARNING(FAIL 0): 원문 미열람 1, 외부 링크 NOT_CHECKED 2 |
 | 10 | 확인 못 한 것과 남은 일 | 아래 + 지면의 Critical Review |
@@ -83,6 +87,5 @@ python3 tests/test_magazine.py              # 63개 검사, RED 9개 포함
 - **지면 글.** 지금 글은 원장에서 조립한다(템플릿 + 인용). 문장 품질은 템플릿과 연구 원장(인용의 질 · 원문 열람)을
   손봐서 올린다 — 모델 단계는 두지 않는다(아래 규칙).
 - **매거진 편집 축 조사.** 활자 · 격자 · 이미지 시퀀스 · 인쇄 사양은 거의 조사하지 못했다(원장 `not_checked` 10번).
-- **한글 지면.** CJK 글꼴이 설치된 곳에서는 한글 본문이 가능하다. 지금은 QA 가 보이는 한글을 경고한다.
 - 디스코드 `!젠몬` 자연어 경로에는 아직 안 붙였다.
 - **이 심판이 못 잡는 것:** 글이 좋은가, 바깥 분야의 연결이 설득력 있는가, 원장에 '전문' 이라고 거짓으로 적는 것.

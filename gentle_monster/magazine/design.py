@@ -19,9 +19,10 @@ BASELINE = 14                        # pt
 RATIO = 1.25
 PAGE_TYPES = ("cover", "single_column", "multi_column", "asymmetric", "full_bleed", "image_essay", "product_study",
               "catalogue", "typographic", "intrusion", "references", "colophon")
-FONTS = {"serif": '"Liberation Serif","DejaVu Serif",Georgia,serif',
-         "sans": '"Liberation Sans","DejaVu Sans",Arial,sans-serif',
-         "mono": '"Liberation Mono","DejaVu Sans Mono",monospace'}
+KO = '"WenQuanYi Zen Hei","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic"'   # Hangul: the font installed here first
+FONTS = {"serif": f'"Liberation Serif","DejaVu Serif",{KO},Georgia,serif',
+         "sans": f'"Liberation Sans","DejaVu Sans",{KO},Arial,sans-serif',
+         "mono": f'"Liberation Mono","DejaVu Sans Mono","WenQuanYi Zen Hei Mono",{KO},monospace'}
 
 
 def _hex(c):
@@ -78,10 +79,11 @@ def css(t: dict) -> str:
 --b:{BASELINE}pt;--g:{GUTTER}mm}}
 *{{box-sizing:border-box}}
 html{{background:#8a8a86}}
-body{{margin:0;color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased}}
+body{{margin:0;color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}}
+.quote{{font-family:var(--serif)}} .note{{color:var(--muted)}}
 .page{{position:relative;background:var(--paper);overflow:hidden;margin:0 auto 28px;width:min(100% - 32px, 920px);
   aspect-ratio:{PAGE_W}/{PAGE_H};padding:4.2% 4.6% 5.4% 6.1%;display:grid;grid-template-columns:repeat({COLS},1fr);
-  column-gap:2.2%;align-content:start;font-size:clamp(12px,1.55vw,15px);line-height:1.5}}
+  column-gap:2.2%;align-content:start;font-size:clamp(12px,1.55vw,15px);line-height:1.6}}
 .page.dark{{background:var(--ink);color:var(--paper)}}
 .rh{{grid-column:1/-1;display:flex;justify-content:space-between;font:600 .68em/1 var(--mono);letter-spacing:.08em;
   text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule);padding-bottom:.7em;margin-bottom:1.6em}}
@@ -109,7 +111,12 @@ figcaption b{{color:var(--ink);font-weight:700}} .dark figcaption b{{color:var(-
 /* cover */
 .pt-cover{{align-content:space-between}}
 .pt-cover .mast{{grid-column:1/-1;font:700 5.4em/0.86 var(--sans);letter-spacing:-.04em;text-transform:uppercase}}
-.pt-cover .q{{grid-column:1/9;font-size:1.5em;line-height:1.2;font-family:var(--serif);font-style:italic}}
+.pt-cover .q{{grid-column:1/10;font-size:1.7em;line-height:1.3;font-weight:700}}
+.pt-cover .sub{{grid-column:1/-1;font-size:1.05em;margin-top:.4em;color:var(--muted)}}
+.toc{{list-style:none;margin:0;padding:0;font-size:1.02em}} .toc li{{border-bottom:1px solid var(--rule);padding:.42em 0}}
+.toc li.part{{border:0;font:700 .7em var(--mono);letter-spacing:.12em;color:var(--accent-text);padding-top:1.3em}}
+.toc a{{color:inherit;text-decoration:none}} .toc .no{{font:600 .85em var(--mono);color:var(--muted);margin-right:.8em}}
+.aside{{border-left:1px solid var(--rule);padding-left:1.2em}} .mt{{margin-top:1.4em}}
 .pt-cover figure{{grid-column:3/-1}}
 .pt-cover .disclaimer{{grid-column:1/-1;font:.66em var(--mono);color:var(--muted);border-top:1px solid var(--rule);padding-top:.8em}}
 /* full bleed */

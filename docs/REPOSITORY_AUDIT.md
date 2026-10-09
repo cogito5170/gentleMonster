@@ -37,7 +37,7 @@
 | PyPI (`pip install playwright`) | 이름 해석 실패 → Python Playwright 없음. 기존 테스트의 브라우저 부분은 '건너뜀' 으로 돈다 |
 | Chromium | `/opt/pw-browsers` 에 있다. 매거진은 Playwright 없이 Chromium 을 **직접** 부른다(PDF 출력, DOM 측정) |
 | `chrome --headless=new --window-size=375,…` | 창이 **500 px 아래로 안 줄어든다**(실측: 뷰포트 500). 그래서 375 px 측정은 `headless_shell` 로 한다(실측: 375) |
-| 글꼴 | Liberation · DejaVu 만 있다. **CJK 글꼴이 없다** → 지면 글은 영문, QA 가 보이는 한글을 경고로 잡는다 |
+| 글꼴 | Liberation · DejaVu, 그리고 **한글을 덮는 WenQuanYi Zen Hei** (`fc-list :lang=ko`). 첫 조사에서는 이름을 `cjk\|noto\|nanum` 으로 grep 해서 **"한글 글꼴이 없다" 고 잘못 적었다** — 그 판단으로 첫 판 지면을 영문으로 냈다. 지금 지면은 한국어이고, QA 는 이름이 아니라 fontconfig 에 언어로 묻는다 |
 
 ## 결정
 

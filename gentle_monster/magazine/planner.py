@@ -45,7 +45,8 @@ def read_brief(text: str) -> dict:
     if not (want_pdf or want_html):
         want_pdf = want_html = True
     obj = next((v for k, v in OBJECTS.items() if k in t.lower() and v != "eyewear"), "eyewear")
-    return {"text": t, "terms": sorted(terms), "outputs": {"html": want_html or want_pdf, "pdf": want_pdf}, "object": obj,
+    themes_ko = [k for k in THEMES if k in t]
+    return {"text": t, "terms": sorted(terms), "themes_ko": themes_ko, "outputs": {"html": want_html or want_pdf, "pdf": want_pdf}, "object": obj,
             "seed": hashlib.sha256(t.encode()).hexdigest()[:12]}
 
 
@@ -129,6 +130,7 @@ def pages(cat: dict, brief: dict, chosen: dict, hyps: list) -> list:
     P = [
         {"section": "Cover", "type": "cover", "kind": "apparatus", "purpose": "name the issue and its question; say it is an independent concept",
          "plate": plate_of(devs[0]["device"]) or "specimen"},
+        {"section": "Contents", "type": "contents", "kind": "apparatus", "purpose": "the order of the issue: features first, apparatus at the back"},
         {"section": "Editor's Letter", "type": "single_column", "kind": "apparatus",
          "purpose": "state the brief, the method, and which pages are fact and which are experiment"},
         {"section": "Brand and Culture", "type": "multi_column", "kind": "fact",
@@ -162,11 +164,21 @@ def pages(cat: dict, brief: dict, chosen: dict, hyps: list) -> list:
     ]
     _rhythm(P)
     _plates(P)
+    back = False
+    for p in P:
+        p["title_ko"] = TITLE_KO.get(p["section"]) or p["section"].replace("Drift Experiment", "표류 실험")
+        back = back or p["section"] == "Directions Not Taken"
+        p["part"] = "부록" if back else ("앞" if p["type"] in ("cover", "contents") else "본문")
     for i, p in enumerate(P, 1):
         p["folio"] = i
     return P
 
 
+TITLE_KO = {"Cover": "표지", "Contents": "차례", "Editor's Letter": "편집자의 글", "Brand and Culture": "브랜드와 문화",
+            "Spatial Experiments": "공간의 실험", "Eyewear as Object": "사물로서의 안경", "Intrusion": "끼어들기",
+            "Cross-disciplinary Research": "다른 분야에서 온 원리", "Directions Not Taken": "가지 않은 방향",
+            "Image Catalogue": "이미지 목록", "Critical Review": "비평 — 확인하지 못한 것", "References": "참고 문헌",
+            "Colophon": "판권"}
 PLATE_FALLBACK = ("material", "cue", "strata", "site_grid", "exploded", "acuity", "orbit", "specimen")
 
 

@@ -206,8 +206,70 @@ MARK = ("a blank page with one number", "an outline where an object was", "a cor
         "a tag with no object", "one detail enlarged past recognition", "a list with no images",
         "a question nobody on the page answers", "a page set in the wrong order")
 
+# Korean page text. The English above stays as the data's key (and in hypotheses.json); pages print these.
+OP_KO = {"detach": "떼어내기", "refine": "세분", "associate": "잇기", "invert": "뒤집기", "revive": "다시 부르기",
+         "fold": "접기", "leap": "도약", "intrusion": "끼어들기", "claim": "연구"}
+DOMAIN_KO = {
+    "archaeological excavation": {"name": "고고학 발굴", "reads_as": "발굴된 유물", "subject": "출토품",
+        "experience": "오늘의 제품을 먼 훗날 파낸 것처럼 다룬다 — 시간이 거꾸로 읽힌다",
+        "image": "중립 바탕 위의 사물을 실측 비율로, 도판마다 축척 막대를; 장마다 유적 평면도 한 장",
+        "type": "고정폭 출토 번호, 조용한 명조 계열의 현장 기록, 제목보다 긴 캡션",
+        "content": "출토 기록(번호 · 층위 · 상태 · 추정 용도)을 실제 사물에 관한 출처 있는 사실 옆에 둔다"},
+    "museum conservation": {"name": "박물관 보존처리", "reads_as": "보존처리 중인 사물", "subject": "소장품",
+        "experience": "느림 — 새로움 대신 마모와 수리와 표면을 본다", "image": "표면을 비스듬한 빛으로 찍은 근접 사진, 같은 사물의 두 상태",
+        "type": "표 형식의 상태 보고서, 상태를 뜻하는 낱말은 작은 대문자로", "content": "상태 보고, 재료 기록, 닦아 내면 무엇을 잃는가"},
+    "industrial maintenance": {"name": "산업 정비", "reads_as": "정비 일지 위의 기계", "subject": "기계",
+        "experience": "사물을 이미지가 아니라 수명이 있는 기구로 본다", "image": "분해 부품도, 움직이는 부분의 시각 기록 스틸",
+        "type": "부품 코드는 좁은 산세리프, 일지는 좁은 단", "content": "움직이는 설치물의 정비 주기 · 부품 목록 · 고장 기록"},
+    "optometry": {"name": "검안", "reads_as": "시력 검사", "subject": "눈",
+        "experience": "지면이 독자의 눈을 검사한다 — 읽는 일 자체가 주제가 된다", "image": "이미지로서의 글자, 일부러 작게 실은 사진 몇 장",
+        "type": "시력표처럼 일정한 비율로 작아지는 글자 크기", "content": "보는 것을 재기; 안경테는 액세서리이기 전에 도구다"},
+    "geological survey": {"name": "지질 조사", "reads_as": "시추 코어", "subject": "땅",
+        "experience": "건물을 퇴적층처럼 층마다 세로로 읽는다", "image": "수직 단면, 여러 쪽에 걸쳐 끊어 실은 긴 이미지 하나",
+        "type": "여백의 깊이 표시, 장 제목을 지층 이름처럼", "content": "매장의 층을 시간 속에 쌓인 지층으로 기술한다"},
+    "theatre prompt book": {"name": "연극 프롬프트북", "reads_as": "무대에 오른 장면", "subject": "장면",
+        "experience": "독자는 관객이 큐를 따라가듯 펼침을 넘긴다", "image": "넓은 설정 장면 뒤에 가까운 디테일, 큐 번호를 단다",
+        "type": "여백에 크게 놓인 큐 번호, 지문은 기울임", "content": "설치물을 빛 · 소리 · 움직임의 큐 순서로 서술한다"},
+    "auction cataloguing": {"name": "경매 도록", "reads_as": "경매 출품작", "subject": "출품작",
+        "experience": "생김새보다 어디서 왔는지를 먼저 따진다", "image": "같은 바탕 위 정면 사물 사진에 번호를",
+        "type": "출품 번호, 작은 기울임의 출처 기록, 넉넉한 여백", "content": "출처의 사슬 — 누가 만들고 누구와 협업했고 어디서 보였나"},
+    "astronomical observation": {"name": "천체 관측", "reads_as": "관측 일지", "subject": "먼 천체",
+        "experience": "거리 — 대상은 멀고 일부만 보인다", "image": "작고 밝은 대상이 놓인 어두운 화면, 궤도 도해",
+        "type": "좌표와 시각 기록, 어두운 면 위의 밝은 글자", "content": "다른 곳으로서의 미래를 환상이 아니라 관측으로 다룬다"},
+    "natural-history field guide": {"name": "자연사 도감", "reads_as": "종 도판", "subject": "종",
+        "experience": "분류 — 비슷한 것들을 가려내는 법을 배운다", "image": "한 도판에 번호 붙은 작은 표본 여럿",
+        "type": "안경테 계열에 붙인 학명 같은 이름, 색인 같은 캡션", "content": "안경테 계열을 종처럼: 형질 · 서식지 · 가까운 친척"},
+    "patent drafting": {"name": "특허 명세", "reads_as": "발명 명세서", "subject": "발명",
+        "experience": "정밀함 — 모든 부분에 번호와 이유가 있다", "image": "선 도면만, 지시선과 부품 번호",
+        "type": "번호 붙은 청구항, 대문자 도면 표기", "content": "디자인에서 새로운 것을 청구항으로, 보여 주는 것과 따로"},
+    "lost-property office": {"name": "분실물 보관소", "reads_as": "주인 없는 물건", "subject": "잃어버린 물건",
+        "experience": "부재 — 주인이 없고 독자가 그 빈자리를 채운다", "image": "조금 비켜 놓인 홀로인 사물과 종이 꼬리표",
+        "type": "타자기 같은 꼬리표 글자", "content": "어디서 발견됐고 그것이 쓴 사람에 대해 무엇을 말하는지 짧게"},
+    "film continuity": {"name": "영화 연속성 기록", "reads_as": "연속성 보고서", "subject": "테이크",
+        "experience": "한 장보다 순서 — 무엇이 바뀌었는지 프레임을 견준다", "image": "밀착 인화, 하나만 바뀐 같은 프레임의 반복",
+        "type": "타임코드, 모든 이미지에 프레임 번호", "content": "캠페인을 테이크로 읽는다: 남은 것, 움직인 것"},
+}
+DEVICE_KO = {"find_number": "캡션마다 출토 번호와 층위", "site_grid": "격자 유적 평면도", "scale_bar": "축척 막대와 함께 실은 사물",
+             "condition_table": "상태 보고서 표", "before_after": "한 사물의 두 상태", "material_swatch": "증거로서의 재료 견본",
+             "exploded_parts": "분해 부품도", "log_column": "시각이 찍힌 일지 단", "cue_sheet": "번호 붙은 큐",
+             "acuity_chart": "시력표처럼 작아지는 글자", "typographic_test": "읽기 검사 펼침", "strata_column": "수직 지층 단면",
+             "blocking_plan": "공간의 동선 평면", "full_bleed_scene": "꽉 찬 설정 장면", "lot_entry": "출처를 단 출품 항목",
+             "provenance_list": "출처의 사슬", "orbit_plate": "궤도 도해", "specimen_plate": "작은 표본 여럿의 도판",
+             "numbered_figures": "지시선과 번호 붙은 도면", "claims_list": "번호 붙은 청구항", "tag_entry": "꼬리표 항목",
+             "blank_page": "한 줄만 놓인 빈 쪽", "contact_sheet": "밀착 인화"}
+WHO_KO = ("보존처리사", "세관 검사관", "아이", "분류 기계", "훗날의 기록 관리자", "건물 그 자체", "잘못 배달된 소포", "번역가",
+          "날씨", "낯선 사람의 여백 메모", "보험 감정인", "야간 경비원", "인쇄소의 실수", "너무 오래 머문 방문객")
+HOW_KO = ("모든 것을 다시 잰다", "물건 하나를 엉뚱한 칸에 넣는다", "여백에 메모를 단다", "불을 끈다", "무게로 다시 분류한다",
+          "캡션을 떼어 낸다", "한 부분을 크게 키운다", "묘사 대신 센다", "뒷면을 읽는다", "주인이 누구였는지 묻는다",
+          "두 물건을 한 상자에 넣는다", "순서를 중간에서 멈춘다")
+MARK_KO = ("번호 하나만 남은 빈 쪽", "물건이 있던 자리의 윤곽", "고쳐 쓴 캡션", "물건 없는 꼬리표", "알아볼 수 없을 만큼 키운 한 부분",
+           "그림 없는 목록", "지면의 누구도 답하지 않는 물음", "순서가 뒤바뀐 쪽")
+assert len(WHO_KO) == len(WHO) and len(HOW_KO) == len(HOW) and len(MARK_KO) == len(MARK)
+assert set(DOMAIN_KO) == {d["name"] for d in DOMAINS} and set(DEVICE_KO) == set(DEVICES)
+
 FICTION_AS_FACT = re.compile(r"\b(gentle\s*monster|gm)\b[^.]{0,40}\b(announced|launched|said|says|stated|confirmed|"
                              r"presents|released|commissioned|partnered|endorsed|official(ly)?)\b", re.I)
+FICTION_AS_FACT_KO = re.compile(r"(젠틀\s*몬스터|젠몬)[^.。]{0,30}(발표|출시|공개|밝혔|밝힌|선보였|선보인|의뢰|공식|후원|승인|협업했)")
 
 
 class LineageError(ValueError):
@@ -230,8 +292,8 @@ def draw_op(seed: str, n: int) -> str:
 
 
 def draw_intrusion(seed: str, n: int) -> dict:
-    return {"who": WHO[_h(seed, n, "who") % len(WHO)], "how": HOW[_h(seed, n, "how") % len(HOW)],
-            "mark": MARK[_h(seed, n, "mark") % len(MARK)]}
+    w, h, m = _h(seed, n, "who") % len(WHO), _h(seed, n, "how") % len(HOW), _h(seed, n, "mark") % len(MARK)
+    return {"who": WHO[w], "how": HOW[h], "mark": MARK[m], "who_ko": WHO_KO[w], "how_ko": HOW_KO[h], "mark_ko": MARK_KO[m]}
 
 
 def measure(child_terms, parent_terms) -> dict:
@@ -410,7 +472,7 @@ def walk(ledger: Ledger, start: dict, seed: str, brief: set, steps: int = 6, oth
 
 def guard_text(text: str) -> str:
     """Hard gate 2 -- a generated sentence may not present a fiction as a fact about the brand."""
-    if FICTION_AS_FACT.search(text or ""):
+    if FICTION_AS_FACT.search(text or "") or FICTION_AS_FACT_KO.search(text or ""):
         raise ContradictionError(f"generated text attributes something to the brand: {text[:120]}")
     return text
 
@@ -475,8 +537,18 @@ def hypothesis(ledger: Ledger, path: list, cat: dict, obj: str = "eyewear") -> d
     if any(n.get("op") == "leap" for n in path):
         risks.append("contains a leap: the association is deliberately far and may read as arbitrary")
     risks.append("rights: real campaign imagery is not cleared; pages fall back to generated plates and cited references")
+    k = DOMAIN_KO[dom["name"]]
+    obj_ko = {"eyewear": "안경", "fragrance": "향", "dessert": "디저트"}.get(obj, obj)
+    J = CAT.josa
+    ko = {"title": f"{J(k['reads_as'], '으로/로')} 읽은 {obj_ko}",
+          "rule": guard_text(f"{J(obj_ko, '을/를')} {J(k['name'], '이/가')} {J(k['subject'], '을/를')} 다루듯 다룬다 — "
+                             + " · ".join(DEVICE_KO[d] for d in devices[:3])
+                             + (f". 연구 원문에서 이어받은 낱말: {', '.join(kept[:5])}." if kept else ".")),
+          "reads_as": k["reads_as"], "experience": k["experience"], "image": k["image"], "type": k["type"], "content": k["content"],
+          "domains": [DOMAIN_KO[d["name"]]["name"] for d in domains]}
     h = {
         "hypothesis_id": f"H-{_h(seed['id'], final['id']) % 10**6:06d}",
+        "ko": ko,
         "title": f"{obj.capitalize()} read as {dom['reads_as']}",
         "research_sources": {"claims": cids, "sources": sids},
         "observed_principles": principles,

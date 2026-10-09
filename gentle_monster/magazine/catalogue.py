@@ -70,8 +70,21 @@ def tokens(text: str) -> set[str]:
             t = t[:-3] + "y"
         elif t.endswith("s") and not t.endswith(("ss", "us", "is")) and len(t) > 3:
             t = t[:-1]
-        out.add(t)
+        if t not in STOP:                 # 'brands' -> 'brand' must meet the stop list too
+            out.add(t)
     return out
+
+
+def josa(word: str, pair: str) -> str:
+    """Korean particle by the last syllable: josa('기계', '을/를') -> '기계를'. '으로/로' treats ㄹ as no batchim."""
+    a, b = pair.split("/")
+    ch = (word or " ")[-1]
+    if not ("가" <= ch <= "힣"):
+        return word + b
+    final = (ord(ch) - 0xAC00) % 28
+    if pair == "으로/로":
+        return word + (b if final in (0, 8) else a)
+    return word + (a if final else b)
 
 
 def load(path=None) -> dict:

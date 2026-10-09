@@ -77,6 +77,15 @@ try:
 except D.ContradictionError:
     ok(True, "RED: fiction stated as a brand fact is refused")
 ok(D.guard_text("Treat eyewear the way auction cataloguing treats lots.") is not None, "GREEN: a drift rule passes the guard")
+try:
+    D.guard_text("젠틀몬스터가 2031년 유물 컬렉션을 발표했다.")
+    ok(False, "RED: the same fiction in Korean is refused")
+except D.ContradictionError:
+    ok(True, "RED: the same fiction in Korean is refused")
+ok(D.guard_text("안경을 경매 도록이 출품작을 다루듯 다룬다.") is not None, "GREEN: a Korean drift rule passes the guard")
+from gentle_monster.magazine import catalogue as _C
+ok([_C.josa(w, p) for w, p in (("기계", "을/를"), ("유물", "으로/로"), ("출품작", "으로/로"), ("보존처리", "이/가"))]
+   == ["기계를", "유물로", "출품작으로", "보존처리가"], "Korean particles follow the final consonant")
 m = D.measure({"a", "b", "x"}, {"a", "q", "r", "s"})
 ok(m["kept"] == 1 and not m["diffusion"], "one shared word is not inheritance (mathdrift KEEP_MIN)")
 m = D.measure({"a", "b", "x"}, {"a", "b", "r", "s"})
@@ -106,6 +115,11 @@ ok(not any(types[i] == types[i - 1] == types[i - 2] for i in range(2, len(types)
 plates = [p["plate"] for p in plan["pages"] if p.get("plate")]
 ok(len(plates) == len(set(plates)), f"no plate kind printed twice: {plates}")
 ok(all(p.get("purpose") for p in plan["pages"]), "every page has a stated purpose")
+ok(plan["pages"][1]["type"] == "contents", "a contents page follows the cover")
+ok(all(p.get("title_ko") for p in plan["pages"]), "every page has a Korean title")
+parts = [p["part"] for p in plan["pages"]]
+ok(parts.index("부록") > parts.index("본문") and "본문" not in parts[parts.index("부록"):], "apparatus sits in the appendix, after the features")
+ok(all(h["ko"]["title"] and h["ko"]["rule"] for h in hyps), "every direction has Korean title and rule")
 
 print("[assets]")
 gen_dir = Path(임시) / "a"
@@ -166,19 +180,20 @@ rend = copy.deepcopy(rendered)
 next(p for p in rend if p["kind"] == "experiment" and p.get("device"))["device"] = "orbit_plate_not_chosen"
 ok(status(QA.creative(plan_full, rend, html_text, assets), "experiment pages follow") == "FAIL",
    "RED: an experiment page using a device outside the chosen hypothesis fails")
-ok(status(QA.creative(plan_full, rendered, html_text.replace("independent concept magazine", "magazine"), assets),
+ok(status(QA.creative(plan_full, rendered, html_text.replace("독립 콘셉트 매거진", "매거진"), assets),
           "independence statement") == "FAIL", "RED: dropping the independence statement fails")
 
 if PDF.available():
     ok(r["pdf_result"] and r["pdf_result"]["pages"] == r["pages"], f"PDF has one page per HTML page ({r['pdf_result'] and r['pdf_result']['pages']})")
     ok(status(r["checks"], "text overflow") == "PASS", "GREEN: no overflow at print size")
+    ok(status(r["checks"], "Hangul has a font") == "PASS", "Hangul pages have a real Korean font (not only a bitmap fallback)")
     red = out.parent / "red"
     shutil.copytree(out, red)
     h = (red / "index.html").read_text(encoding="utf-8")
-    h = h.replace("<h2>Letter</h2>", "<h2>Letter</h2>" + "<p>overflow overflow overflow overflow overflow</p>" * 120, 1)
+    h = h.replace("<h2>편집자의 글</h2>", "<h2>편집자의 글</h2>" + "<p>넘침 넘침 넘침 넘침 넘침 넘침</p>" * 120, 1)
     h = h.replace("<figcaption>", "<figcaption-x>", 1)
-    h = h.replace('<div class="span-12"><h2>Cross-disciplinary Research</h2>',
-                  '<div class="span-12" style="width:900px;min-width:900px"><h2>Cross-disciplinary Research</h2>', 1)
+    h = h.replace('<div class="span-12"><h2>다른 분야에서 온 원리</h2>',
+                  '<div class="span-12" style="width:900px;min-width:900px"><h2>다른 분야에서 온 원리</h2>', 1)
     (red / "index.html").write_text(h, encoding="utf-8")
     pc = QA.production(rendered, red / "index.html", None, json.loads((out / "tokens.json").read_text()), True)
     ok(status(pc, "text overflow") == "FAIL", "RED: a page stuffed with text fails the print overflow check")
