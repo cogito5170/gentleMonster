@@ -84,12 +84,12 @@ def a4():
         t(x + pw / 2, 11.9, p, 4.6, TEXT, 600, "middle", ls=0.2)
         x -= 1.4
     # (2) HERO
-    photo(M, 17, CW, 72, "PHOTO 01", "인물 사진 ____ (흑백 또는 저채도)", at=(168, 28))
-    t(15, 50, "JEONG", 51, TEXT, 100, ls=1.6)
-    t(15, 69, "HYEOKJU", 51, TEXT, 100, ls=1.6)
-    t(16, 77.5, "SPATIAL DESIGNER  ·  공간 설계 디자이너", 6.4, TEXT, 500, fam=SANS, ls=0.2)
-    t(16, 81.4, "건물을 설계하던 감각으로 매장을 설계하려는 건축학도", 5.6, SUB, 400, fam=KR)
-    arrow(170, 80, "PAGE 2 · 자기소개서")
+    photo(M, 17, CW, 62, "PHOTO 01", "인물 사진 ____ (흑백 또는 저채도)", at=(168, 27))
+    t(15, 44, "JEONG", 51, TEXT, 100, ls=1.6)
+    t(15, 62, "HYEOKJU", 51, TEXT, 100, ls=1.6)
+    t(16, 69.5, "SPATIAL DESIGNER  ·  공간 설계 디자이너", 6.4, TEXT, 500, fam=SANS, ls=0.2)
+    t(16, 73.4, "건물을 설계하던 감각으로 매장을 설계하려는 건축학도", 5.6, SUB, 400, fam=KR)
+    arrow(170, 72, "PAGE 2 · 자기소개서")
     # (3) four cards = strengths (cover letter Q2)
     cw = (CW - 3 * 2.5) / 4
     cards = [("01  PLANNING", "기획", ["리서치·분석으로 컨셉을 세우고", "건물로 발전시킨 설계 7학기"]),
@@ -98,47 +98,81 @@ def a4():
              ("04  RESTRAINT + BOLD", "절제와 과감", ["건축에서 익힌 절제 위에", "과감을 더한다"])]
     for i, (en, ko, body) in enumerate(cards):
         x = M + i * (cw + 2.5)
-        r(x, 91, cw, 26, CARD, rx=1.6)
-        t(x + 3.5, 96.4, en, 5.6, TEXT, 600, ls=0.2)
-        t(x + 3.5, 100.2, ko, 5.2, SUB, 500, fam=KR)
-        lines(x + 3.5, 105, body, 5.0, fill=SUB, fam=KR)
-        arrow(x + 5.4, 112.6, "P.2", 1.7)
+        r(x, 81, cw, 26, CARD, rx=1.6)
+        t(x + 3.5, 86.4, en, 5.6, TEXT, 600, ls=0.2)
+        t(x + 3.5, 90.2, ko, 5.2, SUB, 500, fam=KR)
+        lines(x + 3.5, 95, body, 5.0, fill=SUB, fam=KR)
+        arrow(x + 5.4, 102.6, "P.2", 1.7)
     # (4) numbers
     stats = [("5-YEAR B.ARCH", "5", "5년제 건축학과"), ("DESIGN STUDIOS", "7", "설계 수업 7학기"),
              ("TOOLS", "6", "2D · 3D · 후보정"), ("INTERNSHIP", "1", "건축사사무소")]
     for i, (lab, n, ko) in enumerate(stats):
         x = M + 1 + i * 49.5
-        t(x, 123, lab, 4.8, SUB, 500, ls=0.25)
-        t(x, 131, n, 17, TEXT, 200)
-        t(x + 7.5, 131, ko, 5, SUB, 400, fam=KR)
+        t(x, 113, lab, 4.8, SUB, 500, ls=0.25)
+        t(x, 121, n, 17, TEXT, 200)
+        t(x + 7.5, 121, ko, 5, SUB, 400, fam=KR)
     # (5) ABOUT
     hw = (CW - 2.5) / 2
-    r(M, 135, hw, 46, CARD, rx=1.6)
-    t(M + 5, 141.5, "ABOUT", 5, TEXT, 600, ls=0.3)
-    t(M + 5, 150.5, "틀을 배우고,", 11, TEXT, 300, fam=KR)
-    t(M + 5, 156, "그 안을 채우는 건축학도", 11, TEXT, 300, fam=KR)
-    t(M + 5, 164.5, "PROFILE", 4.8, TEXT, 600, ls=0.25)
-    lines(M + 5, 168.6, ["5년제 건축학과 · 4학년 2학기 휴학", "건축사사무소 인턴을 거쳐", "공간 디자인으로 전향"], 5.2, fill=SUB, fam=KR)
-    t(M + 50, 164.5, "INTERESTS", 4.8, TEXT, 600, ls=0.25)
-    lines(M + 50, 168.6, ["패션 · 갤러리", "가구와 조명 수집", "건축물의 실내 마감재와 마감 방식"], 5.2, fill=SUB, fam=KR)
-    photo(M + hw + 2.5, 135, hw, 46, "PHOTO 02", "____ (공간 · 마감재 · 오브제)")
+    r(M, 125, hw, 46, CARD, rx=1.6)
+    t(M + 5, 131.5, "ABOUT", 5, TEXT, 600, ls=0.3)
+    t(M + 5, 140.5, "틀을 배우고,", 11, TEXT, 300, fam=KR)
+    t(M + 5, 146, "그 안을 채우는 건축학도", 11, TEXT, 300, fam=KR)
+    t(M + 5, 154.5, "PROFILE", 4.8, TEXT, 600, ls=0.25)
+    lines(M + 5, 158.6, ["5년제 건축학과 · 4학년 2학기 휴학", "건축사사무소 인턴을 거쳐", "공간 디자인으로 전향"], 5.2, fill=SUB, fam=KR)
+    t(M + 50, 154.5, "INTERESTS", 4.8, TEXT, 600, ls=0.25)
+    lines(M + 50, 158.6, ["패션 · 갤러리", "가구와 조명 수집", "건축물의 실내 마감재와 마감 방식"], 5.2, fill=SUB, fam=KR)
+    photo(M + hw + 2.5, 125, hw, 46, "PHOTO 02", "____ (공간 · 마감재 · 오브제)")
     # (6) section title
-    t(M + 1, 191, "EDUCATION & EXPERIENCE", 14, TEXT, 300, ls=0.3)
+    t(M + 1, 181, "EDUCATION & EXPERIENCE", 14, TEXT, 300, ls=0.3)
     # (7) checkerboard
     rh, ch = 46.75, (46.75 - 2.5) / 2
-    yA, yB = 194, 194 + rh + 2.5
+    yA, yB = 184, 184 + rh + 2.5
     x2 = M + hw + 2.5
     photo(M, yA, hw, rh, "PHOTO 03", "____ (작업 이미지 · 모델링 · 렌더)")
     card(x2, yA, hw, ch, "EDUCATION", ["____대학교 건축학과 (5년제)", "4학년 2학기 휴학 중"], "____ – ____")
     card(x2, yA + ch + 2.5, hw, ch, "EXPERIENCE", ["건축사사무소 ____ · 인턴", "현장 실측 · 모델링 · 주변 대지와", "프로젝트 건물 구현"], "____")
-    card(M, yB, hw, ch, "SKILLS", ["AutoCAD · Rhino · Enscape", "Photoshop · Illustrator · InDesign", "LANGUAGE ____"], "6 TOOLS")
-    card(M, yB + ch + 2.5, hw, ch, "CONTACT", ["T  ____", "E  ____", "PORTFOLIO  ____"], "GET IN TOUCH")
+    # (8) SKILLS: ring badge (skill ref A) + name + stage + one line (skill ref B), in workflow order
+    r(M, yB, hw, rh, CARD, rx=1.6)
+    t(M + 4, yB + 5.4, "SKILLS", 6, TEXT, 600, ls=0.25)
+    t(M + hw - 4, yB + 5.4, "LANGUAGE  ____", 4.8, SUB, 500, "end", ls=0.15)
+    t(M + 22, yB + 5.4, "2D → 3D → RENDER → RETOUCH → GRAPHIC → EDITORIAL", 4.4, SUB, 400, ls=0.1)
+    for i, tool in enumerate(TOOLS):
+        skill_cell(M + 4 + (i % 2) * 45.4, yB + 9 + (i // 2) * 12.4, tool)
     photo(x2, yB, hw, rh, "PHOTO 04", "____ (02 PICTURE 사진 중)")
+    # (9) footer = contact
+    yF = yB + rh + 2.5
+    r(M, yF, CW, 290 - yF, CARD, rx=1.6)
+    t(M + 4, yF + 4.7, "CONTACT", 5.6, TEXT, 600, ls=0.25)
+    for i, s in enumerate(["T  ____", "E  ____", "PORTFOLIO  ____"]):
+        t(M + 30 + i * 36, yF + 4.7, s, 5.2, SUB, 400, fam=KR)
+    arrow(M + CW - 28, yF + 3.75, "GET IN TOUCH", 1.7)
+
+
+# tools in workflow order: (badge, name, stage). Stage = what the tool is for; the applicant's own line is ____.
+TOOLS = [("Ac", "AutoCAD", "2D 도면"), ("Rh", "Rhino", "3D 모델링"), ("En", "Enscape", "렌더링"),
+         ("Ps", "Photoshop", "후보정"), ("Ai", "Illustrator", "벡터 그래픽"), ("Id", "InDesign", "편집 · 레이아웃")]
+
+
+def ring(cx, cy, rr, mono):
+    w(f'<circle cx="{cx:.2f}" cy="{cy:.2f}" r="{rr}" fill="none" stroke="{LINE}" stroke-width="0.7"/>')
+    # proficiency arc: value not decided -> dashed 3/4 placeholder
+    w(f'<path d="M{cx:.2f},{cy - rr:.2f} A{rr},{rr} 0 1 1 {cx - rr:.2f},{cy:.2f}" fill="none" stroke="{SUB}" '
+      f'stroke-width="0.7" stroke-dasharray="0.9 0.6"/>')
+    t(cx, cy + 1.05, mono, 7.4, TEXT, 700, "middle")
+
+
+def skill_cell(x, y, tool):
+    mono, name, stage = tool
+    ring(x + 4.3, y + 4.6, 4.2, mono)
+    t(x + 10.6, y + 2.6, name, 5.6, TEXT, 600, ls=0.1)
+    t(x + 10.6, y + 5.6, stage, 4.8, SUB, 500, fam=KR)
+    t(x + 10.6, y + 8.6, "____ (이 툴로 할 수 있는 일)", 4.8, SUB, 400, fam=KR, op=0.75)
 
 
 # zone bands in A4 mm: (tag, name, y0, y1)
-ZONES = [("1", "NAV", 7, 15), ("2", "HERO", 17, 89), ("3", "CARDS ×4", 91, 117), ("4", "NUMBERS", 119, 133),
-         ("5", "ABOUT", 135, 181), ("6", "TITLE", 183, 192), ("7", "GRID 2×2", 194, 290)]
+ZONES = [("1", "NAV", 7, 15), ("2", "HERO", 17, 79), ("3", "CARDS ×4", 81, 107), ("4", "NUMBERS", 109, 123),
+         ("5", "ABOUT", 125, 171), ("6", "TITLE", 173, 182), ("7", "GRID A", 184, 230.75), ("8", "SKILLS", 233.25, 280),
+         ("9", "FOOTER", 282.5, 290)]
 
 
 def tag(cx, cy, n, rr=2.3):
@@ -201,7 +235,9 @@ MAP = [
     ("4", ["실적 숫자 4", "150+ · 500+ …"], ["5 (5년제) · 7 (설계 7학기)", "6 (툴) · 1 (인턴)"], ["✓ 사실", "넣을지 선택"]),
     ("5", ["ABOUT 카드", "헤드라인 + 2단 본문", "오른쪽 사진"], ["자기소개서 제목을 헤드라인으로", "PROFILE: 학과 · 휴학 · 전향", "INTERESTS: 패션 · 갤러리 · 가구 ·", "조명 · 마감재", "PHOTO 02"], ["사진 ____", "INTERESTS 넣을지"]),
     ("6", ["OUR ADVANTAGES"], ["EDUCATION & EXPERIENCE"], ["문구 선택"]),
-    ("7", ["사진 · 카드 체커보드", "카드 오른쪽 EXPLORE"], ["EDUCATION · EXPERIENCE ·", "SKILLS · CONTACT 카드", "EXPLORE 자리 → 기간 · 툴 수", "PHOTO 03 · 04"], ["학교명 · 기간 ____", "사무소명 ____", "연락처 · 어학 ____"]),
+    ("7", ["사진 | 카드 2단", "카드 오른쪽 EXPLORE"], ["PHOTO 03 | EDUCATION · EXPERIENCE", "EXPLORE 자리 → 기간"], ["학교명 · 기간 ____", "사무소명 ____"]),
+    ("8", ["카드 | 사진 (엇갈림)", "+ 스킬 레퍼런스 2장:", "링 배지 · 아이콘 + 설명"], ["SKILLS: 툴 6개를 2열 × 3행", "링 배지 + 이름 + 쓰임 + 한 줄", "작업 순서로 배열: 2D → 3D →", "렌더 → 후보정 → 그래픽 → 편집", "LANGUAGE 는 머리글 오른쪽 · PHOTO 04"], ["✓ 툴 6종", "숙련도 값 ____", "툴별 한 줄 ____"]),
+    ("9", ["GET IN TOUCH"], ["푸터 한 줄: T · E · PORTFOLIO", "→ GET IN TOUCH"], ["연락처 ____"]),
 ]
 y += 5.6
 for n, ref, cv, st in MAP:
@@ -221,16 +257,39 @@ y += 3
 t(MX, y, "CV 항목 → 자리", 7, INK, 700, fam=KR)
 t(MX + 25, y, "내용 레퍼런스 5장 분석에서 나온 항목이 모두 들어갈 자리", 5.4, INK2, 400, fam=KR)
 y += 4.6
-COVER = [("이름 · 직무", "1  2", "✓"), ("사진", "2  5  7", "____"), ("소개 · 프로필", "2  5", "✓ 문장 퇴고 중"),
+COVER = [("이름 · 직무", "1  2", "✓"), ("사진", "2  5  7  8", "____"), ("소개 · 프로필", "2  5", "✓ 문장 퇴고 중"),
          ("학력", "7 EDUCATION", "학교명 · 연도 ____"), ("경력", "7 EXPERIENCE", "사무소명 · 기간 ____"),
-         ("학업 (설계 7학기)", "3  4", "✓"), ("툴 스킬", "7 SKILLS", "✓ 6종"), ("소프트 스킬", "3 강점 카드", "✓"),
-         ("연락처", "1 버튼 · 7 CONTACT", "____"), ("어학", "7 SKILLS 끝 줄", "____"), ("수상 · 전시 · 자격증", "있으면 7 EXPERIENCE", "____")]
+         ("학업 (설계 7학기)", "3  4", "✓"), ("툴 스킬", "8 SKILLS 링 배지", "✓ 6종 · 한 줄 ____"), ("소프트 스킬", "3 강점 카드", "✓"),
+         ("연락처", "1 버튼 · 9 푸터", "____"), ("어학", "8 SKILLS 머리글", "____"), ("수상 · 전시 · 자격증", "있으면 7 EXPERIENCE", "____")]
 for name, where, st in COVER:
     t(MX, y, name, 5.4, INK, 500, fam=KR)
     t(MX + 30, y, where, 5.4, INK, 400, fam=KR)
     t(MX + 70, y, st, 5.4, INK2 if st.startswith("✓") else "#9A4A3A", 500, fam=KR)
     y += 3.1
 ln(MX, y - 1.6, MX + 108, y - 1.6, RULE, 0.2)
+
+# DETAIL S-1: one skill cell at 2.2x
+y += 5
+t(MX, y, "DETAIL S-1 · SKILLS 칸 하나", 7, INK, 700, fam=KR)
+t(MX + 44, y, "2.2배 · 스킬 레퍼런스 두 장을 한 칸에 합침", 5.4, INK2, 400, fam=KR)
+DS, dx, dy = 2.2, MX + 4, y + 4
+r(dx - 3, dy - 1.5, 84, 12.4 * DS + 3, BG)
+w(f'<g transform="translate({dx},{dy}) scale({DS})">')
+skill_cell(0, 0, TOOLS[3])
+w('</g>')
+def call(px, py, lx, ly, k):
+    ln(px, py, lx, ly, "#9AA3A8", 0.25)
+    w(f'<circle cx="{lx}" cy="{ly}" r="1.6" fill="#FFFFFF" stroke="{INK}" stroke-width="0.25"/>')
+    t(lx, ly + 0.7, k, 5, INK, 700, "middle")
+by = dy + 12.4 * DS + 6
+call(dx + 7.3 * DS, dy + 7.6 * DS, dx + 24, by - 1, "a")
+call(dx + 4.3 * DS, dy + 6.2 * DS, dx + 4.3 * DS, by - 1, "b")
+for k, x0, yy in (("c", 23, 1.8), ("d", 17, 4.9), ("e", 37, 7.9)):
+    call(dx + x0 * DS, dy + yy * DS, dx + 94, dy + yy * DS, k)
+legend = [("a", "링 Ø8.4 · 0.7 — 숙련도. 값이 정해지면 길이로 (스킬 레퍼런스 A)"), ("b", "약칭 Inter Bold 7.4pt — 브랜드 로고 대신 글자 배지"),
+          ("c", "툴 이름 Inter SemiBold 5.6pt"), ("d", "쓰임 4.8pt — 작업 순서 속 자리"), ("e", "한 줄 4.8pt — 할 수 있는 일 (스킬 레퍼런스 B) ____")]
+for i, (k, v) in enumerate(legend):
+    t(MX + 2, by + 4.6 + i * 3, k, 5.2, INK, 700); t(MX + 6, by + 4.6 + i * 3, v, 5.2, INK, 400, fam=KR)
 
 # ---------------------------------------------------------------- right column: title block, types, tone, decisions
 RX = 353
@@ -239,7 +298,7 @@ r(RX, 10, 58, 50, stroke=INK, sw=0.3)
 t(RX + 3, 17.5, "CV", 15, INK, 700)
 t(RX + 3, 23.5, "JEONG HYEOKJU", 8, INK, 600, ls=0.3)
 t(RX + 3, 27.6, "공간 설계 디자이너 지원 · Gentle Monster", 5.4, INK2, 400, fam=KR)
-dl = [("SHEET", "A-01  CV 1/2 레이아웃 청사진"), ("PAGE", "A4 210 × 297 세로 · PDF 2장 중 1장"),
+dl = [("SHEET", "A-01 rev.B  CV 1/2 레이아웃 청사진"), ("PAGE", "A4 210 × 297 세로 · PDF 2장 중 1장"),
       ("SCALE", "86 % (본문 크기는 실제 pt)"), ("REF", "디자인 ① DVSY · 카드 그리드형"),
       ("DATE", "2026-10-09"), ("STATUS", "청사진 · ____ 칸은 혁주님이 채움"), ("TOOL", "Inkscape 1.2 · SVG → PDF")]
 for i, (k, v) in enumerate(dl):
@@ -321,8 +380,9 @@ for i, (c, k) in enumerate(acc):
 # open decisions
 y += 19
 t(RX, y, "혁주님이 정할 것", 7, INK, 700, fam=KR)
-dec = ["1  강조색: 코랄 · 청회색 · 베이지 · 그 밖", "2  사진 4장(01–04)을 그대로 둘지, 줄일지", "3  본문 언어: 국문 · 영문 · 국영 병기",
-       "4  ④ 숫자 줄을 넣을지", "5  ⑤ INTERESTS 칸을 넣을지", "6  ____ 칸의 사실: 학교명 · 연도 · 사무소명 ·", "    기간 · 연락처 · 어학 · 수상"]
+dec = ["1  강조색: 코랄 · 청회색 · 베이지 · 그 밖", "2  숙련도 링: 툴별 값 ____ / 링 없이 아이콘만", "3  툴별 한 줄: 이 툴로 할 수 있는 일 ____",
+       "4  사진 4장(01–04)을 그대로 둘지, 줄일지", "5  본문 언어: 국문 · 영문 · 국영 병기", "6  ④ 숫자 줄 · ⑤ INTERESTS 칸을 넣을지",
+       "7  ____ 칸의 사실: 학교명 · 연도 · 사무소명 ·", "    기간 · 연락처 · 어학 · 수상"]
 lines(RX, y + 4, dec, 5.3, 1.45, fill=INK, fam=KR)
 
 w('</svg>')
