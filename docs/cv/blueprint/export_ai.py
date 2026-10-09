@@ -6,6 +6,7 @@
 text and embedded font subsets, saved under the .ai name. The .svg keeps the zone groups by id
 (T1_03_HERO ...), which Illustrator shows as group names. Fonts: Inter, Noto Sans KR (both free).
 """
+import re
 import shutil
 import subprocess
 import sys
@@ -17,7 +18,14 @@ from cv_types import TYPES
 OUT_DIR = Path(__file__).resolve().parent.parent / "ai"
 
 
-def export(n):
+def _write(svg, pdf, ai):
+    subprocess.run(["inkscape", str(svg), "--export-type=pdf", "--export-pdf-version=1.5", f"--export-filename={pdf}"],
+                   check=True, capture_output=True)
+    shutil.move(pdf, ai)
+    print(ai); print(svg)
+
+
+def export(n, parts=()):
     spec = TYPES[n - 1]
     stem = f"CV_TYPE{n}_{spec['en'].replace(' ', '_')}"
     bp.OUT.clear()
@@ -31,13 +39,20 @@ def export(n):
     bp.w('</svg>')
     OUT_DIR.mkdir(exist_ok=True)
     svg, pdf, ai = OUT_DIR / f"{stem}.svg", OUT_DIR / f"{stem}.pdf", OUT_DIR / f"{stem}.ai"
-    svg.write_text("\n".join(bp.OUT), encoding="utf-8")
-    subprocess.run(["inkscape", str(svg), "--export-type=pdf", "--export-pdf-version=1.5", f"--export-filename={pdf}"],
-                   check=True, capture_output=True)
-    shutil.move(pdf, ai)
-    print(ai); print(svg)
+    full = "\n".join(bp.OUT)
+    svg.write_text(full, encoding="utf-8")
+    _write(svg, pdf, ai)
+    # one zone on the same A4 artboard and coordinates, for Paste in Place into an edited original
+    head = full[:full.index("</defs>") + len("</defs>")]
+    for zone in parts:
+        body = re.search(rf'<g id="{zone}">.*?</g>', full, re.S).group(0)
+        zsvg, zpdf, zai = (OUT_DIR / f"{stem}__{zone}{ext}" for ext in (".svg", ".pdf", ".ai"))
+        zsvg.write_text(head + "\n" + body + "\n</svg>", encoding="utf-8")
+        _write(zsvg, zpdf, zai)
 
 
 if __name__ == "__main__":
+    # e.g. python3 export_ai.py 1:T1_03_HERO 2
     for a in sys.argv[1:] or ["1", "2"]:
-        export(int(a))
+        n, _, z = a.partition(":")
+        export(int(n), [p for p in z.split(",") if p])
