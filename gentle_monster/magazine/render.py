@@ -49,7 +49,7 @@ QA_JS = r"""
    });
    p.querySelectorAll('img').forEach(function(im){
      var b=im.getBoundingClientRect();
-     imgs.push({src:im.getAttribute('src'),ok:im.complete&&im.naturalWidth>0,nat:im.naturalWidth?im.naturalWidth/im.naturalHeight:0,
+     imgs.push({src:im.getAttribute('src'),photo:im.dataset.photo||'',srcpx:parseFloat(im.dataset.srcpx||0),ok:im.complete&&im.naturalWidth>0,nat:im.naturalWidth?im.naturalWidth/im.naturalHeight:0,
                 shown:b.height?b.width/b.height:0,fit:getComputedStyle(im).objectFit,
                 nw:im.naturalWidth,nh:im.naturalHeight,rw:b.width,rh:b.height,
                 pw:p.getBoundingClientRect().width,ph:p.getBoundingClientRect().height});

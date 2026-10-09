@@ -193,6 +193,11 @@
    "ko": "낮에서 해 질 녘으로"
   },
   {
+   "id": "closer",
+   "en": "Looking Closer",
+   "ko": "가까이 보기 — 한 장을 세 번, 하루의 색"
+  },
+  {
    "id": "turn",
    "en": "One to One",
    "ko": "단어 한 장 — 낮의 새싹, 밤의 전구"
@@ -201,6 +206,11 @@
    "id": "night",
    "en": "Night",
    "ko": "밤 — 빨간불 앞에서 멈춘다"
+  },
+  {
+   "id": "stop",
+   "en": "Stop",
+   "ko": "멈춤 — 글자 속의 밤"
   },
   {
    "id": "manifesto",
@@ -221,7 +231,108 @@
    "id": "lens",
    "en": "The Gentle Monster Lens",
    "ko": "젠틀몬스터의 눈으로 고른 표지"
+  },
+  {
+   "id": "techniques",
+   "en": "Techniques",
+   "ko": "이 책에 쓴 기법"
   }
  ],
- "story_note": "하루를 따라 걷는다: 전체를 한 번 보고, 낮에서 해 질 녘, 새싹(낮)과 전구(밤)가 넘어가는 경첩, 밤의 빨간불에서 멈춘다. 그다음 선언, 기록, 물음. 뒤표지는 멈춘 뒤 남는 자리(cover.md 의 결정)."
+ "story_note": "하루를 따라 걷는다: 전체를 한 번 보고, 낮에서 해 질 녘, 새싹(낮)과 전구(밤)가 넘어가는 경첩, 밤의 빨간불에서 멈춘다. 그다음 선언, 기록, 물음. 뒤표지는 멈춘 뒤 남는 자리(cover.md 의 결정).",
+ "mood_reference": {
+  "name": "VISUAL INDEX — Magazine Image Catalogue (Vol. 01)",
+  "source": "cogito5170/se_new @ claude/gallant-cori-7850zw : visual-culture-pilot/visual_index_catalogue.html",
+  "commit": "a02e2088f221050fcacbceb44f9735b1385199dd",
+  "tokens": {
+   "paper": "#f3f0e8",
+   "ink": "#1e211e",
+   "muted": "#73766e",
+   "line": "#c9c7bd",
+   "accent": "#c64c32",
+   "body_grey": "#555850"
+  },
+  "type": "serif display (Georgia) + sans-serif metadata (Arial, uppercase, tracking .14em)",
+  "image": "saturate(.78); aspect 4:5 and 5:3.6; caption line with a rule above; Fig. numbers",
+  "layout": "12-column; asymmetric spans 7/5, 5/7, 6/6; section head = ink rule + serif title + small uppercase label; manifesto + specs grid; dark footer band",
+  "substitutions": "Georgia is not installed here -> Liberation Serif. #73766e (4.06:1) and #c64c32 (4.12:1) are below 4.5:1 for small text on #f3f0e8 -> small text uses the catalogue's own #555850; accent text is darkened with its hue kept; rules and fills use the raw accent."
+ },
+ "technique_vocabulary": {
+  "source": "cogito5170/se_new @ claude/gallant-cori-7850zw : visual-culture-pilot/magazine_urls_web.html (29 titles)",
+  "layout": {
+   "풀블리드": 14,
+   "마스트헤드 상단 배치": 12,
+   "커버라인": 7,
+   "화이트 스페이스": 6,
+   "미니멀 레이아웃": 4,
+   "텍스트 중심 지면": 2,
+   "마스트헤드 오버랩": 1,
+   "비대칭 레이아웃": 1,
+   "넓은 마진": 1
+  },
+  "typography": {
+   "디돈 세리프": 6,
+   "고대비 획": 6,
+   "그로테스크 산세리프": 5,
+   "올캡스": 4,
+   "볼드 웨이트": 3,
+   "모노그램 마스트헤드": 2,
+   "넓은 트래킹": 1,
+   "핸드레터링": 1,
+   "실험적 타이포그래피": 1
+  },
+  "image": {
+   "셀러브리티 커버": 13,
+   "스튜디오": 11,
+   "콘셉추얼 화보": 4,
+   "클로즈업": 3,
+   "자연광": 3,
+   "스냅숏 미학": 2,
+   "포트레이트": 2,
+   "실내 장면": 2,
+   "미디엄 숏": 1,
+   "전신 숏": 1,
+   "윙크 커버": 1,
+   "스트리트 스타일": 1,
+   "플래시": 1,
+   "정물": 1
+  },
+  "colour": {
+   "시그니처 레드": 1
+  }
+ },
+ "moods": {
+  "source": "cogito5170/se_new @ claude/gallant-cori-7850zw : visual-culture-pilot/moodboard_links.html (분위기 8)",
+  "note": "편집자가 사진마다 하나씩 고른 낱말이다. 측정값이 아니다.",
+  "photo": {
+   "01": "따뜻한 빈티지",
+   "02": "미니멀한 화보",
+   "03": "몽환적이고 흐릿한",
+   "04": "어둡고 로맨틱한",
+   "05": "미니멀한 화보",
+   "06": "거칠고 그런지한",
+   "07": "초현실적인",
+   "08": "조용한 럭셔리",
+   "09": "실험적인 아방가르드",
+   "10": "몽환적이고 흐릿한",
+   "11": "어둡고 로맨틱한",
+   "12": "어둡고 로맨틱한",
+   "13": "거칠고 그런지한",
+   "14": "초현실적인",
+   "15": "따뜻한 빈티지"
+  }
+ },
+ "zoom": {
+  "photo": 3,
+  "focus": [
+   0.27,
+   0.55
+  ],
+  "scales": [
+   1,
+   2.2,
+   4.4
+  ]
+ },
+ "duotone": 11,
+ "masthead_style": "overlap"
 }

@@ -107,6 +107,16 @@ try:
 except (OSError, ImportError) as ex:
     print(f"  건너뜀  stencil ({ex})")
 
+print("[techniques · mood]")
+ok(len(PI.TECHNIQUES) >= PI.MIN_TECHNIQUES, f"{len(PI.TECHNIQUES)} techniques registered, each with a source")
+ok(all(src for _, src in PI.TECHNIQUES.values()), "every technique names where it came from")
+ok(set(spec["mood_reference"]["tokens"].values()) <= {PI.PAPER, PI.INK, PI.MUTE_RAW, PI.LINE, PI.ACCENT_RAW, PI.GREY},
+   "the page tokens are the VISUAL INDEX tokens")
+svg = PI.image_in_type("STOP", "x.jpg")
+ok("<pattern" in svg and "background-clip" not in svg, "image-in-type is an SVG pattern fill (background-clip left PDF seams)")
+bc = PI.barcode_svg("SPA-00")
+ok(bc.count("<rect") == 8 * 5, "the barcode encodes exactly '*SPA-00*' (8 characters × 5 bars) -- no ISSN, no price")
+
 print("[typography rules]")
 ok(PI.KO_SPACING.search("SKP-S 의 주제") and PI.KO_SPACING.search("‘Sunshine’ 도 숨을") and not PI.KO_SPACING.search("SKP-S의 주제"),
    "RED/GREEN: a space before a Korean particle after a Latin word is caught; none is not")
@@ -119,10 +129,11 @@ else:
     big = Path(임시) / "big"
     stand_ins(big, 4000, 2205)   # a full-height page of a 16:9 photo needs ~1,800 px of height at 150 dpi
     r = PI.build(spec_with(big), name="big")
-    ok(r["pdf_result"] and r["pdf_result"]["pages"] == r["pages"] == 18, f"18 pages in HTML and PDF ({r['pdf_result'] and r['pdf_result']['pages']})")
+    ok(r["pdf_result"] and r["pdf_result"]["pages"] == r["pages"] == 22, f"22 pages in HTML and PDF ({r['pdf_result'] and r['pdf_result']['pages']})")
     ok(status(r["checks"], "every photo appears") == "PASS", "every photo appears at least once")
     ok(status(r["checks"], "text overflow") == "PASS", "nothing overflows at print size")
-    ok(status(r["checks"], "print resolution") == "PASS", "GREEN: 4000 px photos print sharp (2400 px did not: the night spread crops to full height)")
+    pres_ = next(c for c in r["checks"] if c["check"].startswith("print resolution"))
+    ok(pres_["status"] == "PASS", f"GREEN: 4000 px photos print sharp (2400 px did not: the night spread crops to full height) -- {pres_['detail'][:120]}")
     ok(status(r["checks"], "user texts are verbatim") == "PASS", "texts verbatim in the build")
     ok(status(r["checks"], "phone width") in ("PASS", "NOT_CHECKED"), f"phone width: {status(r['checks'], 'phone width')}")
     ok(r["verdict"] in ("PASS", "WARNING"), f"verdict {r['verdict']} (WARNING: the lens cites snippets)")
@@ -131,16 +142,17 @@ else:
 
     for name in ("blocks sit on the 12-column grid", "no faux-bold Korean", "smallest text at print size", "no text block overlaps another (print",
                  "no text block overlaps another (375", "story sections appear", "Day → Dusk runs bright to dark", "the night stop comes after",
-                 "contents page numbers", "no space between a Latin word", "text contrast"):
+                 "contents page numbers", "no space between a Latin word", "text contrast", "VISUAL INDEX tokens are the page's tokens",
+                 "photos at the catalogue's saturate", "every registered technique is on a page", "at least 20 techniques", "even page count"):     # 'catalogue red agrees' is about the real cover photo, not stand-ins
         ok(status(r["checks"], name) == "PASS", f"GREEN: {name}")
 
     print("[RED: break the layout on purpose]")
     red = Path(r["dir"]).parent / "red"
     shutil.copytree(Path(r["dir"]), red)
     h = (red / "index.html").read_text(encoding="utf-8")
-    h = h.replace('<p lang="en">Introduction</p>', '<p lang="en" style="margin-top:50cqw">Introduction</p>', 1)          # onto the lead text
-    h = h.replace('<p class="lead" style="margin-bottom:1.2em">', '<p class="lead" style="margin-bottom:1.2em;font-weight:700">', 1)
-    h = h.replace('data-col="4" style="left:', 'data-col="4" style="margin-left:1.3cqw;left:', 1)
+    h = h.replace('data-technique="pull_quote" style="', 'data-technique="pull_quote" style="margin-top:50cqw;', 1)   # onto the lead text
+    h = h.replace('<p style="margin-bottom:.8em">', '<p style="margin-bottom:.8em;font-weight:700">', 1)              # Korean set bold
+    h = h.replace('data-col="5" data-technique="text_page" style="', 'data-col="5" data-technique="text_page" style="margin-left:1.3cqw;', 1)
     (red / "index.html").write_text(h, encoding="utf-8")
     m = PDF.measure(red / "index.html", 869, 1134, "qa-print")
     pg = {p["i"]: p for p in m["pages"]}
