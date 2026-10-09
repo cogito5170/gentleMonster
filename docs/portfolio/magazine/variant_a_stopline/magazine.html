@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>SPA — Variant A · Stop Line</title>
+<!--
+  design_variant/1 · VA-STOPLINE · see design_variant.json
+  Text is the approved manuscript (docs/portfolio/*.md), unchanged. Every image is a labelled placeholder:
+  no original photograph is in the repository.
+  Proof fonts: Inter (Latin) + WenQuanYi Zen Hei (Hangul fallback). Production Hangul face: see design_variant.json.
+-->
+<style>
+:root{
+  --paper:#F5F3EF; --ink:#1D1B19; --sub:#5C5751; --rule:#C4B29B; --slate:#445162; --stop:#D2231C;
+  --ph:#DCD8D1; --ph-ink:#3F3B36; --ph-dark:#1D1B19; --ph-dark-ink:#D9D4CC;
+  --mt:16mm; --mb:20mm; --mi:18mm; --mo:14mm; --g:4mm;
+  --lat:"Inter","WenQuanYi Zen Hei",sans-serif;
+  --disp:"Inter Display","Inter","WenQuanYi Zen Hei",sans-serif;
+}
+@page{size:210mm 297mm;margin:0}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;font-family:var(--lat);color:var(--ink);font-feature-settings:"tnum" 0}
+p{margin:0}
+
+/* ---------- page frame: 12-column grid inside the live area ---------- */
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;background:var(--paper);flex:none}
+.live{position:absolute;top:var(--mt);bottom:var(--mb);display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--g)}
+.page.l .live{left:var(--mo);right:var(--mi)}
+.page.r .live{left:var(--mi);right:var(--mo)}
+.bleed{position:absolute;left:0;right:0;top:0}
+
+/* running head (top, outer) and folio (bottom, outer) -- every interior page except the One To One page */
+.rh,.fo{position:absolute;font-size:6.5pt;letter-spacing:.14em;text-transform:uppercase;color:var(--sub);white-space:nowrap}
+.rh{top:8mm}.fo{bottom:9mm}
+.page.l .rh,.page.l .fo{left:var(--mo)} .page.r .rh,.page.r .fo{right:var(--mo)}
+.fo b{color:var(--ink);font-weight:600;margin:0 .9em}
+.on-dark{color:var(--ph-dark-ink)} .on-dark b{color:#F5F3EF}
+
+/* ---------- type roles ---------- */
+.num{font-family:var(--disp);font-weight:100;font-size:150pt;line-height:.86;letter-spacing:-.06em;margin:0}
+.sec{font-size:7pt;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin-top:5mm}
+.lede{font-size:10.5pt;line-height:17.5pt;word-break:keep-all}
+.lede p+p{margin-top:0}
+.en{font-size:7.5pt;line-height:11.5pt;color:var(--sub);margin-top:3mm;word-break:normal}
+.qh{font-size:13pt;font-weight:600;letter-spacing:-.01em;line-height:1.15;margin:0}
+.qk{font-size:7.5pt;color:var(--sub);margin:1.4mm 0 3.2mm;letter-spacing:.02em}
+.body{font-size:9pt;line-height:14.5pt;word-break:keep-all}
+.body p+p{margin-top:2.2mm}
+.body b{font-weight:600}
+.cap{font-size:6.5pt;line-height:9pt;letter-spacing:.06em;color:var(--sub);margin-top:2mm}
+.cap i{font-style:normal;text-transform:uppercase;letter-spacing:.14em;color:var(--ink);margin-right:.8em}
+.kick{font-size:7pt;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+.pq{font-family:var(--disp);font-weight:600;letter-spacing:-.035em;line-height:1.06;margin:0}
+
+/* the one recurring device: the stop line, only under the sentence each section ends on */
+.stop{font-size:13pt;font-weight:600;line-height:1.3;word-break:keep-all;letter-spacing:-.01em}
+.stop::before{content:"";display:block;height:1.3mm;background:var(--stop);margin-bottom:3.4mm}
+.stop .en{font-weight:400;margin-top:1.4mm;letter-spacing:0}
+
+/* ---------- placeholders: never mistaken for photographs ---------- */
+.ph{position:relative;background:var(--ph);color:var(--ph-ink);overflow:hidden;
+    background-image:repeating-linear-gradient(135deg,transparent 0 3.2mm,rgba(0,0,0,.055) 3.2mm 3.5mm)}
+.ph.dark{background-color:var(--ph-dark);color:var(--ph-dark-ink);background-image:repeating-linear-gradient(135deg,transparent 0 3.2mm,rgba(255,255,255,.06) 3.2mm 3.5mm)}
+.ph.mid{background-color:#8C8A86;color:#1D1B19}
+.ph .t{position:absolute;left:3mm;top:3mm;right:3mm;font-size:6.5pt;line-height:9pt;letter-spacing:.06em}
+.ph .t b{display:block;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.ph::after{content:"";position:absolute;inset:0;border:.25mm dashed currentColor;opacity:.45}
+
+/* ---------- SECTOR A / MY PICTURE ---------- */
+.spec{display:grid;grid-template-columns:23mm 1fr;row-gap:1.9mm;column-gap:3mm;font-size:8.5pt;line-height:12pt;word-break:keep-all;margin:0}
+.spec dt{font-size:6.5pt;letter-spacing:.16em;font-weight:600;padding-top:.6mm}
+.spec dd{margin:0}
+.spec .blank{color:var(--sub);letter-spacing:.1em}
+.chips{display:flex;gap:1.6mm;margin-top:1mm}
+.chips span{display:block;width:12.5mm}
+.chips span i{display:block;height:6mm}
+.chips span em{display:block;font-style:normal;font-size:6.5pt;line-height:8.5pt;margin-top:.8mm;letter-spacing:.02em}
+.sw{display:flex;height:3.4mm;margin-top:1.2mm}.sw i{flex:1}
+.hex{font-size:6.5pt;line-height:8pt;color:var(--sub);margin-top:1mm;letter-spacing:.02em}
+.rule{border-top:.25mm solid var(--ink)}
+.qrow{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--g);align-items:start}
+.upper{display:flex;flex-direction:column;padding-bottom:12mm}.upper .stop{margin-top:auto}
+
+/* ---------- review view (screen) vs print ---------- */
+@media screen{
+  body{background:#7d7a75;padding:14mm 0}
+  .spread{display:flex;width:max-content;margin:0 auto 18mm;position:relative}
+  .spread::before{content:attr(data-label);position:absolute;left:0;top:-7mm;font-size:8pt;letter-spacing:.14em;text-transform:uppercase;color:#f1eee9}
+  .spread .page.l{box-shadow:inset -10px 0 14px -12px rgba(0,0,0,.35)}
+  .spread .page.r{box-shadow:inset 10px 0 14px -12px rgba(0,0,0,.35)}
+  .void{width:210mm;height:297mm;flex:none}
+  .void.note{border:.4mm dashed rgba(255,255,255,.5);color:#f1eee9;display:flex;align-items:center;justify-content:center;text-align:center;font-size:8pt;line-height:12pt;letter-spacing:.08em;padding:20mm}
+}
+@media print{
+  body{background:none}
+  .spread{display:contents}
+  .void{display:none}
+  .page{break-after:page}
+}
+</style>
+</head>
+<body>
+
+<!-- =============================== COVER (recto) =============================== -->
+<div class="spread" data-label="Cover">
+<div class="void"></div>
+<section class="page r" data-page="cover" data-src="cover.md">
+  <div class="live" style="grid-template-rows:auto auto 1fr auto">
+    <h1 class="pq" style="grid-column:1/-1;font-size:228pt;line-height:.9;font-weight:800;letter-spacing:-.065em">SPA</h1>
+    <div style="grid-column:1/5;margin-top:9mm;font-size:13pt;font-weight:600;line-height:1.28;letter-spacing:.04em">STYLE<br>PICTURE<br>ARCHITECTURE</div>
+    <p style="grid-column:6/-1;margin-top:9mm;font-size:10.5pt;line-height:15pt">A Person with Style, A Moment like A Photograph,<br>A Building That Holds Me — I Stop.</p>
+    <div style="grid-column:5/-1;grid-row:3;margin-top:9mm;display:flex;flex-direction:column;min-height:0">
+      <div class="ph dark" data-asset="IMG-01" style="flex:1"><p class="t"><b>IMG-01 · placeholder</b>Night · red light · from inside the car, first person<br>measured: brightness 0.11 · dark area 84% · saturation 0.31</p></div>
+    </div>
+    <div style="grid-column:1/5;grid-row:4;align-self:end;font-size:8pt;line-height:11.5pt;letter-spacing:.14em;font-weight:600">JEONG HYEOKJU<br><span style="font-weight:400">IN GENTLE MONSTER</span></div>
+    <div style="grid-column:6/-1;grid-row:4;margin-top:8mm" class="stop"><span style="font-family:var(--disp);font-size:23pt;letter-spacing:-.025em;line-height:1.2">“Where Did You Last Stop?”</span></div>
+  </div>
+</section>
+</div>
+
+<!-- =============================== 1 STYLE | 2 MOOD =============================== -->
+<div class="spread" data-label="Spread 1 · pp. 1–2 · 01 STYLE / MOOD">
+<section class="page l" data-page="1" data-src="01_style.md">
+  <span class="rh">Style</span>
+  <div class="live" style="grid-template-rows:auto 1fr auto">
+    <div style="grid-column:1/8;grid-row:1">
+      <p class="num">01</p><p class="sec">Style</p>
+    </div>
+    <div style="grid-column:8/-1;grid-row:1/3;display:flex;flex-direction:column;padding-bottom:12mm">
+      <div class="ph" data-asset="IMG-02A" style="flex:1"><p class="t"><b>IMG-02A · placeholder</b>Applicant · shop front · black long coat<br>crop: full column height (≈ 4:9)</p></div>
+      <p class="cap"><i>My style</i>Shop front, black long coat</p>
+    </div>
+    <div class="upper" style="grid-column:1/8;grid-row:2;padding-top:11mm">
+      <div class="lede">
+        <p>내가 가장 자주 멈추는 곳은 길 위다. 스타일이 좋은 사람이 지나가면 나는 걸음을 멈추곤 한다. 어떤 머리를 했는지, 어떤 안경을 썼는지, 무슨 옷과 신발을 신었는지, 어떤 액세서리를 했는지. 그리고 그 색들이 어떻게 어울리는지. 가끔은 그 사람이 지나간 뒤에 남은 향에 뒤를 돌아보기도 한다.</p>
+      </div>
+      <p class="en">The place I stop most often is the street. When someone with good style walks by, I tend to stop: their hair, their glasses, their clothes and shoes, the accessories they wear, and how all the colors go together. Sometimes it's the scent left behind that makes me turn around.</p>
+      <p class="stop">그래서 내 첫 번째 이야기는 스타일이다.<span class="en" style="display:block">So my first story is about style.</span></p>
+    </div>
+    <div class="qrow" style="grid-column:1/-1;grid-row:3">
+    <div style="grid-column:1/7">
+      <div class="rule" style="padding-top:4mm"></div>
+      <h3 class="qh">Why is style important?</h3><p class="qk">스타일은 왜 중요한가?</p>
+      <div class="body"><p>같은 흰 셔츠도 누가 입느냐에 따라 전혀 다르게 보인다. 소매를 걷는지, 단추를 어디까지 채우는지, 무엇과 같이 입는지에 따라 달라진다. 그 차이가 스타일이다.</p><p>옷은 누구나 살 수 있지만, 스타일은 그 사람만 만들 수 있다. 그래서 스타일을 보면 그 사람이 무엇을 좋아하고, 어떤 것을 고르는 사람인지가 보인다.</p></div>
+      <p class="en">The same white shirt looks completely different on different people: sleeves rolled or not, how many buttons done up, what it's worn with. That difference is style. Anyone can buy the clothes; only the person can make the style.</p>
+    </div>
+    <div style="grid-column:7/-1">
+      <div class="rule" style="padding-top:4mm"></div>
+      <h3 class="qh">Why do I care about style?</h3><p class="qk">나는 왜 스타일을 중요하게 생각하는가?</p>
+      <div class="body"><p>내가 길에서 멈추는 순간은 비싼 옷을 봤을 때가 아니다. 자기 스타일이 분명한 사람을 봤을 때다. 색이 잘 어울리고, 길이가 딱 맞고, 그 사람이 편해 보일 때.</p><p>나는 그 사람이 왜 그렇게 입었는지를 생각해 본다. 어떤 색을 고르고, 어떤 것은 빼고, 무엇을 강조했는지.</p><p>이것은 공간을 만드는 일과 같다. 좋은 공간도 무엇을 넣고 무엇을 뺄지 고르는 데서 시작한다. 스타일을 보는 눈이 곧 공간을 보는 눈이라고 생각한다.</p></div>
+      <p class="en">I don't stop for expensive clothes. I stop for someone whose style is clear. Making a space works the same way: a good space starts with choosing what goes in and what stays out. An eye for style is an eye for space.</p>
+    </div>
+    </div>
+  </div>
+  <span class="fo">SPA · 01 Style<b>1</b></span>
+</section>
+
+<section class="page r" data-page="2" data-src="01_style.md">
+  <span class="rh">Mood</span>
+  <div class="live" style="grid-template-rows:auto 1fr auto">
+    <div style="grid-column:1/8;grid-row:1">
+      <h3 class="qh" style="font-size:20pt;line-height:1.05">What makes<br>a good style?</h3><p class="qk">좋은 스타일이란?</p>
+      <div class="body"><p>좋은 스타일은 유행을 따라가는 것이 아니다.</p>
+        <p><b>첫째, 그 사람에게 맞는 스타일이다.</b> 남의 것을 그대로 따라 한 것이 아니라, 자기 몸과 성격에 맞게 고른 것.</p>
+        <p><b>둘째, 꾸준한 스타일이다.</b> 하루만 멋진 것이 아니라, 그 사람을 떠올리면 같이 떠오르는 일관된 모습.</p>
+        <p><b>셋째, 편안한 스타일이다.</b> 입은 사람이 자연스러워야 보는 사람도 편하다.</p>
+        <p>좋은 스타일을 가진 사람은 멀리서 봐도 그 사람인 줄 안다. 좋은 공간도 그렇다. 들어가자마자 어디인지 알 수 있다.</p></div>
+      <p class="en">Good style isn't following trends. It suits the person, it's consistent, and it's comfortable. You can recognize someone with good style from across the street; a good space is the same — you know where you are the moment you walk in.</p>
+    </div>
+    <div style="grid-column:9/-1;grid-row:1;align-self:start;padding-top:1mm">
+      <p class="lede" style="font-size:9.5pt;line-height:15pt">길에서 다른 사람을 볼 때처럼, 나도 내 스타일을 고른다. 무엇을 입고, 무엇을 빼고, 어떤 색을 맞출지.</p>
+      <p class="en">The way I look at people on the street is the way I choose my own style: what to wear, what to leave out, which colors to match.</p>
+    </div>
+
+    <div style="grid-column:1/-1;grid-row:3">
+      <div class="rule" style="display:flex;justify-content:space-between;padding-top:2.4mm;margin-bottom:4mm"><span class="kick">Sector A — My Style</span><span class="kick" style="color:var(--sub);font-weight:400">Colour taken from each photo</span></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);column-gap:var(--g)">
+        <figure style="margin:0"><div class="ph" data-asset="IMG-02A" style="aspect-ratio:2/3"><p class="t"><b>IMG-02A</b>Shop front · black long coat</p></div>
+          <div class="sw"><i style="background:#1D1B19"></i><i style="background:#C4B29B"></i><i style="background:#82776B"></i></div><p class="hex">#1D1B19 · #C4B29B · #82776B</p></figure>
+        <figure style="margin:0"><div class="ph" data-asset="IMG-02B" style="aspect-ratio:2/3"><p class="t"><b>IMG-02B</b>Riverside · olive parka</p></div>
+          <div class="sw"><i style="background:#2C2716"></i><i style="background:#45443C"></i><i style="background:#151104"></i></div><p class="hex">#2C2716 · #45443C · #151104</p></figure>
+        <figure style="margin:0"><div class="ph" data-asset="IMG-02C" style="aspect-ratio:2/3"><p class="t"><b>IMG-02C</b>Sunset · light jacket</p></div>
+          <div class="sw"><i style="background:#C3BFB1"></i><i style="background:#353E45"></i><i style="background:#535454"></i></div><p class="hex">#C3BFB1 · #353E45 · #535454</p></figure>
+        <figure style="margin:0"><div class="ph" data-asset="IMG-02D" style="aspect-ratio:2/3"><p class="t"><b>IMG-02D</b>Rocks · grey knit</p></div>
+          <div class="sw"><i style="background:#445162"></i><i style="background:#18293F"></i><i style="background:#BDC0BE"></i></div><p class="hex">#445162 · #18293F · #BDC0BE</p></figure>
+      </div>
+      <p class="cap" style="margin-top:1.4mm">Approximate values sampled from page captures — re-sample from the original photographs for print.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--g);margin-top:5mm">
+        <dl class="spec" style="grid-column:1/8">
+          <dt>HAIR</dt><dd>짧고 단정하게, 텍스쳐 표현</dd>
+          <dt>EYEWEAR</dt><dd>뿔테 안경, 반투명 선글라스, 검정 선글라스</dd>
+          <dt>CLOTHES</dt><dd>오버핏 롱코트 · 올리브 파카 · 밝은 재킷 · 통 넓은 바지 · 회색 니트</dd>
+          <dt>SHOES</dt><dd>뉴발란스, 나이키</dd>
+          <dt>ACCESSORY</dt><dd>빈티지 시계</dd>
+          <dt>SCENT</dt><dd>딥디크, 조말론, 버버리</dd>
+        </dl>
+        <div style="grid-column:8/-1">
+          <dl class="spec" style="grid-template-columns:16mm 1fr"><dt>COLOR</dt><dd>검정 · 올리브 · 베이지 · 회색</dd></dl>
+          <div class="chips" style="margin-top:2.4mm">
+            <span><i style="background:#1D1B19"></i><em>#1D1B19<br>Black</em></span>
+            <span><i style="background:#2C2716"></i><em>#2C2716<br>Olive</em></span>
+            <span><i style="background:#C4B29B"></i><em>#C4B29B<br>Beige</em></span>
+            <span><i style="background:#C3BFB1"></i><em>#C3BFB1<br>Off-white</em></span>
+            <span><i style="background:#445162"></i><em>#445162<br>Slate</em></span>
+          </div>
+        </div>
+      </div>
+      <p class="lede rule" style="margin-top:5mm;padding-top:3mm;font-weight:600;font-size:10.5pt">헤어 스타일, 옷의 톤과 향의 무드를 그날 갈 장소에 맞춘다.</p>
+    </div>
+  </div>
+  <span class="fo"><b>2</b>SPA · 01 Style</span>
+</section>
+</div>
+
+<!-- =============================== 3 BRIDGE | 4 PICTURE =============================== -->
+<div class="spread" data-label="Spread 2 · pp. 3–4 · bridge / 02 PICTURE">
+<section class="page l" data-page="3" data-src="storyline.md · 02_picture.md">
+  <div class="bleed" style="height:206mm">
+    <div class="ph" data-asset="IMG-03" style="width:100%;height:100%"><p class="t" style="left:var(--mo);top:12mm"><b>IMG-03 · placeholder · full bleed (+3 mm)</b>Street · person in headphones, check shirt, slippers · plant, chalkboard, silver wall behind</p></div>
+  </div>
+  <div class="live" style="grid-template-rows:206mm 1fr;top:0">
+    <div style="grid-column:1/-1;grid-row:2;padding-top:6mm">
+      <p class="pq" style="font-size:33pt">I stop for people whose<br>style is their own.</p>
+      <p class="cap" style="margin-top:5mm"><i>IMG-03</i>A Person with Style, A Moment like A Photograph</p>
+    </div>
+  </div>
+  <span class="fo">SPA · 01 Style<b>3</b></span>
+</section>
+
+<section class="page r" data-page="4" data-src="02_picture.md">
+  <span class="rh">Picture</span>
+  <div class="live" style="grid-template-rows:auto 1fr auto">
+    <div style="grid-column:6/-1;grid-row:1">
+      <p class="num">02</p><p class="sec">Picture</p>
+    </div>
+    <div class="upper" style="grid-column:6/-1;grid-row:2;padding-top:11mm">
+      <div class="lede"><p>두 번째로 내가 멈추는 곳은 장면 앞이다. 빛, 색, 사람, 장소가 한순간에 맞아떨어질 때가 있다. 그때 나는 카메라를 꺼낸다. 앞 페이지의 사진도 그랬다. 헤드폰을 쓴 사람, 체크 셔츠와 슬리퍼, 그리고 그 뒤의 화분과 칠판. 사람과 장소가 함께 맞아떨어진 순간이었다.</p></div>
+      <p class="en">The second place I stop is in front of a scene. Sometimes light, color, a person and a place all line up at once — that's when I take out my camera. The photo on the previous page was one of those moments.</p>
+      <p class="stop">그래서 내 두 번째 이야기는 사진이다.<span class="en" style="display:block">So my second story is about pictures.</span></p>
+    </div>
+    <div class="qrow" style="grid-column:1/-1;grid-row:3">
+    <div style="grid-column:1/7">
+      <div class="rule" style="padding-top:4mm"></div>
+      <h3 class="qh">Why is a picture important?</h3><p class="qk">사진은 왜 중요한가?</p>
+      <div class="body"><p>사람은 쉽게 잊는다. 좋았던 장소도, 그날의 빛도 시간이 지나면 흐려진다.</p><p>사진은 그 순간으로 나를 다시 데려다 놓는다. 사진 한 장을 보면 그날의 날씨, 소리, 냄새까지 같이 떠오른다.</p></div>
+      <p class="en">People forget easily. A photograph takes me back — one picture brings back the weather, the sounds, even the smell of that day.</p>
+    </div>
+    <div style="grid-column:7/-1">
+      <div class="rule" style="padding-top:4mm"></div>
+      <h3 class="qh">Why do I take pictures?</h3><p class="qk">나는 왜 사진을 찍는가?</p>
+      <div class="body"><p>카메라를 들면 평소에 그냥 지나치던 것을 보게 된다. 벽의 색, 빛이 들어오는 방향, 사람이 서 있는 위치.</p><p>사진을 찍는 동안 나는 계속 관찰한다. 그러면 아무렇지 않던 길에도 이야기가 생긴다.</p><p>이것도 공간을 만드는 일과 같다. 좋은 공간도 빛이 어디서 들어오고, 사람이 어디에 서는지를 보는 데서 시작한다.</p></div>
+      <p class="en">With a camera in hand, I notice what I usually walk past: the color of a wall, where the light comes in, where people stand. Designing a space starts the same way.</p>
+    </div>
+    </div>
+  </div>
+  <span class="fo"><b>4</b>SPA · 02 Picture</span>
+</section>
+</div>
+
+<!-- =============================== 5 MOMENT | 6 ONE TO ONE =============================== -->
+<div class="spread" data-label="Spread 3 · pp. 5–6 · MOMENT / One To One (proposed)">
+<section class="page l" data-page="5" data-src="02_picture.md">
+  <span class="rh">Moment</span>
+  <div class="live" style="grid-template-rows:auto 1fr">
+    <div style="grid-column:1/8;grid-row:1">
+      <h3 class="qh" style="font-size:20pt;line-height:1.05">What makes<br>a good picture?</h3><p class="qk">좋은 사진이란?</p>
+      <div class="body">
+        <p><b>첫째, 오래 보게 되는 사진이다.</b> 한 번 보고 넘기지 않고, 계속 들여다보게 되는 것.</p>
+        <p><b>둘째, 하나의 이야기가 되는 사진이다.</b> 사람, 빛, 색, 장소가 서로 어울려 한 장면이 되는 것.</p>
+        <p>좋은 사진은 좋은 스타일, 좋은 공간과 같다. 멈추게 하고, 다시 떠오르게 한다.</p>
+      </div>
+    </div>
+    <div style="grid-column:1/-1;grid-row:2;display:flex;flex-direction:column;margin-top:12mm">
+      <div class="rule" style="display:flex;justify-content:space-between;padding-top:2.4mm;margin-bottom:5mm"><span class="kick">My Picture</span><span class="kick" style="color:var(--sub);font-weight:400">Same form as Sector A</span></div>
+      <div style="flex:1;display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--g)">
+        <div class="ph" data-asset="IMG-04" style="grid-column:1/8"><p class="t"><b>IMG-04 · placeholder</b>One photograph by the applicant that shows the habit below — choice pending</p></div>
+        <dl class="spec" style="grid-column:8/-1;align-self:end;row-gap:3.2mm;grid-template-columns:17mm 1fr">
+          <dt>CAMERA</dt><dd class="blank">____</dd>
+          <dt>LENS</dt><dd class="blank">____</dd>
+          <dt>TIME</dt><dd class="blank">____</dd>
+          <dt>LIGHT</dt><dd class="blank">____</dd>
+          <dt>SUBJECT</dt><dd>거리의 사람, 사람이 서 있는 장소</dd>
+          <dt>COLOR</dt><dd class="blank">____</dd>
+          <dt>WHERE</dt><dd class="blank">____</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <span class="fo">SPA · 02 Picture<b>5</b></span>
+</section>
+
+<section class="page r" data-page="+" data-src="02_picture.md (One To One · 방향 제안)">
+  <div class="live" style="grid-template-rows:122mm 1fr">
+    <div class="ph" data-asset="IMG-05" style="grid-column:1/-1;grid-row:1"><p class="t"><b>IMG-05 · placeholder</b>Blue drums reflected in a puddle · crop toward the water</p></div>
+    <div style="grid-column:1/-1;grid-row:2;display:flex;align-items:center;justify-content:center;position:relative">
+      <span style="font-weight:800;font-size:96pt;letter-spacing:-.04em">웅덩이</span>
+    </div>
+  </div>
+  <span class="fo"><b>6</b></span>
+</section>
+</div>
+
+<!-- =============================== 7 → 03 | (03 not in scope) =============================== -->
+<div class="spread" data-label="Spread 4 · p. 7 · bridge to 03 ARCHITECTURE">
+<section class="page l" data-page="7" data-src="02_picture.md (6 · 마무리)">
+  <div class="bleed" style="height:178mm">
+    <div class="ph" data-asset="IMG-06" style="width:100%;height:100%"><p class="t" style="left:var(--mo);top:12mm"><b>IMG-06 · placeholder · full bleed (+3 mm)</b>A photograph with the place clearly behind the subject — choice pending</p></div>
+  </div>
+  <div class="live" style="grid-template-rows:178mm auto 1fr;top:0">
+    <div style="grid-column:1/-1;grid-row:2;padding-top:6mm">
+      <p class="pq" style="font-size:33pt">Every good picture had<br>a good place behind it.</p>
+    </div>
+    <div style="grid-column:1/8;grid-row:3;align-self:end">
+      <p class="lede">좋은 사진을 다시 보면, 늘 그 뒤에 좋은 장소가 있었다.</p>
+      <p class="stop" style="margin-top:6mm">그래서 내 세 번째 이야기는 공간이다.<span class="en" style="display:block">So my third story is about space.</span></p>
+    </div>
+  </div>
+  <span class="fo">SPA · 02 Picture<b>7</b></span>
+</section>
+<div class="void note">03 ARCHITECTURE · PLACE<br>no approved manuscript yet —<br>not designed in this proposal</div>
+</div>
+
+<!-- =============================== BACK COVER =============================== -->
+<div class="spread" data-label="Back cover">
+<section class="page l" data-page="back" data-src="cover.md (대안 사진은 마지막 장에)">
+  <div class="live" style="grid-template-rows:1fr auto">
+    <div class="ph mid" data-asset="IMG-07" style="grid-column:1/-1;grid-row:1"><p class="t"><b>IMG-07 · placeholder</b>Overcast day · a car in an empty car park · third person · monochrome<br>measured: brightness 0.55 · dark area 1.5% · saturation 0</p></div>
+    <div style="grid-column:5/-1;grid-row:2;margin-top:9mm" class="stop"><span style="font-family:var(--disp);font-size:23pt;letter-spacing:-.025em;line-height:1.2">“Where did you last stop?”</span></div>
+  </div>
+</section>
+<div class="void"></div>
+</div>
+
+</body>
+</html>

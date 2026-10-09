@@ -1,0 +1,96 @@
+{
+ "html": "docs/portfolio/magazine/variant_a_stopline/magazine.html",
+ "pdf_pages": 9,
+ "page_count_expected": 9,
+ "spreads": 6,
+ "screen": [],
+ "print": [],
+ "manual_visual_checks": [
+  {
+   "page": "cover",
+   "check": "display_type_ink",
+   "msg": "\"SPA\" content area exceeds box by 12.3 mm -- inspect the PNG"
+  },
+  {
+   "page": "1",
+   "check": "display_type_ink",
+   "msg": "\"01Style\" content area exceeds box by 1.4 mm -- inspect the PNG"
+  },
+  {
+   "page": "4",
+   "check": "display_type_ink",
+   "msg": "\"02Picture\" content area exceeds box by 1.4 mm -- inspect the PNG"
+  },
+  {
+   "page": "7",
+   "check": "display_type_ink",
+   "msg": "\"Every good picture hada good p\" content area exceeds box by 0.8 mm -- inspect the PNG"
+  }
+ ],
+ "pages": [
+  {
+   "page": "cover",
+   "src": "cover.md",
+   "assets": [
+    "IMG-01"
+   ]
+  },
+  {
+   "page": "1",
+   "src": "01_style.md",
+   "assets": [
+    "IMG-02A"
+   ]
+  },
+  {
+   "page": "2",
+   "src": "01_style.md",
+   "assets": [
+    "IMG-02A",
+    "IMG-02B",
+    "IMG-02C",
+    "IMG-02D"
+   ]
+  },
+  {
+   "page": "3",
+   "src": "storyline.md · 02_picture.md",
+   "assets": [
+    "IMG-03"
+   ]
+  },
+  {
+   "page": "4",
+   "src": "02_picture.md",
+   "assets": []
+  },
+  {
+   "page": "5",
+   "src": "02_picture.md",
+   "assets": [
+    "IMG-04"
+   ]
+  },
+  {
+   "page": "+",
+   "src": "02_picture.md (One To One · 방향 제안)",
+   "assets": [
+    "IMG-05"
+   ]
+  },
+  {
+   "page": "7",
+   "src": "02_picture.md (6 · 마무리)",
+   "assets": [
+    "IMG-06"
+   ]
+  },
+  {
+   "page": "back",
+   "src": "cover.md (대안 사진은 마지막 장에)",
+   "assets": [
+    "IMG-07"
+   ]
+  }
+ ]
+}

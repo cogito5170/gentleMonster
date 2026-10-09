@@ -11,6 +11,7 @@
 | [philosophy.md](philosophy.md) | 지원자 노트를 다듬은 철학: 공간 · 좋은 공간 · 사진 · 삶의 목표 | 확정 |
 | [01_style.md](01_style.md) | 01 STYLE 지면: 여는 글, Q1–Q3, 풀쿼트, SECTOR A, 지면 수정 사항 | 확정 (빈칸은 지원자가 채움) |
 | [02_picture.md](02_picture.md) | 02 PICTURE 지면: 여는 글, Q1–Q3, MY PICTURE, 단어 한 장(One To One), 03 으로 넘기는 줄 | 방향 제안 (빈칸은 지원자가 채움) |
+| [magazine/](magazine/) | 잡지 디자인 시안 (design_variant/1): 시안 A — 정지선. PDF · 펼침 PNG · 토큰 · 검사 결과 | 시안 (사진 · 한글 서체 미정) |
 | [questions.md](questions.md) | 작업 중 사용자가 보낸 질문 · 요청 44개 원문과, 각 질문으로 나온 결과 | 기록 |
 
 ## 원칙

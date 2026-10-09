@@ -1,0 +1,195 @@
+{
+ "schema": "design_variant/1",
+ "variant": {
+  "id": "VA-STOPLINE",
+  "name": "Variant A — Stop Line",
+  "status": "proposal — for independent critique; not self-selected",
+  "editorial_idea": "The book is a walk that keeps being interrupted. The cover asks \"Where Did You Last Stop?\"; each section opens with a walk (the opening text) and ends on the sentence where the walker stops (\"그래서 내 ○번째 이야기는 ○○이다\"). Reading pages are the walk, picture pages are the stops.",
+  "reader_experience": "Reading pages are quiet and typographic: large thin section numeral, Korean text first, English beneath. Every few pages the reader is stopped by a full-bleed photograph with one line. One red rule marks only the sentence where each section stops, so the narrative spine (cover → 01 → 02 → 03) can be found by flicking.",
+  "design_hypothesis": "If the only recurring graphic device is a single red stop line placed under the sentence each section ends on, and text pages hold images to under 20 % of the page while bridge pages exceed 60 %, then the alternation of reading and stopping will make the book's verb — 멈춘다 — visible without any illustration or ornament.",
+  "differentiation_axes": {
+   "editorial_hierarchy": "Text-led. Section numeral > English question heading > Korean body > English translation. Photos are evidence beside the text, not the lead, except on bridge pages.",
+   "grid": "12 columns, asymmetric 7 + 5 split on reading pages (text 7, image/aside 5); 6 + 6 for paired Q blocks; bridge pages break the grid with a top bleed.",
+   "image_to_text_ratio": "Measured image area / page area: cover 25 %, p1 19 %, p2 17 %, p3 69 %, p4 0 %, p5 30 %, p6 35 %, p7 60 %, back 68 %. Mean 36 %; reading pages (1, 2, 4, 5) mean 17 %.",
+   "typography_hierarchy": "One sans family (Inter) at three weights for Latin: Thin for numerals, SemiBold for headings, Regular/Light for text. Hangul in one gothic face. No serif, no italics.",
+   "whitespace": "Reserved, deliberate: the upper zone of a section opener is allowed to stay empty between the opening text and the stop line — the pause before the stop.",
+   "information_visualization": "SECTOR A shows each style photo with the three colours sampled from it directly beneath, so the manuscript's observation (outfit colour follows the place) can be checked by eye, not just read.",
+   "visual_narrative": "Walk (reading page) → stop (bridge page) → walk. The red stop line appears on the cover, p1, p4, p7 and the back cover only."
+  }
+ },
+
+ "inputs": {
+  "source_of_truth": [
+   {"file": "docs/portfolio/cover.md", "status": "확정 (P 표기 확인 필요)"},
+   {"file": "docs/portfolio/storyline.md", "status": "구조 확정 · page map"},
+   {"file": "docs/portfolio/01_style.md", "status": "확정; MY STYLE filled by applicant"},
+   {"file": "docs/portfolio/02_picture.md", "status": "방향 제안 — MY PICTURE blanks unfilled"},
+   {"file": "docs/portfolio/philosophy.md", "status": "확정 — not set in this variant (no page assigned in the page map)"}
+  ],
+  "audience_and_purpose": "Gentle Monster spatial-design hiring reviewers; an applicant portfolio (SPA) that argues the applicant's eye for style and pictures is an eye for space.",
+  "not_supplied": [
+   "magazine style taxonomy — none in the repository; variant axes are stated above so a critic can place it",
+   "brand guideline document — no Gentle Monster mark, typeface or colour rule is used; the brand appears only as the manuscript text \"IN GENTLE MONSTER\"",
+   "trim size and print method — assumed A4 portrait, digital or offset, 3 mm bleed",
+   "original photographs — none in the repository (docs/portfolio/README.md: 사진 원본은 넣지 않았다)"
+  ],
+  "modifications_to_approved_text": "None. Copy is set verbatim from the manuscripts, including the conditional sentence on p4 (see risks R3). The English lines are the manuscript's own translations; no translation was added where the manuscript has none (p5 Q3)."
+ },
+
+ "format": {
+  "trim_mm": [210, 297],
+  "bleed_mm": 3,
+  "orientation": "portrait, viewed as facing pages; page 1 is a left page (storyline.md: 좌측부터 1, 2, 3, 4)",
+  "margins_mm": {"top": 16, "bottom": 20, "inner": 18, "outer": 14},
+  "live_area_mm": [178, 261],
+  "columns": 12,
+  "gutter_mm": 4,
+  "column_width_mm": 11.17
+ },
+
+ "tokens": {
+  "color": {
+   "paper":   {"value": "#F5F3EF", "role": "page ground"},
+   "ink":     {"value": "#1D1B19", "role": "all primary text; the applicant's own measured 'Black' from SECTOR A"},
+   "sub":     {"value": "#5C5751", "role": "English translation, Korean sub-question, captions, folios"},
+   "stop":    {"value": "#D2231C", "role": "the stop line only — never text, never background", "status": "provisional: chosen to echo the red light of IMG-01; re-sample from the original cover photograph"},
+   "rule":    {"value": "#1D1B19", "role": "0.25 mm section rules"},
+   "placeholder": {"value": "#DCD8D1", "role": "unknown-tone image placeholder"},
+   "placeholder_dark": {"value": "#1D1B19", "role": "placeholder for IMG-01, whose measured brightness is 0.11"},
+   "placeholder_mid":  {"value": "#8C8A86", "role": "placeholder for IMG-07, whose measured brightness is 0.55"},
+   "style_palette": {"black": "#1D1B19", "olive": "#2C2716", "beige": "#C4B29B", "off_white": "#C3BFB1", "slate": "#445162", "source": "01_style.md SECTOR A (approximate, from page captures)"}
+  },
+  "contrast_ratios": {
+   "ink_on_paper": 15.49,
+   "sub_on_paper": 6.45,
+   "placeholder_label_on_placeholder": 7.82,
+   "placeholder_label_on_dark": 11.64,
+   "ink_on_placeholder_mid": 4.98,
+   "stop_on_paper": 4.74
+  },
+  "type": {
+   "families": {
+    "latin": "Inter / Inter Display",
+    "hangul_proof": "WenQuanYi Zen Hei (installed in the render environment; used only for this proof)",
+    "hangul_production": "Pretendard or Noto Sans KR — to be confirmed and licensed; not available offline in the render environment"
+   },
+   "roles": {
+    "masthead":        {"family": "Inter Display", "weight": 800, "size_pt": 228, "leading": 0.9, "tracking_em": -0.065},
+    "section_numeral": {"family": "Inter Display", "weight": 100, "size_pt": 150, "leading": 0.86, "tracking_em": -0.06},
+    "pull_quote":      {"family": "Inter Display", "weight": 600, "size_pt": 33, "leading": 1.06, "tracking_em": -0.035},
+    "cover_question":  {"family": "Inter Display", "weight": 600, "size_pt": 23, "leading": 1.2},
+    "question_heading":{"family": "Inter", "weight": 600, "size_pt": 13, "note": "20 pt when it is the only heading on the page (pp. 2, 5)"},
+    "stop_sentence":   {"family": "Inter + Hangul", "weight": 600, "size_pt": 13, "leading_pt": 16.9},
+    "lede_kr":         {"weight": 400, "size_pt": 10.5, "leading_pt": 17.5},
+    "body_kr":         {"weight": 400, "size_pt": 9, "leading_pt": 14.5},
+    "translation_en":  {"weight": 400, "size_pt": 7.5, "leading_pt": 11.5, "color": "sub"},
+    "sub_question_kr": {"size_pt": 7.5, "color": "sub"},
+    "spec_label":      {"size_pt": 6.5, "weight": 600, "tracking_em": 0.16, "case": "upper"},
+    "caption":         {"size_pt": 6.5, "leading_pt": 9, "tracking_em": 0.06},
+    "running_head_folio": {"size_pt": 6.5, "tracking_em": 0.14, "case": "upper"}
+   },
+   "minimum_size_pt": 6.5,
+   "korean_line_breaking": "word-break: keep-all (no break inside a word)"
+  }
+ },
+
+ "layout_rules": [
+  "Korean first, English directly beneath in the same column, 7.5 pt, sub colour, 3 mm below. Never side by side.",
+  "The stop line (1.3 mm, colour stop) sits above the sentence a section stops on: cover question, p1, p4, p7, back cover. It is the only use of red.",
+  "On a section opener the stop sentence closes the upper zone: it sits on the zone's base, 12 mm above the Q rule; the space between the opening text and the stop line is left empty.",
+  "Paired questions sit on one 0.25 mm rule, cols 1–6 and 7–12, tops aligned.",
+  "Running head: top outer corner, 8 mm from trim, section mood word (STYLE / MOOD / PICTURE / MOMENT). Folio: bottom outer corner, 9 mm from trim, 'SPA · 0n SECTION' + page number on the outer side. Covers carry neither; the One To One page carries the page number only (02_picture.md).",
+  "Captions: 6.5 pt, below the image, aligned to the image's left edge; a short uppercase label then sentence case. On bridge pages the caption sits under the pull quote.",
+  "Full-bleed images extend 3 mm past trim; no text is set on an image. Pull quotes sit on paper beneath the bleed so their contrast does not depend on the photograph.",
+  "Every image slot carries its asset id. Until the original is placed it is drawn as a hatched, dashed-border placeholder with the id, subject and any measured values — never as a stand-in photograph.",
+  "Display type (≥ 18 pt) uses Inter Display; everything else Inter. No italics, no ornaments, no drop shadows on the page."
+ ],
+
+ "pages": [
+  {"folio": "cover", "side": "right", "manuscript": "cover.md", "running_head": null,
+   "composition": "Masthead SPA across the full measure at the top. Below: the three subjects stacked in cols 1–4; the cover line in cols 6–12. IMG-01 inset cols 5–12 on white paper (cover.md: 흰 종이 위에서 가장 강하다). Bottom: name block cols 1–4; question with the first stop line cols 6–12.",
+   "assets": ["IMG-01"], "image_area_pct": 25},
+  {"folio": 1, "side": "left", "manuscript": "01_style.md ①, ④ Q1, Q2", "running_head": "STYLE",
+   "composition": "Numeral 01 + STYLE label cols 1–7; opening text (A안) and stop sentence cols 1–7; IMG-02A runs the full upper zone in cols 8–12 with caption; Q1 | Q2 on one rule across the base.",
+   "assets": ["IMG-02A"], "image_area_pct": 19},
+  {"folio": 2, "side": "right", "manuscript": "01_style.md ④ Q3, ② 전환, ③ SECTOR A (applicant-filled)", "running_head": "MOOD",
+   "composition": "Q3 (20 pt heading) cols 1–7; transition sentence as aside cols 9–12. SECTOR A across the base: four style photos, each with its three sampled colours beneath; attribute list cols 1–7, COLOR row with the five named chips cols 8–12; closing rule sentence.",
+   "assets": ["IMG-02A", "IMG-02B", "IMG-02C", "IMG-02D"], "image_area_pct": 17},
+  {"folio": 3, "side": "left", "manuscript": "storyline.md p3", "running_head": null,
+   "composition": "Bridge. IMG-03 bleeds top to 206 mm. Pull quote \"I stop for people whose style is their own.\" on paper below; caption = cover line, first two clauses.",
+   "assets": ["IMG-03"], "image_area_pct": 69},
+  {"folio": 4, "side": "right", "manuscript": "02_picture.md 4 · PICTURE", "running_head": "PICTURE",
+   "composition": "Mirror of p1 on the outer side: numeral 02 + PICTURE cols 6–12, opening text and stop sentence cols 6–12, cols 1–5 empty in the upper zone (faces the bleed of p3). Q1 | Q2 on one rule across the base.",
+   "assets": [], "image_area_pct": 0},
+  {"folio": 5, "side": "left", "manuscript": "02_picture.md 5 · MOMENT", "running_head": "MOMENT",
+   "composition": "Q3 (20 pt heading) cols 1–7, Korean only (manuscript has no translation). MY PICTURE in the same form as SECTOR A: IMG-04 cols 1–7 to the base; field list cols 8–12, blanks shown as ____.",
+   "assets": ["IMG-04"], "image_area_pct": 30},
+  {"folio": 6, "side": "right", "manuscript": "02_picture.md 단어 한 장 (방향 제안, rank 1)", "running_head": null,
+   "composition": "One To One: IMG-05 in the top 41 % of the page across the live area; the single word 웅덩이 at 96 pt, centred in the remaining space; page number only.",
+   "assets": ["IMG-05"], "image_area_pct": 35},
+  {"folio": 7, "side": "left", "manuscript": "02_picture.md 6 · 마무리", "running_head": null,
+   "composition": "Bridge to 03. IMG-06 bleeds top to 178 mm; pull quote \"Every good picture had a good place behind it.\"; closing Korean line; stop sentence 그래서 내 세 번째 이야기는 공간이다 at the base.",
+   "assets": ["IMG-06"], "image_area_pct": 60},
+  {"folio": "back", "side": "left", "manuscript": "cover.md (대안 사진은 마지막 장에)", "running_head": null,
+   "composition": "IMG-07 across the live area; the cover question returns with the last stop line, cols 5–12.",
+   "assets": ["IMG-07"], "image_area_pct": 68}
+ ],
+ "not_designed": [
+  "03 ARCHITECTURE section — no approved manuscript exists; shown as an empty labelled slot facing p7 in the review view only",
+  "philosophy.md — approved text with no page in the current page map"
+ ],
+
+ "assets": [
+  {"id": "IMG-01", "use": "cover inset", "subject": "night · red light · from inside the car, first person", "known": "brightness 0.11, dark area 84 %, saturation 0.31 (cover.md)", "status": "missing — placeholder"},
+  {"id": "IMG-02A", "use": "p1 column image; p2 SECTOR A", "subject": "applicant, shop front, black long coat", "known": "colours #1D1B19 #C4B29B #82776B (approx.)", "status": "missing — placeholder"},
+  {"id": "IMG-02B", "use": "p2 SECTOR A", "subject": "applicant, riverside, olive parka", "known": "colours #2C2716 #45443C #151104 (approx.)", "status": "missing — placeholder"},
+  {"id": "IMG-02C", "use": "p2 SECTOR A", "subject": "applicant, sunset, light jacket", "known": "colours #C3BFB1 #353E45 #535454 (approx.)", "status": "missing — placeholder"},
+  {"id": "IMG-02D", "use": "p2 SECTOR A", "subject": "applicant, rocks, grey knit", "known": "colours #445162 #18293F #BDC0BE (approx.)", "status": "missing — placeholder"},
+  {"id": "IMG-03", "use": "p3 full bleed", "subject": "street: person in headphones, check shirt, slippers; plant, chalkboard, silver wall", "status": "missing — placeholder"},
+  {"id": "IMG-04", "use": "p5 MY PICTURE", "subject": "not chosen in the manuscript", "status": "missing — choice pending with the applicant"},
+  {"id": "IMG-05", "use": "p6 One To One", "subject": "blue drums reflected in a puddle", "status": "missing — placeholder; the page itself is a 방향 제안"},
+  {"id": "IMG-06", "use": "p7 full bleed", "subject": "not chosen in the manuscript ('풀쿼트 + 사진')", "status": "missing — choice pending with the applicant"},
+  {"id": "IMG-07", "use": "back cover", "subject": "overcast day, car in an empty car park, third person, monochrome", "known": "brightness 0.55, dark area 1.5 %, saturation 0 (cover.md)", "status": "missing — placeholder"},
+  {"id": "FONT-HANGUL", "use": "all Korean text", "subject": "production Hangul gothic (Pretendard or Noto Sans KR)", "status": "missing — proof uses WenQuanYi Zen Hei"},
+  {"id": "TEXT-MY-PICTURE", "use": "p5", "subject": "CAMERA, LENS, TIME, LIGHT, COLOR, WHERE", "status": "missing — applicant to fill (02_picture.md)"}
+ ],
+
+ "risks": [
+  {"id": "R1", "risk": "No photograph has been placed. Crops, tonal balance against the text, and the red stop line's relation to the real red light on the cover are all unverified.", "severity": "high"},
+  {"id": "R2", "risk": "Hangul is proofed in WenQuanYi Zen Hei. Line lengths, rag and the weight of the stop sentence will change with Pretendard / Noto Sans KR; re-run the checks after swapping.", "severity": "high"},
+  {"id": "R3", "risk": "p4 contains '앞 페이지의 사진도 그랬다' — valid only if the applicant took IMG-03 (02_picture.md note). If not, that sentence must be removed by the author, which shortens p4's opening.", "severity": "medium"},
+  {"id": "R4", "risk": "Folios are numbered 1–7 in reading order; the manuscript's page map numbers the One To One page '+' and the bridge '6'. The final numbering is the author's decision.", "severity": "low"},
+  {"id": "R5", "risk": "Cover lists PICTURE; cover.md notes a storyline line reading 'SPA (STYLE, PASSION, ARCHITECTURE)' still to be confirmed.", "severity": "medium"},
+  {"id": "R6", "risk": "SECTOR A colours were sampled from page captures, not originals; they are labelled approximate on the page.", "severity": "medium"},
+  {"id": "R7", "risk": "Reading pages leave a deliberate empty band before the stop line. A reviewer may read it as unfinished rather than as a pause; this is the hypothesis under test.", "severity": "medium"},
+  {"id": "R8", "risk": "The One To One manuscript suggests a mirrored 10 % ghost of the next word. Not drawn here: on thin stock the real show-through would double it. Decide after a paper test.", "severity": "low"},
+  {"id": "R9", "risk": "Brand: no Gentle Monster guideline was supplied. The variant uses no logo or brand typeface; if the portfolio must follow a brand template, the type roles need review.", "severity": "medium"},
+  {"id": "R10", "risk": "Only 9 of the book's pages exist; 03 ARCHITECTURE (the section most relevant to the role) is not designed because no manuscript exists.", "severity": "high"}
+ ],
+
+ "rendering": {
+  "produced": [
+   "docs/portfolio/magazine/variant_a_stopline/magazine.html",
+   "docs/portfolio/magazine/variant_a_stopline/magazine.pdf (9 pages, A4, print backgrounds)",
+   "docs/portfolio/magazine/variant_a_stopline/render/spread_0.png … spread_5.png (facing-page review view, 2x)",
+   "docs/portfolio/magazine/variant_a_stopline/render/checks.json"
+  ],
+  "renderer": "Chromium 141 via Playwright 1.56 (docs/portfolio/magazine/render.js), network blocked during render",
+  "inspected": "All six spread PNGs were opened and looked at after the final render. Visual fixes made after inspection: Q-pair tops aligned on pp. 1 and 4, dead bands on pp. 2 and 5 removed, simulated show-through removed from p6, placeholder label contrast on the back cover raised.",
+  "not_inspected": "The PDF was not opened in a PDF viewer or preflighted; it was checked only for page count (9). No physical proof."
+ },
+
+ "validation": {
+  "automated_results": "render/checks.json — 0 failures in screen and print media: trim, live area, overflow (< 18 pt), block overlap, minimum size 6.5 pt, WCAG contrast (4.5:1 text, 3:1 ≥ 18 pt), PDF page count 9/9. Display type ≥ 18 pt is listed under manual_visual_checks and was inspected in the PNGs.",
+  "proposed_checks": [
+   {"check": "re-run render.js after the production Hangul font and original photos are placed", "pass": "0 failures"},
+   {"check": "text over / beside real photographs", "pass": "pull quotes stay on paper; any caption on an image ≥ 4.5:1 measured on the actual pixels"},
+   {"check": "Korean rag and line length", "pass": "lede 22–32 Hangul syllables per line, body 22–30; no single-syllable last line"},
+   {"check": "stop-line census", "pass": "exactly five instances (cover, 1, 4, 7, back) and no other red on any page"},
+   {"check": "image share by page type", "pass": "reading pages ≤ 30 %, bridge pages ≥ 60 % (measured from layout boxes)"},
+   {"check": "PDF preflight", "pass": "fonts embedded, 3 mm bleed present, images ≥ 300 ppi at placed size, CMYK or agreed output profile"},
+   {"check": "same-content comparison", "pass": "competing variants set the identical manuscript text and the same asset ids so the critic compares design, not content"},
+   {"check": "blind reader test", "pass": "a reader flicking the PDF can name where each section stops without reading body text"}
+  ]
+ }
+}
