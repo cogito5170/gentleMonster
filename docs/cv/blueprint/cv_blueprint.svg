@@ -1,0 +1,483 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<defs><pattern id="hatch" width="1.2" height="1.2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="1.2" height="1.2" fill="#262626"/><line x1="0" y1="0" x2="0" y2="1.2" stroke="#8E8B86" stroke-width="0.4"/></pattern><marker id="ar" viewBox="0 0 6 6" refX="3" refY="3" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M0,0 L6,3 L0,6 z" fill="#15191B"/></marker></defs>
+<rect x="0.00" y="0.00" width="420.00" height="297.00" rx="0" fill="#FFFFFF" stroke="none" stroke-width="0.25"/>
+<rect x="6.00" y="6.00" width="408.00" height="285.00" rx="0" fill="none" stroke="#15191B" stroke-width="0.5"/>
+<text x="24.00" y="13.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="3.175" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.300" opacity="1">A-01   CV 1/2 · LAYOUT</text>
+<text x="24.00" y="17.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.117" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">디자인 레퍼런스 ① DVSY의 홈페이지 문법에 CV 항목을 넣은 A4 세로 지면. 86 % 축척, 치수는 실제 mm.</text>
+<g transform="translate(24,26) scale(0.86)">
+<rect x="0.00" y="0.00" width="210.00" height="297.00" rx="0" fill="#0B0B0B" stroke="none" stroke-width="0.25"/>
+<text x="8.00" y="12.60" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="600" fill="#ECE8E1" text-anchor="start" letter-spacing="0.350" opacity="1">JEONG HYEOKJU</text>
+<rect x="187.75" y="8.80" width="15.25" height="4.60" rx="0.8" fill="url(#hatch)" stroke="#ECE8E1" stroke-width="0.25" stroke-dasharray="0.6 0.4"/>
+<text x="195.38" y="11.90" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.623" font-weight="600" fill="#ECE8E1" text-anchor="middle" letter-spacing="0.200" opacity="1">CONTACT</text>
+<rect x="172.65" y="8.80" width="13.70" height="4.60" rx="0.8" fill="#1E1E1E" stroke="none" stroke-width="0.25"/>
+<text x="179.50" y="11.90" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.623" font-weight="600" fill="#ECE8E1" text-anchor="middle" letter-spacing="0.200" opacity="1">SKILLS</text>
+<rect x="151.35" y="8.80" width="19.90" height="4.60" rx="0.8" fill="#1E1E1E" stroke="none" stroke-width="0.25"/>
+<text x="161.30" y="11.90" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.623" font-weight="600" fill="#ECE8E1" text-anchor="middle" letter-spacing="0.200" opacity="1">EXPERIENCE</text>
+<rect x="131.60" y="8.80" width="18.35" height="4.60" rx="0.8" fill="#1E1E1E" stroke="none" stroke-width="0.25"/>
+<text x="140.78" y="11.90" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.623" font-weight="600" fill="#ECE8E1" text-anchor="middle" letter-spacing="0.200" opacity="1">EDUCATION</text>
+<rect x="118.05" y="8.80" width="12.15" height="4.60" rx="0.8" fill="#1E1E1E" stroke="none" stroke-width="0.25"/>
+<text x="124.12" y="11.90" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.623" font-weight="600" fill="#ECE8E1" text-anchor="middle" letter-spacing="0.200" opacity="1">ABOUT</text>
+<rect x="7.00" y="17.00" width="196.00" height="72.00" rx="1.6" fill="#2E2E2E" stroke="none" stroke-width="0.25"/>
+<line x1="7.00" y1="17.00" x2="203.00" y2="89.00" stroke="#454545" stroke-width="0.25"/>
+<line x1="203.00" y1="17.00" x2="7.00" y2="89.00" stroke="#454545" stroke-width="0.25"/>
+<rect x="138.00" y="23.00" width="60.00" height="10.00" rx="1" fill="#2E2E2E" stroke="none" stroke-width="0.25"/>
+<text x="168.00" y="27.40" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.117" font-weight="600" fill="#ECE8E1" text-anchor="middle" letter-spacing="0.300" opacity="1">PHOTO 01</text>
+<text x="168.00" y="31.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#8E8B86" text-anchor="middle" letter-spacing="0.000" opacity="1">인물 사진 ____ (흑백 또는 저채도)</text>
+<text x="15.00" y="50.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="17.993" font-weight="100" fill="#ECE8E1" text-anchor="start" letter-spacing="1.600" opacity="1">JEONG</text>
+<text x="15.00" y="69.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="17.993" font-weight="100" fill="#ECE8E1" text-anchor="start" letter-spacing="1.600" opacity="1">HYEOKJU</text>
+<text x="16.00" y="77.50" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.258" font-weight="500" fill="#ECE8E1" text-anchor="start" letter-spacing="0.200" opacity="1">SPATIAL DESIGNER  ·  공간 설계 디자이너</text>
+<text x="16.00" y="81.40" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.976" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">건물을 설계하던 감각으로 매장을 설계하려는 건축학도</text>
+<circle cx="170" cy="80" r="1.9" fill="none" stroke="#8E8B86" stroke-width="0.25"/>
+<line x1="169.30" y1="80.70" x2="170.70" y2="79.30" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="169.90" y1="79.30" x2="170.70" y2="79.30" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="170.70" y1="79.30" x2="170.70" y2="80.10" stroke="#ECE8E1" stroke-width="0.25"/>
+<text x="173.30" y="80.70" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#ECE8E1" text-anchor="start" letter-spacing="0.150" opacity="1">PAGE 2 · 자기소개서</text>
+<rect x="7.00" y="91.00" width="47.12" height="26.00" rx="1.6" fill="#1E1E1E" stroke="none" stroke-width="0.25"/>
+<text x="10.50" y="96.40" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.976" font-weight="600" fill="#ECE8E1" text-anchor="start" letter-spacing="0.200" opacity="1">01  PLANNING</text>
+<text x="10.50" y="100.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="500" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">기획</text>
+<text x="10.50" y="105.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.764" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">리서치·분석으로 컨셉을 세우고</text>
+<text x="10.50" y="107.56" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.764" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">건물로 발전시킨 설계 7학기</text>
+<circle cx="12.4" cy="112.6" r="1.7" fill="none" stroke="#8E8B86" stroke-width="0.25"/>
+<line x1="11.70" y1="113.30" x2="13.10" y2="111.90" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="12.30" y1="111.90" x2="13.10" y2="111.90" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="13.10" y1="111.90" x2="13.10" y2="112.70" stroke="#ECE8E1" stroke-width="0.25"/>
+<text x="15.50" y="113.30" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#ECE8E1" text-anchor="start" letter-spacing="0.150" opacity="1">P.2</text>
+<rect x="56.62" y="91.00" width="47.12" height="26.00" rx="1.6" fill="#1E1E1E" stroke="none" stroke-width="0.25"/>
+<text x="60.12" y="96.40" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.976" font-weight="600" fill="#ECE8E1" text-anchor="start" letter-spacing="0.200" opacity="1">02  MAKING · TELLING</text>
+<text x="60.12" y="100.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="500" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">구현과 소통</text>
+<text x="60.12" y="105.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.764" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">2D 도면 → 3D 모델링 →</text>
+<text x="60.12" y="107.56" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.764" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">시각화 → 후보정</text>
+<circle cx="62.025" cy="112.6" r="1.7" fill="none" stroke="#8E8B86" stroke-width="0.25"/>
+<line x1="61.32" y1="113.30" x2="62.73" y2="111.90" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="61.92" y1="111.90" x2="62.73" y2="111.90" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="62.73" y1="111.90" x2="62.73" y2="112.70" stroke="#ECE8E1" stroke-width="0.25"/>
+<text x="65.12" y="113.30" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#ECE8E1" text-anchor="start" letter-spacing="0.150" opacity="1">P.2</text>
+<rect x="106.25" y="91.00" width="47.12" height="26.00" rx="1.6" fill="#1E1E1E" stroke="none" stroke-width="0.25"/>
+<text x="109.75" y="96.40" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.976" font-weight="600" fill="#ECE8E1" text-anchor="start" letter-spacing="0.200" opacity="1">03  SENSE</text>
+<text x="109.75" y="100.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="500" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">디자인 감각</text>
+<text x="109.75" y="105.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.764" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">시선을 끄는 색과</text>
+<text x="109.75" y="107.56" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.764" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">한발 물러서는 색</text>
+<circle cx="111.65" cy="112.6" r="1.7" fill="none" stroke="#8E8B86" stroke-width="0.25"/>
+<line x1="110.95" y1="113.30" x2="112.35" y2="111.90" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="111.55" y1="111.90" x2="112.35" y2="111.90" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="112.35" y1="111.90" x2="112.35" y2="112.70" stroke="#ECE8E1" stroke-width="0.25"/>
+<text x="114.75" y="113.30" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#ECE8E1" text-anchor="start" letter-spacing="0.150" opacity="1">P.2</text>
+<rect x="155.88" y="91.00" width="47.12" height="26.00" rx="1.6" fill="#1E1E1E" stroke="none" stroke-width="0.25"/>
+<text x="159.38" y="96.40" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.976" font-weight="600" fill="#ECE8E1" text-anchor="start" letter-spacing="0.200" opacity="1">04  RESTRAINT + BOLD</text>
+<text x="159.38" y="100.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="500" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">절제와 과감</text>
+<text x="159.38" y="105.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.764" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">건축에서 익힌 절제 위에</text>
+<text x="159.38" y="107.56" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.764" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">과감을 더한다</text>
+<circle cx="161.275" cy="112.6" r="1.7" fill="none" stroke="#8E8B86" stroke-width="0.25"/>
+<line x1="160.58" y1="113.30" x2="161.97" y2="111.90" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="161.18" y1="111.90" x2="161.97" y2="111.90" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="161.97" y1="111.90" x2="161.97" y2="112.70" stroke="#ECE8E1" stroke-width="0.25"/>
+<text x="164.38" y="113.30" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#ECE8E1" text-anchor="start" letter-spacing="0.150" opacity="1">P.2</text>
+<text x="8.00" y="123.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#8E8B86" text-anchor="start" letter-spacing="0.250" opacity="1">5-YEAR B.ARCH</text>
+<text x="8.00" y="131.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="5.998" font-weight="200" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">5</text>
+<text x="15.50" y="131.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.764" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">5년제 건축학과</text>
+<text x="57.50" y="123.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#8E8B86" text-anchor="start" letter-spacing="0.250" opacity="1">DESIGN STUDIOS</text>
+<text x="57.50" y="131.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="5.998" font-weight="200" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">7</text>
+<text x="65.00" y="131.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.764" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">설계 수업 7학기</text>
+<text x="107.00" y="123.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#8E8B86" text-anchor="start" letter-spacing="0.250" opacity="1">TOOLS</text>
+<text x="107.00" y="131.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="5.998" font-weight="200" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">6</text>
+<text x="114.50" y="131.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.764" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">2D · 3D · 후보정</text>
+<text x="156.50" y="123.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#8E8B86" text-anchor="start" letter-spacing="0.250" opacity="1">INTERNSHIP</text>
+<text x="156.50" y="131.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="5.998" font-weight="200" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">1</text>
+<text x="164.00" y="131.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.764" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">건축사사무소</text>
+<rect x="7.00" y="135.00" width="96.75" height="46.00" rx="1.6" fill="#1E1E1E" stroke="none" stroke-width="0.25"/>
+<text x="12.00" y="141.50" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.764" font-weight="600" fill="#ECE8E1" text-anchor="start" letter-spacing="0.300" opacity="1">ABOUT</text>
+<text x="12.00" y="150.50" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="3.881" font-weight="300" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">틀을 배우고,</text>
+<text x="12.00" y="156.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="3.881" font-weight="300" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">그 안을 채우는 건축학도</text>
+<text x="12.00" y="164.50" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="600" fill="#ECE8E1" text-anchor="start" letter-spacing="0.250" opacity="1">PROFILE</text>
+<text x="12.00" y="168.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">5년제 건축학과 · 4학년 2학기 휴학</text>
+<text x="12.00" y="171.26" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">건축사사무소 인턴을 거쳐</text>
+<text x="12.00" y="173.92" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">공간 디자인으로 전향</text>
+<text x="57.00" y="164.50" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="600" fill="#ECE8E1" text-anchor="start" letter-spacing="0.250" opacity="1">INTERESTS</text>
+<text x="57.00" y="168.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">패션 · 갤러리</text>
+<text x="57.00" y="171.26" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">가구와 조명 수집</text>
+<text x="57.00" y="173.92" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">건축물의 실내 마감재와 마감 방식</text>
+<rect x="106.25" y="135.00" width="96.75" height="46.00" rx="1.6" fill="#2E2E2E" stroke="none" stroke-width="0.25"/>
+<line x1="106.25" y1="135.00" x2="203.00" y2="181.00" stroke="#454545" stroke-width="0.25"/>
+<line x1="203.00" y1="135.00" x2="106.25" y2="181.00" stroke="#454545" stroke-width="0.25"/>
+<rect x="124.62" y="153.00" width="60.00" height="10.00" rx="1" fill="#2E2E2E" stroke="none" stroke-width="0.25"/>
+<text x="154.62" y="157.40" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.117" font-weight="600" fill="#ECE8E1" text-anchor="middle" letter-spacing="0.300" opacity="1">PHOTO 02</text>
+<text x="154.62" y="161.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#8E8B86" text-anchor="middle" letter-spacing="0.000" opacity="1">____ (공간 · 마감재 · 오브제)</text>
+<text x="8.00" y="191.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="4.939" font-weight="300" fill="#ECE8E1" text-anchor="start" letter-spacing="0.300" opacity="1">EDUCATION &amp; EXPERIENCE</text>
+<rect x="7.00" y="194.00" width="96.75" height="46.75" rx="1.6" fill="#2E2E2E" stroke="none" stroke-width="0.25"/>
+<line x1="7.00" y1="194.00" x2="103.75" y2="240.75" stroke="#454545" stroke-width="0.25"/>
+<line x1="103.75" y1="194.00" x2="7.00" y2="240.75" stroke="#454545" stroke-width="0.25"/>
+<rect x="25.38" y="212.38" width="60.00" height="10.00" rx="1" fill="#2E2E2E" stroke="none" stroke-width="0.25"/>
+<text x="55.38" y="216.78" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.117" font-weight="600" fill="#ECE8E1" text-anchor="middle" letter-spacing="0.300" opacity="1">PHOTO 03</text>
+<text x="55.38" y="220.57" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#8E8B86" text-anchor="middle" letter-spacing="0.000" opacity="1">____ (작업 이미지 · 모델링 · 렌더)</text>
+<rect x="106.25" y="194.00" width="96.75" height="22.12" rx="1.6" fill="#1E1E1E" stroke="none" stroke-width="0.25"/>
+<text x="110.25" y="199.40" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.117" font-weight="600" fill="#ECE8E1" text-anchor="start" letter-spacing="0.250" opacity="1">EDUCATION</text>
+<text x="110.25" y="203.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">____대학교 건축학과 (5년제)</text>
+<text x="110.25" y="206.36" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">4학년 2학기 휴학 중</text>
+<circle cx="183.0" cy="205.0625" r="1.9" fill="none" stroke="#8E8B86" stroke-width="0.25"/>
+<line x1="182.30" y1="205.76" x2="183.70" y2="204.36" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="182.90" y1="204.36" x2="183.70" y2="204.36" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="183.70" y1="204.36" x2="183.70" y2="205.16" stroke="#ECE8E1" stroke-width="0.25"/>
+<text x="186.30" y="205.76" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#ECE8E1" text-anchor="start" letter-spacing="0.150" opacity="1">____ – ____</text>
+<rect x="106.25" y="218.62" width="96.75" height="22.12" rx="1.6" fill="#1E1E1E" stroke="none" stroke-width="0.25"/>
+<text x="110.25" y="224.03" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.117" font-weight="600" fill="#ECE8E1" text-anchor="start" letter-spacing="0.250" opacity="1">EXPERIENCE</text>
+<text x="110.25" y="228.22" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">건축사사무소 ____ · 인턴</text>
+<text x="110.25" y="230.99" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">현장 실측 · 모델링 · 주변 대지와</text>
+<text x="110.25" y="233.75" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">프로젝트 건물 구현</text>
+<circle cx="183.0" cy="229.6875" r="1.9" fill="none" stroke="#8E8B86" stroke-width="0.25"/>
+<line x1="182.30" y1="230.39" x2="183.70" y2="228.99" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="182.90" y1="228.99" x2="183.70" y2="228.99" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="183.70" y1="228.99" x2="183.70" y2="229.79" stroke="#ECE8E1" stroke-width="0.25"/>
+<text x="186.30" y="230.39" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#ECE8E1" text-anchor="start" letter-spacing="0.150" opacity="1">____</text>
+<rect x="7.00" y="243.25" width="96.75" height="22.12" rx="1.6" fill="#1E1E1E" stroke="none" stroke-width="0.25"/>
+<text x="11.00" y="248.65" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.117" font-weight="600" fill="#ECE8E1" text-anchor="start" letter-spacing="0.250" opacity="1">SKILLS</text>
+<text x="11.00" y="252.85" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">AutoCAD · Rhino · Enscape</text>
+<text x="11.00" y="255.61" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">Photoshop · Illustrator · InDesign</text>
+<text x="11.00" y="258.37" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">LANGUAGE ____</text>
+<circle cx="83.75" cy="254.3125" r="1.9" fill="none" stroke="#8E8B86" stroke-width="0.25"/>
+<line x1="83.05" y1="255.01" x2="84.45" y2="253.61" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="83.65" y1="253.61" x2="84.45" y2="253.61" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="84.45" y1="253.61" x2="84.45" y2="254.41" stroke="#ECE8E1" stroke-width="0.25"/>
+<text x="87.05" y="255.01" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#ECE8E1" text-anchor="start" letter-spacing="0.150" opacity="1">6 TOOLS</text>
+<rect x="7.00" y="267.88" width="96.75" height="22.12" rx="1.6" fill="#1E1E1E" stroke="none" stroke-width="0.25"/>
+<text x="11.00" y="273.27" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.117" font-weight="600" fill="#ECE8E1" text-anchor="start" letter-spacing="0.250" opacity="1">CONTACT</text>
+<text x="11.00" y="277.48" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">T  ____</text>
+<text x="11.00" y="280.24" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">E  ____</text>
+<text x="11.00" y="283.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#8E8B86" text-anchor="start" letter-spacing="0.000" opacity="1">PORTFOLIO  ____</text>
+<circle cx="83.75" cy="278.9375" r="1.9" fill="none" stroke="#8E8B86" stroke-width="0.25"/>
+<line x1="83.05" y1="279.64" x2="84.45" y2="278.24" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="83.65" y1="278.24" x2="84.45" y2="278.24" stroke="#ECE8E1" stroke-width="0.25"/>
+<line x1="84.45" y1="278.24" x2="84.45" y2="279.04" stroke="#ECE8E1" stroke-width="0.25"/>
+<text x="87.05" y="279.64" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#ECE8E1" text-anchor="start" letter-spacing="0.150" opacity="1">GET IN TOUCH</text>
+<rect x="106.25" y="243.25" width="96.75" height="46.75" rx="1.6" fill="#2E2E2E" stroke="none" stroke-width="0.25"/>
+<line x1="106.25" y1="243.25" x2="203.00" y2="290.00" stroke="#454545" stroke-width="0.25"/>
+<line x1="203.00" y1="243.25" x2="106.25" y2="290.00" stroke="#454545" stroke-width="0.25"/>
+<rect x="124.62" y="261.62" width="60.00" height="10.00" rx="1" fill="#2E2E2E" stroke="none" stroke-width="0.25"/>
+<text x="154.62" y="266.02" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.117" font-weight="600" fill="#ECE8E1" text-anchor="middle" letter-spacing="0.300" opacity="1">PHOTO 04</text>
+<text x="154.62" y="269.82" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#8E8B86" text-anchor="middle" letter-spacing="0.000" opacity="1">____ (02 PICTURE 사진 중)</text>
+</g>
+<line x1="24.00" y1="22.50" x2="204.60" y2="22.50" stroke="#15191B" stroke-width="0.2"/>
+<line x1="24" y1="22.5" x2="204.6" y2="22.5" stroke="#15191B" stroke-width="0.2" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="114.30" y="21.40" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.117" font-weight="500" fill="#15191B" text-anchor="middle" letter-spacing="0.000" opacity="1">210</text>
+<line x1="20" y1="26" x2="20" y2="281.41999999999996" stroke="#15191B" stroke-width="0.2" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text transform="translate(18.8,153.70999999999998) rotate(-90)" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.1168" fill="#15191B" text-anchor="middle" font-weight="500">297</text>
+<line x1="24.00" y1="283.92" x2="30.02" y2="283.92" stroke="#15191B" stroke-width="0.2"/>
+<text x="27.01" y="287.22" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.835" font-weight="400" fill="#5B656B" text-anchor="middle" letter-spacing="0.000" opacity="1">7</text>
+<text x="32.02" y="287.22" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">여백 7 · 사이 2.5 · 모서리 R1.6 · 반폭 96.75</text>
+<line x1="207.60" y1="32.02" x2="209.60" y2="32.02" stroke="#15191B" stroke-width="0.2"/>
+<line x1="207.60" y1="38.90" x2="209.60" y2="38.90" stroke="#15191B" stroke-width="0.2"/>
+<line x1="208.60" y1="32.02" x2="208.60" y2="38.90" stroke="#15191B" stroke-width="0.2"/>
+<circle cx="213.10" cy="35.46" r="2.3" fill="#15191B"/>
+<text x="213.10" y="36.41" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">1</text>
+<text x="216.40" y="35.26" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.905" font-weight="600" fill="#15191B" text-anchor="start" letter-spacing="0.200" opacity="1">NAV</text>
+<text x="216.40" y="37.86" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.835" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">8</text>
+<line x1="207.60" y1="40.62" x2="209.60" y2="40.62" stroke="#15191B" stroke-width="0.2"/>
+<line x1="207.60" y1="102.54" x2="209.60" y2="102.54" stroke="#15191B" stroke-width="0.2"/>
+<line x1="208.60" y1="40.62" x2="208.60" y2="102.54" stroke="#15191B" stroke-width="0.2"/>
+<circle cx="213.10" cy="71.58" r="2.3" fill="#15191B"/>
+<text x="213.10" y="72.53" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">2</text>
+<text x="216.40" y="71.38" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.905" font-weight="600" fill="#15191B" text-anchor="start" letter-spacing="0.200" opacity="1">HERO</text>
+<text x="216.40" y="73.98" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.835" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">72</text>
+<line x1="207.60" y1="104.26" x2="209.60" y2="104.26" stroke="#15191B" stroke-width="0.2"/>
+<line x1="207.60" y1="126.62" x2="209.60" y2="126.62" stroke="#15191B" stroke-width="0.2"/>
+<line x1="208.60" y1="104.26" x2="208.60" y2="126.62" stroke="#15191B" stroke-width="0.2"/>
+<circle cx="213.10" cy="115.44" r="2.3" fill="#15191B"/>
+<text x="213.10" y="116.39" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">3</text>
+<text x="216.40" y="115.24" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.905" font-weight="600" fill="#15191B" text-anchor="start" letter-spacing="0.200" opacity="1">CARDS ×4</text>
+<text x="216.40" y="117.84" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.835" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">26</text>
+<line x1="207.60" y1="128.34" x2="209.60" y2="128.34" stroke="#15191B" stroke-width="0.2"/>
+<line x1="207.60" y1="140.38" x2="209.60" y2="140.38" stroke="#15191B" stroke-width="0.2"/>
+<line x1="208.60" y1="128.34" x2="208.60" y2="140.38" stroke="#15191B" stroke-width="0.2"/>
+<circle cx="213.10" cy="134.36" r="2.3" fill="#15191B"/>
+<text x="213.10" y="135.31" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">4</text>
+<text x="216.40" y="134.16" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.905" font-weight="600" fill="#15191B" text-anchor="start" letter-spacing="0.200" opacity="1">NUMBERS</text>
+<text x="216.40" y="136.76" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.835" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">14</text>
+<line x1="207.60" y1="142.10" x2="209.60" y2="142.10" stroke="#15191B" stroke-width="0.2"/>
+<line x1="207.60" y1="181.66" x2="209.60" y2="181.66" stroke="#15191B" stroke-width="0.2"/>
+<line x1="208.60" y1="142.10" x2="208.60" y2="181.66" stroke="#15191B" stroke-width="0.2"/>
+<circle cx="213.10" cy="161.88" r="2.3" fill="#15191B"/>
+<text x="213.10" y="162.83" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">5</text>
+<text x="216.40" y="161.68" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.905" font-weight="600" fill="#15191B" text-anchor="start" letter-spacing="0.200" opacity="1">ABOUT</text>
+<text x="216.40" y="164.28" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.835" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">46</text>
+<line x1="207.60" y1="183.38" x2="209.60" y2="183.38" stroke="#15191B" stroke-width="0.2"/>
+<line x1="207.60" y1="191.12" x2="209.60" y2="191.12" stroke="#15191B" stroke-width="0.2"/>
+<line x1="208.60" y1="183.38" x2="208.60" y2="191.12" stroke="#15191B" stroke-width="0.2"/>
+<circle cx="213.10" cy="187.25" r="2.3" fill="#15191B"/>
+<text x="213.10" y="188.20" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">6</text>
+<text x="216.40" y="187.05" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.905" font-weight="600" fill="#15191B" text-anchor="start" letter-spacing="0.200" opacity="1">TITLE</text>
+<text x="216.40" y="189.65" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.835" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">9</text>
+<line x1="207.60" y1="192.84" x2="209.60" y2="192.84" stroke="#15191B" stroke-width="0.2"/>
+<line x1="207.60" y1="275.40" x2="209.60" y2="275.40" stroke="#15191B" stroke-width="0.2"/>
+<line x1="208.60" y1="192.84" x2="208.60" y2="275.40" stroke="#15191B" stroke-width="0.2"/>
+<circle cx="213.10" cy="234.12" r="2.3" fill="#15191B"/>
+<text x="213.10" y="235.07" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">7</text>
+<text x="216.40" y="233.92" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.905" font-weight="600" fill="#15191B" text-anchor="start" letter-spacing="0.200" opacity="1">GRID 2×2</text>
+<text x="216.40" y="236.52" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.835" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">96</text>
+<line x1="233.00" y1="10.00" x2="233.00" y2="287.00" stroke="#15191B" stroke-width="0.3"/>
+<text x="237.00" y="15.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="3.175" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.300" opacity="1">CONTENT MAP</text>
+<text x="237.00" y="20.50" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.117" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">레퍼런스 ① 의 요소 → CV 내용. ✓ 확인된 사실 · ____ 혁주님이 채울 칸</text>
+<text x="237.00" y="27.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.976" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1"></text>
+<text x="244.00" y="27.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.976" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">레퍼런스 ① DVSY</text>
+<text x="270.00" y="27.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.976" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">CV 내용</text>
+<text x="319.00" y="27.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.976" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">상태</text>
+<line x1="237.00" y1="28.60" x2="345.00" y2="28.60" stroke="#15191B" stroke-width="0.3"/>
+<circle cx="239.30" cy="31.70" r="2.1" fill="#15191B"/>
+<text x="239.30" y="32.65" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">1</text>
+<text x="244.00" y="32.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">로고</text>
+<text x="244.00" y="35.35" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">메뉴 알약 4</text>
+<text x="244.00" y="38.10" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">강조 버튼</text>
+<text x="270.00" y="32.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">이름 로고 JEONG HYEOKJU</text>
+<text x="270.00" y="35.35" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">ABOUT · EDUCATION · EXPERIENCE · SKILLS</text>
+<text x="270.00" y="38.10" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">강조 버튼 = CONTACT (빗금 = 색 미정)</text>
+<text x="319.00" y="32.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">✓ 구조</text>
+<text x="319.00" y="35.35" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">강조색 미정</text>
+<line x1="237.00" y1="41.25" x2="345.00" y2="41.25" stroke="#C5CDD1" stroke-width="0.2"/>
+<circle cx="239.30" cy="42.55" r="2.1" fill="#15191B"/>
+<text x="239.30" y="43.50" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">2</text>
+<text x="244.00" y="43.45" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">풀블리드 사진</text>
+<text x="244.00" y="46.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">얇은 대형 헤드라인</text>
+<text x="244.00" y="48.95" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">서브 카피 · LEARN MORE</text>
+<text x="270.00" y="43.45" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">인물 사진 (PHOTO 01)</text>
+<text x="270.00" y="46.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">JEONG / HYEOKJU</text>
+<text x="270.00" y="48.95" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">직무 + 정체성 문장</text>
+<text x="270.00" y="51.70" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">→ PAGE 2 자기소개서</text>
+<text x="319.00" y="43.45" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">사진 ____</text>
+<text x="319.00" y="46.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">정체성 문장 퇴고 중</text>
+<line x1="237.00" y1="54.85" x2="345.00" y2="54.85" stroke="#C5CDD1" stroke-width="0.2"/>
+<circle cx="239.30" cy="56.15" r="2.1" fill="#15191B"/>
+<text x="239.30" y="57.10" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">3</text>
+<text x="244.00" y="57.05" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">가치 카드 4</text>
+<text x="244.00" y="59.80" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">제목 · 두 줄 · 화살표</text>
+<text x="270.00" y="57.05" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">강점 4: 기획 · 구현과 소통 ·</text>
+<text x="270.00" y="59.80" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">디자인 감각 · 절제와 과감</text>
+<text x="270.00" y="62.55" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">(자기소개서 문항 2에서)</text>
+<text x="270.00" y="65.30" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">화살표 → P.2 해당 문단</text>
+<text x="319.00" y="57.05" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">✓ 원고 있음</text>
+<line x1="237.00" y1="68.45" x2="345.00" y2="68.45" stroke="#C5CDD1" stroke-width="0.2"/>
+<circle cx="239.30" cy="69.75" r="2.1" fill="#15191B"/>
+<text x="239.30" y="70.70" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">4</text>
+<text x="244.00" y="70.65" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">실적 숫자 4</text>
+<text x="244.00" y="73.40" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">150+ · 500+ …</text>
+<text x="270.00" y="70.65" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">5 (5년제) · 7 (설계 7학기)</text>
+<text x="270.00" y="73.40" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">6 (툴) · 1 (인턴)</text>
+<text x="319.00" y="70.65" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">✓ 사실</text>
+<text x="319.00" y="73.40" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">넣을지 선택</text>
+<line x1="237.00" y1="76.55" x2="345.00" y2="76.55" stroke="#C5CDD1" stroke-width="0.2"/>
+<circle cx="239.30" cy="77.85" r="2.1" fill="#15191B"/>
+<text x="239.30" y="78.80" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">5</text>
+<text x="244.00" y="78.75" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">ABOUT 카드</text>
+<text x="244.00" y="81.50" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">헤드라인 + 2단 본문</text>
+<text x="244.00" y="84.25" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">오른쪽 사진</text>
+<text x="270.00" y="78.75" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">자기소개서 제목을 헤드라인으로</text>
+<text x="270.00" y="81.50" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">PROFILE: 학과 · 휴학 · 전향</text>
+<text x="270.00" y="84.25" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">INTERESTS: 패션 · 갤러리 · 가구 ·</text>
+<text x="270.00" y="87.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">조명 · 마감재</text>
+<text x="270.00" y="89.75" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">PHOTO 02</text>
+<text x="319.00" y="78.75" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">사진 ____</text>
+<text x="319.00" y="81.50" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">INTERESTS 넣을지</text>
+<line x1="237.00" y1="92.90" x2="345.00" y2="92.90" stroke="#C5CDD1" stroke-width="0.2"/>
+<circle cx="239.30" cy="94.20" r="2.1" fill="#15191B"/>
+<text x="239.30" y="95.15" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">6</text>
+<text x="244.00" y="95.10" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">OUR ADVANTAGES</text>
+<text x="270.00" y="95.10" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">EDUCATION &amp; EXPERIENCE</text>
+<text x="319.00" y="95.10" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">문구 선택</text>
+<line x1="237.00" y1="98.25" x2="345.00" y2="98.25" stroke="#C5CDD1" stroke-width="0.2"/>
+<circle cx="239.30" cy="99.55" r="2.1" fill="#15191B"/>
+<text x="239.30" y="100.50" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.000" opacity="1">7</text>
+<text x="244.00" y="100.45" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">사진 · 카드 체커보드</text>
+<text x="244.00" y="103.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">카드 오른쪽 EXPLORE</text>
+<text x="270.00" y="100.45" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">EDUCATION · EXPERIENCE ·</text>
+<text x="270.00" y="103.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">SKILLS · CONTACT 카드</text>
+<text x="270.00" y="105.95" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">EXPLORE 자리 → 기간 · 툴 수</text>
+<text x="270.00" y="108.70" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">PHOTO 03 · 04</text>
+<text x="319.00" y="100.45" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">학교명 · 기간 ____</text>
+<text x="319.00" y="103.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">사무소명 ____</text>
+<text x="319.00" y="105.95" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">연락처 · 어학 ____</text>
+<line x1="237.00" y1="111.85" x2="345.00" y2="111.85" stroke="#C5CDD1" stroke-width="0.2"/>
+<text x="237.00" y="117.05" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.470" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">CV 항목 → 자리</text>
+<text x="262.00" y="117.05" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">내용 레퍼런스 5장 분석에서 나온 항목이 모두 들어갈 자리</text>
+<text x="237.00" y="121.65" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">이름 · 직무</text>
+<text x="267.00" y="121.65" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">1  2</text>
+<text x="307.00" y="121.65" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">✓</text>
+<text x="237.00" y="124.75" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">사진</text>
+<text x="267.00" y="124.75" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">2  5  7</text>
+<text x="307.00" y="124.75" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">____</text>
+<text x="237.00" y="127.85" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">소개 · 프로필</text>
+<text x="267.00" y="127.85" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">2  5</text>
+<text x="307.00" y="127.85" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">✓ 문장 퇴고 중</text>
+<text x="237.00" y="130.95" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">학력</text>
+<text x="267.00" y="130.95" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">7 EDUCATION</text>
+<text x="307.00" y="130.95" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">학교명 · 연도 ____</text>
+<text x="237.00" y="134.05" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">경력</text>
+<text x="267.00" y="134.05" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">7 EXPERIENCE</text>
+<text x="307.00" y="134.05" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">사무소명 · 기간 ____</text>
+<text x="237.00" y="137.15" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">학업 (설계 7학기)</text>
+<text x="267.00" y="137.15" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">3  4</text>
+<text x="307.00" y="137.15" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">✓</text>
+<text x="237.00" y="140.25" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">툴 스킬</text>
+<text x="267.00" y="140.25" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">7 SKILLS</text>
+<text x="307.00" y="140.25" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">✓ 6종</text>
+<text x="237.00" y="143.35" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">소프트 스킬</text>
+<text x="267.00" y="143.35" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">3 강점 카드</text>
+<text x="307.00" y="143.35" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">✓</text>
+<text x="237.00" y="146.45" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">연락처</text>
+<text x="267.00" y="146.45" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">1 버튼 · 7 CONTACT</text>
+<text x="307.00" y="146.45" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">____</text>
+<text x="237.00" y="149.55" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">어학</text>
+<text x="267.00" y="149.55" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">7 SKILLS 끝 줄</text>
+<text x="307.00" y="149.55" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">____</text>
+<text x="237.00" y="152.65" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">수상 · 전시 · 자격증</text>
+<text x="267.00" y="152.65" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">있으면 7 EXPERIENCE</text>
+<text x="307.00" y="152.65" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="500" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">____</text>
+<line x1="237.00" y1="154.15" x2="345.00" y2="154.15" stroke="#C5CDD1" stroke-width="0.2"/>
+<line x1="349.00" y1="10.00" x2="349.00" y2="287.00" stroke="#15191B" stroke-width="0.3"/>
+<rect x="353.00" y="10.00" width="58.00" height="50.00" rx="0" fill="none" stroke="#15191B" stroke-width="0.3"/>
+<text x="356.00" y="17.50" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="5.292" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">CV</text>
+<text x="356.00" y="23.50" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.822" font-weight="600" fill="#15191B" text-anchor="start" letter-spacing="0.300" opacity="1">JEONG HYEOKJU</text>
+<text x="356.00" y="27.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">공간 설계 디자이너 지원 · Gentle Monster</text>
+<text x="356.00" y="33.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="600" fill="#5B656B" text-anchor="start" letter-spacing="0.300" opacity="1">SHEET</text>
+<text x="368.00" y="33.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">A-01  CV 1/2 레이아웃 청사진</text>
+<text x="356.00" y="36.60" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="600" fill="#5B656B" text-anchor="start" letter-spacing="0.300" opacity="1">PAGE</text>
+<text x="368.00" y="36.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">A4 210 × 297 세로 · PDF 2장 중 1장</text>
+<text x="356.00" y="40.20" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="600" fill="#5B656B" text-anchor="start" letter-spacing="0.300" opacity="1">SCALE</text>
+<text x="368.00" y="40.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">86 % (본문 크기는 실제 pt)</text>
+<text x="356.00" y="43.80" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="600" fill="#5B656B" text-anchor="start" letter-spacing="0.300" opacity="1">REF</text>
+<text x="368.00" y="43.80" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">디자인 ① DVSY · 카드 그리드형</text>
+<text x="356.00" y="47.40" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="600" fill="#5B656B" text-anchor="start" letter-spacing="0.300" opacity="1">DATE</text>
+<text x="368.00" y="47.40" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">2026-10-09</text>
+<text x="356.00" y="51.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="600" fill="#5B656B" text-anchor="start" letter-spacing="0.300" opacity="1">STATUS</text>
+<text x="368.00" y="51.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">청사진 · ____ 칸은 혁주님이 채움</text>
+<text x="356.00" y="54.60" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="600" fill="#5B656B" text-anchor="start" letter-spacing="0.300" opacity="1">TOOL</text>
+<text x="368.00" y="54.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">Inkscape 1.2 · SVG → PDF</text>
+<text x="353.00" y="68.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.200" opacity="1">DESIGN REFERENCE · 4 TYPES</text>
+<rect x="353.00" y="71.00" width="12.50" height="22.00" rx="0" fill="#111111" stroke="#15191B" stroke-width="0.6"/>
+<rect x="353.80" y="71.80" width="10.90" height="0.80" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="353.80" y="73.00" width="10.90" height="5.00" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="353.80" y="78.50" width="2.40" height="2.00" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="356.60" y="78.50" width="2.40" height="2.00" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="359.40" y="78.50" width="2.40" height="2.00" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="362.20" y="78.50" width="2.40" height="2.00" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="353.80" y="81.00" width="2.00" height="0.50" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="356.60" y="81.00" width="2.00" height="0.50" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="359.40" y="81.00" width="2.00" height="0.50" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="362.20" y="81.00" width="2.00" height="0.50" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="353.80" y="82.00" width="5.20" height="4.00" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="359.50" y="82.00" width="5.20" height="4.00" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="353.80" y="86.60" width="5.20" height="2.80" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="359.50" y="86.60" width="5.20" height="1.30" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="359.50" y="88.10" width="5.20" height="1.30" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="353.80" y="89.80" width="5.20" height="1.30" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="353.80" y="91.30" width="5.20" height="1.30" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="359.50" y="89.80" width="5.20" height="2.80" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<text x="353.00" y="96.50" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">① DVSY</text>
+<text x="353.00" y="99.30" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">카드 그리드형</text>
+<text x="353.00" y="101.70" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">선택</text>
+<rect x="368.10" y="71.00" width="12.50" height="22.00" rx="0" fill="#111111" stroke="none" stroke-width="0"/>
+<rect x="368.90" y="71.80" width="10.90" height="6.00" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="369.30" y="75.00" width="5.00" height="1.00" rx="0" fill="#DDDDDD" stroke="none" stroke-width="0.25"/>
+<rect x="369.30" y="76.40" width="5.00" height="1.00" rx="0" fill="#DDDDDD" stroke="none" stroke-width="0.25"/>
+<rect x="368.90" y="79.00" width="3.00" height="3.50" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="372.50" y="79.30" width="7.00" height="0.50" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="372.50" y="80.30" width="7.00" height="0.50" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="368.90" y="83.50" width="1.90" height="3.00" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="371.10" y="83.50" width="1.90" height="3.00" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="373.30" y="83.50" width="1.90" height="3.00" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="375.50" y="83.50" width="1.90" height="3.00" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="377.70" y="83.50" width="1.90" height="3.00" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="368.90" y="88.00" width="3.50" height="2.50" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="373.10" y="87.60" width="6.60" height="0.35" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="373.10" y="88.50" width="6.60" height="0.35" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="373.10" y="89.40" width="6.60" height="0.35" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="373.10" y="90.30" width="6.60" height="0.35" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="374.60" y="91.50" width="5.00" height="0.50" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<text x="368.10" y="96.50" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">② ETHAN</text>
+<text x="368.10" y="99.30" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">원페이지</text>
+<text x="368.10" y="101.70" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">포트폴리오형</text>
+<rect x="383.20" y="71.00" width="12.50" height="22.00" rx="0" fill="#111111" stroke="none" stroke-width="0"/>
+<rect x="384.00" y="71.80" width="10.90" height="9.00" rx="0" fill="#5A2A28" stroke="none" stroke-width="0.25"/>
+<rect x="384.20" y="75.00" width="6.00" height="2.20" rx="0" fill="#EEEEEE" stroke="none" stroke-width="0.25"/>
+<rect x="388.70" y="78.00" width="6.00" height="2.20" rx="0" fill="#EEEEEE" stroke="none" stroke-width="0.25"/>
+<line x1="384.00" y1="71.80" x2="384.00" y2="92.20" stroke="#444" stroke-width="0.1"/>
+<line x1="386.75" y1="71.80" x2="386.75" y2="92.20" stroke="#444" stroke-width="0.1"/>
+<line x1="389.50" y1="71.80" x2="389.50" y2="92.20" stroke="#444" stroke-width="0.1"/>
+<line x1="392.25" y1="71.80" x2="392.25" y2="92.20" stroke="#444" stroke-width="0.1"/>
+<rect x="384.00" y="82.00" width="2.30" height="0.50" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="386.75" y="82.00" width="2.30" height="0.50" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="389.50" y="82.00" width="2.30" height="0.50" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="392.25" y="82.00" width="2.30" height="0.50" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="384.00" y="84.00" width="6.00" height="0.70" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="384.00" y="85.20" width="6.00" height="0.70" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="384.00" y="86.40" width="6.00" height="0.70" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="384.00" y="87.60" width="6.00" height="0.70" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="384.00" y="88.80" width="6.00" height="0.70" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="391.70" y="84.00" width="3.20" height="4.00" rx="0" fill="#5A2A28" stroke="none" stroke-width="0.25"/>
+<text x="383.20" y="96.50" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">③ ELIAN</text>
+<text x="383.20" y="99.30" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">그리드 ·</text>
+<text x="383.20" y="101.70" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">대형 타이포형</text>
+<rect x="398.30" y="71.00" width="12.50" height="22.00" rx="0" fill="#111111" stroke="none" stroke-width="0"/>
+<rect x="399.10" y="71.80" width="10.90" height="6.00" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="401.80" y="74.30" width="5.50" height="1.00" rx="0" fill="#EEEEEE" stroke="none" stroke-width="0.25"/>
+<rect x="399.10" y="79.50" width="4.00" height="0.90" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<line x1="404.30" y1="79.50" x2="410.00" y2="79.50" stroke="#5A5A5A" stroke-width="0.2"/>
+<line x1="404.30" y1="80.80" x2="410.00" y2="80.80" stroke="#5A5A5A" stroke-width="0.2"/>
+<line x1="404.30" y1="82.10" x2="410.00" y2="82.10" stroke="#5A5A5A" stroke-width="0.2"/>
+<line x1="404.30" y1="83.40" x2="410.00" y2="83.40" stroke="#5A5A5A" stroke-width="0.2"/>
+<rect x="399.10" y="85.00" width="4.50" height="4.00" rx="0" fill="#8A8A8A" stroke="none" stroke-width="0.25"/>
+<rect x="403.90" y="85.00" width="1.35" height="4.00" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="405.45" y="85.00" width="1.35" height="4.00" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="407.00" y="85.00" width="1.35" height="4.00" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="408.55" y="85.00" width="1.35" height="4.00" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="403.90" y="90.30" width="1.80" height="0.50" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="406.00" y="90.30" width="1.80" height="0.50" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="408.10" y="90.30" width="1.80" height="0.50" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<rect x="399.10" y="90.30" width="4.00" height="0.90" rx="0" fill="#5A5A5A" stroke="none" stroke-width="0.25"/>
+<text x="398.30" y="96.50" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">④ SONORA</text>
+<text x="398.30" y="99.30" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">에디토리얼</text>
+<text x="398.30" y="101.70" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">2단 · 번호 목록</text>
+<text x="353.00" y="108.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.976" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">네 장의 공통 문법</text>
+<text x="353.00" y="111.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">검정 바탕 · 흑백 또는 저채도 사진</text>
+<text x="353.00" y="113.58" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">영문 대문자 제목 + 아주 작은 본문</text>
+<text x="353.00" y="115.97" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">구획은 카드(①) · 가는 선(②④) · 격자(③)</text>
+<text x="353.00" y="118.35" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">첫 화면 = 사진 위 대형 이름 또는 제목</text>
+<text x="353.00" y="127.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.200" opacity="1">TYPE</text>
+<text x="353.00" y="131.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="500" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">이름</text>
+<text x="372.00" y="131.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">Inter Thin 51pt · 자간 +3%</text>
+<text x="353.00" y="134.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="500" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">섹션 제목</text>
+<text x="372.00" y="134.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">Inter Light 14pt</text>
+<text x="353.00" y="137.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="500" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">카드 제목</text>
+<text x="372.00" y="137.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">Inter SemiBold 6pt · 대문자</text>
+<text x="353.00" y="140.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="500" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">본문</text>
+<text x="372.00" y="140.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">Noto Sans KR 5–5.6pt · 회색</text>
+<text x="353.00" y="143.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="500" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">ABOUT 헤드라인</text>
+<text x="372.00" y="143.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.835" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">Noto Sans KR Light 11pt</text>
+<text x="353.00" y="149.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.200" opacity="1">TONE</text>
+<rect x="353.00" y="151.50" width="13.00" height="6.00" rx="0" fill="#0B0B0B" stroke="#15191B" stroke-width="0.15"/>
+<text x="353.00" y="160.30" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.693" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">바탕</text>
+<text x="353.00" y="162.80" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">#0B0B0B</text>
+<rect x="367.50" y="151.50" width="13.00" height="6.00" rx="0" fill="#1E1E1E" stroke="#15191B" stroke-width="0.15"/>
+<text x="367.50" y="160.30" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.693" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">카드</text>
+<text x="367.50" y="162.80" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">#1E1E1E</text>
+<rect x="382.00" y="151.50" width="13.00" height="6.00" rx="0" fill="#ECE8E1" stroke="#15191B" stroke-width="0.15"/>
+<text x="382.00" y="160.30" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.693" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">글자</text>
+<text x="382.00" y="162.80" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">#ECE8E1</text>
+<rect x="396.50" y="151.50" width="13.00" height="6.00" rx="0" fill="#8E8B86" stroke="#15191B" stroke-width="0.15"/>
+<text x="396.50" y="160.30" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.693" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">본문</text>
+<text x="396.50" y="162.80" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">#8E8B86</text>
+<text x="353.00" y="167.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">강조색 후보 (빗금 자리)</text>
+<rect x="353.00" y="169.20" width="18.00" height="4.50" rx="1" fill="#D9705C" stroke="#15191B" stroke-width="0.15"/>
+<text x="353.00" y="176.40" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.623" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">레퍼런스 코랄</text>
+<text x="353.00" y="178.80" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">#D9705C</text>
+<rect x="372.50" y="169.20" width="18.00" height="4.50" rx="1" fill="#445162" stroke="#15191B" stroke-width="0.15"/>
+<text x="372.50" y="176.40" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.623" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">SECTOR A 청회색</text>
+<text x="372.50" y="178.80" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">#445162</text>
+<rect x="392.00" y="169.20" width="18.00" height="4.50" rx="1" fill="#C4B29B" stroke="#15191B" stroke-width="0.15"/>
+<text x="392.00" y="176.40" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.623" font-weight="500" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">SECTOR A 베이지</text>
+<text x="392.00" y="178.80" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.552" font-weight="400" fill="#5B656B" text-anchor="start" letter-spacing="0.000" opacity="1">#C4B29B</text>
+<text x="353.00" y="186.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.470" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">혁주님이 정할 것</text>
+<text x="353.00" y="190.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.870" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">1  강조색: 코랄 · 청회색 · 베이지 · 그 밖</text>
+<text x="353.00" y="192.71" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.870" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">2  사진 4장(01–04)을 그대로 둘지, 줄일지</text>
+<text x="353.00" y="195.42" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.870" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">3  본문 언어: 국문 · 영문 · 국영 병기</text>
+<text x="353.00" y="198.13" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.870" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">4  ④ 숫자 줄을 넣을지</text>
+<text x="353.00" y="200.85" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.870" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">5  ⑤ INTERESTS 칸을 넣을지</text>
+<text x="353.00" y="203.56" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.870" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">6  ____ 칸의 사실: 학교명 · 연도 · 사무소명 ·</text>
+<text x="353.00" y="206.27" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.870" font-weight="400" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">    기간 · 연락처 · 어학 · 수상</text>
+</svg>
