@@ -64,7 +64,7 @@ def main(argv=None) -> int:
     a.add_argument("--rights", action="append", default=[], help="own | licensed | public_domain | cc0 | cc-by, per --image")
     a.add_argument("--no-pdf", action="store_true"); a.add_argument("--sources", default=None, help="another research catalogue")
     sub.add_parser("research")
-    a = sub.add_parser("cv"); a.add_argument("spec"); a.add_argument("--name", default=""); a.add_argument("--no-pdf", action="store_true")
+    a = sub.add_parser("cv"); a.add_argument("spec"); a.add_argument("--name", default=""); a.add_argument("--layout", default="rows", choices=["rows", "split", "creative", "all"]); a.add_argument("--no-pdf", action="store_true")
     a = sub.add_parser("photo-issue"); a.add_argument("spec"); a.add_argument("--name", default=""); a.add_argument("--no-pdf", action="store_true")
     a = ap.parse_args(argv)
     try:
@@ -113,11 +113,14 @@ def main(argv=None) -> int:
             return 0 if r["verdict"] != "FAIL" else 1
         elif a.cmd == "cv":
             from gentle_monster.magazine import cv as CV
-            r = CV.build(a.spec, name=a.name, pdf=not a.no_pdf)
-            print(f"HTML {r['html']}\nPDF  {r['pdf'] or (r['pdf_result'] or {}).get('error', '요청 안 함')}")
-            print(f"QA {r['verdict']}: " + "; ".join(f"{c['status']} {c['check']} ({c['detail']})" for c in r["checks"] if c["status"] != "PASS"))
-            print(f"보고서 {r['dir']}/QA_REPORT.md")
-            return 0 if r["verdict"] != "FAIL" else 1
+            worst = 0
+            for lay in (["rows", "split", "creative"] if a.layout == "all" else [a.layout]):
+                r = CV.build(a.spec, name=a.name, pdf=not a.no_pdf, layout=lay)
+                print(f"[{lay}] {CV.LAYOUTS[lay]}\nHTML {r['html']}\nPDF  {r['pdf'] or (r['pdf_result'] or {}).get('error', '요청 안 함')}")
+                print(f"QA {r['verdict']}: " + "; ".join(f"{c['status']} {c['check']} ({c['detail']})" for c in r["checks"] if c["status"] != "PASS"))
+                print(f"보고서 {r['dir']}/QA_REPORT.md")
+                worst = max(worst, r["verdict"] == "FAIL")
+            return worst
         elif a.cmd == "photo-issue":
             from gentle_monster.magazine import photo_issue as PI
             r = PI.build(a.spec, name=a.name, pdf=not a.no_pdf)

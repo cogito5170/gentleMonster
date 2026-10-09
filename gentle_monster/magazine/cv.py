@@ -5,6 +5,7 @@ education · experience/projects · tools · skills · languages. Three choices 
   - the three-zone row of the text-led template (label | title, place, years | description) -- it carries the most;
   - tools written as *what you can do with them*, not as gauges or percentages (a '75 %' bar says nothing);
   - skills as chips, filled and outlined in turn.
+Three layouts from the same spec (`--layout rows|split|creative|all`, see LAYOUTS), one per reference type.
 Nothing is invented: a field that is null in the spec is printed as a red [blank] for the applicant to fill, and
 every sentence that is printed is checked word for word against the document it came from.
 
@@ -32,7 +33,8 @@ MARGIN, GUT, COLS = 14, 4, 12
 COL = (W_MM - 2 * MARGIN - (COLS - 1) * GUT) / COLS  # 11.5 mm
 TYPE = {"furn": 6.8, "cap": 7.2, "body": 8.4, "body_ko": 8.2, "role": 7.6, "lead_ko": 10.5, "lead_en": 9.0, "head": 9.5, "name": 34.0}
 MIN_PT = 6.5
-PRINT_DPI = 200                                     # a CV is looked at close
+PRINT_DPI = 200
+PANEL, PANEL_INK, PANEL_MUTE, PANEL_RED, BAND = INK, "#ece8de", "#a9aaa2", "#f0a493", "#fbf9f4"                                     # a CV is looked at close
 
 
 def e(s) -> str:
@@ -144,51 +146,32 @@ main{{display:flex;justify-content:center;padding:32px 16px}}
 .thumbs figure{{margin:0}} .thumbs .img{{aspect-ratio:468/258;overflow:hidden}}
 .thumbs figcaption{{margin-top:{1.4 * MM:.3f}cqw;padding-top:{1 * MM:.3f}cqw;border-top:.5pt solid var(--ink)}}
 .folio{{position:absolute;bottom:{8 * MM:.3f}cqw;font-family:Inter,sans-serif;font-size:{pt(TYPE['furn'])};letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}}
+.panel{{position:absolute;left:0;top:0;bottom:0;background:{PANEL}}}
+.on-panel{{color:{PANEL_INK}}} .on-panel .blank,.muted-p .blank{{color:{PANEL_RED}}} .muted-p{{color:{PANEL_MUTE}}}
+.cut{{clip-path:polygon(0 0,100% 0,100% 80%,0 100%)}}
+.black{{font-family:"Inter Display",Inter,sans-serif;font-weight:800;letter-spacing:-.01em;line-height:.95}}
+.vt{{writing-mode:vertical-rl;transform:rotate(180deg);font-family:"Inter Display",Inter,sans-serif;font-weight:800;text-transform:uppercase;
+  letter-spacing:.14em;font-size:{pt(12.5)};line-height:1}}
+.band{{position:absolute;background:{BAND}}}
+.rule2{{position:absolute;height:{.9 * MM:.3f}cqw;display:flex}} .rule2 i{{flex:6;border-top:1.4pt solid var(--line)}} .rule2 b{{flex:4;border-top:1.4pt solid var(--ink)}}
+.dot{{position:absolute;width:{2.2 * MM:.3f}cqw;height:{2.2 * MM:.3f}cqw;border:.9pt solid var(--ink);border-radius:50%;background:var(--paper)}}
+.vline{{position:absolute;border-left:.9pt solid var(--ink)}}
+.script{{position:absolute;right:{4 * MM:.3f}cqw;bottom:{-6 * MM:.3f}cqw;font-family:Caladea,serif;font-style:italic;font-weight:400;
+  font-size:{pt(22)};color:var(--accent-text);letter-spacing:0;transform:rotate(-5deg);white-space:nowrap;text-transform:none}}
+.black-head{{font-family:"Inter Display",Inter,sans-serif;font-weight:900;text-transform:uppercase;font-size:{pt(11.5)};letter-spacing:.01em;line-height:1.1}}
+.tilerow{{display:grid;grid-template-columns:{14 * MM:.3f}cqw 1fr;column-gap:{4 * MM:.3f}cqw;align-items:center;margin-top:{3.4 * MM:.3f}cqw}}
+.tile{{width:{14 * MM:.3f}cqw;height:{14 * MM:.3f}cqw;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;
+  font-family:"Inter Display",Inter,sans-serif;font-weight:800;font-size:{pt(17)};line-height:1}} .tile .blank{{color:{PANEL_RED};font-weight:700;font-size:{pt(12)}}}
+.chiprow{{display:flex;margin-top:{3 * MM:.3f}cqw;padding:0 {2 * MM:.3f}cqw}}
+.chip.big{{border-width:1pt;padding:{2.2 * MM:.3f}cqw {7 * MM:.3f}cqw;font-size:{pt(8.6)}}}
 @page{{size:{W_MM}mm {H_MM}mm;margin:0}}
 @media print{{html,body{{background:none}} main{{display:block;padding:0}} .page{{width:{W_MM}mm;height:{H_MM}mm;aspect-ratio:auto;box-shadow:none}}}}
 html.print-sim main{{display:block;padding:0;width:{W_MM}mm}} html.print-sim .page{{width:{W_MM}mm;height:{H_MM}mm;aspect-ratio:auto;box-shadow:none}}
 """
 
 
-def build(spec_path, name: str = "", pdf: bool = True) -> dict:
-    spec_path = Path(spec_path)
-    spec = json.loads(spec_path.read_text(encoding="utf-8"))
-    out = paths.OUT / (name or spec["id"]) / "cv"
-    (out / "img").mkdir(parents=True, exist_ok=True)
-    (out / "fonts").mkdir(exist_ok=True)
-    for fn in [f[2] for f in FACES] + ["LICENSE-Pretendard.txt", "LICENSE-NotoSerifCJK.txt"]:
-        if (FONT_DIR / fn).is_file() and not (out / "fonts" / fn).is_file():
-            (out / "fonts" / fn).write_bytes((FONT_DIR / fn).read_bytes())
-
-    pdir = paths.REPO / spec["photo_dir"]
-    src, missing = {}, []
-    for n in [spec["portrait"]["photo"]] + spec["photographs"]:
-        k = f"{int(n):02d}"
-        f = pdir / f"{k}.png"
-        if not f.is_file():
-            missing.append(k)
-            continue
-        from PIL import Image
-        with Image.open(f) as im:
-            src[k] = im.size
-        dst = out / "img" / f"{k}_bw.jpg"
-        bw_copy(f, dst)
-
-    def img(n, pos="50% 50%"):
-        k = f"{int(n):02d}"
-        if k not in src:
-            return f'<div class="ph" style="background:var(--line)"></div>'
-        return (f'<img class="ph" src="img/{k}_bw.jpg" alt="Photograph {k}" data-photo="{k}" data-srcpx="{src[k][0]}" '
-                f'style="object-position:{pos}">')
-
-    def at(c, top, span, body, cls="", style=""):
-        return (f'<div class="a {cls}" data-col="{c}" style="left:{X(c) * MM:.3f}cqw;top:{top * MM:.3f}cqw;'
-                f'width:{SPAN(span) * MM:.3f}cqw;{style}">{body}</div>')
-
-    def rule(top, thin=False):
-        return f'<div class="rule{" thin" if thin else ""}" style="left:{MARGIN * MM:.3f}cqw;right:{MARGIN * MM:.3f}cqw;top:{top * MM:.3f}cqw"></div>'
-
-    s = spec
+def layout_rows(s, at, rule, img) -> list:
+    """Reference ① (text-led): name | portrait | profile, then three-zone rows under ink rules."""
     pr = s["profile"]
     h = []
     # ---- head: name | portrait | profile -------------------------------------------------------------------
@@ -252,20 +235,198 @@ def build(spec_path, name: str = "", pdf: bool = True) -> dict:
     h.append(f'<div class="folio" style="right:{MARGIN * MM:.3f}cqw;color:var(--accent-text)">'
              f'Test version · [ ] {len(blanks(s))} blanks to fill</div>')
 
-    page = f'<section class="page" id="cv" data-type="cv">{"".join(h)}</section>'
+    return h
+
+
+PW = X(5) - GUT / 2                                  # the split layout's dark panel: page edge to the gutter before col 5
+
+
+def _c(v: float) -> str:
+    return f"{v * MM:.3f}cqw"
+
+
+def layout_split(s, at, rule, img) -> list:
+    """References ② ④ ⑤: a dark left panel with the photograph bled off the top (its foot cut on a diagonal, ④),
+    name and role in light type (②); on the right, section titles set upright along the edge (②) and a dotted
+    timeline for dated entries (④). No gauges or bars (④ ⑤) -- the same fields are written out."""
+    pr = s["profile"]
+    h = [f'<div class="panel" style="width:{_c(PW)}"></div>',
+         f'<div class="a cut" data-bleed style="left:0;top:0;width:{_c(PW)};height:{_c(122)}">{img(s["portrait"]["photo"], "62% 50%")}</div>']
+    h.append(at(0, 128, 4, f'<div class="name black on-panel" lang="en" style="font-size:{pt(30)}">{"<br>".join(e(x) for x in s["name"])}</div>'
+                           f'<p class="caps on-panel" style="margin-top:{_c(4.5)};letter-spacing:.32em;font-size:{pt(7.8)}">{e(s["role"])}</p>'
+                           f'<p class="caps muted-p" style="letter-spacing:.32em;font-size:{pt(7.8)}">{e(s["applying"])}</p>'))
+    h.append(at(0, 166, 4, f'<p class="head on-panel" lang="en">Profile</p>'
+                           f'<p class="lead-ko on-panel" lang="ko" style="margin-top:{_c(2.6)};font-size:{pt(9.6)}">{e(pr["ko"])}</p>'
+                           f'<p class="lead-en muted-p" lang="en" style="margin-top:{_c(2)};font-size:{pt(8.4)}">{e(pr["en"])}</p>'))
+    h.append(at(0, 226, 4, f'<p class="head on-panel" lang="en">Contact</p>' + "".join(
+        f'<p class="role on-panel" lang="en" style="margin-top:{_c(1.2)}"><span class="muted-p">{e(c["label"])}</span>&ensp;{val(c["value"], c["label"])}</p>'
+        for c in s["contact"])))
+    h.append(at(0, 262, 4, f'<p class="cap muted-p" lang="ko" style="font-family:var(--ko-sans);word-break:keep-all">{e(s["portrait"]["note"])}</p>'))
+
+    def section(top, bottom, title, band=False):
+        if bottom - top - 4 < len(title) * 3.6:        # 12.5 pt caps at .14em tracking: 3.4-3.5 mm a letter, measured
+            raise ValueError(f"upright title '{title}' needs {len(title) * 3.6:.0f} mm, section has {bottom - top - 4:.0f}")
+        out = []
+        if band:
+            out.append(f'<div class="band" style="left:{_c(PW)};right:0;top:{_c(top - 4)};height:{_c(bottom - top + 4)}"></div>')
+        out.append(f'<div class="rule2" style="left:{_c(X(6))};right:{_c(MARGIN)};top:{_c(top)}"><i></i><b></b></div>')
+        out.append(at(5, top + 4, 1, f'<p class="vt" lang="en">{e(title)}</p>'))   # natural height: an overlong title is a measured overlap
+        return out
+
+    def timeline(top, rows, step):
+        """rows: [(left html, right html)] -- years at cols 6-7, a dot in the gutter, the entry at cols 8-11."""
+        out, xd = [], X(8) - GUT / 2
+        if len(rows) > 1:
+            out.append(f'<div class="vline" style="left:{_c(xd)};top:{_c(top + 1.6)};height:{_c(step * (len(rows) - 1))}"></div>')
+        for i, (l_, r_) in enumerate(rows):
+            y = top + i * step
+            out.append(f'<div class="dot" style="left:{_c(xd - 1.1)};top:{_c(y + 0.5)}"></div>')
+            out.append(at(6, y, 2, l_))
+            out.append(at(8, y, 4, r_))
+        return out
+
+    h += section(14, 56, "Education")
+    h += timeline(20, [(f'<p class="role">{val(ed["years"], "20XX – 20XX")}</p>',
+                        f'<p class="t ko-t" lang="ko">{val(ed["school"], "학교")}</p><p class="ko">{val(ed["major"], "전공 · 학위")}</p>'
+                        f'<p class="ko" style="color:var(--grey)">{val(ed["line"], "졸업 작품 · 주요 수업 한 줄")}</p>')
+                       for ed in s["education"]], 0)
+    h += section(62, 122, "Projects", band=True)
+    h += timeline(68, [(f'<p class="role">{val(p["years"], "기간")}</p>',
+                        f'<p class="t" lang="en">{val(p["title"], "프로젝트")}</p><p class="ko" style="color:var(--grey)">{val(p["kind"], "성격 · 역할")}</p>'
+                        f'<p class="ko" lang="ko" style="margin-top:{_c(.8)}">{val(p["what"], "무엇을 했고 결과가 무엇이었는지 한두 줄")}</p>')
+                       for p in s["projects"]], 28)
+    h += section(128, 172, "Tools")
+    for i, t in enumerate(s["tools"]):
+        y = 134 + i * 10
+        h.append(at(6, y, 2, f'<p class="t" lang="en">{val(t["name"], "툴 이름")}</p>'))
+        h.append(at(8, y, 4, f'<p class="ko" lang="ko">{val(t["can"], "할 줄 아는 것 — 예: 평면 · 단면 도면, 3D 모델링" if i == 0 else "할 줄 아는 것")}</p>'))
+    h += section(176, 210, "Skills")
+    h.append(at(6, 182, 6, '<div class="chips">' + "".join(
+        f'<span class="chip{" on" if c["on"] else ""}" lang="en">{val(c["t"], "스킬")}</span>' for c in s["skills"]) + "</div>"))
+    h += section(214, 252, "Language")
+    for i, l_ in enumerate(s["languages"]):
+        h.append(at(6 + 3 * i, 220, 3, f'<p class="t" lang="en">{e(l_["lang"])}</p><p class="role">{val(l_["level"], "수준 · 점수")}</p>'))
+    h.append(f'<div class="rule2" style="left:{_c(X(6))};right:{_c(MARGIN)};top:{_c(256)}"><i></i><b></b></div>')
+    h.append(at(6, 260, 6, '<div class="thumbs">' + "".join(
+        f'<figure><div class="img">{img(n)}</div><figcaption class="cap" lang="en">{int(n):02d}</figcaption></figure>' for n in s["photographs"]) + "</div>"))
+    h.append(f'<div class="folio" style="right:{_c(MARGIN)};color:var(--accent-text)">Test version · [ ] {len(blanks(s))} blanks to fill</div>')
+    return h
+
+
+def layout_creative(s, at, rule, img) -> list:
+    """Reference ③: a square photograph, a black heavy name with the role written across it in red (the reference's
+    script face is not here -- Caladea italic stands in, and says so in the docs), tools as black tiles beside what
+    they are used for, skills as chips set off-centre in three rows."""
+    pr = s["profile"]
+    sq = SPAN(5)
+    h = [at(0, 16, 5, f'<div style="height:{_c(sq)}">{img(s["portrait"]["photo"], "62% 50%")}</div>'),
+         at(0, 16 + sq + 1.8, 5, f'<p class="cap" lang="ko" style="font-family:var(--ko-sans);word-break:keep-all">{e(s["portrait"]["note"])}</p>')]
+    h.append(at(6, 24, 6, f'<div class="name black" lang="en" style="font-size:{pt(40)};line-height:.92;position:relative">'
+                          f'{"<br>".join(e(x) for x in s["name"])}'
+                          f'<span class="script" lang="en">{e(s["role"])}</span></div>'))
+    h.append(at(6, 62, 6, f'<p class="ko" lang="ko" style="font-weight:600;font-size:{pt(9.4)};line-height:1.6;color:var(--ink)">{e(pr["ko"])}</p>'
+                          f'<p lang="en" style="font-family:Inter,sans-serif;font-style:italic;font-weight:600;font-size:{pt(8)};line-height:1.45;margin-top:{_c(2)}">{e(pr["en"])}</p>'))
+
+    def head(t):
+        return f'<p class="black-head" lang="en">{e(t)}</p>'
+
+    h.append(at(0, 112, 5, head("Personal Information") + "".join(
+        f'<p class="role" lang="en" style="margin-top:{_c(1.1)}"><span style="color:var(--grey)">{e(c["label"])}</span>&ensp;{val(c["value"], c["label"])}</p>'
+        for c in s["contact"])))
+    ed = s["education"][0]
+    h.append(at(0, 148, 5, head("Education") + f'<p class="t ko-t" lang="ko" style="margin-top:{_c(1.5)}">{val(ed["school"], "학교")}</p>'
+                           f'<p class="ko">{val(ed["major"], "전공 · 학위")} ( {val(ed["years"], "20XX – 20XX")} )</p>'))
+    h.append(at(0, 170, 5, head("Projects") + "".join(
+        f'<p class="t" lang="en" style="margin-top:{_c(2)}">{val(p["title"], "프로젝트")}</p>'
+        f'<p class="ko" style="color:var(--grey)">{val(p["kind"], "성격 · 역할")} · {val(p["years"], "기간")}</p>'
+        f'<p class="ko">{val(p["what"], "무엇을 했고 결과가 무엇이었는지 한두 줄")}</p>' for p in s["projects"])))
+    h.append(at(6, 112, 6, head("Tools") + "".join(
+        f'<div class="tilerow"><div class="tile" lang="en">{e(t["name"][:2]) if t["name"] else blank(" ")}</div>'
+        f'<div><p class="t" lang="en">{val(t["name"], "툴 이름")}</p><p class="ko">{val(t["can"], "할 줄 아는 것 — 예: 평면 · 단면 도면, 3D 모델링" if i == 0 else "할 줄 아는 것")}</p></div></div>'
+        for i, t in enumerate(s["tools"]))))
+    sk = s["skills"]
+    rows_ = [sk[0:2], sk[2:3], sk[3:5]]
+    just = ["space-between", "center", "space-between"]
+    h.append(at(6, 196, 6, head("Skills") + "".join(
+        f'<div class="chiprow" style="justify-content:{j}">' + "".join(
+            f'<span class="chip big{" on" if c["on"] else ""}" lang="en">{val(c["t"], "스킬")}</span>' for c in r) + "</div>"
+        for r, j in zip(rows_, just))))
+    h.append(at(0, 238, 5, head("Language") + "".join(
+        f'<p class="role" lang="en" style="margin-top:{_c(1.1)}"><b>{e(l_["lang"])}</b>&ensp;{val(l_["level"], "수준 · 점수")}</p>' for l_ in s["languages"])))
+    h.append(at(0, 256, 12, '<div class="thumbs">' + "".join(
+        f'<figure><div class="img">{img(n)}</div></figure>' for n in s["photographs"]) + "</div>"))
+    h.append(f'<div class="folio" lang="en" style="left:{_c(MARGIN)}">{e(s["question"])}</div>')
+    h.append(f'<div class="folio" style="right:{_c(MARGIN)};color:var(--accent-text)">Test version · [ ] {len(blanks(s))} blanks to fill</div>')
+    return h
+
+
+LAYOUTS = {"rows": "① 행 구조 — 이름 | 사진 | 프로필, 아래로 세 칸 행 (Laura)",
+           "split": "②④⑤ 사진 반쪽 — 어두운 왼쪽 패널에 사진 · 이름, 오른쪽에 세운 섹션 제목과 연표 (Richard · YOUR NAME · Noah)",
+           "creative": "③ 크리에이티브 — 정사각 사진, 굵은 이름 위에 붉은 직함, 툴 타일과 엇갈린 칩 (Le Khanh Huyen)"}
+
+
+def build(spec_path, name: str = "", pdf: bool = True, layout: str = "rows") -> dict:
+    spec_path = Path(spec_path)
+    spec = json.loads(spec_path.read_text(encoding="utf-8"))
+    out = paths.OUT / (name or spec["id"]) / ("cv" if layout == "rows" else f"cv-{layout}")
+    (out / "img").mkdir(parents=True, exist_ok=True)
+    (out / "fonts").mkdir(exist_ok=True)
+    for fn in [f[2] for f in FACES] + ["LICENSE-Pretendard.txt", "LICENSE-NotoSerifCJK.txt"]:
+        if (FONT_DIR / fn).is_file() and not (out / "fonts" / fn).is_file():
+            (out / "fonts" / fn).write_bytes((FONT_DIR / fn).read_bytes())
+
+    pdir = paths.REPO / spec["photo_dir"]
+    src, missing = {}, []
+    for n in [spec["portrait"]["photo"]] + spec["photographs"]:
+        k = f"{int(n):02d}"
+        f = pdir / f"{k}.png"
+        if not f.is_file():
+            missing.append(k)
+            continue
+        from PIL import Image
+        with Image.open(f) as im:
+            src[k] = im.size
+        dst = out / "img" / f"{k}_bw.jpg"
+        bw_copy(f, dst)
+
+    def img(n, pos="50% 50%"):
+        k = f"{int(n):02d}"
+        if k not in src:
+            return f'<div class="ph" style="background:var(--line)"></div>'
+        return (f'<img class="ph" src="img/{k}_bw.jpg" alt="Photograph {k}" data-photo="{k}" data-srcpx="{src[k][0]}" '
+                f'style="object-position:{pos}">')
+
+    def at(c, top, span, body, cls="", style=""):
+        return (f'<div class="a {cls}" data-col="{c}" style="left:{X(c) * MM:.3f}cqw;top:{top * MM:.3f}cqw;'
+                f'width:{SPAN(span) * MM:.3f}cqw;{style}">{body}</div>')
+
+    def rule(top, thin=False, x0=MARGIN, x1=MARGIN):
+        return f'<div class="rule{" thin" if thin else ""}" style="left:{x0 * MM:.3f}cqw;right:{x1 * MM:.3f}cqw;top:{top * MM:.3f}cqw"></div>'
+
+    s = spec
+    h = {"rows": layout_rows, "split": layout_split, "creative": layout_creative}[layout](s, at, rule, img)
+    pairs = [("ink on paper", INK, PAPER), ("grey on paper", GREY, PAPER), ("red blanks on paper", ACCENT_TEXT, PAPER)]
+    if layout == "split":
+        pairs += [("light on panel", PANEL_INK, PANEL), ("muted on panel", PANEL_MUTE, PANEL), ("red blanks on panel", PANEL_RED, PANEL),
+                  ("ink on band", INK, BAND), ("grey on band", GREY, BAND), ("red blanks on band", ACCENT_TEXT, BAND)]
+    if layout == "creative":
+        pairs += [("paper on black tiles", PAPER, INK), ("red blanks on black", PANEL_RED, INK)]
+    s_ = s
+    page = f'<section class="page {layout}" id="cv" data-type="cv" data-layout="{layout}">{"".join(h)}</section>'
     doc_html = (f'<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-                f'<title>{e(" ".join(s["name"]))} — CV</title><style>{css()}</style></head><body><main>{page}</main>'
+                f'<title>{e(" ".join(s_["name"]))} — CV</title><style>{css()}</style></head><body><main>{page}</main>'
                 f'<script>{QA_JS}</script></body></html>')
     hp = out / "index.html"
     hp.write_text(doc_html, encoding="utf-8")
     pres = PDF.render(hp, out / "cv.pdf") if pdf else None
-    checks = qa(spec, hp, pres, pdf, src, missing)
+    need = {"Pretendard 400", "Pretendard 600"} | ({"Noto Serif KR 400"} if "lead-ko" in page else set())
+    checks = qa(spec, hp, pres, pdf, src, missing, pairs, need)
     verdict = "FAIL" if any(c["status"] == "FAIL" for c in checks) else ("WARNING" if any(c["status"] == "WARNING" for c in checks) else "PASS")
     (out / "qa.json").write_text(json.dumps({"verdict": verdict, "checks": checks, "blanks": blanks(spec)}, ensure_ascii=False, indent=2), encoding="utf-8")
-    md = [f"# CV QA — {verdict}", "", "| 결과 | 검사 | 근거 |", "|---|---|---|"] + \
+    md = [f"# CV QA — {verdict} · {LAYOUTS[layout]}", "", "| 결과 | 검사 | 근거 |", "|---|---|---|"] + \
          [f"| {c['status']} | {c['check']} | {c['detail']} |" for c in checks] + ["", "## 지원자가 채울 칸", ""] + [f"- {b}" for b in blanks(spec)]
     (out / "QA_REPORT.md").write_text("\n".join(md) + "\n", encoding="utf-8")
-    return {"dir": str(out), "html": str(hp), "pdf": (pres or {}).get("path"), "pdf_result": pres, "verdict": verdict,
+    return {"dir": str(out), "html": str(hp), "layout": layout, "pdf": (pres or {}).get("path"), "pdf_result": pres, "verdict": verdict,
             "checks": checks, "blanks": blanks(spec)}
 
 
@@ -273,7 +434,7 @@ def C(check, status, detail="") -> dict:
     return {"check": check, "status": status, "detail": detail}
 
 
-def qa(spec, hp, pres, want_pdf, src, missing) -> list:
+def qa(spec, hp, pres, want_pdf, src, missing, pairs, need) -> list:
     out = []
     bad = check_texts(spec)
     out.append(C("printed sentences are word for word from their sources", "FAIL" if bad else "PASS", "; ".join(bad) or "profile ko/en/more, name, question"))
@@ -292,7 +453,6 @@ def qa(spec, hp, pres, want_pdf, src, missing) -> list:
     out.append(C(f"smallest text >= {MIN_PT} pt on paper", "PASS" if minpt >= MIN_PT - 0.05 else "FAIL", f"{minpt:.2f} pt"))
     faux = [f for f in p["faux"] if int(f.split("|")[0]) not in KO_WEIGHTS.get(f.split("|")[1], set())]
     out.append(C("Korean set only in weights that have a real face", "FAIL" if faux else "PASS", "; ".join(faux[:5]) or "none"))
-    need = {"Pretendard 400", "Pretendard 600", "Noto Serif KR 400"}
     have = set(m.get("fonts", []))
     out.append(C("vendored Korean fonts load", "FAIL" if need - have else "PASS", ", ".join(sorted(need - have)) or ", ".join(sorted(need))))
     off = [c for c in p["cols"] if abs(c["x"] - X(c["col"]) / W_MM * 100) > 0.3]
@@ -308,9 +468,9 @@ def qa(spec, hp, pres, want_pdf, src, missing) -> list:
                 low.append(f"{i['photo']} {dpi:.0f} dpi")
     out.append(C(f"print resolution >= {PRINT_DPI} dpi", "FAIL" if low else "PASS",
                  (", ".join(low) + " -- the source photos are 468 px screenshots; the originals are needed") if low else "all"))
-    for name_, col in (("ink", INK), ("grey", GREY), ("red blanks", ACCENT_TEXT)):
-        cr = DS.contrast(col, PAPER)
-        out.append(C(f"text contrast on paper: {name_}", "PASS" if cr >= 4.5 else "FAIL", f"{cr:.2f}:1"))
+    for name_, fg, bg in pairs:
+        cr = DS.contrast(fg, bg)
+        out.append(C(f"text contrast: {name_}", "PASS" if cr >= 4.5 else "FAIL", f"{fg} on {bg} {cr:.2f}:1"))
     if want_pdf:
         ok_ = bool(pres and pres.get("ok") and pres.get("pages") == 1)
         out.append(C("PDF is one A4 page", "PASS" if ok_ else "FAIL", f"{(pres or {}).get('pages')} page(s), {(pres or {}).get('bytes', 0) // 1024} KB" if pres and pres.get("ok") else str((pres or {}).get("error"))))

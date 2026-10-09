@@ -3,7 +3,7 @@
 Holds:
   1. Nothing is invented: every printed sentence is in its source document -- one changed word FAILS -- and
      every null field is printed as a red [blank] and counted; filling one lowers the count.
-  2. Built with large stand-ins: one A4 PDF page, nothing overflows, no block overlaps, fonts load,
+  2. Built with large stand-ins, in each of the three layouts (rows · split · creative): one A4 PDF page, nothing overflows, no block overlaps, fonts load,
      every block on the 12-column grid, print resolution PASSES.
   3. Broken on purpose, the page is caught: a block slid onto its neighbour is an overlap, a block nudged
      off its column is off the grid, 468 px photos (the screenshot crops) FAIL print resolution.
@@ -78,15 +78,18 @@ ok(n0 > 0 and len(CV.blanks(filled)) == n0 - 1, f"filling a blank lowers the cou
 if not PDF.available():
     print("  -- Chromium not found: build checks skipped")
 else:
-    print("[build: large stand-ins]")
     big = Path(임시) / "big"
     stand_ins(big, 4000, 2205)
-    r = CV.build(spec_with(big), name="big")
-    for name in ("printed sentences", "every photo in the spec", "nothing runs past", "no text block overlaps", "smallest text",
-                 "Korean set only", "vendored Korean fonts", "blocks sit on the 12-column grid", "images load", "print resolution",
-                 "text contrast on paper: red", "PDF is one A4 page"):
-        ok(status(r["checks"], name) == "PASS", f"GREEN: {name}")
-    ok(status(r["checks"], "fields left for the applicant") == "WARNING", "blanks are reported, not hidden (WARNING)")
+    for lay in ("split", "creative", "rows"):                  # rows last: the RED copy below is made from it
+        print(f"[build: large stand-ins · {lay}]")
+        r = CV.build(spec_with(big), name="big", layout=lay)
+        for name in ("printed sentences", "every photo in the spec", "nothing runs past", "no text block overlaps", "smallest text",
+                     "Korean set only", "vendored Korean fonts", "blocks sit on the 12-column grid", "images load", "print resolution",
+                     "PDF is one A4 page"):
+            ok(status(r["checks"], name) == "PASS", f"GREEN {lay}: {name}")
+        weak = [c["detail"] for c in r["checks"] if c["check"].startswith("text contrast") and c["status"] != "PASS"]
+        ok(not weak, f"GREEN {lay}: every text/ground pair >= 4.5:1 " + "; ".join(weak))
+        ok(status(r["checks"], "fields left for the applicant") == "WARNING", f"{lay}: blanks are reported, not hidden (WARNING)")
 
     print("[RED: break the page on purpose]")
     red = Path(r["dir"]).parent / "red"
