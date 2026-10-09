@@ -278,7 +278,7 @@ class Page:
         ob.data.materials.append(m)
         # UV: map the front face (-Y) 0..1
         me = ob.data
-        uv = me.uv_layers.new()
+        uv = me.uv_layers[0] if len(me.uv_layers) else me.uv_layers.new()
         for poly in me.polygons:
             for li in poly.loop_indices:
                 v = me.vertices[me.loops[li].vertex_index].co

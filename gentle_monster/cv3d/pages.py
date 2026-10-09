@@ -222,11 +222,12 @@ def picture(pg: Page):
     # a camera on a plinth: the instrument
     body = E.mat_basic("body", "#1b1b1b", rough=0.45)
     chrome = E.mat_basic("chrome", "#d8d8d8", rough=0.12, metal=1.0)
-    _plinth(0.55, -1.0, 0.36, 0.36, 0.95, E.mat_basic("plinth", "#bdbab1", rough=0.8))
-    cam_body = _cube((0.55, -1.0, 0.95 + 0.075), (0.26, 0.09, 0.15), body, bevel=0.012)
-    _cyl((0.58, -1.1, 0.95 + 0.07), 0.05, 0.1, body, rot=(math.radians(90), 0, 0))
-    _cyl((0.58, -1.155, 0.95 + 0.07), 0.042, 0.012, E.mat_acrylic("glass", "#2a3a40", 0.9), rot=(math.radians(90), 0, 0))
-    _cube((0.47, -1.0, 0.95 + 0.16), (0.05, 0.05, 0.03), chrome, bevel=0.004)
+    ph = 0.5; cx = 0.68
+    _plinth(cx, -1.0, 0.36, 0.36, ph, E.mat_basic("plinth", "#bdbab1", rough=0.8))
+    cam_body = _cube((cx, -1.0, ph + 0.075), (0.26, 0.09, 0.15), body, bevel=0.012)
+    _cyl((cx + 0.03, -1.1, ph + 0.07), 0.05, 0.1, body, rot=(math.radians(90), 0, 0))
+    _cyl((cx + 0.03, -1.155, ph + 0.07), 0.042, 0.012, E.mat_acrylic("glass", "#2a3a40", 0.9), rot=(math.radians(90), 0, 0))
+    _cube((cx - 0.08, -1.0, ph + 0.16), (0.05, 0.05, 0.03), chrome, bevel=0.004)
     _light_studio(pg, (0, -0.6, 1.4), key=600)
     return dict(
         runs=[
