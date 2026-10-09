@@ -3,7 +3,7 @@
 Holds:
   1. Nothing is invented: every printed sentence is in its source document -- one changed word FAILS -- and
      every null field is printed as a red [blank] and counted; filling one lowers the count.
-  2. Built with large stand-ins, in each of the three layouts (rows · split · creative): one A4 PDF page, nothing overflows, no block overlaps, fonts load,
+  2. Built with large stand-ins, in each of the four layouts (rows · split · creative · art): one A4 PDF page, nothing overflows, no block overlaps, fonts load,
      every block on the 12-column grid, print resolution PASSES.
   3. Broken on purpose, the page is caught: a block slid onto its neighbour is an overlap, a block nudged
      off its column is off the grid, 468 px photos (the screenshot crops) FAIL print resolution.
@@ -80,7 +80,7 @@ if not PDF.available():
 else:
     big = Path(임시) / "big"
     stand_ins(big, 4000, 2205)
-    for lay in ("split", "creative", "rows"):                  # rows last: the RED copy below is made from it
+    for lay in ("art", "split", "creative", "rows"):               # rows last: the RED copy below is made from it
         print(f"[build: large stand-ins · {lay}]")
         r = CV.build(spec_with(big), name="big", layout=lay)
         for name in ("printed sentences", "every photo in the spec", "nothing runs past", "no text block overlaps", "smallest text",

@@ -164,6 +164,22 @@ main{{display:flex;justify-content:center;padding:32px 16px}}
   font-family:"Inter Display",Inter,sans-serif;font-weight:800;font-size:{pt(17)};line-height:1}} .tile .blank{{color:{PANEL_RED};font-weight:700;font-size:{pt(12)}}}
 .chiprow{{display:flex;margin-top:{3 * MM:.3f}cqw;padding:0 {2 * MM:.3f}cqw}}
 .chip.big{{border-width:1pt;padding:{2.2 * MM:.3f}cqw {7 * MM:.3f}cqw;font-size:{pt(8.6)}}}
+.art .blank{{color:var(--grey);border-bottom:.6pt dotted var(--grey)}} .art .chip.on .blank{{color:{PANEL_MUTE};border-color:{PANEL_MUTE}}}
+.artname{{font-family:"Inter Display",Inter,sans-serif;font-weight:900;font-size:{pt(54)};line-height:.86;letter-spacing:-.035em;position:relative}}
+.artname span{{display:block;position:relative;width:max-content}}
+.artname span::after{{content:"";position:absolute;left:-.4cqw;right:-.4cqw;top:47%;height:{.8 * MM:.3f}cqw;background:var(--paper)}}
+.grain{{position:absolute;inset:0;pointer-events:none;opacity:.16;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}}
+.route{{position:absolute;border-top:1.6pt solid var(--ink)}}
+.stop{{position:absolute;width:{3.8 * MM:.3f}cqw;height:{3.8 * MM:.3f}cqw;border-radius:50%;background:var(--paper);border:1.6pt solid var(--ink)}}
+.stop.cur{{background:var(--accent-text);border-color:var(--accent-text)}}
+.stopname{{font-family:Caladea,serif;font-style:italic;font-size:{pt(17)};line-height:1.1}}
+.film{{background:var(--ink);padding:{4.2 * MM:.3f}cqw 0 0 {3 * MM:.3f}cqw;
+  background-image:radial-gradient(circle,var(--paper) 0 {.55 * MM:.3f}cqw,transparent {.6 * MM:.3f}cqw),radial-gradient(circle,var(--paper) 0 {.55 * MM:.3f}cqw,transparent {.6 * MM:.3f}cqw);
+  background-size:{3.2 * MM:.3f}cqw {3.2 * MM:.3f}cqw;background-position:0 {.5 * MM:.3f}cqw,0 calc(100% - {.5 * MM:.3f}cqw);background-repeat:repeat-x}}
+.frames{{display:grid;column-gap:{2.4 * MM:.3f}cqw}} .frames figure{{margin:0}} .frames .img{{aspect-ratio:468/258;overflow:hidden}}
+.frames figcaption{{font-family:Inter,sans-serif;font-size:{pt(6.8)};letter-spacing:.12em;color:{PANEL_MUTE};margin-top:{.6 * MM:.3f}cqw}}
+.question{{font-family:Caladea,serif;font-style:italic;font-size:{pt(19)};line-height:1.1}}
 @page{{size:{W_MM}mm {H_MM}mm;margin:0}}
 @media print{{html,body{{background:none}} main{{display:block;padding:0}} .page{{width:{W_MM}mm;height:{H_MM}mm;aspect-ratio:auto;box-shadow:none}}}}
 html.print-sim main{{display:block;padding:0;width:{W_MM}mm}} html.print-sim .page{{width:{W_MM}mm;height:{H_MM}mm;aspect-ratio:auto;box-shadow:none}}
@@ -360,8 +376,65 @@ def layout_creative(s, at, rule, img) -> list:
     return h
 
 
+def layout_art(s, at, rule, img) -> list:
+    """The artistic one: the CV as a route of stops. No portrait -- the applicant's own photographs carry the
+    person (his note on the reference board: tell who I am through the photos I took). A photograph bled across the
+    top, the name cut by a paper-coloured stop line, the profile as a serif statement, then a transit line whose four
+    stops are the CV's sections -- the one stop with something real in it marked red, the only red on the page --
+    and a strip of film running off the right edge. Blanks are grey and dotted here, so the red keeps its job."""
+    pr, a = s["profile"], s["art"]
+    HERO = 106
+    h = [f'<div class="a" data-bleed style="left:0;top:0;width:100cqw;height:{_c(HERO)}">{img(a["hero"], a.get("hero_pos", "50% 50%"))}'
+         f'<div class="grain"></div></div>',
+         f'<div class="a cap" lang="en" style="right:{_c(MARGIN)};top:{_c(HERO + 1.6)};text-align:right">Photograph {int(a["hero"]):02d} — {e(" ".join(s["name"]).title())}</div>']
+    h.append(at(0, HERO + 6, 7, f'<div class="artname" lang="en">{"".join(f"<span>{e(x)}</span>" for x in s["name"])}</div>'
+                                f'<p class="caps" style="margin-top:{_c(4)};letter-spacing:.3em">{e(s["role"])} &nbsp;/&nbsp; {e(s["applying"])}</p>'))
+    h.append(at(8, HERO + 8, 4, f'<p class="lead-ko" lang="ko" style="font-size:{pt(11.2)};line-height:1.58">{e(pr["ko"])}</p>'
+                                f'<p class="lead-en" lang="en" style="margin-top:{_c(2.4)};color:var(--grey)">{e(pr["en"])}</p>'))
+    # ---- the route: one line, four stops, one per section ---------------------------------------------------
+    Y = 175
+    h.append(f'<div class="route" style="left:{_c(MARGIN)};right:0;top:{_c(Y)}"></div>')
+    stops = [("Education", 0), ("Projects", 3), ("Tools", 6), ("Skills", 9)]
+    for i, (name_, c) in enumerate(stops):
+        cur = name_ == a.get("current_stop")
+        h.append(f'<div class="stop{" cur" if cur else ""}" style="left:{_c(X(c) - 1.9)};top:{_c(Y - 1.9)}"></div>')
+        h.append(at(c, Y - 13, 3, f'<p class="caps" lang="en" style="color:{"var(--accent-text)" if cur else "var(--grey)"}">Stop {i + 1:02d}</p>'
+                                  f'<p class="stopname" lang="en">{e(name_)}</p>'))
+    ed = s["education"][0]
+    body = {
+        0: f'<p class="t ko-t" lang="ko">{val(ed["school"], "학교")}</p><p class="ko">{val(ed["major"], "전공 · 학위")}</p>'
+           f'<p class="role" style="color:var(--grey)">{val(ed["years"], "20XX – 20XX")}</p>'
+           f'<p class="ko" style="margin-top:{_c(1.5)}">{val(ed["line"], "졸업 작품 · 주요 수업 한 줄")}</p>',
+        3: "".join(f'<div style="margin-bottom:{_c(3.2)}"><p class="t" lang="en">{val(p["title"], "프로젝트")}</p>'
+                   f'<p class="ko" style="color:var(--grey)">{val(p["kind"], "성격 · 역할")} · {val(p["years"], "기간")}</p>'
+                   f'<p class="ko">{val(p["what"], "무엇을 했고 결과가 무엇이었는지 한두 줄")}</p></div>' for p in s["projects"]),
+        6: "".join(f'<p class="t" lang="en"{"" if i == 0 else f" style=\"margin-top:{_c(2)}\""}>{val(t["name"], "툴 이름")}</p>'
+                   f'<p class="ko">{val(t["can"], "할 줄 아는 것")}</p>' for i, t in enumerate(s["tools"])),
+        9: '<div class="chips" style="gap:1.2cqw .9cqw">' + "".join(
+               f'<span class="chip{" on" if c_["on"] else ""}" lang="en">{val(c_["t"], "스킬")}</span>' for c_ in s["skills"]) + "</div>"
+           + f'<p class="caps" lang="en" style="margin-top:{_c(4.5)};color:var(--grey)">Language</p>' + "".join(
+               f'<p class="role" lang="en"><b>{e(l_["lang"])}</b>&ensp;{val(l_["level"], "수준")}</p>' for l_ in s["languages"]),
+    }
+    for c, b in body.items():
+        h.append(at(c, Y + 6, 3, b))
+    # ---- film: frames off the right edge ------------------------------------------------------------------
+    F = 239
+    fw = 25.0
+    frames = "".join(f'<figure><div class="img">{img(n)}</div><figcaption>{int(n):02d}</figcaption></figure>' for n in a["film"])
+    h.append(f'<div class="a film" data-bleed style="left:{_c(MARGIN)};right:0;top:{_c(F)};height:{_c(27)}">'
+             f'<div class="frames" style="grid-template-columns:repeat({len(a["film"])},{_c(fw)})">{frames}</div></div>')
+    h.append(at(0, F + 30, 6, f'<p class="question" lang="en">{e(s["question"])}</p>'))
+    h.append(at(6, F + 31, 6, '<p class="role" lang="en" style="text-align:right">' + "&emsp;".join(
+        f'<span style="color:var(--grey)">{e(c_["label"])}</span>&ensp;{val(c_["value"], c_["label"])}' for c_ in s["contact"][:2]) + "<br>" + "&emsp;".join(
+        f'<span style="color:var(--grey)">{e(c_["label"])}</span>&ensp;{val(c_["value"], c_["label"])}' for c_ in s["contact"][2:]) + "</p>"))
+    h.append(f'<div class="folio" lang="en" style="left:{_c(MARGIN)}">{e(" ".join(s["name"]))} — Curriculum Vitae</div>')
+    h.append(f'<div class="folio" style="right:{_c(MARGIN)}">Test version · {len(blanks(s))} dotted blanks to fill</div>')
+    return h
+
+
 LAYOUTS = {"rows": "① 행 구조 — 이름 | 사진 | 프로필, 아래로 세 칸 행 (Laura)",
            "split": "②④⑤ 사진 반쪽 — 어두운 왼쪽 패널에 사진 · 이름, 오른쪽에 세운 섹션 제목과 연표 (Richard · YOUR NAME · Noah)",
+           "art": "예술형 — 노선도의 정거장: 찍은 사진이 주인공, 정지선에 잘린 이름, 네 정거장, 필름 띠 (SPA 의 '멈춘다')",
            "creative": "③ 크리에이티브 — 정사각 사진, 굵은 이름 위에 붉은 직함, 툴 타일과 엇갈린 칩 (Le Khanh Huyen)"}
 
 
@@ -377,7 +450,8 @@ def build(spec_path, name: str = "", pdf: bool = True, layout: str = "rows") -> 
 
     pdir = paths.REPO / spec["photo_dir"]
     src, missing = {}, []
-    for n in [spec["portrait"]["photo"]] + spec["photographs"]:
+    art = spec.get("art", {})
+    for n in dict.fromkeys([spec["portrait"]["photo"]] + spec["photographs"] + ([art["hero"]] + art["film"] if layout == "art" else [])):
         k = f"{int(n):02d}"
         f = pdir / f"{k}.png"
         if not f.is_file():
@@ -404,11 +478,13 @@ def build(spec_path, name: str = "", pdf: bool = True, layout: str = "rows") -> 
         return f'<div class="rule{" thin" if thin else ""}" style="left:{x0 * MM:.3f}cqw;right:{x1 * MM:.3f}cqw;top:{top * MM:.3f}cqw"></div>'
 
     s = spec
-    h = {"rows": layout_rows, "split": layout_split, "creative": layout_creative}[layout](s, at, rule, img)
+    h = {"rows": layout_rows, "split": layout_split, "creative": layout_creative, "art": layout_art}[layout](s, at, rule, img)
     pairs = [("ink on paper", INK, PAPER), ("grey on paper", GREY, PAPER), ("red blanks on paper", ACCENT_TEXT, PAPER)]
     if layout == "split":
         pairs += [("light on panel", PANEL_INK, PANEL), ("muted on panel", PANEL_MUTE, PANEL), ("red blanks on panel", PANEL_RED, PANEL),
                   ("ink on band", INK, BAND), ("grey on band", GREY, BAND), ("red blanks on band", ACCENT_TEXT, BAND)]
+    if layout == "art":
+        pairs = [p_ for p_ in pairs if not p_[0].startswith("red blanks")] + [("red stop label", ACCENT_TEXT, PAPER), ("frame numbers on film", PANEL_MUTE, INK)]
     if layout == "creative":
         pairs += [("paper on black tiles", PAPER, INK), ("red blanks on black", PANEL_RED, INK)]
     s_ = s
@@ -439,7 +515,7 @@ def qa(spec, hp, pres, want_pdf, src, missing, pairs, need) -> list:
     bad = check_texts(spec)
     out.append(C("printed sentences are word for word from their sources", "FAIL" if bad else "PASS", "; ".join(bad) or "profile ko/en/more, name, question"))
     b = blanks(spec)
-    out.append(C("fields left for the applicant (not invented)", "WARNING" if b else "PASS", f"{len(b)} blanks, printed in red as [ ]"))
+    out.append(C("fields left for the applicant (not invented)", "WARNING" if b else "PASS", f"{len(b)} blanks, printed as [ ] (red; grey and dotted in the art layout)"))
     out.append(C("every photo in the spec is on disk", "FAIL" if missing else "PASS", ", ".join(missing) or f"{len(src)} photos"))
     m = PDF.measure(hp, round(W_MM / 25.4 * 96), round(H_MM / 25.4 * 96), "qa-print")
     if not m.get("ok"):

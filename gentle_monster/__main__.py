@@ -64,7 +64,7 @@ def main(argv=None) -> int:
     a.add_argument("--rights", action="append", default=[], help="own | licensed | public_domain | cc0 | cc-by, per --image")
     a.add_argument("--no-pdf", action="store_true"); a.add_argument("--sources", default=None, help="another research catalogue")
     sub.add_parser("research")
-    a = sub.add_parser("cv"); a.add_argument("spec"); a.add_argument("--name", default=""); a.add_argument("--layout", default="rows", choices=["rows", "split", "creative", "all"]); a.add_argument("--no-pdf", action="store_true")
+    a = sub.add_parser("cv"); a.add_argument("spec"); a.add_argument("--name", default=""); a.add_argument("--layout", default="rows", choices=["rows", "split", "creative", "art", "all"]); a.add_argument("--no-pdf", action="store_true")
     a = sub.add_parser("photo-issue"); a.add_argument("spec"); a.add_argument("--name", default=""); a.add_argument("--no-pdf", action="store_true")
     a = ap.parse_args(argv)
     try:
@@ -114,7 +114,7 @@ def main(argv=None) -> int:
         elif a.cmd == "cv":
             from gentle_monster.magazine import cv as CV
             worst = 0
-            for lay in (["rows", "split", "creative"] if a.layout == "all" else [a.layout]):
+            for lay in (["rows", "split", "creative", "art"] if a.layout == "all" else [a.layout]):
                 r = CV.build(a.spec, name=a.name, pdf=not a.no_pdf, layout=lay)
                 print(f"[{lay}] {CV.LAYOUTS[lay]}\nHTML {r['html']}\nPDF  {r['pdf'] or (r['pdf_result'] or {}).get('error', '요청 안 함')}")
                 print(f"QA {r['verdict']}: " + "; ".join(f"{c['status']} {c['check']} ({c['detail']})" for c in r["checks"] if c["status"] != "PASS"))
