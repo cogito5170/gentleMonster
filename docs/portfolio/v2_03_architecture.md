@@ -12,9 +12,9 @@
 |---|---|---|
 | 16 큰 제목 | ARCHITECTURE (그대로) | 건축 |
 | 17 오른쪽 위 (Grid Exploration 003) | PLACE | 장소 |
-| 17 라벨 (download now) | **Stacked rooms over an open plaza** / (Image: ____) | 열린 광장 위에 쌓인 방들 / (이미지: 출처) |
+| 17 라벨 (download now) | **Stacked rooms over an open plaza** / (My project, ____ · Render) | 열린 광장 위에 쌓인 방들 / (나의 프로젝트, 연도 · 렌더) |
 | 17 번호 ((003)) | (003) — 3쪽 (001) 처럼 크게 | (003) |
-| 17 본문 | The third place I stop is in front of a building. Architecture is never just a background: it quietly decides how people walk, where they stop, and what they remember. Here, rooms are stacked and shifted like boxes, and the stairs show through the glass. At its foot, an open plaza lets people cross, pause by the water, and stay a while. A good building holds people, and brings them back again.<br>So my third story is about architecture. | 내가 세 번째로 멈추는 곳은 건물 앞이다. 건축은 결코 배경이 아니다. 사람이 어떻게 걷고, 어디서 멈추고, 무엇을 기억할지를 조용히 정한다. 이 건물은 방들이 상자처럼 엇갈려 쌓여 있고, 유리 너머로 계단이 보인다. 그 발치의 열린 광장에서 사람들은 지나가고, 물가에 멈추고, 잠시 머문다. 좋은 건물은 사람을 붙잡아 두고, 다시 돌아오게 한다. / 그래서 내 세 번째 이야기는 건축이다. |
+| 17 본문 | The third place I stop is in front of a building. Architecture is never just a background: it quietly decides how people walk, where they stop, and what they remember. In this project, I stacked rooms like shifted boxes and let the stairs show through the glass. At its foot, an open plaza lets people cross, pause by the water, and stay a while. A good building holds people, and brings them back again.<br>So my third story is about architecture. | 내가 세 번째로 멈추는 곳은 건물 앞이다. 건축은 결코 배경이 아니다. 사람이 어떻게 걷고, 어디서 멈추고, 무엇을 기억할지를 조용히 정한다. 이 프로젝트에서 나는 방들을 상자처럼 엇갈려 쌓고, 유리 너머로 계단이 보이게 했다. 그 발치의 열린 광장에서 사람들은 지나가고, 물가에 멈추고, 잠시 머문다. 좋은 건물은 사람을 붙잡아 두고, 다시 돌아오게 한다. / 그래서 내 세 번째 이야기는 건축이다. |
 | 16 왼쪽 아래 (새로 추가) | **(003) ARCHITECTURE** / (A Building That Holds Me) · **16 — 17** | (003) 건축 / (나를 붙잡아 두는 건물) · 16–17쪽 |
 | 17 바깥 아래 모서리 (Experimental Grid Exploration 자리) | **Where Did You Last Stop?** | 당신이 마지막으로 멈춘 곳은 어디인가? |
 
@@ -26,5 +26,6 @@
 
 ### 확인할 것
 
-1. **렌더 출처.** 직접 만든 렌더가 아니라면 캡션 둘째 줄에 출처를 적는다(Image: 작가 · 사무소). 공간 디자인 지원서라 남의 그림이 내 작업으로 읽히면 안 된다.
-2. 본문의 묘사(방 · 계단 · 광장 · 물가)는 렌더에서 읽은 것이다.
+1. ~~렌더 출처~~ → **지원자가 작업한 프로젝트의 렌더** (지원자 확인). 본문을 "In this project, I stacked …" 1인칭으로 바꿨다. 광장은 기존 대지일 수 있어 "I" 를 붙이지 않았다.
+2. 캡션 둘째 줄의 연도(____). 프로젝트 이름을 넣으려면 첫 줄을 이름으로 바꾼다.
+3. 본문의 묘사(방 · 계단 · 광장 · 물가)는 렌더에서 읽은 것이다.
