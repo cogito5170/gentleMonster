@@ -21,9 +21,9 @@ IN GENTLE MONSTER
 - **PICTURE**: 사진 한 장이 아니라 '사진 같은 장면'을 뜻한다("It looks like a picture").
 - **질문**은 표지 오른쪽 아래에 둔다. 왼쪽 목록이 답이고, 질문이 독자에게 넘어간다.
 
-## 확인할 것
+## 확인한 것
 
-- 스토리라인 설명에 **"SPA (STYLE, PASSION, ARCHITECTURE)"** 로 적힌 곳이 있다. 두 번째 대상이 '사진 같은 장면'이면 **PICTURE** 가 맞다. PASSION 을 쓰려면 두 번째 대상을 "무언가에 빠져 있는 사람" 같은 것으로 바꿔야 한다. 지면은 현재 PICTURE.
+- 스토리라인 설명에 **"SPA (STYLE, PASSION, ARCHITECTURE)"** 로 적힌 곳이 있었다. 두 번째 대상이 '사진 같은 장면'이고 4쪽을 **PICTURE** 로 만들었으므로 **PICTURE** 로 정한다. 지면 · 원고 어디에도 PASSION 이 남지 않게 한다.
 
 ## 표지 사진
 

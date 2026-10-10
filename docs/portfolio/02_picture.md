@@ -47,6 +47,8 @@ STYLE 섹션과 같은 틀로 간다. 오른쪽 머리말은 **STYLE / MOOD → 
 > **둘째, 하나의 이야기가 되는 사진이다.** 사람, 빛, 색, 장소가 서로 어울려 한 장면이 되는 것.
 > 좋은 사진은 좋은 스타일, 좋은 공간과 같다. 멈추게 하고, 다시 떠오르게 한다.
 
+*First, a good picture keeps you looking — you don't glance and move on. Second, it becomes one story: people, light, color and place come together into a single scene. A good picture is like good style and a good space: it makes you stop, and it comes back to you.*
+
 ### MY PICTURE (MY STYLE 과 같은 형식, 지원자가 채움)
 
 ```
@@ -83,6 +85,10 @@ WHERE      ____
 
 > 좋은 사진을 다시 보면, 늘 그 뒤에 좋은 장소가 있었다.
 > 그래서 내 세 번째 이야기는 공간이다.
+
+*Looking back at my good pictures, there was always a good place behind them. So my third story is about space.*
+
+01 → 02 와 같은 자리다. 03 ARCHITECTURE 의 여는 글도 "그래서 내 세 번째 이야기는 공간이다"로 끝나면 6쪽과 같은 줄이 두 번 나온다. 6쪽에는 첫 줄과 풀쿼트만 두고, "세 번째 이야기" 줄은 03 여는 글에만 쓴다.
 
 풀쿼트 후보:
 - **"Every good picture had a good place behind it."** ← 추천
