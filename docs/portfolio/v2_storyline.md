@@ -45,12 +45,21 @@ v1 의 흐름([v1_review.md](v1_review.md))을 v2 의 펼침 13개([v2_review.md
 | 커버 질문으로 돌아오지 않음 | 28쪽 |
 | MY STYLE(색 · 항목 목록) | v2 에 자리가 없다 → 정해야 함 |
 
+## 1단계 결정 (확정)
+
+| 물음 | 결정 |
+|---|---|
+| 큰 제목 | **섹션 이름이 큰 제목.** STYLE / PICTURE / ARCHITECTURE + 번호 (001)(002)(003). 커버 문구는 작은 부제(A Person with Style / A Moment like A Photograph / A Building That Holds Me). → E 의 MOMENT LIKE A PHOTOGRAPH 는 부제로 줄이고, F 의 PICTURE 큰 제목은 E 로 옮긴다 |
+| 웹 디자인 | **STYLE 안 C 그대로.** C 첫 줄로 STYLE 과 잇는다 |
+| MY STYLE | **B 에 짧게.** 색 다섯 개 + "그날 갈 장소에 맞춘다" 한 줄 |
+| 마지막 장 | **만든다.** 28쪽 |
+
 ## 단계
 
 | 단계 | 할 일 | 누가 |
 |---|---|---|
-| **1. 구조 확정** | 큰 제목 규칙 · 웹 디자인 위치 · MY STYLE 을 살릴지 · 28쪽 끝맺음 | 지원자가 정함 |
-| 2. STYLE 원고 | A · B · C · D 자리별 한국어 + 영어 글 | 함께 |
+| ~~1. 구조 확정~~ ✓ | 큰 제목 규칙 · 웹 디자인 위치 · MY STYLE 을 살릴지 · 28쪽 끝맺음 | 지원자가 정함 |
+| **2. STYLE 원고** → [v2_01_style.md](v2_01_style.md) | A · B · C · D 자리별 한국어 + 영어 글 | 함께 |
 | 3. PICTURE 원고 | E · F · G · H · I 자리별 글 | 함께 |
 | 4. ARCHITECTURE 원고 | J–M 섹션 글 + 작업 설명(이름 · 연도 · 종류 · 맡은 일 · 개념 · 사람이 멈추는 자리) | 사실은 지원자, 글은 함께 |
 | 5. 끝맺음 | 28쪽 글 · 사진 | 함께 |
