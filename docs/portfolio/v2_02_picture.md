@@ -55,6 +55,20 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 
 (A-3 의 *I stop on the street. / My first story is about style.* 과 짝)
 
+### 지면 반영 — 포트폴리오 8-11 (D · E)
+
+반영본 [idml/포트폴리오 8-11 수정.idml](idml/포트폴리오%208-11%20수정.idml) (InDesign 에서 열고 .indd 로 저장). 만든 스크립트 [scripts/idml_D-E_8-11.py](scripts/idml_D-E_8-11.py) — 파일 하나로 돈다. IDML 안에서는 표지 다음 2–3쪽이 D, 4–5쪽이 E 다.
+
+| 자리 | 바꾼 것 |
+|---|---|
+| 10 큰 제목 | MOMENT / LIKE A / PHOTOGRAPH → **PICTURE** 하나. A 의 STYLE 과 같은 상자 자리 · 크기(Helvetica Bold 136) |
+| 10 부제 | Template Systems / Grid Systems Series → **A Moment like A Photograph** (14pt, A 의 "A Person with Style" 자리로 옮김) |
+| 10 번호 | (002) 그대로 |
+| 10 download now 두 개 | 지움 (잘려 있던 왼쪽 아래 상자 포함) |
+| 11 기차 사진 | 3pt 검은 테두리와 검은 채움을 뺌 · 캡션 **Puddle** (사진 오른쪽, 사진 아래 끝에 맞춤 — 템플릿 "Series" 상자를 옮김) |
+| 11 본문 | 위 여는 글 (세 군데 고침). 글꼴 · 크기는 지면 그대로(AppleGothic 14/22), 상자를 아래로 늘림 |
+| 11 아래 라벨 | Experimental Grid Exploration → **I stop for a scene. / (My second story is about pictures.)** (A 라벨과 같은 14pt 굵게 / 보통) |
+
 ---
 
 ## F · 12–13쪽 — Q1
@@ -120,29 +134,6 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 | 17 언덕 위 호텔 | 캡션 **불빛** |
 
 - 글은 넣지 않는다. G 에서 가까이 본 두 사람이 H 에서 넓어지고, 시선이 호텔로 옮겨 간다. 캡션 두 단어만으로 "사람 → 장소" 가 읽힌다.
-
----
-
-## 지면 반영 — 포트폴리오 8-11 (G · H)
-
-`포트폴리오 8-11.idml` 의 8–11쪽(파일 쪽 번호)이 H · G 다. 이 파일에서는 **H(바다 사진 한 장, 8–9) → G(Q2, 10–11)** 순서다.
-
-- 반영본: [idml/포트폴리오 8-11 수정.idml](idml/포트폴리오%208-11%20수정.idml) — InDesign 에서 열고 .indd 로 저장한다.
-- 만든 스크립트: [scripts/idml_picture_8-11.py](scripts/idml_picture_8-11.py) (`python3 idml_picture_8-11.py 원본.idml 결과.idml`). 파일 하나로 돌고, 8–11쪽 밖은 건드리지 않는다.
-
-| 쪽 | 자리 | 바꾼 것 |
-|---|---|---|
-| 8 | 사진 위 왼쪽 아래 | 캡션 **Dusk** (흰 글자) — 10–11 의 "Experimental Grid Exploration" 상자를 옮겨 씀 |
-| 9 | 사진 위 오른쪽 아래 | 캡션 **Lights** (흰 글자, 오른쪽 맞춤) — 10–11 의 "Series" 상자를 옮겨 씀 |
-| 10 | 왼쪽 위 머리말 | © 2026 Template.Systems → **PICTURE** |
-| 10 | 왼쪽 본문 | **What makes a good picture?** + 첫째 · 둘째 (본고딕 KR 16/30, 6쪽 본문과 같게) |
-| 10–11 | 바다 사진 왼쪽 아래 | (003) → 캡션 **Two** (상자를 사진 바로 밑으로 옮김) |
-| 10 | 왼쪽 아래 | download now / www.template.systems → 지움 |
-| 11 | 오른쪽 위 머리말 | Grid Exploration 003 → **MOMENT** (오른쪽 맞춤) |
-| 11 | 오른쪽 본문 | 위 "15쪽 본문" |
-
-- 두 본문 상자는 위아래로 조금 늘렸다(위 -327 → -365, 아래 -178 → -170, 사진 위 끝 -158 과 12pt 띄움). 글은 다섯 줄씩이라 넘치지 않는다.
-- 확인할 것: (1) 흰 캡션 Dusk · Lights 가 사진 아래 구석에서 읽히는지 — 사진이 밝으면 글자 색을 `[Black]` 으로. (2) H 가 G 앞에 있어 "가까이(두 사람) → 넓게(노을 · 불빛)" 순서가 뒤집혔다. 넓게 → 가까이로 둘지, v2 지도대로 G → H 로 바꿀지 전체 수정 때 정한다. (3) 캡션 단어 셋은 제안이다 — 실제로 멈춘 이유로 고친다.
 
 ---
 

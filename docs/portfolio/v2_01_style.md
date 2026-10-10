@@ -132,7 +132,7 @@ Web design · University project · ____ (연도) · Photoshop + Illustrator
 | 펼침 사진 | 거리 사진 (그대로) |
 
 - 마젠타 강조: 1줄 *stop* · *their own*, 2줄 *whose*. 읽는 순서대로 "stop → whose → their own" 이 되도록 1줄과 2줄을 v1 순서(1줄 *whose*, 2줄 *stop* · *their own*)로 되돌릴지 정한다. 지금 순서는 "stop … their own / whose" 라 마지막에 *whose* 가 남는다.
-- 흰 글자 대비는 6단계(지면 정리)에서 본다.
+- 흰 글자 대비: 바탕은 겨자색(RGB 220 213 59)이고 흰 글자는 그 위에서 약 1.5 : 1 이라 마젠타 단어만 읽힌다. **[Black] 으로 바꿨다(약 11 : 1).** 마젠타 단어 · 두 줄 반복은 그대로 — [idml/포트폴리오 8-11 수정.idml](idml/포트폴리오%208-11%20수정.idml), 스크립트 [scripts/idml_D-E_8-11.py](scripts/idml_D-E_8-11.py).
 - 이 펼침은 E 의 여는 글 "앞 펼침의 사진도 그랬다" 가 가리키는 사진이다. 사진을 바꾸면 E 의 문장(헤드폰을 쓴 사람, 체크 셔츠와 슬리퍼, 화분과 칠판)도 같이 바꾼다.
 
 ---
