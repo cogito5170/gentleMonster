@@ -28,6 +28,17 @@
 | 172 px 에서 읽히는 것 | 오른쪽으로 커지는 밝은 천 덩어리 하나 + 시계 유리의 작은 반짝임 하나. 왼쪽 위 큰 제목 STYLE 과 무게가 맞는다 |
 | 빼는 것 | 글자 · 로고 · 색 · 반지와 팔찌 · 타투 · 시계 브랜드 표시 |
 
+**작가 컨셉 프롬프트 (물성은 따로 정의)**
+
+이미지의 물성(재질 · 빛 · 톤 · 렌즈)은 따로 정한다. 아래는 작가의 컨셉만 담은 프롬프트이고, 물성 프롬프트를 뒤에 붙여 쓴다.
+그 아래의 확정 프롬프트는 물성까지 적어 둔 이전 버전이다.
+
+```
+01 STYLE         a sleeve being rolled up, paused halfway, the quiet moment an ordinary white shirt becomes someone's own style, something personal half revealed at the wrist, a single gesture held still, much left unsaid --ar 10:3
+02 PICTURE       a finger resting just before the shutter, the held breath before a passing moment becomes a photograph, the world about to be kept --ar 10:3
+03 ARCHITECTURE  a hand at the edge of a doorway, pausing at the threshold, a quiet space beyond waiting to be entered, the moment before stepping in --ar 10:3
+```
+
 **미드저니 프롬프트 (확정)**
 
 ```
