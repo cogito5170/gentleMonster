@@ -28,6 +28,17 @@
 | 172 px 에서 읽히는 것 | 오른쪽으로 커지는 밝은 천 덩어리 하나 + 시계 유리의 작은 반짝임 하나. 왼쪽 위 큰 제목 STYLE 과 무게가 맞는다 |
 | 빼는 것 | 글자 · 로고 · 색 · 반지와 팔찌 · 타투 · 시계 브랜드 표시 |
 
+**방향성 프롬프트 (오브제 · 물성은 나중에 정한다)**
+
+화자의 방향성만 담았다. 오브제 프롬프트와 물성 프롬프트를 정한 뒤 이 문장 뒤에 붙인다.
+아래의 작가 컨셉 프롬프트(오브제 포함)와 확정 프롬프트(오브제 · 물성 포함)는 이전 버전이다.
+
+```
+01 STYLE         the instant of being made to stop, a quiet choice of what to keep and what to leave out, something that belongs to only one person, held still, much left unsaid --ar 10:3
+02 PICTURE       the instant everything aligns at once, a passing moment about to be kept, a stillness one wants to return to --ar 10:3
+03 ARCHITECTURE  the instant before stepping in, a place that makes one stop, stay and come back, quiet and waiting --ar 10:3
+```
+
 **작가 컨셉 프롬프트 (물성은 따로 정의)**
 
 이미지의 물성(재질 · 빛 · 톤 · 렌즈)은 따로 정한다. 아래는 작가의 컨셉만 담은 프롬프트이고, 물성 프롬프트를 뒤에 붙여 쓴다.
