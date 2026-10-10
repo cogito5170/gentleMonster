@@ -40,10 +40,15 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 | F-12 아래 번호 | 08 — 09 (지금 (003)) | 8–9쪽 |
 | F-13 오른쪽 아래 | **Where Did You Last Stop?** (지금 Experimental Grid Exploration) | 당신이 마지막으로 멈춘 곳은 어디인가? |
 | F-13 캡션 | **bulbs** / (a rooftop bar, at night) · **sprout** / (on the sand) | 전구 / (루프탑 바, 밤) · 새싹 / (모래 위) |
-| G-14 캡션 | **two** | 두 사람 |
-| G-14 본문 | **What makes a good picture?** First, a picture you keep looking at, not one you glance at and pass. Second, a picture that becomes a story: people, light, color and place coming together in one scene. | 좋은 사진이란? 첫째, 한 번 보고 넘기지 않고 계속 들여다보게 되는 사진. 둘째, 하나의 이야기가 되는 사진. 사람, 빛, 색, 장소가 한 장면 안에서 어울리는 것. |
-| G-15 본문 | A good picture is like good style and a good space. It makes you stop, and it stays with you. | 좋은 사진은 좋은 스타일, 좋은 공간과 같다. 멈추게 하고, 오래 남는다. |
-| G-15 머리말 | MOMENT | 순간 |
+| G-10 왼쪽 위 (© 2026 Template.Systems) | **What makes a good picture?** | 좋은 사진이란? |
+| G-11 오른쪽 위 (Grid Exploration 003) | MOMENT | 순간 |
+| G-10 본문 (왼쪽 단) | First, a picture you keep looking at — not one you glance at and pass by. | 첫째, 계속 들여다보게 되는 사진. 한 번 보고 지나치는 사진이 아니라. |
+| G-11 본문 (오른쪽 단) | Second, a picture that becomes a story: people, light, color and place coming together in one scene.<br>A good picture is like good style and a good space. It makes you stop, and it stays with you. | 둘째, 하나의 이야기가 되는 사진. 사람, 빛, 색, 장소가 한 장면 안에서 어우러지는 것. / 좋은 사진은 좋은 스타일, 좋은 공간과 같다. 멈추게 하고, 오래 남는다. |
+| G 사진 캡션 (새로 추가 · 사진 왼쪽 아래) | **two** / (in the sea, at dusk) | 두 사람 / (바다 속, 해 질 녘) |
+| G-10 왼쪽 아래 (download now) | **(002) PICTURE** / (A Moment like A Photograph) | (002) 사진 / (사진 같은 순간) |
+| G-10 아래 번호 ((003)) | 10 — 11 | 10–11쪽 |
+| G-11 오른쪽 아래 (Series 자리) | **Where Did You Last Stop?** | 당신이 마지막으로 멈춘 곳은 어디인가? |
+| G-11 Experimental Grid Exploration | 지움 | — |
 | H 캡션 | **dusk** · **lights** | 노을 · 불빛 |
 | I-18 캡션 | **smoke** | 연기 |
 | I-18 본문 | Looking back at my good pictures, there was always a good place behind them. Wherever people stopped, a space was holding them there. | 좋은 사진들을 다시 보면, 그 뒤에는 늘 좋은 장소가 있었다. 사람이 멈춘 곳에는 언제나 그 사람을 붙잡아 둔 공간이 있었다. |
@@ -52,6 +57,8 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 
 - 캡션은 굵은 소문자 한 단어(내가 멈춘 이유, One To One 방식) + 괄호 안에 무엇 · 어디. **바꾼 것:** 처음엔 한 단어만 두려 했으나, 템플릿 라벨이 굵게 · 보통 두 줄이라 STYLE 캡션과 같은 리듬으로 둘째 줄을 살렸다. 섹션 차이는 첫 줄(STYLE = 옷 이름, PICTURE = 멈춘 이유 한 단어)로 보인다.
 - 지원자 파일의 쪽 번호로 F 는 **8–9쪽**이다(이 문서의 E–I 는 펼침 이름).
+- **G(지원자 10–11쪽) 레이아웃:** 본문 한 단락이 접힘을 가로지른다 → 제본하면 가운데 글자가 먹힌다. 질문의 답 두 개를 **왼쪽 단(첫째) · 오른쪽 단(둘째 + 마무리)** 으로 나눠 접힘을 피한다. 사진은 두 사람이 접힘에서 멀어지게 왼쪽으로 약 30pt 옮긴다.
+- **아래 끝 질문 위치:** Where Did You Last Stop? 은 모든 오른쪽 쪽에서 **바깥 아래 모서리(오른쪽 맞춤)** 에 둔다. 9쪽도 Experimental Grid Exploration 자리 대신 같은 모서리로 옮긴다.
 - E-11 라벨은 A-3 *Where I stop / (on the street)* 과 짝.
 
 ---
