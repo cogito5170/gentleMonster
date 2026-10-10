@@ -12,7 +12,7 @@ v2 지면 A–D 의 템플릿 자리마다 넣을 글. 글은 [01_style.md](01_s
 | 자리 | 지금 (템플릿) | 넣을 것 |
 |---|---|---|
 | 2 큰 제목 | STYLE | STYLE (그대로) |
-| 2 오른쪽 위 | Grid Systems 001 | **(001)** |
+| 2 오른쪽 위 | Grid Systems 001 | **지움** — 지원자가 3쪽에 큰 (001) 을 넣었다 (E-10 의 (002) 와 같은 방식) |
 | 2 왼쪽 가운데 | © 2026 Template.Systems | Jeong Hyeokju |
 | 2 오른쪽 가운데 | A Person With Style (지원자가 넣음) | **A Person with Style** (커버와 같게 with 소문자) |
 | 2 왼쪽 라벨 | download now / www.template.systems | 지움 |
@@ -40,7 +40,9 @@ v2 지면 A–D 의 템플릿 자리마다 넣을 글. 글은 [01_style.md](01_s
 
 ### 지면 반영
 
-[scripts/v2_A_style_2-3.jsx](scripts/v2_A_style_2-3.jsx) — InDesign 에서 실행하면 위 표대로 2–3쪽 글을 바꾼다. 한글 본문 글꼴은 지면에 이미 있는 한글 본문("카메라를 들면…")과 같은 글꼴을 찾아 쓴다.
+- **IDML (반영됨)**: [idml/포트폴리오 2-3 수정.idml](idml/) — 지원자가 보낸 IDML 에 위 표를 반영한 것. [scripts/idml_A_style_2-3.py](scripts/idml_A_style_2-3.py) 로 만들었다. InDesign 에서 열고 .indd 로 저장한다.
+  - 3쪽 본문: AppleGothic Regular 13pt · 행간 20.8pt. 본문 상자 아래 끝을 큰 (001) 상자 위(-365pt)로 올려 겹치지 않게 했다.
+- (대안) [scripts/v2_A_style_2-3.jsx](scripts/v2_A_style_2-3.jsx) — 열린 .indd 에서 실행하는 스크립트. IDML 방식과 결과가 같다(단, Grid Systems 001 을 (001) 로 바꾸는 이전 안).
 
 ## B · 4–5쪽 — 질문 두 개 + MY STYLE
 
