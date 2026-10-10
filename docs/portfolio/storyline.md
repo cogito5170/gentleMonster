@@ -32,6 +32,8 @@
 | 5 | MOMENT | Q3 · MY PICTURE | [02_picture.md](02_picture.md) |
 | + | — | 단어 한 장 (One To One 방식, 사진 한 장 + 단어 하나) | [02_picture.md](02_picture.md) |
 | 6 | — | 풀쿼트 + 사진 → 03 ARCHITECTURE | [02_picture.md](02_picture.md) |
+| 21–22 | ARCHITECTURE | 큰 제목 "A building that holds me." · (03) · 여는 글 · 메인 렌더 | [03_architecture.md](03_architecture.md) |
+| 23–24 | PLACE | Q1 · Q2 · Q3 · 마무리 · 과제 패널 · "Where Did You Last Stop?" | [03_architecture.md](03_architecture.md) |
 
 ## 01 STYLE 안의 흐름
 
