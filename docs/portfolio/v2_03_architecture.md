@@ -56,7 +56,7 @@
 - 렌더에서 읽은 것: 안개 낀 산 · 줄지은 포도나무 · 기둥 위로 들린 긴 매스 · 격자 외피 · 긴 벽돌 벽과 개구부 · 그 개구부로 가는 흙길.
 - **확인 필요(의도 · 사실):** "언덕이 가장 높게 보이도록 낮게" · "밭이 둘로 잘리지 않게" · "벽은 대부분 닫혀 있고 한 곳만 열린다" · 포도밭/와이너리가 맞는지 · 기둥 재료(나무인지 벽돌 마감인지 — 그래서 "slim columns" 로만 썼다) · 격자 재료(wooden) · "포도밭이 그 아래로 이어지게" · "벽이 열리는 자리에서 멈추기를 바랐다" 가 실제 의도인지 · 프로젝트 종류(Studio / Personal)와 학기.
 
-### L · 20–21쪽 — 작업 둘: 도심 틈의 빛(콜라주) · 벽돌과 골조
+### L · 20–21쪽 — 작업 둘: 도심 틈의 빛(콜라주) · Archive & Public Library
 
 왼쪽 주제(지원자): **'도심 속 틈 사이로 새어 들어오는 빛'.** 공간에 들어가면 빛이라는 요소로 자연의 공간을 경험한다. 이 공간에서는 일상을 잊고, 틈을 통해 보이는 일상을 다시 돌아볼 수 있다. → 콜라주의 청록색 형태는 탑이 아니라 지면의 틈으로 내려오는 빛이다.
 
@@ -64,14 +64,23 @@
 |---|---|---|---|
 | 20 큰 글자 (4줄 · 접힘을 넘음 → 20쪽 안으로) | A grid system is … | **Light slips in through the gaps of the city. Inside, it opens a space of nature, where you forget the everyday for a while, and look back at it through the gap.** | 도심의 틈 사이로 빛이 새어 들어온다. 그 안에서 빛은 자연의 공간을 열고, 사람은 잠시 일상을 잊는다. 그리고 그 틈 너머로 일상을 다시 돌아본다. |
 | 20 라벨 | column grids / (multiple vertical columns) | **Light through the gaps** / (Concept collage · ____) | 틈 사이로 드는 빛 / (개념 콜라주 · 연도) |
-| 21 왼쪽 위 굵게 | Grid Exploration 001 | **Brick and Frame** (가제 — 실제 이름으로) | 벽돌과 골조 |
-| 21 좁은 본문 | A grid system is … | A dark brick block with arched doors stands beside an open concrete frame. Between them, the ground becomes a small park: people sit on the grass, walk a dog, and stop for a while. The buildings hold the edges; the space between them is where people stay. | 아치 문이 있는 어두운 벽돌 건물이 열린 콘크리트 골조 옆에 선다. 그 사이의 땅은 작은 공원이 된다. 사람들은 잔디에 앉고, 개를 산책시키고, 잠시 멈춘다. 건물은 가장자리를 붙잡고, 사람은 그 사이에 머문다. |
-| 21 라벨 | manuscript grids / (single-column layouts) | **Brick, frame, and a small park** / (Architectural Design Studio_____ · Render) | 벽돌, 골조, 그리고 작은 공원 / (건축설계 스튜디오_학기 · 렌더) |
+| 21 왼쪽 위 굵게 | Grid Exploration 001 | **Archive & Public Library** | 아카이브 & 공공도서관 |
+| 21 좁은 본문 | A grid system is … | An old brick building on Samcheong-ro stands between Gyeongbokgung Palace, the MMCA and the new Songhyeon Square. I kept it and read its structure as a bookshelf: archive shelves stack inside, one category to a floor, and the same frame reaches out over the square as a public library. People leaving the palace and the museum stop here, to find out more about what they have just seen. | 삼청로의 오래된 벽돌 건물은 경복궁, 국립현대미술관, 그리고 새로 열린 송현광장 사이에 서 있다. 나는 이 건물을 남기고, 그 구조를 하나의 책장으로 읽었다. 안에는 층마다 한 분야씩 아카이브 서가가 쌓이고, 같은 골조가 광장 위로 뻗어 나가 공공도서관이 된다. 궁과 미술관을 나선 사람들은 이곳에 멈춰, 방금 본 것을 더 알아 간다. |
+| 21 라벨 | manuscript grids / (single-column layouts) | **Old brick, new frame** / (Architectural Design Studio_3-1 Semester) | 오래된 벽돌, 새 골조 / (건축설계 스튜디오_3학년 1학기) |
 | 20 왼쪽 아래 (새로 추가) | — | **p. 20-21** | 20–21쪽 |
-| 21 오른쪽 아래 (새로 추가) | — | **Architectural Project_____** | 건축 프로젝트_(종류) |
+| 21 오른쪽 아래 (새로 추가) | — | **Architectural Project_Academic** | 건축 프로젝트_학교 과제 |
 
 - 한 펼침에 작업 둘: 왼쪽은 지원자가 준 주제를 큰 글자 세 문장(빛이 든다 → 일상을 잊는다 → 틈으로 일상을 돌아본다)으로, 오른쪽은 짧은 설명 + 사람이 머무는 자리.
 - **바꾼 것:** 앞 안의 "What if a tower grew down …?" 은 그림을 탑으로 잘못 읽은 것이라 버렸다.
 - 큰 글자 상자가 지금 접힘을 넘어 21쪽 렌더 위로 겹친다 → 20쪽 안으로 줄인다. 이 문장이면 크기를 지금보다 키워도 4줄 안에 든다(추정).
 - 렌더에서 읽은 것: 콜라주 — 위는 도시 스카이라인(오른쪽 끝에 기와지붕 같은 실루엣), 지면의 틈에서 땅 아래로 청록색 빛이 내려온다. 렌더 — 어두운 벽돌 건물(1층 아치, 위층 테라스와 노출 골조) · 흰 콘크리트 골조 건물 · 잔디 공원 · 앉은 사람 · 개와 산책하는 사람 · 노부부.
 - **확인 필요:** 두 작업의 이름 · 연도 · 종류 · 개인/팀 · 스카이라인의 기와지붕 실루엣이 뜻하는 것(넣을지) · 벽돌 건물과 골조가 기존 건물 + 증축인지, 둘 다 새로 지은 것인지 · 공원을 설계에 넣었는지.
+
+#### 21쪽 프로젝트 자료 (지원자가 보낸 이전 포트폴리오 01–10쪽)
+
+- 01 Adaptive Reuse Project · **Archive & Public Library** · Samcheong-ro, Jongno-gu, Seoul · Library · Academic Project, 3rd Year 1st Semester
+- 맥락: 경복궁 · 국립현대미술관(MMCA)에 몰리던 사람의 흐름이 송현동 광장 개방으로 송현동을 지나가게 바뀐다. 이건희 미술관도 들어설 예정. 이 변화를 **'연결의 기회'** 로 보고 Heritage · Museum · Public 세 맥락을 잇는다.
+- 연결 수단: 궁과 미술관을 다녀간 방문객은 관람 뒤 지식에 대한 갈증을 느낀다 → **'지식 보충(knowledge supplementation)'**.
+- 형태: 기존 건물은 두 상자를 이은 매스 → **구조 = 책장**. 분야마다 수직 아카이브 서가 → 시민 누구나 쓰는 공공도서관 서가를 송현광장 위에, 기존 건물 구조의 연장으로 → 서가끼리는 같은 프로그램의 층으로 연결.
+- 이전 자료에서 쓴 "we identified / we have utilized" 로 보아 **팀 작업일 수 있다** → 본문 "I kept it and read …" 를 "We kept …" 로 바꿀지 확인.
+- 본문은 위 내용 중 여섯 가지만 썼다: 장소(삼청로) · 세 맥락 · 기존 건물을 남김 · 구조 = 책장 · 광장 위로 뻗는 골조 · 멈춰서 더 알아 가는 사람들. 공원 · 개 산책 같은 앞 안의 그림 묘사는 뺐다.
