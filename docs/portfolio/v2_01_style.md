@@ -95,7 +95,7 @@ MY STYLE
 |---|---|---|
 | 7 첫 본문 (위) | Grid systems are widely used … | **연결 문장 + 작업 소개** ↓ |
 | 7 둘째 본문 (오른쪽) | Common types include … | **MARKET 화면 설명** ↓ |
-| 7 라벨 두 개 | manuscript grids (single-column layouts) ×2 | **MARKET — product list** · **MAIN — home** |
+| 7 라벨 두 개 | manuscript grids (single-column layouts) ×2 | **MARKET / (product list)** · **MAIN / (home)** — A 라벨처럼 이름 한 줄 + 괄호 한 줄 |
 | 6–7 화면 그림 | (MARKET · MAIN 캡처) | 그대로. 그림 안 오타는 6단계에서 원본 수정 |
 
 ### 7쪽 첫 본문
@@ -112,6 +112,15 @@ Web design · University project · ____ (연도) · Photoshop + Illustrator
 
 - `____` 자리에 이 화면에서 지원자가 정한 것 한 줄. 예: "길에서 사람을 볼 때 보는 순서대로 필터를 놓았다" — 실제로 그렇게 정했을 때만 쓴다.
 - 혼자 했는지, 팀에서 어느 부분을 맡았는지 `____` 를 채운다.
+
+### 지면 반영
+
+[scripts/v2_C_style_6-7.jsx](scripts/v2_C_style_6-7.jsx) — InDesign 에서 실행하면 위 표대로 6–7쪽 글을 바꾼다. 파일 하나로 돌고, A 스크립트를 먼저 돌리지 않아도 된다.
+
+- 두 본문이 따로 된 상자든 한 상자 안의 두 단락이든, 각 본문 자리만 바꾼다. 한글 글꼴은 지면의 한글 본문("카메라를 들면…")과 같은 것을 쓴다.
+- 라벨 두 개는 템플릿 글이 같아서, **7쪽 안에 들어 있는 작은 그림(MAIN 화면)에 가까운 라벨을 MAIN** 으로 둔다. 그림을 못 찾으면 아래쪽 라벨을 MAIN 으로 둔다. 반대로 들어가면 두 라벨 글을 맞바꾼다.
+- `____` 는 지면에도 그대로 들어간다. 끝날 때 남은 빈칸 자리를 알려 준다.
+- 그림 안 오타(Material 중복 · Sprite · Chekck · Fliss · Hulis)와 접힘에 걸리는 상품 열은 그림 원본 일이라 이 스크립트가 고치지 않는다(6단계).
 
 ---
 
