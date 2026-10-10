@@ -46,14 +46,16 @@ v2 지면 A–D 의 템플릿 자리마다 넣을 글. 글은 [01_style.md](01_s
 
 ## B · 4–5쪽 — 질문 두 개 + MY STYLE
 
+캡션 규칙(STYLE): **옷 · 물건 / (장소, 시간)** — 2쪽 *Sunglasses / (on a wet street, at night)* 와 같은 굵게 · 보통 두 줄.
+
 | 자리 | 지금 (템플릿) | 넣을 것 |
 |---|---|---|
-| 4 왼쪽 라벨 | manuscript grids (single-column layouts) | 코트 사진 캡션: **Shop front, evening — black long coat** |
-| 4 오른쪽 라벨 | column grids (multiple vertical columns) | 파카 사진 캡션: **Riverside, night — olive parka** (장소가 한강이면 Han River) |
-| 4 아래 | © 2026 Template.Systems | 지움 (또는 머리말 STYLE) |
-| 4 맨 아래 | download now / www.template.systems | 지움 |
-| 5 왼쪽 위 라벨 | modular grids (rows and columns forming modules) | 재킷 사진 캡션: **Park, sunset — light jacket** |
-| 5 오른쪽 위 | Grid Exploration 001 | 머리말 **MOOD** (v1 3쪽 머리말) 또는 지움 |
+| 4 왼쪽 라벨 | manuscript grids (single-column layouts) | **Black long coat / (shop front, evening)** |
+| 4 가운데 라벨 | column grids (multiple vertical columns) | **Olive parka / (by the river, at night)** — 한강이면 (Han River, at night) |
+| 4 아래 | © 2026 Template.Systems | 지움 |
+| 4 맨 아래 | download now / www.template.systems | **Anyone can buy the clothes. / (Only the person can make the style.)** — 01_style 의 풀쿼트 추천안 |
+| 5 왼쪽 위 라벨 | modular grids (rows and columns forming modules) | **Light jacket / (amusement park, at sunset)** |
+| 5 오른쪽 위 | Grid Exploration 001 | 머리말 **MOOD** (v1 3쪽 머리말 · PICTURE 는 MOMENT, ARCHITECTURE 는 PLACE) |
 | 5 오른쪽 본문 두 단락 | Common types include … / Overall, grid systems … | **Q1 · Q2** ↓ |
 | 5 아래 본문 | A grid system is … | **MY STYLE** ↓ |
 
