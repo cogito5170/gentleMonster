@@ -14,12 +14,12 @@ v2 지면 A–D 의 템플릿 자리마다 넣을 글. 글은 [01_style.md](01_s
 | 2 큰 제목 | STYLE | STYLE (그대로) |
 | 2 오른쪽 위 | Grid Systems 001 | **(001)** |
 | 2 왼쪽 가운데 | © 2026 Template.Systems | Jeong Hyeokju |
-| 2 오른쪽 가운데 | Experimental Grid Exploration Series | **A Person with Style** (커버 문구 → 부제) |
+| 2 오른쪽 가운데 | A Person With Style (지원자가 넣음) | **A Person with Style** (커버와 같게 with 소문자) |
 | 2 왼쪽 라벨 | download now / www.template.systems | 지움 |
-| 2 오른쪽 라벨 | column grids (multiple vertical columns) | 사진 캡션 (아래 사진에 맞춰) |
-| 2–3 아래 검정 띠 | (빈 상자) | 펼침을 가로지르는 가로 사진 한 장: `____` (제안: 사람들이 지나가는 길 사진 — 여는 글 "길 위" 와 맞는다) |
+| 2 오른쪽 라벨 | column grids (multiple vertical columns) | **Sunglasses / (on a wet street, at night)** — 사진 캡션 |
+| 2–3 아래 검정 띠 | 밤 젖은 길 위의 선글라스 사진 (지원자가 넣음) | 그대로. 여는 글 "어떤 안경을 썼는지" · "길 위" 와 맞고, 젠틀몬스터의 아이웨어로 섹션을 연다 |
 | 3 본문 | A grid system is … | **여는 글** ↓ |
-| 3 라벨 | modular grids (rows and columns forming modules) | 여는 글 영어 한 줄 ↓ |
+| 3 라벨 | modular grids (rows and columns forming modules) | **I stop on the street. / (My first story is about style.)** |
 
 ### 여는 글 (3쪽 본문)
 
@@ -37,6 +37,10 @@ v2 지면 A–D 의 템플릿 자리마다 넣을 글. 글은 [01_style.md](01_s
 > *My first story is about style.*
 
 ---
+
+### 지면 반영
+
+[scripts/v2_A_style_2-3.jsx](scripts/v2_A_style_2-3.jsx) — InDesign 에서 실행하면 위 표대로 2–3쪽 글을 바꾼다. 한글 본문 글꼴은 지면에 이미 있는 한글 본문("카메라를 들면…")과 같은 글꼴을 찾아 쓴다.
 
 ## B · 4–5쪽 — 질문 두 개 + MY STYLE
 
@@ -126,7 +130,7 @@ Web design · University project · ____ (연도) · Photoshop + Illustrator
 
 ## 지원자가 채울 것 (STYLE)
 
-1. A 펼침 가로 사진 고르기
+1. ~~A 펼침 가로 사진 고르기~~ → 선글라스 사진 ✓
 2. B 파카 사진 장소가 한강인지
 3. C 연도 · 혼자/팀 · 맡은 부분 · MARKET 화면에서 정한 것 한 줄
 4. D 마젠타 강조 순서
