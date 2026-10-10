@@ -71,7 +71,7 @@ function cIntro() {
     return "DAILY LookBook" +
         "\r" + cMetaLine() +
         "\r사람의 스타일을 고르는 눈으로 화면도 만들었다. " +
-        "DAILY LookBook 은 매일의 옷차림을 모아 보는 스타일 사이트다. 다른 사람의 하루 옷차림을 보고, " +
+        "DAILY LookBook은 매일의 옷차림을 모아 보는 스타일 사이트다. 다른 사람의 하루 옷차림을 보고, " +
         "스타일 범주(Dandy · Casual · Street · Amekaji · Office)로 고르고, 마음에 든 옷을 바로 찾는다.";
 }
 

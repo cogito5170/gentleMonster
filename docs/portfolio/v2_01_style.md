@@ -108,7 +108,7 @@ B · C 를 한 번에 바꾸는 [scripts/v2_BC_style_4-7.jsx](scripts/v2_BC_styl
 Web design · University project · ____ (연도) · Photoshop + Illustrator  ← 연도를 모르면 이 칸 없이
 
 > 사람의 스타일을 고르는 눈으로 화면도 만들었다.
-> DAILY LookBook 은 매일의 옷차림을 모아 보는 스타일 사이트다. 다른 사람의 하루 옷차림을 보고, 스타일 범주(Dandy · Casual · Street · Amekaji · Office)로 고르고, 마음에 든 옷을 바로 찾는다.
+> DAILY LookBook은 매일의 옷차림을 모아 보는 스타일 사이트다. 다른 사람의 하루 옷차림을 보고, 스타일 범주(Dandy · Casual · Street · Amekaji · Office)로 고르고, 마음에 든 옷을 바로 찾는다.
 
 ### 7쪽 둘째 본문
 
@@ -121,7 +121,14 @@ Web design · University project · ____ (연도) · Photoshop + Illustrator  �
 
 ### 지면 반영
 
-[scripts/v2_BC_style_4-7.jsx](scripts/v2_BC_style_4-7.jsx) — InDesign 에서 실행하면 위 B · C 표대로 4–7쪽 글을 바꾼다. 실행 취소 한 번으로 전부 되돌아간다.
+**IDML 로 받은 경우 (권장):** [idml/4-7_v2.idml](idml/4-7_v2.idml) 을 InDesign 에서 바로 연다. 지원자가 보낸 `4-7.idml` 에 아래 내용을 모두 넣어 [scripts/v2_BC_idml.py](scripts/v2_BC_idml.py) 로 다시 만든 파일이다 (`python3 scripts/v2_BC_idml.py 4-7.idml 4-7_v2.idml --preview 폴더`). 미리보기: [B](idml/4-7_v2_B_preview.png) · [C](idml/4-7_v2_C_preview.png) — 사진은 회색 상자, 파란 테두리는 글 상자.
+
+- IDML 1쪽 = 표지(건드리지 않음), 2–3쪽 = 펼침 B, 4–5쪽 = 펼침 C.
+- 한글이 영어 템플릿 상자보다 길어서 상자 세 개를 빈 자리 쪽으로 키웠다. Q1·Q2 단은 재킷 사진 위·아래 끝에 맞췄고, MY STYLE 과 MARKET 설명은 아랫선을 그대로 두고 위로 키워 글을 아래에 붙였다.
+- 한글 본문은 본고딕 KR 14pt, 행간 22pt. 영어 제목 · 라벨은 Helvetica Neue 14pt 그대로.
+- MY STYLE 색 칩 다섯 개는 견본 `MY STYLE Black #1D1B19` … 로 들어간다. 칩 이름과 값은 탭으로 다섯 칸에 맞췄다.
+
+**INDD 를 연 채로 고치는 경우:** [scripts/v2_BC_style_4-7.jsx](scripts/v2_BC_style_4-7.jsx) — 같은 글을 넣지만 상자 크기는 바꾸지 않는다. InDesign 에서 실행하면 위 B · C 표대로 4–7쪽 글을 바꾼다. 실행 취소 한 번으로 전부 되돌아간다.
 
 - **쪽 번호가 아니라 템플릿 글로 펼침을 찾는다.** 4–7쪽만 떼어 낸 문서(지원자가 보낸 `4-7.indd`)에서도, 28쪽 전체 문서에서도 똑같이 돈다.
   - B = "A grid system is…" 와 "Common types include…" 가 같이 있는 쪽의 펼침
