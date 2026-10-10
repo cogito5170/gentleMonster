@@ -16,13 +16,15 @@
 |---|---|---|---|
 | **01 STYLE** | 내가 가장 자주 멈추는 곳은 길 위다 | 나의 스타일 (룩 분석 · SECTOR A) | 스타일이 좋은 사람이 좋은 장소에 서 있으면, 그 장면은 한 장의 사진이 된다 |
 | **02 PICTURE** | 두 번째로 내가 멈추는 곳은 장면 앞이다 | 내가 찍은 사진 + 찍은 이유 | 좋은 사진에는 늘 좋은 장소가 있었다 |
-| **03 ARCHITECTURE** | 나는 좋은 공간 앞에서 멈춘다 | 공간 작업 (시놉시스 · 무드보드 · 도면) | 커버의 질문으로 돌아간다 |
+| **03 ARCHITECTURE** | 세 번째로 내가 멈추는 곳은 공간 안이다 | 공간 작업 (최종 패널 · 모형 · 작업 화면) | 커버의 질문으로 돌아간다 |
 
 각 섹션의 여는 글은 "그래서 내 첫 번째(두 번째, 세 번째) 이야기는 ○○이다"로 끝난다. 같은 형식이 반복되어 섹션이 바뀌는 지점이 분명해진다.
 
 이 줄은 **여는 글에만** 쓴다. 앞 섹션의 마무리(3쪽 · 6쪽)까지 같은 줄로 끝나면 한 장 넘길 때마다 같은 문장이 두 번 나온다.
 
 ## 페이지 지도 (현재 시안)
+
+1–6 은 앞선 시안의 쪽 번호, 25–28 은 03 인디자인 파일의 책 쪽 번호다. 책 전체 쪽 번호가 정해지면 하나로 맞춘다.
 
 | 쪽 | 머리말 | 내용 | 원고 |
 |---|---|---|---|
@@ -34,7 +36,9 @@
 | 5 | MOMENT | Q3 · MY PICTURE | [02_picture.md](02_picture.md) |
 | + | — | 단어 한 장 (One To One 방식, 사진 한 장 + 단어 하나) | [02_picture.md](02_picture.md) |
 | 6 | — | 풀쿼트 + 사진 → 03 ARCHITECTURE | [02_picture.md](02_picture.md) |
-| 7– | ARCHITECTURE / PLACE | 여는 글 · 공간 작업 (시놉시스 · 무드보드 · 도면) | 아직 없음 |
+| 25 | — | 한 문장 + 최종 제출 패널 (책 쪽 번호, 인디자인 `포트폴리오 25-28`) | [03_architecture.md](03_architecture.md) |
+| 26 | ARCHITECTURE | 여는 글 + 작업 사진 | [03_architecture.md](03_architecture.md) |
+| 27–28 | PLACE | 표제 · Q1–Q3 · stop / stay / return · 모형 사진 다섯 장 · "Where did you last stop?" | [03_architecture.md](03_architecture.md) |
 | 마지막 장 | — | 흐린 날 · 빈 주차장의 차 사진 + "Where did you last stop?" | [cover.md](cover.md) |
 
 ## 01 STYLE 안의 흐름 (지면 순서)
@@ -55,4 +59,15 @@
 5쪽 MOMENT  ③ Q3 → MY PICTURE     좋은 사진이란 · 카메라 · 렌즈 · 시간 · 빛 · 피사체 · 색 · 장소
 +           ④ 단어 한 장           사진 한 장 + 단어 하나 (웅덩이 → 새싹 → 전구)
 6쪽         ⑤ 풀쿼트 + 사진        좋은 사진 뒤에는 늘 좋은 장소가 있었다 → 03 ARCHITECTURE
+```
+
+## 03 ARCHITECTURE 안의 흐름 (지면 순서)
+
+```
+25쪽         ① 한 문장 + 최종 패널    People shape spaces, and spaces shape people back.
+26쪽 ARCH.   ② 여는 글               세 번째로 내가 멈추는 곳은 공간 안이다
+27–28쪽 PLACE ③ 표제                 A good space makes you stop, makes you stay, and brings you back.
+             ④ Q1 · Q2 · Q3          공간은 왜 중요한가 · 나는 왜 공간을 만드는가 · 좋은 공간이란
+             ⑤ stop · stay · return  + 모형 사진 다섯 장
+             ⑥ 마지막 줄              Where did you last stop? → 마지막 장
 ```

@@ -6,11 +6,12 @@
 
 | 파일 | 내용 | 상태 |
 |---|---|---|
-| [storyline.md](storyline.md) | 책 전체 흐름: 커버 → 01 STYLE → 02 PICTURE → 03 ARCHITECTURE → 마지막 장, 페이지 지도 | 구조 확정 (03 원고 없음) |
+| [storyline.md](storyline.md) | 책 전체 흐름: 커버 → 01 STYLE → 02 PICTURE → 03 ARCHITECTURE → 마지막 장, 페이지 지도 | 구조 확정 |
 | [cover.md](cover.md) | 커버: SPA, 세 가지 대상, 문구, 질문, 사진 선택 | 확정 (P = PICTURE) |
 | [philosophy.md](philosophy.md) | 지원자 노트를 다듬은 철학: 공간 · 좋은 공간 · 사진 · 삶의 목표 | 확정 |
 | [01_style.md](01_style.md) | 01 STYLE 지면(1–3쪽 순서): 여는 글, Q1–Q3, MY STYLE(SECTOR A), 풀쿼트, 지면 수정 사항 | 확정 (MY STYLE 지원자가 채움) |
 | [02_picture.md](02_picture.md) | 02 PICTURE 지면: 여는 글, Q1–Q3, MY PICTURE, 단어 한 장(One To One), 03 으로 넘기는 줄 | 방향 제안 (빈칸은 지원자가 채움) |
+| [03_architecture.md](03_architecture.md) | 03 ARCHITECTURE 지면(25–28쪽): 한 문장, 여는 글, Q1–Q3, stop · stay · return, 캡션 · 인디자인에서 바꾼 것 | 인디자인 반영 (스크린샷 캡션 · MY SPACE 는 지원자가 확인) |
 | [questions.md](questions.md) | 작업 중 사용자가 보낸 질문 · 요청 44개 원문과, 각 질문으로 나온 결과 | 기록 |
 
 ## 원칙
