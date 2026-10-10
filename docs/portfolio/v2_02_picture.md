@@ -26,26 +26,26 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 
 ## 영어 원고 (확정 — 본문은 모두 영어, 지원자 결정)
 
-지면에 넣는 글은 이 절이 기준이다. 아래 절의 한국어는 참고용.
+지면에 넣는 글은 이 절이 기준이다. 영어 글마다 오른쪽에 한국어 해석을 붙인다(지원자 요청). 아래 절의 한국어는 참고용.
 
-| 자리 | 글 |
-|---|---|
-| E-10 | PICTURE · (002) · 부제 *A Moment like A Photograph* |
-| E-11 캡션 | **puddle** |
-| E-11 본문 | The second place I stop is in front of a scene. Sometimes light, color, people and place fall into line at once. That's when I take out my camera. The street photo before this was one of those moments: a man in headphones, a checked shirt and slippers, and behind him a plant and a chalkboard. The person and the place came together.<br>So my second story is about pictures. |
-| E-11 라벨 | **Where I stop** / (in front of a scene) |
-| F-12 캡션 | **color** |
-| F-12 본문 | **Why do I take pictures?** With a camera in hand, I notice what I usually walk past: the color of a wall, the direction of the light, where people stand. As I shoot, I keep watching, and even an ordinary street starts to tell a story. Making a space works the same way. A good space starts with seeing where the light comes in and where people will stand. |
-| F-13 캡션 | **bulbs** · **sprout** |
-| G-14 캡션 | **two** |
-| G-14 본문 | **What makes a good picture?** First, a picture you keep looking at, not one you glance at and pass. Second, a picture that becomes a story: people, light, color and place coming together in one scene. |
-| G-15 본문 | A good picture is like good style and a good space. It makes you stop, and it stays with you. |
-| G-15 머리말 | MOMENT |
-| H 캡션 | **dusk** · **lights** |
-| I-18 캡션 | **smoke** |
-| I-18 본문 | Looking back at my good pictures, there was always a good place behind them. Wherever people stopped, a space was holding them there. |
-| I-19 큰 글자 | Every good picture had a good place behind it. |
-| I-19 캡션 | **curve** |
+| 자리 | 글 | 한국어 해석 |
+|---|---|---|
+| E-10 | PICTURE · (002) · 부제 *A Moment like A Photograph* | 사진 · (002) · 부제: 사진 같은 순간 |
+| E-11 캡션 | **puddle** | 웅덩이 |
+| E-11 본문 | The second place I stop is in front of a scene. Sometimes light, color, people and place fall into line at once. That's when I take out my camera. The street photo before this was one of those moments: a man in headphones, a checked shirt and slippers, and behind him a plant and a chalkboard. The person and the place came together.<br>So my second story is about pictures. | 내가 두 번째로 멈추는 곳은 장면 앞이다. 빛, 색, 사람, 장소가 한순간에 맞아떨어질 때가 있다. 그때 나는 카메라를 꺼낸다. 앞의 거리 사진도 그런 순간이었다. 헤드폰을 쓴 사람, 체크 셔츠와 슬리퍼, 그리고 그 뒤의 화분과 칠판. 사람과 장소가 함께 맞아떨어졌다. / 그래서 내 두 번째 이야기는 사진이다. |
+| E-11 라벨 | **Where I stop** / (in front of a scene) | 내가 멈추는 곳 / (장면 앞에서) |
+| F-12 캡션 | **color** | 색 |
+| F-12 본문 | **Why do I take pictures?** With a camera in hand, I notice what I usually walk past: the color of a wall, the direction of the light, where people stand. As I shoot, I keep watching, and even an ordinary street starts to tell a story. Making a space works the same way. A good space starts with seeing where the light comes in and where people will stand. | 나는 왜 사진을 찍는가? 카메라를 들면 평소에 지나치던 것을 보게 된다. 벽의 색, 빛의 방향, 사람이 서 있는 자리. 찍는 동안 나는 계속 보고, 아무렇지 않던 길도 이야기를 하기 시작한다. 공간을 만드는 일도 같다. 좋은 공간은 빛이 어디로 들어오고 사람이 어디에 설지를 보는 데서 시작한다. |
+| F-13 캡션 | **bulbs** · **sprout** | 전구 · 새싹 |
+| G-14 캡션 | **two** | 두 사람 |
+| G-14 본문 | **What makes a good picture?** First, a picture you keep looking at, not one you glance at and pass. Second, a picture that becomes a story: people, light, color and place coming together in one scene. | 좋은 사진이란? 첫째, 한 번 보고 넘기지 않고 계속 들여다보게 되는 사진. 둘째, 하나의 이야기가 되는 사진. 사람, 빛, 색, 장소가 한 장면 안에서 어울리는 것. |
+| G-15 본문 | A good picture is like good style and a good space. It makes you stop, and it stays with you. | 좋은 사진은 좋은 스타일, 좋은 공간과 같다. 멈추게 하고, 오래 남는다. |
+| G-15 머리말 | MOMENT | 순간 |
+| H 캡션 | **dusk** · **lights** | 노을 · 불빛 |
+| I-18 캡션 | **smoke** | 연기 |
+| I-18 본문 | Looking back at my good pictures, there was always a good place behind them. Wherever people stopped, a space was holding them there. | 좋은 사진들을 다시 보면, 그 뒤에는 늘 좋은 장소가 있었다. 사람이 멈춘 곳에는 언제나 그 사람을 붙잡아 둔 공간이 있었다. |
+| I-19 큰 글자 | Every good picture had a good place behind it. | 좋은 사진 뒤에는 늘 좋은 장소가 있었다. |
+| I-19 캡션 | **curve** | 곡선 |
 
 - 캡션은 소문자 한 단어(One To One 방식). STYLE 캡션(굵게 + 괄호)과 형식이 달라 섹션이 바뀐 것이 보인다.
 - E-11 라벨은 A-3 *Where I stop / (on the street)* 과 짝.
