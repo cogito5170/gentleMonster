@@ -94,29 +94,33 @@ v2 지면 A–D 의 템플릿 자리마다 넣을 글. 글은 [01_style.md](01_s
 
 ## C · 6–7쪽 — 작업: DAILY LookBook
 
-| 자리 | 지금 (템플릿) | 넣을 것 |
+| 자리 (7쪽) | 지금 (템플릿) | 넣을 것 |
 |---|---|---|
-| 7 첫 본문 (위) | Grid systems are widely used … | **연결 문장 + 작업 소개** ↓ |
-| 7 둘째 본문 (오른쪽) | Common types include … | **MARKET 화면 설명** ↓ |
-| 7 라벨 두 개 | manuscript grids (single-column layouts) ×2 | **MARKET — product list** · **MAIN — home** |
-| 6–7 화면 그림 | (MARKET · MAIN 캡처) | 그대로. 그림 안 오타는 6단계에서 원본 수정 |
+| 오른쪽 위 단락 (4줄) | Grid systems are widely used … | **작업 소개** ↓ |
+| 오른쪽 좁은 단 (8줄) | Common types include … | **두 화면 설명** ↓ |
+| 왼쪽 라벨 (위) | manuscript grids (single-column layouts) | **Web design / (University project · Photoshop + Illustrator)** |
+| 왼쪽 라벨 (아래, 그림 아래 끝 높이) | manuscript grids (single-column layouts) | **MARKET · MAIN / (product list · home)** |
 
-### 7쪽 첫 본문
+### 오른쪽 위 단락
 
 **DAILY LookBook**
-Web design · University project · ____ (연도) · Photoshop + Illustrator
+> 사람의 스타일을 고르는 눈으로 화면도 만들었다. DAILY LookBook 은 매일의 옷차림을 모아 보는 스타일 사이트다. 다른 사람의 하루 옷차림을 보고, 마음에 든 옷을 바로 찾는다.
 
-> 사람의 스타일을 고르는 눈으로 화면도 만들었다.
-> DAILY LookBook 은 매일의 옷차림을 모아 보는 스타일 사이트다. 다른 사람의 하루 옷차림을 보고, 스타일 범주(Dandy · Casual · Street · Amekaji · Office)로 고르고, 마음에 든 옷을 바로 찾는다.
+*I designed screens with the same eye I use to read people's style. DAILY LookBook is a site that collects everyday outfits: see how others dress each day, and find the piece you liked.*
 
-### 7쪽 둘째 본문
+### 오른쪽 좁은 단
 
-> MARKET 화면은 색 · 핏 · 길이 · 무늬 · 소재로 옷을 거른다. ____
+> **MAIN** — 위에서부터 오늘의 룩, 스타일 범주(Dandy · Casual · Street · Amekaji · Office), 사용자의 하루 옷차림, 할인 정보.
+> **MARKET** — 왼쪽 필터에서 색 · 핏 · 길이 · 무늬 · 소재를 고르면, 맞는 옷이 오른쪽에 세 줄로 놓인다.
 
-- `____` 자리에 이 화면에서 지원자가 정한 것 한 줄. 예: "길에서 사람을 볼 때 보는 순서대로 필터를 놓았다" — 실제로 그렇게 정했을 때만 쓴다.
-- 혼자 했는지, 팀에서 어느 부분을 맡았는지 `____` 를 채운다.
+- **바꾼 것:** 앞 초안의 "길에서 사람을 볼 때 보는 순서대로 필터를 놓았다" 같은 의도 설명은 지원자가 확인하기 전에는 쓰지 않는다. 대신 화면에 실제로 있는 것만 적었다(화면 캡처에서 읽음).
+- "University project", "Photoshop + Illustrator" 는 v1 4–5쪽에 지원자가 적은 사실이다. 연도는 `____`.
 
----
+### 레이아웃 (권장)
+
+- **MARKET 화면을 6쪽 안에 넣는다.** 지금은 화면이 접힘을 넘어 세 번째 열 상품과 Category 버튼이 접힘에 걸린다. 화면을 약 89% 로 줄이면 오른쪽 끝이 접힘 앞에서 멈춘다. 7쪽은 글 + MAIN 화면만 남아 "왼쪽 MARKET / 오른쪽 MAIN" 이 한눈에 나뉜다.
+- **MAIN 화면을 키운다.** 지금 7쪽 오른쪽 아래 MAIN 은 너무 작아 무엇인지 읽히지 않는다. 오른쪽 좁은 단 아래 폭에 맞춰 1.5–2 배.
+- **그림 안 오타(원본 이미지에서 고침):** Pattern 의 Sprite → **Stripe**, Chekck → **Check** · Material 의 Fliss → **Fleece**, Hulis → (확인 필요) · 두 번째 "Material" 제목 → **Category** (아래 항목이 Denim · Jacket · Knit … 옷 종류).
 
 ## D · 8–9쪽 — 다리 ① (STYLE → PICTURE)
 
