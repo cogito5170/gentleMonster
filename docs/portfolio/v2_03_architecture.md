@@ -92,7 +92,7 @@
 | 22 왼쪽 위 | © 2026 Template.Systems | **From drawing to model** | 도면에서 모형으로 |
 | 23 오른쪽 위 | HAND-MADE MODEL (지원자가 넣음) | 그대로 | 손으로 만든 모형 |
 | 큰 글자 (3줄) | A grid system is … | **A drawing shows a space. A model lets me step into it. I cut, stack and light each one by hand, until I can see where people will stop.** | 도면은 공간을 보여 준다. 모형은 그 안으로 들어가게 해 준다. 나는 하나하나 손으로 자르고, 쌓고, 빛을 비춘다. 사람들이 어디서 멈출지 보일 때까지. |
-| 23 라벨 (세 항목) | manuscript / column / modular grids | **01 Light through the gaps** / (concept model · see p. 20) · **02–03 House interiors** / (housing project · kitchen, living room) · **04–05 Site models** / (N Artist's House, made as an intern at ____ · Extension of Chateau) | 01 틈 사이로 드는 빛 / (개념 모형 · 20쪽 참고) · 02–03 주택 실내 / (주택 프로젝트 · 주방, 거실) · 04–05 대지 모형 / (N작가 주택, ____ 인턴 중 제작 · 샤토 증축) |
+| 23 라벨 (네 항목) | manuscript / column / modular grids | **01 Light through the gaps** / (concept model · see p. 20) · **02–03 House interiors** / (housing project · kitchen, living room) · **04 N Artist's House** / (site model · made as an intern at ____) · **05 Extension of Chateau** / (site model · see p. 18) | 01 틈 사이로 드는 빛 / (개념 모형 · 20쪽 참고) · 02–03 주택 실내 / (주택 프로젝트 · 주방, 거실) · 04 N작가 주택 / (대지 모형 · ____ 인턴 중 제작) · 05 샤토 증축 / (대지 모형 · 18쪽 참고) |
 | 22 왼쪽 아래 | p. 22-23 (지원자가 넣음) | 그대로 | 22–23쪽 |
 | 23 오른쪽 아래 | Experimental Grid Exploration | **Hand-made Model_____** (16–17 의 Architectural Project_종류 형식) | 손으로 만든 모형_(종류) |
 
@@ -103,4 +103,5 @@
 - 02 · 03 = **주택 프로젝트의 주방 · 거실** (지원자 확인).
 - 04 = **N작가 주택**, 인턴 활동 중 만든 모형 (지원자 확인). 설계는 사무소 작업이므로 "made as an intern at (사무소)" 로 모형 제작만 지원자 몫임을 밝힌다.
 - 05 = **Extension of Chateau 모형** (지원자 확인). 18–19 렌더와 22–23 모형이 같은 작업이다.
+- 04 와 05 는 다른 작업이라 라벨을 따로 둔다(지원자 지적) → 세 항목 자리에 네 항목. 05 는 01 처럼 앞 작업의 쪽을 적는다(see p. 18).
 - **확인 필요:** 04 인턴 사무소 이름 · 'N작가 주택' 영문 표기 · 축척 · 종류(과제 / 개인).
