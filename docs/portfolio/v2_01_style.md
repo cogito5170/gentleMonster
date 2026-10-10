@@ -77,19 +77,18 @@ v2 지면 A–D 의 템플릿 자리마다 넣을 글. 글은 [01_style.md](01_s
 
 - 01_style 의 "첫째 · 둘째 · 셋째" 를 한 문장으로 줄였다. 자리가 넉넉하면 세 줄로 나눠도 된다.
 
-### 5쪽 아래 — MY STYLE
+### 5쪽 아래 — MY STYLE (오른쪽 맨 아래 단락)
 
-```
-MY STYLE
+**MY STYLE**
+> 검정 · 올리브 · 베이지 · 회색. 짧고 단정한 머리에 뿔테 안경이나 선글라스, 오버핏 롱코트와 통 넓은 바지, 빈티지 시계. 향은 딥디크 · 조말론 · 버버리. 헤어, 옷의 톤, 향의 무드를 그날 갈 장소에 맞춘다.
 
-■ #1D1B19  ■ #2C2716  ■ #C4B29B  ■ #C3BFB1  ■ #445162
-  Black      Olive      Beige      Off-white  Slate
-```
+*MY STYLE — Black, olive, beige and grey. Short, neat hair; horn-rimmed glasses or sunglasses; an oversized long coat with wide trousers; a vintage watch. Diptyque, Jo Malone, Burberry. I match my hair, the tone of my clothes and the mood of my scent to the place I'm going that day.*
 
-> 헤어 스타일, 옷의 톤과 향의 무드를 그날 갈 장소에 맞춘다.
-
-- 색 이름표 다섯 개가 v1 처럼 모두 `#1D1B19` 이 되지 않게, 위 값으로 칩마다 따로 넣는다. 값은 지면 캡처에서 잰 대략값이라 인쇄 전에 원본 사진에서 다시 뽑는다.
-- HAIR–SCENT 목록은 넣지 않는다(1단계 결정). 대신 이 한 줄이 "스타일 → 장소" 로 넘기는 문장이라 꼭 남긴다.
+- **바꾼 것: 색 칩 + 한 줄 → 한 단락.** 이 자리는 4줄짜리 글 단락이라 색 칩(도형)을 넣으려면 상자를 새로 그려야 한다. 대신 지원자가 v1 에 채운 MY STYLE 목록(HAIR–SCENT)을 한 단락으로 줄였다. 13–14pt 에서 제목 1줄 + 본문 3줄로 자리에 맞는다(추정).
+- 사실은 모두 지원자가 v1 3쪽에 적은 것이다. 신발(뉴발란스 · 나이키)은 자리 때문에 뺐다.
+- 안경 · 선글라스를 넣어 2쪽 선글라스 사진과 이어지게 했다(젠틀몬스터 아이웨어).
+- 마지막 문장 "그날 갈 장소에 맞춘다" 는 스타일 → 장소로 넘기는 문장이라 남긴다.
+- 영어로 쓸 경우 14pt 에서 4–5줄이라 자리가 빠듯하다. 한국어를 권한다.
 
 ---
 
