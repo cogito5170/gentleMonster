@@ -22,77 +22,72 @@
 <text x="12.00" y="52.20" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="5.292" font-weight="200" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">01</text>
 <text x="23.00" y="49.60" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.835" font-weight="600" fill="#8E8B86" text-anchor="start" letter-spacing="0.300" opacity="1">WHY GENTLE MONSTER</text>
 <text x="23.00" y="53.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.611" font-weight="700" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">지원한 이유, 왜 젠틀몬스터여야 하는가?</text>
-<text x="100.00" y="49.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.693" font-weight="400" fill="#8E8B86" text-anchor="end" letter-spacing="0.000" opacity="1">원고 보류 중 · 1000자 이내 자리</text>
-<rect x="12.00" y="59.93" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="64.90" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="69.88" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="74.85" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="79.83" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="84.81" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="89.78" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="94.76" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="99.73" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="104.71" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="109.68" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="114.66" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="119.64" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="124.61" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="129.59" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="134.56" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="139.54" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="144.52" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="149.49" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="154.47" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="159.44" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="164.42" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="169.40" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="174.37" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="179.35" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="184.32" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="189.30" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="194.27" width="88.00" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<rect x="12.00" y="199.25" width="36.96" height="1.50" rx="0.3" fill="#3A3A3A" stroke="none" stroke-width="0.25"/>
-<line x1="12.00" y1="209.04" x2="100.00" y2="209.04" stroke="#ECE8E1" stroke-width="0.35"/>
-<text x="12.00" y="215.24" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="5.292" font-weight="200" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">02</text>
-<text x="23.00" y="212.64" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.835" font-weight="600" fill="#8E8B86" text-anchor="start" letter-spacing="0.300" opacity="1">ABOUT ME · STRENGTHS</text>
-<text x="23.00" y="216.64" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.611" font-weight="700" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">본인을 소개하시오. 자신의 강점은 무엇입니까?</text>
-<text x="100.00" y="212.64" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.693" font-weight="400" fill="#8E8B86" text-anchor="end" letter-spacing="0.000" opacity="1">1156자</text>
-<text x="12.00" y="226.64" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="3.704" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">〈틀을 배우고, 그 안을 채우는 건축학도〉</text>
-<text x="12.00" y="236.67" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.662" font-weight="700" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">① 본인 소개</text>
-<text x="12.00" y="242.89" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">건물을 설계하던 감각으로 매장을 설계하려는 건축학도입니다. 5년제</text>
-<text x="12.00" y="247.87" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">건축학과의 설계 수업에서 다룬 건축은 대지와 주변 건물과의 관계 속에서</text>
-<text x="12.00" y="252.84" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">&#x27;틀&#x27;을 정하는 일이었습니다. 그 틀 안의 실내 공간을 다룰 때 더 큰 흥미를</text>
-<text x="12.00" y="257.82" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">느껴, 4학년 2학기에 휴학하고 공간 디자인으로 전향해 젠틀몬스터에</text>
-<text x="12.00" y="262.80" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">지원했습니다.</text>
-<text x="12.00" y="272.25" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.662" font-weight="700" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">② 강점</text>
-<text x="110.00" y="48.89" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">첫째, 기획입니다. 1학년부터 매 학기, 7학기 동안 설계 수업에서 리서치와</text>
-<text x="110.00" y="53.87" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">분석으로 컨셉을 세우고 그 컨셉을 건물로 발전시켰습니다. 하나의 생각을</text>
-<text x="110.00" y="58.84" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">끝까지 형태로 밀고 가는 이 과정을 공간 기획에 가져가겠습니다.</text>
-<text x="110.00" y="66.56" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">둘째, 구현과 소통입니다. 수업에서는 컨셉을 다이어그램과 이미지로 옮겨</text>
-<text x="110.00" y="71.53" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">발표했습니다. 건축사사무소 인턴으로는 현장을 실측해 모델링하고, 주변</text>
-<text x="110.00" y="76.51" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">대지와 프로젝트 건물을 구현했습니다. 2D부터 3D 모델링, 시각화,</text>
-<text x="110.00" y="81.49" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">후보정까지 다룹니다. 오토캐드, 라이노, 엔스케이프, 포토샵, 일러스트,</text>
-<text x="110.00" y="86.46" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">인디자인을 씁니다. 매장 컨셉도 같은 방식으로 모델과 이미지로 옮겨</text>
-<text x="110.00" y="91.44" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">전하겠습니다.</text>
-<text x="110.00" y="99.15" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">셋째, 디자인적 감각입니다. 건축가도 디자이너라는 생각으로 시야를 넓혀</text>
-<text x="110.00" y="104.13" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">왔습니다. 학부 과정에서는 건물의 비례, 이미지 표현, 색채를 다듬는</text>
-<text x="110.00" y="109.10" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">작업을 지향했고, 다양한 건축물을 다니며 실내 공간을 이루는 마감재와</text>
-<text x="110.00" y="114.08" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">가구, 조명을 살폈습니다.</text>
-<text x="110.00" y="121.79" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">원색 대신 채도를 낮춘 색으로 포인트를 주고 주변과 어우러지게 해, 가구와</text>
-<text x="110.00" y="126.77" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">조명 같은 오브제가 공간 속에서 하나의 장면이 되게 하는 방식에 관심이</text>
-<text x="110.00" y="131.74" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">많습니다. 이 감각을 아트 오브제와 가구, 마감재를 기획하는 데</text>
-<text x="110.00" y="136.72" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">쓰겠습니다.</text>
-<text x="110.00" y="144.43" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">절제된 비례와 색 조합에는 익숙합니다. 학부 시절 건축을 통해 절제된</text>
-<text x="110.00" y="149.41" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">디자인을 배워 왔기 때문입니다. 반면 과감한 디자인은 아직 익숙하지 않아,</text>
-<text x="110.00" y="154.38" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">그쪽으로 폭을 넓혀 가려 합니다. 젠틀몬스터의 공간은 과감한 형태와 색의</text>
-<text x="110.00" y="159.36" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">디자인 언어를 쓰기에, 그 언어 앞에서는 채워야 할 부분입니다. 그</text>
-<text x="110.00" y="164.33" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">일환으로서 스타일부터 변화하고 있습니다. 무채색 기반의 패션을 컬러</text>
-<text x="110.00" y="169.31" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">포인트와 개성 있는 아이템으로 바꿔나가고 있습니다. 옷에서 시작한 이</text>
-<text x="110.00" y="174.29" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">변화를 실무까지 이어 가고 싶습니다. 건축에서 익힌 절제 위에 과감을 더해,</text>
-<text x="110.00" y="179.26" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">절제와 과감을 한 공간에서 함께 다루고자 합니다.</text>
-<text x="110.00" y="188.72" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.662" font-weight="700" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">③ 포부</text>
-<text x="110.00" y="194.94" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">틀을 배운 건축학도에서, 스토어와 팝업 공간의 그 안을 채우는</text>
-<text x="110.00" y="199.91" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">젠틀몬스터의 공간 설계 디자이너가 되겠습니다.</text>
+<text x="100.00" y="49.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.693" font-weight="400" fill="#8E8B86" text-anchor="end" letter-spacing="0.000" opacity="1">861자</text>
+<text x="12.00" y="63.60" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="3.704" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">〈계단을 통로가 아닌 전시로 만든 곳〉</text>
+<text x="12.00" y="73.63" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.662" font-weight="700" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">① 지원한 이유</text>
+<text x="12.00" y="79.85" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">젠틀몬스터 홍대 플래그십 스토어는 계단을 통로가 아닌 전시로 만든</text>
+<text x="12.00" y="84.83" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">곳이었습니다. 지난 9월, 개방된 저층부와 오브제가 발걸음을 자연스럽게</text>
+<text x="12.00" y="89.81" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">안으로 이끌었고, 다음이 궁금해 넓은 1층을 지나 계단에 들어섰습니다.</text>
+<text x="12.00" y="94.78" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">작고 닫힌 계단은 형광빛 색채를 띠었고, 길었지만 길게 느껴지지</text>
+<text x="12.00" y="99.76" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">않았습니다. 위층에 이르자 공간이 다시 넓게 열렸고, 지나온 구간은 단순한</text>
+<text x="12.00" y="104.73" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">통로가 아닌 전시의 연장선이었습니다. 이 장면은 학부에서 마주했던</text>
+<text x="12.00" y="109.71" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">문제와 이어집니다. 좁은 부지에서 갤러리를 설계할 때, 위아래로 긴 동선 속</text>
+<text x="12.00" y="114.69" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">단순한 층 이동은 관람자에게 좋지 않은 경험이 되기 쉬웠습니다. 그래서</text>
+<text x="12.00" y="119.66" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">리움미술관에 설치된 올라퍼 엘리아슨의 &#x27;중력의 계단&#x27;을 참고해, 계단이</text>
+<text x="12.00" y="124.64" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">전시 공간의 연장선으로 느껴지도록 계획했습니다. 그 문제를 매장에서</text>
+<text x="12.00" y="129.61" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">풀어낸 홍대의 계단을 보고, 그런 곳을 만드는 쪽에 서고 싶어졌습니다.</text>
+<text x="12.00" y="139.07" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.662" font-weight="700" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">② 왜 젠틀몬스터여야 하는가</text>
+<text x="12.00" y="145.29" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">공간 설계 디자이너는 이용자의 경험을 먼저 설계하는 직무라고</text>
+<text x="12.00" y="150.26" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">생각합니다. 상업시설이라면 저층부에 제품을 두어 매출을 높이려 할</text>
+<text x="12.00" y="155.24" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">것입니다. 그런데 젠틀몬스터는 1층 전체를 전시 공간으로 내주고,</text>
+<text x="12.00" y="160.22" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">오브제로 이끈 발걸음을 위층까지 하나의 이야기로 이었습니다. 온라인과</text>
+<text x="12.00" y="165.19" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">AI로 제품을 사고 착용해 보는 시대에, 오프라인 매장은 직접 걸으며 그</text>
+<text x="12.00" y="170.17" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">이야기를 겪는 곳이어야 합니다. 젠틀몬스터에서 설계하고 싶은 공간은,</text>
+<text x="12.00" y="175.14" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">안경이든 브랜드든 주인공을 돋보이게 하는 무대입니다. 오브제와 색채,</text>
+<text x="12.00" y="180.12" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">동선이 한 장면으로 어우러져, 이용자가 멈추고, 이끌리고, 나선 뒤에도</text>
+<text x="12.00" y="185.09" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">기억하는 곳입니다. 계단에서 시작한 질문을 입구와 통로, 매장의 모든</text>
+<text x="12.00" y="190.07" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">구간으로 넓혀, 지나치는 곳 없이 전시가 되는 공간을 설계하겠습니다.</text>
+<line x1="12.00" y1="197.89" x2="100.00" y2="197.89" stroke="#ECE8E1" stroke-width="0.35"/>
+<text x="12.00" y="204.09" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="5.292" font-weight="200" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">02</text>
+<text x="23.00" y="201.49" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.835" font-weight="600" fill="#8E8B86" text-anchor="start" letter-spacing="0.300" opacity="1">ABOUT ME · STRENGTHS</text>
+<text x="23.00" y="205.49" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.611" font-weight="700" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">본인을 소개하시오. 자신의 강점은 무엇입니까?</text>
+<text x="100.00" y="201.49" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.693" font-weight="400" fill="#8E8B86" text-anchor="end" letter-spacing="0.000" opacity="1">1156자</text>
+<text x="12.00" y="215.49" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="3.704" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">〈틀을 배우고, 그 안을 채우는 건축학도〉</text>
+<text x="12.00" y="225.52" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.662" font-weight="700" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">① 본인 소개</text>
+<text x="12.00" y="231.74" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">건물을 설계하던 감각으로 매장을 설계하려는 건축학도입니다. 5년제</text>
+<text x="12.00" y="236.72" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">건축학과의 설계 수업에서 다룬 건축은 대지와 주변 건물과의 관계 속에서</text>
+<text x="12.00" y="241.70" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">&#x27;틀&#x27;을 정하는 일이었습니다. 그 틀 안의 실내 공간을 다룰 때 더 큰 흥미를</text>
+<text x="12.00" y="246.67" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">느껴, 4학년 2학기에 휴학하고 공간 디자인으로 전향해 젠틀몬스터에</text>
+<text x="12.00" y="251.65" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">지원했습니다.</text>
+<text x="12.00" y="261.10" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.662" font-weight="700" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">② 강점</text>
+<text x="12.00" y="267.32" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">첫째, 기획입니다. 1학년부터 매 학기, 7학기 동안 설계 수업에서 리서치와</text>
+<text x="12.00" y="272.30" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">분석으로 컨셉을 세우고 그 컨셉을 건물로 발전시켰습니다. 하나의 생각을</text>
+<text x="110.00" y="48.89" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">끝까지 형태로 밀고 가는 이 과정을 공간 기획에 가져가겠습니다.</text>
+<text x="110.00" y="56.61" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">둘째, 구현과 소통입니다. 수업에서는 컨셉을 다이어그램과 이미지로 옮겨</text>
+<text x="110.00" y="61.58" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">발표했습니다. 건축사사무소 인턴으로는 현장을 실측해 모델링하고, 주변</text>
+<text x="110.00" y="66.56" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">대지와 프로젝트 건물을 구현했습니다. 2D부터 3D 모델링, 시각화,</text>
+<text x="110.00" y="71.53" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">후보정까지 다룹니다. 오토캐드, 라이노, 엔스케이프, 포토샵, 일러스트,</text>
+<text x="110.00" y="76.51" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">인디자인을 씁니다. 매장 컨셉도 같은 방식으로 모델과 이미지로 옮겨</text>
+<text x="110.00" y="81.49" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">전하겠습니다.</text>
+<text x="110.00" y="89.20" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">셋째, 디자인적 감각입니다. 건축가도 디자이너라는 생각으로 시야를 넓혀</text>
+<text x="110.00" y="94.17" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">왔습니다. 학부 과정에서는 건물의 비례, 이미지 표현, 색채를 다듬는</text>
+<text x="110.00" y="99.15" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">작업을 지향했고, 다양한 건축물을 다니며 실내 공간을 이루는 마감재와</text>
+<text x="110.00" y="104.13" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">가구, 조명을 살폈습니다.</text>
+<text x="110.00" y="111.84" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">원색 대신 채도를 낮춘 색으로 포인트를 주고 주변과 어우러지게 해, 가구와</text>
+<text x="110.00" y="116.81" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">조명 같은 오브제가 공간 속에서 하나의 장면이 되게 하는 방식에 관심이</text>
+<text x="110.00" y="121.79" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">많습니다. 이 감각을 아트 오브제와 가구, 마감재를 기획하는 데</text>
+<text x="110.00" y="126.77" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">쓰겠습니다.</text>
+<text x="110.00" y="134.48" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">절제된 비례와 색 조합에는 익숙합니다. 학부 시절 건축을 통해 절제된</text>
+<text x="110.00" y="139.45" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">디자인을 배워 왔기 때문입니다. 반면 과감한 디자인은 아직 익숙하지 않아,</text>
+<text x="110.00" y="144.43" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">그쪽으로 폭을 넓혀 가려 합니다. 젠틀몬스터의 공간은 과감한 형태와 색의</text>
+<text x="110.00" y="149.41" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">디자인 언어를 쓰기에, 그 언어 앞에서는 채워야 할 부분입니다. 그</text>
+<text x="110.00" y="154.38" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">일환으로서 스타일부터 변화하고 있습니다. 무채색 기반의 패션을 컬러</text>
+<text x="110.00" y="159.36" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">포인트와 개성 있는 아이템으로 바꿔나가고 있습니다. 옷에서 시작한 이</text>
+<text x="110.00" y="164.33" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">변화를 실무까지 이어 가고 싶습니다. 건축에서 익힌 절제 위에 과감을 더해,</text>
+<text x="110.00" y="169.31" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">절제와 과감을 한 공간에서 함께 다루고자 합니다.</text>
+<text x="110.00" y="178.76" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.662" font-weight="700" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="1">③ 포부</text>
+<text x="110.00" y="184.98" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">틀을 배운 건축학도에서, 스토어와 팝업 공간의 그 안을 채우는</text>
+<text x="110.00" y="189.96" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.893" font-weight="400" fill="#ECE8E1" text-anchor="start" letter-spacing="0.000" opacity="0.92">젠틀몬스터의 공간 설계 디자이너가 되겠습니다.</text>
 <line x1="7.00" y1="282.50" x2="203.00" y2="282.50" stroke="#3A3A3A" stroke-width="0.25"/>
 <circle cx="9.5" cy="286.1" r="1.7" fill="none" stroke="#8E8B86" stroke-width="0.25"/>
 <line x1="8.80" y1="286.80" x2="10.20" y2="285.40" stroke="#ECE8E1" stroke-width="0.25"/>
