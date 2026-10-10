@@ -17,7 +17,7 @@
 
 | 자리 | 영어 | 한국어 해석 |
 |---|---|---|
-| 캡션 | **stop** / (an empty lot, after the rain) | 멈춤 / (빈 주차장, 비가 그친 뒤) |
+| 캡션 | **Stop** / (an empty lot, after the rain) | 멈춤 / (빈 주차장, 비가 그친 뒤) |
 | 닫는 문장 | *People shape spaces, and spaces shape people back.* / *I design the moment in between, when someone stops.* | 사람은 공간을 만들고, 공간은 다시 사람을 만든다. / 나는 그 사이, 누군가 멈추는 순간을 설계한다. |
 | 질문 | “Where Did You Last Stop?” | 당신이 마지막으로 멈춘 곳은 어디인가? |
 | 이름 · 연락처 | Jeong Hyeokju · ____ (이메일 · 전화 · 인스타그램 중) | 정혁주 · 연락처 |
@@ -31,3 +31,9 @@
 1. "after the rain" — 비가 온 뒤가 맞는지(젖은 바닥 · 흐린 하늘로 읽음). 아니면 *(an empty lot, on a grey day)*.
 2. 연락처에 넣을 것.
 3. 24–25 가 마지막 펼침이면 전체 25쪽 → 제본(중철은 4의 배수)에 맞는지 인쇄소에 확인. 표지 1쪽 + 펼침 12개 = 25쪽이라 뒤표지 1쪽을 더하면 26쪽.
+
+## 제작 (지원자 IDML 에 반영)
+
+[idml/마지막 페이지 24-25.idml](idml/) — [scripts/idml_closing_24-25.py](scripts/idml_closing_24-25.py)
+- 사진 오른쪽 40pt. 글 상자 4개는 표지 질문 상자를 복제해 만들고, 글자 서식은 표지(질문 · 이름 · 문구)와 같은 값(글꼴 · 크기 · 행간 · 가로 비율).
+- 캡션 첫 글자는 다른 캡션처럼 대문자(*Stop*). 연락처는 아직 없어서 이름만 넣었다.
