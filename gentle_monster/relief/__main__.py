@@ -5,6 +5,7 @@
     python -m gentle_monster.relief sheet home             render + vintage print one sheet  -> out/home_final.png
     python -m gentle_monster.relief home --layout my.svg   the homepage CV from any TYPE 1 layout SVG -> out/CV_HOME.pdf
     python -m gentle_monster.relief book                   cover, plan, picture, object, experience -> out/SPA_BOOK.pdf
+    python -m gentle_monster.relief photo all [--face me.jpg] [--print]   people still in a blurred crowd (needs GEMINI_API_KEY)
 
 Options: --out DIR (default out/relief), --width PX (1240 = A4 at 150 dpi), --samples N (96), --draft (520 px, 24 samples).
 Rendering needs Blender as a Python module: run with the interpreter that has `bpy` (pip install bpy==5.1.2, Python 3.13).
@@ -100,6 +101,9 @@ def pdf(pngs, path, title):
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == "photo":            # real-looking people: Gemini image model
+        from gentle_monster.relief import photo
+        return photo.main(sys.argv[2:])
     ap = argparse.ArgumentParser(prog="python -m gentle_monster.relief", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("cmd", choices=["assets", "list", "sheet", "home", "book"])
     ap.add_argument("name", nargs="?")
