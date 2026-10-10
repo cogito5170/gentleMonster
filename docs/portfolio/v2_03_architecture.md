@@ -42,14 +42,16 @@
 |---|---|---|---|
 | 18 왼쪽 위 | © 2026 Template.Systems | **Extension of Chateau** | 샤토 증축 |
 | 19 오른쪽 위 | Grid Exploration 003 | PLACE | 장소 |
-| 18 본문 | A grid system is … | A new wing for a chateau among misty hills and vineyards. I lifted the long volume onto slim columns, so the vines run on beneath it, and wrapped it in a wooden lattice that filters the view of the valley. | 안개 낀 언덕과 포도밭 사이, 샤토의 새 건물. 나는 긴 매스를 가는 기둥 위로 들어 올려 포도밭이 그 아래로 이어지게 했고, 골짜기의 풍경을 걸러 보여 주는 나무 격자로 감쌌다. |
-| 19 본문 | A grid system is … | A single path runs between the vines and through an opening in the long brick wall. Walking under the raised building, people move from the open field into a framed view of the hills. That opening in the wall is where I wanted people to stop. | 하나의 길이 포도밭 사이를 지나 긴 벽돌 벽의 개구부를 통과한다. 들어 올린 건물 아래를 걸으며 사람들은 열린 들판에서 액자처럼 잘린 언덕의 풍경으로 들어선다. 벽이 열리는 그 자리가, 내가 사람들이 멈추기를 바란 곳이다. |
+| 18 본문 (늘린 안) | A grid system is … | A new wing for a chateau among misty hills and vineyards. The extension is one long line, held low against the slope so the hills stay the tallest thing in view. I lifted it onto slim columns, so the vines run on beneath it and the field is never cut in two. Its skin is a wooden lattice: from outside, a quiet screen; from inside, a frame that breaks the valley into views. | 안개 낀 언덕과 포도밭 사이, 샤토의 새 건물. 증축동은 하나의 긴 선으로, 언덕이 늘 가장 높게 보이도록 경사에 낮게 붙였다. 나는 이 매스를 가는 기둥 위로 들어 올려 포도밭이 그 아래로 이어지고 밭이 둘로 잘리지 않게 했다. 외피는 나무 격자다. 밖에서는 조용한 막이 되고, 안에서는 골짜기를 여러 장면으로 나누는 틀이 된다. |
+| 19 본문 (늘린 안) | A grid system is … | A single dirt path runs between the vines toward a long brick wall. The wall stays closed for most of its length, and the path leads to the one place it opens. Walking under the raised building, people move from the open field into a framed view of the hills. That opening is where I wanted people to stop: a pause between the vineyard and the chateau, before the view opens again. | 흙길 하나가 포도밭 사이를 지나 긴 벽돌 벽으로 향한다. 벽은 대부분 닫혀 있고, 길은 벽이 열리는 단 한 곳으로 이어진다. 들어 올린 건물 아래를 걸으며 사람들은 열린 들판에서 액자처럼 잘린 언덕의 풍경으로 들어선다. 그 개구부가 내가 사람들이 멈추기를 바란 곳이다. 포도밭과 샤토 사이에서 한 번 숨을 고르고, 다시 풍경이 열리기 전에. |
+| 그림 아래 캡션 (새로 추가 · 그림 왼쪽 아래) | — | **Path through the wall** / (Architectural Design Studio_____ · Render) | 벽을 지나는 길 / (건축설계 스튜디오_학기 · 렌더) |
 | 18 왼쪽 아래 | download now · www.templat…Series…ms (겹친 두 상자) | **p. 18-19** (겹친 상자 둘 다 지우고 하나만) | 18–19쪽 |
 | 18 아래 번호 | (003) | 지움 — (003) 은 16–17 여는 펼침에만 | — |
 | 19 아래 | Experimental Grid Exploration | **Architectural Project_____** (16–17 과 같은 형식) | 건축 프로젝트_(종류) |
 | 19 오른쪽 아래 | Series | 지움 | — |
 | 그림 안 제목 | Extention of Chateau (오타) | **그림에서 지우고** 18쪽 왼쪽 위 제목으로 옮긴다. 그림에 남기면 *Extension* 으로 고친다 | — |
 
+- **늘린 안 (지원자 요청):** 각 단락 5줄 → 7줄 안팎. 단락과 그림 사이 여백에 8–9줄까지 들어간다(추정). 18 = 형태(낮은 선 · 들어 올림 · 격자), 19 = 동선과 멈춤(닫힌 벽 · 하나의 개구부 · 숨 고르기). 그림 아래 캡션을 새로 둔다.
 - 본문 두 단락은 같은 높이에서 마주 본다: 왼쪽 = 무엇을 했나(매스 · 기둥 · 격자), 오른쪽 = 사람이 어디서 멈추나(길 · 벽의 개구부). 16–17 의 "where they stop" 을 실제 작업으로 보여 준다.
 - 렌더에서 읽은 것: 안개 낀 산 · 줄지은 포도나무 · 기둥 위로 들린 긴 매스 · 격자 외피 · 긴 벽돌 벽과 개구부 · 그 개구부로 가는 흙길.
-- **확인 필요(의도 · 사실):** 포도밭/와이너리가 맞는지 · 기둥 재료(나무인지 벽돌 마감인지 — 그래서 "slim columns" 로만 썼다) · 격자 재료(wooden) · "포도밭이 그 아래로 이어지게" · "벽이 열리는 자리에서 멈추기를 바랐다" 가 실제 의도인지 · 프로젝트 종류(Studio / Personal)와 학기.
+- **확인 필요(의도 · 사실):** "언덕이 가장 높게 보이도록 낮게" · "밭이 둘로 잘리지 않게" · "벽은 대부분 닫혀 있고 한 곳만 열린다" · 포도밭/와이너리가 맞는지 · 기둥 재료(나무인지 벽돌 마감인지 — 그래서 "slim columns" 로만 썼다) · 격자 재료(wooden) · "포도밭이 그 아래로 이어지게" · "벽이 열리는 자리에서 멈추기를 바랐다" 가 실제 의도인지 · 프로젝트 종류(Studio / Personal)와 학기.
