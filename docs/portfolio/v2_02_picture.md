@@ -33,9 +33,8 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 | E-10 | PICTURE · (002) · 부제 *A Moment like A Photograph* | 사진 · (002) · 부제: 사진 같은 순간 |
 | E-11 캡션 | **puddle** | 웅덩이 |
 | E-11 본문 | The second place I stop is in front of a scene. Sometimes light, color, people and place fall into line at once. That's when I take out my camera. The street photo before this was one of those moments: a man in headphones, a checked shirt and slippers, and behind him a plant and a chalkboard. The person and the place came together.<br>So my second story is about pictures. | 내가 두 번째로 멈추는 곳은 장면 앞이다. 빛, 색, 사람, 장소가 한순간에 맞아떨어질 때가 있다. 그때 나는 카메라를 꺼낸다. 앞의 거리 사진도 그런 순간이었다. 헤드폰을 쓴 사람, 체크 셔츠와 슬리퍼, 그리고 그 뒤의 화분과 칠판. 사람과 장소가 함께 맞아떨어졌다. / 그래서 내 두 번째 이야기는 사진이다. |
-| E-11 라벨 | **Where I stop** / (in front of a scene) | 내가 멈추는 곳 / (장면 앞에서) |
 | F-12 캡션 | **color** / (a food truck, at dusk) | 색 / (푸드트럭, 해 질 녘) |
-| F-12 본문 | **Why do I take pictures?** With a camera in hand, I notice what I usually walk past: the color of a wall, the direction of the light, where people stand. As I shoot, I keep watching, and even an ordinary street starts to tell a story. Making a space works the same way. A good space starts with seeing where the light comes in and where people will stand. | 나는 왜 사진을 찍는가? 카메라를 들면 평소에 지나치던 것을 보게 된다. 벽의 색, 빛의 방향, 사람이 서 있는 자리. 찍는 동안 나는 계속 보고, 아무렇지 않던 길도 이야기를 하기 시작한다. 공간을 만드는 일도 같다. 좋은 공간은 빛이 어디로 들어오고 사람이 어디에 설지를 보는 데서 시작한다. |
+| F-12 본문 | **Why do I take pictures?** With a camera in hand, I notice what I usually walk past: the color of a wall, the direction of the light, where people stand. As I shoot, I keep watching, and even an ordinary street starts to tell a story. Making a space works the same way: I begin by looking at where the light comes in and where people will stand. | 나는 왜 사진을 찍는가? 카메라를 들면 평소에 지나치던 것을 보게 된다. 벽의 색, 빛의 방향, 사람이 서 있는 자리. 찍는 동안 나는 계속 보고, 아무렇지 않던 길도 이야기를 하기 시작한다. 공간을 만드는 일도 같다. 나는 빛이 어디로 들어오고 사람이 어디에 설지를 보는 데서 시작한다. |
 | F-12 왼쪽 아래 | **(002) PICTURE** / (A Moment like A Photograph) | (002) 사진 / (사진 같은 순간) |
 | F-12 아래 번호 | 08 — 09 (지금 (003)) | 8–9쪽 |
 | F-13 오른쪽 아래 | **Where Did You Last Stop?** (지금 Experimental Grid Exploration) | 당신이 마지막으로 멈춘 곳은 어디인가? |
@@ -43,15 +42,15 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 | G-10 왼쪽 위 (© 2026 Template.Systems) | **What makes a good picture?** | 좋은 사진이란? |
 | G-11 오른쪽 위 (Grid Exploration 003) | MOMENT | 순간 |
 | G-10 본문 (왼쪽 단) | First, a picture you keep looking at. In the sea at dusk, two people: one stands and looks down, the other reaches into the water. Their pink and red are the only warm colors in a blue-grey sea, and my eye keeps going back to them. | 첫째, 계속 들여다보게 되는 사진. 해 질 녘 바다에 두 사람이 있다. 한 사람은 서서 내려다보고, 다른 사람은 물속으로 손을 뻗는다. 푸르스름한 회색 바다에서 분홍과 빨강만이 따뜻한 색이라, 눈이 자꾸 그곳으로 돌아간다. |
-| G-11 본문 (오른쪽 단) | Second, a picture that becomes a story. I don't know what they were saying, but the small gesture between them is enough to begin one. People, light, color and place came together for a moment, and I stopped. A good picture makes you stop, and it stays with you. | 둘째, 하나의 이야기가 되는 사진. 두 사람이 무슨 말을 나눴는지는 모르지만, 둘 사이의 작은 몸짓만으로도 이야기가 시작된다. 사람, 빛, 색, 장소가 한순간 맞아떨어졌고, 나는 멈췄다. 좋은 사진은 멈추게 하고, 오래 남는다. |
-| G 사진 캡션 (새로 추가 · 사진 왼쪽 아래) | **two** / (in the sea, at dusk) | 두 사람 / (바다 속, 해 질 녘) |
+| G-11 본문 (오른쪽 단) | Second, a picture that becomes a story. I don't know what they were saying, but the small gesture between them is enough to begin one, and each time I look, the story changes a little. A good picture makes you stop, and it stays with you. | 둘째, 하나의 이야기가 되는 사진. 두 사람이 무슨 말을 나눴는지는 모르지만, 둘 사이의 작은 몸짓만으로도 이야기가 시작되고, 볼 때마다 그 이야기는 조금씩 달라진다. 좋은 사진은 멈추게 하고, 오래 남는다. |
+| G 사진 캡션 (새로 추가 · 사진 왼쪽 아래) | **two** | 두 사람 |
 | G-10 왼쪽 아래 (download now) | **(002) PICTURE** / (A Moment like A Photograph) | (002) 사진 / (사진 같은 순간) |
 | G-10 아래 번호 ((003)) | 10 — 11 | 10–11쪽 |
 | G-11 오른쪽 아래 (Series 자리) | **Where Did You Last Stop?** | 당신이 마지막으로 멈춘 곳은 어디인가? |
 | G-11 Experimental Grid Exploration | 지움 | — |
 | H 캡션 | **dusk** · **lights** | 노을 · 불빛 |
 | I-18 캡션 | **smoke** | 연기 |
-| I-18 본문 | Looking back at my good pictures, there was always a good place behind them. Wherever people stopped, a space was holding them there. | 좋은 사진들을 다시 보면, 그 뒤에는 늘 좋은 장소가 있었다. 사람이 멈춘 곳에는 언제나 그 사람을 붙잡아 둔 공간이 있었다. |
+| I-18 본문 | Wherever people stopped, a place was holding them there: the smoke over a grill, the light along a museum's curved wall. The place sets the scene before anyone steps into it. | 사람이 멈춘 곳에는 언제나 그들을 붙잡아 둔 장소가 있었다. 그릴 위의 연기, 미술관의 휘어진 벽을 따라 흐르는 빛. 장소는 누군가 들어서기 전에 이미 장면을 만들어 둔다. |
 | I-19 큰 글자 | Every good picture had a good place behind it. | 좋은 사진 뒤에는 늘 좋은 장소가 있었다. |
 | I-19 캡션 | **curve** | 곡선 |
 
@@ -60,7 +59,8 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 - **G 본문은 이 사진을 예로 든다** (지원자 요청). 좋은 사진의 두 조건을 일반론 대신 바다 속 두 사람 사진으로 설명한다. 사진에 보이는 것(해 질 녘 빛 · 서서 내려다보는 사람 · 물에 손을 뻗는 사람 · 분홍과 빨강)만 쓰고, 두 사람의 관계는 쓰지 않는다.
 - **G(지원자 10–11쪽) 레이아웃:** 본문 한 단락이 접힘을 가로지른다 → 제본하면 가운데 글자가 먹힌다. 질문의 답 두 개를 **왼쪽 단(첫째) · 오른쪽 단(둘째 + 마무리)** 으로 나눠 접힘을 피한다. 사진은 두 사람이 접힘에서 멀어지게 왼쪽으로 약 30pt 옮긴다.
 - **아래 끝 질문 위치:** Where Did You Last Stop? 은 모든 오른쪽 쪽에서 **바깥 아래 모서리(오른쪽 맞춤)** 에 둔다. 9쪽도 Experimental Grid Exploration 자리 대신 같은 모서리로 옮긴다.
-- E-11 라벨은 A-3 *Where I stop / (on the street)* 과 짝.
+- E-11 아래 한 줄 자리는 아래 끝 규칙대로 **Where Did You Last Stop?** (오른쪽 쪽 바깥 아래 모서리).
+- **중복 정리 (지원자 지적):** G 오른쪽 단의 "People, light, color and place came together … I stopped" 는 E 여는 글과 같은 말이라 "볼 때마다 이야기가 조금씩 달라진다" 로 바꿨다(첫째 조건 '계속 들여다본다' 와도 이어진다). G 캡션의 (in the sea, at dusk) 는 본문이 이미 말해서 뺐다. F 의 "A good space starts …" 는 5쪽 STYLE Q1 끝 "A good space starts the same way." 와 겹쳐 "I begin by looking at …" 으로 바꿨다. I-18 본문은 19쪽 큰 글자(Every good picture had a good place behind it.)와 같은 말이라, 그 장소들이 무엇이었는지(그릴 연기 · 미술관 벽의 빛)를 말하는 문장으로 바꿨다.
 
 ---
 

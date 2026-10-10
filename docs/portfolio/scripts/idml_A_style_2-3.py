@@ -20,8 +20,8 @@ TEXT = {
     "u1ac7": [("A Person With Style", "A Person with Style")],
     "u1a99": [("column grids ", "Sunglasses "),
               ("(multiple vertical columns)", "(on a wet street, at night)")],
-    "u1ab0": [("modular grids", "Where I stop"),
-              ("(rows and columns forming modules)", "(on the street)")],
+    "u1ab0": [("modular grids", "Anyone can buy the clothes."),
+              ("(rows and columns forming modules)", "(Only the person can make the style.)")],
 }
 
 # 지울 글 상자: (프레임 id, 스토리 id)

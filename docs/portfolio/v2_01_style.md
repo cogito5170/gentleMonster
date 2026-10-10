@@ -18,16 +18,16 @@ v2 지면 A–D 의 템플릿 자리마다 넣을 글. 글은 [01_style.md](01_s
 | 2 이름 · 부제 | Jeong Hyeokju · A Person with Style | 정혁주 · 스타일이 있는 사람 |
 | 2 사진 캡션 | **Sunglasses** / (on a wet street, at night) | 선글라스 / (밤, 젖은 길 위에서) |
 | 3 본문 | The first place I stop is the street. When someone with good style walks by, I stop: their hair, their glasses, their clothes and shoes, the accessories they wear, and how the colors go together. Sometimes it's the scent they leave behind that makes me turn around.<br>So my first story is about style. | 내가 처음 멈추는 곳은 길 위다. 스타일이 좋은 사람이 지나가면 나는 멈춘다. 그 사람의 머리, 안경, 옷과 신발, 액세서리, 그리고 그 색들이 어떻게 어울리는지. 가끔은 그 사람이 남기고 간 향에 뒤를 돌아보기도 한다. / 그래서 내 첫 번째 이야기는 스타일이다. |
-| 3 라벨 | **Where I stop** / (on the street) | 내가 멈추는 곳 / (길 위에서) |
+| 3 라벨 | **Anyone can buy the clothes.** / (Only the person can make the style.) | 옷은 누구나 살 수 있다. / (스타일은 그 사람만 만들 수 있다.) |
 
-- **바꾼 것:** 3쪽 라벨 *I stop on the street. / (My first story is about style.)* 는 본문 마지막 줄과 겹쳐서 *Where I stop / (on the street)* 로 바꿨다. 커버 질문 *Where Did You Last Stop?* 에 대한 답처럼 읽힌다. PICTURE · ARCHITECTURE 의 같은 자리도 *Where I stop / (in front of a scene)* · *(in a good space)* 로 맞춘다.
+- **바꾼 것:** 3쪽 라벨은 *Where I stop / (on the street)* 도 본문 첫 문장(The first place I stop is the street.)과 같은 말이라, 4쪽 왼쪽 아래(이제 섹션 표시 자리)에서 갈 곳이 없어진 풀쿼트 *Anyone can buy the clothes.* 를 이리 옮겼다. 섹션을 여는 쪽에 STYLE 의 주장이 한 줄로 선다.
 
 ### B · 4–5쪽
 | 자리 | 글 | 한국어 해석 |
 |---|---|---|
 | 4 캡션 | **Black long coat** / (shop front, evening) | 검은 롱코트 / (가게 앞, 저녁) |
 | 4 캡션 | **Olive parka** / (by the river, at night) | 올리브 파카 / (강가, 밤) |
-| 4 왼쪽 아래 | **Anyone can buy the clothes.** / (Only the person can make the style.) | 옷은 누구나 살 수 있다. / (스타일은 그 사람만 만들 수 있다.) |
+| 4 왼쪽 아래 | **(001) STYLE** / (A Person with Style) — 아래 끝 규칙 | (001) 스타일 / (스타일이 있는 사람) |
 | 5 캡션 | **Light jacket** / (amusement park, at sunset) | 밝은 재킷 / (놀이공원, 해 질 녘) |
 | 5 머리말 | MOOD | 분위기 |
 | 5 오른쪽 단락 1 | **Why is style important?** The same white shirt looks different on everyone: sleeves rolled or not, how many buttons done up, what it's worn with. That difference is style. I look at what a person chose, what they left out, and what they made stand out. A good space starts the same way. | 스타일은 왜 중요한가? 같은 흰 셔츠도 사람마다 다르게 보인다. 소매를 걷었는지, 단추를 몇 개 채웠는지, 무엇과 같이 입었는지. 그 차이가 스타일이다. 나는 그 사람이 무엇을 골랐고, 무엇을 뺐고, 무엇을 돋보이게 했는지를 본다. 좋은 공간도 같은 방식으로 시작한다. |

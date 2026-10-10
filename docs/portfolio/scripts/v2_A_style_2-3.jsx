@@ -20,8 +20,8 @@ var REPLACEMENTS = [
     ["2", "A Person With Style", "A Person with Style"],
     ["2", "column grids", "Sunglasses"],
     ["2", "(multiple vertical columns)", "(on a wet street, at night)"],
-    ["3", "modular grids", "Where I stop"],
-    ["3", "(rows and columns forming modules)", "(on the street)"]
+    ["3", "modular grids", "Anyone can buy the clothes."],
+    ["3", "(rows and columns forming modules)", "(Only the person can make the style.)"]
 ];
 
 // [쪽, 이 글이 들어 있는 글 상자를 지운다]
