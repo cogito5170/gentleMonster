@@ -89,11 +89,7 @@ MY STYLE
 
 ### 지면 반영
 
-[scripts/v2_B_style_4-5.jsx](scripts/v2_B_style_4-5.jsx) — InDesign 에서 실행하면 위 표대로 4–5쪽 글을 바꾼다. 사진 캡션 세 개, 5쪽 머리말 MOOD, Q1 · Q2, MY STYLE 을 넣고 4쪽 템플릿 글 상자 두 개(© · download)는 지운다.
-
-- MY STYLE 색 칩은 ■ 글자를 위 다섯 색으로 칠한다. 견본 패널에 `MY STYLE Black #1D1B19` 같은 이름으로 RGB 견본이 생긴다. 원본 사진에서 색을 다시 뽑으면 스크립트 맨 위 `MY_STYLE_COLORS` 만 고친다.
-- 머리말을 지우려면 `HEADER_5` 를 `""` 로 둔다. 파카 사진이 한강이면 `Riverside, night` 를 `Han River, night` 로 바꾼다.
-- 한글 단락만 한글 글꼴로 바꾸고, 영어 질문 제목(Why is style important? · What makes a good style?)은 지면 글꼴 그대로 둔다. 굵게 할지는 지면에서 정한다.
+B · C 를 한 번에 바꾸는 [scripts/v2_BC_style_4-7.jsx](scripts/v2_BC_style_4-7.jsx) 를 쓴다 — 아래 C 의 "지면 반영" 참고.
 
 ---
 
@@ -109,17 +105,34 @@ MY STYLE
 ### 7쪽 첫 본문
 
 **DAILY LookBook**
-Web design · University project · ____ (연도) · Photoshop + Illustrator
+Web design · University project · ____ (연도) · Photoshop + Illustrator  ← 연도를 모르면 이 칸 없이
 
 > 사람의 스타일을 고르는 눈으로 화면도 만들었다.
 > DAILY LookBook 은 매일의 옷차림을 모아 보는 스타일 사이트다. 다른 사람의 하루 옷차림을 보고, 스타일 범주(Dandy · Casual · Street · Amekaji · Office)로 고르고, 마음에 든 옷을 바로 찾는다.
 
 ### 7쪽 둘째 본문
 
-> MARKET 화면은 색 · 핏 · 길이 · 무늬 · 소재로 옷을 거른다. ____
+> MARKET 화면은 색 · 핏 · 길이 · 무늬 · 소재로 옷을 거른다. **길에서 사람을 볼 때 눈에 들어오는 것들이다.**
+> **상품 이름 뒤에는 색을 붙이고(Balmacan Wool Coat_Black), 값 옆에 할인된 값을 함께 두어 룩북에서 본 옷을 바로 찾게 했다.**
 
-- `____` 자리에 이 화면에서 지원자가 정한 것 한 줄. 예: "길에서 사람을 볼 때 보는 순서대로 필터를 놓았다" — 실제로 그렇게 정했을 때만 쓴다.
-- 혼자 했는지, 팀에서 어느 부분을 맡았는지 `____` 를 채운다.
+- 굵은 두 문장은 새로 썼다. 화면에 실제로 있는 것(FILTER 의 Color · Fit · Length · Pattern · Material, "이름_색" 상품명, "원래 값 > 할인된 값")만 말한다. 화면 원본(웹디자인 IMG_9726 · IMG_9727)의 글을 읽어서 확인했다.
+- "길에서 보는 순서대로 필터를 놓았다" 처럼 지원자가 *왜* 그렇게 정했는지는 쓰지 않았다. 실제로 그렇게 정했다면 둘째 문장을 그 말로 바꾼다.
+- 연도와 혼자/팀은 사실이라 지어내지 않았다. 스크립트 맨 위 `C_YEAR` · `C_ROLE` 에 넣으면 첫 본문 둘째 줄에 들어가고, 비워 두면 그 칸 없이 `Web design · University project · Photoshop + Illustrator` 로 나온다.
+
+### 지면 반영
+
+[scripts/v2_BC_style_4-7.jsx](scripts/v2_BC_style_4-7.jsx) — InDesign 에서 실행하면 위 B · C 표대로 4–7쪽 글을 바꾼다. 실행 취소 한 번으로 전부 되돌아간다.
+
+- **쪽 번호가 아니라 템플릿 글로 펼침을 찾는다.** 4–7쪽만 떼어 낸 문서(지원자가 보낸 `4-7.indd`)에서도, 28쪽 전체 문서에서도 똑같이 돈다.
+  - B = "A grid system is…" 와 "Common types include…" 가 같이 있는 쪽의 펼침
+  - C = "Grid systems are widely used…" 가 있는 쪽의 펼침
+- B: 사진 캡션 세 개, 5쪽 머리말 MOOD, Q1 · Q2, MY STYLE 을 넣고 4쪽 템플릿 글 상자 두 개(© · download)는 지운다.
+- C: 첫 본문 → DAILY LookBook 소개, 둘째 본문 → MARKET 설명. 7쪽 라벨 두 개는 템플릿 글이 같아서 자리로 가른다 — 가장 작은 그림(메인 화면)에 가까운 라벨이 `MAIN (home)`, 다른 하나가 `MARKET (product list)`.
+- MY STYLE 색 칩은 ■ 글자를 다섯 색으로 칠한다. 견본 패널에 `MY STYLE Black #1D1B19` 같은 이름으로 RGB 견본이 생긴다. 원본 사진에서 색을 다시 뽑으면 스크립트 맨 위 `MY_STYLE_COLORS` 만 고친다.
+- 머리말을 지우려면 `HEADER_5` 를 `""` 로 둔다. 파카 사진이 한강이면 `Riverside, night` 를 `Han River, night` 로 바꾼다.
+- 한글 단락만 한글 글꼴(Source Han Sans KR — 문서에 이미 있다)로 바꾼다. 영어 제목 · 라벨은 지면 글꼴 그대로 둔다. 굵게 할지는 지면에서 정한다.
+- 템플릿 상자는 영어 글 크기에 맞춰져 있다. 한글이 넘치면 끝날 때 "넘친 글 상자" 로 알려 준다.
+- B · C 밖의 글은 건드리지 않고 목록만 보여 준다. `4-7.indd` 에는 표지 글(STYLE / PICTURE / ARCHITECTURE · A Person with Style… I Stop. · Jeong Hyeokju · Where Did You Last Stop?)도 들어 있다. 이 글들이 어느 쪽(또는 페이스트보드)에 있는지는 이 목록으로 확인한다.
 
 ---
 
@@ -140,5 +153,5 @@ Web design · University project · ____ (연도) · Photoshop + Illustrator
 
 1. ~~A 펼침 가로 사진 고르기~~ → 선글라스 사진 ✓
 2. B 파카 사진 장소가 한강인지
-3. C 연도 · 혼자/팀 · 맡은 부분 · MARKET 화면에서 정한 것 한 줄
+3. C 연도 · 혼자/팀 · 맡은 부분 (MARKET 설명은 화면에 있는 것으로 새로 썼다 — 필터를 왜 그렇게 놓았는지 있으면 바꾼다)
 4. D 마젠타 강조 순서
