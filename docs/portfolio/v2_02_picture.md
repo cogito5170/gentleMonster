@@ -41,8 +41,7 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 | F-13 캡션 | **bulbs** / (a rooftop bar, at night) · **sprout** / (on the sand) | 전구 / (루프탑 바, 밤) · 새싹 / (모래 위) |
 | G-10 왼쪽 위 (© 2026 Template.Systems) | **What makes a good picture?** | 좋은 사진이란? |
 | G-11 오른쪽 위 (Grid Exploration 003) | MOMENT | 순간 |
-| G-10 본문 (왼쪽 단) | First, a picture you keep looking at. In the sea at dusk, two people: one stands and looks down, the other reaches into the water. Their pink and red are the only warm colors in a blue-grey sea, and my eye keeps going back to them. | 첫째, 계속 들여다보게 되는 사진. 해 질 녘 바다에 두 사람이 있다. 한 사람은 서서 내려다보고, 다른 사람은 물속으로 손을 뻗는다. 푸르스름한 회색 바다에서 분홍과 빨강만이 따뜻한 색이라, 눈이 자꾸 그곳으로 돌아간다. |
-| G-11 본문 (오른쪽 단) | Second, a picture that becomes a story. I don't know what they were saying, but the small gesture between them is enough to begin one, and each time I look, the story changes a little. A good picture makes you stop, and it stays with you. | 둘째, 하나의 이야기가 되는 사진. 두 사람이 무슨 말을 나눴는지는 모르지만, 둘 사이의 작은 몸짓만으로도 이야기가 시작되고, 볼 때마다 그 이야기는 조금씩 달라진다. 좋은 사진은 멈추게 하고, 오래 남는다. |
+| G 본문 (한 단락 · 11쪽 안에) | A good picture is one you keep looking at, and one that becomes a story. In the sea at dusk, two people: one stands and looks down, the other reaches into the water. Their pink and red are the only warm colors in a blue-grey sea, and my eye keeps going back to them. I don't know what they were saying, but that small gesture is enough to begin a story, and each time I look, it changes a little. A good picture makes you stop, and it stays with you. | 좋은 사진은 계속 들여다보게 되고, 하나의 이야기가 되는 사진이다. 해 질 녘 바다에 두 사람이 있다. 한 사람은 서서 내려다보고, 다른 사람은 물속으로 손을 뻗는다. 푸르스름한 회색 바다에서 분홍과 빨강만이 따뜻한 색이라, 눈이 자꾸 그곳으로 돌아간다. 두 사람이 무슨 말을 나눴는지는 모르지만, 그 작은 몸짓만으로도 이야기가 시작되고, 볼 때마다 조금씩 달라진다. 좋은 사진은 멈추게 하고, 오래 남는다. |
 | G 사진 캡션 (새로 추가 · 사진 왼쪽 아래) | **two** | 두 사람 |
 | G-10 왼쪽 아래 (download now) | **(002) PICTURE** / (A Moment like A Photograph) | (002) 사진 / (사진 같은 순간) |
 | G-10 아래 번호 ((003)) | 10 — 11 | 10–11쪽 |
@@ -57,7 +56,7 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 - 캡션은 굵은 소문자 한 단어(내가 멈춘 이유, One To One 방식) + 괄호 안에 무엇 · 어디. **바꾼 것:** 처음엔 한 단어만 두려 했으나, 템플릿 라벨이 굵게 · 보통 두 줄이라 STYLE 캡션과 같은 리듬으로 둘째 줄을 살렸다. 섹션 차이는 첫 줄(STYLE = 옷 이름, PICTURE = 멈춘 이유 한 단어)로 보인다.
 - 지원자 파일의 쪽 번호로 F 는 **8–9쪽**이다(이 문서의 E–I 는 펼침 이름).
 - **G 본문은 이 사진을 예로 든다** (지원자 요청). 좋은 사진의 두 조건을 일반론 대신 바다 속 두 사람 사진으로 설명한다. 사진에 보이는 것(해 질 녘 빛 · 서서 내려다보는 사람 · 물에 손을 뻗는 사람 · 분홍과 빨강)만 쓰고, 두 사람의 관계는 쓰지 않는다.
-- **G(지원자 10–11쪽) 레이아웃:** 본문 한 단락이 접힘을 가로지른다 → 제본하면 가운데 글자가 먹힌다. 질문의 답 두 개를 **왼쪽 단(첫째) · 오른쪽 단(둘째 + 마무리)** 으로 나눠 접힘을 피한다. 사진은 두 사람이 접힘에서 멀어지게 왼쪽으로 약 30pt 옮긴다.
+- **G(지원자 10–11쪽) 레이아웃:** 본문 한 단락이 접힘을 가로지른다 → 제본하면 가운데 글자가 먹힌다. **한 단락**(지원자 결정)으로 쓰고, 글 상자를 **11쪽 안으로** 옮겨 접힘을 피한다 — 왼쪽 끝을 접힘에서 30pt 띄우고 폭은 지금 그대로(약 7–8줄). "첫째 · 둘째" 번호는 한 단락에서 빼고 첫 문장에 두 조건을 함께 둔다(STYLE Q2 도 번호 없이 썼다). 사진은 두 사람이 접힘에서 멀어지게 왼쪽으로 약 30pt 옮긴다.
 - **아래 끝 질문 위치:** Where Did You Last Stop? 은 모든 오른쪽 쪽에서 **바깥 아래 모서리(오른쪽 맞춤)** 에 둔다. 9쪽도 Experimental Grid Exploration 자리 대신 같은 모서리로 옮긴다.
 - E-11 아래 한 줄 자리는 아래 끝 규칙대로 **Where Did You Last Stop?** (오른쪽 쪽 바깥 아래 모서리).
 - **중복 정리 (지원자 지적):** G 오른쪽 단의 "People, light, color and place came together … I stopped" 는 E 여는 글과 같은 말이라 "볼 때마다 이야기가 조금씩 달라진다" 로 바꿨다(첫째 조건 '계속 들여다본다' 와도 이어진다). G 캡션의 (in the sea, at dusk) 는 본문이 이미 말해서 뺐다. F 의 "A good space starts …" 는 5쪽 STYLE Q1 끝 "A good space starts the same way." 와 겹쳐 "I begin by looking at …" 으로 바꿨다. I-18 본문은 19쪽 큰 글자(Every good picture had a good place behind it.)와 같은 말이라, 그 장소들이 무엇이었는지(그릴 연기 · 미술관 벽의 빛)를 말하는 문장으로 바꿨다.
