@@ -3,6 +3,42 @@
 1쪽 STYLE 지면 아래쪽 검은 칸(574 × 172, 약 10:3)에 들어갈 사진. 레퍼런스(Grid System Template 001)처럼
 **흑백 · 강한 측광 · 천의 결이 보이는 클로즈업 · 얼굴은 드러내지 않음**. 이 칸은 지면 글을 그림 한 장으로 줄인 것이어야 한다.
 
+## 정한 샷 — 「반쯤 걷은 소매」
+
+**한 줄:** 흰 셔츠 소매를 두 번째로 접어 올리다 멈춘 손. 접힌 커프스 아래로 빈티지 시계가 반쯤 드러난다.
+
+**왜 이 샷인가**
+- **Q1 그대로다.** "같은 흰 셔츠도 소매를 걷는지에 따라 달라진다." 누구나 살 수 있는 흰 셔츠가 한 사람의 손에서 스타일이 된다.
+- **Q2 를 화면이 한다.** 화면 대부분을 검정으로 비우고 동작 하나만 남긴다. 무엇을 넣고 무엇을 뺄지 고른 결과다.
+- **화자 본인의 스타일이다.** MY STYLE 의 ACCESSORY(빈티지 시계)가 소매를 걷어야 보인다. 소매를 걷는 일은 무엇을 드러낼지 고르는 일이다.
+- **멈춘 순간이다.** 다 걷은 소매가 아니라 **걷는 중에 멈춘** 소매. 책 전체의 동사 "멈춘다"를 동작으로 보여준다.
+- **시리즈가 된다.** 화자의 역할이 보는 사람 → 찍는 사람 → 만드는 사람으로 바뀌므로([storytelling.md](storytelling.md)) 같은 문법(흑백 · 검정 여백 · 손 하나 · 멈춘 동작)으로 다음 섹션을 잇는다.
+  02 PICTURE 는 셔터 위에 멈춘 검지, 03 ARCHITECTURE 는 문틀을 짚은 손과 그 너머로 들어오는 빛.
+
+**샷 설계**
+
+| 항목 | 정한 것 |
+|---|---|
+| 피사체 | 맨 팔뚝 하나 + 흰 코튼 포플린 셔츠 소매(살짝 입은 흔적). 얼굴 · 몸통 없음 |
+| 동작 | 반대 손 손가락이 두 번째 접힘을 잡고 멈춰 있다. 커프스 가장자리 밑으로 낡은 가죽 줄 시계의 일부 |
+| 구도 | 팔이 왼쪽 끝에서 들어와 가로로 뻗는다(팔꿈치는 잘림). 접힌 소매 · 손은 오른쪽 1/3 지점(가로 60–70%). 위아래 여백은 검정 |
+| 빛 | 오른쪽 위에서 거의 스치듯 들어오는 단단한 빛 하나. 천의 짜임과 주름 골이 보이고, 나머지는 빛이 닿지 않아 검정으로 떨어진다 |
+| 렌즈 · 초점 | 100 mm 매크로 느낌, 팔 높이에서 수평. 초점은 접힌 천 가장자리, 손끝 쪽은 살짝 흐림 |
+| 톤 | 흑백 · 은염 인화 느낌. 배경은 지면의 검은 칸과 이어질 만큼 깊은 검정, 셔츠 하이라이트는 날리지 않음. 고운 입자 |
+| 172 px 에서 읽히는 것 | 오른쪽으로 커지는 밝은 천 덩어리 하나 + 시계 유리의 작은 반짝임 하나. 왼쪽 위 큰 제목 STYLE 과 무게가 맞는다 |
+| 빼는 것 | 글자 · 로고 · 색 · 반지와 팔찌 · 타투 · 시계 브랜드 표시 |
+
+**미드저니 프롬프트 (확정)**
+
+```
+extreme close-up black and white fine art photograph, a bare forearm stretches horizontally into the frame from the left edge, the other hand's fingers pause mid-gesture while rolling up the sleeve of a crisp white cotton poplin shirt for the second fold, the folded cuff half reveals a vintage watch with a worn leather strap, the cuff and hand sit at the right third of the frame, a single hard raking light grazes from the upper right, cotton weave and fold creases sharply visible, everything else falls into deep black, anonymous, no face, quiet deliberate pause, editorial fashion photography, silver gelatin print, high contrast, fine grain --ar 10:3 --style raw --v 7 --s 75 --no text, logo, watermark, color, ring, bracelet, tattoo, brand name on watch
+```
+
+레퍼런스 톤을 맞추려면 끝에 `--sref <레퍼런스 흑백 사진 주소> --sw 100`.
+시계가 너무 커지거나 소매를 가리면 `vintage watch` 부분을 `the edge of a vintage watch strap` 으로 줄인다.
+
+아래 A–D 는 이 샷을 정하기 전에 검토한 안이다.
+
 ## 지면 글에서 뽑은 것
 
 | 지면 글 | 그림으로 바꾸면 |

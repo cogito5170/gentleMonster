@@ -7,10 +7,11 @@
 | 파일 | 내용 | 상태 |
 |---|---|---|
 | [storyline.md](storyline.md) | 책 전체 흐름: 커버 → 01 STYLE → 02 PICTURE → 03 ARCHITECTURE | 구조 확정 |
+| [storytelling.md](storytelling.md) | 화자의 스토리텔링: 화자 · 한 동사(멈춘다) · 사람→장면→공간 · 같은 틀 · 목소리 규칙 · 비어 있는 곳 | 정리 (03 은 제안) |
 | [cover.md](cover.md) | 커버: SPA, 세 가지 대상, 문구, 질문, 사진 선택 | 확정 (P 표기 확인 필요) |
 | [philosophy.md](philosophy.md) | 지원자 노트를 다듬은 철학: 공간 · 좋은 공간 · 사진 · 삶의 목표 | 확정 |
 | [01_style.md](01_style.md) | 01 STYLE 지면: 여는 글, Q1–Q3, 풀쿼트, SECTOR A, 지면 수정 사항 | 확정 (빈칸은 지원자가 채움) |
-| [01_style_image.md](01_style_image.md) | 01 STYLE 1쪽 가로 띠 이미지(574 × 172): 콘셉트 4안과 미드저니 프롬프트 | 방향 제안 (이미지는 미생성) |
+| [01_style_image.md](01_style_image.md) | 01 STYLE 1쪽 가로 띠 이미지(574 × 172): 정한 샷 「반쯤 걷은 소매」, 검토안 4개, 미드저니 프롬프트 | 샷 확정 (이미지는 미생성) |
 | [02_picture.md](02_picture.md) | 02 PICTURE 지면: 여는 글, Q1–Q3, MY PICTURE, 단어 한 장(One To One), 03 으로 넘기는 줄 | 방향 제안 (빈칸은 지원자가 채움) |
 | [questions.md](questions.md) | 작업 중 사용자가 보낸 질문 · 요청 44개 원문과, 각 질문으로 나온 결과 | 기록 |
 
