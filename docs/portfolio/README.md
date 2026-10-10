@@ -14,6 +14,7 @@
 | [v1_review.md](v1_review.md) | 기존 포트폴리오 지면 9장 기록: 페이지 지도 · 반복되는 틀 · 끊기는 곳 · 지면 오류 | 기록 |
 | [v2_review.md](v2_review.md) | 새 버전 지면 기록: 펼침 지도 · 템플릿 자리 → v1 원고 대응 | 진행 중 |
 | [v2_storyline.md](v2_storyline.md) | v1 이야기를 v2 지면 13펼침에 다시 놓은 뼈대 · 단계 | 1단계 진행 중 |
+| [v2_final_review.md](v2_final_review.md) | 제출용 IDML 최종 검토 · 고쳐 둔 것 · 남은 것 | 검토 |
 | [questions.md](questions.md) | 작업 중 사용자가 보낸 질문 · 요청 44개 원문과, 각 질문으로 나온 결과 | 기록 |
 
 ## 원칙
