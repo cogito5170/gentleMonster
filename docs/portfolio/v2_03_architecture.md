@@ -55,3 +55,20 @@
 - 본문 두 단락은 같은 높이에서 마주 본다: 왼쪽 = 무엇을 했나(매스 · 기둥 · 격자), 오른쪽 = 사람이 어디서 멈추나(길 · 벽의 개구부). 16–17 의 "where they stop" 을 실제 작업으로 보여 준다.
 - 렌더에서 읽은 것: 안개 낀 산 · 줄지은 포도나무 · 기둥 위로 들린 긴 매스 · 격자 외피 · 긴 벽돌 벽과 개구부 · 그 개구부로 가는 흙길.
 - **확인 필요(의도 · 사실):** "언덕이 가장 높게 보이도록 낮게" · "밭이 둘로 잘리지 않게" · "벽은 대부분 닫혀 있고 한 곳만 열린다" · 포도밭/와이너리가 맞는지 · 기둥 재료(나무인지 벽돌 마감인지 — 그래서 "slim columns" 로만 썼다) · 격자 재료(wooden) · "포도밭이 그 아래로 이어지게" · "벽이 열리는 자리에서 멈추기를 바랐다" 가 실제 의도인지 · 프로젝트 종류(Studio / Personal)와 학기.
+
+### L · 20–21쪽 — 작업 둘: 지하 탑 콜라주 · 벽돌과 골조
+
+| 자리 | 지금 | 글 | 한국어 해석 |
+|---|---|---|---|
+| 20 큰 글자 (4줄 · 접힘을 넘음 → 20쪽 안으로) | A grid system is … | **What if a tower grew down into the city, not up into the sky?** | 탑이 하늘로 오르지 않고 도시 아래로 자란다면? |
+| 20 라벨 | column grids / (multiple vertical columns) | **A tower beneath the city** / (Concept collage · ____) | 도시 아래의 탑 / (개념 콜라주 · 연도) |
+| 21 왼쪽 위 굵게 | Grid Exploration 001 | **Brick and Frame** (가제 — 실제 이름으로) | 벽돌과 골조 |
+| 21 좁은 본문 | A grid system is … | A dark brick block with arched doors stands beside an open concrete frame. Between them, the ground becomes a small park: people sit on the grass, walk a dog, and stop for a while. The buildings hold the edges; the space between them is where people stay. | 아치 문이 있는 어두운 벽돌 건물이 열린 콘크리트 골조 옆에 선다. 그 사이의 땅은 작은 공원이 된다. 사람들은 잔디에 앉고, 개를 산책시키고, 잠시 멈춘다. 건물은 가장자리를 붙잡고, 사람은 그 사이에 머문다. |
+| 21 라벨 | manuscript grids / (single-column layouts) | **Brick, frame, and a small park** / (Architectural Design Studio_____ · Render) | 벽돌, 골조, 그리고 작은 공원 / (건축설계 스튜디오_학기 · 렌더) |
+| 20 왼쪽 아래 (새로 추가) | — | **p. 20-21** | 20–21쪽 |
+| 21 오른쪽 아래 (새로 추가) | — | **Architectural Project_____** | 건축 프로젝트_(종류) |
+
+- 한 펼침에 작업 둘: 왼쪽은 질문 하나로 개념을 던지고(콜라주라 설명보다 질문이 맞다), 오른쪽은 짧은 설명 + 사람이 머무는 자리.
+- 큰 글자 상자가 지금 접힘을 넘어 21쪽 렌더 위로 겹친다 → 20쪽 안으로 줄인다. 이 문장이면 크기를 지금보다 키워도 4줄 안에 든다(추정).
+- 렌더에서 읽은 것: 콜라주 — 위는 도시 스카이라인(오른쪽 끝에 기와지붕 같은 실루엣), 땅 아래로 청록색 탑이 박혀 끝이 지면에 닿는다. 렌더 — 어두운 벽돌 건물(1층 아치, 위층 테라스와 노출 골조) · 흰 콘크리트 골조 건물 · 잔디 공원 · 앉은 사람 · 개와 산책하는 사람 · 노부부.
+- **확인 필요:** 두 작업의 이름 · 연도 · 종류 · 개인/팀 · 콜라주의 실제 개념("아래로 자라는 탑" 이 맞는지, 스카이라인의 기와지붕이 뜻하는 것) · 벽돌 건물과 골조가 기존 건물 + 증축인지, 둘 다 새로 지은 것인지 · 공원을 설계에 넣었는지.
