@@ -195,3 +195,15 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 3. 15쪽 MY PICTURE 한 줄을 넣을지
 4. 19쪽 큰 글자: *Every good picture had a good place behind it.* / *I stop for places that hold me.*
 5. 검은 띠(루프탑 · 그릴 · 미술관) 규칙 — 6단계에서 정해도 된다
+
+### G 사진 제목 (지원자 요청 · 오른쪽 아래, 지금 TALKING)
+
+| 안 | 해석 | 이유 |
+|---|---|---|
+| **UNHEARD** (추천) | 들리지 않는 대화 | 본문 "I don't know what they were saying" 과 짝. 모르는 대화라서 이야기가 시작된다는 단락의 핵심을 한 단어로 |
+| THE GESTURE | 몸짓 | 본문의 "that small gesture" — 이야기를 시작하게 한 것 |
+| TWO, AT DUSK | 해 질 녘, 두 사람 | 보이는 것 그대로. 가장 담백하다 |
+| WARM IN BLUE | 푸른 속의 따뜻함 | 본문의 "the only warm colors in a blue-grey sea" — 계속 보게 되는 이유 |
+
+- TALKING 은 본문(무슨 말을 했는지 모른다)과 살짝 어긋난다 — 말하는 장면인지 사진만으로는 알 수 없다.
+- 지면 확인: 왼쪽 아래 *p. 9-10* — 표지가 1쪽이면 이 펼침은 **10-11** 이다(왼쪽 쪽은 짝수). 본문 상자는 아직 접힘을 가로지른다.
