@@ -177,10 +177,17 @@ def flow(items, cols, y0, y1, pt, lh=1.72, draw=True, label_cb=None):
     return True, y, nlines
 
 
+# reading order chosen by the applicant: self-introduction first, then why Gentle Monster.
+# Block numbers follow the position on the page (top = 01).
+ABOUT_FIRST = True
+
+
 def items(q1_note=None):
-    return ([("qhead", *Q1, q1_note or f"{Q1_TEXT_CHARS}자"), ("title", Q1_TITLE)] + [(k, x, lab) for k, x, lab in Q1_BODY] +
-            [("qhead", *Q2, f"{Q2_CHARS}자"), ("title", Q2_TITLE)] +
-            [(k, s, lab) for k, s, lab in Q2_BODY])
+    why = lambda n: ([("qhead", n, *Q1[1:], q1_note or f"{Q1_TEXT_CHARS}자"), ("title", Q1_TITLE)] +
+                     [(k, x, lab) for k, x, lab in Q1_BODY])
+    about = lambda n: ([("qhead", n, *Q2[1:], f"{Q2_CHARS}자"), ("title", Q2_TITLE)] +
+                       [(k, x, lab) for k, x, lab in Q2_BODY])
+    return about("01") + why("02") if ABOUT_FIRST else why("01") + about("02")
 
 
 def fit_pt(its, cols, y0, y1, hi=8.2, lo=6.6):
