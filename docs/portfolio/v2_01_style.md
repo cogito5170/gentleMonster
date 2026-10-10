@@ -87,6 +87,14 @@ MY STYLE
 - 색 이름표 다섯 개가 v1 처럼 모두 `#1D1B19` 이 되지 않게, 위 값으로 칩마다 따로 넣는다. 값은 지면 캡처에서 잰 대략값이라 인쇄 전에 원본 사진에서 다시 뽑는다.
 - HAIR–SCENT 목록은 넣지 않는다(1단계 결정). 대신 이 한 줄이 "스타일 → 장소" 로 넘기는 문장이라 꼭 남긴다.
 
+### 지면 반영
+
+[scripts/v2_B_style_4-5.jsx](scripts/v2_B_style_4-5.jsx) — InDesign 에서 실행하면 위 표대로 4–5쪽 글을 바꾼다. 사진 캡션 세 개, 5쪽 머리말 MOOD, Q1 · Q2, MY STYLE 을 넣고 4쪽 템플릿 글 상자 두 개(© · download)는 지운다.
+
+- MY STYLE 색 칩은 ■ 글자를 위 다섯 색으로 칠한다. 견본 패널에 `MY STYLE Black #1D1B19` 같은 이름으로 RGB 견본이 생긴다. 원본 사진에서 색을 다시 뽑으면 스크립트 맨 위 `MY_STYLE_COLORS` 만 고친다.
+- 머리말을 지우려면 `HEADER_5` 를 `""` 로 둔다. 파카 사진이 한강이면 `Riverside, night` 를 `Han River, night` 로 바꾼다.
+- 한글 단락만 한글 글꼴로 바꾸고, 영어 질문 제목(Why is style important? · What makes a good style?)은 지면 글꼴 그대로 둔다. 굵게 할지는 지면에서 정한다.
+
 ---
 
 ## C · 6–7쪽 — 작업: DAILY LookBook
