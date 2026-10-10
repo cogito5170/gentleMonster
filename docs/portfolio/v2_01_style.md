@@ -14,8 +14,8 @@ v2 지면 A–D 의 템플릿 자리마다 넣을 글. 글은 [01_style.md](01_s
 ### A · 2–3쪽
 | 자리 | 글 | 한국어 해석 |
 |---|---|---|
-| 2 큰 제목 · 번호 | STYLE · (001)은 3쪽에 큰 글자로 | — |
-| 2 이름 · 부제 | Jeong Hyeokju · A Person with Style | — |
+| 2 큰 제목 · 번호 | STYLE · (001)은 3쪽에 큰 글자로 | 스타일 · (001) |
+| 2 이름 · 부제 | Jeong Hyeokju · A Person with Style | 정혁주 · 스타일이 있는 사람 |
 | 2 사진 캡션 | **Sunglasses** / (on a wet street, at night) | 선글라스 / (밤, 젖은 길 위에서) |
 | 3 본문 | The first place I stop is the street. When someone with good style walks by, I stop: their hair, their glasses, their clothes and shoes, the accessories they wear, and how the colors go together. Sometimes it's the scent they leave behind that makes me turn around.<br>So my first story is about style. | 내가 처음 멈추는 곳은 길 위다. 스타일이 좋은 사람이 지나가면 나는 멈춘다. 그 사람의 머리, 안경, 옷과 신발, 액세서리, 그리고 그 색들이 어떻게 어울리는지. 가끔은 그 사람이 남기고 간 향에 뒤를 돌아보기도 한다. / 그래서 내 첫 번째 이야기는 스타일이다. |
 | 3 라벨 | **Where I stop** / (on the street) | 내가 멈추는 곳 / (길 위에서) |
