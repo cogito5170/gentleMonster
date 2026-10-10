@@ -99,21 +99,22 @@ v2 지면 A–D 의 템플릿 자리마다 넣을 글. 글은 [01_style.md](01_s
 | 오른쪽 위 단락 (4줄) | Grid systems are widely used … | **작업 소개** ↓ |
 | 오른쪽 좁은 단 (8줄) | Common types include … | **두 화면 설명** ↓ |
 | 왼쪽 라벨 (위) | manuscript grids (single-column layouts) | **Web design / (University project · Photoshop + Illustrator)** |
-| 왼쪽 라벨 (아래, 그림 아래 끝 높이) | manuscript grids (single-column layouts) | **MARKET · MAIN / (product list · home)** |
+| 왼쪽 라벨 (아래, 그림 아래 끝 높이) | manuscript grids (single-column layouts) | **MARKET · MAIN / (Product list · Home)** |
 
-### 오른쪽 위 단락
+### 오른쪽 위 단락 (영어 — 지원자 요청)
 
-**DAILY LookBook**
-> 사람의 스타일을 고르는 눈으로 화면도 만들었다. DAILY LookBook 은 매일의 옷차림을 모아 보는 스타일 사이트다. 다른 사람의 하루 옷차림을 보고, 마음에 든 옷을 바로 찾는다.
+> **DAILY LookBook**
+> I designed these screens with the same eye I use to read people's style. DAILY LookBook is a site that collects everyday outfits: see how others dress each day, browse by style, and find the piece you liked.
 
-*I designed screens with the same eye I use to read people's style. DAILY LookBook is a site that collects everyday outfits: see how others dress each day, and find the piece you liked.*
+### 오른쪽 좁은 단 (영어)
 
-### 오른쪽 좁은 단
+> **MAIN** — Today's looks, five style categories, users' daily outfits and sale picks.
+>
+> **MARKET** — Filter by color, fit, length, pattern and material; the matching pieces line up in a three-column grid.
 
-> **MAIN** — 위에서부터 오늘의 룩, 스타일 범주(Dandy · Casual · Street · Amekaji · Office), 사용자의 하루 옷차림, 할인 정보.
-> **MARKET** — 왼쪽 필터에서 색 · 핏 · 길이 · 무늬 · 소재를 고르면, 맞는 옷이 오른쪽에 세 줄로 놓인다.
-
-- **바꾼 것:** 앞 초안의 "길에서 사람을 볼 때 보는 순서대로 필터를 놓았다" 같은 의도 설명은 지원자가 확인하기 전에는 쓰지 않는다. 대신 화면에 실제로 있는 것만 적었다(화면 캡처에서 읽음).
+- 좁은 단(약 8줄)에 맞추려고 스타일 범주 다섯 개 이름은 뺐다 — 화면 그림에 이미 보인다.
+- 한국어판: "사람의 스타일을 고르는 눈으로 화면도 만들었다. …" / "MAIN — 위에서부터 오늘의 룩, 스타일 범주, 사용자의 하루 옷차림, 할인 정보. MARKET — 왼쪽 필터에서 색 · 핏 · 길이 · 무늬 · 소재를 고르면, 맞는 옷이 오른쪽에 세 줄로 놓인다."
+- 앞 초안의 "길에서 사람을 볼 때 보는 순서대로 필터를 놓았다" 같은 의도 설명은 지원자가 확인하기 전에는 쓰지 않는다. 화면에 실제로 있는 것만 적었다.
 - "University project", "Photoshop + Illustrator" 는 v1 4–5쪽에 지원자가 적은 사실이다. 연도는 `____`.
 
 ### 레이아웃 (권장)
