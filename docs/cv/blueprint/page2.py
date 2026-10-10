@@ -204,8 +204,11 @@ def p2a():
 
 # ================================================================== P2-B · SIDENOTE, one reading column (light)
 def p2b():
+    zone("P2B_01_BACKGROUND")
     r(0, 0, 210, 297, "bg")
+    zone("P2B_02_NAV")
     nav()
+    zone("P2B_03_HEADER")
     LX, LW, X, W = 12, 44, 66, 132
     t(LX, 25, "COVER", 16, "text", 200, ls=0.4)
     t(LX, 31.5, "LETTER", 16, "text", 200, ls=0.4)
@@ -265,8 +268,11 @@ def p2b():
     pt = 8.2
     while pt > 6.6 and not flow_b(False, pt)[0]:
         pt = round(pt - 0.1, 2)
+    zone("P2B_04_TEXT")
     flow_b(True, pt)
+    zone("P2B_05_FOOTER")
     footer()
+    zone_end()
     SPEC["P2-B"] = dict(pt=pt, cols=[(X, W)], cpl=int(W / (pt * PT * 0.86)))
 
 
@@ -427,6 +433,18 @@ def main():
         subprocess.run(["inkscape", str(svg), "--export-type=pdf", f"--export-filename={pdf}"], check=True, capture_output=True)
         pdfs.append(str(pdf))
     subprocess.run(["pdfunite", *pdfs, str(HERE / "page2_options.pdf")], check=True)
+    # Illustrator copy of the chosen option(s): PDF-compatible .ai, same A4 artboard
+    ai_dir = HERE.parent / "ai"
+    ai_dir.mkdir(exist_ok=True)
+    for code, stem in (("P2-B", "CV_PAGE2_B_SIDENOTE"),):
+        opt = next(o for o in OPTIONS if o["code"] == code)
+        svg = ai_dir / f"{stem}.svg"
+        a4_svg(opt, svg)
+        pdf = ai_dir / f"{stem}.pdf"
+        subprocess.run(["inkscape", str(svg), "--export-type=pdf", "--export-pdf-version=1.5", f"--export-filename={pdf}"],
+                       check=True, capture_output=True)
+        pdf.replace(ai_dir / f"{stem}.ai")
+        print(ai_dir / f"{stem}.ai")
     for k, v in SPEC.items():
         print(k, v)
     print("Q2 chars", Q2_CHARS)

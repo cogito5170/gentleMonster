@@ -126,7 +126,10 @@
 <text x="16.00" y="259.91" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.976" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.000" opacity="1">주의</text>
 <text x="16.00" y="263.11" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.870" font-weight="400" fill="#9A4A3A" text-anchor="start" letter-spacing="0.000" opacity="1">· 어두운 바탕의 긴 글은 밝은 바탕보다 눈이 쉽게 피로함</text>
 <g transform="translate(149.0,30) scale(0.6)">
+<g id="P2B_01_BACKGROUND">
 <rect x="0.00" y="0.00" width="210.00" height="297.00" rx="0" fill="#E6E2DA" stroke="none" stroke-width="0.25"/>
+</g>
+<g id="P2B_02_NAV">
 <text x="8.00" y="12.60" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.470" font-weight="600" fill="#141414" text-anchor="start" letter-spacing="0.350" opacity="1">JEONG HYEOKJU</text>
 <rect x="187.75" y="8.80" width="15.25" height="4.60" rx="0.8" fill="url(#hatch)" stroke="#141414" stroke-width="0.25" stroke-dasharray="0.6 0.4"/>
 <text x="195.38" y="11.68" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.623" font-weight="600" fill="#141414" text-anchor="middle" letter-spacing="0.200" opacity="1">CONTACT</text>
@@ -141,9 +144,13 @@
 <rect x="93.65" y="8.80" width="12.15" height="4.60" rx="0.8" fill="#DAD5CB" stroke="none" stroke-width="0.25"/>
 <text x="99.72" y="11.90" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.623" font-weight="600" fill="#141414" text-anchor="middle" letter-spacing="0.200" opacity="1">ABOUT</text>
 <text x="90.25" y="12.20" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#5E5A54" text-anchor="end" letter-spacing="0.300" opacity="1">PAGE 2 / 2</text>
+</g>
+<g id="P2B_03_HEADER">
 <text x="12.00" y="25.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="5.645" font-weight="200" fill="#141414" text-anchor="start" letter-spacing="0.400" opacity="1">COVER</text>
 <text x="12.00" y="31.50" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="5.645" font-weight="200" fill="#141414" text-anchor="start" letter-spacing="0.400" opacity="1">LETTER</text>
 <text x="66.00" y="25.00" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.905" font-weight="400" fill="#5E5A54" text-anchor="start" letter-spacing="0.000" opacity="1">왼쪽 여백의 표시 01–04 = 1페이지 강점 카드와 같은 이름</text>
+</g>
+<g id="P2B_04_TEXT">
 <line x1="12.00" y1="36.00" x2="198.00" y2="36.00" stroke="#141414" stroke-width="0.35"/>
 <text x="12.00" y="45.00" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="7.762" font-weight="200" fill="#141414" text-anchor="start" letter-spacing="0.000" opacity="1">01</text>
 <text x="25.00" y="40.40" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="600" fill="#5E5A54" text-anchor="start" letter-spacing="0.250" opacity="1">WHY GENTLE MONSTER</text>
@@ -202,6 +209,8 @@
 <text x="66.00" y="266.37" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.499" font-weight="700" fill="#141414" text-anchor="start" letter-spacing="0.000" opacity="1">③ 포부</text>
 <text x="12.00" y="271.66" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.835" font-weight="700" fill="#141414" text-anchor="start" letter-spacing="0.300" opacity="1">VISION</text>
 <text x="66.00" y="271.98" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="2.717" font-weight="400" fill="#141414" text-anchor="start" letter-spacing="0.000" opacity="1">틀을 배운 건축학도에서, 스토어와 팝업 공간의 그 안을 채우는 젠틀몬스터의 공간 설계 디자이너가 되겠습니다.</text>
+</g>
+<g id="P2B_05_FOOTER">
 <line x1="7.00" y1="282.50" x2="203.00" y2="282.50" stroke="#B4AEA4" stroke-width="0.25"/>
 <circle cx="9.5" cy="286.1" r="1.7" fill="none" stroke="#5E5A54" stroke-width="0.25"/>
 <line x1="8.80" y1="286.80" x2="10.20" y2="285.40" stroke="#141414" stroke-width="0.25"/>
@@ -209,6 +218,7 @@
 <line x1="10.20" y1="285.40" x2="10.20" y2="286.20" stroke="#141414" stroke-width="0.25"/>
 <text x="12.60" y="286.80" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="1.693" font-weight="500" fill="#141414" text-anchor="start" letter-spacing="0.150" opacity="1">PAGE 1 · CV</text>
 <text x="203.00" y="286.80" font-family="'Noto Sans CJK KR', Inter, sans-serif" font-size="1.693" font-weight="400" fill="#5E5A54" text-anchor="end" letter-spacing="0.000" opacity="1">T ____   ·   E ____   ·   PORTFOLIO ____</text>
+</g>
 </g>
 <rect x="149.00" y="30.00" width="126.00" height="178.20" rx="0" fill="none" stroke="#15191B" stroke-width="0.25"/>
 <text x="149.00" y="213.70" font-family="Inter, 'Noto Sans CJK KR', sans-serif" font-size="2.822" font-weight="700" fill="#15191B" text-anchor="start" letter-spacing="0.300" opacity="1">P2-B  SIDENOTE</text>
