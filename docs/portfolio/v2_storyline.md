@@ -62,7 +62,7 @@ v1 의 흐름([v1_review.md](v1_review.md))을 v2 의 펼침 13개([v2_review.md
 |---|---|---|
 | ~~1. 구조 확정~~ ✓ | 큰 제목 규칙 · 웹 디자인 위치 · MY STYLE 을 살릴지 · 28쪽 끝맺음 | 지원자가 정함 |
 | 2. STYLE 원고 → [v2_01_style.md](v2_01_style.md) ✓ 초안 (빈칸 4개 남음) | A · B · C · D 자리별 한국어 + 영어 글 | 함께 |
-| **3. PICTURE 원고** → [v2_02_picture.md](v2_02_picture.md) | E · F · G · H · I 자리별 글 | 함께 |
-| 4. ARCHITECTURE 원고 | J–M 섹션 글 + 작업 설명(이름 · 연도 · 종류 · 맡은 일 · 개념 · 사람이 멈추는 자리) | 사실은 지원자, 글은 함께 |
+| 3. PICTURE 원고 → [v2_02_picture.md](v2_02_picture.md) ✓ 초안 | E · F · G · H · I 자리별 글 | 함께 |
+| **4. ARCHITECTURE 원고** → [v2_03_architecture.md](v2_03_architecture.md) | J–M 섹션 글 + 작업 설명(이름 · 연도 · 종류 · 맡은 일 · 개념 · 사람이 멈추는 자리) | 사실은 지원자, 글은 함께 |
 | 5. 끝맺음 | 28쪽 글 · 사진 | 함께 |
 | 6. 지면 정리 | 템플릿 문구 제거 · 오타 · 넘친 글 상자 · 번호 · 검은 띠 규칙 ([v2_review.md](v2_review.md) "확인할 것") | 지원자가 지면에서 고침 |
