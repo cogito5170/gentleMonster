@@ -12,6 +12,7 @@
 | [01_style.md](01_style.md) | 01 STYLE 지면: 여는 글, Q1–Q3, 풀쿼트, SECTOR A, 지면 수정 사항 | 확정 (빈칸은 지원자가 채움) |
 | [02_picture.md](02_picture.md) | 02 PICTURE 지면: 여는 글, Q1–Q3, MY PICTURE, 단어 한 장(One To One), 03 으로 넘기는 줄 | 방향 제안 (빈칸은 지원자가 채움) |
 | [v1_review.md](v1_review.md) | 기존 포트폴리오 지면 9장 기록: 페이지 지도 · 반복되는 틀 · 끊기는 곳 · 지면 오류 | 기록 |
+| [v2_review.md](v2_review.md) | 새 버전 지면 기록: 펼침 지도 · 템플릿 자리 → v1 원고 대응 | 진행 중 |
 | [questions.md](questions.md) | 작업 중 사용자가 보낸 질문 · 요청 44개 원문과, 각 질문으로 나온 결과 | 기록 |
 
 ## 원칙
