@@ -1,6 +1,6 @@
 """v2 펼침 A (2–3쪽) · (001) STYLE — IDML 의 템플릿 글을 원고로 바꾼다.
 
-원고: docs/portfolio/v2_01_style.md
+원고: docs/portfolio/v2_01_style.md (영어 원고)
 쓰는 법: python3 idml_A_style_2-3.py 원본.idml 결과.idml
 결과 IDML 을 InDesign 에서 열고 .indd 로 저장한다.
 
@@ -20,8 +20,8 @@ TEXT = {
     "u1ac7": [("A Person With Style", "A Person with Style")],
     "u1a99": [("column grids ", "Sunglasses "),
               ("(multiple vertical columns)", "(on a wet street, at night)")],
-    "u1ab0": [("modular grids", "I stop on the street."),
-              ("(rows and columns forming modules)", "(My first story is about style.)")],
+    "u1ab0": [("modular grids", "Where I stop"),
+              ("(rows and columns forming modules)", "(on the street)")],
 }
 
 # 지울 글 상자: (프레임 id, 스토리 id)
@@ -30,14 +30,13 @@ REMOVE = [
     ("u1a7f", "u1a82"),  # download now / www.template.systems
 ]
 
-# 3쪽 본문: 영어 자리 글 → 한국어 여는 글
+# 3쪽 본문: 템플릿 자리 글 → 여는 글 (본문은 모두 영어 — 지원자 결정). 글꼴 · 크기는 템플릿 그대로(Helvetica Neue 14pt)
 BODY_STORY, BODY_FRAME = "u1a3d", "u1a3a"
-BODY_FONT, BODY_SIZE, BODY_LEADING = "AppleGothic", 13, 20.8
 BODY = [
-    "첫 번째로, 내가 멈추는 곳은 길 위다. 스타일이 좋은 사람이 지나가면 나는 걸음을 멈추곤 한다. "
-    "어떤 머리를 했는지, 어떤 안경을 썼는지, 무슨 옷과 신발을 신었는지, 어떤 액세서리를 했는지. "
-    "그리고 그 색들이 어떻게 어울리는지. 가끔은 그 사람이 지나간 뒤에 남은 향에 뒤를 돌아보기도 한다.",
-    "그래서 내 첫 번째 이야기는 스타일이다.",
+    "The first place I stop is the street. When someone with good style walks by, I stop: "
+    "their hair, their glasses, their clothes and shoes, the accessories they wear, and how the colors go together. "
+    "Sometimes it's the scent they leave behind that makes me turn around.",
+    "So my first story is about style.",
 ]
 # 본문 상자 아래 끝을 큰 (001) 상자(위 끝 y=-357) 위로 올린다: 스프레드 좌표 -365 → 상자 안 좌표
 BODY_BOTTOM_OLD, BODY_BOTTOM_NEW = "187.8333333333334", "16.16666666666663"
@@ -61,22 +60,12 @@ def replace_content(xml_text, old, new):
 
 
 def rewrite_body(xml_text):
-    m = re.search(r"(<CharacterStyleRange [^>]*>)(.*?)(</CharacterStyleRange>)", xml_text, re.S)
-    head = m.group(1)
-    head = re.sub(r'FontStyle="[^"]*"', 'FontStyle="Regular"', head)
-    head = re.sub(r'PointSize="[^"]*"', f'PointSize="{BODY_SIZE}"', head)
-    props = (
-        "\n\t\t\t\t<Properties>"
-        f'\n\t\t\t\t\t<AppliedFont type="string">{BODY_FONT}</AppliedFont>'
-        f'\n\t\t\t\t\t<Leading type="unit">{BODY_LEADING}</Leading>'
-        '\n\t\t\t\t\t<RubyFontStyle type="enumeration">Nothing</RubyFontStyle>'
-        '\n\t\t\t\t\t<KentenFontStyle type="enumeration">Nothing</KentenFontStyle>'
-        "\n\t\t\t\t</Properties>"
-    )
+    """글자 서식(Properties)은 두고 Content 만 문단들로 바꾼다."""
+    m = re.search(r"(<CharacterStyleRange [^>]*>.*?</Properties>)(.*?)(</CharacterStyleRange>)", xml_text, re.S)
     body = "\n\t\t\t\t<Br />".join(
         f"\n\t\t\t\t<Content>{html.escape(p, quote=False)}</Content>" for p in BODY
     )
-    return xml_text[: m.start()] + head + props + body + "\n\t\t\t" + m.group(3) + xml_text[m.end():]
+    return xml_text[: m.start()] + m.group(1) + body + "\n\t\t\t" + m.group(3) + xml_text[m.end():]
 
 
 def main(src, dst):

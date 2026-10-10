@@ -8,31 +8,31 @@
 
 var KOREAN_FONT_FALLBACKS = ["Source Han Sans KR\tRegular", "AppleGothic\tRegular"];
 
-var OPENING_KO =
-    "첫 번째로, 내가 멈추는 곳은 길 위다. 스타일이 좋은 사람이 지나가면 나는 걸음을 멈추곤 한다. " +
-    "어떤 머리를 했는지, 어떤 안경을 썼는지, 무슨 옷과 신발을 신었는지, 어떤 액세서리를 했는지. " +
-    "그리고 그 색들이 어떻게 어울리는지. 가끔은 그 사람이 지나간 뒤에 남은 향에 뒤를 돌아보기도 한다." +
-    "\r그래서 내 첫 번째 이야기는 스타일이다.";
+var OPENING_KO =  // 이름은 그대로 두었다 — 본문은 영어(지원자 결정)
+    "The first place I stop is the street. When someone with good style walks by, I stop: " +
+    "their hair, their glasses, their clothes and shoes, the accessories they wear, and how the colors go together. " +
+    "Sometimes it's the scent they leave behind that makes me turn around." +
+    "\rSo my first story is about style.";
 
 // [쪽, 찾을 글, 바꿀 글] — 같은 글 상자 안에서 글자 서식을 그대로 두고 글만 바꾼다
 var REPLACEMENTS = [
-    ["2", "Grid Systems 001", "(001)"],
-    ["2", "© 2026 Template.Systems", "Jeong Hyeokju"],
+        ["2", "© 2026 Template.Systems", "Jeong Hyeokju"],
     ["2", "A Person With Style", "A Person with Style"],
     ["2", "column grids", "Sunglasses"],
     ["2", "(multiple vertical columns)", "(on a wet street, at night)"],
-    ["3", "modular grids", "I stop on the street."],
-    ["3", "(rows and columns forming modules)", "(My first story is about style.)"]
+    ["3", "modular grids", "Where I stop"],
+    ["3", "(rows and columns forming modules)", "(on the street)"]
 ];
 
 // [쪽, 이 글이 들어 있는 글 상자를 지운다]
 var REMOVALS = [
-    ["2", "www.template.systems"]
+    ["2", "www.template.systems"],
+    ["2", "Grid Systems 001"]  // 3쪽에 큰 (001) 이 있다
 ];
 
 // [쪽, 이 글로 시작하는 글 상자의 글 전체를 바꾼다, 바꿀 글, 한글 글꼴 적용]
 var BODY_REPLACEMENTS = [
-    ["3", "A grid system is a structured framework", OPENING_KO, true]
+    ["3", "A grid system is a structured framework", OPENING_KO, false]
 ];
 
 var LEFTOVER_PATTERN = /template|grid|download|www\./i;

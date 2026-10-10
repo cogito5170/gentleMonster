@@ -7,6 +7,52 @@ v2 지면 A–D 의 템플릿 자리마다 넣을 글. 글은 [01_style.md](01_s
 
 ---
 
+## 영어 원고 (확정 — 본문은 모두 영어, 지원자 결정)
+
+지면에 넣는 글은 이 절이 기준이다. 아래 절의 한국어는 뜻을 맞춰 보는 참고용.
+
+### A · 2–3쪽
+| 자리 | 글 |
+|---|---|
+| 2 큰 제목 · 번호 | STYLE · (001)은 3쪽에 큰 글자로 |
+| 2 이름 · 부제 | Jeong Hyeokju · A Person with Style |
+| 2 사진 캡션 | **Sunglasses** / (on a wet street, at night) |
+| 3 본문 | The first place I stop is the street. When someone with good style walks by, I stop: their hair, their glasses, their clothes and shoes, the accessories they wear, and how the colors go together. Sometimes it's the scent they leave behind that makes me turn around.<br>So my first story is about style. |
+| 3 라벨 | **Where I stop** / (on the street) |
+
+- **바꾼 것:** 3쪽 라벨 *I stop on the street. / (My first story is about style.)* 는 본문 마지막 줄과 겹쳐서 *Where I stop / (on the street)* 로 바꿨다. 커버 질문 *Where Did You Last Stop?* 에 대한 답처럼 읽힌다. PICTURE · ARCHITECTURE 의 같은 자리도 *Where I stop / (in front of a scene)* · *(in a good space)* 로 맞춘다.
+
+### B · 4–5쪽
+| 자리 | 글 |
+|---|---|
+| 4 캡션 | **Black long coat** / (shop front, evening) |
+| 4 캡션 | **Olive parka** / (by the river, at night) |
+| 4 왼쪽 아래 | **Anyone can buy the clothes.** / (Only the person can make the style.) |
+| 5 캡션 | **Light jacket** / (amusement park, at sunset) |
+| 5 머리말 | MOOD |
+| 5 오른쪽 단락 1 | **Why is style important?** The same white shirt looks different on everyone: sleeves rolled or not, how many buttons done up, what it's worn with. That difference is style. I look at what a person chose, what they left out, and what they made stand out. A good space starts the same way. |
+| 5 오른쪽 단락 2 | **What makes a good style?** Good style isn't about trends. It suits the person, it stays consistent, and it feels comfortable. You can recognize that person from across the street. A good space is the same: you know where you are the moment you walk in. |
+| 5 아래 단락 | **MY STYLE** Black, olive, beige, grey. Short, neat hair; horn-rimmed glasses or sunglasses; an oversized long coat, wide trousers; a vintage watch. Diptyque, Jo Malone, Burberry. I match it all to the place I'm going that day. |
+
+- **바꾼 것:** MY STYLE 영어판을 4줄 자리에 맞게 줄였다 — 마지막 문장을 "I match my hair, the tone of my clothes and the mood of my scent to …" 에서 "I match it all to …" 로.
+
+### C · 6–7쪽
+| 자리 | 글 |
+|---|---|
+| 7 오른쪽 위 | **DAILY LookBook** A good screen, like a good style, starts with choosing what to show and what to leave out. DAILY LookBook is a site that collects everyday outfits: see how others dress each day, browse by style, and find the piece you liked. |
+| 7 좁은 단 | **MAIN** — Today's looks, five style categories, users' daily outfits and sale picks.<br>**MARKET** — Filter by color, fit, length, pattern and material; the matching pieces line up in a three-column grid. |
+| 7 라벨 위 | **Web design** / (University project · Photoshop + Illustrator) |
+| 7 라벨 아래 | **MARKET · MAIN** / (Product list · Home) |
+
+- **바꾼 것:** 첫 문장 "I designed these screens with the same eye I use to read people's style." → "A good screen, like a good style, starts with choosing what to show and what to leave out." B 의 "what they chose, what they left out" 을 그대로 받아서 STYLE → 작업으로 넘어가는 이유가 더 분명하다.
+
+### D · 8–9쪽
+| 자리 | 글 |
+|---|---|
+| 큰 글자 | I stop for people whose style is their own. (그대로) |
+
+---
+
 ## A · 2–3쪽 — 섹션 여는 펼침
 
 | 자리 | 지금 (템플릿) | 넣을 것 |
