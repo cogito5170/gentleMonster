@@ -48,13 +48,16 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 | G-11 오른쪽 아래 (Series 자리) | **Where Did You Last Stop?** | 당신이 마지막으로 멈춘 곳은 어디인가? |
 | G-11 Experimental Grid Exploration | 지움 | — |
 | H 캡션 | **dusk** · **lights** | 노을 · 불빛 |
-| I-18 캡션 | **smoke** | 연기 |
-| I-18 본문 | Wherever people stopped, a place was holding them there: the smoke over a grill, the light along a museum's curved wall. The place sets the scene before anyone steps into it. | 사람이 멈춘 곳에는 언제나 그들을 붙잡아 둔 장소가 있었다. 그릴 위의 연기, 미술관의 휘어진 벽을 따라 흐르는 빛. 장소는 누군가 들어서기 전에 이미 장면을 만들어 둔다. |
-| I-19 큰 글자 | Every good picture had a good place behind it. | 좋은 사진 뒤에는 늘 좋은 장소가 있었다. |
-| I-19 캡션 | **curve** | 곡선 |
+| I-14 왼쪽 위 (Grid Exploration 001) | **Behind the picture** | 사진 뒤에는 |
+| I-14 본문 (좁은 단) | Step back from the two in the sea, and a hotel appears on the hill behind them. Wherever people stopped, a place was holding them there. The place sets the scene before anyone steps into it. | 바다 속 두 사람에게서 한 걸음 물러서면, 그 뒤 언덕 위에 호텔이 나타난다. 사람이 멈춘 곳에는 언제나 그들을 붙잡아 둔 장소가 있었다. 장소는 누군가 들어서기 전에 이미 장면을 만들어 둔다. |
+| I-14 그릴 캡션 | **smoke** / (a grill, at night) | 연기 / (그릴, 밤) |
+| I-15 큰 글자 | Every good picture had a good place behind it. (재단선 안에 두 줄로) | 좋은 사진 뒤에는 늘 좋은 장소가 있었다. |
+| I-15 미술관 캡션 | **curve** / (a museum gallery) | 곡선 / (미술관 전시실) |
+| I 아래 끝 (새로 추가) | 14쪽 왼쪽 아래 **(002) PICTURE** / (A Moment like A Photograph) · **14 — 15** · 15쪽 바깥 아래 모서리 **Where Did You Last Stop?** | (002) 사진 / (사진 같은 순간) · 14–15쪽 · 당신이 마지막으로 멈춘 곳은 어디인가? |
 
 - 캡션은 굵은 소문자 한 단어(내가 멈춘 이유, One To One 방식) + 괄호 안에 무엇 · 어디. **바꾼 것:** 처음엔 한 단어만 두려 했으나, 템플릿 라벨이 굵게 · 보통 두 줄이라 STYLE 캡션과 같은 리듬으로 둘째 줄을 살렸다. 섹션 차이는 첫 줄(STYLE = 옷 이름, PICTURE = 멈춘 이유 한 단어)로 보인다.
 - 지원자 파일의 쪽 번호로 F 는 **8–9쪽**이다(이 문서의 E–I 는 펼침 이름).
+- **I(지원자 14–15쪽):** 본문 첫 문장이 12–13쪽 사진만 있는 펼침(같은 바다를 넓게, 언덕 위 호텔)을 설명한다 — 사진만 있는 펼침을 다음 장에서 받아 사람 → 장소로 넘긴다. 그릴 · 미술관은 본문에서 이름을 부르지 않고 캡션이 맡는다(본문 · 캡션 · 큰 글자가 같은 말을 되풀이하지 않게). 이 펼침에는 아래 끝 글 상자가 없어서 다른 펼침에서 복사해 넣는다.
 - **G 본문은 이 사진을 예로 든다** (지원자 요청). 좋은 사진의 두 조건을 일반론 대신 바다 속 두 사람 사진으로 설명한다. 사진에 보이는 것(해 질 녘 빛 · 서서 내려다보는 사람 · 물에 손을 뻗는 사람 · 분홍과 빨강)만 쓰고, 두 사람의 관계는 쓰지 않는다.
 - **G(지원자 10–11쪽) 레이아웃:** 본문 한 단락이 접힘을 가로지른다 → 제본하면 가운데 글자가 먹힌다. **한 단락**(지원자 결정)으로 쓰고, 글 상자를 **11쪽 안으로** 옮겨 접힘을 피한다 — 왼쪽 끝을 접힘에서 30pt 띄우고 폭은 지금 그대로(약 7–8줄). "첫째 · 둘째" 번호는 한 단락에서 빼고 첫 문장에 두 조건을 함께 둔다(STYLE Q2 도 번호 없이 썼다). 사진은 두 사람이 접힘에서 멀어지게 왼쪽으로 약 30pt 옮긴다.
 - **아래 끝 질문 위치:** Where Did You Last Stop? 은 모든 오른쪽 쪽에서 **바깥 아래 모서리(오른쪽 맞춤)** 에 둔다. 9쪽도 Experimental Grid Exploration 자리 대신 같은 모서리로 옮긴다.
