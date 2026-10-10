@@ -37,6 +37,18 @@ extreme close-up black and white fine art photograph, a bare forearm stretches h
 레퍼런스 톤을 맞추려면 끝에 `--sref <레퍼런스 흑백 사진 주소> --sw 100`.
 시계가 너무 커지거나 소매를 가리면 `vintage watch` 부분을 `the edge of a vintage watch strap` 으로 줄인다.
 
+**같은 문법의 시리즈 (02 · 03 띠 이미지가 필요할 때)**
+
+02 PICTURE — 셔터 위에 멈춘 검지:
+```
+extreme close-up black and white fine art photograph, an index finger pauses just above the shutter button of a worn black film camera, not yet pressing, the camera body and hand stretch horizontally across the frame, the finger and shutter sit at the right third, a single hard raking light grazes from the upper right, knurled metal, leatherette and skin texture sharply visible, everything else falls into deep black, anonymous, no face, the held breath before a photograph, editorial photography, silver gelatin print, high contrast, fine grain --ar 10:3 --style raw --v 7 --s 75 --no text, logo, brand name, color, ring, tattoo
+```
+
+03 ARCHITECTURE — 문틀을 짚은 손과 그 너머의 빛:
+```
+black and white fine art photograph, a hand rests on the edge of a raw board-formed concrete door frame at the left of the frame, paused at the threshold, beyond the opening an empty quiet room where a single shaft of hard daylight falls across the floor at the right third, deep black shadow everywhere else, concrete texture sharply visible, anonymous, no face, the moment before stepping in, architectural editorial photography, silver gelatin print, high contrast, fine grain --ar 10:3 --style raw --v 7 --s 75 --no text, logo, color, furniture, people, ring, tattoo
+```
+
 아래 A–D 는 이 샷을 정하기 전에 검토한 안이다.
 
 ## 지면 글에서 뽑은 것
