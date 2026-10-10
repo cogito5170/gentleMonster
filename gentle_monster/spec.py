@@ -41,13 +41,17 @@ SHAPES = {
     "mirror_wall": "thin mirror-aluminium wall; the longest one becomes a true mirror",
     "light_ceiling": "luminous textile ceiling over the item footprint (use type zone)",
     "floor_patch": "floor finish patch over the footprint, e.g. graphite + wax (use type zone)",
+    "memory_frame": "asymmetric open polyhedron of acrylic rods and glass tubes with polished silver nodes, one red node; optional nodes/edges/red",
+    "robot_arm": "matte white ceramic six-axis arm that reaches for the open edge of a memory_frame (from/to node names); build it beside one",
+    "reflect_basin": "shallow black-edged basin of still water, a true mirror; put a memory_frame inside it (they may overlap)",
     "zone": "no geometry; a named area",
     "door": "entrance opening on the street edge (y = 0)",
 }
 MATERIALS = {"concrete", "polished_concrete", "granite", "steel", "mirror_aluminium", "aluminium", "brass", "red_wax",
              "graphite_wax", "mineral_white", "strata_clay", "lime_plaster", "wood", "amber_glass", "glass", "skin",
-             "textile_light", "black_stone", "white_gloss", "candle_wax"}
-LIGHTS = {"dark_gallery", "white_gallery", "daylight", "warm_spot"}
+             "textile_light", "black_stone", "white_gloss", "candle_wax",
+             "pale_concrete", "ceramic_white", "black_chrome", "titanium", "dark_titanium", "oxidized_silver"}
+LIGHTS = {"dark_gallery", "white_gallery", "daylight", "warm_spot", "cold_spot"}
 NON_OBSTACLE = {"zone", "shards", "light_ceiling", "floor_patch", "door"}
 CLEAR = 0.30              # metres a visitor needs between the path centre line and any object
 HANGUL = re.compile("[가-힣]")
@@ -175,7 +179,8 @@ def check(job: dict) -> "list[str]":
         for b in solid[i + 1:]:
             ox = min(a["x1"], b["x1"]) - max(a["x0"], b["x0"])
             oy = min(a["y1"], b["y1"]) - max(a["y0"], b["y0"])
-            joined = (ox <= .25 and oy <= .25) or "cable_curtain" in (a.get("shape"), b.get("shape"))   # wall corners, cables fixed to posts
+            joined = (ox <= .25 and oy <= .25) or "cable_curtain" in (a.get("shape"), b.get("shape")) \
+                or {a.get("shape"), b.get("shape")} == {"memory_frame", "reflect_basin"}   # wall corners, cables fixed to posts, a frame standing in its basin
             if ox > .05 and oy > .05 and not joined and not (a["id"].startswith("column@") or b["id"].startswith("column@")):
                 bad.append(f"{_fmt(a)} and {_fmt(b)} overlap by {ox:.2f} x {oy:.2f} m")
 

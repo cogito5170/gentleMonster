@@ -30,6 +30,7 @@ export function build(job, opt = {}) {
     strata: r => canvasTex(1024, (g, s) => { let y = 0; const cols = ['#9a4a32', '#b86a4a', '#7b5a40', '#c89a72', '#8a3f2b', '#6d5237', '#a8795a']; while (y < s) { const t = 8 + rnd() * 46; g.fillStyle = cols[(rnd() * cols.length) | 0]; g.beginPath(); g.moveTo(0, y); for (let x = 0; x <= s; x += 32) g.lineTo(x, y + (rnd() - .5) * 9); g.lineTo(s, y + t); g.lineTo(0, y + t); g.fill(); y += t; } for (let i = 0; i < 90000; i++) { g.fillStyle = `rgba(0,0,0,${rnd() * .1})`; g.fillRect(rnd() * s, rnd() * s, 1.5, 1.5); } }, r),
     graphite: r => canvasTex(1024, (g, s) => { grain(g, s, '#2a2826', .38, 300000, 1.8); blotch(g, s, 'rgba(120,20,15,.55)', 26, 8, 38); }, r),
     wood: r => canvasTex(1024, (g, s) => { g.fillStyle = '#6b4a32'; g.fillRect(0, 0, s, s); for (let x = 0; x < s; x += 2) { g.fillStyle = `rgba(${40 + rnd() * 40 | 0},${25 + rnd() * 20 | 0},10,${.15 + rnd() * .2})`; g.fillRect(x, 0, 1 + rnd() * 2, s); } }, r),
+    pale_concrete: r => canvasTex(1024, (g, s) => { grain(g, s, '#d3d1cb', .09, 90000, 2); blotch(g, s, 'rgba(110,108,100,.06)', 40, 60, 240); for (let y = 0; y < s; y += s / 4) { g.fillStyle = 'rgba(90,88,82,.10)'; g.fillRect(0, y, s, 2); } for (let i = 0; i < 40; i++) { g.fillStyle = 'rgba(80,80,78,.22)'; g.beginPath(); g.arc(rnd() * s, rnd() * s, 1 + rnd() * 2.5, 0, 7); g.fill(); } }, r),
     textile: r => canvasTex(512, (g, s) => { g.fillStyle = '#fff7e6'; g.fillRect(0, 0, s, s); for (let x = 0; x < s; x += 3) { g.fillStyle = `rgba(190,170,130,${.08 + rnd() * .06})`; g.fillRect(x, 0, 1, s); } for (let y = 0; y < s; y += 3) { g.fillStyle = `rgba(190,170,130,${.06 + rnd() * .05})`; g.fillRect(0, y, s, 1); } }, r),
   };
   const std = o => new THREE.MeshStandardMaterial(o), phys = o => new THREE.MeshPhysicalMaterial(o);
@@ -56,6 +57,12 @@ export function build(job, opt = {}) {
       case 'textile_light': { const t = TX.textile([6, 4]); return std({ map: t, emissive: '#fff3dc', emissiveIntensity: 1.3, emissiveMap: t, roughness: 1, side: THREE.DoubleSide }); }
       case 'black_stone': return phys({ color: '#141414', roughness: .35, clearcoat: .3 });
       case 'white_gloss': return phys({ color: '#f1f0ec', roughness: .35, clearcoat: .6, clearcoatRoughness: .2, flatShading: true });
+      case 'pale_concrete': return std({ map: TX.pale_concrete(r), roughness: .9 });
+      case 'ceramic_white': return phys({ color: '#eeede9', roughness: .5, clearcoat: .25, clearcoatRoughness: .45 });
+      case 'dark_titanium': return phys({ map: TX.brushed([1, 3], '#5a5d60'), metalness: .6, roughness: .38, clearcoat: .35, clearcoatRoughness: .25 });
+      case 'black_chrome': return phys({ color: '#1b1c1e', metalness: 1, roughness: .07, clearcoat: .5 });
+      case 'titanium': return phys({ map: TX.brushed([1, 3], '#9a9c9d'), metalness: 1, roughness: .3 });
+      case 'oxidized_silver': return phys({ map: TX.plaster([1, 1], '#aaa59a'), metalness: 1, roughness: .2 });
       case 'candle_wax': return phys({ color: '#efe6cf', roughness: .55, sheen: .5, sheenColor: new THREE.Color('#fff4dd'), transmission: .08, thickness: .5 });
       default: return std({ color: '#888', roughness: .8 });
     }
@@ -76,16 +83,19 @@ export function build(job, opt = {}) {
 
   // ---------------- shell ----------------
   const light = R.light, dark = light === 'dark_gallery';
-  scene.background = new THREE.Color({ dark_gallery: '#0b0b0b', white_gallery: '#f2f1ed', daylight: '#101010', warm_spot: '#1b120c' }[light]);
-  scene.environmentIntensity = { dark_gallery: .55, white_gallery: .9, daylight: .8, warm_spot: .6 }[light];
+  scene.background = new THREE.Color({ dark_gallery: '#0b0b0b', white_gallery: '#f2f1ed', daylight: '#101010', warm_spot: '#1b120c', cold_spot: '#e6e8ea' }[light]);
+  scene.environmentIntensity = { dark_gallery: .55, white_gallery: .9, daylight: .8, warm_spot: .6, cold_spot: .7 }[light];
   { const f = new THREE.Mesh(new THREE.PlaneGeometry(Wd, Dp), MAT(R.floor, Math.max(Wd, Dp))); f.rotation.x = -Math.PI / 2; f.position.set(Wd / 2, 0, Dp / 2); add(f, false, true);
+    if (R.wet) {   // wet floor: a true mirror just under a partly transparent floor finish
+      f.material.transparent = true; f.material.opacity = 1 - R.wet; f.material.roughness = .35; f.material.depthWrite = true;
+      const fm = new Reflector(new THREE.PlaneGeometry(Wd, Dp), { textureWidth: 2048, textureHeight: 2048, color: 0x9a9da1, clipBias: .002 }); fm.rotation.x = -Math.PI / 2; fm.position.set(Wd / 2, -.003, Dp / 2); scene.add(fm); }
     const wall = MAT(R.wall, Math.max(Wd, Dp)), t = .2, door = L.items.find(i => i.shape === 'door' || i.type === 'door');
     box(-t, 0, 0, Dp, 0, Ht, wall); box(Wd, 0, Wd + t, Dp, 0, Ht, wall); box(-t, Dp, Wd + t, Dp + t, 0, Ht, wall);
     HIDE.push(box(-t, -t, door.x0, 0, 0, Ht, wall), box(door.x1, -t, Wd + t, 0, 0, Ht, wall), box(door.x0, -t, door.x1, 0, Math.min(2.8, Ht - .2), Ht, wall));
     if (!R.dome) { const c = new THREE.Mesh(new THREE.PlaneGeometry(Wd, Dp), MAT(R.ceiling, Math.max(Wd, Dp))); c.rotation.x = Math.PI / 2; c.position.set(Wd / 2, Ht, Dp / 2); HIDE.push(add(c, false, true)); }
     else { const r = Math.min(Wd, Dp) * .46, dm = new THREE.Mesh(new THREE.SphereGeometry(r, 64, 32, 0, Math.PI * 2, 0, Math.PI / 2), MAT(R.ceiling, 8)); dm.material.side = THREE.BackSide; dm.scale.y = .38; dm.position.set(Wd / 2, Ht - .1, Dp / 2); HIDE.push(add(dm, false, true)); }
     if (R.beams) { const m = std({ color: '#151515', roughness: .6, metalness: .3 }); for (let x = 2; x < Wd; x += 4) HIDE.push(box(x - .15, 0, x + .15, Dp, Ht - .5, Ht - .1, m)); }
-    if (R.fog) scene.fog = new THREE.FogExp2(dark ? '#0d0d0e' : '#f2f1ed', R.fog);
+    if (R.fog) scene.fog = new THREE.FogExp2(dark ? '#0d0d0e' : (light === 'cold_spot' ? '#e3e7ec' : '#f2f1ed'), R.fog);
     const cm = std({ color: '#151515', roughness: .6, metalness: .3 }); for (const [x, y] of L.columns || []) box(x - .2, y - .2, x + .2, y + .2, 0, Ht, cm); }
 
   // ---------------- shapes ----------------
@@ -193,9 +203,76 @@ export function build(job, opt = {}) {
       const mat = MAT(it.material || 'graphite_wax', 4), g = new THREE.Mesh(new THREE.PlaneGeometry(it.x1 - it.x0, it.y1 - it.y0), mat); g.rotation.x = -Math.PI / 2; g.position.set(...(([x, z]) => [x, .004, z])(ctr(it))); add(g, false, true);
       if ((it.material || 'graphite_wax') === 'graphite_wax') { const wax = MAT('red_wax'); for (let n = 0; n < 60; n++) { const b = new THREE.Mesh(new THREE.SphereGeometry(.03 + rnd() * .09, 18, 12), wax); b.scale.set(1 + rnd() * .8, .12, .6 + rnd() * .6); b.position.set(it.x0 + rnd() * (it.x1 - it.x0), .01, it.y0 + rnd() * (it.y1 - it.y0)); add(b); } }
     },
+    // ---- FRAME & INTERIOR: the maker, the made, the memory ----
+    reflect_basin(it) {   // shallow black-edged basin of still water under the frame; the water is a true (slightly imperfect) mirror
+      const [cx, cz] = ctr(it), w = it.x1 - it.x0, d = it.y1 - it.y0, rim = .05, hh = it.h || .12, edge = phys({ color: '#141414', roughness: .4, clearcoat: .4 });
+      box(it.x0, it.y0, it.x1, it.y0 + rim, 0, hh, edge); box(it.x0, it.y1 - rim, it.x1, it.y1, 0, hh, edge);
+      box(it.x0, it.y0 + rim, it.x0 + rim, it.y1 - rim, 0, hh, edge); box(it.x1 - rim, it.y0 + rim, it.x1, it.y1 - rim, 0, hh, edge);
+      box(it.x0 + rim, it.y0 + rim, it.x1 - rim, it.y1 - rim, 0, .02, std({ color: '#0e0e0f', roughness: .9 }));
+      const mir = new Reflector(new THREE.PlaneGeometry(w - 2 * rim, d - 2 * rim), { textureWidth: 2048, textureHeight: 1536, color: 0x8d9094, clipBias: .002 });
+      mir.rotation.x = -Math.PI / 2; mir.position.set(cx, hh - .025, cz); scene.add(mir);
+      const nt = canvasTex(512, (g, s) => { g.fillStyle = 'rgb(128,128,255)'; g.fillRect(0, 0, s, s); for (let i = 0; i < 26; i++) { const x = rnd() * s, y = rnd() * s, r = 30 + rnd() * 160;
+        for (let k = 0; k < 5; k++) { g.strokeStyle = `rgba(${150 + k * 6},${120 - k * 4},255,${.10 - k * .015})`; g.lineWidth = 2; g.beginPath(); g.arc(x, y, r * (1 - k * .16), 0, 7); g.stroke(); } } }, [2, 2]);
+      nt.colorSpace = THREE.NoColorSpace;
+      const film = new THREE.Mesh(new THREE.PlaneGeometry(w - 2 * rim, d - 2 * rim), phys({ color: '#ffffff', transparent: true, opacity: .1, roughness: .04, normalMap: nt, normalScale: new THREE.Vector2(.35, .35), depthWrite: false }));
+      film.rotation.x = -Math.PI / 2; film.position.set(cx, hh - .022, cz); scene.add(film); HD.water = [cx, hh - .025, cz];
+    },
+    memory_frame(it) {   // asymmetric open polyhedron: acrylic rods + glass tubes, polished silver nodes, one red node (the first one)
+      const [cx, cz] = ctr(it), y0 = (it.base || .1), sc = it.scale || 1, P = {};
+      const N = it.nodes || { A: [-.48, .32, -.18], B: [.42, .26, -.36], C: [.12, .34, .46], D: [-.22, 1.0, .08], E: [.52, .9, .12], F: [-.58, 1.32, -.42], G: [.16, 1.68, -.16], H: [.36, 1.3, .56] };
+      for (const k in N) P[k] = new THREE.Vector3(cx + N[k][0] * sc, y0 + N[k][1] * sc, cz + N[k][2] * sc);
+      const E = it.edges || ['AB', 'BC', 'CA', 'AD', 'BE', 'CD', 'DE', 'AF', 'DF', 'FG', 'DG', 'EG', 'EH', 'GH'];
+      heroes.push(new THREE.Vector3(cx, y0 + .95 * sc, cz));
+      const acrylic = phys({ color: '#f4fbff', transmission: 1, roughness: .03, ior: 1.49, thickness: .02, attenuationColor: new THREE.Color('#cfe9f2'), attenuationDistance: .35, specularIntensity: 1 });
+      const tube = phys({ color: '#ffffff', transmission: 1, roughness: .01, ior: 1.52, thickness: .004, iridescence: .15, side: THREE.DoubleSide });
+      const silver = it.node ? MAT(it.node) : phys({ color: '#d6d9dc', metalness: 1, roughness: .07 }), up = new THREE.Vector3(0, 1, 0);
+      const rod = (a, b, r, m) => { const v = b.clone().sub(a), g = new THREE.Mesh(new THREE.CylinderGeometry(r, r, v.length(), 28, 1, m === tube), m); g.position.copy(a).add(b).multiplyScalar(.5); g.quaternion.setFromUnitVectors(up, v.normalize()); return add(g, true, false); };
+      E.forEach((e, i) => { const a = P[e[0]], b = P[e[1]], d = b.clone().sub(a).normalize(), r0 = .045 * sc;
+        rod(a.clone().addScaledVector(d, r0), b.clone().addScaledVector(d, -r0), i % 3 === 1 ? .016 : .011, i % 3 === 1 ? tube : acrylic); });
+      for (const k of ['A', 'B', 'C']) rod(new THREE.Vector3(P[k].x, y0 - .08, P[k].z), P[k].clone().setY(P[k].y - .04 * sc), .009, acrylic);   // clear posts into the water: nothing floats
+      const red = it.red || 'A';
+      for (const k in P) { const isRed = k === red, m = isRed ? phys({ color: '#7a2a22', roughness: .25, emissive: '#b8382a', emissiveIntensity: .9, transmission: .2, thickness: .05 }) : silver;
+        const s = new THREE.Mesh(new THREE.SphereGeometry(.045 * sc, 48, 32), m); s.position.copy(P[k]); add(s, true, false);
+        if (isRed) { const pl = new THREE.PointLight('#ff6a52', .9, 1.4, 2); pl.position.copy(P[k]); scene.add(pl); } }
+      HD.frameNodes = P; HD.frameScale = sc;
+    },
+    robot_arm(it) {   // matte white ceramic-coated six-axis arm beside the frame, holding the next rod toward the open edge
+      const [bx, bz] = ctr(it), up = new THREE.Vector3(0, 1, 0);
+      const ceramic = MAT(it.material || 'ceramic_white'), band = MAT(it.joint || 'aluminium'), seam = it.joint === 'black_chrome' ? MAT('black_chrome') : std({ color: '#2a2a2a', roughness: .6 });
+      const acrylic = phys({ color: '#f4fbff', transmission: 1, roughness: .03, ior: 1.49, thickness: .02, attenuationColor: new THREE.Color('#cfe9f2'), attenuationDistance: .35 });
+      const limb = (a, b, r0, r1, m) => { const v = b.clone().sub(a), g = new THREE.Mesh(new THREE.CylinderGeometry(r1, r0, v.length(), 48), m); g.position.copy(a).add(b).multiplyScalar(.5); g.quaternion.setFromUnitVectors(up, v.clone().normalize()); return add(g); };
+      const hub = (p, axis, r, len, m) => { const g = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, 48), m); g.position.copy(p); g.quaternion.setFromUnitVectors(up, axis); return add(g); };
+      // target: the open edge the frame is waiting for (from node `from` toward node `to`)
+      const P = HD.frameNodes, sc = HD.frameScale || 1, A = P[it.from || 'C'], B = P[it.to || 'H'], dir = B.clone().sub(A).normalize(), r0 = .045 * sc;
+      const rs = A.clone().addScaledVector(dir, r0), re = B.clone().addScaledVector(dir, -r0 - .1);    // the rod stops 10 cm short: still being placed
+      const grip = rs.clone().lerp(re, .62);
+      box(it.x0 + .05, it.y0 + .05, it.x1 - .05, it.y1 - .05, 0, .04, MAT('aluminium'));                 // floor plate
+      const K = it.size || 1, shY = it.sh || .78 * K, base = new THREE.Vector3(bx, 0, bz);
+      limb(base.clone().setY(.04), base.clone().setY(.22 * K), .36 * K, .33 * K, ceramic); hub(base.clone().setY(.225 * K), up, .332 * K, .014, seam);
+      limb(base.clone().setY(.23 * K), base.clone().setY(shY - .16 * K), .27 * K, .24 * K, ceramic);
+      const sh = base.clone().setY(shY);
+      const boxLimb = (a, b, w, d, m) => { const v = b.clone().sub(a), y = v.clone().normalize(), z = side.clone(), x = new THREE.Vector3().crossVectors(y, z).normalize();
+        const g = new THREE.Mesh(new THREE.BoxGeometry(w, v.length(), d), m); g.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(x, y, z)); g.position.copy(a).add(b).multiplyScalar(.5); return add(g); };
+      const yawV = grip.clone().sub(sh).setY(0).normalize(), side = new THREE.Vector3().crossVectors(up, yawV).normalize();
+      // wrist sits behind the grip, approaching slightly from above
+      const app = yawV.clone().multiplyScalar(Math.cos(.55)).add(new THREE.Vector3(0, -Math.sin(.55), 0)).normalize(), wr = grip.clone().addScaledVector(app, -.3);
+      const l1 = it.l1 || .95, l2 = it.l2 || .82, dv = wr.clone().sub(sh), dd = Math.min(dv.length(), l1 + l2 - .01);
+      const a = Math.acos(Math.max(-1, Math.min(1, (l1 * l1 + dd * dd - l2 * l2) / (2 * l1 * dd)))), u = dv.clone().normalize(), perp = new THREE.Vector3().crossVectors(side, u).normalize();
+      const el = sh.clone().addScaledVector(u, l1 * Math.cos(a)).addScaledVector(perp, l1 * Math.sin(a) * (perp.y > 0 ? 1 : -1));
+      hub(sh, side, .25 * K, .5 * K, ceramic); hub(sh.clone().addScaledVector(side, .255 * K), side, .2 * K, .025, band); hub(sh.clone().addScaledVector(side, -.255 * K), side, .2 * K, .025, band);
+      boxLimb(sh.clone().addScaledVector(el.clone().sub(sh).normalize(), -.32 * K), sh, .3 * K, .36 * K, seam);          // motor housing behind the shoulder
+      boxLimb(sh, el, .26 * K, .3 * K, ceramic); hub(el, side, .19 * K, .36 * K, ceramic); hub(el.clone().addScaledVector(side, .185 * K), side, .15 * K, .02, band);
+      boxLimb(el, wr, .17 * K, .2 * K, ceramic); hub(wr, side, .11 * K, .22 * K, ceramic); hub(wr.clone().addScaledVector(side, .115 * K), side, .085 * K, .014, band);
+      const fl = wr.clone().addScaledVector(app, .12); limb(wr, fl, .075 * K, .066 * K, ceramic); limb(fl, fl.clone().addScaledVector(app, .025), .066, .066, band);
+      const palm = fl.clone().addScaledVector(app, .07); limb(fl.clone().addScaledVector(app, .025), palm, .05, .05, seam);
+      const rodPerp = new THREE.Vector3().crossVectors(dir, app).normalize();
+      for (const s of [-1, 1]) { const f0 = palm.clone().addScaledVector(rodPerp, s * .03), f1 = grip.clone().addScaledVector(rodPerp, s * .019); limb(f0, f1, .012, .009, band); }
+      const v = re.clone().sub(rs), g = new THREE.Mesh(new THREE.CylinderGeometry(.011, .011, v.length(), 28), acrylic); g.position.copy(rs).add(re).multiplyScalar(.5); g.quaternion.setFromUnitVectors(up, v.normalize()); add(g, true, false);
+    },
     zone() {}, door() {},
   };
-  for (const it of L.items) (S[it.shape] || S.box)(it);
+  const ORDER = { memory_frame: 0, robot_arm: 2 };   // the arm reaches for the frame, so the frame is built first
+  for (const it of L.items.slice().sort((a, b) => (ORDER[a.shape] ?? 1) - (ORDER[b.shape] ?? 1))) (S[it.shape] || S.box)(it);
 
   // the longest mirror wall becomes a true mirror (the visitor sees their own silhouette in it)
   if (HD.mirrorItem) { const it = HD.mirrorItem.slice().sort((a, b) => Math.max(b.x1 - b.x0, b.y1 - b.y0) - Math.max(a.x1 - a.x0, a.y1 - a.y0))[0];
@@ -216,6 +293,14 @@ export function build(job, opt = {}) {
   if (light === 'white_gallery') { scene.add(new THREE.HemisphereLight('#ffffff', '#dcd6cc', .9));
     const d = new THREE.DirectionalLight('#fffaf2', 2.2); d.position.set(hero.x - 6, 14, hero.z - 8); d.target.position.set(Wd / 2, 0, Dp / 2); d.castShadow = true; Object.assign(d.shadow.camera, { left: -Wd, right: Wd, top: Dp, bottom: -Dp, far: 80 }); d.shadow.mapSize.set(4096, 4096); d.shadow.radius = 6; d.shadow.bias = -.0003; scene.add(d, d.target);
     for (const h of heroes) spot('#ffffff', 700, [h.x, Ht - .1, h.z - 2], [h.x, h.y, h.z], .55, .9); }
+  if (light === 'cold_spot') {   // bright pale room, one cold blue-white key with a hard edge, a thin rim from behind, a faint beam
+    scene.add(new THREE.HemisphereLight('#f4f7fb', '#cdc8c0', .55));
+    const d = new THREE.DirectionalLight('#f5f8ff', 1.1); d.position.set(hero.x - 5, 12, hero.z - 9); d.target.position.set(hero.x, 0, hero.z); d.castShadow = true; Object.assign(d.shadow.camera, { left: -Wd, right: Wd, top: Dp, bottom: -Dp, far: 80 }); d.shadow.mapSize.set(4096, 4096); d.shadow.radius = 3; d.shadow.bias = -.0003; scene.add(d, d.target);
+    for (const h of heroes) { const kp = [h.x - .3, Ht - .05, h.z - .2]; spot('#dbe7ff', 650, kp, [h.x, 0, h.z], .3, .4);
+      const sky = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 2.2), new THREE.MeshBasicMaterial({ color: '#f4f8ff' })); sky.rotation.x = Math.PI / 2; sky.position.set(kp[0], Ht - .01, kp[2]); scene.add(sky); HIDE.push(sky);
+      spot('#cfe0ff', 420, [h.x + 1.2, Ht * .55, h.z + 3.2], [h.x, h.y, h.z], .22, .5, false);
+      const top = new THREE.Vector3(...kp), bot = new THREE.Vector3(kp[0], 0, kp[2]), v = bot.clone().sub(top), L_ = v.length(), cone = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 1.0 + L_ * Math.tan(.12), L_, 48, 1, true), new THREE.MeshBasicMaterial({ color: '#dfe8ff', transparent: true, opacity: .022, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide }));
+      cone.position.copy(top).addScaledVector(v, .5); cone.quaternion.setFromUnitVectors(new THREE.Vector3(0, -1, 0), v.normalize()); scene.add(cone); HIDE.push(cone); } }
   if (light === 'daylight') { scene.add(new THREE.HemisphereLight('#ffffff', '#3a3632', .35)); spot('#ffffff', 300, [dx, Ht - .2, 1], [dx + 3, 0, 5], .9, .9); }
   if (light === 'warm_spot') { scene.add(new THREE.HemisphereLight('#fff2de', '#5a3a26', .5));
     for (const h of heroes) spot('#ffd8a8', 420, [h.x, Ht + 1.2, h.z - .6], [h.x, .8, h.z], .45, .6);
@@ -255,7 +340,8 @@ export function still(job, view, opt = {}) {
   const B = build(job, opt), { THREE, Wd, Dp } = B;
   const cam = new THREE.PerspectiveCamera(view === 'cut' ? 38 : 58, B.W / B.H, .05, 200);
   let look;
-  if (view === 'cut') { B.HIDE.forEach(o => o.visible = false); cam.position.set(Wd * 1.05, Math.max(Wd, Dp) * .95, -Dp * .55); look = new THREE.Vector3(Wd * .48, .4, Dp * .52); }
+  if (view === 'hero' && job.camera) { const C = job.camera; cam.fov = C.fov || 32; cam.updateProjectionMatrix(); cam.position.set(C.pos[0], C.pos[1], C.pos[2]); look = new THREE.Vector3(C.look[0], C.look[1], C.look[2]); }
+  else if (view === 'cut') { B.HIDE.forEach(o => o.visible = false); cam.position.set(Wd * 1.05, Math.max(Wd, Dp) * .95, -Dp * .55); look = new THREE.Vector3(Wd * .48, .4, Dp * .52); }
   else {   // 'eye': the stop that looks nearest the hero (else the middle stop); 'stopN': stop N -- seen from 2 m back along the path
     const P = job.layout.flows[0].pts, c = new THREE.CatmullRomCurve3(P.map(([x, y]) => new THREE.Vector3(x, 1.62, y)), false, 'catmullrom', .15), len = c.getLength();
     const st = job.stops.map(s => ({ s, L: new THREE.Vector3(...s.look) })), h = B.heroes[0];
