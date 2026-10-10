@@ -218,6 +218,7 @@ export function build(job, opt = {}) {
       film.rotation.x = -Math.PI / 2; film.position.set(cx, hh - .022, cz); scene.add(film); HD.water = [cx, hh - .025, cz];
     },
     memory_frame(it) {   // asymmetric open polyhedron: acrylic rods + glass tubes, polished silver nodes, one red node (the first one)
+      if (it.form === 'eyewear') return S.eyewear_frame(it);
       const [cx, cz] = ctr(it), y0 = (it.base || .1), sc = it.scale || 1, P = {};
       const N = it.nodes || { A: [-.48, .32, -.18], B: [.42, .26, -.36], C: [.12, .34, .46], D: [-.22, 1.0, .08], E: [.52, .9, .12], F: [-.58, 1.32, -.42], G: [.16, 1.68, -.16], H: [.36, 1.3, .56] };
       for (const k in N) P[k] = new THREE.Vector3(cx + N[k][0] * sc, y0 + N[k][1] * sc, cz + N[k][2] * sc);
@@ -236,6 +237,42 @@ export function build(job, opt = {}) {
         if (isRed) { const pl = new THREE.PointLight('#ff6a52', .9, 1.4, 2); pl.position.copy(P[k]); scene.add(pl); } }
       HD.frameNodes = P; HD.frameScale = sc;
     },
+    eyewear_frame(it) {   // a pair of glasses at architectural scale, half built: left rim done with its lens, right rim open, one arc in the arm
+      const [cx, cz] = ctr(it), y0 = it.base || .1, sc = it.scale || 1, up = new THREE.Vector3(0, 1, 0);
+      const acrylic = phys({ color: '#f4fbff', transmission: 1, roughness: .03, ior: 1.49, thickness: .05, attenuationColor: new THREE.Color('#cfe9f2'), attenuationDistance: .5, specularIntensity: 1 });
+      const silver = it.node ? MAT(it.node) : phys({ color: '#d6d9dc', metalness: 1, roughness: .07 });
+      const lensM = phys({ color: '#c9d0d4', transmission: .92, roughness: .04, ior: 1.5, thickness: .012, attenuationColor: new THREE.Color('#8f9aa0'), attenuationDistance: .25, side: THREE.DoubleSide });
+      const zf = cz - .7 * sc, A = .5 * sc, Bh = .38 * sc, yc = y0 + 1.12 * sc, xo = .62 * sc, n = 4, R = .026 * sc, NR = .05 * sc;
+      const rimPt = (side, t) => { const c = Math.cos(t), s_ = Math.sin(t); return new THREE.Vector3(cx + side * xo + A * Math.sign(c) * Math.abs(c) ** (2 / n), yc + Bh * Math.sign(s_) * Math.abs(s_) ** (2 / n), zf); };
+      const tube = (pts, r = R, m = acrylic) => add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 64, r, 20), m), true, false);
+      const node = (p, red) => { const m = red ? phys({ color: '#7a2a22', roughness: .25, emissive: '#b8382a', emissiveIntensity: .9 }) : silver; const s = new THREE.Mesh(new THREE.SphereGeometry(NR, 40, 28), m); s.position.copy(p); add(s, true, false);
+        if (red) { const pl = new THREE.PointLight('#ff6a52', .9, 1.4, 2); pl.position.copy(p); scene.add(pl); } };
+      const rod = (a, b, r) => { const v = b.clone().sub(a), g = new THREE.Mesh(new THREE.CylinderGeometry(r, r, v.length(), 20), acrylic); g.position.copy(a).add(b).multiplyScalar(.5); g.quaternion.setFromUnitVectors(up, v.normalize()); add(g, true, false); };
+      const SEG = 6, T0 = -Math.PI / 6, arc = (side, k, lift = null) => { const pts = []; for (let i = 0; i <= 16; i++) { const p = rimPt(side, T0 + (k + i / 16) * 2 * Math.PI / SEG); if (lift) p.add(lift); pts.push(p); } return pts; };
+      // screen-left lens (world +x) is finished: six arcs and its lens -- frame and interior
+      for (let k = 0; k < SEG; k++) tube(arc(1, k));
+      { const sh = new THREE.Shape(); for (let i = 0; i <= 96; i++) { const p = rimPt(1, i / 96 * 2 * Math.PI); sh[i ? 'lineTo' : 'moveTo'](p.x - cx, p.y - yc); }
+        const lens = new THREE.Mesh(new THREE.ShapeGeometry(sh, 2), lensM); lens.position.set(cx, yc, zf); scene.add(lens); }
+      // the other rim (world -x, toward the arm) is open: arc 3 (outer side) is in the gripper, arc 4 is not made yet
+      const held = 3, missing = 4;
+      for (let k = 0; k < SEG; k++) if (k !== held && k !== missing) tube(arc(-1, k));
+      for (const side of [1, -1]) for (let k = 0; k < SEG; k++) node(rimPt(side, T0 + k * 2 * Math.PI / SEG), false);   // a silver node at every joint between arcs
+      // bridge, hinges + temples back to the water, posts under the rims: nothing floats
+      const bt = Math.PI * .5 - .5, b0 = rimPt(1, Math.PI - bt), b1 = rimPt(-1, bt);
+      tube([b0, b0.clone().lerp(b1, .5).add(new THREE.Vector3(0, .07 * sc, 0)), b1], R * 1.1);
+      for (const side of [1, -1]) {
+        const hg = rimPt(side, side > 0 ? .28 : Math.PI - .28).add(new THREE.Vector3(side * .08 * sc, 0, 0)), back = cz + .62 * sc;
+        tube([rimPt(side, side > 0 ? .28 : Math.PI - .28), hg], R);
+        tube([hg, new THREE.Vector3(hg.x, hg.y - .02 * sc, (zf + back) / 2), new THREE.Vector3(hg.x, hg.y - .12 * sc, back), new THREE.Vector3(hg.x, hg.y - .5 * sc, back + .16 * sc), new THREE.Vector3(hg.x, y0 - .06, back + .2 * sc)], R * .9);
+        node(hg, side > 0 && (it.red || 'hinge') === 'hinge');
+        const bot = rimPt(side, -Math.PI / 2 + (side > 0 ? 0 : 0)); rod(new THREE.Vector3(bot.x, y0 - .08, bot.z), bot.clone().setY(bot.y - NR), .011 * sc);
+      }
+      // the arc in the gripper, held 12 cm out toward the arm (world -x) and a little forward
+      const lift = new THREE.Vector3(-.12, .02, -.06), hp = arc(-1, held, lift); tube(hp);
+      const mid = hp[8], tan = hp[9].clone().sub(hp[7]).normalize();
+      HD.armPick = { grip: mid.clone(), dir: tan, out: new THREE.Vector3(-1, 0, 0) };
+      heroes.push(new THREE.Vector3(cx, yc - .2 * sc, cz)); HD.frameScale = sc;
+    },
     robot_arm(it) {   // matte white ceramic-coated six-axis arm beside the frame, holding the next rod toward the open edge
       const [bx, bz] = ctr(it), up = new THREE.Vector3(0, 1, 0);
       const ceramic = MAT(it.material || 'ceramic_white'), band = MAT(it.joint || 'aluminium'), seam = it.joint === 'black_chrome' ? MAT('black_chrome') : std({ color: '#2a2a2a', roughness: .6 });
@@ -243,9 +280,11 @@ export function build(job, opt = {}) {
       const limb = (a, b, r0, r1, m) => { const v = b.clone().sub(a), g = new THREE.Mesh(new THREE.CylinderGeometry(r1, r0, v.length(), 48), m); g.position.copy(a).add(b).multiplyScalar(.5); g.quaternion.setFromUnitVectors(up, v.clone().normalize()); return add(g); };
       const hub = (p, axis, r, len, m) => { const g = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, 48), m); g.position.copy(p); g.quaternion.setFromUnitVectors(up, axis); return add(g); };
       // target: the open edge the frame is waiting for (from node `from` toward node `to`)
-      const P = HD.frameNodes, sc = HD.frameScale || 1, A = P[it.from || 'C'], B = P[it.to || 'H'], dir = B.clone().sub(A).normalize(), r0 = .045 * sc;
-      const rs = A.clone().addScaledVector(dir, r0), re = B.clone().addScaledVector(dir, -r0 - .1);    // the rod stops 10 cm short: still being placed
-      const grip = rs.clone().lerp(re, .62);
+      let grip, dir, rs, re;
+      if (HD.armPick) { grip = HD.armPick.grip; dir = HD.armPick.dir; }
+      else { const P = HD.frameNodes, sc = HD.frameScale || 1, A = P[it.from || 'C'], B = P[it.to || 'H'], r0 = .045 * sc; dir = B.clone().sub(A).normalize();
+        rs = A.clone().addScaledVector(dir, r0); re = B.clone().addScaledVector(dir, -r0 - .1);    // the rod stops 10 cm short: still being placed
+        grip = rs.clone().lerp(re, .62); }
       box(it.x0 + .05, it.y0 + .05, it.x1 - .05, it.y1 - .05, 0, .04, MAT('aluminium'));                 // floor plate
       const K = it.size || 1, shY = it.sh || .78 * K, base = new THREE.Vector3(bx, 0, bz);
       limb(base.clone().setY(.04), base.clone().setY(.22 * K), .36 * K, .33 * K, ceramic); hub(base.clone().setY(.225 * K), up, .332 * K, .014, seam);
@@ -267,11 +306,11 @@ export function build(job, opt = {}) {
       const palm = fl.clone().addScaledVector(app, .07); limb(fl.clone().addScaledVector(app, .025), palm, .05, .05, seam);
       const rodPerp = new THREE.Vector3().crossVectors(dir, app).normalize();
       for (const s of [-1, 1]) { const f0 = palm.clone().addScaledVector(rodPerp, s * .03), f1 = grip.clone().addScaledVector(rodPerp, s * .019); limb(f0, f1, .012, .009, band); }
-      const v = re.clone().sub(rs), g = new THREE.Mesh(new THREE.CylinderGeometry(.011, .011, v.length(), 28), acrylic); g.position.copy(rs).add(re).multiplyScalar(.5); g.quaternion.setFromUnitVectors(up, v.normalize()); add(g, true, false);
+      if (rs) { const v = re.clone().sub(rs), g = new THREE.Mesh(new THREE.CylinderGeometry(.011, .011, v.length(), 28), acrylic); g.position.copy(rs).add(re).multiplyScalar(.5); g.quaternion.setFromUnitVectors(up, v.normalize()); add(g, true, false); }
     },
     zone() {}, door() {},
   };
-  const ORDER = { memory_frame: 0, robot_arm: 2 };   // the arm reaches for the frame, so the frame is built first
+  const ORDER = { memory_frame: 0, eyewear_frame: 0, robot_arm: 2 };   // the arm reaches for the frame, so the frame is built first
   for (const it of L.items.slice().sort((a, b) => (ORDER[a.shape] ?? 1) - (ORDER[b.shape] ?? 1))) (S[it.shape] || S.box)(it);
 
   // the longest mirror wall becomes a true mirror (the visitor sees their own silhouette in it)

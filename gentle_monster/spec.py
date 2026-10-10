@@ -41,7 +41,7 @@ SHAPES = {
     "mirror_wall": "thin mirror-aluminium wall; the longest one becomes a true mirror",
     "light_ceiling": "luminous textile ceiling over the item footprint (use type zone)",
     "floor_patch": "floor finish patch over the footprint, e.g. graphite + wax (use type zone)",
-    "memory_frame": "asymmetric open polyhedron of acrylic rods and glass tubes with polished silver nodes, one red node; optional nodes/edges/red",
+    "memory_frame": "asymmetric open polyhedron of acrylic rods and glass tubes with polished silver nodes, one red node; optional nodes/edges/red; form \"eyewear\" builds a half-made pair of glasses instead",
     "robot_arm": "matte white ceramic six-axis arm that reaches for the open edge of a memory_frame (from/to node names); build it beside one",
     "reflect_basin": "shallow black-edged basin of still water, a true mirror; put a memory_frame inside it (they may overlap)",
     "zone": "no geometry; a named area",
