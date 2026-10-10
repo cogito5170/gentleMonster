@@ -381,12 +381,17 @@ OPTIONS = [
 ]
 
 
-def a4_svg(opt, path):
+# charcoal, the page-1 photo/card grey family, for a grey page 2
+GRAY = dict(bg="#2E2E2E", card="#3A3A3A", side="#3A3A3A", photo="#444444", px="#555555",
+            text="#ECE8E1", sub="#A9A59F", line="#4A4A4A", grid="#3A3A3A")
+
+
+def a4_svg(opt, path, th=None):
     bp.OUT.clear()
     w('<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">')
     w('<defs><pattern id="hatch" width="1.2" height="1.2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'
       '<rect width="1.2" height="1.2" fill="#262626"/><line x1="0" y1="0" x2="0" y2="1.2" stroke="#8E8B86" stroke-width="0.4"/></pattern></defs>')
-    theme(opt["th"])
+    theme(th or opt["th"])
     opt["fn"]()
     w('</svg>')
     path.write_text("\n".join(bp.OUT), encoding="utf-8")
@@ -445,10 +450,11 @@ def main():
     # Illustrator copy of the chosen option(s): PDF-compatible .ai, same A4 artboard
     ai_dir = HERE.parent / "ai"
     ai_dir.mkdir(exist_ok=True)
-    for code, stem in (("P2-B", "CV_PAGE2_B_SIDENOTE"),):
+    for code, stem, th in (("P2-B", "CV_PAGE2_B_SIDENOTE", None), ("P2-B", "CV_PAGE2_B_SIDENOTE_BLACK", DARK),
+                           ("P2-B", "CV_PAGE2_B_SIDENOTE_GRAY", GRAY)):
         opt = next(o for o in OPTIONS if o["code"] == code)
         svg = ai_dir / f"{stem}.svg"
-        a4_svg(opt, svg)
+        a4_svg(opt, svg, th)
         pdf = ai_dir / f"{stem}.pdf"
         subprocess.run(["inkscape", str(svg), "--export-type=pdf", "--export-pdf-version=1.5", f"--export-filename={pdf}"],
                        check=True, capture_output=True)
