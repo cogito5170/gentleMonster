@@ -24,8 +24,32 @@
 - 머리말 PLACE: STYLE = MOOD, PICTURE = MOMENT 와 짝.
 - 분량: 좁은 단 9줄 자리에 10줄 안팎(추정). 넘치면 "and the stairs show through the glass" 를 뺀다.
 
+### 지원자가 지면에 넣은 것 (16–17)
+
+- 캡션 둘째 줄: (Architectural Design Studio_4-1 Semester) · 왼쪽 아래: p. 16-17 · 오른쪽 아래: Architectural Project_Personal
+- 본문 첫 문장 "The third place I stop is in front of a building." 은 빠졌다 → 되살리면 STYLE · PICTURE 여는 글과 틀이 맞는다(권장).
+- 오른쪽 위 "Grid Exploration 003" 은 아직 템플릿 글 → PLACE.
+
 ### 확인할 것
 
 1. ~~렌더 출처~~ → **지원자가 작업한 프로젝트의 렌더** (지원자 확인). 본문을 "In this project, I stacked …" 1인칭으로 바꿨다. 광장은 기존 대지일 수 있어 "I" 를 붙이지 않았다.
 2. 캡션 둘째 줄의 연도(____). 프로젝트 이름을 넣으려면 첫 줄을 이름으로 바꾼다.
 3. 본문의 묘사(방 · 계단 · 광장 · 물가)는 렌더에서 읽은 것이다.
+
+### K · 18–19쪽 — Extension of Chateau
+
+| 자리 | 지금 | 글 | 한국어 해석 |
+|---|---|---|---|
+| 18 왼쪽 위 | © 2026 Template.Systems | **Extension of Chateau** | 샤토 증축 |
+| 19 오른쪽 위 | Grid Exploration 003 | PLACE | 장소 |
+| 18 본문 | A grid system is … | A new wing for a chateau among misty hills and vineyards. I lifted the long volume onto slim columns, so the vines run on beneath it, and wrapped it in a wooden lattice that filters the view of the valley. | 안개 낀 언덕과 포도밭 사이, 샤토의 새 건물. 나는 긴 매스를 가는 기둥 위로 들어 올려 포도밭이 그 아래로 이어지게 했고, 골짜기의 풍경을 걸러 보여 주는 나무 격자로 감쌌다. |
+| 19 본문 | A grid system is … | A single path runs between the vines and through an opening in the long brick wall. Walking under the raised building, people move from the open field into a framed view of the hills. That opening in the wall is where I wanted people to stop. | 하나의 길이 포도밭 사이를 지나 긴 벽돌 벽의 개구부를 통과한다. 들어 올린 건물 아래를 걸으며 사람들은 열린 들판에서 액자처럼 잘린 언덕의 풍경으로 들어선다. 벽이 열리는 그 자리가, 내가 사람들이 멈추기를 바란 곳이다. |
+| 18 왼쪽 아래 | download now · www.templat…Series…ms (겹친 두 상자) | **p. 18-19** (겹친 상자 둘 다 지우고 하나만) | 18–19쪽 |
+| 18 아래 번호 | (003) | 지움 — (003) 은 16–17 여는 펼침에만 | — |
+| 19 아래 | Experimental Grid Exploration | **Architectural Project_____** (16–17 과 같은 형식) | 건축 프로젝트_(종류) |
+| 19 오른쪽 아래 | Series | 지움 | — |
+| 그림 안 제목 | Extention of Chateau (오타) | **그림에서 지우고** 18쪽 왼쪽 위 제목으로 옮긴다. 그림에 남기면 *Extension* 으로 고친다 | — |
+
+- 본문 두 단락은 같은 높이에서 마주 본다: 왼쪽 = 무엇을 했나(매스 · 기둥 · 격자), 오른쪽 = 사람이 어디서 멈추나(길 · 벽의 개구부). 16–17 의 "where they stop" 을 실제 작업으로 보여 준다.
+- 렌더에서 읽은 것: 안개 낀 산 · 줄지은 포도나무 · 기둥 위로 들린 긴 매스 · 격자 외피 · 긴 벽돌 벽과 개구부 · 그 개구부로 가는 흙길.
+- **확인 필요(의도 · 사실):** 포도밭/와이너리가 맞는지 · 기둥 재료(나무인지 벽돌 마감인지 — 그래서 "slim columns" 로만 썼다) · 격자 재료(wooden) · "포도밭이 그 아래로 이어지게" · "벽이 열리는 자리에서 멈추기를 바랐다" 가 실제 의도인지 · 프로젝트 종류(Studio / Personal)와 학기.
