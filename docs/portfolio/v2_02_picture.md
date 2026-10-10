@@ -36,6 +36,9 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 | E-11 라벨 | **Where I stop** / (in front of a scene) | 내가 멈추는 곳 / (장면 앞에서) |
 | F-12 캡션 | **color** / (a food truck, at dusk) | 색 / (푸드트럭, 해 질 녘) |
 | F-12 본문 | **Why do I take pictures?** With a camera in hand, I notice what I usually walk past: the color of a wall, the direction of the light, where people stand. As I shoot, I keep watching, and even an ordinary street starts to tell a story. Making a space works the same way. A good space starts with seeing where the light comes in and where people will stand. | 나는 왜 사진을 찍는가? 카메라를 들면 평소에 지나치던 것을 보게 된다. 벽의 색, 빛의 방향, 사람이 서 있는 자리. 찍는 동안 나는 계속 보고, 아무렇지 않던 길도 이야기를 하기 시작한다. 공간을 만드는 일도 같다. 좋은 공간은 빛이 어디로 들어오고 사람이 어디에 설지를 보는 데서 시작한다. |
+| F-12 왼쪽 아래 | **(002) PICTURE** / (A Moment like A Photograph) | (002) 사진 / (사진 같은 순간) |
+| F-12 아래 번호 | 08 (지금 (003)) | 8쪽 |
+| F-13 오른쪽 아래 | 09 (지금 Experimental Grid Exploration) | 9쪽 |
 | F-13 캡션 | **bulbs** / (a rooftop bar, at night) · **sprout** / (on the sand) | 전구 / (루프탑 바, 밤) · 새싹 / (모래 위) |
 | G-14 캡션 | **two** | 두 사람 |
 | G-14 본문 | **What makes a good picture?** First, a picture you keep looking at, not one you glance at and pass. Second, a picture that becomes a story: people, light, color and place coming together in one scene. | 좋은 사진이란? 첫째, 한 번 보고 넘기지 않고 계속 들여다보게 되는 사진. 둘째, 하나의 이야기가 되는 사진. 사람, 빛, 색, 장소가 한 장면 안에서 어울리는 것. |
