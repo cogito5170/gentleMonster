@@ -11,7 +11,7 @@
 | 자리 | 글 | 한국어 해석 |
 |---|---|---|
 | 16 큰 제목 | ARCHITECTURE (그대로) | 건축 |
-| 17 오른쪽 위 (Grid Exploration 003) | PLACE | 장소 |
+| 17 오른쪽 위 (Grid Exploration 003) | **A Building That Holds Me** (추천 — 1단계 결정: 섹션 여는 장의 커버 문구 부제. 대안: 도구명 *RENDER + ____* · *PLACE*) | 나를 붙잡아 두는 건물 |
 | 17 라벨 (download now) | **Stacked rooms over an open plaza** / (My project, ____ · Render) | 열린 광장 위에 쌓인 방들 / (나의 프로젝트, 연도 · 렌더) |
 | 17 번호 ((003)) | (003) — 3쪽 (001) 처럼 크게 | (003) |
 | 17 본문 | The third place I stop is in front of a building. Architecture is never just a background: it quietly decides how people walk, where they stop, and what they remember. In this project, I stacked rooms like shifted boxes and let the stairs show through the glass. At its foot, an open plaza lets people cross, pause by the water, and stay a while. A good building holds people, and brings them back again.<br>So my third story is about architecture. | 내가 세 번째로 멈추는 곳은 건물 앞이다. 건축은 결코 배경이 아니다. 사람이 어떻게 걷고, 어디서 멈추고, 무엇을 기억할지를 조용히 정한다. 이 프로젝트에서 나는 방들을 상자처럼 엇갈려 쌓고, 유리 너머로 계단이 보이게 했다. 그 발치의 열린 광장에서 사람들은 지나가고, 물가에 멈추고, 잠시 머문다. 좋은 건물은 사람을 붙잡아 두고, 다시 돌아오게 한다. / 그래서 내 세 번째 이야기는 건축이다. |
