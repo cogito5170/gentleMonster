@@ -11,6 +11,7 @@
 | [philosophy.md](philosophy.md) | 지원자 노트를 다듬은 철학: 공간 · 좋은 공간 · 사진 · 삶의 목표 | 확정 |
 | [01_style.md](01_style.md) | 01 STYLE 지면: 여는 글, Q1–Q3, 풀쿼트, SECTOR A, 지면 수정 사항 | 확정 (빈칸은 지원자가 채움) |
 | [02_picture.md](02_picture.md) | 02 PICTURE 지면: 여는 글, Q1–Q3, MY PICTURE, 단어 한 장(One To One), 03 으로 넘기는 줄 | 방향 제안 (빈칸은 지원자가 채움) |
+| [03_architecture_ideas.md](03_architecture_ideas.md) | 03 ARCHITECTURE 아이디어: 질문 3개 · 출처 대조 · 아이디어 6개와 비평 · 발전 2개(거울 · 바닥) · 첫 실험 | 제안 (지원자가 고른다) |
 | [questions.md](questions.md) | 작업 중 사용자가 보낸 질문 · 요청 44개 원문과, 각 질문으로 나온 결과 | 기록 |
 
 ## 원칙
