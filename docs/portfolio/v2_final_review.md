@@ -29,7 +29,7 @@
 | 5 | 템플릿 라벨 *manuscript grids (single-column layouts)* ×2 | **Web design** (University project · Photoshop + Illustrator) · **MARKET** (product list · filter by …) |
 | 5 | 작은 화면 아래 *MARKET* | **MAIN** — 작은 화면은 메인 화면 |
 | 8 | 끝 문장 *A good space starts with seeing …* (3쪽 *A good space starts the same way.* 와 겹침) | *Making a space works the same way: I begin by looking at …* |
-| 9 | 캡션 *Sprout* · *Bulbs* | *sprout* · *bulbs* (다른 캡션 color · smoke · curve 와 맞춤) |
+| 9 · 15 | 캡션 첫 글자가 섞임 (color · Sprout · Bulbs · smoke · curve) | 모두 첫 글자 대문자 *Color · Sprout · Bulbs · Smoke · Curve* (지원자 지면 형식) |
 | 23 | *annex projcect* · *p.18* · 끝 공백 | *annex project* · *p. 18* · 공백 정리 |
 
 ## B. 지원자가 고쳐야 할 것 (레이아웃 · 판단)

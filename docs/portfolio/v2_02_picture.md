@@ -196,14 +196,15 @@ v2 지면 E–I 의 템플릿 자리마다 넣을 글. 글은 v1 8–9장과 [02
 4. 19쪽 큰 글자: *Every good picture had a good place behind it.* / *I stop for places that hold me.*
 5. 검은 띠(루프탑 · 그릴 · 미술관) 규칙 — 6단계에서 정해도 된다
 
-### G 사진 제목 (지원자 요청 · 오른쪽 아래, 지금 TALKING)
+### G 사진 제목 (지원자 요청 · 캡션 형식: **제목** / (무엇, 어디 · 언제))
 
 | 안 | 해석 | 이유 |
 |---|---|---|
-| **UNHEARD** (추천) | 들리지 않는 대화 | 본문 "I don't know what they were saying" 과 짝. 모르는 대화라서 이야기가 시작된다는 단락의 핵심을 한 단어로 |
-| THE GESTURE | 몸짓 | 본문의 "that small gesture" — 이야기를 시작하게 한 것 |
-| TWO, AT DUSK | 해 질 녘, 두 사람 | 보이는 것 그대로. 가장 담백하다 |
-| WARM IN BLUE | 푸른 속의 따뜻함 | 본문의 "the only warm colors in a blue-grey sea" — 계속 보게 되는 이유 |
+| **Unheard** / (a conversation at the water's edge) (추천) | 들리지 않는 대화 / (물가에서 나눈 대화) | 본문 "I don't know what they were saying" 과 짝. 괄호도 본문에 없는 말(conversation · water's edge)만 썼다 |
+| **The gesture** / (a hand reaching into the sea) | 몸짓 / (바다로 뻗은 손) | 본문의 "that small gesture" 를 사진 속 동작으로 |
+| **Two, at dusk** / (a beach in Guam, before dark) | 해 질 녘, 두 사람 / (괌의 해변, 어두워지기 전) | 담백한 안. 장소가 괌이 아니면 실제 장소로 |
+| **Warm in blue** / (pink and red in a grey sea) | 푸른 속의 따뜻함 / (회색 바다 속 분홍과 빨강) | 괄호가 본문 "Their pink and red …" 와 겹친다 — 쓰려면 본문 그 문장을 줄인다 |
 
+- 대문자 규칙: 지원자 지면은 첫 글자 대문자(*Bulbs*). 최종 검토 수정본에서 sprout · bulbs 를 소문자로 바꿨던 것은 되돌리고, color · smoke · curve 도 *Color · Smoke · Curve* 로 맞춘다.
 - TALKING 은 본문(무슨 말을 했는지 모른다)과 살짝 어긋난다 — 말하는 장면인지 사진만으로는 알 수 없다.
 - 지면 확인: 왼쪽 아래 *p. 9-10* — 표지가 1쪽이면 이 펼침은 **10-11** 이다(왼쪽 쪽은 짝수). 본문 상자는 아직 접힘을 가로지른다.

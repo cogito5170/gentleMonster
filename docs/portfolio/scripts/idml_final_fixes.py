@@ -31,10 +31,11 @@ RUNS = {
                "With a camera in hand, I notice what I usually walk past: the color of a wall, the direction of the light, "
                "where people stand. As I shoot, I keep watching, and even an ordinary street starts to tell a story. "
                "Making a space works the same way: I begin by looking at where the light comes in and where people will stand.")],
-    # 9쪽 — 캡션 첫 단어를 다른 캡션(color · smoke · curve)처럼 소문자로
-    "u38ae": [("Sprout", "sprout")],
-    "u390b": [("Bulbs", "bulbs")],
-    "u3c1c": [("curve ", "curve")],
+    # 캡션 첫 글자 대문자로 통일 (지원자 지면 Bulbs · Sprout 형식)
+    "u3876": [("color", "Color")],
+    "u3c05": [("smoke", "Smoke")],
+
+    "u3c1c": [("curve ", "Curve")],
     # 23쪽 — 오타 · 띄어쓰기
     "u4065": [("(concept model · see p. 20) ", "(concept model · see p. 20)"),
               ("02–03 House interiors ", "02–03 House interiors"),
