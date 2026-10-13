@@ -19,6 +19,7 @@
 | [three_types.md](three_types.md) | 합격 사례 유형을 적용한 세 가지 TYPE (서사형 · 문제 해결형 · 헤드라인 증명형) — 700자판 · 1000자판 | 제안 |
 | [collaborators.md](collaborators.md) | 젠틀몬스터 협업 오브제 · 가구 디자이너 · 아티스트 조사 (출처 · 신뢰도 표시) | 조사 |
 | [questions.md](questions.md) | 작업 중 사용자가 보낸 질문 · 요청 44개 원문과, 각 질문으로 나온 결과 | 기록 |
+| [PROCESS.md](PROCESS.md) | 자기소개서 제작 표준 절차 — 젠틀몬스터 문항 1·2 완성 과정을 체계화. 새 자기소개서는 이 순서로 | 표준 |
 | [agent_protocol.md](agent_protocol.md) | 혁주 작업 공간(허브) ↔ 분석 · 편집 세션 전달 규약 (ga-SDK directive/2 · report/2). 지시 · 입력 · 결과 원문은 handoff/ | 운영 중 |
 
 ## 원칙
