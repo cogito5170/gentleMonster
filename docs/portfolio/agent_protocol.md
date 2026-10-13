@@ -101,3 +101,15 @@
 ## 7. 자기소개서 제작 절차
 
 새 자기소개서를 쓰거나 다른 공고로 옮길 때의 단계·점검 관점·사용자 선호는 [PROCESS.md](PROCESS.md)에 있다. 이 규약은 그 절차의 운영(메시지·세션) 부분이다.
+
+### 7-1. 자기소개서 작업 우선 규칙 (2026-10-13)
+
+- 자기소개서 작업에서는 [PROCESS.md](PROCESS.md)가 각 세션의 원래 규칙보다 우선한다. 다른 작업에서는 원래 규칙을 따른다.
+- 편집 세션 결과는 두 방식이 있다. 허브는 지시의 note 또는 scope에 반드시 하나를 적는다.
+  - **대안 방식**(`editor_options/1`): `{options[{id,type,text,chars,one_line,full,full_chars,delta}], recommend{id,why}, notes[]}`. 자기소개서의 기본값.
+  - **고친 글 방식**(`editor_writer_result/1`): 고친 문서 한 벌.
+- "흐름 외 수정 금지"는 흐름 수리 지시에만 적용한다. 문장 길이·반복·사용자 지향 점검을 요청한 지시는 PROCESS.md §5 기준으로 고친다.
+- 사실이 없어 막히면 보수적 임시 문장 + `blocked_questions`로 끝내고 status done. 한 줄도 쓸 수 없을 때만 paused + blockers{kind:design}.
+- 세션은 사용자에게 직접 설명하지 않는다. 세션 요약은 허브에 보내는 report/2 안에만 둔다.
+- 분석 세션: 결과 파일은 JSON, report/2 wire는 전달 경로다. 진단은 P0~P3를 모두 매기되, 고칠 곳(repair_intent)은 P0·P1에서 3곳 이하.
+
