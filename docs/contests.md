@@ -16,8 +16,8 @@
 | 마감 | 공모전 · 홈페이지 | 형식 · 비용 | 낼 사진 |
 |---|---|---|---|
 | **2026-11-15 (일)** | **Monochrome Awards 2026** — 국제 흑백 사진 공모전<br>홈페이지: <https://monoawards.com> | 주제 자유, 흑백만. 단사진 · 시리즈. 참가비 단사진 약 22달러(미러 사이트 기준, 확인 필요) | 흑백 · 밤 테라스의 줄 전구 |
-| **2027-01-05 16:00 GMT**<br>(한국 1/6 01:00) | **Sony World Photography Awards 2027 — Single Image** (옛 Open)<br>홈페이지: <https://www.worldphoto.org/sony-world-photography-awards/open> | 한 장씩 부문을 골라 낸다(Architecture 등). **참가비 없음.** 익명 심사. 만 18세 이상 | 웅덩이(파란 통의 반사), 거리 사진 |
-| **2027-01-12 16:00 GMT** | **Sony WPA 2027 — Series** (옛 Professional)<br>홈페이지: <https://www.worldphoto.org/sony-world-photography-awards/professional> | 한 주제로 묶은 **5–10장**. **참가비 없음.** 부문에 Architecture & Design · Perspectives 등. 사진 날짜 · 발표 조건은 규정에서 확인 | 웅덩이 → 새싹 → 전구처럼 *멈춘 이유* 하나로 묶은 시리즈 |
+| **2027-01-05 16:00 GMT**<br>(한국 1/6 01:00) | **Sony World Photography Awards 2027 — Single Image** (옛 Open)<br>홈페이지: <https://www.worldphoto.org/sony-world-photography-awards/open> | 한 장씩 부문을 골라 낸다(Architecture 등). 최대 3장. **참가비 없음.** 익명 심사. 만 16세 이상. **2026년에 찍은 사진만.** 발표 · 수상한 사진도 된다. 컨셉 글은 없고, 보정 정도를 적는다. JPG 1–5MB, sRGB, 워터마크 금지 | 웅덩이(파란 통의 반사), 거리 사진 — **2026년에 찍었을 때만** |
+| **2027-01-12 16:00 GMT** | **Sony WPA 2027 — Series** (옛 Professional)<br>홈페이지: <https://www.worldphoto.org/sony-world-photography-awards/professional> | 한 주제로 묶은 **5–10장**. **참가비 없음.** 만 18세 이상. 부문에 Architecture & Design · Perspectives 등. **시리즈 설명(컨셉 글) 필수**, 사진마다 짧은 캡션(20단어 안팎 권장). 2026-01-01 – 2027-01-12 사이 발표작이어야 하고, 개인 SNS 에는 20%(2장)까지 미리 올려도 된다 | 웅덩이 → 새싹 → 전구처럼 *멈춘 이유* 하나로 묶은 시리즈 |
 
 **가장 먼저 추천: Sony Single Image.** 비용 없이 세계 최대 공모전에 내고, 주제도 자유다. 우승작 분석: [contests_winners.md](contests_winners.md)
 ※ Sony Student 부문은 사진 관련 수업을 듣는 학생만 낼 수 있어 뺐다.
@@ -50,8 +50,8 @@
 1. **사진 고르기 (~10/19).** 원본 RAF/JPG 를 모은다. 공모전 대부분이 긴 변 3,000–4,000px 이상과 EXIF(촬영 정보)를 요구한다. 후지필름 필름 시뮬레이션은 보정으로 친다. 합성은 대부분 금지다.
 2. **사진 속 사람 확인.** 얼굴이 알아보이는 거리 사진은 많은 공모전이 *피사체 동의*를 요구한다. 동의를 받을 수 없으면 사람이 작게 나온 사진이나 사람이 없는 사진을 낸다.
 3. **11/15 Monochrome Awards** — 흑백 1–2장.
-4. **2027-01-05 Sony Single Image** — 1–3장. 계정을 미리 만들어 둔다.
-5. **2027-01-12 Sony Series** — 5장 이상 묶이면 같이 낸다.
+4. **2027-01-05 Sony Single Image** — 2026년에 찍은 사진 1–3장. 계정을 미리 만들어 둔다. 2026년 사진이 모자라면 연말까지 찍는다.
+5. **2027-01-12 Sony Series** — 5장 이상 묶이면 시리즈 설명을 써서 같이 낸다.
 6. **12월 말 후지필름 PLAYWITH 확인** — 더미북 어워드 공고가 뜨면 SPA 원고에서 사진집 시안을 뽑는다. 2월 말에는 포토페스타 공고를 본다.
 7. 결과가 나오면 포트폴리오 02 PICTURE 에 한 줄로 넣는다.
 
