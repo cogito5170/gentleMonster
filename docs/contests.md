@@ -19,7 +19,7 @@
 | **2027-01-05 16:00 GMT**<br>(한국 1/6 01:00) | **Sony World Photography Awards 2027 — Single Image** (옛 Open)<br>홈페이지: <https://www.worldphoto.org/sony-world-photography-awards/open> | 한 장씩 부문을 골라 낸다(Architecture 등). **참가비 없음.** 익명 심사. 만 18세 이상 | 웅덩이(파란 통의 반사), 거리 사진 |
 | **2027-01-12 16:00 GMT** | **Sony WPA 2027 — Series** (옛 Professional)<br>홈페이지: <https://www.worldphoto.org/sony-world-photography-awards/professional> | 한 주제로 묶은 **5–10장**. **참가비 없음.** 부문에 Architecture & Design · Perspectives 등. 사진 날짜 · 발표 조건은 규정에서 확인 | 웅덩이 → 새싹 → 전구처럼 *멈춘 이유* 하나로 묶은 시리즈 |
 
-**가장 먼저 추천: Sony Single Image.** 비용 없이 세계 최대 공모전에 내고, 주제도 자유다.
+**가장 먼저 추천: Sony Single Image.** 비용 없이 세계 최대 공모전에 내고, 주제도 자유다. 우승작 분석: [contests_winners.md](contests_winners.md)
 ※ Sony Student 부문은 사진 관련 수업을 듣는 학생만 낼 수 있어 뺐다.
 
 ## 후지필름 사용자라서 낼 수 있는 곳
