@@ -112,4 +112,5 @@
 - 사실이 없어 막히면 보수적 임시 문장 + `blocked_questions`로 끝내고 status done. 한 줄도 쓸 수 없을 때만 paused + blockers{kind:design}.
 - 세션은 사용자에게 직접 설명하지 않는다. 세션 요약은 허브에 보내는 report/2 안에만 둔다.
 - 분석 세션: 결과 파일은 JSON, report/2 wire는 전달 경로다. 진단은 P0~P3를 모두 매기되, 고칠 곳(repair_intent)은 P0·P1에서 3곳 이하.
+- 반영 기록: 편집 세션 `cogito5170/writing_agent@claude/beautiful-gates-e42a5m@3ebf69c` (prompt.md §16, ga_session_protocol.md 절, options.schema.json `editor_options/1` — 추가만), 분석 세션 `cogito5170/gentleMonster@claude/modest-cannon-ha8zs3@38e58d4` (`docs/portfolio/analysis_session_rules.md`). CMD-HJ48·49.
 
