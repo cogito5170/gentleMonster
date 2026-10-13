@@ -16,8 +16,10 @@
 | 마감 | 공모전 · 홈페이지 | 형식 · 비용 | 낼 사진 |
 |---|---|---|---|
 | **2026-11-15 (일)** | **Monochrome Awards 2026** — 국제 흑백 사진 공모전<br>홈페이지: <https://monoawards.com> | 주제 자유, 흑백만. 단사진 · 시리즈. 참가비 단사진 약 22달러(미러 사이트 기준, 확인 필요) | 흑백 · 밤 테라스의 줄 전구 |
-| **2027-01-05 16:00 GMT**<br>(한국 1/6 01:00) | **Sony World Photography Awards 2027 — Single Image** (옛 Open)<br>홈페이지: <https://www.worldphoto.org/sony-world-photography-awards/open> | 한 장씩 부문을 골라 낸다(Architecture 등). 최대 3장. **참가비 없음.** 익명 심사. 만 16세 이상. **2026년에 찍은 사진만.** 발표 · 수상한 사진도 된다. 컨셉 글은 없고, 보정 정도를 적는다. JPG 1–5MB, sRGB, 워터마크 금지 | 웅덩이(파란 통의 반사), 거리 사진 — **2026년에 찍었을 때만** |
-| **2027-01-12 16:00 GMT** | **Sony WPA 2027 — Series** (옛 Professional)<br>홈페이지: <https://www.worldphoto.org/sony-world-photography-awards/professional> | 한 주제로 묶은 **5–10장**. **참가비 없음.** 만 18세 이상. 부문에 Architecture & Design · Perspectives 등. **시리즈 설명(컨셉 글) 필수**, 사진마다 짧은 캡션(20단어 안팎 권장). 2026-01-01 – 2027-01-12 사이 발표작이어야 하고, 개인 SNS 에는 20%(2장)까지 미리 올려도 된다 | 웅덩이 → 새싹 → 전구처럼 *멈춘 이유* 하나로 묶은 시리즈 |
+| **2027-01-05 16:00 GMT**<br>(한국 1/6 01:00) | **Sony World Photography Awards 2027 — Single Image** (옛 Open)<br>홈페이지: <https://www.worldphoto.org/sony-world-photography-awards/open> | 한 장씩 부문을 골라 낸다(Architecture 등). **모두 합쳐 최대 3장**, 3장을 서로 다른 부문에 나눠 내도 된다. 같은 사진을 두 부문에 낼 수는 없다. **참가비 없음.** 익명 심사. 만 16세 이상. **2026년에 찍은 사진만.** 발표 · 수상한 사진도 된다. 컨셉 글은 없고, 보정 정도를 적는다. JPG 1–5MB, sRGB, 워터마크 금지 | 웅덩이(파란 통의 반사), 거리 사진 — **2026년에 찍었을 때만** |
+| **2027-01-12 16:00 GMT** | **Sony WPA 2027 — Series** (옛 Professional)<br>홈페이지: <https://www.worldphoto.org/sony-world-photography-awards/professional> | 한 주제로 묶은 **5–10장**. **참가비 없음.** 만 18세 이상. 부문에 Architecture & Design · Perspectives 등. **시리즈 설명(컨셉 글) 필수**, 사진마다 짧은 캡션(20단어 안팎 권장). 2026-01-01 – 2027-01-12 사이 발표작이어야 하고, 개인 SNS 에는 20%(2장)까지 미리 올려도 된다. 여러 부문에 낼 수 있지만 같은 시리즈 · 사진을 두 부문에 낼 수는 없다 | 웅덩이 → 새싹 → 전구처럼 *멈춘 이유* 하나로 묶은 시리즈 |
+
+**Single Image 와 Series 를 둘 다 내려면 서로 다른 작업에서 사진을 골라야 한다.** 같은 사진을 두 곳에 낼 수 없으니, 웅덩이를 Series(단어 한 장 묶음)에 넣으면 Single Image 에는 다른 사진을 낸다.
 
 **가장 먼저 추천: Sony Single Image.** 비용 없이 세계 최대 공모전에 내고, 주제도 자유다. 우승작 분석: [contests_winners.md](contests_winners.md)
 ※ Sony Student 부문은 사진 관련 수업을 듣는 학생만 낼 수 있어 뺐다.
