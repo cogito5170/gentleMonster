@@ -1,0 +1,476 @@
+{
+ "structure_analysis": {
+  "sample": "S1 신세계백화점 바이어 Q1 (타인의 글 — 구성 · 흐름만 분석, 문장 · 경험 · 수치는 가져오지 않음)",
+  "transcript_check": "허브 옮김본을 S1.jpg 원본 이미지와 대조함 — 내용 일치(원본의 '이를 통해 통해' 중복은 옮김본에서 한 번으로 정리됨)",
+  "question": "당사에 지원한 이유와 입사를 위해 어떤 노력을 하였는지 구체적으로 기술하시오. (1000자)",
+  "paragraphs": [
+   {
+    "para": "소제목",
+    "text_head": "#백화점을 넘어, 랜드마크로",
+    "role": "결론 비유 한 줄 — 글 끝에서 다시 나온다(수미상관)",
+    "devices": [
+     "'A를 넘어, B' 대구",
+     "회사 지향을 한 낱말(랜드마크)로"
+    ],
+    "chars_est": 15
+   },
+   {
+    "para": "P1 지원 이유 ① 공간 경험 → 관점 → 회사 비전 공감",
+    "text_head": "교환학생 중 13개국을 여행하며 다양한 공간을 경험했습니다.",
+    "role": "자기 경험(고유명사 장면 두 곳) → 관점 문장 → 회사 고유 키워드 인용 → 회사 사례 나열",
+    "devices": [
+     "고유명사 장면(리버티 백화점 · 일룸)",
+     "관점 문장('백화점이 도시의 랜드마크가 될 수 있다')",
+     "회사 고유 키워드 인용('Total Lifestyle Store')",
+     "회사 사례 3개 나열(미디어파사드 · 델리존 · 글로벌 팝업)",
+     "평가로 닫기('독보적인 혁신')"
+    ],
+    "chars_est": 319
+   },
+   {
+    "para": "P2 지원 이유 ② 직무 정의 + 감각 근거",
+    "text_head": "저는 이러한 신세계의 혁신을 실현하는 바이어로서 새로운 브랜드를 국내 고객에게 전하고 싶습니다.",
+    "role": "하고 싶은 일(직무) → 그 일에 쓸 감각의 출처(유학 · 학생 아트매니저) → 감각의 내용(배치 · 조명 톤 · 동선) → 다짐",
+    "devices": [
+     "P1의 회사 키워드를 '이러한'으로 받아 직무로 연결",
+     "경험 → 역량 명명('감각적 시야')",
+     "구체 낱말 셋(작품 배치 · 조명 톤 · 동선)"
+    ],
+    "chars_est": 216
+   },
+   {
+    "para": "P3 입사를 위한 노력 — 실무 준비 + 결과",
+    "text_head": "또한 저는 실무형 바이어로서의 준비도 꾸준히 해왔습니다.",
+    "role": "준비의 정의 → 인턴에서 한 일(리서치 · 커뮤니케이션) → 인정받은 결과 → 구체 문제 해결 한 장면 → 역량 명명",
+    "devices": [
+     "'또한'으로 문항 둘째 물음(노력)으로 넘어감",
+     "결과 두 겹(사수 인정 → 거래처 소통 기회)",
+     "숫자 하나(선적 조건 세 차례)",
+     "직무 용어(CIPL · OTD)"
+    ],
+    "chars_est": 309
+   },
+   {
+    "para": "P4 입사 후 + 수미상관",
+    "text_head": "입사 후 매일 시장 트렌드를 트래킹하여 글로벌 브랜드를 선제적으로 발굴하고",
+    "role": "입사 후 할 일 두 가지 → 소제목의 '랜드마크'로 회귀",
+    "devices": [
+     "직무 동사(트래킹 · 발굴 · 제안)",
+     "소제목 낱말 반복으로 닫기"
+    ],
+    "chars_est": 138
+   }
+  ],
+  "flow_one_line": "자기 공간 경험(고유명사) → 관점 → 회사 비전 키워드 공감 → 그 비전을 실현할 직무와 감각 → 실무 준비와 결과 → 입사 후 할 일 → 소제목으로 회귀",
+  "answer_to_question": "문항의 두 물음을 P1 · P2(지원 이유)와 P3(노력)로 나눠 답한다. '노력'은 이 회사를 위해 따로 한 준비라기보다 과거 경험(인턴)을 준비로 이름 붙인 것",
+  "weaknesses": [
+   {
+    "what": "관점 비약",
+    "quote": "'백화점이 도시의 랜드마크가 될 수 있다'는 확신을 얻었습니다.",
+    "why": "두 장소의 인상에서 '확신'으로 바로 넘어간다"
+   },
+   {
+    "what": "근거 없는 평가",
+    "quote": "독보적인 혁신이라 생각합니다.",
+    "why": "사례 나열 뒤 평가어만 있고, 왜 독보적인지 비교가 없다"
+   },
+   {
+    "what": "막연한 공감",
+    "quote": "깊이 공감했습니다.",
+    "why": "감정어 — 무엇에 어떻게 공감했는지가 없다"
+   },
+   {
+    "what": "감각 주장의 결과 없음",
+    "quote": "이 감각적 시야를 바탕으로 브랜드를 발굴하고 고객에게 가장 효과적인 방법으로 소개하겠습니다.",
+    "why": "P2의 감각에는 결과 · 증거가 없다(P3에만 결과가 있다)"
+   },
+   {
+    "what": "설명 없는 직무 약어",
+    "quote": "CIPL",
+    "why": "CIPL · OTD를 풀지 않아 비전공 독자에게 막힌다"
+   },
+   {
+    "what": "흔한 다짐",
+    "quote": "입사 후 매일 시장 트렌드를 트래킹하여",
+    "why": "어느 지원자도 쓸 수 있는 문장"
+   }
+  ],
+  "what_to_borrow": [
+   "소제목(결론 비유) → 끝에서 회귀",
+   "자기 관점 문장 → 회사 고유 키워드 연결",
+   "'이러한'으로 회사 키워드를 받아 직무로 넘기기",
+   "'또한'으로 노력 단락 열기",
+   "결과를 한 문단에 하나 이상"
+  ],
+  "what_not_to_borrow": [
+   "교환학생 · 13개국 · 리버티 · 일룸 · 아트매니저 · 해외영업 인턴 · CIPL · OTD 등 모든 경험 · 수치 · 문장",
+   "'독보적' · '깊이 공감' 같은 평가 · 감정어"
+  ]
+ },
+ "company_research": {
+  "official_slogan": {
+   "status": "찾지 못함",
+   "note": "신세계인터내셔날 공식 비전 · 슬로건 문구는 검색에서 확인되지 않았다. S1의 'Total Lifestyle Store'처럼 회사 고유 키워드를 따옴표로 인용하는 장치는 원문을 확인하기 전까지 쓰지 않는다.",
+   "sources": [
+    {
+     "url": "https://jasoseol.com/companies/1811",
+     "what": "회사 소개 페이지(제3자) — 슬로건 미확인",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://thevc.kr/shinsegaeinternational",
+     "what": "'해외 및 국내 패션 브랜드의 기획, 제조, 유통과 라이프스타일 상품을 판매하는 기업'(제3자 프로필)",
+     "verification": "검색 요약 · 원문 미확인"
+    }
+   ]
+  },
+  "keywords": [
+   {
+    "keyword": "해외 패션 브랜드를 직수입해 국내 유통 채널에서 판매",
+    "use_for": "VMD의 자리: 들여온 해외 브랜드가 국내 매장에서 어떻게 보이는가",
+    "sources": [
+     {
+      "url": "https://file.alphasquare.co.kr/media/pdfs/company-report/49956_240509_SI.pdf",
+      "what": "2024 증권사 리포트: 패션 부문은 해외 유명 패션 브랜드를 직수입해 유통채널을 통해 판매",
+      "verification": "검색 요약 · 원문 미확인"
+     }
+    ],
+    "fit": "높음"
+   },
+   {
+    "keyword": "신규 해외 브랜드의 안착 · 해외패션 매출 회복",
+    "use_for": "회사의 최근 움직임(사실) — 담당 브랜드 꾸레쥬가 직접 언급됨",
+    "sources": [
+     {
+      "url": "https://news.bizwatch.co.kr/article/consumer/2026/01/27/0013",
+      "what": "꾸레쥬 · 더로우 · 뷰오리 등 신규 브랜드 고성장",
+      "verification": "검색 요약 · 원문 미확인"
+     },
+     {
+      "url": "https://stock.pstatic.net/stock-research/company/64/20260514_company_466479000.pdf",
+      "what": "2026 1분기 해외패션 매출 35.2% 성장(리포트마다 수치 차이)",
+      "verification": "검색 요약 · 원문 미확인"
+     }
+    ],
+    "fit": "높음"
+   },
+   {
+    "keyword": "담당 브랜드의 국내 매장 확장",
+    "use_for": "라운딩(여러 매장) 업무와 연결",
+    "sources": [
+     {
+      "url": "https://www.hankyung.com/article/202605223373g",
+      "what": "엔폴드: 신세계 4개 매장 + 갤러리아 명품관 입점, '핵심 상권 매장을 통해 고객 접점 강화'(2026-05)",
+      "verification": "검색 요약 · 원문 미확인"
+     },
+     {
+      "url": "https://www.metroseoul.co.kr/article/20230514500144",
+      "what": "꾸레쥬 2023-09 신세계 강남점 첫 정식 매장",
+      "verification": "검색 요약 · 원문 미확인"
+     }
+    ],
+    "fit": "중"
+   },
+   {
+    "keyword": "3I (해외 시장 · 인오가닉 성장 · 통합적 접근) — 창립 30주년",
+    "use_for": "회사 전체 방향. 화장품 · M&A 중심이라 VMD와의 거리가 멀다",
+    "sources": [
+     {
+      "url": "https://www.cncnews.co.kr/news/article.html?no=10684",
+      "what": "2026-01 창립 30주년, 김덕주 총괄대표 3I 발표",
+      "verification": "검색 요약 · 원문 미확인"
+     },
+     {
+      "url": "https://www.hankyung.com/article/2026012762111",
+      "what": "M&A 강화",
+      "verification": "검색 요약 · 원문 미확인"
+     }
+    ],
+    "fit": "낮음 — 쓰지 않는 것을 권함"
+   }
+  ],
+  "do_not_use": [
+   "공식 슬로건처럼 따옴표로 인용하는 문구(확인 안 됨)",
+   "신세계백화점의 'VISION 2023' 인재상(백화점 쪽 페이지 — 인터내셔날 것인지 확인 안 됨)",
+   "매출 수치(리포트마다 다름)",
+   "자주(JAJU) 매각 · 계약 종료 브랜드(셀린느 · 메종마르지엘라) — 부정적 맥락"
+  ],
+  "access_note": "WebFetch가 이 환경에서 막혀 모든 회사 사실은 검색 요약 기반 · 원문 미확인"
+ },
+ "fit_structure": {
+  "options": [
+   {
+    "id": "구성 A (S1 따라가기 · 4단락)",
+    "slots": [
+     {
+      "slot": "소제목",
+      "borrowed_role": "결론 비유, 끝에서 회귀",
+      "user_fact": [
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "규칙: 헤어 스타일, 옷의 톤, 향의 무드를 그날 갈 장소에 맞춘다."
+       }
+      ],
+      "status": "있음",
+      "keep_from_V1": "[장소에 맞춰 옷을 고르던 기준으로]",
+      "note": "V1 소제목 유지 가능. 맺음에서 '장소 → 매장'으로 회귀"
+     },
+     {
+      "slot": "A1 지원 이유 ① 습관 · 관심 → 관점",
+      "borrowed_role": "S1 P1의 '자기 경험 → 관점 문장' (고유명사 장면 자리는 습관으로 대체)",
+      "user_fact": [
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "규칙: 헤어 스타일, 옷의 톤, 향의 무드를 그날 갈 장소에 맞춘다."
+       },
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "VMD 지원 동기(사용자 말): 어렸을 때부터 오프라인 매장에 자주 방문해 상품을 구경했고 패션에 관심이 많았다. 건축학과에 와서 실내 공간에 관심이 있다는 것을 알게 되었고, 두 요소가 합쳐진 VMD 직무에 관심을 가지게 되었다"
+       },
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "(BQ 답) 지원 동기에 매장 장면은 넣지 않음 (평소 다닌 곳은 일반 옷 가게와 백화점들)"
+       }
+      ],
+      "status": "있음",
+      "keep_from_V1": [
+       "옷은 장소에 맞춰 고릅니다.",
+       "장소에 맞춰 옷을 고르던 기준으로, 매장에 맞춰 옷을 연출하는 VMD에 지원했습니다."
+      ],
+      "note": "사용자가 '지원 동기에 매장 장면은 넣지 않음'으로 정했다 — S1의 고유명사 장면은 쓰지 않고 습관을 장면 대신 둔다(GQ3로 재확인)"
+     },
+     {
+      "slot": "A2 지원 이유 ② 왜 신세계인터내셔날 · 이 직무",
+      "borrowed_role": "S1 P1 후반 '회사 고유 키워드 공감' + P2 '직무 정의'",
+      "user_fact": [],
+      "company_fact": [
+       "해외 브랜드 직수입 · 국내 매장 판매(리포트)",
+       "꾸레쥬 등 신규 해외 브랜드 안착(보도)"
+      ],
+      "status": "비어 있음 → GQ1",
+      "keep_from_V1": "브랜드마다, 또 매장마다 연출을 맞춰야 하는 일이라, 장소에 맞춰 옷을 고르는 습관을 그대로 쓸 수 있다고 생각해 지원했습니다.",
+      "note": "V1 둘째 단락의 브랜드 문장(에르노 나일론 · 폴스미스 매장별)은 원문 미확인 — 유지하려면 확인 필요(GQ6). '왜 하필 이 회사'는 사용자 이유가 없다"
+     },
+     {
+      "slot": "A3 입사를 위한 노력 (첫째 · 둘째)",
+      "borrowed_role": "S1 P3 '또한 … 준비' + 결과 한 줄",
+      "user_fact": [
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "5년제 건축학과 재학 중. **4학년 2학기에 휴학**했다."
+       },
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "(정정, 2026-10-14) 부모님 '의류 매장'이 아니라 '의류 회사'. 20살 이후 방학마다 성수기 12월~2월에 가서 상품 개별 포장·택배 발송, 상품 재고 관리를 도움"
+       },
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "(BQ8 답, 2026-10-14) 부모님 의류 회사의 상품 재고 관리 = 입출고 수량 확인, 창고 내 수량 확인, 창고 정리"
+       }
+      ],
+      "status": "있음(결과 한 줄은 비어 있음 → GQ4)",
+      "keep_from_V1": "5년제 건축학과에서 건물보다 실내 공간에 더 흥미를 느껴, 4학년 2학기에 휴학하고 공간 디자인으로 전향했습니다.",
+      "note": "첫째 방향(전향), 둘째 실무(의류 회사 포장 · 발송 · 입출고 · 창고 정리 → 공고의 '집기 발송 및 관리'). V1의 '건축물을 다니며 마감재를 살핌'은 VMD와 거리가 있어 셋째 후보로만"
+     },
+     {
+      "slot": "A4 맺음 · 회귀",
+      "borrowed_role": "S1 P4 '입사 후 할 일 + 소제목 회귀'",
+      "user_fact": [
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "10월 중 즉시 출근, 12월 31일까지 근무 가능"
+       },
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "매장 오픈 출장 가능"
+       }
+      ],
+      "status": "있음",
+      "keep_from_V1": "10월 중 즉시 출근할 수 있고, 12월 31일까지 근무와 매장 오픈 출장이 가능합니다.",
+      "note": "S1식 장기 다짐 대신 단기 계약에 맞는 '기간 안에 할 일'. CMD-HJ52 CM4(매장마다 장소에 맞춤)로 소제목에 회귀"
+     }
+    ]
+   },
+   {
+    "id": "구성 B (신세계 공통 구성: 회사 움직임 → 공감 → 노력 2~3개)",
+    "slots": [
+     {
+      "slot": "소제목",
+      "borrowed_role": "INDEX 공통: 대괄호 소제목",
+      "user_fact": [
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "규칙: 헤어 스타일, 옷의 톤, 향의 무드를 그날 갈 장소에 맞춘다."
+       }
+      ],
+      "status": "있음"
+     },
+     {
+      "slot": "B1 회사의 최근 움직임 한두 개",
+      "borrowed_role": "INDEX 공통 구성 1단계(사실)",
+      "company_fact": [
+       "꾸레쥬 · 엔폴드 등 해외 브랜드 국내 매장 확장(보도)"
+      ],
+      "user_fact": [],
+      "status": "회사 사실만 있음(원문 미확인)",
+      "note": "사용자가 직접 본 것처럼 쓰지 않는다"
+     },
+     {
+      "slot": "B2 공감 지점 → 내 관심",
+      "borrowed_role": "공통 2단계",
+      "user_fact": [
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "VMD 지원 동기(사용자 말): 어렸을 때부터 오프라인 매장에 자주 방문해 상품을 구경했고 패션에 관심이 많았다. 건축학과에 와서 실내 공간에 관심이 있다는 것을 알게 되었고, 두 요소가 합쳐진 VMD 직무에 관심을 가지게 되었다"
+       },
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "규칙: 헤어 스타일, 옷의 톤, 향의 무드를 그날 갈 장소에 맞춘다."
+       }
+      ],
+      "status": "있음 + '왜 이 회사' 빈칸 → GQ1"
+     },
+     {
+      "slot": "B3 노력 첫째 · 둘째 (· 셋째)",
+      "borrowed_role": "공통 3단계",
+      "user_fact": [
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "5년제 건축학과 재학 중. **4학년 2학기에 휴학**했다."
+       },
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "(정정, 2026-10-14) 부모님 '의류 매장'이 아니라 '의류 회사'. 20살 이후 방학마다 성수기 12월~2월에 가서 상품 개별 포장·택배 발송, 상품 재고 관리를 도움"
+       },
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "(BQ8 답, 2026-10-14) 부모님 의류 회사의 상품 재고 관리 = 입출고 수량 확인, 창고 내 수량 확인, 창고 정리"
+       }
+      ],
+      "status": "첫째 · 둘째 있음, 셋째(VMD를 위한 공부) 빈칸 → GQ2"
+     },
+     {
+      "slot": "B4 조건 · 맺음",
+      "borrowed_role": "S1 P4 대신 단기 계약형",
+      "user_fact": [
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "10월 중 즉시 출근, 12월 31일까지 근무 가능"
+       },
+       {
+        "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+        "quote": "매장 오픈 출장 가능"
+       }
+      ],
+      "status": "있음"
+     }
+    ],
+    "tradeoff": "B는 회사 사실을 앞세워 '왜 이 회사'가 분명해지지만, 회사 사실이 모두 원문 미확인이라 확인 부담이 크다. A는 사용자 사실 중심이라 바로 쓸 수 있다."
+   }
+  ],
+  "recommended": "구성 A"
+ },
+ "gaps_questions": [
+  {
+   "id": "GQ1",
+   "for_slot": "A2 / B2",
+   "ask": "다른 VMD나 백화점이 아니라 신세계인터내셔날을 고른 이유가 있나요? (본인 말로 한두 줄)",
+   "example_answer": "(형식 예시) \"여러 해외 브랜드를 한 회사에서 다뤄 볼 수 있어서\" / \"특별한 이유는 없음\""
+  },
+  {
+   "id": "GQ2",
+   "for_slot": "A3 셋째 / B3 셋째",
+   "ask": "VMD를 위해 따로 해 본 준비가 있나요? (예: 매장 VP 사진 모으기, VM 관련 책 · 강의, 담당 브랜드 공식몰 · SNS 살펴보기)",
+   "example_answer": "(형식 예시) \"담당 브랜드 공식 인스타그램의 매장 사진을 저장해 봤다\" / \"없음\""
+  },
+  {
+   "id": "GQ3",
+   "for_slot": "A1",
+   "ask": "지원 동기에 매장 장면을 넣지 않기로 했는데(평소 다닌 곳은 일반 옷 가게 · 백화점), 그대로 둘까요? S1처럼 이름을 댈 수 있는 매장 한 곳이 있다면 알려 주세요.",
+   "example_answer": "\"그대로(장면 없이)\" / \"○○백화점 ○○점에서 본 것\""
+  },
+  {
+   "id": "GQ4",
+   "for_slot": "A3 결과 한 줄",
+   "ask": "부모님 의류 회사 일에서 결과나 달라진 점이 있나요? (예: 발송 실수가 줄었다, 재고 수량이 맞았다, 몇 시즌 했는지)",
+   "example_answer": "(형식 예시) \"3번의 겨울 방학 동안 했다\" / \"결과로 말할 것은 없음\""
+  },
+  {
+   "id": "GQ5",
+   "for_slot": "A2 또는 A4",
+   "ask": "검토 중이던 '브랜드 정체성을 살리면서 젊은 시선으로 해석'을 Q1에 넣을까요, Q2에 넣을까요, 뺄까요?",
+   "example_answer": "\"Q2에\" / \"뺀다\""
+  },
+  {
+   "id": "GQ6",
+   "for_slot": "A2",
+   "ask": "V1 둘째 단락의 브랜드 문장(에르노 나일론 · 다운, 폴스미스 매장별 지역 반영)은 원문을 확인하지 못했습니다. 남길까요, 브랜드 사실 없이 쓸까요?",
+   "example_answer": "\"확인 후 남긴다\" / \"브랜드 사실 없이\""
+  }
+ ],
+ "summary": {
+  "one_line": "S1 Q1은 '자기 공간 경험 → 관점 → 회사 비전 키워드 → 직무 · 감각 → 실무 준비와 결과 → 입사 후 · 수미상관'으로 흐른다. 혁주에게는 고유명사 장면 대신 '장소에 맞춰 고르는 습관'을 관점으로 두고, 노력은 전향(방향)과 부모님 의류 회사의 포장 · 발송 · 재고(실무)로 채우는 구성 A를 권한다. 비는 칸은 '왜 신세계인터내셔날인가'(GQ1)와 'VMD를 위한 준비'(GQ2)다. 회사 공식 슬로건은 확인되지 않아 S1식 키워드 인용은 쓰지 않고, 확인 가능한 회사 움직임(해외 브랜드 직수입 · 신규 브랜드 안착)만 원문 확인 뒤 쓴다.",
+  "recommended": "구성 A",
+  "allocation_q1_q2_q3": {
+   "why": "신세계 3문항은 각 1000자이고 Q2(차별화 능력) · Q3(학업 외 몰입 경험)가 따로 있다. 같은 사실을 세 문항에 겹쳐 쓰지 않도록 Q1에 넣을 것과 남길 것을 먼저 나눈다(제안 — 사용자 확인).",
+   "Q1": [
+    "장소에 맞춰 고르는 습관 · 패션과 실내 공간 두 관심(지원 이유)",
+    "휴학 · 전향(방향을 정한 노력)",
+    "부모님 의류 회사의 포장 · 발송 · 입출고 수량 · 창고 정리(집기 발송 · 관리와 맞닿는 실무 준비)",
+    "근무 가능 조건"
+   ],
+   "Q2": [
+    "스타일링 감각: 옷의 색 · 원단 · 디자인의 조화(사용자 관점), 지인 스타일링",
+    "시안: 포토샵 · 일러스트 · 인디자인"
+   ],
+   "Q3": [
+    "베이글 가게 진열 · 재고 정리와 결과(찾는 시간 감소, 발주 · 재고관리에 도움)"
+   ],
+   "basis": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+     "quote": "공모전·개인 작업·동아리 활동 없음 → 학업 외 경험은 아르바이트 내용으로"
+    },
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+     "quote": "(사용자 관점) 스타일링 감각은 '원색의 채도를 낮춘 포인트'보다 '옷들의 색, 원단, 디자인의 조화를 맞춘다'로 표현하는 게 이 공고에 맞다"
+    },
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@8b76e454fdb31b031a892d094408324f70f6829e:docs/portfolio/context_handoff.md",
+     "quote": "(Q3 답, 2026-10-14) 베이글 가게 재고·비품 정리 결과: 물건 찾는 시간이 줄었고, 상사의 물건 발주와 재고관리에 도움이 됨"
+    }
+   ]
+  },
+  "v1_diagnosis": [
+   {
+    "issue": "지원 문장 두 번",
+    "quotes": [
+     "장소에 맞춰 옷을 고르던 기준으로, 매장에 맞춰 옷을 연출하는 VMD에 지원했습니다.",
+     "장소에 맞춰 옷을 고르는 습관을 그대로 쓸 수 있다고 생각해 지원했습니다."
+    ],
+    "note": "첫째 · 둘째 단락이 같은 결론으로 끝난다 — 하나는 '왜 이 회사'로 바꿀 자리"
+   },
+   {
+    "issue": "브랜드 사실 원문 미확인",
+    "quotes": [
+     "에르노는 가벼운 나일론과 다운으로, 폴스미스는 매장마다 그 지역의 성격을 반영하는 방식으로 알려져 있습니다."
+    ],
+    "note": "CMD-HJ52 출처가 검색 요약뿐 — 쓰려면 확인"
+   },
+   {
+    "issue": "노력 셋째가 직무와 멀다",
+    "quotes": [
+     "건축물을 다니며 실내 마감재와 마감 방식을 살펴 왔습니다."
+    ],
+    "note": "VMD 업무(상품 · 집기)와 직접 닿는 의류 회사 실무가 더 가깝다"
+   }
+  ],
+  "fact_correction_noted": "부모님 '의류 매장' → '의류 회사'(context_handoff 정정, 2026-10-14) — 이후 분석은 정정판 기준",
+  "rules_applied": [
+   "타인 사례 문장 · 경험 · 수치 미사용",
+   "AI 도구 · 분쟁 언급 없음",
+   "문장 집필 없음",
+   "사용자 톤 선호: 라운딩 VMD 자기소개서: 1000자 제한. 추상적·감성적 표현보다 직관적이고 담백한 문구로"
+  ]
+ }
+}
