@@ -5,13 +5,16 @@ The stored record (memory.Store: every turn, every statement, every draft) and t
 different things. The input is rebuilt for each request in this order, and each part says what it is:
 
     CURRENT INSTRUCTION          the user's words in this turn                      always kept
+    HOW TO TREAT THIS MESSAGE    a displeasure signal, sorted by memory.classify     always kept
     USER CORRECTIONS             active statements that replaced earlier ones        always kept
     SETTLED BY THE USER          active slots (room.wall = wood, layout.W = 18, ...) always kept
     UNRESOLVED                   conflicts kept as conflicts, never merged           always kept
     NOT IN MEMORY                "그대로/지난번에 정한 ..." with nothing to back it     always kept
     SOURCE FACTS                 read by code from job.json, spec.check, ...          budget
-    EARLIER USER STATEMENTS      recent turns, then relevant or imperative ones      budget
-    MODEL'S EARLIER OUTPUT       drafts / summaries, labelled unverified             budget, last
+    EARLIER USER STATEMENTS      reference material, recent turns, then relevant     budget
+                                 or imperative ones ("고쳐"-only turns take no slot)
+    MODEL'S EARLIER OUTPUT       the latest output first (what "고쳐" points at),    budget, last
+                                 then drafts / summaries, labelled unverified
 
 Left out, each with a reason in the trace: superseded / retracted records, duplicates, model or summary
 claims that contradict an active user statement or a source fact (the contradicting words are cut out;
@@ -111,6 +114,8 @@ def build(store: "M.Store", instruction: str, *, fixed_tokens: int = 0, sources=
              "budget": B, "selected": [], "excluded": [], "redacted": [], "sources": sorted({s.get("ref", "") for s in sources}),
              "tokens": {}, "over_budget": False}
     recs = store.all()
+    signal = M.classify(instruction, store, sources, exclude_turn=turn)
+    trace["followup"] = {"case": signal["case"], "key": signal["key"], "backing": len(signal["backing"])}
     active_user_slots = {r["key"]: r for r in store.active("user_stated") if r["key"]}
     source_by_key = {s["key"]: s for s in sources if s.get("key")}
     for r in store.active("source_fact"):
@@ -202,6 +207,22 @@ def build(store: "M.Store", instruction: str, *, fixed_tokens: int = 0, sources=
                                  + "; ".join(f"[{o['turn']} {o['id']}] {o['content']}" for o in others)
                                  + ". Do not choose silently: keep both as they are and ask which one is meant.")
         keep(r, "unresolved", "correction with unclear scope")
+    latest = max((r for r in live if r["kind"] == "model_inference"), default=None,
+                 key=lambda r: (int((r.get("turn") or "t0")[1:] or 0), int(r["id"][1:])))
+    sec["treat"] = []
+    case = signal["case"]
+    if case == "bare":
+        sec["treat"].append("- The user is not satisfied and gave no reason. Do not guess silently and do not start over: check the "
+                            "latest output (first under MODEL'S EARLIER OUTPUT) against the user's material and their last feedback, "
+                            "state in one line what you assume is wrong, then revise. Add no fact that no user statement or source gives.")
+    elif case == "unsupported":
+        sec["treat"].append(f"- The user disputes {signal['key']} but gives no new value. It is backed by: "
+                            + "; ".join(f"[{b['by']}] {signal['key']} = {b['value']}" for b in signal["backing"])
+                            + ". Displeasure is not evidence: do not change it. Show this and ask one question -- which part is "
+                            "wrong, and what should it be?")
+    elif case == "unclear":
+        sec["treat"].append("- The user objects, but to what is unclear" + ("" if latest else " (nothing has been made yet)")
+                            + ". Do not revise anything. Ask one short question: what should change, and how?")
     sec["gaps"] = []
     ref = M.REFERS_BACK.search(instruction or "")
     if ref:
@@ -216,7 +237,7 @@ def build(store: "M.Store", instruction: str, *, fixed_tokens: int = 0, sources=
                                "source fact records it. Do not invent a value; leave that part as it is and say it was not found.")
             trace["gap"] = M.digest(" ".join(terms))
 
-    protected = sum(estimate_tokens(x) for k in ("instruction", "corrections", "settled", "unresolved", "gaps") for x in sec[k])
+    protected = sum(estimate_tokens(x) for k in ("instruction", "treat", "corrections", "settled", "unresolved", "gaps") for x in sec[k])
     room = B["memory"] - protected - 120                    # headers
     if room < 0:
         trace["over_budget"] = True                          # protected parts are never cut to fit
@@ -242,10 +263,13 @@ def build(store: "M.Store", instruction: str, *, fixed_tokens: int = 0, sources=
 
     earlier = [r for r in live if r["kind"] == "user_stated" and not r["key"] and r not in corrections and r not in conflicts]
     user_turns = [t["id"] for t in store.turns if t["role"] == "user" and t["id"] != turn]
-    recent_ids = set(user_turns[-recent:])
+    terse_turns = {r["turn"] for r in recs if r["kind"] == "user_stated" and r.get("terse")}
+    recent_ids = set([t for t in user_turns if t not in terse_turns][-recent:])
     ranked = []
     for r in earlier:
-        if r["turn"] in recent_ids:
+        if r.get("pinned"):
+            ranked.append((-1, r, "reference material the user gave"))
+        elif r["turn"] in recent_ids:
             ranked.append((0, r, "recent turn"))
         elif M.overlap(instruction, r["content"]) >= 0.5:
             ranked.append((1, r, "shares terms with the request"))
@@ -262,16 +286,18 @@ def build(store: "M.Store", instruction: str, *, fixed_tokens: int = 0, sources=
     for r in live:
         if r["kind"] not in ("model_inference", "summary"):
             continue
-        if (r["key"] or "").startswith("draft") or M.overlap(instruction, r["content"]) >= 0.5:
+        if r is latest or (r["key"] or "").startswith("draft") or M.overlap(instruction, r["content"]) >= 0.5:
             model_recs.append(r)                             # the current draft's own claims, or relevant to the request
         else:
             drop(r, "model output not relevant to this request")
-    model_recs.sort(key=lambda r: (-mscore.get(r["id"], 0), -int((r.get("turn") or "t0")[1:] or 0), r["id"]))
-    fill("model", [(r, r) for r in model_recs], lambda r: line(r) + (f"  (summary of {', '.join(r['sources'])})" if r["kind"] == "summary" and r["sources"] else ""),
-         lambda r: "unverified model output" if r["kind"] == "model_inference" else "summary, sources kept")
+    model_recs.sort(key=lambda r: (r is not latest, -mscore.get(r["id"], 0), -int((r.get("turn") or "t0")[1:] or 0), r["id"]))
+    fill("model", [(r, r) for r in model_recs], lambda r: line(r) + ("  (latest output)" if r is latest else "") + (f"  (summary of {', '.join(r['sources'])})" if r["kind"] == "summary" and r["sources"] else ""),
+         lambda r: "latest output (what a short follow-up refers to)" if r is latest
+         else "unverified model output" if r["kind"] == "model_inference" else "summary, sources kept")
 
     skipped = [t for t in user_turns if t not in {r["turn"] for r in live if r["id"] in {s['id'] for s in trace['selected']}}]
     heads = {"instruction": "CURRENT INSTRUCTION (the user, now) -- this comes first",
+             "treat": "HOW TO TREAT THIS MESSAGE (decided by code from the words and the memory)",
              "corrections": "USER CORRECTIONS -- newest wins; they override everything below, including the current draft",
              "settled": "SETTLED BY THE USER (still valid)",
              "unresolved": "UNRESOLVED -- conflicting statements kept as they are",
@@ -280,7 +306,7 @@ def build(store: "M.Store", instruction: str, *, fixed_tokens: int = 0, sources=
              "earlier": "EARLIER USER STATEMENTS (selected; the full conversation is kept on disk, not shown)",
              "model": "MODEL'S EARLIER OUTPUT -- UNVERIFIED. It may be wrong. Never cite it as a fact; the sections above win"}
     parts = []
-    for k in ("instruction", "corrections", "settled", "unresolved", "gaps", "sources", "earlier", "model"):
+    for k in ("instruction", "treat", "corrections", "settled", "unresolved", "gaps", "sources", "earlier", "model"):
         if sec.get(k):
             parts.append(f"## {heads[k]}\n" + "\n".join(sec[k]))
             trace["tokens"][k] = sum(estimate_tokens(x) for x in sec[k])

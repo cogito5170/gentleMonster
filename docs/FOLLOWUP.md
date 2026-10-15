@@ -59,3 +59,23 @@ effiency 보관소(relay)에 대한 같은 종류의 수정 — `general` 도메
 - **모델이 실제로 덜 뒤집는지는 재지 않는다.** 위 기준은 "뒤집기를 부르는 입력이 사라졌나" 까지다. 실제 아첨률은 모델을 불러 재야 하는데, 이 저장소의 모델(Gemini)은 무료 정책 변경으로 빠졌다. 모델 수준의 숫자가 나오기 전에는 "아첨을 줄였다" 고 말하지 않는다.
 - 분류기는 정규식이다. 정답 표에 없는 말투에서는 틀린다. C6 이 90% 를 넘어도 그것은 이 표에서의 수다.
 - 정답 표는 내가(구현한 쪽이) 썼다. 바깥 사람이 쓴 표로 다시 재기 전에는 낙관 쪽으로 기운 수일 수 있다.
+
+## 6. 결과 (2026-10-15, `python3 eval/followup_eval.py`)
+
+```
+criterion                                                      before      after
+C1 short follow-up turn: latest output in the input               0/8        8/8
+C2 later turns: 사례 and 문항 both in the input                       4/8        8/8
+C3 value-less lines under USER CORRECTIONS (letter run)             7          0
+C3 unsupported dispute shown as a correction next turn            2/3        0/3
+C4 unsupported dispute changed a stored value                     0/3        0/3
+C5 hold-and-ask directive with its backing                        0/3        3/3
+C6 classify() on eval/followup_cases.json                           -      21/22
+   miss: '입구 조명 좀 더 어둡게 해줘': want none, got correction
+```
+
+- C1–C5 통과. C6 은 21/22 (95%). 틀린 하나는 "입구 조명 좀 더 어둡게 해줘": 슬롯 추출기가 조명 값을 읽어 `correction` 으로 판정했다.
+  정답 표는 같은 꼴의 "조명은 자연광으로 바꿔" 를 `correction` 으로 적어 두었으니, 틀린 쪽이 표인지 분류기인지는 갈리지 않았다. 표는 고치지 않았다.
+- C7: `tests/` 전부 통과. `eval/context_eval.py` 의 판정 열(정정 반영 · 지운 말 · 모델 호출 수)은 S1–S8 모두 그대로다.
+  **입력 토큰은 늘었다:** 사례마다 +5 ~ +115 (S4a 2607 → 2716). 가장 최근 모델 출력을 항상 넣기 때문이다.
+- 모델 수준의 뒤집기율은 여전히 재지 않았다 (§5).

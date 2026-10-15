@@ -179,11 +179,70 @@ def extract(text: str) -> "list[dict]":
     return out
 
 
+# A displeasure signal is not evidence. classify() sorts it so the context can say what to do with it:
+#   correction   a new value is given ("A 말고 B", a slot)           -> apply it (ingest_user already does)
+#   bare         an evaluation with no reason ("고쳐", "재미없어")    -> self-diagnose the latest output, say the assumption
+#   unsupported  "X is wrong" about a value a user statement or a source backs, with no new value -> keep it, show why, ask
+#   unclear      nothing to revise yet, or a dispute/pointer with no target ("틀렸어", "이 부분")  -> ask once
+DISSATISFIED = re.compile(r"고쳐|다시\s*(?:해|써|만들|짜|작성)|별로|재미\s*없|마음에\s*안|맘에\s*안|이상해|어색|밋밋|약해|아쉬|구려|부족해|싫어|"
+                          r"\bredo\b|fix (?:it|this)|not good|boring", re.I)
+DISPUTE = re.compile(r"틀렸|틀린|틀려|아니잖|잘못|wrong|that's not|that is not", re.I)
+DEICTIC = re.compile(r"(?:이|그|저)\s*부분|여기|거기|저기|(?<![가-힣])(?:이거|그거|저거|이것|그것)(?![가-힣]*(?:로|으로))")
+MENTIONS = dict(SURFACES, **{"폭": "layout.W", "가로": "layout.W", "너비": "layout.W", "깊이": "layout.D", "세로": "layout.D",
+                             "천장고": "layout.H", "층고": "layout.H", "높이": "layout.H", "조명": "room.light", "브랜드": "brand"})
+TERSE = 12                                                # non-space characters: "고쳐", "마음에 안 들어"
+
+
+def classify(text: str, store: "Store | None" = None, sources=(), exclude_turn: str = "") -> dict:
+    """-> {case, key, backing}. Code only. backing = [{by, value}] for an unsupported dispute."""
+    t = text or ""
+    out = {"case": "none", "key": None, "backing": []}
+    if extract(t) or correction_parts(t):
+        out["case"] = "correction"
+        return out
+    dispute, unhappy = DISPUTE.search(t), DISSATISFIED.search(t)
+    if not (dispute or unhappy):
+        return out
+    has_output = bool(store) and any(r["kind"] == "model_inference" and r["status"] == "active" for r in store.recs.values())
+    if not has_output and not sources:
+        out["case"] = "unclear"                          # nothing has been made yet: there is nothing to revise
+        return out
+    key = next((k for w, k in sorted(MENTIONS.items(), key=lambda x: -len(x[0])) if w in t.lower()), None)
+    out["key"] = key
+    if dispute and key:
+        backing = [{"by": f"{r['turn']} {r['id']} (user)", "value": r["value"]} for r in (store.active("user_stated") if store else [])
+                   if r["key"] == key and r["turn"] != exclude_turn]
+        backing += [{"by": s.get("ref", "source"), "value": s.get("value")} for s in sources if s.get("key") == key]
+        if store:
+            backing += [{"by": f"{r['id']} (source)", "value": r["value"]} for r in store.active("source_fact") if r["key"] == key]
+        if backing:
+            out["case"], out["backing"] = "unsupported", backing
+            return out
+    if (dispute or DEICTIC.search(t)) and not key:
+        out["case"] = "unclear"                          # "틀렸어", "이 부분 이상해": which part?
+        return out
+    out["case"] = "bare"
+    return out
+
+
+def terse(text: str) -> bool:
+    return len(re.sub(r"\s", "", text or "")) <= TERSE
+
+
 def overlap(query: str, text: str) -> float:
     """Shared words; 0.5 for a word inside another (Korean particles: 런웨이 / 런웨이가)."""
     terms = set(re.findall(r"[0-9a-z가-힣]{2,}", _norm(query)))
     words = set(re.findall(r"[0-9a-z가-힣]{2,}", _norm(text)))
     return len(terms & words) + .5 * sum(1 for t in terms for w in words if t != w and (t in w or w in t))
+
+
+REFERENCE = re.compile(r"참고|아래|다음은|다음 (?:글|자료|내용)|문항|사례|원문|자료|reference|below|attached", re.I)
+
+
+def _reference(text: str) -> bool:
+    """Material the user hands over to work from (a pasted 사례, a 문항, a source text): kept until replaced."""
+    n = len((text or "").strip())
+    return n >= 400 or (n >= 30 and bool(REFERENCE.search(text or "")) and ("\n" in text or n >= 120 or "문항" in text))
 
 
 def correction_parts(text: str) -> "tuple[str, str] | None":
@@ -322,7 +381,8 @@ class Store:
         corr = correction_parts(text)
         eff = {"turn": tid, "record": "", "facts": [], "superseded": [], "ambiguous": [], "unmatched": []}
         whole = self.put("user_stated", text, {"type": "turn", "ref": tid}, turn=tid,
-                         correction=bool(corr or CORRECTION_CUE.search(text)))
+                         correction=bool(corr or (CORRECTION_CUE.search(text) and slots)),
+                         pinned=_reference(text), terse=terse(text) and bool(DISSATISFIED.search(text) or DISPUTE.search(text)))
         eff["record"] = whole
         cs = correction_span(text)
         for s in slots:
