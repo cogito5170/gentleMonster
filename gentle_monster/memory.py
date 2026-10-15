@@ -62,7 +62,7 @@ DIMS = [(r"(?:폭|가로|너비|width)", "layout.W"), (r"(?:깊이|세로|depth)
 # "A 말고 B" -- A is what the user takes back, B what replaces it. A is only the clause right before the cue:
 # "폭 20m, 깊이 15m 말고 12m" takes back the depth, not the width; "벽은 나무로 하고 대신 바닥은 ..." takes back nothing.
 CORRECTION = re.compile(r"\s*(?:말고|아니고|(?:이|가)?\s*아니라|대신에?|->|→|instead of)\s*", re.I)
-CLAUSE_BREAK = re.compile(r"[,;.\n]|그리고|하고")
+CLAUSE_BREAK = re.compile(r"[,;\n]|\.(?!\d)|그리고|하고")    # not the point in "2.4m"
 _LEAD = re.compile(r"^(?:아니(?:야)?|no|정정|수정)(?:[\s,:.]+|$)", re.I)
 CORRECTION_CUE = re.compile(r"말고|아니고|아니라|대신|->|→|instead of|정정|고쳐|잘못|틀렸", re.I)
 # "지난번에 정한 색온도" -- an explicit pointer to an earlier decision; the word after it is what must be found

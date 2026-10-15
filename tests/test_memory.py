@@ -94,7 +94,9 @@ for t, want in (("폭 24m 말고 18m로", {"layout.W": 18.0}), ("아크네 느�
                 ("폭은 1800mm로", {"layout.W": 1.8}), ("폭 24m 말고 1800cm", {"layout.W": 18.0}), ("천장고 5.5미터", {"layout.H": 5.5}),
                 ("폭 18ms", {}),
                 # boundaries: 'A' of 'A 말고 B' is only the clause before the cue
-                ("폭 20m, 깊이 15m 말고 12m", {"layout.W": 20.0, "layout.D": 12.0}),
+                ("폭 20m, 깊이 15m 말고 12m", {"layout.W": 20.0, "layout.D": 12.0}), ("천장고 5.5m 말고 6m", {"layout.H": 6.0}),
+                ("폭 20m. 벽은 콘크리트 말고 나무로", {"layout.W": 20.0, "room.wall": "wood"}),
+                ("벽은 콘크리트 말고 바닥을 나무로", {"room.floor": "wood"}),
                 ("조명은 자연광, 벽은 콘크리트 말고 나무로", {"room.light": "daylight", "room.wall": "wood"}),
                 ("벽은 나무로 하고 대신 바닥은 콘크리트로", {"room.wall": "wood", "room.floor": "concrete"}),
                 ("벽이 아니라 바닥을 나무로", {"room.floor": "wood"}), ("벽과 바닥은 나무로", {"room.wall": "wood", "room.floor": "wood"})):
