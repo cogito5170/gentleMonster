@@ -1,0 +1,9 @@
+{
+  "request_sha256": "e47d376f0649f03227dfcc860d2707bc8b8aba837dd0bf09440d10b7843e379e",
+  "started": "2026-10-15T14:11:20.615018+00:00",
+  "status": "done",
+  "exit_code": 0,
+  "output_tail": "relay image 003-pick-display — 스펙 → Codex(상세 프롬프트 + 생성)\n  codex 실행: codex exec --sandbox workspace-write --skip-git-repo-check -c features.image_generation=true …\n[ok] → .relay/tasks/003-pick-display/image.png  (92.767s)",
+  "action": "image",
+  "finished": "2026-10-15T14:12:53.462899+00:00"
+}
