@@ -110,7 +110,7 @@ def parse(text: str, jobs=(), n_images: int = 0) -> dict:
         return dict(r, action="memory")
     from gentle_monster import memory as _mem             # regex only; no model call
     slots = _mem.extract(t)
-    change = bool(slots or _mem.CORRECTION.search(t) or (_CHANGE.search(t) and len(b) >= 4))
+    change = bool(slots or _mem.correction_span(t) or (_CHANGE.search(t) and len(b) >= 4))
     if _has(low, "example") and r["example"] and not r["job"]:
         r["why"].append(f"bundled example {r['example']}")
         return dict(r, action="example")
@@ -126,7 +126,7 @@ def parse(text: str, jobs=(), n_images: int = 0) -> dict:
         return dict(r, action="status")
     a_brief = re.search(r"매장|플래그십|스토어|공간|숍|쇼룸|store|flagship|shop|showroom", low)   # "흰 큐브 말고 동굴 같은 매장" is a new brief
     leading = re.match(r"\s*(?:아니|아냐|정정|수정|잘못|no\b)", low)
-    if jobs and not a_brief and (leading or len(t) <= 16) and _mem.CORRECTION_CUE.search(t) and (slots or _mem.CORRECTION.search(t)):
+    if jobs and not a_brief and (leading or len(t) <= 16) and _mem.CORRECTION_CUE.search(t) and (slots or _mem.correction_span(t)):
         r["job"] = jobs[-1]; r["brief"] = t   # "아니, 콘크리트 말고 나무로" corrects the newest job; it is not a new brief
         r["why"].append(f"a correction -> newest job {jobs[-1]}")
         return dict(r, action="revise")

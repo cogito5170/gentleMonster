@@ -59,12 +59,39 @@ LIGHT_WORDS = [("어두운 갤러리", "dark_gallery"), ("어둡", "dark_gallery
                ("화이트 갤러리", "white_gallery"), ("하얀 갤러리", "white_gallery"), ("white gallery", "white_gallery"),
                ("자연광", "daylight"), ("daylight", "daylight"), ("따뜻한 스팟", "warm_spot"), ("warm spot", "warm_spot")]
 DIMS = [(r"(?:폭|가로|너비|width)", "layout.W"), (r"(?:깊이|세로|depth)", "layout.D"), (r"(?:천장고|층고|천장 높이|높이|height)", "layout.H")]
-# "A 말고 B" -- A is what the user takes back, B what replaces it
-CORRECTION = re.compile(r"(?P<old>.+?)\s*(?:말고|아니고|(?:이|가)?\s*아니라|대신에?|->|→|instead of)\s*(?P<new>.+)", re.S | re.I)
+# "A 말고 B" -- A is what the user takes back, B what replaces it. A is only the clause right before the cue:
+# "폭 20m, 깊이 15m 말고 12m" takes back the depth, not the width; "벽은 나무로 하고 대신 바닥은 ..." takes back nothing.
+CORRECTION = re.compile(r"\s*(?:말고|아니고|(?:이|가)?\s*아니라|대신에?|->|→|instead of)\s*", re.I)
+CLAUSE_BREAK = re.compile(r"[,;.\n]|그리고|하고")
+_LEAD = re.compile(r"^(?:아니(?:야)?|no|정정|수정)(?:[\s,:.]+|$)", re.I)
 CORRECTION_CUE = re.compile(r"말고|아니고|아니라|대신|->|→|instead of|정정|고쳐|잘못|틀렸", re.I)
 # "지난번에 정한 색온도" -- an explicit pointer to an earlier decision; the word after it is what must be found
 REFERS_BACK = re.compile(r"(?:지난번에?|아까|전에|앞서|예전에|이미)\s*(?:정한|말한|얘기한|결정한|정했던|말했던|골랐던|고른)|as (?:we )?(?:agreed|decided) (?:on )?", re.I)
 _PARTICLES = r"(?:은|는|이|가|을|를|로|으로|도|만|의|에|에서|과|와|랑|이랑)?"
+# a length and its unit, converted to metres. Longest unit first; a unit glued to more Latin letters is not one ("18ms")
+LENGTH = re.compile(r"(\d+(?:\.\d+)?)\s*(밀리미터|밀리|mm|센티미터|센티|cm|미터|m)(?![A-Za-z])", re.I)
+_TO_M = {"밀리미터": .001, "밀리": .001, "mm": .001, "센티미터": .01, "센티": .01, "cm": .01, "미터": 1, "m": 1}
+
+
+def _metres(m: "re.Match") -> float:
+    return round(float(m.group(1)) * _TO_M[m.group(2).lower()], 4)
+
+
+def correction_span(text: str) -> "tuple[int, int, int] | None":
+    """(old_from, old_to, new_from) of 'A 말고 B', A cut to the clause before the cue; None when A is empty."""
+    t = text or ""
+    for c in CORRECTION.finditer(t):
+        head = t[:c.start()]
+        brk = list(CLAUSE_BREAK.finditer(head))
+        a = brk[-1].end() if brk else 0
+        old = head[a:]
+        lead = _LEAD.match(old.strip())
+        if lead:
+            a += len(old) - len(old.lstrip()) + lead.end()
+            old = t[a:c.start()]
+        if old.strip(" ,.:") and c.end() < len(t.rstrip()):
+            return a, c.start(), c.end()
+    return None
 
 
 def _norm(s: str) -> str:
@@ -106,38 +133,48 @@ def extract(text: str) -> "list[dict]":
     """Slots a sentence sets: [{key, value, span:[a,b]}]. Pure regex; what it cannot read stays free text.
     With a correction cue only the replacing part ('B' of 'A 말고 B') supplies values."""
     t = text or ""
-    m = CORRECTION.search(t)
-    new_from = m.start("new") if m else 0
+    cs = correction_span(t)
+    old_from, old_to, new_from = cs if cs else (0, 0, 0)
+    taken_back = lambda i: old_from <= i < new_from          # a value inside A is what the user takes back
     out = []
     from gentle_monster import intent                     # light module; BRANDS lives there
     low = t.lower()
     for w, (_, brand) in intent.BRANDS.items():
-        i = low.find(w, new_from)
+        i = next((i for i in (m.start() for m in re.finditer(re.escape(w), low)) if not taken_back(i)), -1)
         if i >= 0 and not any(o["key"] == "brand" for o in out):
             out.append({"key": "brand", "value": brand, "span": [i, i + len(w)]})
     for pat, key in DIMS:
-        for d in re.finditer(pat + _PARTICLES + r"\s*[:=]?\s*(\d+(?:\.\d+)?)\s*(?:m|미터|M)(?![A-Za-z])", t, re.I):
-            if d.start(1) >= new_from:
-                out.append({"key": key, "value": float(d.group(1)), "span": [d.start(), d.end()]})
+        for d in re.finditer(pat + _PARTICLES + r"\s*[:=]?\s*" + LENGTH.pattern, t, re.I):
+            if not taken_back(d.start(1)):
+                out.append({"key": key, "value": _metres(LENGTH.match(t, d.start(1))), "span": [d.start(), d.end()]})
                 break
-    if m and not any(o["key"].startswith("layout.") for o in out):      # "폭 24m 말고 18m": the key is in A, the number in B
+    if cs:                                               # "폭 24m 말고 18m": the key is in A, the number in B
         for pat, key in DIMS:
-            if re.search(pat, m.group("old"), re.I):
-                n = re.search(r"(\d+(?:\.\d+)?)\s*(?:m|미터|M)(?![A-Za-z])", t[new_from:])
+            if re.search(pat, t[old_from:old_to], re.I) and not any(o["key"] == key for o in out):
+                n = LENGTH.search(t, new_from)
                 if n:
-                    out.append({"key": key, "value": float(n.group(1)), "span": [new_from + n.start(), new_from + n.end()]})
+                    out.append({"key": key, "value": _metres(n), "span": [n.start(), n.end()]})
                 break
     for w, key in SURFACES.items():
         for s in re.finditer(re.escape(w), t, re.I):
-            stop = re.search(r"[,.;\n]|그리고|하고", t[s.end():])
-            seg_end = s.end() + stop.start() if stop else len(t)
-            seg_from = max(s.end(), new_from)
+            stop = CLAUSE_BREAK.search(t, s.end())
+            seg_end = stop.start() if stop else len(t)
+            seg_from = new_from if taken_back(s.end()) else s.end()   # "벽은 콘크리트 말고 나무로": A's surface, B's material
+            other = re.search("|".join(re.escape(o) for o, k in SURFACES.items() if k != key), t[seg_from:seg_end], re.I)
+            if other and taken_back(s.end()):                # "벽이 아니라 바닥을 나무로": the material belongs to the floor
+                seg_end = seg_from + other.start()
             hit = _find_word(t[seg_from:seg_end], MATERIAL_WORDS) if seg_from < seg_end else None
             if hit and not any(o["key"] == key for o in out):
-                out.append({"key": key, "value": hit[0], "span": [s.start(), seg_from + hit[2]]})
-    hit = _find_word(t[new_from:], LIGHT_WORDS)
-    if hit and re.search(r"조명|빛|light|갤러리|gallery", t, re.I):
-        out.append({"key": "room.light", "value": hit[0], "span": [new_from + hit[1], new_from + hit[2]]})
+                end = seg_from + hit[2]
+                end += len(re.match(r"(?:으로|로)?", t[end:]).group(0))
+                out.append({"key": key, "value": hit[0], "span": [s.start(), end]})
+    if re.search(r"조명|빛|light|갤러리|gallery", t, re.I):
+        hit = _find_word(t[new_from:], LIGHT_WORDS)
+        base = new_from
+        if not hit and cs:
+            hit, base = _find_word(t[:old_from], LIGHT_WORDS), 0
+        if hit:
+            out.append({"key": "room.light", "value": hit[0], "span": [base + hit[1], base + hit[2]]})
     out += _acronyms(t)
     return out
 
@@ -150,11 +187,10 @@ def overlap(query: str, text: str) -> float:
 
 
 def correction_parts(text: str) -> "tuple[str, str] | None":
-    m = CORRECTION.search(text or "")
-    if not m:
+    cs = correction_span(text)
+    if not cs:
         return None
-    old = re.sub(r"^(?:아니(?:야)?|no|정정|수정)[\s,:.]*", "", m.group("old").strip(), flags=re.I)
-    return old.strip(" ,.:"), m.group("new").strip(" ,.:")
+    return text[cs[0]:cs[1]].strip(" ,.:"), text[cs[2]:].strip(" ,.:")
 
 
 def _value_for(key: str, text: str):
@@ -164,8 +200,8 @@ def _value_for(key: str, text: str):
     elif key == "room.light":
         hit = _find_word(text, LIGHT_WORDS)
     elif key and key.startswith("layout."):
-        n = re.search(r"(\d+(?:\.\d+)?)\s*(?:m|미터|M)(?![A-Za-z])", text)
-        return float(n.group(1)) if n else None
+        n = LENGTH.search(text)
+        return _metres(n) if n else None
     else:
         return None
     return hit[0] if hit else None
@@ -288,8 +324,9 @@ class Store:
         whole = self.put("user_stated", text, {"type": "turn", "ref": tid}, turn=tid,
                          correction=bool(corr or CORRECTION_CUE.search(text)))
         eff["record"] = whole
+        cs = correction_span(text)
         for s in slots:
-            a = s["span"][0] if not corr else max(s["span"][0], len(text) - len(corr[1]) - 1)
+            a = max(s["span"][0], cs[2]) if cs and cs[0] <= s["span"][0] < cs[2] else s["span"][0]
             said = text[a:s["span"][1]].strip(" ,.:") or text[s["span"][0]:s["span"][1]]
             rid = self.put("user_stated", f"{s['key']} = {s['value']}  (user: \"{said}\")", {"type": "turn", "ref": tid},
                            key=s["key"], value=s["value"], turn=tid, span=s["span"], parent=whole)
