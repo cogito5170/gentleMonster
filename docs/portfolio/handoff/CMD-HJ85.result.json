@@ -1,0 +1,806 @@
+{
+ "schema": "brand_fit_research/1",
+ "directive": "CMD-HJ85",
+ "inputs": [
+  "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/handoff/CMD-HJ85.input.json",
+  "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/postings/sikorea_rounding_vmd.md",
+  "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/context_handoff.md",
+  "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/handoff/CMD-HJ59.result.json",
+  "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/handoff/CMD-HJ60.result.json",
+  "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/handoff/CMD-HJ61.result.json",
+  "cogito5170/gentleMonster@claude/modest-cannon-ha8zs3@bc33be6:docs/portfolio/handoff/CMD-HJ52.result.json#brand_brief"
+ ],
+ "brand_facts": [
+  {
+   "brand": "에르노 (Herno)",
+   "identity": "1948년 이탈리아 레사(마조레 호수)에서 시작한 아우터웨어 브랜드. 첫 제품은 레인코트, 가족 경영",
+   "signature_products": "나일론 · 다운 아우터. 초음파 봉제 같은 기술, 고어(Gore)와 만든 기술 라인 Laminar(2012)",
+   "design_language": "가벼운 기술 아우터. 해외 면세 보도에서 'quiet luxury' 브랜드로 소개",
+   "store_vm_known": [
+    "밀라노 몬테나폴레오네 매장: 회사 역사를 담은 서가 · 분수 · 녹색 벽(2018 보도)",
+    "독일 첫 매장: 대표 집기였던 스틸 후크 대신 가죽 장식 물푸레나무 행거(2024 보도)",
+    "신세계 강남점 6층 남성 단독 매장(2026-10 초): '이탈리아 북부 레사 지역의 자연에서 영감을 받은 인테리어', 2026 FW 남성 컬렉션(단일 출처)"
+   ],
+   "si_position": [
+    "신세계인터내셔날이 국내 수입 · 판매. 공고도 VMD실 담당 브랜드로 명시",
+    "2023-11 신세계면세점 명동점: 브랜드의 첫 면세 채널 입점",
+    "2026-10 초 신세계 강남점 6층 국내 첫 남성 단독 매장(단일 출처, 교차 확인 안 됨)",
+    "국내 수입 시작 연도는 확인하지 못함"
+   ],
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Herno",
+     "what": "1948 레사 창립 · 첫 제품 레인코트 · 나일론 · 초음파 봉제 · 다운",
+     "kind": "encyclopedia",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://fashionmodeldirectory.com/brands/herno-laminar",
+     "what": "2012 고어와 개발한 Laminar",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://mr-mag.com/herno-to-open-two-stores-next-month/",
+     "what": "밀라노 매장 서가 · 분수 · 녹색 벽(2018)",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://www.textilwirtschaft.de/business/stores/store-des-tages-fruehjahr-2024-hernos-retail-debuet-in-deutschland-244290",
+     "what": "독일 매장: 스틸 후크 대신 나무 행거(2024)",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://www.metroseoul.co.kr/article/20231120500674",
+     "what": "신세계인터내셔날 수입 · 판매, 신세계면세점 명동점(2023-11)",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://moodiedavittreport.com/quiet-luxury-brand-herno-makes-channel-debut-with-shinsegae-duty-free",
+     "what": "'quiet luxury' 브랜드, 첫 면세 채널 입점",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://www.mydailybyte.com/littlebit/news/383e9584-fffa-4e8e-babe-d8e980c13b51",
+     "what": "2026-10 강남점 6층 남성 단독 매장, 레사 자연에서 영감을 받은 인테리어",
+     "kind": "aggregator",
+     "verification": "검색 요약 · 원문 미확인 · 단일 출처(뉴스 집계 사이트)"
+    }
+   ]
+  },
+  {
+   "brand": "폴스미스 (Paul Smith)",
+   "identity": "영국 브랜드. 남성복의 원래 디자인 철학은 'classics with a twist'(클래식에 위트 한 겹)",
+   "signature_products": "클래식 테일러링 · 셔츠에 색 · 디테일로 변화를 준 옷. 시그니처 스트라이프(색실 실험에서 시작)를 프리미엄 소재 · 클래식 아이템의 디테일로 씀",
+   "design_language": "클래식 위에 색과 위트",
+   "store_vm_known": [
+    "매장마다 그 지역의 성격을 반영해야 한다는 생각 — 매장 디자인에 정해진 공식이 없다",
+    "LA 멜로즈 매장: 핑크 파사드 + 스트라이프 40색 벽화",
+    "스트라이프를 일상 사물(레코드플레이어 · 선풍기 · 자전거 바퀴)에 입힌 매장 설치물"
+   ],
+   "si_position": [
+    "공고상 신세계인터내셔날 VMD실 담당 브랜드",
+    "2020-11 신세계인터내셔날이 신세계 본점 폴스미스 매장을 3D 스캔한 가상 매장 공개 — 2020년에 SI가 운영하던 것만 확인",
+    "국내 수입 시작 연도 · 현재 매장 수 · 2026년 움직임은 확인하지 못함"
+   ],
+   "sources": [
+    {
+     "url": "https://www.encyclopedia.com/fashion/news-wires-white-papers-and-books/smith-paul",
+     "what": "'classics with a twist'",
+     "kind": "encyclopedia",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://artsandculture.google.com/exhibit/the-career-of-sir-paul-smith-british-fashion-council/CwLSYCD8C3pHIg?hl=en",
+     "what": "매장마다 지역의 성격을 반영(영국패션협회 전시)",
+     "kind": "institution",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://aestheticamagazine.com/unrivalled-iconography/",
+     "what": "매장 디자인에 정해진 공식이 없음",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://PaulSmith.com/discover/stories/the-story-of-our-signature-stripe",
+     "what": "시그니처 스트라이프의 시작과 쓰임",
+     "kind": "brand_official",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://superfuture.com/2022/05/new-shops/los-angeles-paul-smith-store-renewal",
+     "what": "LA 멜로즈 매장 핑크 파사드 · 40색 벽화",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://paulsmith.com/discover/stories/stripe-in-motion",
+     "what": "스트라이프를 입힌 일상 사물 설치물",
+     "kind": "brand_official",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://www.etoday.co.kr/news/view/1962946",
+     "what": "2020-11 신세계 본점 폴스미스 매장 3D 가상 매장",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    }
+   ]
+  },
+  {
+   "brand": "엔폴드 (ENFÖLD)",
+   "identity": "2012년 일본 디자이너 우에다 미즈키가 세운 여성 컨템포러리 브랜드(2011로 적은 매체도 있음). 이름은 '감싸다 · 포용'. 바로크 재팬 소유",
+   "signature_products": "몸을 감싸는 실루엣의 여성복, 모던 테일러링. 2026 AW는 브랑쿠시 · 마크 맨더스 · 노구치 조각에서 영감",
+   "design_language": "건축적 · 조각적 실루엣, 절제된 미니멀리즘, 소재감 중심",
+   "store_vm_known": [
+    "국내 매장 실내 · 연출 자료는 찾지 못함 — 쓰지 않는다",
+    "2026-10-07~13 이세탄 신주쿠 팝업(잔여 원단 한정 아이템 · 아키타입 컬렉션) — 일본 행사, 국내와 무관"
+   ],
+   "si_position": [
+    "2022-09 신세계인터내셔날 국내 론칭, 한 달 만에 목표 매출 200% 이상(보도)",
+    "신세계 본점 · 강남 · 센텀시티 · 타임스퀘어 4개 매장, 2026-05 갤러리아 명품관 웨스트 입점 — '핵심 상권 매장을 통한 고객 접점 강화'"
+   ],
+   "sources": [
+    {
+     "url": "https://www.hankyung.com/article/202605223373g",
+     "what": "2012 설립 · 이름 뜻 · 국내 4개 매장 + 갤러리아 입점(2026-05)",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://www.ajunews.com/view/20221107150523261",
+     "what": "2022-09 국내 론칭, 목표 매출 200% 이상",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://insideretail.us/japanese-fashion-label-enfold-launches-in-south-korea/",
+     "what": "바로크 재팬 소유, 한국 론칭",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://club21.com/pages/enf-ld-at-club21",
+     "what": "건축적 실루엣 · 절제된 미니멀리즘 · 모던 테일러링",
+     "kind": "retailer",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://www.fashionsnap.com/collection/enfold/2026aw/",
+     "what": "2026 AW 조각가 영감",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://www.haveagood-holiday.com/ko/articles/enfold-isetan-shinjuku-popup-2026",
+     "what": "2026-10 이세탄 신주쿠 팝업",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    }
+   ]
+  },
+  {
+   "brand": "꾸레주 (Courrèges, 공고 표기 '쿠레주')",
+   "identity": "프랑스 브랜드. 1964 S/S 'Moon Girl' 컬렉션부터 비닐 소재 · 스페이스 에이지 룩",
+   "signature_products": "비닐 · 광택 소재 옷과 액세서리. 간결한 형태",
+   "design_language": "흰색이 상징색인 미래적 · 간결한 형태",
+   "store_vm_known": [
+    "매장은 기본이 흰색, 차갑지 않게 벤치와 거울 피팅룸을 더함(디렉터 인터뷰)",
+    "파리 부티크: 크롬 테 거울 패널 · 크롬 기둥 · 오프화이트 실내",
+    "미국 사우스코스트플라자 매장: 크롬 기둥 · 거울 천장 · 흰 바닥"
+   ],
+   "si_position": [
+    "2023-05 신세계인터내셔날 국내 유통 계약 → 2023-09 신세계 강남점 3층 첫 정식 매장(남녀 의류 · 슈즈 · 백 · 주얼리, 2023 FW 전체를 보는 아시아 유일 매장으로 소개)",
+    "2024-08 한국 공식 온라인 스토어('온라인 플래그십')",
+    "2026-01 보도: 신세계인터내셔날의 고성장 신규 브랜드로 언급",
+    "2026년 신규 매장 소식은 찾지 못함"
+   ],
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Courr%C3%A8ges",
+     "what": "1964 'Moon Girl' · 비닐 · 스페이스 에이지",
+     "kind": "encyclopedia",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://thespaces.com/courreges-paris-boutique-has-monochrome-nightclub-vibes",
+     "what": "파리 부티크 크롬 · 거울 · 오프화이트",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://theimpression.com/courreges-establishes-first-west-coast-store-in-south-coast-plaza/",
+     "what": "미국 매장 크롬 기둥 · 거울 천장 · 흰 바닥",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://magzter.com/stories/fashion/Vogue-US/MAKING-SPACE",
+     "what": "기본 흰색 + 벤치 · 거울 피팅룸",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://www.metroseoul.co.kr/article/20230514500144",
+     "what": "2023-05 유통 계약, 9월 강남점 첫 정식 매장",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://www.harpersbazaar.co.kr/article/80564",
+     "what": "2023-09 강남점 3층 오픈",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://magazine.hankyung.com/business/article/202408139723b",
+     "what": "2024-08 공식 온라인 스토어",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    },
+    {
+     "url": "https://news.bizwatch.co.kr/article/consumer/2026/01/27/0013",
+     "what": "2026-01 꾸레쥬 등 신규 브랜드 고성장",
+     "kind": "press",
+     "verification": "검색 요약 · 원문 미확인"
+    }
+   ]
+  }
+ ],
+ "company_facts": {
+  "position": [
+   {
+    "fact": "패션 부문은 해외 유명 패션 브랜드를 직수입해 국내 유통채널에서 판매",
+    "sources": [
+     {
+      "url": "https://file.alphasquare.co.kr/media/pdfs/company-report/49956_240509_SI.pdf",
+      "what": "2024 증권사 리포트",
+      "kind": "report",
+      "verification": "검색 요약 · 원문 미확인"
+     }
+    ]
+   },
+   {
+    "fact": "1996년부터 해외 브랜드를 국내에 도입",
+    "sources": [
+     {
+      "url": "https://thevc.kr/shinsegaeinternational",
+      "what": "제3자 회사 프로필 · 검색 요약에 함께 나온 문장",
+      "kind": "profile",
+      "verification": "검색 요약 · 원문 미확인"
+     }
+    ]
+   },
+   {
+    "fact": "2026 1분기 해외패션 매출 큰 폭 성장(리포트마다 수치 다름 — 수치는 쓰지 않음)",
+    "sources": [
+     {
+      "url": "https://stock.pstatic.net/stock-research/company/64/20260514_company_466479000.pdf",
+      "what": "2026-05 증권사 리포트",
+      "kind": "report",
+      "verification": "검색 요약 · 원문 미확인"
+     }
+    ]
+   },
+   {
+    "fact": "2026 정기 인사에서 해외패션본부장 출신 김덕주 대표 내정",
+    "sources": [
+     {
+      "url": "https://magazine.hankyung.com/business/article/202509260805b",
+      "what": "2025-09 보도",
+      "kind": "press",
+      "verification": "검색 요약 · 원문 미확인"
+     }
+    ]
+   }
+  ],
+  "do_not_use": [
+   "2026 2분기 패션 부문 매출 감소 · '브랜드 이탈' 언급(부정적 맥락) — https://www.mydailybyte.com/littlebit/news/383e9584-fffa-4e8e-babe-d8e980c13b51",
+   "매출 수치 전부(리포트마다 다름)",
+   "공식 슬로건처럼 인용하는 문구(CMD-HJ59: 찾지 못함)",
+   "3I 전략(화장품 · M&A 중심, CMD-HJ59)"
+  ]
+ },
+ "common_threads": {
+  "shared": [
+   {
+    "point": "넷 다 해외 수입 브랜드이고, 신세계인터내셔날이 국내에 들여와 전개한다",
+    "basis": "brand_facts.si_position · 공고 담당 브랜드",
+    "evidence": [
+     {
+      "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/postings/sikorea_rounding_vmd.md",
+      "quote": "*담당브랜드: 해외 패션 브랜드 (에르노, 폴스미스, 엔폴드, 쿠레주 등)"
+     }
+    ],
+    "level": "공고 확인 + 검색 요약"
+   },
+   {
+    "point": "확인된 국내 매장은 주로 백화점 안 매장이다(신세계 강남점 · 본점 · 센텀시티, 타임스퀘어, 갤러리아, 면세점)",
+    "basis": "brand_facts.si_position",
+    "level": "검색 요약 · 원문 미확인 [해석: 단독 로드숍보다 백화점 안 정해진 구획에서 연출한다]"
+   },
+   {
+    "point": "브랜드마다 상품 가치가 소재 · 형태 · 색 중 어디에 있는지가 뚜렷하다",
+    "basis": "에르노=기술 소재, 폴스미스=색 · 스트라이프, 엔폴드=실루엣 · 소재감, 꾸레주=흰색 · 비닐",
+    "level": "검색 요약 · 원문 미확인 [해석]"
+   }
+  ],
+  "differences": [
+   {
+    "axis": "성별 · 품목",
+    "detail": "에르노: 아우터 중심(강남점은 남성 단독) / 폴스미스: 남성 클래식이 뿌리 / 엔폴드: 여성 컨템포러리 / 꾸레주: 남녀 의류 + 액세서리"
+   },
+   {
+    "axis": "나라 · 디자인 언어",
+    "detail": "이탈리아 기술 아우터 / 영국 클래식에 위트 · 색 / 일본 건축적 미니멀 / 프랑스 스페이스 에이지 · 흰색"
+   },
+   {
+    "axis": "매장 연출 단서",
+    "detail": "에르노: 원산지 자연 · 나무 행거 / 폴스미스: 매장마다 다르게, 색 · 소품 / 엔폴드: 자료 없음 / 꾸레주: 흰색 · 크롬 · 거울"
+   },
+   {
+    "axis": "국내 연차",
+    "detail": "폴스미스: 2020년 이전부터 / 에르노: 2023년 면세 입점 확인 / 엔폴드: 2022-09 / 꾸레주: 2023-09 — 신규 브랜드가 둘"
+   }
+  ],
+  "overseas_fashion_vmd": {
+   "claims": [
+    {
+     "claim": "해외 브랜드는 매장 디자인과 정체성이 본사에서 정해져 오고, 국내 매장에 그것을 옮긴다",
+     "basis": "에르노 강남점 '레사 자연' 인테리어(본사 원산지 이야기가 국내 매장에 그대로 옴), 폴스미스의 '매장마다 지역 반영'",
+     "level": "브랜드 사례(검색 요약) + 일반화는 [추론]. 신세계인터내셔날 VMD실이 실제로 본사 가이드를 어떻게 받는지는 확인되지 않음"
+    },
+    {
+     "claim": "본사 VMD팀은 국내외 매장의 연출을 기획하고 가이드를 만들어 공지하며, 현지 담당자와 소통한다. 나라마다 기후 · 문화가 달라 지역 특성에 맞춘 연출이 필요하다",
+     "basis": "다른 회사(F&F) VMD팀 인터뷰",
+     "sources": [
+      {
+       "url": "https://www.jobplanet.co.kr/contents/news-7184",
+       "what": "F&F 디스커버리 VMD팀 인터뷰: 본사 가이드 제작 · 현지 소통 · 지역별 착장 차이",
+       "kind": "press",
+       "verification": "검색 요약 · 원문 미확인"
+      }
+     ],
+     "level": "검색 요약 · 원문 미확인 · 타사 사례 — 신세계인터내셔날에 그대로 대입하지 않음"
+    }
+   ],
+   "not_found": "해외 본사 가이드라인을 국내 백화점 매장에 맞추는 절차를 직접 다룬 자료는 찾지 못했다. 자기소개서에서 '본사 가이드를 옮긴다'를 사실처럼 단정하지 않고, 면접에서 물으면 '그렇게 알고 있다' 수준으로 말할 것"
+  },
+  "rounding": {
+   "posting_says": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/postings/sikorea_rounding_vmd.md",
+     "quote": "- 매장 내 상품연출 및 마네킨 착장 스타일링"
+    },
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/postings/sikorea_rounding_vmd.md",
+     "quote": "- 오픈 작업(출장O, 경비지원)"
+    },
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/postings/sikorea_rounding_vmd.md",
+     "quote": "- 집기 발송 및 관리"
+    },
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/postings/sikorea_rounding_vmd.md",
+     "quote": "- 디자인 리서치 및 VP시안 작업"
+    },
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/postings/sikorea_rounding_vmd.md",
+     "quote": "  - 본사직원 휴무 대체 단기 계약직 / 최근 채용 인원 개인사정퇴사로 재구인"
+    }
+   ],
+   "elsewhere": [
+    {
+     "fact": "같은 회사의 다른 라운딩 VMD 공고(톰보이)에는 'VM 가이드 작업'도 적혀 있다",
+     "sources": [
+      {
+       "url": "https://www.theteams.kr/recruit_big/detail/1069019",
+       "what": "신세계인터내셔날 패션 VMD실 라운딩 VMD 공고",
+       "kind": "posting",
+       "verification": "검색 요약 · 원문 미확인"
+      }
+     ]
+    },
+    {
+     "fact": "다른 회사 라운딩 공고에는 매장 방문 정리 · 재고 실사도 있다",
+     "sources": [
+      {
+       "url": "https://career.rememberapp.co.kr/job/posting/306176",
+       "what": "타사 공고",
+       "kind": "posting",
+       "verification": "검색 요약 · 원문 미확인"
+      }
+     ]
+    },
+    {
+     "fact": "현직자 의견: 이런 공고는 기획보다 관리 · 운영에 가깝다",
+     "sources": [
+      {
+       "url": "https://comento.kr/job-questions/%EC%8B%9C%EB%AA%AC%EC%8A%A4/%EA%B3%B5%EA%B0%84%EB%94%94%EC%9E%90%EC%9D%B8/%EA%B3%B5%EA%B0%84_%EA%B8%B0%ED%9A%8D%EB%B8%8C%EB%9E%9C%EB%94%A9%EB%94%94%EC%9E%90%EC%9D%B8_%EC%A7%84%EB%A1%9C_vmd_%EC%9D%B8%ED%84%B4_%EA%B4%80%EB%A0%A8-458559",
+       "what": "2023 직무 Q&A, 개인 의견",
+       "kind": "forum",
+       "verification": "검색 요약 · 원문 미확인 · 개인 의견"
+      }
+     ]
+    }
+   ],
+   "reading": "공고에 매장 수 · 순회 방식은 없다. 라운딩은 '여러 매장을 돌며 연출 · 집기 · 오픈을 맡는 현장 직무'로 읽는 것이 검색 근거와 맞다 [해석]. 담당 브랜드가 넷 이상이라 한 번에 여러 디자인 언어를 다룬다(공고 '등')."
+  }
+ },
+ "user_facts": [
+  {
+   "id": "UF1",
+   "fact": "옷 좋아함 · 매장 구경 · '잘 팔릴까' 고민",
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/handoff/CMD-HJ85.input.json#paragraph1_adopted_R2",
+     "quote": "어릴 때부터 옷을 좋아해 매장에 자주 들러 구경했습니다."
+    },
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/handoff/CMD-HJ85.input.json#paragraph1_adopted_R2",
+     "quote": "구경하며 옷을 어떻게 놓으면 더 잘 팔릴지 고민한 적도 있습니다."
+    }
+   ]
+  },
+  {
+   "id": "UF2",
+   "fact": "평소 다닌 곳은 일반 옷 가게와 백화점",
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/context_handoff.md",
+     "quote": "(BQ 답) 지원 동기에 매장 장면은 넣지 않음 (평소 다닌 곳은 일반 옷 가게와 백화점들)"
+    }
+   ]
+  },
+  {
+   "id": "UF3",
+   "fact": "실내 공간 · 배치 관심",
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/handoff/CMD-HJ85.input.json#paragraph1_adopted_R2",
+     "quote": "설계 수업과 사무소 인턴에서는 실내 공간에 집중했고, 건축물과 전시를 둘러보며 배치에 관심이 갔습니다."
+    }
+   ]
+  },
+  {
+   "id": "UF4",
+   "fact": "장소에 맞추는 습관",
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/context_handoff.md",
+     "quote": "규칙: 헤어 스타일, 옷의 톤, 향의 무드를 그날 갈 장소에 맞춘다."
+    }
+   ]
+  },
+  {
+   "id": "UF5",
+   "fact": "색 · 원단 · 디자인의 조화(사용자 관점)",
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/context_handoff.md",
+     "quote": "(사용자 관점) 스타일링 감각은 '원색의 채도를 낮춘 포인트'보다 '옷들의 색, 원단, 디자인의 조화를 맞춘다'로 표현하는 게 이 공고에 맞다"
+    }
+   ]
+  },
+  {
+   "id": "UF6",
+   "fact": "지인 스타일링(백화점에서 입혀 봄)",
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/context_handoff.md",
+     "quote": "(보충) 지인 스타일링: 처음에는 백화점에 가서 매장의 옷들을 입혀 보며 어울리는 분위기를 찾음."
+    }
+   ]
+  },
+  {
+   "id": "UF7",
+   "fact": "부모님 의류 회사 성수기 포장 · 발송 · 재고",
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/context_handoff.md",
+     "quote": "(정정, 2026-10-14) 부모님 '의류 매장'이 아니라 '의류 회사'. 20살 이후 방학마다 성수기 12월~2월에 가서 상품 개별 포장·택배 발송, 상품 재고 관리를 도움"
+    }
+   ]
+  },
+  {
+   "id": "UF8",
+   "fact": "베이글 종류별 진열 · 재고 정리",
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/context_handoff.md",
+     "quote": "기본 베이글·추가 재료가 들어간 베이글·통밀 베이글처럼 종류별로 구분해 진열, 잘 팔리는 것을 앞에 두고 매일 다시 채움."
+    }
+   ]
+  },
+  {
+   "id": "UF9",
+   "fact": "근무 · 출장 가능",
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/context_handoff.md",
+     "quote": "10월 중 즉시 출근, 12월 31일까지 근무 가능"
+    },
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/context_handoff.md",
+     "quote": "매장 오픈 출장 가능"
+    }
+   ]
+  },
+  {
+   "id": "UF10",
+   "fact": "절제된 비례 · 색 조합에 자신",
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/context_handoff.md",
+     "quote": "절제된 비례, 디자인, 색 조합에 자신이 있다."
+    }
+   ]
+  },
+  {
+   "id": "UF11",
+   "fact": "'젊은 시선' 맥락(검토 중)",
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/context_handoff.md",
+     "quote": "(사용자 제안, 검토 중) 대상 브랜드 이용 연령대는 높은 편이고 본인은 젊은 연령대 → '브랜드 정체성을 살리면서 젊은 시선으로 해석' 맥락 추가 검토"
+    }
+   ]
+  },
+  {
+   "id": "UF12",
+   "fact": "네 브랜드를 본 적 없음",
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/context_handoff.md",
+     "quote": "에르노·폴스미스·엔폴드·쿠레주 매장·제품을 직접 본 적 없음"
+    }
+   ]
+  },
+  {
+   "id": "UF13",
+   "fact": "맺음 요구: 브랜드 · 매장 방식을 파악한 뒤 녹여냄",
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/context_handoff.md",
+     "quote": "(BQ 답) 맺음 둘째 문장 방향은 좋지만 추상적임 — \"어떻게 잘 보이는 장면을 만들 것인가?\" 담당 브랜드·매장이 추구하는 스타일과 방식을 파악한 뒤 녹여낸다는 내용이 필요"
+    }
+   ]
+  }
+ ],
+ "answer_types": [
+  {
+   "id": "A",
+   "name": "여러 브랜드 · 여러 매장을 도는 라운딩형",
+   "logic": "옷이 놓이는 방식에 관심이 있어 VMD를 택했고, 한 브랜드가 아니라 디자인 언어가 다른 네 브랜드의 여러 매장을 다루는 라운딩이 그 관심을 가장 넓게 쓰는 자리다",
+   "user_facts": [
+    "UF3",
+    "UF1",
+    "UF4",
+    "UF8"
+   ],
+   "brand_facts": [
+    "네 브랜드의 상품 가치가 각각 소재 · 색 · 실루엣 · 흰색에 있음(common_threads.differences)",
+    "라운딩 업무(공고)"
+   ],
+   "r2_link": "R2의 '배치에 관심이 갔습니다' · '어떻게 놓으면 더 잘 팔릴까'를 '브랜드마다 다르게 놓는다'로 넓힌다. R2 끝의 '상품연출과 마네킨 착장'을 그대로 받아 이어 쓸 수 있다",
+   "r2_link_evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/handoff/CMD-HJ85.input.json#paragraph1_adopted_R2",
+     "quote": "건축물과 전시를 둘러보며 배치에 관심이 갔습니다."
+    },
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/handoff/CMD-HJ85.input.json#paragraph1_adopted_R2",
+     "quote": "매장을 구경하며 했던 '어떻게 놓으면 더 잘 팔릴까'라는 고민을 상품연출과 마네킨 착장으로 풀어 가겠습니다."
+    }
+   ],
+   "interview_risk": "'네 브랜드를 어떻게 다르게 연출하겠습니까?'에 답하려면 브랜드 사실을 직접 확인해 둬야 한다(본 적 없음). '라운딩이 뭔지 아느냐'에는 공고 업무로 답할 수 있다",
+   "persuasiveness": "높음",
+   "why": "'왜 이 부서'에 부서의 구조(여러 브랜드)로 답해, 본 적 없는 매장을 끌어오지 않아도 된다. 사용자 사실(배치 · 베이글 종류별 진열)과 바로 닿는다"
+  },
+  {
+   "id": "B",
+   "name": "브랜드 정체성을 국내 매장에 옮기는 해외패션형",
+   "logic": "해외 브랜드는 정체성과 매장 언어가 본사에서 정해져 오고, VMD는 그것을 국내 백화점 매장의 조건에 맞게 옮긴다. R2의 '브랜드의 컨셉에 맞게 꾸미는 일'이 가장 또렷하게 드러나는 곳이 해외패션이다",
+   "user_facts": [
+    "UF4",
+    "UF13",
+    "UF2"
+   ],
+   "brand_facts": [
+    "에르노 강남점 '레사 자연' 인테리어(단일 출처)",
+    "폴스미스 '매장마다 지역의 성격을 반영'",
+    "꾸레주 '기본 흰색 + 벤치 · 거울 피팅룸'"
+   ],
+   "r2_link": "R2의 'VMD를 알게 됐습니다' 문장에 있는 '브랜드의 컨셉에 맞게'를 이어받아 '해외 브랜드의 컨셉'으로 좁힌다 — 첫 단락과 연결이 가장 자연스럽다",
+   "r2_link_evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/handoff/CMD-HJ85.input.json#paragraph1_adopted_R2",
+     "quote": "그 뒤에야 매장을 브랜드의 컨셉에 맞게 꾸미는 VMD를 알게 됐습니다."
+    }
+   ],
+   "interview_risk": "'본사 가이드가 있는데 VMD가 하는 일은 무엇인가', '국내 매장에 맞춘다는 게 구체적으로 무엇인가'라는 추가 질문. 신세계인터내셔날의 실제 절차는 확인되지 않아, 단정하면 틀릴 수 있다",
+   "persuasiveness": "중상",
+   "why": "'왜 해외패션'에 정면으로 답한다. 다만 근거가 타사 사례와 브랜드 보도라 '그렇게 알고 있다' 수준으로 써야 한다"
+  },
+  {
+   "id": "C",
+   "name": "건축 공간감과 맞닿는 디자인 언어형",
+   "logic": "건축에서 배운 공간감이 실루엣 · 형태를 다루는 브랜드(엔폴드의 건축적 실루엣, 꾸레주의 간결한 형태와 흰색 · 크롬 매장)와 맞닿는다",
+   "user_facts": [
+    "UF3",
+    "UF10"
+   ],
+   "brand_facts": [
+    "엔폴드: 건축적 · 조각적 실루엣, 절제된 미니멀리즘",
+    "꾸레주: 흰색 · 크롬 · 거울 매장"
+   ],
+   "r2_link": "R2 첫 문장 '건축에서 배운 공간감'을 브랜드 쪽에서 다시 부른다",
+   "r2_link_evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/handoff/CMD-HJ85.input.json#paragraph1_adopted_R2",
+     "quote": "건축에서 배운 공간감과 패션에 대한 안목을 접목하려는 지원자 정혁주입니다."
+    }
+   ],
+   "interview_risk": "가장 높음. '엔폴드 옷을 입어 보거나 본 적 있느냐', '건축적 실루엣이 무슨 뜻이냐'. '건축적'은 판매처의 홍보 표현이고, 사용자는 제품을 본 적이 없다. 에르노 · 폴스미스(공고 제목의 두 브랜드)와는 이어지지 않는다",
+   "persuasiveness": "중하",
+   "why": "연결은 매끄럽지만 본 적 없는 제품을 아는 것처럼 읽히기 쉽다. 사용자가 실제로 찾아본 뒤(user_questions UQ2)에만 쓴다"
+  },
+  {
+   "id": "D",
+   "name": "시기 · 상품이 맞는 준비형",
+   "logic": "근무 기간 10~12월은 아우터 판매가 큰 철이고 담당 브랜드 에르노는 아우터가 중심이다. 의류 회사 성수기(12~2월)에 포장 · 발송 · 재고를 다뤄 본 경험이 그 시기와 겹친다",
+   "user_facts": [
+    "UF9",
+    "UF7"
+   ],
+   "brand_facts": [
+    "에르노: 나일론 · 다운 아우터",
+    "에르노 강남점 남성 단독 매장 2026-10 초 오픈(단일 출처)"
+   ],
+   "r2_link": "R2와 직접 이어지지 않는다 — '왜 이 부서'의 답이라기보다 '왜 지금 내가 맞는가'의 보조 근거",
+   "r2_link_evidence": [],
+   "interview_risk": "'아우터 시즌'은 일반 상식 수준 [추론]. '시기가 맞아서 지원했느냐'로 들리면 동기가 약해 보인다. 강남점 기사는 한 곳뿐이라 쓰려면 원문 확인 필요",
+   "persuasiveness": "중(보조로는 높음)",
+   "why": "동기 문장으로는 약하지만, A나 B 뒤에 한 문장으로 붙이면 공고의 '집기 발송 및 관리' · 기간 조건과 맞물린다"
+  },
+  {
+   "id": "E",
+   "name": "색 · 원단 · 디자인의 조화형",
+   "logic": "옷의 색 · 원단 · 디자인의 조화를 맞추는 감각이, 상품 가치가 소재(에르노 · 엔폴드) · 색(폴스미스) · 흰색과 광택(꾸레주)에 있는 브랜드의 마네킨 착장에 쓰인다",
+   "user_facts": [
+    "UF5",
+    "UF6"
+   ],
+   "brand_facts": [
+    "에르노 기술 소재",
+    "폴스미스 스트라이프 · 색",
+    "엔폴드 소재감",
+    "꾸레주 비닐 · 흰색"
+   ],
+   "r2_link": "R2 첫 문장 '패션에 대한 안목'을 구체로 바꾼다. R2 끝 '마네킨 착장'과 이어진다",
+   "r2_link_evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/handoff/CMD-HJ85.input.json#paragraph1_adopted_R2",
+     "quote": "건축에서 배운 공간감과 패션에 대한 안목을 접목하려는 지원자 정혁주입니다."
+    }
+   ],
+   "interview_risk": "'그 감각을 보여 줄 결과물이 있느냐'(VP 시안 없음). CMD-HJ59 배분에서 스타일링 감각은 문항 2 몫이라 겹칠 수 있다",
+   "persuasiveness": "중",
+   "why": "사용자 관점과 직접 맞지만, '왜 해외패션'보다 '왜 나'에 가깝다. 다른 문항과 나눠 쓸지 허브 판단이 필요하다"
+  },
+  {
+   "id": "F",
+   "name": "젊은 시선으로 해석형",
+   "logic": "브랜드 정체성은 지키되, 젊은 지원자의 시선으로 국내 고객에게 보이는 장면을 만든다",
+   "user_facts": [
+    "UF11",
+    "UF13"
+   ],
+   "brand_facts": [
+    "근거 없음 — 네 브랜드 이용 연령대 자료를 찾지 못함(사용자 주장)"
+   ],
+   "r2_link": "약함. R2에 연령 · 시선 이야기가 없다",
+   "r2_link_evidence": [],
+   "interview_risk": "높음. '우리 고객이 나이가 많다는 근거는?', '젊은 시선이 뭐냐'. 브랜드를 바꾸겠다는 말로 들릴 수 있다",
+   "persuasiveness": "낮음",
+   "why": "사용자 제안이 아직 검토 중이고 근거가 없다. 쓰려면 UQ5 답이 먼저 필요하다"
+  }
+ ],
+ "user_questions": [
+  {
+   "id": "UQ1",
+   "q": "VMD 공고 가운데 해외패션(이 네 브랜드) 공고를 고른 실제 이유가 있나요? 예: 공고가 열려 있어서 · 회사 · 브랜드 · 근무 조건 등. 그대로 말해 주셔도 됩니다.",
+   "why": "'왜 해외패션'의 동기를 지어내지 않기 위해. 답에 따라 A(부서 구조) · B(해외 브랜드) 중 무엇을 앞에 둘지 정해진다",
+   "blocks": [
+    "A",
+    "B"
+   ]
+  },
+  {
+   "id": "UQ2",
+   "q": "네 브랜드 중 공고 전에 이름이라도 알던 브랜드가 있나요? 공고를 보고 찾아본 것(공식 사이트 · SNS · 기사)이 있다면 무엇을 보고 어떤 점이 눈에 들어왔나요?",
+   "why": "직접 본 것과 화면으로 찾아본 것을 구분하기 위해. C · E는 이 답이 있어야 쓸 수 있다",
+   "blocks": [
+    "C",
+    "E"
+   ]
+  },
+  {
+   "id": "UQ3",
+   "q": "평소 다닌 백화점에 신세계백화점(강남점 · 본점 등)이 있나요? 있다면 해외 브랜드 층을 지나가 본 적은 있나요? (네 브랜드 매장을 봤는지는 묻지 않습니다)",
+   "why": "네 브랜드 매장은 대부분 신세계 · 백화점 안에 있다. '본 적 없음'을 지키면서 쓸 수 있는 장소 사실이 있는지 확인",
+   "blocks": [
+    "B"
+   ]
+  },
+  {
+   "id": "UQ4",
+   "q": "지원서를 내기 전에 강남점 등의 매장을 직접 가 볼 수 있나요? 다녀오면 본 것만 사실로 쓸 수 있습니다.",
+   "why": "지금은 브랜드 연출을 모두 기사로만 안다. 한 곳이라도 다녀오면 A · C의 면접 위험이 크게 준다",
+   "blocks": [
+    "A",
+    "C"
+   ]
+  },
+  {
+   "id": "UQ5",
+   "q": "'젊은 시선으로 해석' 맥락은 넣을까요? 넣는다면 브랜드 이용 연령대가 높다고 본 근거(본 것 · 들은 것)가 있나요?",
+   "why": "F의 근거가 사용자 주장뿐이라, 쓸지와 근거를 함께 확인",
+   "blocks": [
+    "F"
+   ]
+  }
+ ],
+ "recommend": [
+  {
+   "rank": 1,
+   "types": [
+    "A",
+    "B"
+   ],
+   "shape": "B로 '왜 해외패션'(R2의 '브랜드의 컨셉에 맞게'를 해외 브랜드로 좁힘) → A로 '왜 이 부서'(디자인 언어가 다른 여러 브랜드 · 매장) 순서. 브랜드 사실은 확인 수준이 가장 나은 것 하나씩만(예: 폴스미스 '매장마다 지역 반영', 꾸레주 '흰색 매장')",
+   "reason": "두 질문(왜 해외패션 / 왜 이 부서)에 각각 하나씩 답하고, 본 적 없는 매장 · 제품을 쓰지 않아도 된다. R2와 '브랜드의 컨셉' · '배치'로 두 번 이어진다. UQ1 답이 B와 어긋나면 A만 쓴다"
+  },
+  {
+   "rank": 2,
+   "types": [
+    "D"
+   ],
+   "shape": "1안 뒤에 붙이는 한 문장(10~12월 · 아우터 중심 에르노 · 의류 회사 성수기 경험)",
+   "reason": "동기를 대신하지 않고, 공고 조건(기간 · 집기 발송)에 맞는 준비를 보여 준다. 다만 문항 1 노력 칸(CMD-HJ59 구성 A의 A3)과 겹치면 한쪽만 쓴다"
+  }
+ ],
+ "diagnostics": {
+  "r2_to_p2_transition": {
+   "from": "R2 끝: 직무(VMD) 수준의 다짐 — '상품연출과 마네킨 착장으로 풀어 가겠습니다'",
+   "to": "둘째 단락: 해외패션 · 이 네 브랜드",
+   "judgement": "weak (구조상)",
+   "confidence": 0.7,
+   "evidence": [
+    {
+     "source": "cogito5170/gentleMonster@claude/clever-knuth-1dezlo@06a743f5f531d14057568071d906effd368530df:docs/portfolio/handoff/CMD-HJ85.input.json#paragraph1_adopted_R2",
+     "quote": "매장을 구경하며 했던 '어떻게 놓으면 더 잘 팔릴까'라는 고민을 상품연출과 마네킨 착장으로 풀어 가겠습니다."
+    }
+   ],
+   "note": "R2가 다짐으로 닫혀서, 둘째 단락이 '왜 해외패션'으로 좁히려면 다리가 필요하다. R2 안의 '브랜드의 컨셉'이 가장 가까운 다리다(B). 다짐 뒤에 동기가 다시 시작되는 순서 문제는 P1",
+   "priority": "P1"
+  },
+  "fact_guards": [
+   "네 브랜드 매장 · 제품을 본 것처럼 쓰지 않는다 — '보니', '접하며', '눈에 띈' 같은 서술 금지(UF12)",
+   "브랜드 사실은 모두 검색 요약 · 원문 미확인. 자기소개서에 넣는 하나는 사용자나 허브가 원문을 열어 확인",
+   "에르노 강남점 단독 매장(2026-10)은 단일 출처라 확인 전에는 쓰지 않는다",
+   "회사 부정 맥락(2026 2분기 패션 매출 감소)과 매출 수치는 쓰지 않는다",
+   "타 지원자 문장 · 경험(S1 등)은 쓰지 않았다"
+  ]
+ },
+ "summary": {
+  "access_note": "이 세션에서 WebFetch가 여전히 막혀(getaddrinfo ENOTFOUND www.hankyung.com) 모든 브랜드 · 회사 사실은 WebSearch 요약 기반이다. CMD-HJ52 조사에 2026 최신 검색(에르노 강남점 남성 매장, 엔폴드 이세탄 팝업, 꾸레주 2026 고성장 언급, 라운딩 공고)을 더했다",
+  "no_writing": "문단 · 문장은 쓰지 않았다. 유형 · 근거 · 위험 · 질문까지",
+  "confidence": 0.75
+ }
+}
