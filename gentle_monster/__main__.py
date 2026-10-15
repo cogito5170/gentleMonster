@@ -7,6 +7,10 @@
     example <gm|tb|ac|ae> [--name N] [same image flags] [--blueprint] [--full]
                               same, from a bundled synopsis (no model call)
     layout <name> [same image flags]   rebuild the layout + moodboard of an existing job (alias: moodboard)
+    revise <name> "<instruction>" [same image flags] [--no-verify]
+                              a follow-up on an existing job ("벽은 콘크리트 말고 나무로"): memory -> selected context
+                              -> Gemini -> code checks -> layout + moodboard rebuilt. An unclear correction is asked back.
+    memory <name> [--all]           what the job's memory holds (active records; --all: superseded and retracted too)
     blueprint <name> [--then-video] photoreal stills + A3 drawing sheet PDF (on request)
     video <name>                    30 s walkthrough MP4 (on request; run it in the background)
     site <name> [--rounds N]        frontend engine: the room as a web page, browser-judged, evolved
@@ -46,6 +50,9 @@ def main(argv=None) -> int:
         _imgs(a)
     for c in ("layout", "moodboard"):
         a = sub.add_parser(c); a.add_argument("name"); _imgs(a)
+    a = sub.add_parser("revise"); a.add_argument("name"); a.add_argument("instruction")
+    a.add_argument("--no-verify", action="store_true", help="skip the separate model call that checks the instruction"); _imgs(a)
+    a = sub.add_parser("memory"); a.add_argument("name"); a.add_argument("--all", action="store_true")
     for c in ("blueprint", "video", "status"):
         sub.add_parser(c).add_argument("name")
     sub.choices["blueprint"].add_argument("--then-video", action="store_true", help="render the MP4 right after")
@@ -69,6 +76,24 @@ def main(argv=None) -> int:
                 pipeline.video(name)
             print(f"=== 보고 ===\n작업 {name}: 시놉시스 · 레이아웃 PDF · 무드보드 PDF" + (" · 청사진" if a.full or a.blueprint else "") + (" · MP4" if a.full else "") + (" · 웹 페이지" if a.site else "") +
                   (f"\n청사진·영상이 필요하면: python3 -m gentle_monster blueprint {name} · video {name}" if not a.full else ""))
+        elif a.cmd == "revise":
+            r = pipeline.revise(a.name, a.instruction, verify_ask=False if a.no_verify else None)
+            if r["asked"]:
+                print("=== 보고 ===\n" + r["asked"])
+                return 0
+            _layout(a.name, a)
+            bad = [c for c in r["checks"] if c["verdict"] not in ("supported",)]
+            print(f"=== 보고 ===\n작업 {a.name}: 수정본 시놉시스 · 레이아웃 PDF · 무드보드 PDF (이전 판은 job.v*.json 에 남았다)"
+                  + "".join(f"\n- {'확인됨' if c['verdict'] == 'supported' else '확인 안 됨: ' + c['verdict']} ({c['by']}) {c['what']}" for c in r["checks"])
+                  + "".join(f"\n- {x}" for x in r["notes"]))
+            return 0 if not [c for c in bad if c["verdict"] in ("violated", "contradicted")] else 1
+        elif a.cmd == "memory":
+            from gentle_monster import memory
+            st = memory.open_job(a.name)
+            for r in st.all():
+                if a.all or r["status"] == "active":
+                    print(f"{r['id']:>4} {r['status']:<10} {r['kind']:<15} {r['turn'] or r['source'].get('ref', ''):<8} "
+                          f"{(r['key'] or ''):<12} {r['content'][:90]}" + (f"  -> {r['superseded_by']}" if r['superseded_by'] else ""))
         elif a.cmd in ("layout", "moodboard"):
             _layout(a.name, a)
         elif a.cmd == "blueprint":
