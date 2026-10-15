@@ -2,7 +2,7 @@
 
 작성일: 2026-10-15. 판형 **A4 가로**(이미지 `--ar 297:210`).
 젠틀몬스터 포트폴리오(SPA)의 흐름은 쓰지 않는다. 거기서 가져오는 것은 사진 · 스타일 기록 · 공간 작업 도구뿐이다.
-장면별 미드저니 프롬프트: [image_prompts.md](image_prompts.md). 쇼핑의 세 행위(보다 · 집다 · 챙기다) 컨셉: [see_pick_keep.md](see_pick_keep.md).
+장면별 미드저니 프롬프트: [image_prompts.md](image_prompts.md). 쇼핑의 세 행위(보다 · 집다 · 챙기다) 컨셉: [see_pick_keep.md](see_pick_keep.md). v3 (거꾸로 된 런웨이): [storyline_v3.md](storyline_v3.md).
 
 ## 방향 (지원자가 정함)
 
