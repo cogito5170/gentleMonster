@@ -1,0 +1,9 @@
+{
+  "request_sha256": "1cb678717d256891bd19e8e4d37603a48e50c90e92db80962adacce8ef496f1e",
+  "started": "2026-10-15T14:09:25.045908+00:00",
+  "status": "done",
+  "exit_code": 0,
+  "output_tail": "relay image 002-still-runway-cover — 스펙 → Codex(상세 프롬프트 + 생성)\n  codex 실행: codex exec --sandbox workspace-write --skip-git-repo-check -c features.image_generation=true …\n[ok] → .relay/tasks/002-still-runway-cover/image.png  (111.762s)",
+  "action": "image",
+  "finished": "2026-10-15T14:11:16.885851+00:00"
+}
