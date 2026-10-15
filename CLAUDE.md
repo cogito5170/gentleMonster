@@ -12,3 +12,10 @@
 - 둘이 만나는 곳: 청사진 표지처럼 렌더 데이터로 실사 이미지를 만들 때는 `python3 -m gentle_monster cover <작업>` 이
   스펙을 쓴다 (스킬 문서의 "청사진 표지").
 - VM 이 응답하지 않거나 Codex 가 실패하면 다른 방법으로 이미지를 만들지 말고, `response.json` 의 이유를 사용자에게 그대로 전한다.
+
+## 워크스페이스 (2026-10-15)
+
+- 이 저장소는 effiency 와 함께 워크스페이스 `workspace:gentlemonster-effiency` 로 묶여 있다. 세션 구성, 허브(클라우드 `gmg-net`)와
+  사용자 VM(Codex · agy, `relay inbox`)의 역할, **context biasing 방지 정책**은 effiency `docs/workspace.md` 를 따른다.
+- 요지: 세션 사이에는 대화가 아니라 파일을 넘긴다. 넘기는 줄에는 출처(사용자 · 도구출력 · 추론·미검증)를 단다.
+  확정은 파일에서 읽는다. 도메인이나 역할이 바뀌면 앞 작업의 결정을 적용하지 않는다.
