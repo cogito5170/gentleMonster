@@ -222,6 +222,9 @@ def build(store: "M.Store", instruction: str, *, fixed_tokens: int = 0, sources=
                             + "; ".join(f"[{b['by']}] {signal['key']} = {b['value']}" for b in signal["backing"])
                             + ". Displeasure is not evidence: do not change it. Show this and ask one question -- which part is "
                             "wrong, and what should it be?")
+    elif case == "usability":
+        sec["treat"].append("- The user says something is hard to use but not what or why. Do not apologise and do not change anything "
+                            "to please them. Say in one line which part you think they mean, and ask what made it hard and why.")
     elif case == "unclear":
         sec["treat"].append("- The user objects, but to what is unclear" + ("" if latest else " (nothing has been made yet)")
                             + ". Do not revise anything. Ask one short question: what should change, and how?")

@@ -269,6 +269,11 @@ ok("USER CORRECTIONS" not in C.build(s, "다음 안 보여줘", turn=e["turn"])[
 ok(M.classify("틀렸어", s)["case"] == "unclear" and M.classify("고쳐", store())["case"] == "unclear",
    "no target, or nothing made yet: ask once")
 ok(M.classify("벽은 콘크리트 말고 나무로", s)["case"] == "correction", "a new value is a correction, applied as before")
+ok(M.classify("이거 너무 헷갈려", s)["case"] != "usability" and M.classify("쓰기 불편해", s)["case"] == "usability",
+   "'불편해' with no reason asks why; with a reason ('너무') it is not held back")
+e = s.ingest_user("쓰기 불편해")
+U = C.build(s, "쓰기 불편해", turn=e["turn"])["text"]
+ok("ask what made it hard and why" in U and "USER CORRECTIONS" not in U, "a usability complaint: nothing changes, the model asks what and why")
 
 print("\n" + ("전부 통과" if not FAIL else f"실패 {len(FAIL)}: " + "; ".join(FAIL)))
 sys.exit(1 if FAIL else 0)

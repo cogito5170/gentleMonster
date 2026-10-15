@@ -183,11 +183,14 @@ def extract(text: str) -> "list[dict]":
 #   correction   a new value is given ("A 말고 B", a slot)           -> apply it (ingest_user already does)
 #   bare         an evaluation with no reason ("고쳐", "재미없어")    -> self-diagnose the latest output, say the assumption
 #   unsupported  "X is wrong" about a value a user statement or a source backs, with no new value -> keep it, show why, ask
+#   usability    "불편해", "헷갈려" with no reason                    -> change nothing; ask what and why (user rule 2026-10-15)
 #   unclear      nothing to revise yet, or a dispute/pointer with no target ("틀렸어", "이 부분")  -> ask once
 DISSATISFIED = re.compile(r"고쳐|다시\s*(?:해|써|만들|짜|작성)|별로|재미\s*없|마음에\s*안|맘에\s*안|이상해|어색|밋밋|약해|아쉬|구려|부족해|싫어|"
                           r"\bredo\b|fix (?:it|this)|not good|boring", re.I)
 DISPUTE = re.compile(r"틀렸|틀린|틀려|아니잖|잘못|wrong|that's not|that is not", re.I)
 DEICTIC = re.compile(r"(?:이|그|저)\s*부분|여기|거기|저기|(?<![가-힣])(?:이거|그거|저거|이것|그것)(?![가-힣]*(?:로|으로))")
+USABILITY = re.compile(r"불편|어렵|어려워|복잡|헷갈|못\s*찾|모르겠|답답|안\s*돼|안\s*되|쓰기\s*힘들|confusing|hard to use", re.I)
+REASON = re.compile(r"때문|이라서|라서|어서|아서|해서|니까|너무|말고|대신|보다|안\s*보|작아|커서|길어|짧아|많아|because|too ", re.I)
 MENTIONS = dict(SURFACES, **{"폭": "layout.W", "가로": "layout.W", "너비": "layout.W", "깊이": "layout.D", "세로": "layout.D",
                              "천장고": "layout.H", "층고": "layout.H", "높이": "layout.H", "조명": "room.light", "브랜드": "brand"})
 TERSE = 12                                                # non-space characters: "고쳐", "마음에 안 들어"
@@ -199,6 +202,9 @@ def classify(text: str, store: "Store | None" = None, sources=(), exclude_turn: 
     out = {"case": "none", "key": None, "backing": []}
     if extract(t) or correction_parts(t):
         out["case"] = "correction"
+        return out
+    if USABILITY.search(t) and not REASON.search(t):
+        out["case"] = "usability"                        # do not bend toward pleasing: ask what is hard and why
         return out
     dispute, unhappy = DISPUTE.search(t), DISSATISFIED.search(t)
     if not (dispute or unhappy):
