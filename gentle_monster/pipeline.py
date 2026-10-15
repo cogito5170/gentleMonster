@@ -52,24 +52,140 @@ def save_job(name: str, job: dict) -> Path:
     return p
 
 
+def _sha(job: dict) -> str:
+    import hashlib
+    return hashlib.sha256(json.dumps(job, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:12]
+
+
+def _record_draft(store, job: dict, by: str, log=print) -> None:
+    """The draft goes into memory as what it is: a design proposal (a model's output, or a bundled example someone
+    wrote) -- model_inference either way, never a fact. What code measured about it (spec.check, the user's
+    settled slots) goes in as source facts."""
+    from gentle_monster import context, verify
+    sha = _sha(job)
+    kind, src = "model_inference", ({"type": "model", "ref": by} if by.startswith("model") else {"type": "file", "ref": by})
+    L, R = job["layout"], job["room"]
+    slots = [{"key": f"layout.{k}", "value": float(L[k])} for k in ("W", "D", "H")] + \
+            [{"key": f"room.{k}", "value": R[k]} for k in ("floor", "wall", "ceiling", "light")] + [{"key": "brand", "value": job["brand"]}]
+    old = [r["id"] for r in store.active() if (r["key"] or "").startswith(("draft", "check."))]
+    d = store.put(kind, f"draft {sha}: {job['brand']} -- {job['title']}; {L['W']} x {L['D']} x {L['H']} m; floor {R['floor']}, "
+                  f"wall {R['wall']}, ceiling {R['ceiling']}, light {R['light']}. {job.get('line', '')}", src, key="draft", slots=slots, draft=sha)
+    for i, w in enumerate(job.get("why", [])):
+        store.put(kind, f"design reason: {w.get('t', '')} -- {w.get('d', '')}", src, key=f"draft.why.{i}", slots=[], draft=sha)
+    store.supersede(old, d, why="a newer draft")
+    for f in context.job_facts(job, ref=f"job.json@{sha}"):
+        if f["key"] == "check.layout":
+            store.put("source_fact", f["content"], {"type": "code", "ref": f"spec.check@{sha}"}, key="check.layout", value=f["value"], draft=sha)
+    for c in verify.code_check(job, store):
+        store.put("source_fact", f"code check of draft {sha}: user {c['key']} = {c['want']} ({c['turn']}) -> draft has {c['got']!r}: {c['verdict']}",
+                  {"type": "code", "ref": f"verify.code_check@{sha}"}, key=f"check.{c['key']}", value=c["verdict"], about=c["id"], draft=sha)
+    store.turn("model", f"[draft {sha} saved to job.json by {by}]")
+
+
 def synopsis(name: str, brief: str = "", brand: str = "", example: str = "", ask=None, log=print) -> dict:
-    """Step 1. `example` uses a bundled, already-checked synopsis (no model call)."""
+    """Step 1. `example` uses a bundled, already-checked synopsis (no model call).
+    The brief is the first user turn of the job's memory (out/<job>/memory.jsonl); the draft is recorded as a model inference."""
+    from gentle_monster import memory, verify
+    store = memory.open_job(name)
     if example:
         ex = spec.examples()
         if example not in ex:
             raise KeyError(f"no bundled example {example!r}; have: {', '.join(ex)}")
-        job = ex[example]
+        job, by = ex[example], f"examples/{example}.json"
     else:
-        from gentle_monster import synopsis as SY
-        r = SY.generate(brief, brand=brand, ask=ask, log=log)
+        from gentle_monster import context, llm, synopsis as SY
+        store.ingest_user(brief + (f" (brand: {brand})" if brand else ""))
+        llm.LAST.clear()
+        r = SY.generate(brief, brand=brand, ask=ask, log=log, checks=lambda j: verify.problems(j, store))
+        context.write_trace(paths.job_dir(name) / "context_trace.jsonl",
+                            {"action": "make", "tokens": {"total_est": context.estimate_tokens(SY.prompt(brief, brand))}},
+                            rounds=r["rounds"], problems=len(r["problems"]), llm=dict(llm.LAST))
         if not r["job"]:
             raise RuntimeError("the synopsis did not pass the layout check after %d rounds:\n- " % r["rounds"] + "\n- ".join(r["problems"][:12]))
-        job = r["job"]
+        job, by = r["job"], "model:" + (llm.LAST.get("model") or ("ask" if ask else "gemini"))
     p = save_job(name, job)
+    _record_draft(store, job, by, log)
     _out(p.parent / "synopsis.md", log)
     d, where, _ = spec.clearance(job["layout"])
     log(f"[synopsis] {job['brand']} — {job['title']} · {job['layout']['W']} x {job['layout']['D']} m · path clearance {d:.2f} m (nearest: {where})")
     return job
+
+
+def _report_md(job: dict, checks: "list[dict]", notes: "list[str]") -> str:
+    out = ["", "## Checked against your instructions"]
+    sym = {"supported": "OK", "violated": "NOT MET", "contradicted": "NOT MET", "insufficient": "NOT SHOWN", "unchecked": "NOT CHECKED"}
+    for c in checks:
+        out.append(f"- {sym.get(c['verdict'], c['verdict'])} ({c['by']}) {c['what']}" + (f" -- {c['evidence']}" if c.get("evidence") else ""))
+    out += [f"- {n}" for n in notes]
+    return "\n".join(out) + "\n"
+
+
+def revise(name: str, instruction: str, ask=None, verify_ask=None, log=print) -> dict:
+    """A follow-up on an existing job ("벽은 콘크리트 말고 나무로"). The instruction goes into the job's memory,
+    corrections supersede what they replace, and the model gets context.build's selection -- not the conversation.
+
+    Returns {'job', 'asked', 'checks', 'notes', 'trace'}. If the correction's scope is unclear nothing is
+    generated: asked = the question for the user (no model call). verify_ask: the separate verification call
+    (default: Gemini at temperature 0 when a key exists; False skips it)."""
+    from gentle_monster import context, llm, memory, synopsis as SY, verify
+    job = load_job(name)
+    store = memory.open_job(name)
+    if not store.recs:                                      # a job made before memory existed: its draft is a model's output
+        _record_draft(store, job, "model:unknown (job made before memory)", log)
+    sha = _sha(job)
+    eff = store.ingest_user(instruction)
+    trace_path = paths.job_dir(name) / "context_trace.jsonl"
+    if eff["ambiguous"]:
+        a = eff["ambiguous"][0]
+        opts = "; ".join(f"{store.get(c)['content']} ({store.get(c)['turn']})" for c in a["candidates"])
+        q = f"정정 범위가 불분명하다 -- \"{instruction}\" 가 어느 것을 바꾸는지 모르겠다: {opts}. 어느 쪽인지(또는 전부인지) 말해 달라. 아무것도 바꾸지 않았다."
+        store.turn("system", q)
+        context.write_trace(trace_path, {"action": "revise", "turn": eff["turn"], "asked": True, "candidates": a["candidates"]})
+        log("[revise] " + q)
+        return {"job": job, "asked": q, "checks": [], "notes": [], "trace": None}
+    facts = context.job_facts(job, ref=f"job.json@{sha}")
+    fixed = context.estimate_tokens(SY.revise_prompt("", job))
+    ctx = context.build(store, instruction, fixed_tokens=fixed, sources=facts, turn=eff["turn"], draft_in_frame=sha)
+    llm.LAST.clear()
+    try:
+        r = SY.generate("", ask=ask, log=log, base=SY.revise_prompt(ctx["text"], job), checks=lambda j: verify.problems(j, store))
+    except Exception as e:                                  # the trace still says what would have been sent, and why it failed
+        context.write_trace(trace_path, ctx["trace"], action="revise", error=f"{type(e).__name__}")
+        raise
+    used = dict(llm.LAST)
+    context.write_trace(trace_path, ctx["trace"], action="revise", rounds=r["rounds"], problems=len(r["problems"]), llm=used)
+    log(f"[context] {ctx['trace']['tokens']['total_est']} tokens est. (limit {ctx['trace']['budget']['limit']}) · "
+        f"{len(ctx['trace']['selected'])} records in · {len(ctx['trace']['excluded'])} left out · {len(ctx['trace']['redacted'])} cut")
+    if not r["job"]:
+        raise RuntimeError("the revision did not pass the checks after %d rounds:\n- " % r["rounds"] + "\n- ".join(r["problems"][:12]))
+    new = r["job"]
+    d = paths.job_dir(name)
+    n = 1 + len(list(d.glob("job.v*.json")))
+    (d / f"job.v{n}.json").write_text(json.dumps(job, ensure_ascii=False, indent=1), encoding="utf-8")   # the old draft is kept
+    p = save_job(name, new)
+    _record_draft(store, new, "model:" + (used.get("model") or ("ask" if ask else "gemini")), log)
+
+    checks = [dict(c, what=f"{c['key']} = {c['want']} ({c['turn']}) -> {c['got']!r}") for c in verify.code_check(new, store)]
+    notes = [f"not in memory, left as it was: {g}" for g in ([ctx["trace"]["gap"]] if ctx["trace"].get("gap") else [])]
+    notes += [f"a correction named something not in memory: \"{u}\"" for u in eff["unmatched"]]
+    if verify_ask is None and llm.key():
+        verify_ask = lambda q: llm.ask(q, temperature=0)    # noqa: E731
+    if verify_ask:
+        v = verify.model_check(instruction, json.dumps(new, ensure_ascii=False, separators=(",", ":")),
+                               f"The revised design follows this instruction: {instruction}", verify_ask)
+        checks.append(dict(v, what=f"the instruction ({eff['turn']}) as a whole"))
+        store.put("model_inference", f"verifier on draft {_sha(new)}: {v['verdict']}", {"type": "model", "ref": "verify.model_check"},
+                  key="check.verifier")
+    else:
+        notes.append("the instruction as a whole was not checked by a separate model call (no model available)")
+    with open(p.parent / "synopsis.md", "a", encoding="utf-8") as f:
+        f.write(_report_md(new, checks, notes))
+    _out(p.parent / "synopsis.md", log)
+    for c in checks:
+        log(f"[check] {c['verdict']} ({c['by']}) {c['what']}")
+    for x in notes:
+        log(f"[check] {x}")
+    return {"job": new, "asked": "", "checks": checks, "notes": notes, "trace": ctx["trace"]}
 
 
 def _keep(name: str, files, sub: str, log=print) -> "list[str]":

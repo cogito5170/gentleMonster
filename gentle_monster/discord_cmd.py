@@ -14,6 +14,8 @@ The text is read as natural language by gentle_monster.intent (no model call):
     !젠몬 (사진·레퍼런스 첨부) 이 레이아웃처럼 무드보드 다시
     !젠몬 <브리프>, 청사진이랑 영상까지 전부
     !젠몬 목록 · !젠몬 상태 <작업>
+    !젠몬 방금 거 벽은 콘크리트 말고 나무로   있는 작업을 고친다 (작업의 기억을 거쳐 -- 정정이 옛 말보다 앞선다)
+    !젠몬 기억                            작업의 기억: 누가 말했나(사용자 · 원자료 · 모델) · 아직 유효한가
 
 Attached images (run(..., images=[paths])) are passed as --image; the child process measures which
 are photos and which are reference layouts (photos.split).
@@ -35,6 +37,7 @@ HELP = (f"`{PREFIX} <브리프>` — 공간 **시놉시스**(Gemini, 코드가 �
         f"`{PREFIX} 탬버린즈 예제로 무드보드` — 들어 있는 시놉시스(젠틀몬스터·탬버린즈·아크네·이솝). 모델 호출 없음.\n"
         f"`{PREFIX} 방금 거 청사진` · `{PREFIX} 방금 거 영상도` — 요청 시: 실사 렌더 + A3 도면 / 동선을 걷는 30초 MP4(수십 분).\n"
         f"`{PREFIX} 방금 거 웹 사이트로` — 요청 시: 공간을 웹 페이지로(스크롤 = 동선). 브라우저 심판이 대비·폰 폭·접근성을 재고, 나아졌다고 잰 변경만 받는다(se_new 정책).\n"
+        f"`{PREFIX} 방금 거 벽은 콘크리트 말고 나무로` — 있는 작업을 고친다. 정정은 옛 말을 대체하고(지우지 않고 남긴다), 모델에는 대화 전체가 아니라 고른 맥락만 간다. 범위가 불분명한 정정은 되묻는다. `{PREFIX} 기억` 으로 무엇이 남았는지 본다.\n"
         f"`{PREFIX} 방금 거 이 사진들로 무드보드 다시` · `{PREFIX} <브리프>, 청사진이랑 영상까지 전부` · `{PREFIX} 목록` · `{PREFIX} 상태 <작업>`.\n"
         "치수는 가정이고 실측이 아니다. 청사진·영상은 요청이 있을 때만 만든다.")
 
@@ -150,6 +153,28 @@ def run(text, runner=None, allow_write: bool = True, images=None):
                 + ("" if "video" in steps else f"청사진·영상은 요청 시에만: `{PREFIX} 방금 거 청사진` · `{PREFIX} 방금 거 영상`\n") + _launch(runner, argv, name))
     if not job or not _job(job):
         return f"작업을 못 찾았다. 먼저 `{PREFIX} <브리프>` 로 시놉시스를 만든다 (`{PREFIX} 목록`)."
+    if act == "memory":
+        from gentle_monster import memory
+        st = memory.open_job(job)
+        act_ = st.active()
+        by = {}
+        for r in act_:
+            by[r["kind"]] = by.get(r["kind"], 0) + 1
+        gone = [r for r in st.all() if r["status"] != "active"]
+        lines = [f"`{job}` 기억: 유효 {len(act_)} (" + " · ".join(f"{k} {v}" for k, v in sorted(by.items())) + f") · 대체·철회 {len(gone)}"]
+        lines += [f"- {r['key']} = {r['value']} ({r['turn']})" for r in act_ if r["kind"] == "user_stated" and r["key"]]
+        lines += [f"- ~~{r['content'][:60]}~~ -> {r['superseded_by']}" for r in gone if r["kind"] == "user_stated"][-5:]
+        return "\n".join(lines)
+    if act == "revise":
+        from gentle_monster import memory
+        st = memory.open_job(job)
+        amb = st.ambiguity(rest)
+        if amb:                                                    # ask now; nothing is launched, nothing is overwritten
+            st.ingest_user(rest)
+            return (f"작업 `{job}` — 정정 범위가 불분명하다: \"{rest}\" 가 어느 것을 바꾸는지 모르겠다.\n"
+                    + "\n".join(f"- {c['content']} ({c['turn']})" for c in amb) + f"\n어느 쪽인지(또는 전부인지) 말해 달라 -- 예: `{PREFIX} 방금 거 벽은 나무로`. 아무것도 바꾸지 않았다.")
+        return (f"작업 `{job}` — 수정: 기억 → 고른 맥락 → 시놉시스 → 코드 검사 → 레이아웃·무드보드 다시. 2~3분.\n{why}{seen}"
+                + _launch(runner, py + ["revise", job, rest] + img, f"gentle_monster revise {job}"))
     if act == "layout":
         return f"작업 `{job}` — {_KO['layout']}.\n{why}{seen}" + _launch(runner, py + ["layout", job] + img, f"gentle_monster layout {job}")
     if act == "site":
