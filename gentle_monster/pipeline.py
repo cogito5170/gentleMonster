@@ -251,12 +251,14 @@ def layout(name: str, photos=(), refs=(), images=(), text: str = "", moodboard: 
 
 
 def blueprint(name: str, log=print) -> dict:
-    """Step 3a (on request). Photoreal stills + A3 drawing sheet."""
-    from gentle_monster import documents, render
+    """Step 3a (on request). Photoreal stills + A3 drawing sheet; a Codex cover (cover.png, `cover` command) goes in front when there is one."""
+    from gentle_monster import cover, documents, render
     job = load_job(name)
     t = time.time()
     rs = render.stills(job, paths.job_dir(name))
-    r = documents.blueprint_pdf(job, paths.job_dir(name), rs)
+    cv = cover.find(name)
+    r = documents.blueprint_pdf(job, paths.job_dir(name), rs, cover=cv)
+    log(f"[blueprint] Codex 커버 {'포함: ' + _rel(cv) if cv else '없음 -- python3 -m gentle_monster cover ' + name + ' 로 요청'}")
     for f in (r["pdf"], rs["eye"], rs["cut"]):
         _out(f, log)
     log(f"[blueprint] {time.time() - t:.0f} s")

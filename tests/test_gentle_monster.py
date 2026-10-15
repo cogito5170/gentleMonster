@@ -236,6 +236,26 @@ for n, v in zip(("GEMINI_API_KEY", "GOOGLE_API_KEY"), _k):
     if v:
         os.environ[n] = v
 
+print("\n== blueprint cover: the three.js scene + sheet data as a Codex image spec ==")
+from gentle_monster import cover  # noqa: E402
+for ex, j in spec.examples().items():
+    sp = cover.spec(j)
+    ok(set(sp) <= {"subject", "purpose", "style", "mood", "composition", "palette", "lighting", "text", "size", "avoid", "notes"}
+       and all(len(" ".join(v) if isinstance(v, list) else str(v)) <= 600 for v in sp.values()),
+       f"{ex}: the spec uses only the VM's image-spec fields, each within 600 characters")
+    hero = next((i for i in j["layout"]["items"] if i.get("hero")), None)
+    ok(not hero or hero["label"] in sp["composition"], f"{ex}: the hero is in the frame the spec describes")
+g = spec.examples()["gm"]
+c = cover.camera(g)
+ok(abs(c["pos"][0] - 10) < .1 and c["pos"][1] < 3.6 and c["f"][1] > .99, "gm: the cover camera stands in the entrance gap, looking into the void (the eye still's view)")
+ok("[6개" in cover.spec(g)["composition"], "six conifers are one line, not six")
+td = Path(임시) / "_tasks"
+d1, d2 = cover.request("t_cv", g, tasks=td), cover.request("t_cv", g, tasks=td)
+ok(d1.name == "001-cover-t_cv" and d2.name == "002-cover-t_cv" and json.loads((d1 / "request.json").read_text())["action"] == "image",
+   "each cover request is a new numbered task with an image request")
+(d1 / "image.png").write_bytes(b"\x89PNG fake")
+ok(cover.find("t_cv") is None and cover.attach("t_cv", d1) == cover.file("t_cv") and cover.find("t_cv"), "attach takes the task folder's image.png as the job's cover")
+
 print("\n== browser parts (layout PDF, stills) ==")
 try:
     from playwright.sync_api import sync_playwright
@@ -265,6 +285,9 @@ if browser:
     from gentle_monster import render
     rs = render.stills(spec.examples()["tb"], paths.job_dir("t_still"), views=("cut",), w=480, h=300)
     ok(Path(rs["cut"]).stat().st_size > 5000, "the photoreal scene renders a cutaway still without errors")
+    from gentle_monster import documents
+    bp = Path(documents.blueprint_pdf(spec.examples()["tb"], paths.job_dir("t_still"), {"eye": rs["cut"], "cut": rs["cut"]}, cover=rs["cut"])["pdf"]).read_bytes()
+    ok(bp.count(b"/Type /Page") - bp.count(b"/Type /Pages") == 2, "with a cover the blueprint is cover + sheet (two pages)")
 
 shutil.rmtree(임시, ignore_errors=True)
 print(f"\n{'실패 ' + str(len(FAIL)) if FAIL else '전부 통과'}")

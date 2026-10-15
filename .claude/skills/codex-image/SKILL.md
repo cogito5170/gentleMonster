@@ -65,3 +65,16 @@ cat .relay/tasks/$T/response.json
 
 같은 스펙을 다시 생성하려면 `relay request` 를 다시 실행한다 (`id` 가 바뀌어 새 요청이 된다).
 스펙을 고친 경우도 마찬가지로 request.json 을 새로 쓴다.
+
+## 청사진 표지 (실사 렌더 커버)
+
+청사진의 실사 커버는 스펙을 손으로 쓰지 않는다. `gentle_monster/cover.py` 가 three.js 장면 데이터와 도면 데이터로 쓴다:
+
+```bash
+python3 -m gentle_monster cover <작업|gm|tb|ac|ae>     # .relay/tasks/<번호>-cover-<작업>/ 에 스펙 + 요청
+# 위처럼 commit + push, 결과를 받은 뒤
+python3 -m gentle_monster cover <작업> --attach .relay/tasks/<번호>-cover-<작업>
+python3 -m gentle_monster blueprint <작업>             # 1쪽 Codex 커버 + 2쪽 three.js 도면
+```
+
+`--print` 는 스펙만 보여 준다. three.js 렌더는 그대로 남고, 커버가 없으면 청사진은 예전처럼 한 장이다.

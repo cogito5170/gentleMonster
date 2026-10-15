@@ -12,6 +12,10 @@
                               -> Gemini -> code checks -> layout + moodboard rebuilt. An unclear correction is asked back.
     memory <name> [--all]           what the job's memory holds (active records; --all: superseded and retracted too)
     blueprint <name> [--then-video] photoreal stills + A3 drawing sheet PDF (on request)
+    cover <name|gm|tb|ac|ae> [--attach PATH] [--print]
+                                    the blueprint's Codex cover: the three.js scene + sheet data as an image spec in
+                                    .relay/tasks/ (push it; the VM inbox runs Codex). --attach <task folder|png> makes it
+                                    the job's cover.png, which the next blueprint puts in front of the sheet
     video <name>                    30 s walkthrough MP4 (on request; run it in the background)
     site <name> [--rounds N]        frontend engine: the room as a web page, browser-judged, evolved
                                     under the se_new policy (ACCEPT only if V holds and J rose)
@@ -56,6 +60,8 @@ def main(argv=None) -> int:
     for c in ("blueprint", "video", "status"):
         sub.add_parser(c).add_argument("name")
     sub.choices["blueprint"].add_argument("--then-video", action="store_true", help="render the MP4 right after")
+    a = sub.add_parser("cover"); a.add_argument("name"); a.add_argument("--attach", default="")
+    a.add_argument("--print", action="store_true", help="print the image spec only")
     a = sub.add_parser("site"); a.add_argument("name"); a.add_argument("--rounds", type=int, default=6)
     sub.add_parser("list")
     sub.add_parser("check").add_argument("file")
@@ -100,6 +106,20 @@ def main(argv=None) -> int:
             pipeline.blueprint(a.name)
             if a.then_video:
                 pipeline.video(a.name)
+        elif a.cmd == "cover":
+            from gentle_monster import cover
+            if a.attach:
+                print(f"=== 보고 ===\n작업 {a.name}: Codex 커버 → {cover.attach(a.name, a.attach)} (다음 blueprint 의 첫 장)")
+                return 0
+            job = pipeline.load_job(a.name) if pipeline.job_path(a.name).is_file() or a.name not in spec.examples() else spec.examples()[a.name]
+            if a.print:
+                print(json.dumps(cover.spec(job), ensure_ascii=False, indent=2))
+                return 0
+            d = cover.request(a.name, job)
+            t = d.relative_to(paths.REPO)
+            print(f"=== 보고 ===\n작업 {a.name}: Codex 커버 요청 {t}\n"
+                  f"git add {t} && git commit -m 'relay request {d.name}: image' && git push  (claude/* 브랜치)\n"
+                  f"VM 이 image.png 를 올리면: python3 -m gentle_monster cover {a.name} --attach {t}")
         elif a.cmd == "video":
             pipeline.video(a.name)
         elif a.cmd == "site":

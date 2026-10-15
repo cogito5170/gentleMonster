@@ -139,12 +139,15 @@ table{{width:100%;border-collapse:collapse;font-size:5.8pt}} td{{padding:.3mm 0}
     return {"pdf": pdf, "plan": plan_png, "preview": str(out_dir / "layout_preview.png"), "missing_photos": missing}
 
 
-def blueprint_pdf(job: dict, out_dir, renders: dict) -> "dict[str, str]":
-    """<on request> A3-landscape drawing sheet: plan | eye-level + cutaway renders | title block, intent, area programme."""
+def blueprint_pdf(job: dict, out_dir, renders: dict, cover=None) -> "dict[str, str]":
+    """<on request> A3-landscape drawing sheet: plan | eye-level + cutaway renders | title block, intent, area programme.
+    With `cover` (a Codex photoreal render of the same room, gentle_monster/cover.py) the sheet gets a full-bleed page 1 in front."""
     out_dir = Path(out_dir)
     plan_png, area = plan(job, out_dir / "plan.png")
     L = job["layout"]; W, D, H = L["W"], L["D"], L["H"]
     rel = lambda p: Path(p).resolve().as_uri()
+    cv = (f'<div class="cv"><img src="{rel(cover)}" alt="cover"><div class="tb"><span>{e(job["brand"])} · blueprint</span><b>{e(job["title"])}</b>'
+          f'<i>{e(job.get("subtitle", ""))}</i><span>Photoreal concept render (Codex) of the drawn plan. Not built, dimensions assumed</span></div></div>') if cover else ""
     rows = "".join(f'<tr><td>{e(k)}</td><td>{v:.1f}</td><td>{100 * v / (W * D):.0f}%</td><td><i style="width:{100 * v / (W * D):.1f}%"></i></td></tr>' for k, v in area.items())
     why = "".join(f'<li><b>{e(w["t"])}</b> {e(w["d"])}</li>' for w in job["why"])
     doc = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{e(job['title'])} blueprint</title><style>
@@ -153,13 +156,16 @@ html,body{{margin:0;background:#fff;color:#15191b;font-family:{FONT}}}
 .sh{{width:420mm;height:297mm;display:grid;grid-template-columns:1.25fr .95fr .8fr;--a:{e(job['accent'])}}}
 .pl{{padding:8mm;display:flex;align-items:center;justify-content:center;border-right:.6pt solid #15191b}} .pl img{{max-width:100%;max-height:100%}}
 .rd{{display:grid;grid-template-rows:1fr 1fr;border-right:.6pt solid #15191b;min-width:0}} .rd figure{{margin:0;display:flex;flex-direction:column;min-height:0;border-bottom:.4pt solid #c5cdd1}}
+.cv{{width:420mm;height:297mm;position:relative;overflow:hidden;break-after:page;background:#000}} .cv img{{width:100%;height:100%;object-fit:cover;display:block}}
+.cv .tb{{position:absolute;left:12mm;bottom:11mm;color:#f4f4ef;max-width:220mm;text-shadow:0 0 6mm rgba(0,0,0,.55)}} .cv .tb b{{display:block;font-size:30pt;letter-spacing:-.02em;line-height:1;margin:2mm 0}}
+.cv .tb span{{font-size:6.6pt;letter-spacing:.14em;text-transform:uppercase;opacity:.85}} .cv .tb i{{display:block;font-size:9pt;margin-top:2mm}}
 .rd img{{flex:1;min-height:0;width:100%;object-fit:cover}} figcaption{{font-size:6pt;color:#5b656b;padding:1.4mm 3mm}}
 .sd{{display:grid;grid-template-rows:auto 1fr auto;font-size:6.6pt;line-height:1.45}} .sd>*{{padding:5mm;border-bottom:.4pt solid #c5cdd1}}
 .no{{font-weight:700;font-size:15pt;color:var(--a)}} h2{{font-size:14pt;margin:2mm 0 1mm;line-height:1}} .sub{{font-style:italic;color:#5b656b;margin:0 0 3mm}}
 dl{{display:grid;grid-template-columns:auto 1fr;gap:.6mm 3mm;margin:0}} dt{{color:#5b656b;text-transform:uppercase;letter-spacing:.08em;font-size:5.6pt}} dd{{margin:0}}
 h3{{font-size:5.8pt;letter-spacing:.16em;text-transform:uppercase;margin:0 0 2mm}} ol{{margin:0;padding-left:4mm;display:grid;gap:1.8mm;color:#5b656b}} li b{{color:#15191b;font-weight:600}}
 table{{width:100%;border-collapse:collapse}} td{{padding:.4mm 1mm}} td:nth-child(2),td:nth-child(3){{text-align:right}} td i{{display:block;height:1.6mm;background:var(--a)}}
-</style></head><body><div class="sh">
+</style></head><body>{cv}<div class="sh">
 <div class="pl"><img src="{rel(plan_png)}" alt="plan"></div>
 <div class="rd"><figure><img src="{rel(renders['eye'])}" alt=""><figcaption>Eye level on the circulation</figcaption></figure><figure><img src="{rel(renders['cut'])}" alt=""><figcaption>Cutaway, ceiling and front wall removed</figcaption></figure></div>
 <div class="sd"><div><div class="no">{e(job['brand'])}</div><h2>{e(job['title'])}</h2><p class="sub">{e(job.get('subtitle', ''))}</p>
