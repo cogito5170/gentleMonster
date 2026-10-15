@@ -7,3 +7,5 @@ __pycache__/
 # relay 컨텍스트 보관소: 설정만 올리고 보관된 대화는 이 기계에만 둔다
 .relay/*
 !.relay/config.toml
+# Codex 이미지 요청과 결과 (VM 인박스가 이 폴더로 주고받는다)
+!.relay/tasks/
