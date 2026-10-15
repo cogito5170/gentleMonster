@@ -107,6 +107,19 @@ job 의 팔레트·조명·재료가 **디자인 토큰**(W3C DTCG 로 내보냄
 | `gentle_monster/apps/worldplan/` | worldplan 앱 화면(정적) — worldplan 엔진에 붙는다 · 토큰은 `apps/worldplan_tokens.py` · 같은 `apps/check.py --app worldplan` |
 | `render3d/` | 2D 평면도(matplotlib) — gentle_monster 가 쓰는 부분만 |
 
+## Claude Code 세션의 컨텍스트 보관소 (relay)
+
+이 저장소에서 여는 Claude Code 세션은 [effiency](https://github.com/cogito5170/effiency) 의 `relay` 컨텍스트 보관소를 쓴다
+(`.claude/settings.json` → `scripts/relay_hook.sh`, 설정은 `.relay/config.toml`). 세션 시작 때 `relay` 가 없으면 한 번 설치를 시도한다.
+
+- 컨텍스트가 60k 를 넘거나 자동 압축 직전이면 대화를 `.relay/archive/` 로 옮긴다 (git 에 안 들어간다).
+- 새 세션 · `/clear` 뒤에는 포인터 한 줄만 들어간다. 비슷한 요청일 때만 **같은 주제의** 한 줄 요약을 붙이고,
+  주제가 바뀌면(실내 디자인 → 의류 등) 앞 주제의 기억 대신 "적용하지 마라" 는 안내를 붙인다.
+- 원문은 `relay recall "낱말"` → `relay recall --open <id> --query "낱말"` 로 필요한 줄만 본다.
+- 기록 어휘는 `gentle_monster/memory.py` 와 같다(`user_stated` · `source_fact` · `model_inference` · `summary`).
+  `memory.py` 는 `!젠몬` 디자인 대화의 기억이고, relay 보관소는 Claude Code 작업 대화의 보관이다 — 둘은 따로 쌓인다.
+- 설치가 막히는 환경이면 `pip install git+https://github.com/cogito5170/effiency.git` 로 직접 깐다. 없어도 hook 은 조용히 넘어간다.
+
 ## 테스트
 
 ```bash
@@ -114,6 +127,7 @@ python3 tests/test_gentle_monster.py      # 브라우저가 없으면 브라우�
 python3 tests/test_engine.py              # 엔진: 정책 분기 · RED(깨뜨린 페이지가 그 검사만 실패) · GREEN
 python3 tests/test_worldtrip_app.py       # World Trip 화면: 정적 검사 · V GREEN(고정 응답) · RED 여섯
 python3 tests/test_worldplan_app.py       # worldplan 화면: 정적 검사(토큰이 엔진과 같나 포함) · V GREEN · RED 여섯
+python3 tests/test_relay_hooks.py         # relay 보관소 배선: hook 등록 · relay 없을 때 무해 · 주제 전환 (relay 없으면 일부 건너뜀)
 python3 tests/test_memory.py              # 기억 · 맥락 · 검증 · revise 경로 (모델 없음)
 python3 eval/context_eval.py              # 같은 사례, 입력 세 가지(before · naive · after). --live 는 Gemini 키가 있어야 한다
 ```
