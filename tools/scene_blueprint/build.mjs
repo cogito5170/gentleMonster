@@ -40,7 +40,8 @@ async function render() {
 
 async function print() {
   const html = path.join(TMP, 'sheet.html');
-  fs.writeFileSync(html, sheet(D, pathToFileURL(IMG).href, JSON.parse(fs.readFileSync(BOX, 'utf8'))));
+  const concept = path.join(repo, '.relay/tasks/002-still-runway/image.png');   // Codex image (codex-image skill)
+  fs.writeFileSync(html, sheet(D, pathToFileURL(IMG).href, pathToFileURL(concept).href));
   const b = await chromium.launch({ executablePath: exe });
   const ctx = await b.newContext({ viewport: { width: 1587, height: 1123 }, deviceScaleFactor: 2 });
   await ctx.route(u => !u.href.startsWith('file:'), r => r.abort());

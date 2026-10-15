@@ -70,7 +70,7 @@ export function render(D, W, H) {
     P.forEach(({ w, p }) => { const x = w.x0 + w.dir * w.v * t, ph = (x * 4.3); p.g.position.set(x, Math.abs(Math.sin(ph)) * .02, w.z); p.g.rotation.y = w.dir * Math.PI / 2;
       p.legs.forEach((l, k) => l.rotation.x = (k ? 1 : -1) * .38 * Math.sin(ph)); p.arms.forEach((a, k) => a.rotation.x = (k ? -1 : 1) * .3 * Math.sin(ph)); });
     const v = T.s0 + (1 - T.s0) * (1 - (1 - u) ** 3), x = bez(v, 0), z = bez(v, 1), dx = bez(Math.min(1, v + .01), 0) - x, dz = bez(Math.min(1, v + .01), 1) - z;
-    tp.g.position.set(x, 0, z); tp.g.rotation.y = Math.atan2(dx, dz) * .6 + Math.atan2(-x, -(z - cz)) * .4;
+    tp.g.position.set(x, 0, z); tp.g.rotation.y = Math.atan2(cx - x, cz - z) * .75 + Math.atan2(dx, dz) * .25;      // faces the still one
     tp.legs.forEach((l, k) => l.rotation.x = (k ? 1 : -1) * .22 * (1 - u)); tp.arms[0].rotation.x = -.5 * u; tp.arms[0].rotation.z = .25 * u;   // left hand starts to reach
   };
 
