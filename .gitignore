@@ -4,3 +4,6 @@ photos/
 inbox/
 __pycache__/
 *.pyc
+# relay 컨텍스트 보관소: 설정만 올리고 보관된 대화는 이 기계에만 둔다
+.relay/*
+!.relay/config.toml
