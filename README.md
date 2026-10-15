@@ -25,6 +25,7 @@ python3 -m gentle_monster example gm                       # 번들 시놉시스
 python3 -m gentle_monster make "비 오는 밤의 문턱을 주제로 한 성수 플래그십" --image photos/1.jpg --image photos/ref.png
 python3 -m gentle_monster moodboard <작업> --image photos/*.jpg   # 있는 작업의 무드보드를 새 사진·레퍼런스로 다시
 python3 -m gentle_monster blueprint <작업> [--then-video]          # 요청 시: 실사 렌더 + A3 도면 PDF
+python3 -m gentle_monster cover <작업> [--attach <task 폴더>]        # 청사진 표지: Codex 실사 렌더 (VM 인박스)
 python3 -m gentle_monster video <작업>                             # 요청 시: 30초 1인칭 MP4
 python3 -m gentle_monster site <작업> [--rounds 6]                 # 요청 시: 웹 페이지 (frontend engine)
 python3 -m gentle_monster revise <작업> "벽은 콘크리트 말고 나무로"      # 있는 작업 고치기: 작업의 기억 → 고른 맥락 → 시놉시스 → 검사
@@ -96,6 +97,7 @@ job 의 팔레트·조명·재료가 **디자인 토큰**(W3C DTCG 로 내보냄
 | `gentle_monster/context.py` | 요청마다 입력을 고른다 — 지시·정정 우선, 토큰 예산, 무효·중복 제외, 모순되는 모델 말 잘라내기, trace |
 | `gentle_monster/verify.py` | 사용자 슬롯을 job 에 코드로 대조 · 질문·원자료·주장만 보는 별도 검증 호출 |
 | `gentle_monster/llm.py` | Gemini 직접 호출(HTTPS). 키가 없으면 못 돈다고 말한다 — 다른 모델로 대신하지 않는다 |
+| `gentle_monster/cover.py` | 청사진 표지: three.js 에 가는 장면 데이터(카메라 · 화면 안 물체의 위치 · 크기 · 재료 · 조명)와 도면 데이터(치수 · 면적 · 의도)를 Codex 이미지 스펙으로. 있으면 청사진 PDF 1쪽 |
 | `gentle_monster/documents.py` | 평면 · 레이아웃 PDF(A3 세로 한 장) · 청사진 PDF(A3 가로) |
 | `gentle_monster/photos.py` | 사진 분위기 측정 · 레퍼런스 판별 · 레퍼런스 양식 측정 |
 | `gentle_monster/moodboard.py` | 잡지형 무드보드(A3 펼침 8장): 표지·목차·세로 선언·짝·풀블리드·보드·콜라주·시퀀스 |
