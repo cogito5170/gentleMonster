@@ -1,0 +1,19 @@
+# gentleMonster 의 Claude Code 세션에서 쓰는 relay 설정 -- 컨텍스트 보관소만 켠다.
+# 설계와 규칙: https://github.com/cogito5170/effiency/blob/main/docs/archive.md
+# 보관된 대화(.relay/archive/)는 git 에 올리지 않는다 (.gitignore).
+
+[hooks]
+enabled = []                       # 읽기 가드 · 컨텍스트 차단은 쓰지 않는다. 보관과 조회만
+session_inject = ["clear", "compact"]
+
+[supervisor]
+enabled = false
+
+[archive]
+enabled = true
+trigger_context = 60000            # 마지막 요청 컨텍스트가 이 이상이면 대화를 보관
+recall_budget = 400                # 비슷한 요청일 때 붙이는 요약의 최대 토큰
+
+# 주제가 바뀌면 앞 주제의 기억을 불러오지 않는다. interior · fashion · software 는 relay 기본값이고 여기서 더한다.
+[archive.domains]
+web = ["웹 페이지", "웹페이지", "프론트엔드", "frontend", "디자인 토큰", "css", "worldtrip", "worldplan", "pwa"]

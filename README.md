@@ -25,12 +25,18 @@ python3 -m gentle_monster example gm                       # 번들 시놉시스
 python3 -m gentle_monster make "비 오는 밤의 문턱을 주제로 한 성수 플래그십" --image photos/1.jpg --image photos/ref.png
 python3 -m gentle_monster moodboard <작업> --image photos/*.jpg   # 있는 작업의 무드보드를 새 사진·레퍼런스로 다시
 python3 -m gentle_monster blueprint <작업> [--then-video]          # 요청 시: 실사 렌더 + A3 도면 PDF
+python3 -m gentle_monster cover <작업> [--attach <task 폴더>]        # 청사진 표지: Codex 실사 렌더 (VM 인박스)
 python3 -m gentle_monster video <작업>                             # 요청 시: 30초 1인칭 MP4
 python3 -m gentle_monster site <작업> [--rounds 6]                 # 요청 시: 웹 페이지 (frontend engine)
+python3 -m gentle_monster revise <작업> "벽은 콘크리트 말고 나무로"      # 있는 작업 고치기: 작업의 기억 → 고른 맥락 → 시놉시스 → 검사
+python3 -m gentle_monster memory <작업> [--all]                     # 기억: 누가 말했나(사용자·원자료·모델) · 아직 유효한가
 python3 -m gentle_monster list · status <작업> · check <job.json>
 ```
 
 - 결과물은 `out/<작업>/` 에 쌓인다(git 에 안 들어간다): `job.json` · `synopsis.md` · `layout.pdf` · `moodboard.pdf` · `blueprint.pdf` · `render_*.png` · `*.mp4`.
+- 후속 말은 작업의 **기억**(`out/<작업>/memory.jsonl`)에 쌓인다. 모델에는 대화 전체가 아니라 고른 맥락만 간다 — 정정이 옛 말을
+  대체하고(지우지 않고 남긴다), 모델이 앞서 한 말은 "미검증" 으로만 들어가며, 범위가 불분명한 정정은 되묻는다.
+  자세한 것 · 진단 · 평가: [`docs/MEMORY.md`](docs/MEMORY.md).
 - 사진과 레퍼런스 레이아웃은 `photos/` 에 둔다. 다른 폴더를 쓰려면 `GENTLE_MONSTER_PHOTO_DIRS` 에 적는다.
 - `--image` 는 섞여 있어도 된다. 8x8 블록 중 평평한 것의 비율을 **재서** 사진과 레퍼런스를 가른다
   (실측: 사진 0.000–0.001, 잡지 보드 캡처 0.324, 문턱 0.12). 파일 이름에 `ref`·`참고`·`레퍼런스` 가 있으면 레퍼런스다.
@@ -75,6 +81,8 @@ job 의 팔레트·조명·재료가 **디자인 토큰**(W3C DTCG 로 내보냄
     !젠몬 (사진 + 레퍼런스 첨부) 이 레이아웃처럼 무드보드 다시   → 최근 작업 무드보드 다시
     !젠몬 방금 거 청사진 · !젠몬 방금 거 영상도                  → 요청 시 단계
     !젠몬 방금 거 웹 사이트로 · !젠몬 <브리프>, 웹페이지까지       → 웹 페이지 (frontend engine)
+    !젠몬 방금 거 벽은 콘크리트 말고 나무로 · !젠몬 아니, 폭 24m 말고 18m  → 있는 작업 고치기 (기억을 거친다)
+    !젠몬 기억                                                  → 작업의 기억
     !젠몬 탬버린즈 예제로 무드보드 · !젠몬 목록 · !젠몬 상태 <작업>
 
 `!젠몬` 으로 시작하지 않는 말에는 `None` 을 돌려준다. 오래 걸리는 일은 분리된 프로세스로 띄우고 `logs/` 에 적는다.
@@ -85,7 +93,11 @@ job 의 팔레트·조명·재료가 **디자인 토큰**(W3C DTCG 로 내보냄
 |---|---|
 | `gentle_monster/spec.py` | job 형식과 검사 — 치수·모양·재료·문·겹침·**동선 여유 0.3 m**·정지점이 동선 위에 있는가 |
 | `gentle_monster/synopsis.py` | 브리프 → Gemini → JSON → 검사. 실패하면 규칙 이름이 아니라 배치에 대한 사실을 돌려주고 최대 3바퀴 |
+| `gentle_monster/memory.py` | 작업의 기억: 사용자 말 · 원자료 · 모델 추론 · 요약을 가르고, 정정은 대체(삭제 아님), 불분명한 정정은 덮지 않는다 |
+| `gentle_monster/context.py` | 요청마다 입력을 고른다 — 지시·정정 우선, 토큰 예산, 무효·중복 제외, 모순되는 모델 말 잘라내기, trace |
+| `gentle_monster/verify.py` | 사용자 슬롯을 job 에 코드로 대조 · 질문·원자료·주장만 보는 별도 검증 호출 |
 | `gentle_monster/llm.py` | Gemini 직접 호출(HTTPS). 키가 없으면 못 돈다고 말한다 — 다른 모델로 대신하지 않는다 |
+| `gentle_monster/cover.py` | 청사진 표지: three.js 에 가는 장면 데이터(카메라 · 화면 안 물체의 위치 · 크기 · 재료 · 조명)와 도면 데이터(치수 · 면적 · 의도)를 Codex 이미지 스펙으로. 있으면 청사진 PDF 1쪽 |
 | `gentle_monster/documents.py` | 평면 · 레이아웃 PDF(A3 세로 한 장) · 청사진 PDF(A3 가로) |
 | `gentle_monster/photos.py` | 사진 분위기 측정 · 레퍼런스 판별 · 레퍼런스 양식 측정 |
 | `gentle_monster/moodboard.py` | 잡지형 무드보드(A3 펼침 8장): 표지·목차·세로 선언·짝·풀블리드·보드·콜라주·시퀀스 |
@@ -97,6 +109,19 @@ job 의 팔레트·조명·재료가 **디자인 토큰**(W3C DTCG 로 내보냄
 | `gentle_monster/apps/worldplan/` | worldplan 앱 화면(정적) — worldplan 엔진에 붙는다 · 토큰은 `apps/worldplan_tokens.py` · 같은 `apps/check.py --app worldplan` |
 | `render3d/` | 2D 평면도(matplotlib) — gentle_monster 가 쓰는 부분만 |
 
+## Claude Code 세션의 컨텍스트 보관소 (relay)
+
+이 저장소에서 여는 Claude Code 세션은 [effiency](https://github.com/cogito5170/effiency) 의 `relay` 컨텍스트 보관소를 쓴다
+(`.claude/settings.json` → `scripts/relay_hook.sh`, 설정은 `.relay/config.toml`). 세션 시작 때 `relay` 가 없으면 한 번 설치를 시도한다.
+
+- 컨텍스트가 60k 를 넘거나 자동 압축 직전이면 대화를 `.relay/archive/` 로 옮긴다 (git 에 안 들어간다).
+- 새 세션 · `/clear` 뒤에는 포인터 한 줄만 들어간다. 비슷한 요청일 때만 **같은 주제의** 한 줄 요약을 붙이고,
+  주제가 바뀌면(실내 디자인 → 의류 등) 앞 주제의 기억 대신 "적용하지 마라" 는 안내를 붙인다.
+- 원문은 `relay recall "낱말"` → `relay recall --open <id> --query "낱말"` 로 필요한 줄만 본다.
+- 기록 어휘는 `gentle_monster/memory.py` 와 같다(`user_stated` · `source_fact` · `model_inference` · `summary`).
+  `memory.py` 는 `!젠몬` 디자인 대화의 기억이고, relay 보관소는 Claude Code 작업 대화의 보관이다 — 둘은 따로 쌓인다.
+- 설치가 막히는 환경이면 `pip install git+https://github.com/cogito5170/effiency.git` 로 직접 깐다. 없어도 hook 은 조용히 넘어간다.
+
 ## 테스트
 
 ```bash
@@ -104,6 +129,9 @@ python3 tests/test_gentle_monster.py      # 브라우저가 없으면 브라우�
 python3 tests/test_engine.py              # 엔진: 정책 분기 · RED(깨뜨린 페이지가 그 검사만 실패) · GREEN
 python3 tests/test_worldtrip_app.py       # World Trip 화면: 정적 검사 · V GREEN(고정 응답) · RED 여섯
 python3 tests/test_worldplan_app.py       # worldplan 화면: 정적 검사(토큰이 엔진과 같나 포함) · V GREEN · RED 여섯
+python3 tests/test_relay_hooks.py         # relay 보관소 배선: hook 등록 · relay 없을 때 무해 · 주제 전환 (relay 없으면 일부 건너뜀)
+python3 tests/test_memory.py              # 기억 · 맥락 · 검증 · revise 경로 (모델 없음)
+python3 eval/context_eval.py              # 같은 사례, 입력 세 가지(before · naive · after). --live 는 Gemini 키가 있어야 한다
 ```
 
 ## 한계

@@ -68,10 +68,37 @@ def _parse(txt: str) -> dict:
     return json.loads(t[a:b + 1])
 
 
-def generate(brief: str, brand: str = "", ask=None, rounds: int = 3, log=None) -> dict:
-    """Returns {'job': dict | None, 'problems': [...], 'rounds': n, 'drafts': [...]}. ask(prompt) -> text (default Gemini)."""
+def revise_prompt(context: str, job: dict) -> str:
+    """The revise request: the selected context (context.build) + the current draft as the thing to edit.
+    The full conversation is not here -- only what context.build chose, each part labelled with what it is."""
+    shapes = "\n".join(f"  {k}: {v}" for k, v in spec.SHAPES.items())
+    return f"""You are the spatial design director of an experimental flagship store. Revise the CURRENT DRAFT below so it
+follows the user. The notes are ordered by authority: the current instruction and the user's corrections come
+first and override the draft; source facts were read by code; anything marked MODEL'S EARLIER OUTPUT is
+unverified and must not be treated as decided. If a note says something is unresolved or not in memory, do
+not decide it yourself -- leave that part of the draft as it is.
+
+{context}
+
+Keep everything in the draft that the user did not ask to change. Write in English only. Return ONLY the full
+revised JSON object with the same fields as the draft. Layout rules (metres; door on y = 0; solid items do not
+overlap; flows[0].pts 6-12 points, each at least {spec.CLEAR} m from every solid item and the outer walls; exactly
+3 stops on the path, total hold at most 11 s). Shapes:
+{shapes}
+Materials: {", ".join(sorted(spec.MATERIALS))}. Lights: {", ".join(sorted(spec.LIGHTS))}.
+
+CURRENT DRAFT (written by a model earlier; its geometry passed the code check, its story is unverified):
+{json.dumps(job, ensure_ascii=False, separators=(",", ":"))}
+"""
+
+
+def generate(brief: str, brand: str = "", ask=None, rounds: int = 3, log=None, base: str = "", checks=None) -> dict:
+    """Returns {'job': dict | None, 'problems': [...], 'rounds': n, 'drafts': [...]}. ask(prompt) -> text (default Gemini).
+    base: a prompt to use instead of prompt(brief, brand) (the revise path). checks(job) -> [facts]: more problems
+    found by code (the user's settled slots, verify.problems), retried like the layout's own."""
     ask = ask or _gemini
-    p = prompt(brief, brand)
+    base = base or prompt(brief, brand)
+    p = base
     drafts, problems = [], []
     for r in range(1, rounds + 1):
         txt = ask(p)
@@ -82,13 +109,15 @@ def generate(brief: str, brand: str = "", ask=None, rounds: int = 3, log=None) -
             job = None
         else:
             problems = spec.check(job)
+            if not problems and checks:
+                problems = list(checks(job))
         drafts.append({"round": r, "problems": problems})
         if log:
             log(f"[synopsis] round {r}: {len(problems)} problem(s)")
         if job is not None and not problems:
             return {"job": job, "problems": [], "rounds": r, "drafts": drafts}
         prev = json.dumps(job, ensure_ascii=False, separators=(",", ":")) if job is not None else (txt or "")[:6000]
-        p = (prompt(brief, brand) + "\n\nYour previous answer:\n" + prev +
+        p = (base + "\n\nYour previous answer:\n" + prev +
              "\n\nThese things are true about that answer and must change:\n- " + "\n- ".join(problems) +
              "\n\nReturn the corrected full JSON object only.")
     return {"job": None, "problems": problems, "rounds": rounds, "drafts": drafts}

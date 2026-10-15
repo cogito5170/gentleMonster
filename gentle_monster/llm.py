@@ -17,26 +17,33 @@ import urllib.error
 import urllib.request
 
 API = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+LAST: dict = {}        # the last call's model, latency and usageMetadata token counts -- read by the context trace / eval
 
 
 def key() -> str:
     return os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY") or ""
 
 
-def ask(prompt: str, images=(), model: str = "", timeout: float = 120, retries: int = 2) -> str:
+def ask(prompt: str, images=(), model: str = "", timeout: float = 120, retries: int = 2, temperature: float = None) -> str:
     k = key()
     if not k:
         raise RuntimeError("no Gemini key (set GEMINI_API_KEY)")
     parts = [{"text": prompt}] + [{"inline_data": {"mime_type": m, "data": base64.b64encode(b).decode()}} for m, b in images]
     body = json.dumps({"contents": [{"role": "user", "parts": parts}],
-                       "generationConfig": {"temperature": 0.9, "maxOutputTokens": 8192}}).encode()
+                       "generationConfig": {"temperature": 0.9 if temperature is None else temperature, "maxOutputTokens": 8192}}).encode()
     url = API.format(model=model or os.environ.get("GEMINI_MODEL", "gemini-2.5-flash"))
     last = None
+    t0 = time.time()
     for i in range(retries + 1):
         req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json", "x-goog-api-key": k})
         try:
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 d = json.loads(r.read().decode())
+            u = d.get("usageMetadata") or {}
+            LAST.clear()
+            LAST.update(model=url.split("/models/")[1].split(":")[0], latency_s=round(time.time() - t0, 2), attempts=i + 1,
+                        prompt_tokens=u.get("promptTokenCount"), output_tokens=u.get("candidatesTokenCount"),
+                        thought_tokens=u.get("thoughtsTokenCount"))
             return "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
         except urllib.error.HTTPError as e:                  # 429 / 5xx are worth one more try
             last = e

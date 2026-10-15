@@ -1,0 +1,9 @@
+{
+  "request_sha256": "1781cc69893caffb645ed28b7b9f2855a4c549e49719173c12f577d902587a30",
+  "started": "2026-10-15T14:26:53.985242+00:00",
+  "status": "done",
+  "exit_code": 0,
+  "output_tail": "relay image 001-cover-gm — 스펙 → Codex(상세 프롬프트 + 생성)\n  codex 실행: codex exec --sandbox workspace-write --skip-git-repo-check -c features.image_generation=true …\n[ok] → .relay/tasks/001-cover-gm/image.png  (124.475s)",
+  "action": "image",
+  "finished": "2026-10-15T14:28:58.537782+00:00"
+}
