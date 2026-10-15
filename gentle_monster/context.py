@@ -173,6 +173,9 @@ def build(store: "M.Store", instruction: str, *, fixed_tokens: int = 0, sources=
                 continue
         label = "contradicted by" if r["kind"] in ("model_inference", "summary") else "changed later"
         texts[r["id"]] = _redact(r["content"], spans, label) if spans else r["content"]
+        if spans and not re.sub(r"⟨[^⟩]*⟩|[\s,.;:]", "", texts[r["id"]]):
+            del texts[r["id"]]                               # nothing left but "changed later": the newer record says it
+            drop(r, "every part of it was replaced later")
     live = [r for r in live if r["id"] in texts]
 
     # 2. sections

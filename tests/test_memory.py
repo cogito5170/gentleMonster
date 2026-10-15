@@ -89,9 +89,42 @@ ok(next(r for r in s.active() if r["key"] == "room.floor")["value"] == "granite"
 print("\n== slots read from words (no model) ==")
 for t, want in (("폭 24m 말고 18m로", {"layout.W": 18.0}), ("아크네 느낌으로 폭 20m, 천장고 5m", {"brand": "Acne Studios", "layout.W": 20.0, "layout.H": 5.0}),
                 ("조명은 자연광으로", {"room.light": "daylight"}), ("입구에 거울 벽을 추가", {}),
-                ("SPA (STYLE, PASSION, ARCHITECTURE)", {"def:SPA": "STYLE, PASSION, ARCHITECTURE"})):
+                ("SPA (STYLE, PASSION, ARCHITECTURE)", {"def:SPA": "STYLE, PASSION, ARCHITECTURE"}),
+                # units: converted to metres; a unit glued to more letters is not one
+                ("폭은 1800mm로", {"layout.W": 1.8}), ("폭 24m 말고 1800cm", {"layout.W": 18.0}), ("천장고 5.5미터", {"layout.H": 5.5}),
+                ("폭 18ms", {}),
+                # boundaries: 'A' of 'A 말고 B' is only the clause before the cue
+                ("폭 20m, 깊이 15m 말고 12m", {"layout.W": 20.0, "layout.D": 12.0}), ("천장고 5.5m 말고 6m", {"layout.H": 6.0}),
+                ("폭 20m. 벽은 콘크리트 말고 나무로", {"layout.W": 20.0, "room.wall": "wood"}),
+                ("벽은 콘크리트 말고 바닥을 나무로", {"room.floor": "wood"}),
+                ("조명은 자연광, 벽은 콘크리트 말고 나무로", {"room.light": "daylight", "room.wall": "wood"}),
+                ("벽은 나무로 하고 대신 바닥은 콘크리트로", {"room.wall": "wood", "room.floor": "concrete"}),
+                ("벽이 아니라 바닥을 나무로", {"room.floor": "wood"}), ("벽과 바닥은 나무로", {"room.wall": "wood", "room.floor": "wood"})):
     got = {o["key"]: o["value"] for o in M.extract(t)}
     ok(got == want, f"{t!r} -> {want}  [got {got}]")
+ok(M.correction_parts("벽은 나무로 하고 대신 바닥은 콘크리트로") is None, "'하고 대신' joins two statements -- it takes nothing back")
+ok(M.correction_parts("아니, 벽은 콘크리트 말고 나무로 해줘") == ("벽은 콘크리트", "나무로 해줘"), "the taken-back part is the clause before the cue")
+
+print("\n== correction wins, turn after turn: only the newest value is shown ==")
+s = store()
+for t in ("벽은 노출 콘크리트, 바닥은 폴리싱 콘크리트, 폭 24m", "폭 24m 말고 1800cm로", "벽은 콘크리트 말고 나무로", "벽은 나무 말고 화강암으로"):
+    e = s.ingest_user(t)
+live = {r["key"]: r["value"] for r in s.active("user_stated") if r["key"]}
+ok(live == {"room.floor": "polished_concrete", "layout.W": 18.0, "room.wall": "granite"}, f"one active value per slot, the newest [{live}]")
+walls = [r for r in s.all() if r["key"] == "room.wall"]
+ok([r["value"] for r in walls] == ["concrete", "wood", "granite"] and [r["status"] for r in walls] == ["superseded", "superseded", "active"],
+   "each older wall value is kept and marked superseded")
+slot = next(r for r in s.active() if r["key"] == "room.wall")
+ok("나무" not in slot["content"] and "콘크리트" not in slot["content"], f"the slot record holds only the new words [{slot['content']}]")
+T = C.build(s, "벽은 나무 말고 화강암으로", turn=e["turn"])["text"]
+settled = T.split("## SETTLED BY THE USER")[1].split("##")[0]
+ok("room.wall = granite" in settled and "wood" not in settled and "room.wall = concrete" not in settled, "settled shows granite, not wood or concrete")
+ok("콘크리트 말고 나무로" not in T and "24m," not in T, "a replaced correction and a replaced width are not shown as if still valid")
+s = store()
+s.ingest_user("벽은 나무로, 폭 20m")
+s.ingest_user("폭 20m, 깊이 15m 말고 12m")
+live = {r["key"]: r["value"] for r in s.active("user_stated") if r["key"]}
+ok(live == {"room.wall": "wood", "layout.W": 20.0, "layout.D": 12.0}, f"a restated value next to a correction stays [{live}]")
 
 print("\n== context: what the model is shown ==")
 s = store()
