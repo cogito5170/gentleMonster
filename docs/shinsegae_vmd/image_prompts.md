@@ -1,113 +1,122 @@
-# 신세계 VMD 포트폴리오 — 장면별 이미지 (미드저니 프롬프트)
+# 신세계 VMD 포트폴리오 — 장면별 이미지 (미드저니 프롬프트, v2)
 
-[storyline.md](storyline.md) 의 페이지 지도 순서대로 ①–⑧. 미드저니는 영어 프롬프트를 가장 잘 따르므로 영어로 쓰고, 뜻을 우리말로 붙였다.
+[storyline.md](storyline.md) 의 순서대로. 미드저니는 영어를 가장 잘 따르므로 영어로 쓰고 뜻을 우리말로 붙였다.
 
 ## 공통 규칙
 
-- **비율 A4 가로**: `--ar 297:210`. 세로 판형이면 `--ar 210:297`.
-- **글자 · 로고 금지**: 모든 프롬프트 끝에 `--no text, letters, logo, signage, watermark`. 제목 · 이름은 인디자인 · 피그마에서 얹는다. 신세계 이름이나 로고를 프롬프트에 넣지 않는다 — 가짜 로고가 나온다.
-- **연작으로 보이게**:
-  1. ① 표지를 먼저 만든다.
-  2. 고른 표지 이미지의 주소를 ②–⑧ 에 `--sref <표지 URL>` 로 붙인다. 색 · 빛 · 질감이 한 권처럼 맞는다.
-  3. ③–⑥ 네 계절 창은 **같은 틀 문장**(아래 `WINDOW FRAME`)을 그대로 쓰고 안의 내용만 바꾼다. 같은 창이 1년을 사는 것처럼 보인다.
-- **Raw 모드**를 켜면 사진처럼 담백해진다(버전에 따라 `--style raw` 또는 `--raw`, 웹 설정에서 켜는 편이 안전).
-- **표기**: 판권 자리에 *"Concept images generated with Midjourney. Concept, prompts and art direction by Jeong Hyeokju. This is a personal proposal, not affiliated with Shinsegae."*
+- **A4 가로**: `--ar 297:210`.
+- **글자 · 로고 금지**: 모든 프롬프트 끝에 `--no text, letters, logo, signage, watermark`. 유리 글자 · 행택 글자 · 제목은 인디자인 · 피그마에서 얹는다. 신세계 · paloma wool · COS 이름을 프롬프트에 넣지 않는다.
+- **레퍼런스 사진을 스타일로**: 받은 paloma wool · COS 창 사진을 미드저니에 올려 `--sref <URL1> <URL2>` 로 붙이면 흰 무대 · 반투명 · 절제된 색이 따라온다. 표지를 고른 뒤에는 **표지 URL 을 `--sref` 로** 나머지 장에 붙여 한 권처럼 맞춘다.
+- **Raw 모드**를 켠다(버전에 따라 `--style raw` 또는 `--raw`, 웹 설정에서 켜는 편이 안전).
+- **표기**: 판권 자리에 *"Concept images generated with Midjourney. Concept, prompts and art direction by Jeong Hyeokju. Personal proposal, not affiliated with Shinsegae."*
 
-공통 꼬리말(모든 프롬프트 뒤에 이미 붙여 둠):
+공통 꼬리말(모든 프롬프트에 이미 붙여 둠):
 
 ```
-editorial architectural photography, Fujifilm medium format, soft grain, quiet and precise, muted palette --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
+editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
 ```
 
-`WINDOW FRAME` (③–⑥ 공통):
+---
+
+## ① 표지 · WINDOW — 나를 진열한 창
+
+공통: 매장 밖 보도에서 정면으로 본 쇼윈도. 흰 무대. 유리에 맞은편 석조 건물과 따뜻한 가로등이 **희미하게** 비친다.
+
+### ①-A 입히다 · 보다 · 짓다 — 마네킹 하나에 셋을 겹친다 (추천)
+
+```
+front view from the sidewalk of a minimal boutique display window, off-white backdrop and a white plinth, one headless matte white mannequin styled in an oversized black wool long coat over a grey knit and wide-leg beige trousers, a vintage silver film camera hanging from the mannequin's hand by a leather strap, the mannequin standing on a white architectural scale model base with tiny cut-out walls, a small blank paper hang tag tied to the coat sleeve, two narrow spotlights from above, faint reflection of a classical stone building facade and warm street lights on the glass, calm and precise, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
+```
+
+뜻: 흰 배경 · 흰 받침. 머리 없는 흰 마네킹이 검은 오버핏 롱코트 · 회색 니트 · 통 넓은 베이지 바지를 입었다. 손에 가죽 스트랩으로 은색 필름 카메라가 걸려 있고, 발밑은 작은 벽이 세워진 흰 건축 모형 받침이다. 소매에 빈 행택 하나. 유리에 석조 건물 정면과 가로등이 희미하게 비친다.
+
+### ①-B 세 단위 — COS 처럼 셋을 나란히
+
+```
+front view from the sidewalk of a minimal boutique display window, three tall translucent fabric panels hanging from the ceiling in a row with equal spacing, behind the left panel the silhouette of a long black coat on a hanger, behind the middle panel a vintage film camera on a slim plinth, behind the right panel a white architectural scale model on a plinth, each panel softly backlit by a warm spotlight, white floor plinth running across the window, faint reflection of a classical stone building facade and warm street lights on the glass, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
+```
+
+뜻: 반투명 천 세 폭이 같은 간격으로 걸려 있고, 그 뒤로 왼쪽부터 검은 롱코트 · 필름 카메라 · 흰 건축 모형의 실루엣이 비친다.
+
+### ①-C 반투명 필름 — paloma wool 처럼, 유리에 붙은 것만 또렷하게
+
+```
+front view from the sidewalk of a boutique display window covered with frosted translucent film, behind the film a black long coat and a grey knit hung casually on a single white rail, a blurred white architectural scale model on the floor, only one object pressed against the glass is sharp: a vintage film camera with its strap, everything further away softly blurred, diffused white light, faint reflection of a classical stone building facade on the glass, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
+```
+
+뜻: 창 전체에 반투명 필름. 레일에 무심히 걸린 롱코트와 니트, 바닥의 흐린 건축 모형. 유리에 붙은 카메라 하나만 또렷하다 — "보는 사람"이 가장 앞에 있다.
+
+변형:
+- 요소를 C안(코트 · 향 · 빛)으로: `vintage silver film camera` → `an unlabeled amber glass perfume bottle`, `architectural scale model base` → `a single bare filament light bulb hanging above`.
+- 요소를 B안(도구)으로: 카메라 → `a red pin cushion with dressmaker pins`, 모형 받침 → `a yellow cloth tape measure unrolled down to the floor`.
+
+## ② WINDOWS OF TIME · CONCEPT — 재료 무드보드
+
+```
+top-down flat lay material board on a pale granite slab, arranged in a precise grid: white paper sprouts on fine sand, three small cobalt blue acrylic cylinders in a shallow tray of still water, an oak wood block with a long amber shadow, a brass filament light bulb, one red silk ribbon, fabric swatches in black wool, olive cotton, beige linen and slate knit, a few dressmaker pins, soft daylight from one side, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
+```
+
+## ③–⑥ WINDOWS OF TIME · 네 계절 창 (마네킹 착장 + 소품)
+
+네 장이 같은 창으로 보이도록 **틀 문장을 그대로** 쓴다:
 
 ```
 front elevation of a single tall arched display window set into a granite neo-classical department store facade, centered and symmetrical, eye level, blue hour, the window glowing from inside
 ```
 
----
-
-## ① 표지 — 계절이 어긋난 창
-
-바깥은 가을 해 질 녘인데, 불 켜진 창 안에서는 눈이 내린다. 창 하나가 다른 시간을 품고 있다. "WINDOWS OF TIME"을 한 장으로 말한다.
+### ③ SPROUT (봄)
 
 ```
-a granite neo-classical department store facade at autumn dusk, warm amber sky and a few fallen leaves on the pavement, one tall arched display window glowing, inside the window it is quietly snowing over a small white landscape, a single bare tree inside, the season inside the glass does not match the season outside, wide symmetrical composition, negative space in the upper third for a title, editorial architectural photography, Fujifilm medium format, soft grain, quiet and precise, muted palette --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
+front elevation of a single tall arched display window set into a granite neo-classical department store facade, centered and symmetrical, eye level, blue hour, the window glowing from inside, inside two headless matte white mannequins in spring looks: a pale green light trench coat over a white shirt, and a beige knit vest with wide cream trousers, standing on a bed of pale sand where hundreds of small white paper sprouts are growing, one taller sprout under a narrow spotlight, fresh and calm, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
 ```
 
-변형: 창 안을 봄으로 — `it is quietly snowing over a small white landscape, a single bare tree inside` → `fresh pale green sprouts are growing from white sand`.
-
-## ② CONCEPT — 재료 무드보드
-
-네 계절의 사물과 재료를 돌판 위에 한 번에 펼친다.
+### ④ PUDDLE (여름)
 
 ```
-top-down flat lay material board on a pale granite slab, arranged in a precise grid: white paper sprouts on fine sand, three small cobalt blue acrylic cylinders in a shallow tray of still water, an oak wood block with a long amber shadow, a brass filament light bulb, one red silk ribbon, small fabric swatches in pale green, cobalt, amber and warm white, soft daylight from one side, editorial architectural photography, Fujifilm medium format, soft grain, quiet and precise, muted palette --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
+front elevation of a single tall arched display window set into a granite neo-classical department store facade, centered and symmetrical, eye level, blue hour, the window glowing from inside, inside two headless matte white mannequins in summer looks: a loose white linen shirt with cobalt blue wide shorts, and a sleeveless navy dress, standing barefoot in a shallow still pool of water like a mirror, three cobalt blue cylinders of different heights beside them with perfect reflections, one narrow spotlight from above, cool and clear, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
 ```
 
-## ③ CHAPTER 1 · SPROUT (봄)
-
-창 바닥의 흰 모래에서 종이 새싹 수백 개가 돋고, 가장 큰 새싹 하나만 좁은 빛을 받는다. 옆에 연두색 봄옷 한 벌.
+### ⑤ DUSK (가을)
 
 ```
-front elevation of a single tall arched display window set into a granite neo-classical department store facade, centered and symmetrical, eye level, blue hour, the window glowing from inside, inside the window hundreds of small white paper sprouts growing out of a bed of pale sand, one taller sprout under a narrow spotlight, a single pale green spring garment on a minimal brass stand, fresh and calm, editorial architectural photography, Fujifilm medium format, soft grain, quiet and precise, muted palette --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
+front elevation of a single tall arched display window set into a granite neo-classical department store facade, centered and symmetrical, eye level, blue hour, the window glowing from inside, inside two headless matte white mannequins in autumn looks: a camel wool coat with an olive knit and brown wide trousers, and a rust suede jacket over a cream turtleneck, one seated on a simple oak bench, a single glowing amber horizon line across the back wall like a sunset, low raking warm light casting long shadows, calm and nostalgic, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
 ```
 
-## ④ CHAPTER 2 · PUDDLE (여름)
-
-창 바닥 전체가 얕은 물(거울)이다. 코발트 블루 원통 셋이 물에 그대로 비친다.
+### ⑥ BULB (겨울 · 크리스마스 피날레)
 
 ```
-front elevation of a single tall arched display window set into a granite neo-classical department store facade, centered and symmetrical, eye level, blue hour, the window glowing from inside, inside the window the floor is a shallow still pool of water like a mirror, three cobalt blue cylindrical objects of different heights standing in the water with perfect reflections, a light summer garment hanging above the water, one narrow spotlight from above, cool and clear, editorial architectural photography, Fujifilm medium format, soft grain, quiet and precise, muted palette --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
+front elevation of a single tall arched display window set into a granite neo-classical department store facade, centered and symmetrical, eye level, blue hour, the window glowing from inside, inside two headless matte white mannequins in winter looks: an oversized black wool long coat with a charcoal scarf, and an ivory shearling jacket with slate trousers, hundreds of warm filament light bulbs hanging on thin vertical wires like falling snow, at their feet a small white paper sprout, a cobalt blue cylinder and an oak bench gathered together, one red silk ribbon tied around a gift box on the bench, festive but restrained, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
 ```
 
-## ⑤ CHAPTER 3 · DUSK (가을)
+착장 문장(`in spring looks: ...`)은 예시다. 실제로 제안할 룩이 정해지면 그 착장으로 바꾼다 — 이 부분이 지원자의 실력이 보이는 곳이다.
 
-창 뒷벽에 노을빛 수평선 하나. 낮게 들어오는 앰버 빛이 나무 벤치와 코트의 그림자를 길게 늘인다.
-
-```
-front elevation of a single tall arched display window set into a granite neo-classical department store facade, centered and symmetrical, eye level, blue hour, the window glowing from inside, inside the window a single glowing amber horizon line across the back wall like a sunset, low raking warm light, a simple oak bench and a wool coat on a stand casting long shadows across the floor, calm and nostalgic, editorial architectural photography, Fujifilm medium format, soft grain, quiet and precise, muted palette --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
-```
-
-## ⑥ CHAPTER 4 · BULB (겨울 · 크리스마스 피날레)
-
-필라멘트 전구가 눈처럼 세로로 늘어진다. 봄의 새싹, 여름의 파란 원통, 가을의 벤치가 한 창에 모인다. 빨간 리본 하나.
+## ⑦ SPREAD — VP 에서 PP 로
 
 ```
-front elevation of a single tall arched display window set into a granite neo-classical department store facade, centered and symmetrical, eye level, blue hour, the window glowing from inside, inside the window hundreds of warm filament light bulbs hanging on thin vertical wires like falling snow, gathered together below them a small white paper sprout, a cobalt blue cylinder and an oak bench, one red silk ribbon tied around a gift box on the bench, festive but restrained, editorial architectural photography, Fujifilm medium format, soft grain, quiet and precise, muted palette --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
+interior of a refined department store floor with stone floors and soft daylight, at the base of a marble column a point display on a low white pedestal: one headless mannequin in a loose white linen shirt and cobalt blue wide shorts beside three cobalt blue cylinders in a shallow tray of still water, behind it a rail of the same garments arranged by color, shoppers passing softly blurred, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
 ```
 
-## ⑦ SPREAD — 창에서 매장으로
+## ⑧ DISPLAY RULES — 직접 찍은 사진이 없을 때만
 
-창의 사물이 매장 아트리움의 작은 연출로 이어진다. 예시는 여름(파란 원통).
-
-```
-interior of a refined department store atrium with stone floors and soft daylight, at the base of a marble column a small display on a low pedestal repeating the window motif: three cobalt blue cylinders standing in a shallow tray of still water, a few shoppers passing softly blurred in the background, a plain paper shopping bag with a cobalt blue inner lining resting beside the pedestal, editorial architectural photography, Fujifilm medium format, soft grain, quiet and precise, muted palette --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
-```
-
-계절을 바꾸려면 `three cobalt blue cylinders standing in a shallow tray of still water` 를 각 계절의 사물로 바꾼다.
-
-## ⑧ 뒤표지 — SEE YOU NEXT SEASON
-
-1년이 끝난 파사드. 네 창이 나란히 켜지고 창마다 계절의 색이다.
+원칙마다 한 장. 예: 삼각 구성.
 
 ```
-wide symmetrical view of a granite neo-classical department store facade at night with four tall arched display windows in a row, each window glowing in a different season color from left to right: pale green, cobalt blue, warm amber, warm white with one red accent, quiet empty street with a wet pavement reflecting the four colors, negative space in the upper third, editorial architectural photography, Fujifilm medium format, soft grain, quiet and precise, muted palette --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
+minimal retail table display on a pale oak table against an off-white wall, folded knitwear in black, olive, beige and slate stacked in a clear triangular composition with the tallest stack in the middle, one pair of horn-rimmed glasses and a vintage watch as accents, soft side light, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 297:210 --s 150 --no text, letters, logo, signage, watermark
 ```
+
+다른 원칙은 `stacked in a clear triangular composition` 을 `arranged in color blocks from dark to light` · `repeated in a rhythm of three identical units` 등으로 바꾼다.
 
 ---
 
 ## 미드저니로 만들지 않는 것
 
-- **ABOUT · READING SHINSEGAE 의 사진**: 본점 · 더 헤리티지 · 신세계스퀘어는 **직접 가서 찍는다.** 생성 이미지로 실제 건물을 흉내 내면 분석의 신뢰가 떨어진다.
-- **도표 · 1년 달력 · 입면 · 평면 도면**: 일러스트레이터 · 캐드나 이 저장소의 공간 도구로 그린다. 미드저니 도면은 치수가 맞지 않는다.
+- **LOOKBOOK · STYLING**: 지원자 본인 사진, 직접 입힌 마네킹 사진.
+- **READING SHINSEGAE**: 본점 · 더 헤리티지 · 신세계스퀘어를 직접 가서 찍는다.
+- **도면 · 스펙 표 · 영수증(RECEIPT)**: 일러스트레이터 · 캐드 · 이 저장소의 공간 도구로 그린다.
 
 ## 만드는 순서
 
-1. ① 표지를 4장 × 몇 번 돌려 하나 고른다 → **Upscale**.
-2. 표지 주소를 `--sref` 로 붙여 ③ → ④ → ⑤ → ⑥ 을 같은 날 한 번에 돌린다(같은 틀 문장 · 같은 sref).
-3. 유리에 생긴 이상한 글자 · 간판은 **Vary Region** 으로 그 부분만 지운다(`clean glass, no signage`).
-4. ② · ⑦ · ⑧ 을 돌린다.
-5. 인쇄용이면 긴 변 3,508px(A4 300dpi) 이상인지 확인한다.
-
-결과 이미지를 보내 주면 연작으로 맞는지 보고, 어긋나는 장의 프롬프트를 고친다.
+1. 레퍼런스 두 장을 `--sref` 로 붙여 ①-A · B · C 를 돌린다 → 요소 세 가지와 표지 형식을 함께 고른다.
+2. 고른 표지를 Upscale 하고, 그 URL 을 `--sref` 로 ③–⑥ 을 같은 날 한 번에 돌린다.
+3. 유리의 이상한 글자 · 간판은 Vary Region 으로 지운다(`clean glass, no signage`).
+4. 인쇄용이면 긴 변 3,508px(A4 300dpi) 이상인지 확인한다.
