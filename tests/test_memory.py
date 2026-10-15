@@ -250,6 +250,12 @@ ok(sel.get(last) == "model" and "(latest output)" in G["text"], "'고쳐' with n
 ok("사례" in G["text"] and "문항" in G["text"], "after six '고쳐' turns the pasted 사례 and the 문항 are still in (pinned; terse turns take no recent slot)")
 ok("USER CORRECTIONS" not in G["text"], "a bare '고쳐' is not shown as a correction that overrides everything")
 ok(G["trace"]["followup"]["case"] == "bare" and "state in one line what you assume" in G["text"], "bare displeasure: self-diagnose and say the assumption")
+draft = s.add_model_turn("[초안 v9] 마지막 초안")
+s.ingest_user("자소서 보고 스스로 피드백 해봐")
+critique = s.add_model_turn("[자기 피드백] 둘째 문단이 약하다")
+e = s.ingest_user("고쳐")
+sel = {x["id"] for x in C.build(s, "고쳐", turn=e["turn"])["trace"]["selected"]}
+ok(draft in sel and critique in sel, "'고쳐' after a self-critique: the critique and the draft it is about are both in")
 s = store()
 s.ingest_user("벽은 노출 콘크리트로 마감해줘")
 s.add_model_turn("벽을 노출 콘크리트로 마감했습니다.")

@@ -207,13 +207,15 @@ def build(store: "M.Store", instruction: str, *, fixed_tokens: int = 0, sources=
                                  + "; ".join(f"[{o['turn']} {o['id']}] {o['content']}" for o in others)
                                  + ". Do not choose silently: keep both as they are and ask which one is meant.")
         keep(r, "unresolved", "correction with unclear scope")
-    latest = max((r for r in live if r["kind"] == "model_inference"), default=None,
-                 key=lambda r: (int((r.get("turn") or "t0")[1:] or 0), int(r["id"][1:])))
+    outputs = sorted((r for r in live if r["kind"] == "model_inference"),
+                     key=lambda r: (int((r.get("turn") or "t0")[1:] or 0), int(r["id"][1:])))
+    latest = outputs[-1] if outputs else None
+    working = {r["id"]: tag for r, tag in zip(outputs[::-1], ("latest output", "the output before it"))}   # a draft, then its critique
     sec["treat"] = []
     case = signal["case"]
     if case == "bare":
         sec["treat"].append("- The user is not satisfied and gave no reason. Do not guess silently and do not start over: check the "
-                            "latest output (first under MODEL'S EARLIER OUTPUT) against the user's material and their last feedback, "
+                            "two latest outputs (marked under MODEL'S EARLIER OUTPUT) against the user's material and their last feedback, "
                             "state in one line what you assume is wrong, then revise. Add no fact that no user statement or source gives.")
     elif case == "unsupported":
         sec["treat"].append(f"- The user disputes {signal['key']} but gives no new value. It is backed by: "
@@ -286,13 +288,13 @@ def build(store: "M.Store", instruction: str, *, fixed_tokens: int = 0, sources=
     for r in live:
         if r["kind"] not in ("model_inference", "summary"):
             continue
-        if r is latest or (r["key"] or "").startswith("draft") or M.overlap(instruction, r["content"]) >= 0.5:
+        if r["id"] in working or (r["key"] or "").startswith("draft") or M.overlap(instruction, r["content"]) >= 0.5:
             model_recs.append(r)                             # the current draft's own claims, or relevant to the request
         else:
             drop(r, "model output not relevant to this request")
-    model_recs.sort(key=lambda r: (r is not latest, -mscore.get(r["id"], 0), -int((r.get("turn") or "t0")[1:] or 0), r["id"]))
-    fill("model", [(r, r) for r in model_recs], lambda r: line(r) + ("  (latest output)" if r is latest else "") + (f"  (summary of {', '.join(r['sources'])})" if r["kind"] == "summary" and r["sources"] else ""),
-         lambda r: "latest output (what a short follow-up refers to)" if r is latest
+    model_recs.sort(key=lambda r: (r["id"] not in working, r is not latest, -mscore.get(r["id"], 0), -int((r.get("turn") or "t0")[1:] or 0), r["id"]))
+    fill("model", [(r, r) for r in model_recs], lambda r: line(r) + (f"  ({working[r['id']]})" if r["id"] in working else "") + (f"  (summary of {', '.join(r['sources'])})" if r["kind"] == "summary" and r["sources"] else ""),
+         lambda r: "latest outputs (what a short follow-up refers to)" if r["id"] in working
          else "unverified model output" if r["kind"] == "model_inference" else "summary, sources kept")
 
     skipped = [t for t in user_turns if t not in {r["turn"] for r in live if r["id"] in {s['id'] for s in trace['selected']}}]
