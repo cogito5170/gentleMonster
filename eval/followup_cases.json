@@ -1,0 +1,27 @@
+{
+  "note": "Committed before the classifier. session: design = brief with wall concrete + model draft + job.json source (layout.W 20); letter = pasted 사례 + 문항 + model draft (no slots); empty = nothing said by the model yet. case: correction | bare | unsupported | unclear | none. key: the slot an unsupported criticism disputes.",
+  "cases": [
+    {"session": "design", "text": "벽은 콘크리트 말고 나무로", "case": "correction"},
+    {"session": "design", "text": "폭 18m로 줄여줘", "case": "correction"},
+    {"session": "design", "text": "조명은 자연광으로 바꿔", "case": "correction"},
+    {"session": "design", "text": "고쳐", "case": "bare"},
+    {"session": "design", "text": "다시 해", "case": "bare"},
+    {"session": "design", "text": "별로야", "case": "bare"},
+    {"session": "design", "text": "재미없어", "case": "bare"},
+    {"session": "design", "text": "마음에 안 들어", "case": "bare"},
+    {"session": "design", "text": "폭이 틀렸잖아", "case": "unsupported", "key": "layout.W"},
+    {"session": "design", "text": "벽 그거 아니잖아", "case": "unsupported", "key": "room.wall"},
+    {"session": "design", "text": "벽이 잘못됐어", "case": "unsupported", "key": "room.wall"},
+    {"session": "design", "text": "틀렸어", "case": "unclear"},
+    {"session": "design", "text": "이 부분 이상해", "case": "unclear"},
+    {"session": "design", "text": "입구 조명 좀 더 어둡게 해줘", "case": "none"},
+    {"session": "design", "text": "좋아", "case": "none"},
+    {"session": "letter", "text": "고쳐", "case": "bare"},
+    {"session": "letter", "text": "너무 밋밋해, 다시 써", "case": "bare"},
+    {"session": "letter", "text": "자소서 보고 스스로 피드백 해봐", "case": "none"},
+    {"session": "letter", "text": "그거 틀렸어", "case": "unclear"},
+    {"session": "letter", "text": "두 번째 문단을 수치 중심으로 바꿔줘", "case": "none"},
+    {"session": "empty", "text": "고쳐", "case": "unclear"},
+    {"session": "empty", "text": "틀렸어", "case": "unclear"}
+  ]
+}
