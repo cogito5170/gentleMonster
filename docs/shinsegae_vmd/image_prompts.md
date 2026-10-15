@@ -50,6 +50,31 @@ front view from the sidewalk of a boutique display window covered with frosted t
 - 요소를 C안(코트 · 향 · 빛)으로: `vintage silver film camera` → `an unlabeled amber glass perfume bottle`, `architectural scale model base` → `a single bare filament light bulb hanging above`.
 - 요소를 B안(도구)으로: 카메라 → `a red pin cushion with dressmaker pins`, 모형 받침 → `a yellow cloth tape measure unrolled down to the floor`.
 
+### ①-D 보다 · 집다 · 챙기다 — 유리를 지나 밖으로 나온 행택
+
+설명: [see_pick_keep.md](see_pick_keep.md).
+
+```
+front view from the sidewalk of a minimal boutique display window, off-white backdrop, one headless matte white mannequin in an oversized black wool long coat and wide-leg beige trousers, a vintage film camera hanging from its hand, a blank paper hang tag on a thin cotton string tied to the coat sleeve, the string stretching forward and passing through the glass so the tag dangles outside the window on the viewer's side, close to the camera, slightly in focus, a folded white paper shopping bag with tissue paper waiting at the mannequin's feet, two narrow spotlights, faint reflection of a classical stone building facade on the glass, surreal but quiet, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 297:210 --s 200 --no text, letters, logo, signage, watermark
+```
+
+뜻: 마네킹 소매의 행택 실이 유리를 지나 밖으로 나와, 행택이 보는 사람 앞에 매달려 있다. 발밑에는 티슈지가 든 흰 쇼핑백.
+유리를 지나는 실이 어색하면 창 사진과 행택 사진을 따로 만들어 포토샵에서 합친다.
+
+### ①-E 보다 · 집다 · 챙기다 — 세 컷
+
+세 장을 따로 만들어 한 쪽에 COS 처럼 같은 간격으로 놓는다(각 `--ar 1:2`). 세 장 모두 같은 `--sref`.
+
+```
+SEE:  close-up of a boutique display window glass, the faint reflection of a young person's eyes and face on the glass, behind the glass a black wool coat on a white mannequin softly out of focus, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 1:2 --s 150 --no text, letters, logo, signage, watermark
+
+PICK: close-up of a hand reaching to pick up a neatly folded grey knit from the top of a triangular stack of knitwear in black, olive and beige on a pale oak table, soft side light, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 1:2 --s 150 --no text, letters, logo, signage, watermark
+
+KEEP: close-up of two hands placing a grey knit wrapped in white tissue paper into a plain white paper shopping bag with a slate inner lining, a small blank hang tag resting on top, soft side light, editorial retail window photography, Fujifilm medium format, soft grain, quiet and precise, off-white with black, olive, beige and slate --ar 1:2 --s 150 --no text, letters, logo, signage, watermark
+```
+
+손 · 얼굴이 들어가는 컷은 미드저니가 어색하게 그리기 쉽다. **직접 찍으면 더 좋다**(지원자의 손 · 지원자의 니트).
+
 ## ② WINDOWS OF TIME · CONCEPT — 재료 무드보드
 
 ```
