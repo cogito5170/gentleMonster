@@ -11,7 +11,8 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, '../..');
 const OUT = path.join(repo, 'docs/shinsegae_vmd/blueprint');
 const TMP = path.join(repo, 'out/inside_blueprint');
-const IMG = path.join(repo, '.relay/tasks/003-from-the-inside/image.png');
+const TASK = process.argv[2] || '004-inside-department-store';           // which Codex image to lay out
+const IMG = path.join(repo, '.relay/tasks', TASK, 'image.png');
 fs.mkdirSync(OUT, { recursive: true }); fs.mkdirSync(TMP, { recursive: true });
 const require = createRequire(process.env.PLAYWRIGHT_REQUIRE_FROM || '/opt/node22/lib/node_modules/');
 const { chromium } = require('playwright');
@@ -26,10 +27,11 @@ const D = {
   glass: { x: 0, top: 3.0, bed: 0.45 },
   stopper: { x: 0.55, eye: 1.45 },              // the one who stops, leans in, smiles
   lanes: [1.5, 2.4],                            // passers-by
-  curb: 3.4,
+  curb: 3.4,                                    // shop fronts across the aisle
 };
 // where the elements sit on the Codex image (fractions of width / height) -- set after looking at the image
-const SPOTS = JSON.parse(fs.existsSync(path.join(here, 'spots.json')) ? fs.readFileSync(path.join(here, 'spots.json'), 'utf8') : '{}');
+const SPOTF = path.join(here, `spots_${TASK}.json`);
+const SPOTS = JSON.parse(fs.existsSync(SPOTF) ? fs.readFileSync(SPOTF, 'utf8') : '{}');
 
 const F = "'Liberation Sans','WenQuanYi Zen Hei',Arial,sans-serif", MONO = "'Liberation Mono','WenQuanYi Zen Hei',monospace";
 const RED = '#ff6b5b', INK = '#f4f8fb', DIM = '#bcd2e6', EYE = '#9fd3ff';
@@ -58,11 +60,11 @@ const S = [
   ['진열이 맞았는지는 상품이 아니라 그 표정이 알려 주기 때문이다.', 'face'],
   ['밖에서 상품만 들여다보는 VMD가 아니라, 안에서 사람들의 표정과 반응을 살피는 VMD가 되겠다.', 'me'],
 ];
-const KEY = { name: '1', back: '2', face: '3', pass: '4', bag: '5', me: '6' };
+const KEY = { name: '1', back: '2', face: '3', pass: '4', bag: '5', me: '6', log: '7' };
 
 // ---------- 01 the image ----------
 const IX = 10, IY = 21, IW = 250, IH = IW * 1024 / 1536;
-head(IX, 13, '01', 'THE IMAGE — FROM THE INSIDE', 'concept image, generated with Codex from .relay/tasks/003-from-the-inside · numbers = sentences in 04');
+head(IX, 13, '01', 'THE IMAGE — FROM THE INSIDE', `concept image, generated with Codex from .relay/tasks/${TASK} · numbers = sentences in 04`);
 o += `<image href="${pathToFileURL(IMG).href}" x="${IX}" y="${IY}" width="${IW}" height="${f(IH)}" preserveAspectRatio="xMidYMid slice"/>`; R(IX, IY, IW, IH, .4);
 const at = (k) => SPOTS[k] ? [IX + SPOTS[k][0] * IW, IY + SPOTS[k][1] * IH] : null;
 if (SPOTS.name) { const [x, y] = at('name');   // mirrored name, as if cut in vinyl on the glass and read from inside
@@ -76,8 +78,9 @@ T(IX + 47, IY + IH + 5.5, '밖에서 보면 상품이 보이고, 안에서 보�
 
 // ---------- 02 section: two sightlines ----------
 { const k = 19, sx = 284, sy = 98, X = x => sx + (x - D.me.x + .4) * k, Y = y => sy - y * k;
-  head(268, 13, '02', 'TWO SIGHTLINES', 'section · approx. 1:45 · inside ← glass → street');
-  L(X(-2.9), Y(0), X(D.curb), Y(0), .4); T(X(-2.8), Y(0) + 3.4, 'STORE', 1.6, `${dim} letter-spacing=".4"`); T(X(1.2), Y(0) + 3.4, 'SIDEWALK', 1.6, `${dim} letter-spacing=".4"`);
+  head(268, 13, '02', 'TWO SIGHTLINES', 'section · approx. 1:55 · boutique ← glass → department store aisle');
+  L(X(-2.9), Y(0), X(D.curb), Y(0), .4); T(X(-2.8), Y(0) + 3.4, 'STORE', 1.6, `${dim} letter-spacing=".4"`); T(X(1.2), Y(0) + 3.4, 'AISLE', 1.6, `${dim} letter-spacing=".4"`); L(X(-2.9), Y(3.2), X(D.curb), Y(3.2), .3, 'stroke-dasharray="2 1"'); T(X(-2.8), Y(3.2) - 1.2, 'ceiling — indoors on both sides', 1.5, dim);
+  L(X(D.curb), Y(0), X(D.curb), Y(3.2), .3, `stroke="${DIM}"`); T(X(D.curb) - 1, Y(1.2), 'shop front', 1.4, `${dim} text-anchor="end"`);
   R(X(-1.5), Y(D.glass.bed), (1.5) * k, D.glass.bed * k, .3, 'url(#hatch)');
   L(X(0), Y(D.glass.bed), X(0), Y(D.glass.top), .5); L(X(.012), Y(D.glass.bed), X(.012), Y(D.glass.top), .25); T(X(0) + 1.2, Y(D.glass.top) + 2.5, 'glass', 1.6, dim);
   // me
@@ -102,7 +105,7 @@ T(IX + 47, IY + IH + 5.5, '밖에서 보면 상품이 보이고, 안에서 보�
 
 // ---------- 03 plan ----------
 { const k = 14, ox = 296, oy = 158, X = x => ox + (x + 2.9) * k, Y = z => oy + z * k;
-  head(268, 126, '03', 'PLAN', 'the walk passes · one stops · approx. 1:70');
+  head(268, 126, '03', 'PLAN', 'the aisle passes · one stops · approx. 1:70');
   R(X(-2.9), Y(-1.6), 2.9 * k, 3.6 * k, .3); L(X(0), Y(-1.6), X(0), Y(2), .6); T(X(-2.8), Y(-1.6) - 1.2, 'STORE', 1.6, `${dim} letter-spacing=".4"`);
   R(X(-1.5), Y(-1.4), 1.5 * k, 3.2 * k, .25, 'url(#hatch)'); T(X(-1.45), Y(1.75), 'window bed', 1.4, dim);
   C(X(D.mannequin.x), Y(.1), 2.4, .35); T(X(D.mannequin.x) + 3, Y(.1) - 2.5, 'mannequin', 1.4, dim);
@@ -112,7 +115,7 @@ T(IX + 47, IY + IH + 5.5, '밖에서 보면 상품이 보이고, 안에서 보�
   P([[X(1.95), Y(-1.5)], [X(1.6), Y(-.3)], [X(D.stopper.x + .15), Y(.45)], [X(D.stopper.x), Y(.6)]], .5, `stroke="${RED}"`); C(X(D.stopper.x), Y(.6), 1.4, .4, 'none', `stroke="${RED}"`);
   T(X(D.stopper.x) + 2.5, Y(.6) + 4.2, 'stops · leans in · smiles', 1.4, `fill="${RED}"`);
   P([[X(D.me.x) + 1.6, Y(.4)], [X(D.stopper.x) - 1.5, Y(.6)]], .35, `stroke="${EYE}" stroke-dasharray="1.2 .8"`);
-  L(X(D.curb), Y(-1.6), X(D.curb), Y(2), .3, `stroke="${DIM}"`); T(X(D.curb) + 1, Y(2) - 1, 'curb', 1.4, dim);
+  L(X(D.curb), Y(-1.6), X(D.curb), Y(2), .3, `stroke="${DIM}"`); T(X(D.curb) + 1, Y(2) - 1, 'shop front', 1.4, dim); T(X(1.95), Y(2) + 3, 'AISLE', 1.4, `${dim} letter-spacing=".4" text-anchor="middle"`);
 }
 
 // ---------- 04 the paragraph, sentence → image ----------
@@ -123,17 +126,17 @@ T(IX + 47, IY + IH + 5.5, '밖에서 보면 상품이 보이고, 안에서 보�
 // ---------- 05 legend of numbers ----------
 { const x = 180, y = 200; head(x, y, '05', 'IN THE IMAGE', '');
   [['1', 'the shop name, mirrored on the glass (added in layout, cut vinyl in the real shoot)'], ['2', 'the display shows its back: mannequin, pins, the back of a price card'],
-   ['3', 'the one face that stopped, leaned in and smiled'], ['4', 'everyone else walks past, blurred'], ['5', 'what she smiled at: the bag with one red point'], ['6', 'me, inside: my eye goes to the face, not the product']].forEach(([n, t], i) => {
-    const yy = y + 9 + i * 8.3; num(x + 2.5, yy - .8, n, n === '6' ? EYE : RED); o += `<foreignObject x="${x + 7}" y="${yy - 3.2}" width="75" height="8"><div xmlns="http://www.w3.org/1999/xhtml" class="fo s">${t}</div></foreignObject>`; });
+   ['3', 'the one face that stopped, leaned in and smiled'], ['4', 'everyone else walks past, blurred'], ['5', 'what she smiled at: one red point on a stack in my palette'], ['6', 'me, reflected on the glass: black long coat, horn-rim glasses, film camera'], ['7', 'the back of the price card: my handwritten window log']].forEach(([n, t], i) => {
+    const yy = y + 9 + i * 7.6; num(x + 2.5, yy - .8, n, n === '6' ? EYE : RED); o += `<foreignObject x="${x + 7}" y="${yy - 3.2}" width="75" height="8"><div xmlns="http://www.w3.org/1999/xhtml" class="fo s">${t}</div></foreignObject>`; });
 }
 
 // ---------- 06 shoot it + title block ----------
 { const x = 268, y = 214; L(x - 4, y - 4, 414, y - 4, .3);
   T(x, y + 4, 'ON DISPLAY', 7, `${bold} letter-spacing="-.1"`); T(x, y + 11, 'JEONG HYEOKJU — visual merchandiser', 3, bold);
   T(x, y + 17, '밖에서 보면 상품이 보이고, 안에서 보면 사람이 보인다.', 2.5, bold);
-  [['Shoot', 'inside a real window (with the shop’s permission), behind the mannequin'], ['Camera', 'Fujifilm, 35 mm, f/2.8, focus on the face outside, 1/250 s'],
-   ['Light', 'expose for the street; keep the store dim so the glass shows faces'], ['Glass', 'name in reversed cut vinyl, read from inside'],
-   ['Image', 'Codex concept · .relay/tasks/003-from-the-inside'], ['Note', 'concept; final shot with the applicant · not affiliated with Shinsegae']].forEach(([a, t], i) => {
+  [['Shoot', 'inside a boutique in the department store (with permission), behind the mannequin, facing the aisle'], ['Camera', 'Fujifilm, 35 mm, f/2.8, focus on the face outside, 1/250 s'],
+   ['Light', 'expose for the bright aisle; keep the boutique dimmer so the glass shows faces'], ['Glass', 'name in reversed cut vinyl, read from inside'],
+   ['Image', `Codex concept · .relay/tasks/${TASK}`], ['Note', 'concept; final shot with the applicant · not affiliated with Shinsegae']].forEach(([a, t], i) => {
     T(x, y + 25 + i * 5.6, a.toUpperCase(), 1.6, `${dim} letter-spacing=".3"`); T(x + 14, y + 25 + i * 5.6, t, 1.8); });
 }
 
