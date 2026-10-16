@@ -1,6 +1,9 @@
 {
   "hooks": {
-    "SessionStart": [{"hooks": [{"type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/scripts/relay_hook.sh session", "timeout": 120}]}],
+    "SessionStart": [
+      {"hooks": [{"type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/scripts/relay_hook.sh session", "timeout": 120}]},
+      {"hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR\"/scripts/workspace_resume.py", "timeout": 40}]}
+    ],
     "UserPromptSubmit": [{"hooks": [{"type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/scripts/relay_hook.sh prompt"}]}],
     "PreCompact": [{"hooks": [{"type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/scripts/relay_hook.sh precompact"}]}]
   }
