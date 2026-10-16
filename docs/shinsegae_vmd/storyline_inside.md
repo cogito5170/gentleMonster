@@ -23,6 +23,16 @@
 
 *People look at a shop window from outside. I look from inside. From inside, the shop's name reads backwards and the display shows its back; instead, I see people's faces through the glass. Most of them just walk past. Now and then someone stops, looks in, and smiles. I watch what made them smile, because it is their face, not the product, that tells me whether the display worked. I want to be a VMD who doesn't only look in at the products from outside, but watches people's faces and reactions from inside.*
 
+### 마무리 세 유형
+
+앞 일곱 문장(…나는 그 사람이 무엇을 보고 웃었는지 본다.)은 같고, 뒤만 다르다.
+
+| 유형 | 뒤 문장 | 글자(공백 포함 · 제외) |
+|---|---|---|
+| **A · 다짐형** | 진열이 맞았는지는 상품이 아니라 그 표정이 알려 주기 때문이다. 밖에서 상품만 들여다보는 VMD가 아니라, 안에서 사람들의 표정과 반응을 살피는 VMD가 되겠다. | 245 · 187 |
+| **B · 장면형** | 접힌 소매일 때도, 유리 가까이 놓인 가방일 때도 있다. 문을 닫으면 나는 그것을 한 뼘 앞으로 당긴다. 아무도 보지 않은 것은 뺀다. 다음 날, 같은 자리에서 다시 얼굴을 본다. | 255 · 189 |
+| **C · 정의형** | 밖에서 보면 상품이 보이고, 안에서 보면 사람이 보인다. 나는 상품이 아니라 사람의 표정에서 진열을 시작하는 VMD다. | 221 · 168 |
+
 ## 장치 두 가지
 
 1. **거꾸로 쓴 이름.** 표지의 이름 `JEONG HYEOKJU` 는 유리에 새긴 글자처럼 **좌우가 뒤집혀** 있다. 읽는 사람이 안에 있다는 뜻이다. 마지막 쪽에서 같은 글자가 **바로** 읽힌다 — 책을 다 읽은 사람은 이제 밖으로 나가 있다.
