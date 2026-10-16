@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 REPO = "https://github.com/cogito5170/effiency.git"
-REFS = ("main", "claude/project-thread-uqkc04")  # 백엔드 PR 이 main 에 들어가기 전에는 두 번째에서 읽는다
+REFS = ("claude/project-thread-uqkc04", "main")  # 매시간 동기화가 먼저 푸시되는 백엔드 브랜치, 없으면 main
 BASE = "docs/workspace-context/modules"
 MAX_RESUME, MAX_INDEX = 2000, 700
 
