@@ -34,8 +34,8 @@ def fetch_tree(project: Path):
         if git("-C", str(cache), "fetch", "-q", "--depth=1", REPO, ref) is None:
             continue
         names = git("-C", str(cache), "ls-tree", "-r", "--name-only", "FETCH_HEAD", BASE)
-        if not names:
-            continue
+        if not names or "/RESUME.md" not in names:
+            continue  # 요약이 아직 없는 ref (예: 백엔드 PR 머지 전 main) 는 건너뛴다
         files = {}
         for n in names.split():
             if n.endswith(("/state.json", "/RESUME.md")):
