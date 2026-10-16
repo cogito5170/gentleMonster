@@ -23,19 +23,16 @@
 > 안에서 보면 가게 이름은 거꾸로 읽히고, 진열은 등을 보인다. 대신 유리 너머로 사람들의 얼굴이 보인다.
 > 대부분은 그냥 지나간다. 가끔 누군가 걸음을 멈추고, 들여다보고, 웃는다.
 >
-> 나는 그 사람이 무엇을 보고 웃었는지를 본다.
-> 눈이 머무는 곳은 대개 하나다. 마네킹의 접힌 소매, 유리 가까이 놓인 가방, 무채색 사이의 빨간 한 점.
-> 손가락으로 가리키는 사람도 있고, 옆 사람의 팔을 잡아끄는 사람도 있다.
-> 아무의 눈도 닿지 않는 자리도 보인다. 공들여 놓았는데 한 번도 눈길을 받지 못한 자리.
-> 밖에서는 이 차이가 보이지 않는다. 진열만 보이기 때문이다.
-> 안에서는 진열과 얼굴이 한 장면에 함께 들어온다.
+> 나는 그 사람이 무엇을 보고 웃었는지 본다.
+> 접힌 소매, 유리 가까이 놓인 가방, 빨간 한 점.
+> 아무의 눈도 닿지 않는 자리도 보인다.
+> 안에서는 진열과 얼굴이 한 장면에 들어온다.
 >
-> 그래서 나는 문을 닫은 뒤 진열을 고친다.
-> 눈이 머문 것은 유리 쪽으로 한 뼘 당기고, 아무도 보지 않은 것은 빼거나 자리를 바꾼다.
-> 다음 날, 같은 자리에 서서 다시 얼굴을 본다.
-> 진열은 한 번에 완성되지 않는다. 유리 너머의 얼굴과 매일 조금씩 맞춰 간다.
+> 그래서 문을 닫은 뒤 진열을 고친다.
+> 눈이 머문 것은 앞으로 당기고, 닿지 않은 것은 뺀다.
+> 다음 날, 다시 얼굴을 본다.
 
-*People look at a shop window from outside. I look from inside. ... Now and then someone stops, looks in, and smiles. I watch what made them smile — usually one thing: a folded sleeve, a bag close to the glass, a single red point. I also see the places no one ever looks at. From outside you only see the display; from inside, the display and the faces are in one frame. So after closing I adjust: what held the eye moves a hand closer to the glass, what no one saw comes out or moves. The next day I stand in the same place and watch the faces again. A window is never finished in one go. It is tuned, a little every day, to the faces on the other side of the glass.*
+*People look at a shop window from outside. I look from inside. ... Now and then someone stops, looks in, and smiles. I watch what made them smile: a folded sleeve, a bag close to the glass, one red point. I also see the places no eye reaches. From inside, the display and the faces are in one frame. So after closing I adjust: what held the eye comes forward, what no one saw comes out. The next day, I watch the faces again.*
 
 ## 장치 두 가지
 
