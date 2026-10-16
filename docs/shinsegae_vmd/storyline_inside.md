@@ -19,9 +19,9 @@
 
 ## 이야기 전체 (한 단락)
 
-> 사람들은 쇼윈도를 밖에서 본다. 나는 안에서 본다. 안에서 보면 가게 이름은 거꾸로 읽히고, 진열은 등을 보인다. 대신 유리 너머로 사람들의 얼굴이 보인다. 대부분은 그냥 지나간다. 가끔 누군가 걸음을 멈추고, 들여다보고, 웃는다. 나는 그 사람이 무엇을 보고 웃었는지 본다. 접힌 소매, 유리 가까이 놓인 가방, 빨간 한 점. 아무의 눈도 닿지 않는 자리도 보인다. 안에서는 진열과 얼굴이 한 장면에 들어온다. 그래서 문을 닫은 뒤 진열을 고친다. 눈이 머문 것은 앞으로 당기고, 닿지 않은 것은 뺀다. 다음 날, 다시 얼굴을 본다.
+> 사람들은 쇼윈도를 밖에서 본다. 나는 안에서 본다. 안에서 보면 가게 이름은 거꾸로 읽히고, 진열은 등을 보인다. 대신 유리 너머로 사람들의 얼굴이 보인다. 대부분은 그냥 지나간다. 가끔 누군가 걸음을 멈추고, 들여다보고, 웃는다. 나는 그 사람이 무엇을 보고 웃었는지 본다. 진열이 맞았는지는 상품이 아니라 그 표정이 알려 주기 때문이다. 밖에서 상품만 들여다보는 VMD가 아니라, 안에서 사람들의 표정과 반응을 살피는 VMD가 되겠다.
 
-*People look at a shop window from outside. I look from inside. From inside, the shop's name reads backwards and the display shows its back; instead, I see people's faces through the glass. Most of them just walk past. Now and then someone stops, looks in, and smiles. I watch what made them smile: a folded sleeve, a bag close to the glass, one red point. I also see the places no eye reaches. From inside, the display and the faces are in one frame. So after closing I fix the display: what held the eye comes forward, what no one saw comes out. The next day, I watch the faces again.*
+*People look at a shop window from outside. I look from inside. From inside, the shop's name reads backwards and the display shows its back; instead, I see people's faces through the glass. Most of them just walk past. Now and then someone stops, looks in, and smiles. I watch what made them smile, because it is their face, not the product, that tells me whether the display worked. I want to be a VMD who doesn't only look in at the products from outside, but watches people's faces and reactions from inside.*
 
 ## 장치 두 가지
 
