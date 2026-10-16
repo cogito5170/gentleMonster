@@ -11,7 +11,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, '../..');
 const OUT = path.join(repo, 'docs/shinsegae_vmd/blueprint');
 const TMP = path.join(repo, 'out/inside_blueprint');
-const TASK = process.argv[2] || '004-inside-department-store';           // which Codex image to lay out
+const TASK = process.argv[2] || '005-selling-the-maker';           // which Codex image to lay out
 const IMG = path.join(repo, '.relay/tasks', TASK, 'image.png');
 fs.mkdirSync(OUT, { recursive: true }); fs.mkdirSync(TMP, { recursive: true });
 const require = createRequire(process.env.PLAYWRIGHT_REQUIRE_FROM || '/opt/node22/lib/node_modules/');
@@ -21,13 +21,14 @@ const exe = (() => { const b = process.env.PLAYWRIGHT_BROWSERS_PATH || '/opt/pw-
 
 // one source for section + plan (metres). x: toward the street (glass at 0, inside < 0), y: up
 const D = {
-  me: { x: -2.4, eye: 1.6 },                    // where I stand, inside the store
-  mannequin: { x: -1.05, h: 1.85 },             // its back faces me
-  bag: { x: -0.25, y: 0.9, plinth: 0.45 },      // the red point, close to the glass
+  me: { x: -2.4, eye: 1.6 },                              // where I stand, inside the store
+  wear: { x: -1.05, z: -0.75, h: 1.85 },                  // WEAR: mannequin in my black long coat, its back to me
+  see: { x: -0.45, z: 0.1, plinth: 0.7 },                 // SEE: my film camera, red strap, on a low plinth
+  build: { x: -0.3, z: 0.85, plinth: 0.95 },              // BUILD: paper model of a shop window, a tiny red figure in front
   glass: { x: 0, top: 3.0, bed: 0.45 },
-  stopper: { x: 0.55, eye: 1.45 },              // the one who stops, leans in, smiles
-  lanes: [1.5, 2.4],                            // passers-by
-  curb: 3.4,                                    // shop fronts across the aisle
+  stopper: { x: 0.55, z: 0.85, eye: 1.4 },                // the one who stops, leans in, smiles at the model
+  lanes: [1.5, 2.4],                                      // passers-by
+  curb: 3.4,                                              // shop fronts across the aisle
 };
 // where the elements sit on the Codex image (fractions of width / height) -- set after looking at the image
 const SPOTF = path.join(here, `spots_${TASK}.json`);
@@ -60,7 +61,7 @@ const S = [
   ['진열이 맞았는지는 상품이 아니라 그 표정이 알려 주기 때문이다.', 'face'],
   ['밖에서 상품만 들여다보는 VMD가 아니라, 안에서 사람들의 표정과 반응을 살피는 VMD가 되겠다.', 'me'],
 ];
-const KEY = { name: '1', back: '2', face: '3', pass: '4', bag: '5', me: '6', log: '7' };
+const KEY = { name: '1', back: '2', face: '3', pass: '4', bag: '5', me: '6' };
 
 // ---------- 01 the image ----------
 const IX = 10, IY = 21, IW = 250, IH = IW * 1024 / 1536;
@@ -72,49 +73,53 @@ if (SPOTS.name) { const [x, y] = at('name');   // mirrored name, as if cut in vi
   o += `<text x="0" y="0" font-size="2" letter-spacing=".8" fill="rgba(255,236,200,.7)" stroke="none" text-anchor="middle" transform="translate(${f(x)} ${f(y + 4)}) scale(-1 1)">VISUAL MERCHANDISER</text>`; }
 if (SPOTS.face && SPOTS.bag) { const [fx_, fy] = at('face'), [bx, by] = at('bag'); P([[fx_, fy], [bx, by]], .5, `stroke="${RED}" stroke-dasharray="1.6 1"`); arrow(bx, by, Math.atan2(by - fy, bx - fx_) * 180 / Math.PI); }
 if (SPOTS.me && SPOTS.face) { const [mx, my] = at('me'), [fx_, fy] = at('face'); P([[mx, my], [fx_, fy + 2]], .5, `stroke="${EYE}" stroke-dasharray="1.6 1"`); arrow(fx_, fy + 2, Math.atan2(fy + 2 - my, fx_ - mx) * 180 / Math.PI, EYE); }
+(SPOTS.tags || []).forEach(([label, u0, v0, u1, v1]) => {          // the three maker elements, boxed like product recognition
+  const x = IX + u0 * IW, y = IY + v0 * IH, w = (u1 - u0) * IW, h = (v1 - v0) * IH;
+  R(x, y, w, h, .5, 'none', `stroke="${RED}"`); o += `<rect x="${f(x)}" y="${f(y - 3.8)}" width="${f(label.length * 1.45 + 2)}" height="3.8" fill="${RED}" stroke="none"/>`;
+  T(x + 1, y - 1, label, 2, `fill="#fff" ${bold} font-family="${MONO}"`); });
 Object.entries(KEY).forEach(([k, n]) => { const p = at(k + 'Label') || at(k); if (p) num(p[0], p[1], n, k === 'me' ? EYE : RED); });
 T(IX, IY + IH + 5.5, 'FROM THE INSIDE', 4.4, `${bold} letter-spacing=".2"`);
 T(IX + 47, IY + IH + 5.5, '밖에서 보면 상품이 보이고, 안에서 보면 사람이 보인다.', 2.6);
 
 // ---------- 02 section: two sightlines ----------
-{ const k = 19, sx = 284, sy = 98, X = x => sx + (x - D.me.x + .4) * k, Y = y => sy - y * k;
+{ const k = 19, sx = 284, sy = 98, X = x => sx + (x - D.me.x + .4) * k, Y = y => sy - y * k, bed = D.glass.bed;
   head(268, 13, '02', 'TWO SIGHTLINES', 'section · approx. 1:55 · boutique ← glass → department store aisle');
-  L(X(-2.9), Y(0), X(D.curb), Y(0), .4); T(X(-2.8), Y(0) + 3.4, 'STORE', 1.6, `${dim} letter-spacing=".4"`); T(X(1.2), Y(0) + 3.4, 'AISLE', 1.6, `${dim} letter-spacing=".4"`); L(X(-2.9), Y(3.2), X(D.curb), Y(3.2), .3, 'stroke-dasharray="2 1"'); T(X(-2.8), Y(3.2) - 1.2, 'ceiling — indoors on both sides', 1.5, dim);
+  L(X(-2.9), Y(0), X(D.curb), Y(0), .4); T(X(-2.8), Y(0) + 3.4, 'STORE', 1.6, `${dim} letter-spacing=".4"`); T(X(1.2), Y(0) + 3.4, 'AISLE', 1.6, `${dim} letter-spacing=".4"`);
+  L(X(-2.9), Y(3.2), X(D.curb), Y(3.2), .3, 'stroke-dasharray="2 1"'); T(X(-2.8), Y(3.2) - 1.2, 'ceiling — indoors on both sides', 1.5, dim);
   L(X(D.curb), Y(0), X(D.curb), Y(3.2), .3, `stroke="${DIM}"`); T(X(D.curb) - 1, Y(1.2), 'shop front', 1.4, `${dim} text-anchor="end"`);
-  R(X(-1.5), Y(D.glass.bed), (1.5) * k, D.glass.bed * k, .3, 'url(#hatch)');
-  L(X(0), Y(D.glass.bed), X(0), Y(D.glass.top), .5); L(X(.012), Y(D.glass.bed), X(.012), Y(D.glass.top), .25); T(X(0) + 1.2, Y(D.glass.top) + 2.5, 'glass', 1.6, dim);
-  // me
+  R(X(-1.5), Y(bed), 1.5 * k, bed * k, .3, 'url(#hatch)');
+  L(X(0), Y(bed), X(0), Y(D.glass.top), .5); L(X(.012), Y(bed), X(.012), Y(D.glass.top), .25); T(X(0) + 1.2, Y(D.glass.top) + 2.5, 'glass', 1.6, dim);
   L(X(D.me.x), Y(0), X(D.me.x), Y(1.48), .6, `stroke="${EYE}"`); C(X(D.me.x), Y(1.62), 1.6, .4, 'none', `stroke="${EYE}"`); T(X(D.me.x) - 2, Y(1.95), 'ME', 1.8, `${bold} fill="${EYE}" text-anchor="middle"`);
-  // mannequin, seen from its back
-  P([[X(D.mannequin.x - .12), Y(D.glass.bed)], [X(D.mannequin.x - .12), Y(D.glass.bed + 1.35)], [X(D.mannequin.x), Y(D.glass.bed + 1.45)], [X(D.mannequin.x + .12), Y(D.glass.bed + 1.35)], [X(D.mannequin.x + .12), Y(D.glass.bed)]], .35);
-  T(X(D.mannequin.x), Y(D.glass.bed + 1.7), 'its back', 1.5, `${dim} text-anchor="middle"`);
-  // bag near the glass
-  R(X(D.bag.x - .12), Y(D.bag.y), .24 * k, (D.bag.y - D.glass.bed) * k, .4, 'none', `stroke="${RED}"`);
-  // the one who stops, leaning in
-  P([[X(D.stopper.x + .1), Y(0)], [X(D.stopper.x + .08), Y(.95)], [X(D.stopper.x), Y(1.35)]], .6); C(X(D.stopper.x - .03), Y(D.stopper.eye), 1.5, .4);
-  // passers-by
+  const w = D.wear.x; P([[X(w - .13), Y(bed)], [X(w - .13), Y(bed + 1.3)], [X(w), Y(bed + 1.42)], [X(w + .13), Y(bed + 1.3)], [X(w + .13), Y(bed)]], .4, `stroke="${RED}"`);
+  T(X(w), Y(bed + 1.62), 'WEAR', 1.6, `${bold} fill="${RED}" text-anchor="middle"`);
+  R(X(D.see.x - .12), Y(D.see.plinth), .24 * k, (D.see.plinth - bed) * k, .3); R(X(D.see.x - .07), Y(D.see.plinth + .1), .14 * k, .1 * k, .4, 'none', `stroke="${RED}"`);
+  T(X(D.see.x) - 2.5, Y(D.see.plinth + .32), 'SEE', 1.6, `${bold} fill="${RED}" text-anchor="middle"`);
+  R(X(D.build.x - .1), Y(D.build.plinth), .2 * k, (D.build.plinth - bed) * k, .3); P([[X(D.build.x - .08), Y(D.build.plinth)], [X(D.build.x - .08), Y(D.build.plinth + .12)], [X(D.build.x), Y(D.build.plinth + .17)], [X(D.build.x + .08), Y(D.build.plinth + .12)], [X(D.build.x + .08), Y(D.build.plinth)]], .4, `stroke="${RED}"`);
+  T(X(D.build.x) + 2.2, Y(D.build.plinth + .38), 'BUILD', 1.6, `${bold} fill="${RED}"`);
+  P([[X(D.stopper.x + .1), Y(0)], [X(D.stopper.x + .08), Y(.95)], [X(D.stopper.x), Y(1.3)]], .6); C(X(D.stopper.x - .03), Y(D.stopper.eye), 1.5, .4);
   D.lanes.forEach(x => { L(X(x), Y(0), X(x), Y(1.62), .6, `stroke="${DIM}" opacity=".5"`); C(X(x), Y(1.72), 1.4, .3, 'none', `stroke="${DIM}" opacity=".5"`); L(X(x) - 3, Y(.8), X(x) + 3, Y(.8), .3, `stroke="${DIM}" opacity=".6"`); arrow(X(x) + 3.4, Y(.8), 0, DIM, 1.2); });
-  // sightlines
-  P([[X(D.stopper.x - .05), Y(D.stopper.eye)], [X(D.bag.x), Y(D.bag.y - .1)]], .45, `stroke="${RED}" stroke-dasharray="1.6 1"`); arrow(X(D.bag.x) + .5, Y(D.bag.y - .1) - .3, 205);
+  P([[X(D.stopper.x - .05), Y(D.stopper.eye)], [X(D.build.x + .05), Y(D.build.plinth + .12)]], .45, `stroke="${RED}" stroke-dasharray="1.6 1"`); arrow(X(D.build.x + .05) + .4, Y(D.build.plinth + .12) - .3, 215);
   P([[X(D.me.x) + 1.6, Y(D.me.eye)], [X(D.stopper.x - .08), Y(D.stopper.eye)]], .45, `stroke="${EYE}" stroke-dasharray="1.6 1"`); arrow(X(D.stopper.x - .08) - 1.6, Y(D.stopper.eye), -2, EYE);
-  T(X(-.9), Y(D.me.eye) - 2.2, 'my eye → their face', 1.7, `fill="${EYE}" ${bold}`); T(X(.25), Y(2.35), 'their eye → the product', 1.7, `fill="${RED}" ${bold}`);
-  // dims
+  T(X(-.95), Y(D.me.eye) - 2.2, 'my eye → their face', 1.7, `fill="${EYE}" ${bold}`); T(X(.25), Y(2.35), 'their eye → what I made', 1.7, `fill="${RED}" ${bold}`);
   const dimH = (a, b, y, t) => { L(X(a), Y(y), X(b), Y(y), .15); [a, b].forEach(v => L(X(v) - .7, Y(y) + .7, X(v) + .7, Y(y) - .7, .3)); T((X(a) + X(b)) / 2, Y(y) + 2.8, t, 1.5, `${dim} text-anchor="middle"`); };
-  dimH(D.me.x, 0, -.35, `${Math.round(-D.me.x * 1000)}`); dimH(0, D.stopper.x, -.35, `${Math.round(D.stopper.x * 1000)}`); dimH(D.bag.x, 0, -.75, `${Math.round(-D.bag.x * 1000)}`);
+  dimH(D.me.x, 0, -.35, `${Math.round(-D.me.x * 1000)}`); dimH(0, D.stopper.x, -.35, `${Math.round(D.stopper.x * 1000)}`);
+  const dimV = (x, a, b, t) => { L(X(x), Y(a), X(x), Y(b), .15); [a, b].forEach(v => L(X(x) - .7, Y(v) + .7, X(x) + .7, Y(v) - .7, .3)); T(X(x) + 1, (Y(a) + Y(b)) / 2 + .5, t, 1.4, dim); };
+  dimV(-1.62, 0, bed + D.wear.h, `${Math.round((bed + D.wear.h) * 1000)}`);
 }
 
 // ---------- 03 plan ----------
 { const k = 14, ox = 296, oy = 158, X = x => ox + (x + 2.9) * k, Y = z => oy + z * k;
-  head(268, 126, '03', 'PLAN', 'the aisle passes · one stops · approx. 1:70');
+  head(268, 126, '03', 'PLAN', 'three units, high · low · middle · approx. 1:70');
   R(X(-2.9), Y(-1.6), 2.9 * k, 3.6 * k, .3); L(X(0), Y(-1.6), X(0), Y(2), .6); T(X(-2.8), Y(-1.6) - 1.2, 'STORE', 1.6, `${dim} letter-spacing=".4"`);
   R(X(-1.5), Y(-1.4), 1.5 * k, 3.2 * k, .25, 'url(#hatch)'); T(X(-1.45), Y(1.75), 'window bed', 1.4, dim);
-  C(X(D.mannequin.x), Y(.1), 2.4, .35); T(X(D.mannequin.x) + 3, Y(.1) - 2.5, 'mannequin', 1.4, dim);
-  R(X(D.bag.x - .12), Y(.55), .24 * k, .12 * k, .45, 'none', `stroke="${RED}"`);
-  C(X(D.me.x), Y(.4), 1.6, .4, 'none', `stroke="${EYE}"`); T(X(D.me.x) - 2.2, Y(.4) + 4, 'ME', 1.6, `${bold} fill="${EYE}"`);
+  C(X(D.wear.x), Y(D.wear.z), 2.4, .45, 'none', `stroke="${RED}"`); T(X(D.wear.x) - 3.3, Y(D.wear.z) + .6, 'WEAR', 1.4, `fill="${RED}" ${bold} text-anchor="end"`);
+  R(X(D.see.x - .12), Y(D.see.z - .12), .24 * k, .24 * k, .45, 'none', `stroke="${RED}"`); T(X(D.see.x) - 3, Y(D.see.z) + .6, 'SEE', 1.4, `fill="${RED}" ${bold} text-anchor="end"`);
+  R(X(D.build.x - .1), Y(D.build.z - .1), .2 * k, .2 * k, .45, 'none', `stroke="${RED}"`); T(X(D.build.x) - 3, Y(D.build.z) + .6, 'BUILD', 1.4, `fill="${RED}" ${bold} text-anchor="end"`);
+  C(X(D.me.x), Y(.1), 1.6, .4, 'none', `stroke="${EYE}"`); T(X(D.me.x) - 2.2, Y(.1) + 4, 'ME', 1.6, `${bold} fill="${EYE}"`);
   D.lanes.forEach((x, i) => { const y0 = i ? 1.9 : -1.5, y1 = i ? -1.5 : 1.9; L(X(x), Y(y0), X(x), Y(y1), .35, `stroke="${DIM}" stroke-dasharray="1.4 .9"`); arrow(X(x), Y(y1), i ? -90 : 90, DIM, 1.3); });
-  P([[X(1.95), Y(-1.5)], [X(1.6), Y(-.3)], [X(D.stopper.x + .15), Y(.45)], [X(D.stopper.x), Y(.6)]], .5, `stroke="${RED}"`); C(X(D.stopper.x), Y(.6), 1.4, .4, 'none', `stroke="${RED}"`);
-  T(X(D.stopper.x) + 2.5, Y(.6) + 4.2, 'stops · leans in · smiles', 1.4, `fill="${RED}"`);
-  P([[X(D.me.x) + 1.6, Y(.4)], [X(D.stopper.x) - 1.5, Y(.6)]], .35, `stroke="${EYE}" stroke-dasharray="1.2 .8"`);
+  P([[X(1.95), Y(-1.5)], [X(1.6), Y(-.2)], [X(D.stopper.x + .15), Y(D.stopper.z - .2)], [X(D.stopper.x), Y(D.stopper.z)]], .5, `stroke="${RED}"`); C(X(D.stopper.x), Y(D.stopper.z), 1.4, .4, 'none', `stroke="${RED}"`);
+  T(X(D.stopper.x) + 2.5, Y(D.stopper.z) + 4.2, 'stops at BUILD · smiles', 1.4, `fill="${RED}"`);
+  P([[X(D.me.x) + 1.6, Y(.1)], [X(D.stopper.x) - 1.5, Y(D.stopper.z)]], .35, `stroke="${EYE}" stroke-dasharray="1.2 .8"`);
   L(X(D.curb), Y(-1.6), X(D.curb), Y(2), .3, `stroke="${DIM}"`); T(X(D.curb) + 1, Y(2) - 1, 'shop front', 1.4, dim); T(X(1.95), Y(2) + 3, 'AISLE', 1.4, `${dim} letter-spacing=".4" text-anchor="middle"`);
 }
 
@@ -123,11 +128,27 @@ T(IX + 47, IY + IH + 5.5, '밖에서 보면 상품이 보이고, 안에서 보�
   S.forEach(([s, k], i) => { const yy = y + 9 + i * 8.3; if (k) num(x + 2.5, yy - .8, KEY[k], k === 'me' ? EYE : RED); else C(x + 2.5, yy - .8, .6, .3, INK);
     o += `<foreignObject x="${x + 7}" y="${yy - 3.4}" width="${i === 9 ? 160 : 160}" height="7.5"><div xmlns="http://www.w3.org/1999/xhtml" class="fo">${s}</div></foreignObject>`; });
 }
-// ---------- 05 legend of numbers ----------
-{ const x = 180, y = 200; head(x, y, '05', 'IN THE IMAGE', '');
-  [['1', 'the shop name, mirrored on the glass (added in layout, cut vinyl in the real shoot)'], ['2', 'the display shows its back: mannequin, pins, the back of a price card'],
-   ['3', 'the one face that stopped, leaned in and smiled'], ['4', 'everyone else walks past, blurred'], ['5', 'what she smiled at: one red point on a stack in my palette'], ['6', 'me, reflected on the glass: black long coat, horn-rim glasses, film camera'], ['7', 'the back of the price card: my handwritten window log']].forEach(([n, t], i) => {
-    const yy = y + 9 + i * 7.6; num(x + 2.5, yy - .8, n, n === '6' ? EYE : RED); o += `<foreignObject x="${x + 7}" y="${yy - 3.2}" width="75" height="8"><div xmlns="http://www.w3.org/1999/xhtml" class="fo s">${t}</div></foreignObject>`; });
+// ---------- 05 the three elements: what the aisle sees ----------
+{ const x = 180, y = 200, k = 16, ox = x + 2, oy = y + 50, bed = D.glass.bed, X = z => ox + (1.2 - z) * k, Y = h => oy - h * k;   // from the aisle: left and right swap
+  head(x, y, '05', 'FOR SALE: THE MAKER', '상품 대신 나를 파는 세 요소 · front view from the aisle');
+  L(X(1.25), Y(0), X(-1.25), Y(0), .35); R(X(1.2), Y(bed), 2.4 * k, bed * k, .25, 'url(#hatch)');
+  const unit = (z, w, top, label) => { R(X(z) - w * k / 2, Y(top), w * k, (top - bed) * k, .3, 'rgba(255,255,255,.06)');
+    R(X(z) - 4.6, Y(top) + 1.2, 9.2, 3.2, .2, '#f4f1ea'); T(X(z), Y(top) + 3.5, label, 1.5, `text-anchor="middle" ${bold} fill="#123f73"`); };
+  const zw = D.wear.z, wp = bed + .3;
+  unit(zw, .62, wp, 'WEAR'); unit(D.see.z, .45, D.see.plinth, 'SEE'); unit(D.build.z, .55, D.build.plinth, 'BUILD');
+  P([[X(zw) - 3.6, Y(wp)], [X(zw) - 4, Y(wp + 1.15)], [X(zw) - 2.4, Y(wp + 1.5)], [X(zw) - .8, Y(wp + 1.6)], [X(zw) + .8, Y(wp + 1.6)], [X(zw) + 2.4, Y(wp + 1.5)], [X(zw) + 4, Y(wp + 1.15)], [X(zw) + 3.6, Y(wp)]], .45, `stroke="${RED}"`);
+  R(X(D.see.z) - 1.8, Y(D.see.plinth + .11), 3.6, .11 * k, .45, 'none', `stroke="${RED}"`); C(X(D.see.z) + .5, Y(D.see.plinth + .055), .7, .3, 'none', `stroke="${RED}"`);
+  P([[X(D.build.z) - 3, Y(D.build.plinth)], [X(D.build.z) - 3, Y(D.build.plinth + .16)], [X(D.build.z) + 2.4, Y(D.build.plinth + .16)], [X(D.build.z) + 2.4, Y(D.build.plinth)]], .45, `stroke="${RED}"`); L(X(D.build.z) + 3.2, Y(D.build.plinth), X(D.build.z) + 3.2, Y(D.build.plinth + .06), .6, `stroke="${RED}"`);
+  const tx = x + 44;
+  [['WEAR · 입히다', 'my own black oversized wool long coat on the mannequin — I style'],
+   ['SEE · 보다', 'my film camera, red strap — I notice what people walk past'],
+   ['BUILD · 짓다', 'a paper model of a shop window, a tiny red figure in front — I build where people stop']].forEach(([a, t], i) => {
+    const yy = y + 9 + i * 13; T(tx, yy, a, 2.1, `${bold} fill="${RED}"`); o += `<foreignObject x="${tx}" y="${yy + 1}" width="41" height="11"><div xmlns="http://www.w3.org/1999/xhtml" class="fo s">${t}</div></foreignObject>`; });
+  T(x, y + 58, '입히고, 보고, 짓는 사람 — 정혁주', 2.6, bold);
+  T(x, y + 62, 'heights step middle · low · high from the aisle, so the three read as one sentence;', 1.55, dim);
+  T(x, y + 65, 'the card faces the aisle with the verb; its back (my side) holds my notes', 1.55, dim);
+  [['1', 'shop name, mirrored on the glass'], ['3', 'the face that stopped and smiled'], ['4', 'everyone else walks past'], ['6', 'me, reflected: black coat, horn-rim glasses']].forEach(([n, t], i) => {
+    const yy = y + 72 + i * 5; num(x + 2.5, yy - .8, n, n === '6' ? EYE : RED); T(x + 7, yy, t, 1.75); });
 }
 
 // ---------- 06 shoot it + title block ----------
