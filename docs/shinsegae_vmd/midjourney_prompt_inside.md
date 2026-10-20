@@ -1,62 +1,77 @@
-# FROM THE INSIDE — 미드저니 프롬프트 (추상 · 컨셉 · 커버)
+# FROM THE INSIDE — 미드저니 프롬프트 (커버)
 
-2026-10-20 정정: 생성 도구는 Gemini 가 아니라 미드저니다. 미드저니는 대화로 고치지 않으므로
-수정은 이미지 프롬프트 · 에디터(Vary Region) · 후보정으로 나눈다.
+생성 도구는 미드저니다 (2026-10-20 정정). 무대는 백화점 실내다.
+참고 장면은 서점 안에서 유리 너머 손님을 보는 영화 스틸이고, 구도와 빛만 빌린다.
 
-참고 장면: 서점 안에서 유리 너머 손님을 보는 영화 스틸. 구도와 빛만 빌린다. 무대는 백화점 실내다.
+## 방향 (2026-10-20 재설정)
 
-## 커버 스토리 ('컨셉적 · 강렬한'을 직관적인 말로)
+'극장 · 강물 · 돌 · 불이 들어온 신호' 비유는 철회한다. 스토리에 없는 뜻을 더했기 때문이다.
+특히 '진열이 맞았다는 신호'는 판정이고, 스토리는 판정이 아니라 **관찰**이다.
 
-- **컨셉적이다:** 설명 없이 한 문장으로 읽힌다. "나는 안에 있고, 밖에서 한 사람이 웃는다."
-- **강렬하다:** 대비가 한 점에 모인다. 어둠과 빛, 흐림과 선명, 무채색과 빨강이 얼굴과 빨간 점에서 만난다.
+원칙은 이렇다. **스토리 문장이 곧 화면 지시서다. 문장에 있는 것만 그리고, 문장에 없는 것은 뺀다.**
 
-불 꺼진 진열창 안은 극장 객석이다. 유리 밖은 스크린처럼 밝고, 사람들은 강물처럼 흘러간다.
-한 사람이 돌처럼 멈춘다. 그 사람이 웃는 순간 진열 위 빨간 점 하나에 불이 들어온다. 진열이 맞았다는 신호다.
-나는 그 장면을 객석에서 본다.
+### 기준 문장
 
-| 말 | 바꿀 것 |
-|---|---|
-| 극장 | 안은 완전한 검정, 밝은 띠는 얇고 하얗게 |
-| 강물 | 지나가는 사람은 가로로 길게 번져 형체가 없다 |
-| 돌 | 멈춘 한 사람만 선명, 얼굴에 역광 |
-| 불이 들어온 점 | 그 사람의 시선이 닿는 자리. 카메라가 아니라 점을 본다 |
-| 거꾸로 읽히는 이름 | 생성하지 않고 편집 프로그램에서 좌우반전해 얹는다 |
+> 사람들은 쇼윈도를 밖에서 본다. 나는 안에서 본다. 안에서 보면 가게 이름은 거꾸로 읽히고, 진열은 등을 보인다.
+> 대신 유리 너머로 사람들의 얼굴이 보인다. 대부분은 그냥 지나간다. 가끔 누군가 걸음을 멈추고, 들여다보고, 웃는다.
+> 나는 그 사람이 무엇을 보고 웃었는지 본다. 상품의 진열에만 신경쓰느라 밖에서 안만 바라보는 것이 아니라,
+> 사람들의 표정과 반응을 살피기 위해 안에서 밖으로 쳐다보는 VMD가 되겠다.
 
-## A안 — 새로 생성 (권장)
+### 한 장의 구조: 유리 위에서 엇갈리는 두 시선
+
+- **그 사람의 시선 (밖 → 안):** 진열을 들여다본다. 그 끝에 진열품 하나가 있다.
+- **나의 시선 (안 → 밖) = 카메라:** 그 사람의 얼굴을 본다.
+
+마지막 문장 "밖에서 안만 바라보는 것이 아니라 안에서 밖으로"를 그대로 그림으로 옮긴 것이다.
+그래서 초점은 진열이 아니라 **얼굴**에 둔다. 진열은 어둡고 등을 보인다.
+
+### 문장 → 화면
+
+| 문장 | 지금 이미지 | 방향 |
+|---|---|---|
+| 나는 안에서 본다 | 안쪽이 어둡다 | 유지 |
+| 가게 이름은 거꾸로 읽히고 | 'ƎЯ' 조각뿐이라 안에서 본 유리인지 모른다 | **강조.** 뒤집힌 이름을 유리 위쪽에 또렷하게. 후보정에서 좌우반전해 얹는다 |
+| 진열은 등을 보인다 | 아래 띠가 계산대나 난간처럼 보인다 | **강조.** 진열이라고 읽히게. 마네킹의 등과 어깨, 진열대의 뒷면을 실루엣으로 |
+| 유리 너머로 사람들의 얼굴이 보인다 | 밝은 실내 통로, 흐린 사람들 | 유지 |
+| 대부분은 그냥 지나간다 | 사람들이 흐리지만 서 있는 것처럼 보인다 | 걷는 방향으로 번지게 |
+| 걸음을 멈추고, 들여다보고, 웃는다 | 멈추고 웃지만 카메라를 본다 | **고침.** 진열 쪽으로 몸을 기울여 들여다본다. 시선은 카메라가 아니라 진열로 |
+| 무엇을 보고 웃었는지 본다 | 빨간 점이 떠 있는 불빛 같다 | **고침.** 빨강은 불빛이 아니라 그 사람이 보는 진열품 하나. 예: 마네킹 어깨에 걸린 빨간 스카프 끝 |
+| 안에서 밖으로 쳐다보는 VMD | — | 나는 그리지 않는다. 카메라가 나의 눈이다 |
+
+### 우선순위
+
+1. **시선:** 카메라를 보면 "그 사람이 나를 본다"가 되어 스토리가 뒤집힌다. 가장 먼저 고친다.
+2. **진열의 등:** 마네킹 실루엣 하나만 있어도 "쇼윈도 안쪽"이 바로 읽힌다.
+3. **거꾸로 읽히는 이름:** 안에서 본 유리라는 증거다.
+
+## 프롬프트 — 새로 생성
 
 ```
-view from inside a dark shop display window looking out through the glass, foreground pure black, backs of display pieces as blunt featureless silhouettes, a thin bright white band of an indoor department store aisle beyond the glass like a cinema screen, passers-by dissolved into long horizontal motion blur streaks, one woman stopped and sharp, soft rim light on her face, faint private smile, eyes looking down at a single small glowing red light in the dark display, black and white with one red accent, 35mm film grain, cinematic, minimal, vast negative space --ar 297:210 --style raw --stylize 100 --no text, letters, logo, street, people reflected in glass
+view from inside a department store display window looking out through the glass, the shop name painted on the glass reads backwards, in the dark foreground the back of a mannequin and the backs of display stands in silhouette, a red scarf end hanging from the mannequin's shoulder, beyond the glass a bright indoor department store aisle, passers-by walking past in motion blur, one woman has stopped, leaning toward the window, looking into the display at the red scarf, gentle smile, her face in sharp focus, black and white with the red scarf as the only colour, 35mm film grain, cinematic, minimal --ar 297:210 --style raw --stylize 100 --no street, people reflected in glass, logo
 ```
 
-## B안 — 더 추상
+## 지금 이미지 고치기 (에디터 · Vary Region)
 
-```
-abstract minimal composition, a sheet of glass seen from a dark interior, below pure black with blunt shapes seen from behind, beyond a pale luminous band of light, people as vertical columns of blurred light passing by, one column stopped and becoming a woman with a faint smile, a tiny red glow where her gaze lands, the only colour in the frame, monochrome, fine film grain, gallery photograph, quiet and poetic --ar 297:210 --style raw --stylize 250 --no text, letters, logo, street
-```
+- **얼굴과 눈:** `woman leaning toward the window, looking down into the display, gentle smile, face in sharp focus`
+- **아래 검은 띠 왼쪽:** `back of a mannequin's shoulders in dark silhouette, seen from inside the window`
+- **빨간 점 자리 (마네킹 어깨 쪽으로):** `a red scarf end hanging from the mannequin's shoulder, matte, not glowing`
+- **왼쪽 행인들:** `passers-by walking past, motion blur in the walking direction`
+- **글자:** 유리의 'ƎЯ' 는 `plain bright glass` 로 지우고, 이름은 후보정에서 좌우반전해 얹는다.
+- **이미지 프롬프트로 다시 뽑기:** 이미지 URL 을 앞에 두고 위 프롬프트를 붙인다. `--iw 1.0~1.5`.
 
-## 지금 이미지를 커버로 다듬기
+## 표지 글자
 
-1. **이미지 프롬프트로 다시 뽑기:** 이미지를 올리고 그 URL 을 맨 앞에 둔 뒤 A안을 붙인다.
-   `--iw 1.5` 는 구도를 많이 지키고 `--iw 0.8` 은 새로 많이 바꾼다.
-2. **에디터 (Vary Region) 로 부분 고치기:** 영역을 고르고 그 영역의 프롬프트만 바꾼다.
-   - 얼굴 · 눈: `woman looking down toward a small glowing red light, faint smile, rim light on her face`
-   - 지금 빨간 점 자리: `plain dark display surface`
-   - 그 사람 시선 아래의 진열 자리: `a single small soft glowing red light`
-   - 왼쪽 행인들: `long horizontal motion blur streaks of passers-by, no shapes`
-   - 유리 글자 'ƎЯ': `plain bright blurred glass`
-3. **후보정 (Lightroom · 포토샵):** 검정을 완전한 검정으로 누르고 밝은 띠를 하얗게 올린다. 커브 하나로 충분하다.
-   미드저니로 하는 것보다 정확하다.
-4. **글자:** 뒤집힌 이름을 밝은 띠 위에 가늘게 얹는다. 바로 읽히는 제목은 아래 검정 띠에 작게 둔다.
-   예: `FROM THE INSIDE — JEONG HYEOKJU, VISUAL MERCHANDISER`
+스토리의 문장을 그대로 쓴다. 새 문구를 만들지 않는다.
+
+- **유리 위:** 뒤집힌 이름 (`JEONG HYEOKJU`).
+- **아래 검정 띠:** `사람들은 쇼윈도를 밖에서 본다. 나는 안에서 본다.` 와 `FROM THE INSIDE — VISUAL MERCHANDISER`.
 
 ## 매개변수
 
 - `--ar 297:210`: A4 가로.
-- `--style raw`: 미드저니 특유의 꾸밈을 줄이고 프롬프트에 가깝게.
-- `--stylize`: 낮을수록 지시를 따르고 높을수록 미드저니가 해석한다. A안 100, B안 250.
-- `--no`: 빼고 싶은 것. 글자는 완전히 막히지 않으니 남으면 에디터로 지운다.
-- `--sref <커버 URL>`: 커버가 정해지면 다른 페이지 이미지에도 붙여 톤을 맞춘다.
-- `--chaos 20`: 네 장의 차이를 키우고 싶을 때.
+- `--style raw` · `--stylize 100`: 꾸밈을 줄이고 지시를 따르게.
+- `--no`: 빼고 싶은 것. 글자가 남으면 에디터로 지운다.
+- `--sref <커버 URL>`: 커버가 정해지면 다른 페이지 이미지의 톤을 맞춘다.
 
 ## 주의
 
