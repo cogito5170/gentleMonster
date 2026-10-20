@@ -148,3 +148,19 @@ view from inside a department store display window, black and white film photogr
 순서: 배경 → 소품 → 인물. 인물(5)은 가장 많이 다시 뽑으므로 마지막에 한다.
 5에서 영역은 머리카락 끝까지 넉넉히 잡는다. 좁게 잡으면 긴 머리가 남는다.
 이름(7)은 생성하지 않는다. 미드저니는 글자를 깨뜨린다.
+
+## 유리 글자만 'HYEOK JU' 로 바꾸기 (2026-10-20)
+
+미드저니는 뒤집힌 글자를 잘 못 쓴다. 그래서 이미지를 좌우반전해 글자가 바로 읽히게 만든 뒤 고치고, 다시 뒤집는다.
+
+1. 이미지를 좌우반전한다. 유리 글자가 `SHOP NAME` 으로 바로 읽힌다.
+2. 미드저니 Editor 에 올리고 **글자 띠만** 칠한다 (위쪽 약 16%). 마네킹 머리와 인물의 머리카락에 닿지 않게 한다.
+3. 프롬프트:
+   ```
+   large semi-transparent warm beige vinyl lettering "HYEOK JU" on the shop window glass, same bold rounded sans-serif font, same size, colour and position as the original lettering, bright blurred department store aisle lights behind the glass, film grain --style raw
+   ```
+4. 철자가 맞는 결과가 나올 때까지 다시 뽑는다.
+5. 다시 좌우반전한다. 안에서 보면 거꾸로 읽히는 `HYEOK JU` 가 된다.
+
+확실한 대안은 포토샵이다. 생성형 채우기로 글자를 지우고 비슷한 글꼴로 `HYEOK JU` 를 쓴 뒤 좌우반전한다.
+색은 원래 글자에서 스포이트로 따고, 불투명도 60~70%, 흐림 0.5~1px, 노이즈를 조금 넣어 그레인을 맞춘다.
