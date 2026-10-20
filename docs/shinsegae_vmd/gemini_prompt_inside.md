@@ -40,3 +40,38 @@ A minimal, abstract image about looking out from inside a shop window. A single 
 - 영화 스틸을 올린다면 구도 참고로만 쓴다고 적는다 (`use only for composition and light; do not reproduce the person or the bookstore`). 배우와 닮은 얼굴이 나오면 다시 생성한다.
 - 생성된 인물은 가상 인물이다. 포트폴리오에는 AI 생성 이미지라고 표기한다.
 - A4 가로는 1.414:1 이다. 3:2 로 받아 좌우를 조금 자른다.
+
+## 커버로 다듬기: '컨셉적이고 강렬한'을 직관적인 말로 (2026-10-20)
+
+- **컨셉적이다:** 설명 없이 한 문장으로 읽힌다. "나는 안에 있고, 밖에서 한 사람이 웃는다."
+- **강렬하다:** 대비가 한 점에 모인다. 가장 어두운 곳과 가장 밝은 곳, 흐림과 선명, 무채색과 빨강이 얼굴과 빨간 점에서 만난다.
+
+### 커버 스토리
+
+불 꺼진 진열창 안은 극장 객석이다. 유리 밖은 스크린처럼 밝고, 사람들은 강물처럼 흘러간다.
+한 사람이 돌처럼 멈춘다. 그 사람이 웃는 순간 진열 위 빨간 점 하나에 불이 들어온다. 진열이 맞았다는 신호다.
+나는 그 장면을 객석에서 본다.
+
+### 말 → 화면
+
+| 말 | 지금 | 바꿀 것 |
+|---|---|---|
+| 극장 | 위아래 띠가 짙은 회색 | 안은 완전한 검정. 밝은 띠는 더 얇고 하얗게 |
+| 강물 | 사람들이 흐릿하게 서 있다 | 가로로 길게 번져 형체가 사라진다. 수도 줄인다 |
+| 돌 | 멈춘 사람이 흐린 사람들과 섞인다 | 이 사람만 선명하다. 얼굴 윤곽에 역광 |
+| 불이 들어온 점 | 빨간 점이 떨어져 있어 센서 불빛처럼 보인다 | 그 사람의 시선이 닿는 자리로 옮긴다. 그 사람은 카메라가 아니라 점을 본다 |
+| 거꾸로 읽히는 이름 | 'ƎЯ' 조각만 보인다 | 뒤집힌 이름 하나를 크고 가늘게 유리에. 생성하지 말고 편집 프로그램에서 좌우반전해 얹는다 |
+
+### Gemini 수정 문장
+
+- `Make the inside pure black and the bright band beyond the glass thinner and whiter, like a cinema screen.`
+- `Turn the passers-by into long horizontal motion streaks; fewer of them, no clear shapes.`
+- `Keep only the stopped woman sharp, with a soft rim light on her face.`
+- `She is not looking at the camera; her eyes and smile go down to the red point.`
+- `Move the red point into the dark display just below her line of sight and make it a soft glowing light.`
+- `Remove the lettering from the glass.` (이름은 나중에 직접 넣는다)
+
+### 표지 글자
+
+- 뒤집힌 이름: 밝은 띠 위에 가늘게. 안에서 본 유리라는 걸 바로 알려 준다.
+- 바로 읽히는 제목: 아래 검정 띠에 작게. 예: `FROM THE INSIDE — JEONG HYEOKJU, VISUAL MERCHANDISER`
