@@ -121,3 +121,30 @@ view from inside a department store display window, the back of a dark mannequin
 - **검은 울타리:** `dark empty display interior`
 - **흰 목도리:** `plain dark coat collar`
 - 눈을 가리는 글자 띠는 후보정에서 좌우반전한 이름 레이어로 얹는다.
+
+## 기존 이미지 수정 프롬프트 (미드저니 에디터, 2026-10-20)
+
+청사진: `docs/shinsegae_vmd/edit_blueprint/cover_edit_blueprint.pdf` · 원본: `edit_blueprint/source_midjourney.jpg`.
+도구: 미드저니 웹 Editor → 이미지 업로드 → 영역 지우기(선택) → 프롬프트 교체 → Submit. Discord 라면 Vary (Region).
+
+영역 프롬프트는 장면 전체를 짧게 앞에 두고 바꿀 내용을 뒤에 붙인다. 영역 밖과 톤이 맞는다.
+
+공통 앞부분:
+
+```
+view from inside a department store display window, black and white film photograph, the red scarf on the mannequin is the only colour, 35mm grain,
+```
+
+| # | 영역 | 뒤에 붙일 내용 |
+|---|---|---|
+| 1 | 앞의 검은 울타리 | `dark empty display interior seen from behind, soft shadow, no railing --no fence` |
+| 2 | 인물의 흰 목도리 | `plain dark wool coat collar, no scarf --no white scarf` |
+| 3 | 뒤의 행인 (좌 · 우 두 번) | `faceless passers-by with smooth blank faces, walking past, long motion blur` |
+| 4 | 유리 위 'SHOP NAME' | `plain bright glass, soft blurred lights of the indoor aisle --no text, letters` |
+| 5 | 인물 머리 · 얼굴 · 어깨 | `androgynous person with short dark hair in a plain dark coat, no makeup, leaning toward the window, looking down at the red scarf, faint smile --no makeup, long hair, bangs, earrings` |
+| 6 | (선택) Zoom Out 1.5× | 인물 사진처럼 읽히면 쓴다. 유리와 통로의 여백이 늘고 인물이 작아진다 |
+| 7 | 후보정 | 좌우반전한 `JEONG HYEOKJU` 를 눈 높이(위에서 약 30%)에. 마네킹 뒤로 마스크, 불투명도 70%, 흐림 1px. 커브로 검정을 누르고 통로를 밝힌다 |
+
+순서: 배경 → 소품 → 인물. 인물(5)은 가장 많이 다시 뽑으므로 마지막에 한다.
+5에서 영역은 머리카락 끝까지 넉넉히 잡는다. 좁게 잡으면 긴 머리가 남는다.
+이름(7)은 생성하지 않는다. 미드저니는 글자를 깨뜨린다.
