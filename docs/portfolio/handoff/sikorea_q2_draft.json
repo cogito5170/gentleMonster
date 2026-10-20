@@ -312,5 +312,34 @@
     "total": 998
    }
   ]
+ },
+ "subtitle_options": {
+  "user_request": "글은 확정(사용자 '확장'은 '확정'으로 해석), 소제목 다른 안 제시",
+  "options": [
+   {
+    "id": "A",
+    "subtitle": "[시안을 그리고, 옷을 조합하는 VMD]",
+    "chars": 22,
+    "total": 999
+   },
+   {
+    "id": "B",
+    "subtitle": "[그리고, 입히고, 채우는 VMD]",
+    "chars": 19,
+    "total": 996
+   },
+   {
+    "id": "C",
+    "subtitle": "[시안부터 진열까지 맡는 VMD]",
+    "chars": 18,
+    "total": 995
+   },
+   {
+    "id": "D",
+    "subtitle": "[대표 상품을 먼저 보이게 하는 VMD]",
+    "chars": 22,
+    "total": 999
+   }
+  ]
  }
 }
