@@ -77,3 +77,47 @@ view from inside a department store display window looking out through the glass
 
 - 영화 스틸을 이미지 프롬프트로 쓰면 배우나 서점이 닮게 나올 수 있다. 구도만 참고하고, 닮게 나오면 버린다.
 - 생성된 인물은 가상 인물이다. 포트폴리오에는 AI 생성 이미지라고 표기한다.
+
+## 웃는 사람을 '특정 인물'에서 '누군가'로 (2026-10-20)
+
+스토리는 "가끔 **누군가** 걸음을 멈추고 … 웃는다"이다. 그 사람이 누구인지는 중요하지 않고, 어떻게 반응했는지가 중요하다.
+그래서 **정체(누구)는 지우고 반응(미소)은 남긴다.** 얼굴 없는 초상처럼 얼굴 전체를 지우면 미소도 사라진다.
+"표정과 반응을 살핀다"는 문장과 부딪치므로, 그 방식은 웃는 사람에게는 쓰지 않는다.
+
+### 방법 비교
+
+| 방법 | 지우는 것 | 남는 것 | 판단 |
+|---|---|---|---|
+| A. 거꾸로 된 가게 이름이 눈을 가린다 | 눈 (정체) | 입가의 미소 | **권장.** 스토리에 이미 있는 요소가 얼굴을 가린다 |
+| B. 지나가는 사람만 얼굴 없이 | 행인의 얼굴 | 멈춘 한 사람의 미소 | **권장 (A와 함께).** 지나가는 사람은 반응이 없으니 얼굴도 없다 |
+| C. 성별 · 나이를 흐리게 | 앞머리 · 화장 · 긴 웨이브 머리 | 중립적인 실루엣 | **권장 (A와 함께).** 단발 또는 묶은 머리, 무채색 코트 |
+| D. 얼굴을 매끈하게 지우고 미소만 | 이목구비 | 미소 | 강렬하지만 섬뜩하게 읽힐 위험 |
+| E. 역광 실루엣 | 얼굴 전체 | 윤곽 | 미소가 읽히지 않아 스토리가 약해진다 |
+| F. 여러 사람의 얼굴을 겹친 다중노출 | 한 사람 | '누구나' | 개념은 좋으나 커버에서 복잡해진다 |
+
+### 수정 방향 (A + B + C)
+
+1. **눈 높이에 거꾸로 된 이름:** 유리의 뒤집힌 글자 띠를 그 사람의 눈 높이로 내린다.
+   글자가 눈을 가리고 입가의 미소만 보인다. 후보정에서 글자 레이어로 얹으면 위치가 정확하다.
+   지금 유리에는 'SHOP NAME' 이 그대로 쓰여 있으니 반드시 이름으로 바꾼다.
+2. **행인은 얼굴 없이:** 뒤의 사람들은 이목구비가 없는 매끈한 얼굴로, 걷는 방향으로 흐리게.
+3. **중립적인 인물:** 앞머리 · 화장 · 긴 웨이브 머리를 뺀다. 무채색 코트를 입고, 흰 목도리도 뺀다 (빨간 스카프와 겹친다).
+4. **크기를 줄인다:** 지금은 그 사람이 커서 인물 사진처럼 읽힌다. 화면의 1/4 정도로 줄이고 진열(마네킹)이 앞에 오게.
+5. **앞의 검은 울타리를 뺀다:** 진열이 아니라 난간으로 읽힌다. 진열대 뒷면이나 빈 어둠으로 바꾼다.
+6. **유지:** 마네킹의 등, 빨간 스카프, 진열을 향한 시선, 흑백에 빨강 한 점.
+
+### 미드저니
+
+새로 생성:
+
+```
+view from inside a department store display window, the back of a dark mannequin with a red scarf in the foreground, backwards lettering on the glass running across at eye level, beyond the glass a bright indoor aisle, faceless passers-by with smooth blank faces walking past in motion blur, one androgynous person in a plain dark coat with short hair has stopped, leaning toward the window, their eyes hidden behind the backwards lettering, only a faint smile visible, looking at the red scarf, black and white with the red scarf as the only colour, 35mm film grain, minimal --ar 297:210 --style raw --stylize 100 --no makeup, jewelry, street, logo, fence
+```
+
+지금 이미지 에디터 (Vary Region):
+
+- **인물 머리와 상체:** `androgynous person with short hair in a plain dark coat, leaning toward the window, faint smile`
+- **뒤의 행인들:** `faceless passers-by with smooth blank faces, motion blur`
+- **검은 울타리:** `dark empty display interior`
+- **흰 목도리:** `plain dark coat collar`
+- 눈을 가리는 글자 띠는 후보정에서 좌우반전한 이름 레이어로 얹는다.
