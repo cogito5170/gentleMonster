@@ -1,6 +1,6 @@
 # P1 타입 — ETÉREO 11장에서 뽑은 이야기 전개 방식과 펼침면 유형
 
-작성일: 2026-10-20. 근거: [p1_etereo_reference.md](p1_etereo_reference.md) 의 R1–R11(ETÉREO 2–23쪽).
+작성일: 2026-10-20. 근거: [p1_etereo_reference.md](p1_etereo_reference.md) 의 R1–R11(ETÉREO 2–23쪽). 스토리 흐름은 [p1_story_flow.md](p1_story_flow.md).
 P1 은 A4 가로 한 쪽 = ETÉREO 펼침면 하나로 쓴다. 이 문서가 [flow_etereo.md](flow_etereo.md) 의 펼침면 종류(A–F)와 목차를 대신한다 —
 그 문서는 281px 전체 이미지 한 장으로 짰고, 이 문서는 11장 원본과 쪽 번호로 다시 짰다.
 
