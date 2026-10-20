@@ -164,3 +164,21 @@ view from inside a department store display window, black and white film photogr
 
 확실한 대안은 포토샵이다. 생성형 채우기로 글자를 지우고 비슷한 글꼴로 `HYEOK JU` 를 쓴 뒤 좌우반전한다.
 색은 원래 글자에서 스포이트로 따고, 불투명도 60~70%, 흐림 0.5~1px, 노이즈를 조금 넣어 그레인을 맞춘다.
+
+### 결과가 바로 읽히고 분홍색으로 나왔을 때 (2026-10-20)
+
+원인 1: 반전하지 않은 이미지에서 고쳤다. 미드저니는 글자를 항상 바로 읽히게 쓴다.
+원인 2: `warm beige` 가 분홍으로 해석됐다.
+
+원본(SHOP NAME 이미지)으로 돌아가 다시 한다:
+
+1. 원본을 좌우반전한다.
+2. Editor 에서 글자 띠만 칠한다. '약하게 변형 · 강하게 변형'은 이미지 전체를 바꾸므로 쓰지 않는다.
+3. 프롬프트:
+   ```
+   semi-transparent frosted white vinyl lettering "HYEOK JU" on the shop window glass, soft off-white like the original letters, slightly translucent so the blurred aisle lights show through, same bold rounded sans-serif font, same size and position as the original lettering, letters fully inside the frame, film grain --style raw --no pink, beige, coloured letters
+   ```
+4. 다시 좌우반전한다. 안에서 보면 거꾸로 읽힌다.
+
+반전 없이 프롬프트만으로 뒤집힌 글자를 받는 것은 거의 되지 않는다. `"UJ KOEYH"` 처럼 순서를 거꾸로 써도
+H · Y · O · U 는 대칭이라 맞지만 E · K · J 는 방향이 그대로라 어색하다.
