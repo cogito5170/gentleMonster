@@ -42,3 +42,11 @@
 - 03 왼쪽 단을 시안의 배치로: 제목 한 줄 19pt `Where people stop.`(y 22) → 국문 본문(y 36) → 영문 이탤릭(y 70) → 맺음 국문(y 102) · 영문(y 118) → 고정폭 글 덩어리(y 148).
 - 글은 확정 문구 그대로. 고정폭 덩어리: `17 FRAMES / 06 SHOWN` · `SEA → STREET → SHOP` · `SIX PLACES, SIX QUESTIONS — MY GUESS.`
 - 오른쪽 사진 · 캡션과 다른 쪽은 B14 그대로. `layout/plan_b15.pdf` (17쪽 · 약 7.6MB) · `python3 tools/jaju_layout/plan_b15.py`.
+
+## B16 (2026-10-21) — 현재본 (18쪽)
+
+사용자: "2페이지를 새로 추가한 후 해당 이미지를 첨부하라. 이미지만 존재한다."
+- 표지 다음(PDF 2쪽)에 사진 한 장만 있는 쪽: `assets/cover/opening_book.jpg`(1456×816, 표지 사진이 실린 책을 펼쳐 든 장면). 글 · 바탕 · 쪽 번호 없음.
+- 사진이 쪽보다 넓어(1.78 : 1.41) 좌우가 조금 잘린다(왼쪽 손 · 오른쪽 글 단 가장자리).
+- 본문 쪽 번호는 그대로(Prologue = 01) — 사진만 있는 두 쪽은 번호를 세지 않는다.
+- `layout/plan_b16.pdf` (18쪽 · 약 7.8MB) · `python3 tools/jaju_layout/plan_b16.py`.
