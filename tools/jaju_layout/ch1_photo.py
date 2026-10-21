@@ -170,7 +170,7 @@ def page4():
           "<div class='k'><b>b)</b> Pink<span>수십 명 가운데 한 사람</span></div>"
           "<div class='k'><b>c)</b> Signal<span>어둠 속 빨간 신호</span></div>"
           "<div class='k'><b>d)</b> Through the gap<span>틈 너머의 사람들</span></div>", 'keys'),
-        t(18, 160, 74, 20, '<p>진열도 같다. 시선이 먼저 닿을 한 점을 정하고, 그 점이 놓일 자리를 만든다.</p>', 'bridge'),
+        t(18, 160, 86, 20, '<p>진열도 같다. 시선이 먼저 닿을 한 점을 정하고, 그 점이 놓일 자리를 만든다.</p>', 'bridge'),
         photo('PH-05', 109, 31, 178, 100, focus=(0.5, 0.5), marks=big),
         photo('PH-01', 109, 136, 57, 44, focus=(0.458, 0.64), zoom=3.0, marks=pink),
         photo('PH-08', 169.5, 136, 57, 44, focus=(0.62, 0.3), zoom=1.6, marks=signal),
