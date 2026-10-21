@@ -18,12 +18,12 @@ t, photo, corners, focal, dash, head, e = c.t, c.photo, c.corners, c.focal, c.da
 LABEL = '02 — CONTAIN'
 
 
-def diagram(x, y, w, h):
+def diagram(x, y, w, h, words=None):
     """개념 도해 (사례 3 NEA 의 사이 면을 축소): 틀 → 비움 → 채움. 가는 선 + 단어, 가운데 빈 칸은 점선."""
     cx = [w * 0.12, w * 0.5, w * 0.88]
     cy = h * 0.42
     sq = 9
-    words = [('Frame', '틀'), ('Void', '비움'), ('Fill', '채움')]
+    words = words or [('Frame', '틀'), ('Void', '비움'), ('Fill', '채움')]
     o = ''
     for i, (en, ko) in enumerate(words):
         cls = 'ds' if i == 1 else 'dl'

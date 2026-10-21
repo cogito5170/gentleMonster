@@ -20,6 +20,7 @@ REPO = os.path.abspath(os.path.join(HERE, '../..'))
 sys.path.insert(0, os.path.join(REPO, 'tools/p1_layout'))
 
 import ch1_photo as c1  # noqa: E402
+import ch2_arch as c2  # noqa: E402
 import cover_options as co  # noqa: E402
 import plan_c as pc  # noqa: E402
 
@@ -27,7 +28,7 @@ OUT, TMP = c1.OUT, c1.TMP
 t, photo, dash, ring, lab, e = pc.t, pc.photo, pc.dash, pc.ring, pc.lab, pc.e
 
 # ── C안 지면을 B 톤으로 ──────────────────────────────────────────────────────────────────
-NUM = {8: 5, 9: 6, 10: 7, 15: 11, 16: 12}   # C안 함수가 부르는 쪽 번호 → 이 책의 쪽 번호
+NUM = {9: 6, 10: 7, 15: 11, 16: 12}   # C안 함수가 부르는 쪽 번호 → 이 책의 쪽 번호
 LABEL = {'02 CONTAIN': '02 — CONTAIN', '03 FILL': '03 — FILL'}
 
 
@@ -58,12 +59,23 @@ DARK += """
 """
 
 
-# ── 08 · 채우다 여는 면 — 유리 안에서 밖을 보는 사람 (표지와 같은 시선) ─────────────────────
+# ── 장의 여는 면 — 장 1 의 2쪽(01 Observe)과 같은 틀 ──────────────────────────────────────
+#   장 2 는 앞서 만든 ch2_arch.page5 를 그대로, 장 3 은 같은 틀로 새로.
 def fill_open():
-    return pc.opener(8, '03 FILL', 'FA-02', (0.4, 0.5), '03 / 03', 'Fill', '채우다',
-                     '웃음이 머문 곳에는 늘 조합이 있었다.', '나는 자주 입는 옷으로 빈 자리를 채운다.',
-                     'FA-02 — 유리 안에서 밖을 본다 · 흰 셔츠 · 네이비 팬츠',
-                     marks=lambda to, s: pc.corners(128.5, 172))
+    def m(to, s):
+        return c1.corners(178, 148)
+
+    return ''.join([
+        c1.head(8, '03 — FILL'),
+        c1.t(18, 54, 80, 30, '03', 'chno'),
+        c1.t(18, 92, 90, 12, 'Fill', 'chtitle'),
+        c1.t(18, 105, 90, 8, '채우다', 'chko'),
+        c1.t(18, 124, 86, 30, '<p>웃음이 머문 곳에는 늘 조합이 있었다.</p><p>나는 자주 입는 옷으로 빈 자리를 채운다.</p>', 'body'),
+        c1.t(18, 141, 86, 20, '<p>Where a smile stayed, there was always a combination.</p><p>I fill the empty place with clothes I wear often.</p>', 'bodyen'),
+        c2.diagram(18, 158, 80, 30, [('Read', '읽다'), ('Choose', '고르다'), ('Fill', '채우다')]),
+        c1.photo('FA-02', 109, 31, 178, 148, focus=(0.45, 0.47), marks=m),
+        c1.t(109, 182, 178, 5, '<b>FA-02</b>&nbsp;&nbsp;유리 안에서 밖을 본다 · 흰 셔츠 · 네이비 팬츠', 'cap'),
+    ])
 
 
 # ── 09 · 네 장소, 네 착장 (Galatasaray 의 색 변주 타일) ───────────────────────────────────
@@ -136,12 +148,17 @@ def render(name, pages, css):
 
 def main():
     os.makedirs(TMP, exist_ok=True)
-    c1.SRC = pc.screen  # 장 1 도 화면용 사본으로
+    c1.SRC = pc.screen  # 모든 쪽을 화면용 사본으로
+    c1.has = pc.has
+    c1.size = lambda pid: pc.Image.open(pc.path(pid)).size
+    opener_css = c1.CSS + c2.EXTRA_CSS
     parts = [render('cover', [co.b_cover(), co.b_page1()], co.CSS)]
     c1.main()
     parts.append(os.path.join(OUT, 'ch1_photo.pdf'))
-    parts.append(render('book', [pc.c2_open(), pc.c2_collage(), pc.c2_detail(), fill_open(), four_places(), breakdown(),
-                                 pc.p_proposal(), pc.p_often(), pc.p_back()], DARK))
+    parts.append(render('contain_open', [c2.page5()], opener_css))
+    parts.append(render('contain', [pc.c2_collage(), pc.c2_detail()], DARK))
+    parts.append(render('fill_open', [fill_open()], opener_css))
+    parts.append(render('rest', [four_places(), breakdown(), pc.p_proposal(), pc.p_often(), pc.p_back()], DARK))
     out = os.path.join(OUT, 'plan_b2.pdf')
     subprocess.run(['pdfunite', *parts, out], check=True)
     print('wrote', out)
