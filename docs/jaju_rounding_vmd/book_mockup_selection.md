@@ -37,3 +37,12 @@
 - **찍는 법 (권장):** B6 를 실제로 인쇄해 펼치고, 손에 들고 후지필름으로 찍는다. 참고 이미지도 실제 책을 찍은 사진이다.
 - **미리보기가 먼저 필요하면:** Codex 로 '왼쪽 면이 빈 펼친 책을 든 손'을 만들고, 빈 면에 PH-08 을 원근에 맞춰 얹는다.
 - 크기: PH-08 은 긴 변 1500 px 라 책 한 면(A4 반쪽) 화면용으로는 충분하다.
+
+## 미리보기 청사진 (2026-10-21)
+
+`docs/jaju_rounding_vmd/prologue_preview/prologue_preview_blueprint.pdf` · `node tools/prologue_preview/build.mjs`
+
+1. `tone.py`: PH-08 을 올리브 그린 한 색으로 바꾸고, 빨간 신호등과 빨간 가게 앞면만 빨강으로 남긴다. 사진의 색만 바꾸고 그리지는 않는다.
+2. `spread.mjs`: Prologue 펼침면을 평면으로 만든다 (A4 가로 = A5 두 쪽). 왼쪽 쪽 위에 사진 148.5 × 122 mm, 오른쪽에 B6 의 Prologue 글 그대로. `prologue_spread.pdf`.
+3. `composite.py`: Codex 목업 (`.relay/tasks/011-prologue-book-mockup`, 빈 두 쪽을 든 손) 위에 평면 펼침면을 쪽마다 메시로 얹는다. 엄지와 손가락은 쪽 앞에 남긴다.
+4. 시트: 01 미리보기 · 02 펼침면 치수 · 03 톤 · 04 책 속의 자리 (표지 → Prologue → Observe) · 05 실제 촬영법.
