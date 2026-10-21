@@ -33,6 +33,22 @@
 | J14 | 2025-10-28 | 뉴시스 · 비즈워치 · 쿠키뉴스 | 신세계인터내셔날 이사회, 자주 부문을 신세계까사에 양도 결의 (보도 대부분 940억 원). 이유: 패션 · 뷰티 집중 | 🔎 | 상 |
 | J15 | 2026-01-08 | 비즈워치 · 더팩트 · 한국경제TV | 신세계까사, 2025-12-31 부로 영업 양수 완료. JAAH 포함. 매출 목표 (2030 8천억 원) — 까사 전체인지 자주인지 요약마다 다름 | 🔎 | 상 |
 
+## 이미지 · 문헌 (2026-10-21 추가)
+| # | 날짜 | 매체 | 내용 | 상태 | 신뢰도 |
+|---|---|---|---|---|---|
+| J16 | 2012-08-29 | 2012 보도 (네이트 뉴스), 나무위키 | 자연주의 → JAJU. 자주 = 자연주의의 준말. '도시의 영양분이 되는 브랜드', 로고는 위에서 내려다본 도시 건물. 친환경으로 제한된 이미지에서 벗어나 다양한 라이프스타일 상품. 울프 올린스와 2년 준비 | 🔎 | 중 |
+| J17 | 2024-12 | 한경매거진 | 그동안의 자주는 '무색무취'. 무채색을 버리고 색과 디자인을 입혀 '한국을 대표하는 라이프스타일 브랜드' | 🔎 | 상 |
+| J18 | 2024 무렵 | Korea JoongAng Daily (Hanbok PJs, retro shoes and charcoal scents) | 북촌 한옥 팝업. 숯 · 밤 · 콩깍지 문양 의류, 한복 형태, 고무신, 메주 모양 비누, 숯 · 소나무 · 귤 향. 같은 매체의 'JAJU continues quiet battle with Muji' | 🔎 | 중 |
+| J19 | 2026-06-03 | 헤럴드경제 · 시대 | 압구정로데오 매장: 파자마 중심, 자주 에어 냉감 파자마 · 라운지웨어 · 언더웨어. 상권 맞춰 패션 조닝 강화. 패션 제품군 매출 비중 2026-05 누계 약 57%, 패션을 핵심 성장축으로 | 🔎 | 상 |
+| J20 | 2026-04-16 | 헤럴드경제 · 뉴데일리 · 29CM | PATINA by JAJU: 2030 겨냥 영 라운지웨어, '원마일웨어', 자주 슬립웨어 소재 기반. 성수 이구홈 팝업 | 🔎 | 상 |
+| J21 | 2026-06-17 | 이코노미스트 | 패션 · 뷰티 확대가 가구 · 홈퍼니싱 본업과 어떻게 맞물릴지 우려 | 🔎 | 중 |
+| J22 | 2026-09 | 무신사 · SSF SHOP · 신세계V 브랜드관 | 26FW 캠페인 '어디에서든 자연스럽고 편안한 JAJU 의 하루'. '의류와 생활의 경계를 넘나드는 자주의 스타일'. '한국형 라이프스타일 대표 브랜드' | 🔎 | 중 |
+| J23 | 미확인 | RISS 학위논문 (문화정체성 기반 라이프스타일 브랜드 아이덴티티) | 이케아 · 무인양품 · 자라홈 vs JAJU. 전통을 복고적으로 쓰기보다 핵심 가치에 넣어 그래픽 · 제품 · 공간에 통합 | 🔎 | 중 |
+| J24 | 미확인 | KISTI 학위논문 (국내 · 외 자연주의 화장품 BI 비교) | BI 특성 4가지: 심미성 · 정체성 · 진정성 · 역사성 (분석 틀로만) | 🔎 | 중 |
+| J25 | 2024 리브랜딩 | 시사포커스, 위키백과, THIS. · SWNA 포트폴리오 | 무인양품 비교 거부, 대표 색 틸블루 · 브릭오렌지 · 올리브그린, 심볼 뷰파인더, 에이전시 포트폴리오 (원문 ⛔) | 🔎 | 하~중 |
+
+추가 링크: https://news.nate.com/view/20120829n28187 · https://magazine.hankyung.com/business/article/202412110837b · https://www.koreajoongangdaily.com/business/hanbok-pjs-retro-shoes-and-charcoal-scents-jaju-gets-a-korean-makeover/12351255 · https://www.koreajoongangdaily.com/business/jaju-continues-quiet-battle-with-muji/11183249 · https://www.heraldk.com/article/2026060321371070843 · https://www.heraldk.com/article/2026041615500850038 · https://economist.co.kr/article/view/ecn202606170029 · https://www.musinsa.com/brand/jaju · https://m.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&control_no=d7c5bafec71a31b2ffe0bdc3ef48d419 · https://scienceon.kisti.re.kr/srch/selectPORSrchArticle.do?cn=DIKO0014572129&dbt=DIKO · https://www.sisafocus.co.kr/news/articleView.html?idxno=329628 · https://ko.wikipedia.org/wiki/JAJU · http://www.thisdesign.io/portfolio/jaju/ · https://www.theswna.com/kr/projects/brand-strategy-for-jaju
+
 ## 아직 없는 것
 - 기사 원문 (모두 접속 불가). 사용자 PC 에서 열 수 있다면 J3 · J9 · J11 을 먼저.
 - 대표 · 디렉터 실명 인터뷰 (검색에서 찾지 못함. 발언은 모두 '관계자').
