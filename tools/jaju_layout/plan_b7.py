@@ -4,7 +4,8 @@
 
 사용자: "기존 B6 의 흐름 순서는 지켜라. 주어진 틀 안에서 레이아웃, 텍스트, 배치 등의 피드백을 진행한 후 수정."
 분석 · 비교: docs/jaju_rounding_vmd/ref_case7_guaviari.md. B6 에서 바꾼 것:
-  모든 쪽     네 모서리 표시(뷰파인더처럼) + 바닥 줄 세 칸(책 · 쪽 이름 · 번호) — 사례 7 의 격자를 모서리만
+  모든 쪽     가는 기준선 두 줄 + 십자 표시 + 바닥 줄 세 칸(책 · 쪽 이름 · 번호) — 사례 7 의 격자
+  파트 대표 쪽(02 · 06 · 09) 기준선 양 끝이 ㄱ자 모서리로 꺾여 뷰파인더 틀이 된다
   사진 톤     파트 1 에만 하던 보정을 본문 전체(02–15)에 — 사례 7 은 모든 사진이 한 톤
   01 Prologue 아래에 세 파트를 한 줄로(/01 · /02 · /03 + 쪽) — 사례 7 영상 위의 TUKANO ✦ JIW ✦ NUKAK
   12 Breakdown 사진 위 바닥 줄을 밝게
@@ -56,7 +57,7 @@ def p_prologue():
     for i, (n, w, k, p) in enumerate(cells):
         x = 14 + i * 46
         o.append(t(x, 160, 42, 26, f"<p class='tn'>{n}</p><p class='tw'>{w}</p><p class='tk'>{k}&nbsp;&nbsp;·&nbsp;&nbsp;p.{p}</p>", 'tri'))
-    g = ''.join(corner(14 + i * 46, 157, 1, 1, 2.6) for i in range(3))  # 칸마다 왼쪽 위 모서리만
+    g = "<line x1='14' y1='157' x2='148' y2='157' class='gr'/>" + ''.join(cross(14 + i * 46, 157, 1.6) for i in range(4))
     return html + ''.join(o) + svg(g)
 
 
@@ -110,13 +111,19 @@ def svg(g, cls=''):
     return div(0, 0, 297, 210, f"<svg class='ov grid {cls}' viewBox='0 0 297 210'>{g}</svg>", '')
 
 
-def corner(x, y, dx, dy, r=4):
-    return f"<polyline points='{x + dx * r},{y} {x},{y} {x},{y + dy * r}' class='gc'/>"
+def corner(x, y, dx, dy, r=6):
+    pts = f'{x + dx * r},{y} {x},{y} {x},{y + dy * r}'
+    return f"<polyline points='{pts}' class='vfs'/><polyline points='{pts}' class='vf'/>"
 
 
-def grid(light):
-    """판의 네 모서리만 — 뷰파인더처럼 (사용자: 위 · 아래 선 대신 모서리만)."""
-    g = corner(14, 12, 1, 1) + corner(283, 12, -1, 1) + corner(14, 195, 1, -1) + corner(283, 195, -1, -1)
+def grid(light, vf=False):
+    """vf: 파트 대표 쪽 — 위 · 아래 선의 양 끝이 ㄱ자로 꺾여 뷰파인더 틀이 된다 (끝의 십자 대신)."""
+    g = "<line x1='14' y1='12' x2='283' y2='12' class='gr'/><line x1='14' y1='195' x2='283' y2='195' class='gr'/>"
+    if vf:
+        g += cross(148.5, 12) + cross(148.5, 195)
+        g += corner(14, 12, 1, 1) + corner(283, 12, -1, 1) + corner(14, 195, 1, -1) + corner(283, 195, -1, -1)
+    else:
+        g += ''.join(cross(x, y) for x in (14, 148.5, 283) for y in (12, 195))
     return svg(g, 'lt' if light else '')
 
 
@@ -124,6 +131,7 @@ NAMES = {1: 'PROLOGUE', 2: 'OBSERVE', 3: 'WHERE PEOPLE STOP', 4: 'WHAT MADE ME S
          7: 'CITY TO ROOM', 8: 'A ROOM', 9: 'FILL', 10: 'FOUR PLACES', 11: 'ITEMS', 12: 'BREAKDOWN', 13: 'PROPOSAL', 14: 'OFTEN',
          15: 'ABOUT'}
 LIGHT = {2, 8, 9}  # 사진이 쪽 전체에 깔린 쪽
+PART_PAGES = {2, 6, 9}  # /01 Observe · /02 Contain · /03 Fill — 뷰파인더 모서리
 SWAP = {b6.p_prologue: p_prologue, b4.p_proposal: p_proposal, pe.p_often: p_often, b5.p_back: p_back}
 PAGES = [(SWAP.get(p, p), g) for p, g in b6.PAGES]
 b6.PAGES = PAGES  # b6.page() 가 PAGES 길이로 끝 쪽을 가린다
@@ -137,14 +145,14 @@ def page(i, p, g):
         html = html.replace("class='t ft'", "class='t ft lt'", 1)
     if 0 < i < len(PAGES) - 1:
         lt = i in LIGHT
-        html += grid(lt) + t(98.5, 199, 100, 4, NAMES[i], 'ft c' + (' lt' if lt else ''))
+        html += grid(lt, i in PART_PAGES) + t(98.5, 199, 100, 4, NAMES[i], 'ft c' + (' lt' if lt else ''))
     return html, g
 
 
 CSS = b5.CSS + """
 .ov.grid .gr{stroke:rgba(239,231,218,.16);stroke-width:.15}.ov.grid .gx{stroke:rgba(239,231,218,.55);stroke-width:.2}
-.ov.grid.lt .gr{stroke:rgba(239,231,218,.4)}
-.ov.grid .gc{fill:none;stroke:rgba(239,231,218,.6);stroke-width:.25}.ov.grid.lt .gc{stroke:rgba(239,231,218,.9)}.ov.grid.lt .gx{stroke:rgba(239,231,218,.85)}
+.ov.grid.lt .gr{stroke:rgba(239,231,218,.4)}.ov.grid.lt .gx{stroke:rgba(239,231,218,.85)}
+.ov.grid .vf{fill:none;stroke:rgba(239,231,218,.9);stroke-width:.3}.ov.grid .vfs{fill:none;stroke:rgba(21,18,15,.35);stroke-width:.9}
 .ov.grid .bx{fill:none;stroke:#D9773A;stroke-width:.25}
 .tri .tn{font-family:Lora,serif;font-style:italic;font-size:10pt;color:#D9773A}
 .tri .tw{font-family:Young,serif;font-size:15pt;line-height:19pt;color:#EFE7DA}
