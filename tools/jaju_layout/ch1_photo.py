@@ -152,6 +152,10 @@ def page4():
         cx, cy = to(687, 545)
         return focal(cx, cy, 4.2, 'b)  Pink', cx + 6, cy + 1)
 
+    def signal(to, s):  # PH-08: 어둠 속 빨간 신호 둘 — 가까운 쪽에 초점
+        cx, cy = to(880, 94)
+        return focal(cx, cy, 3.6, 'c)', cx + 5, cy + 1)
+
     return ''.join([
         head(4, '01 — OBSERVE'),
         t(18, 31, 72, 6, 'What made me stop', 'h'),
@@ -165,7 +169,7 @@ def page4():
         t(18, 160, 74, 20, '<p>진열도 같다. 시선이 먼저 닿을 한 점을 정하고, 그 점이 놓일 자리를 만든다.</p>', 'bridge'),
         photo('PH-05', 109, 31, 178, 100, focus=(0.5, 0.5), marks=big),
         photo('PH-01', 109, 136, 57, 44, focus=(0.458, 0.64), zoom=3.0, marks=pink),
-        photo('PH-08', 169.5, 136, 57, 44, focus=(0.6, 0.15)),
+        photo('PH-08', 169.5, 136, 57, 44, focus=(0.62, 0.3), zoom=1.6, marks=signal),
         photo('PH-13', 230, 136, 57, 44),
         t(169.5, 181, 57, 4, 'c)  Signal', 'gcap'), t(230, 181, 57, 4, 'd)  Through the gap', 'gcap'),
         t(109, 181, 57, 4, 'b)  Pink — PH-01 확대', 'gcap'),
