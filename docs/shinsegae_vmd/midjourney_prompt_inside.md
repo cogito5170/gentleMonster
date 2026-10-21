@@ -225,3 +225,44 @@ view from inside a department store display window, cinematic film photograph, c
 - **D · 조합 (선택):** `the mannequin wears a layered combination seen from behind: charcoal coat, grey knit collar, and the red scarf`
 - **울타리:** `low dark display plinth seen from behind`
 - **글자:** 앞 절의 반전 방법으로 `HYEOK JU`.
+
+## 다른 안: 이미지와 지원자의 연결 (2026-10-21)
+
+앞의 안(진열의 등에 남은 핀 · 손)과는 다른 길이다. 기준은 같다. 스토리 문장 하나를 맡고, 이 지원자만의 것이어야 한다.
+
+| 안 | 장면 | 지원자와의 연결 | 맡는 문장 | 판단 |
+|---|---|---|---|---|
+| 1. 기록하는 유리 | 유리 안쪽에 흰 마커로 그은 바를 정(正) 표시. 지나감 칸에는 많이, 멈춤 · 웃음 칸에는 하나 | 반응을 살피고 기록하는 VMD | 표정과 반응을 살피는 VMD가 되겠다 | **권장.** 지금 이미지에 유리 위 표시만 더하면 된다 |
+| 2. 진열 속의 나 | 마네킹 옆, 진열 안에 선 지원자의 등과 어깨 (초점 밖). 그 너머로 웃는 얼굴 | 나도 진열의 일부로, 안에서 밖을 본다 | 나는 안에서 본다 | 강함. 다만 새로 찍거나 새로 생성해야 한다 |
+| 3. 유리 위의 도면 | 유리 안쪽에 흰 마커로 그린 이 창의 평면 · 치수선. 웃는 얼굴이 그 틀 안에 들어온다 | 건축으로 익힌 감각 (짓다) | 진열은 등을 보인다 | 개성 있음. 선이 많으면 복잡해진다 |
+| 4. 뷰파인더 | 후지필름 뷰파인더 틀 너머의 장면 | 사진을 찍는 사람 | — | 비권장. VMD 보다 사진가로 읽힌다 |
+
+### 판단: 1안
+
+스토리의 결론은 "상품이 아니라 사람의 표정과 반응을 살핀다"이다. 1안은 그 결론을 그대로 화면에 올린다.
+지나간 사람은 많고, 멈춰서 웃은 사람은 하나다. 표시를 그은 손은 안에 있다.
+지금 이미지의 구도 · 인물 · 스카프를 그대로 두고 유리 한 귀퉁이만 바꾸면 된다.
+
+- **자리:** 유리 오른쪽 아래, 인물의 어깨 옆 어두운 부분.
+- **표시:** `PASSED` 아래 正 여러 개, `STOPPED` 아래 하나, `SMILED` 아래 하나. 안에서 썼으므로 안에서 바로 읽힌다.
+- **만드는 법:** 실제로 유리에 윈도 마커로 그어 찍거나, 포토샵에서 흰 브러시로 손글씨를 넣는다.
+  미드저니는 손글씨를 깨뜨리므로 글자는 생성하지 않는다.
+- **유리 이름:** 뒤집힌 흰 `HYEOK JU` 는 유지한다.
+
+미드저니로 표시의 자리만 먼저 만들고 싶다면 (Editor, 오른쪽 아래만 칠한다):
+
+```
+view from inside a department store display window, cinematic film photograph, cool teal tones, small white grease-pencil tally marks hand-drawn on the inside of the glass in the lower right corner, three short columns of strokes, slightly translucent, no words --no letters, text
+```
+
+2안 프롬프트 (새로 생성, 인물은 실제 촬영 때 지원자로 바꾼다):
+
+```
+over-the-shoulder view from inside a department store display window, the out-of-focus back and shoulder of a window dresser in a dark knit standing among the display beside a black mannequin with a red scarf, beyond the glass a bright indoor aisle, passers-by in motion blur, one person stopped outside, smiling at the red scarf, mirrored white lettering on the glass, cinematic film photograph, cool teal tones --ar 297:210 --style raw --no street
+```
+
+3안 프롬프트 (Editor, 유리 가운데를 칠한다):
+
+```
+thin white marker lines drawn on the inside of the shop window glass, a simple floor plan of the window display with a rectangle, a mannequin outline, dimension lines and small arrows, the smiling person outside framed inside the drawn rectangle, translucent --no text
+```
