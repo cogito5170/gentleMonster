@@ -4,7 +4,7 @@
 
 사용자: "맨 처음 커버 페이지를 해당 이미지로 대체한다. 이미지 다른 것은 추가하지 않는다."
 새 사진: docs/jaju_rounding_vmd/assets/cover/cover_bw.jpg (1296×912, 기존 표지 사진과 같은 장면 · 같은 크기의 흑백판).
-바꾸는 곳은 표지 한 쪽뿐 — 14 Often 의 N°01 과 뒤표지(좌우 뒤집음)는 기존 컬러 표지 사진 그대로.
+표지는 사진 한 장만 쪽 전체에 — 글 · 바탕 띠 없음. 바꾸는 곳은 표지 한 쪽뿐 — 14 Often 의 N°01 과 뒤표지(좌우 뒤집음)는 기존 컬러 표지 사진 그대로.
 """
 import os
 import subprocess
@@ -33,7 +33,8 @@ pc.path = path
 
 
 def p_cover():
-    return b3.p_cover().replace(pc.screen('COVER'), pc.screen('COVER-BW'), 1)
+    """표지는 사진 한 장만 — 글 · 바탕 띠 없이 쪽 전체 (사용자: '이미지만 존재한다')."""
+    return pe.photo('COVER-BW', 0, 0, 297, 210, focus=(0.5, 0.5))
 
 
 PAGES = [(p_cover, '')] + b13.PAGES[1:]
