@@ -97,6 +97,11 @@ def image_box(it):
     """그림 틀 안에서 그림의 위치 · 크기(mm): 틀을 가득 채우고, center 는 가운데 · left 는 왼쪽에 맞춘다."""
     s = max(it['w'] / IMG_PX[0], it['h'] / IMG_PX[1])
     iw, ih = IMG_PX[0] * s, IMG_PX[1] * s
+    if it.get('crop'):  # (cx, cy): 원본에서 틀 가운데에 올 점(0–1), 틀 밖으로 비지 않게 막는다
+        cx, cy = it['crop']
+        ox = it['x'] + min(0, max(it['w'] - iw, it['w'] / 2 - cx * iw))
+        oy = it['y'] + min(0, max(it['h'] - ih, it['h'] / 2 - cy * ih))
+        return ox, oy, iw, ih, s
     ox = it['x'] + ((it['w'] - iw) / 2 if it['fit'] == 'center' else 0)
     oy = it['y'] + (it['h'] - ih) / 2
     return ox, oy, iw, ih, s
@@ -178,7 +183,7 @@ def build_idml(path_out):
     just = {'left': 'LeftAlign', 'right': 'RightAlign', 'justify': 'LeftJustified'}
     pstyles = ''.join(
         f'<ParagraphStyle Self="ParagraphStyle/{q(n)}" Name="{q(n)}" Imported="false" NextStyle="ParagraphStyle/{q(n)}" KeyboardShortcut="0 0" '
-        f'FontStyle="{s["style"]}" PointSize="{s["size"]}" FillColor="Color/{s["color"]}" Justification="{just[s["align"]]}" Hyphenation="false">'
+        f'FontStyle="{s["style"]}" PointSize="{s["size"]}" FillColor="Color/{s["color"]}" Justification="{just[s["align"]]}" Hyphenation="false" Tracking="{s.get('track', 0)}">'
         f'<Properties><BasedOn type="string">$ID/[No paragraph style]</BasedOn><PreviewColor type="enumeration">Nothing</PreviewColor>'
         f'<AppliedFont type="string">{s["font"]}</AppliedFont><Leading type="unit">{s["lead"]}</Leading></Properties></ParagraphStyle>'
         for n, s in STYLES.items())
@@ -291,12 +296,12 @@ def build_jsx(path_out):
          'var C = {};']
     for n, c in COLORS.items():
         L.append(f'C[{js(n)}] = color({js(n)}, {list(c)});')
-    L.append('function pstyle(n, f, fs, size, lead, col, j) { var s = doc.paragraphStyles.itemByName(n); if (!s.isValid) s = doc.paragraphStyles.add({name: n});'
+    L.append('function pstyle(n, f, fs, size, lead, col, j, tr) { var s = doc.paragraphStyles.itemByName(n); if (!s.isValid) s = doc.paragraphStyles.add({name: n});'
              ' try { s.appliedFont = f; } catch (e) {} try { s.fontStyle = fs; } catch (e) {}'
-             ' s.pointSize = size; s.leading = lead; s.fillColor = C[col]; s.justification = j; s.hyphenation = false; return s; }')
+             ' s.pointSize = size; s.leading = lead; s.fillColor = C[col]; s.justification = j; s.hyphenation = false; s.tracking = tr; return s; }')
     L.append('var S = {};')
     for n, s in STYLES.items():
-        L.append(f'S[{js(n)}] = pstyle({js(n)}, {js(s["font"])}, {js(s["style"])}, {s["size"]}, {s["lead"]}, {js(s["color"])}, {just[s["align"]]});')
+        L.append(f'S[{js(n)}] = pstyle({js(n)}, {js(s["font"])}, {js(s["style"])}, {s["size"]}, {s["lead"]}, {js(s["color"])}, {just[s["align"]]}, {s.get('track', 0)});')
     L.append("var img = File(here + '/Links/cover.jpg');")
     for it in ITEMS:
         pg = f'doc.pages[{it["page"]}]'
@@ -307,6 +312,10 @@ def build_jsx(path_out):
             ox, oy, iw, ih, _ = image_box(it)
             L.append(f'var r = {pg}.rectangles.add({{geometricBounds: [{y1}, {x1}, {y2}, {x2}], strokeWeight: 0, name: {js(it["name"])}}});')
             L.append(f'if (img.exists) {{ r.place(img); r.graphics[0].geometricBounds = [{oy:.4f}, {ox:.4f}, {oy + ih:.4f}, {ox + iw:.4f}]; }} else alert("Links/cover.jpg \\uC5C6\\uC74C");')
+            if it.get('fade'):  # 왼쪽이 투명, 폭의 fade 비율부터 불투명 — 그레이디언트 페더
+                L.append('var g = r.transparencySettings.gradientFeatherSettings; g.applied = true; g.type = GradientType.LINEAR; g.angle = 180;'
+                         f' g.opacityGradientStops[0].location = {round((1 - it["fade"]) * 100)}; g.opacityGradientStops[0].opacity = 100;'
+                         ' g.opacityGradientStops[1].location = 100; g.opacityGradientStops[1].opacity = 0;')
         else:
             content = '\r'.join(''.join(t for t, _ in runs) for _, runs in it['paras'])
             if it['rotate']:
