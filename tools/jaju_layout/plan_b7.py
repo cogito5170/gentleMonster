@@ -4,7 +4,7 @@
 
 사용자: "기존 B6 의 흐름 순서는 지켜라. 주어진 틀 안에서 레이아웃, 텍스트, 배치 등의 피드백을 진행한 후 수정."
 분석 · 비교: docs/jaju_rounding_vmd/ref_case7_guaviari.md. B6 에서 바꾼 것:
-  모든 쪽     가는 기준선 두 줄 + 십자 표시 + 바닥 줄 세 칸(책 · 쪽 이름 · 번호) — 사례 7 의 격자
+  모든 쪽     네 모서리 표시(뷰파인더처럼) + 바닥 줄 세 칸(책 · 쪽 이름 · 번호) — 사례 7 의 격자를 모서리만
   사진 톤     파트 1 에만 하던 보정을 본문 전체(02–15)에 — 사례 7 은 모든 사진이 한 톤
   01 Prologue 아래에 세 파트를 한 줄로(/01 · /02 · /03 + 쪽) — 사례 7 영상 위의 TUKANO ✦ JIW ✦ NUKAK
   12 Breakdown 사진 위 바닥 줄을 밝게
@@ -56,7 +56,7 @@ def p_prologue():
     for i, (n, w, k, p) in enumerate(cells):
         x = 14 + i * 46
         o.append(t(x, 160, 42, 26, f"<p class='tn'>{n}</p><p class='tw'>{w}</p><p class='tk'>{k}&nbsp;&nbsp;·&nbsp;&nbsp;p.{p}</p>", 'tri'))
-    g = "<line x1='14' y1='157' x2='148' y2='157' class='gr'/>" + ''.join(cross(14 + i * 46, 157, 1.6) for i in range(4))
+    g = ''.join(corner(14 + i * 46, 157, 1, 1, 2.6) for i in range(3))  # 칸마다 왼쪽 위 모서리만
     return html + ''.join(o) + svg(g)
 
 
@@ -110,9 +110,13 @@ def svg(g, cls=''):
     return div(0, 0, 297, 210, f"<svg class='ov grid {cls}' viewBox='0 0 297 210'>{g}</svg>", '')
 
 
+def corner(x, y, dx, dy, r=4):
+    return f"<polyline points='{x + dx * r},{y} {x},{y} {x},{y + dy * r}' class='gc'/>"
+
+
 def grid(light):
-    g = "<line x1='14' y1='12' x2='283' y2='12' class='gr'/><line x1='14' y1='195' x2='283' y2='195' class='gr'/>"
-    g += ''.join(cross(x, y) for x in (14, 148.5, 283) for y in (12, 195))
+    """판의 네 모서리만 — 뷰파인더처럼 (사용자: 위 · 아래 선 대신 모서리만)."""
+    g = corner(14, 12, 1, 1) + corner(283, 12, -1, 1) + corner(14, 195, 1, -1) + corner(283, 195, -1, -1)
     return svg(g, 'lt' if light else '')
 
 
@@ -139,7 +143,8 @@ def page(i, p, g):
 
 CSS = b5.CSS + """
 .ov.grid .gr{stroke:rgba(239,231,218,.16);stroke-width:.15}.ov.grid .gx{stroke:rgba(239,231,218,.55);stroke-width:.2}
-.ov.grid.lt .gr{stroke:rgba(239,231,218,.4)}.ov.grid.lt .gx{stroke:rgba(239,231,218,.85)}
+.ov.grid.lt .gr{stroke:rgba(239,231,218,.4)}
+.ov.grid .gc{fill:none;stroke:rgba(239,231,218,.6);stroke-width:.25}.ov.grid.lt .gc{stroke:rgba(239,231,218,.9)}.ov.grid.lt .gx{stroke:rgba(239,231,218,.85)}
 .ov.grid .bx{fill:none;stroke:#D9773A;stroke-width:.25}
 .tri .tn{font-family:Lora,serif;font-style:italic;font-size:10pt;color:#D9773A}
 .tri .tw{font-family:Young,serif;font-size:15pt;line-height:19pt;color:#EFE7DA}
