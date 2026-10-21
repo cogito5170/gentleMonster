@@ -47,6 +47,10 @@
 - 제출 조건: 파일 첨부, 10MB 이내 압축.
 - 해외 럭셔리 · 패션쇼 프레임보다 JAJU 의 생활 · 일상 · 매장 진열 쪽이 맞는다. 브랜드의 뷰파인더 · 한옥 마당 · 작은 따옴표 비유가 쓸 만한 재료다.
 
+## 기업 분석
+- 절차: [docs/company_analysis/PROCESS.md](../company_analysis/PROCESS.md) (젠틀몬스터 · BLUE ELEPHANT · 신세계인터내셔날 분석을 묶은 K0~K8)
+- JAJU 적용: [docs/company_analysis/jaju/](../company_analysis/jaju/) — K0~K6 초안, K7 질문 대기
+
 ## 사용자에게 물을 것
 - W1: JAJU 자기소개서의 형식과 분량 (자유 양식인지, 기존 3문항 구조를 살릴지).
 - W2: 기존 P1 흐름을 고쳐 쓸지, JAJU 용으로 새로 짤지.
