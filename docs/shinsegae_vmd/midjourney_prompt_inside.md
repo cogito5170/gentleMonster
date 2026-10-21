@@ -311,3 +311,12 @@ a printed photograph on the left page of an open book, the photo shows the view 
 
 조절: 사진이 커버와 다르면 `--ow` 500~700 · 책 구도가 무너지면 `--iw` 2 · 초록이 너무 짙으면 `--sw 50`.
 V6.1 처럼 `--oref` 가 없으면 두 URL 을 모두 앞에 두고 `--iw 1.5` (두 이미지가 섞이기 쉽다).
+
+#### 바로 붙여 넣는 판 (웹 Imagine, 이미지는 칸에 첨부)
+
+책 이미지 → Image Prompt 칸, 같은 책 이미지 → Style Reference 칸, 커버 이미지 → Omni Reference 칸.
+글에는 URL · 한글 · 따옴표 · 세미콜론 · `::` 를 넣지 않는다. `--iw` · `--ow` 는 해당 칸에 이미지가 있어야 쓸 수 있다.
+
+```
+close-up photograph of a hand holding an open book, the left page carries a printed photograph of the view from inside a shop window at night, the back of a dark mannequin with a red scarf on the left, a smiling woman with dark wavy hair and a white scarf looking in from outside on the right, mirrored white lettering on the glass across the top, blurred department store lights, the photo bleeds off the top of the page and bends with the paper, white margin below with small vertical serif text along the outer edge, the right page filled with dense serif body text, soft green ambient light, shallow depth of field, film grain --iw 1.5 --ow 300 --ar 16:9 --style raw --no house, star
+```
