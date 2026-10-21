@@ -266,3 +266,34 @@ over-the-shoulder view from inside a department store display window, the out-of
 ```
 thin white marker lines drawn on the inside of the shop window glass, a simple floor plan of the window display with a rectangle, a mannequin outline, dimension lines and small arrows, the smiling person outside framed inside the drawn rectangle, translucent --no text
 ```
+
+## 참고한 책 이미지의 사진 자리에 커버 이미지 넣기 (2026-10-21)
+
+미드저니는 정해진 이미지를 그대로 붙여 넣지 못한다. 영역을 다시 그리면서 커버를 참고해 비슷하게 그린다.
+얼굴 · 글자 · 스카프 모양이 똑같아야 하면 포토샵 합성이 정확하다.
+
+### 미드저니 (Editor)
+
+1. 책 이미지를 Editor 에 올린다.
+2. 사진 영역(검정 + 빨강)만 칠한다. 흰 여백 · 세로 글자 · 손 · 오른쪽 쪽은 남긴다.
+3. 커버 이미지를 Omni Reference 칸에 넣는다 (V7, `--ow 300`~`600`). 없으면 이미지 프롬프트로 앞에 둔다.
+4. 프롬프트:
+
+```
+a printed photograph on the left page of an open book, the photo shows the view from inside a shop window: the back of a dark mannequin with a red scarf on the left, a smiling woman with dark wavy hair and a white scarf looking in from outside on the right, mirrored lettering on the glass across the top, blurred department store lights in teal, printed on matte paper and following the curve of the page, soft green ambient light, film grain --ow 400 --style raw --no house, extra text
+```
+
+참고 이미지처럼 한 색으로 찍힌 느낌을 원하면 `blurred department store lights in teal,` 대신
+`printed as a red and black duotone, the red scarf the brightest red,` 를 넣는다.
+
+### 포토샵 (정확한 합성)
+
+1. 커버 이미지를 책 이미지 위에 놓고 Edit › Transform › Warp 로 사진 자리의 휘어짐에 맞춘다.
+2. 사진 자리 모양으로 레이어 마스크를 만든다. 엄지와 손가락은 마스크에서 뺀다.
+3. 혼합 모드 Multiply 85~90%. 커브로 초록빛을 더하고, 노이즈 1~2% 로 그레인을 맞춘다.
+
+### 주의
+
+- 책 이미지는 다른 출판물의 사진이다 (이탈리아어 본문, 다른 작가 이름). 포트폴리오에는 참고 · 시안으로만 쓰고,
+  최종본은 직접 찍은 사진이나 직접 만든 목업을 쓴다.
+- 커버의 유리 글자는 이 판에서 아직 `SHOP NAME` 이다. `HYEOK JU` 로 고친 판이 있으면 그 판을 넣는다.
