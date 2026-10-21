@@ -30,3 +30,5 @@ PDF: `layout/plan_b2.pdf` (14쪽) · 만드는 법: `python3 tools/jaju_layout/b
 
 - 이 B2 를 **'기존 안'**이라 부른다. 피드백 반영안 E 는 **'경이 안'**(`plan_e.*`).
 - `layout/plan_b2_notext.pdf` — 기존 안에서 글자를 모두 뺀 판(사진 · 표시 선 · 도형 · 색칩만). 만드는 법: `python3 tools/jaju_layout/b2_notext.py`
+
+- (2026-10-21) **B2 로 간다** (사용자 결정). 부족한 점 분석: [b2_gap_analysis.md](b2_gap_analysis.md)
