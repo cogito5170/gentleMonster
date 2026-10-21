@@ -1,0 +1,9 @@
+{
+  "request_sha256": "bc17781e7fbc6c66e5a4b7d46b376c0e9205f23973d28139c1104849a479e327",
+  "started": "2026-10-21T11:06:55.015980+00:00",
+  "status": "done",
+  "exit_code": 0,
+  "output_tail": "relay image 011-prologue-book-mockup — 스펙 → Codex(상세 프롬프트 + 생성)\n  codex 실행: codex exec --sandbox workspace-write --skip-git-repo-check -c features.image_generation=true …\n[ok] → .relay/tasks/011-prologue-book-mockup/image.png  (83.762s)",
+  "action": "image",
+  "finished": "2026-10-21T11:08:18.856705+00:00"
+}
