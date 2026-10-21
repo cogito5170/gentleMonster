@@ -35,3 +35,10 @@
 - 표지 = 사용자가 준 흑백 사진(`assets/cover/cover_bw.jpg`) 한 장만 쪽 전체에. 글 · 바탕 띠 없음(사용자: "첫 커버 페이지는 이미지만 존재한다").
 - 14 Often 의 N°01 과 뒤표지는 기존 컬러 표지 사진 그대로(지시가 '맨 처음 커버 페이지'만).
 - `layout/plan_b14.pdf` (17쪽 · 약 7.6MB) · `python3 tools/jaju_layout/plan_b14.py`.
+
+## B15 (2026-10-21) — 현재본
+
+사용자: "4페이지의 좌측 레이아웃을 해당 이미지와 같이 수정한다." (2-2 세션 안 A 시안 캡처)
+- 03 왼쪽 단을 시안의 배치로: 제목 한 줄 19pt `Where people stop.`(y 22) → 국문 본문(y 36) → 영문 이탤릭(y 70) → 맺음 국문(y 102) · 영문(y 118) → 고정폭 글 덩어리(y 148).
+- 글은 확정 문구 그대로. 고정폭 덩어리: `17 FRAMES / 06 SHOWN` · `SEA → STREET → SHOP` · `SIX PLACES, SIX QUESTIONS — MY GUESS.`
+- 오른쪽 사진 · 캡션과 다른 쪽은 B14 그대로. `layout/plan_b15.pdf` (17쪽 · 약 7.6MB) · `python3 tools/jaju_layout/plan_b15.py`.
