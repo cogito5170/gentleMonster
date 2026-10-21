@@ -12,7 +12,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, '../..');
 const OUT = path.join(repo, 'docs/shinsegae_vmd/blueprint');
 const TMP = path.join(repo, 'out/face_blueprint');
-const TASK = process.argv[2] || '009-the-face-is-yours';
+const TASK = process.argv[2] || '010-the-face-is-yours-cues';
 const IMG = path.join(repo, '.relay/tasks', TASK, 'image.png');
 fs.mkdirSync(OUT, { recursive: true }); fs.mkdirSync(TMP, { recursive: true });
 const require = createRequire(process.env.PLAYWRIGHT_REQUIRE_FROM || '/opt/node22/lib/node_modules/');
@@ -78,12 +78,16 @@ head(IX, 13, '01', 'THE IMAGE — THE FACE IS YOURS', `concept image, generated 
 if (fs.existsSync(IMG)) o += `<image href="${pathToFileURL(IMG).href}" x="${IX}" y="${IY}" width="${IW}" height="${f(IH)}" preserveAspectRatio="xMidYMid slice"/>`;
 R(IX, IY, IW, IH, .4);
 const at = k => SPOTS[k] ? [IX + SPOTS[k][0] * IW, IY + SPOTS[k][1] * IH] : null;
-(SPOTS.tags || []).forEach(([label, u0, v0, u1, v1, col]) => {
-  const c = col === 'eye' ? EYE : RED, x = IX + u0 * IW, y = IY + v0 * IH, w = (u1 - u0) * IW, h = (v1 - v0) * IH;
-  R(x, y, w, h, .5, 'none', `stroke="${c}"`); o += `<rect x="${f(x)}" y="${f(y - 3.8)}" width="${f(label.length * 1.3 + 2)}" height="3.8" fill="${c}" stroke="none"/>`;
-  T(x + 1, y - 1, label, 2, `fill="${c === EYE ? NAVY : '#fff'}" ${bold} font-family="${MONO}"`); });
+(SPOTS.tags || []).forEach(([label, u0, v0, u1, v1, col, where]) => {      // boxed like product recognition; label above, or below the box
+  const c = col === 'eye' ? EYE : RED, x = IX + u0 * IW, y = IY + v0 * IH, w = (u1 - u0) * IW, h = (v1 - v0) * IH, ly = where === 'below' ? y + h : y - 3.8;
+  R(x, y, w, h, .5, 'none', `stroke="${c}"`); if (!label) return;
+  o += `<rect x="${f(x)}" y="${f(ly)}" width="${f(label.length * 1.3 + 2)}" height="3.8" fill="${c}" stroke="none"/>`;
+  T(x + 1, ly + 2.8, label, 2, `fill="${c === EYE ? NAVY : '#fff'}" ${bold} font-family="${MONO}"`); });
+(SPOTS.callouts || []).forEach(([t, u, v]) => { const x = IX + u * IW, y = IY + v * IH;      // what each part is, on a dark chip so it reads over the bright aisle
+  o += `<rect x="${f(x - 1)}" y="${f(y - 2.7)}" width="${f(t.length * 1.02 + 2)}" height="3.6" fill="${NAVY}" fill-opacity=".88" stroke="none"/>`; T(x, y, t, 1.9, `${bold} fill="#fff"`); });
 if (SPOTS.neck) { const [x, y] = at('neck');                    // where the face lands: crosshair on the empty neck
-  C(x, y, 4.2, .45, 'none', `stroke="${RED}" stroke-dasharray="1.2 .8"`); L(x - 6.5, y, x - 4.6, y, .45, `stroke="${RED}"`); L(x + 4.6, y, x + 6.5, y, .45, `stroke="${RED}"`); L(x, y - 6.5, x, y - 4.6, .45, `stroke="${RED}"`); L(x, y + 4.6, x, y + 6.5, .45, `stroke="${RED}"`); }
+  const q = SPOTS.neckR || 4.2, e = q * .5;
+  C(x, y, q, .45, 'none', `stroke="${RED}" stroke-dasharray="1.2 .8"`); L(x - q - e, y, x - q + .4, y, .45, `stroke="${RED}"`); L(x + q - .4, y, x + q + e, y, .45, `stroke="${RED}"`); L(x, y - q - e, x, y - q + .4, .45, `stroke="${RED}"`); L(x, y + q - .4, x, y + q + e, .45, `stroke="${RED}"`); }
 if (SPOTS.name && SPOTS.nameOverlay) { const [x, y] = at('name');
   o += `<text x="0" y="0" font-size="7" font-weight="700" letter-spacing="1.6" fill="rgba(255,255,255,.8)" stroke="none" text-anchor="middle" transform="translate(${f(x)} ${f(y)}) scale(-1 1)">HYEOK JU</text>`; }
 Object.entries(KEY).forEach(([k, n]) => { const p = at(k + 'Label'); if (p) num(p[0], p[1], n); });

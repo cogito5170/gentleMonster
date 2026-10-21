@@ -53,3 +53,12 @@ view from inside a department store display window, a headless dress form in the
 ## 주의
 
 - 생성된 인물은 가상 인물이다. 포트폴리오에는 AI 생성 이미지라고 표기한다.
+
+## 청사진 (2026-10-21)
+
+`docs/shinsegae_vmd/blueprint/the_face_is_yours_blueprint.pdf` (`node tools/face_blueprint/build.mjs`).
+이미지는 Codex `.relay/tasks/010-the-face-is-yours-cues`. 첫 결과 009 는 실제 사람이 뒤돌아본 사진으로 읽혀서 쓰지 않았다.
+착시의 단서로 드레스폼의 지지대 · 받침 · 빈 목 테두리, 바깥 사람의 베이지 코트 어깨를 넣었다.
+
+촬영 값: 카메라 → 드레스폼 4.0 m, 드레스폼 → 얼굴 1.2 m, 렌즈 높이 1.49 m, XF56mm f/5.6, 초점 4.6 m, 1/30 s, 삼각대.
+바깥 사람의 머리는 드레스폼 위 머리의 0.77배로 보인다. 카메라가 멀수록 1에 가까워진다.
