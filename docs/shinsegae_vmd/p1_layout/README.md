@@ -6,6 +6,7 @@
 | `cover_p1.idml` | 같은 두 쪽의 InDesign 문서 | 〃 |
 | `cover_p1.jsx` | 같은 두 쪽을 InDesign 안에서 짓는 스크립트 (IDML 이 안 열릴 때) | 〃 |
 | `Links/cover.jpg` | 표지 이미지 (사용자 제공, 1296 × 912 px) | — |
+| `cover_options.pdf` | 표지 + 1쪽 재수정 두 안 (A · ETÉREO / B · Galatasaray) | `python3 tools/p1_layout/cover_options.py` |
 | `page09_layout.pdf` | 9쪽 '하나의 창 (제안)' 시안 + 명세 | `node tools/p1_layout/page09.mjs` |
 
 ## InDesign 에서 여는 법
