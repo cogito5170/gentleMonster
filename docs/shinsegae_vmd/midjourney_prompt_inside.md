@@ -297,3 +297,17 @@ a printed photograph on the left page of an open book, the photo shows the view 
 - 책 이미지는 다른 출판물의 사진이다 (이탈리아어 본문, 다른 작가 이름). 포트폴리오에는 참고 · 시안으로만 쓰고,
   최종본은 직접 찍은 사진이나 직접 만든 목업을 쓴다.
 - 커버의 유리 글자는 이 판에서 아직 `SHOP NAME` 이다. `HYEOK JU` 로 고친 판이 있으면 그 판을 넣는다.
+
+### 생성 기능으로 (이미지 두 장 첨부, 2026-10-21)
+
+| 이미지 | 넣을 칸 | 맡는 것 |
+|---|---|---|
+| 책 이미지 | 이미지 프롬프트 + 스타일 레퍼런스 (`--sref`) | 펼친 책 · 손 · 구도 · 초록빛 · 인쇄된 종이의 질감 |
+| 커버 이미지 | 옴니 레퍼런스 (`--oref`, V7) | 왼쪽 쪽에 인쇄된 사진의 내용 |
+
+```
+<책 이미지 URL> close-up photograph of a hand holding an open book, the left page carries a printed photograph: the view from inside a shop window at night, the back of a dark mannequin with a red scarf on the left, a smiling woman with dark wavy hair and a white scarf looking in from outside on the right, mirrored white lettering on the glass across the top, blurred department store lights; the photo bleeds off the top of the page and follows the curve of the paper, white margin below with small vertical serif text along the outer edge, the right page is dense serif body text, soft green ambient light over the whole scene, shallow depth of field, film grain --oref <커버 이미지 URL> --ow 300 --sref <책 이미지 URL> --iw 1.5 --ar 16:9 --style raw --no house, star
+```
+
+조절: 사진이 커버와 다르면 `--ow` 500~700 · 책 구도가 무너지면 `--iw` 2 · 초록이 너무 짙으면 `--sw 50`.
+V6.1 처럼 `--oref` 가 없으면 두 URL 을 모두 앞에 두고 `--iw 1.5` (두 이미지가 섞이기 쉽다).
