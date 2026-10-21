@@ -182,3 +182,46 @@ view from inside a department store display window, black and white film photogr
 
 반전 없이 프롬프트만으로 뒤집힌 글자를 받는 것은 거의 되지 않는다. `"UJ KOEYH"` 처럼 순서를 거꾸로 써도
 H · Y · O · U 는 대칭이라 맞지만 E · K · J 는 방향이 그대로라 어색하다.
+
+## 이미지와 지원자의 연결 (2026-10-21)
+
+### 진단
+
+"안에서 본다"는 담겼지만 **'나'의 흔적이 없다**. 카메라가 나의 눈이라는 건 설명해야만 알 수 있다.
+마네킹 · 스카프 · 손님은 어느 가게에나 있는 장면이고, 유리의 이름도 간판일 뿐이라 이 사람이 무엇을 하는지는 말하지 않는다.
+
+### 원칙: 나를 그리지 않고 내 일의 흔적을 그린다
+
+스토리에 이미 답이 있다. **"진열은 등을 보인다."** 손님은 앞을 보고, 진열의 등에는 VMD 의 손이 남는다.
+핀으로 줄인 품, 집게, 뒤로 돌린 가격표가 그렇다. 안에서 보는 사람만 그 흔적을 본다.
+그래서 이 이미지에서 지원자를 드러내는 자리는 마네킹의 등이다.
+
+### 제안
+
+| | 흔적 | 지원자와의 연결 | 스토리 문장 | 판단 |
+|---|---|---|---|---|
+| A | 마네킹 등의 핀 줄과 집게, 뒤로 돌린 태그 | 착장 스타일링을 하는 VMD | 진열은 등을 보인다 | **핵심** |
+| B | 안쪽에서 스카프를 매만지는 흐린 손 | 나, 방금 만든 사람 | 나는 안에서 본다 | **핵심.** 실제 내 손을 찍어 합성 |
+| C | 이름 `HYEOK JU` (뒤집힘, 흰색) | 이 창은 내 것이다 | 가게 이름은 거꾸로 읽힌다 | **유지** |
+| D | 스카프 하나 → 코트 · 니트 · 스카프의 조합 | 조합하다 | 무엇을 보고 웃었는지 | 선택 |
+| E | 천장 스폿 하나가 마네킹에 | 비추다 | — | 커버에서는 뺀다 (안쪽 페이지로) |
+| F | 바닥의 마스킹테이프 위치 표시 · 1:10 목업 | 짓다 · 건축 | — | 커버에서는 뺀다 (안쪽 페이지로) |
+
+**판단:** A + B + C. 커버 한 장은 이것으로 읽힌다.
+"그 사람이 보고 웃는 스카프는 방금 내 손이 핀으로 맞춘 것이다." E · F 는 화면을 복잡하게 하므로 안쪽 페이지의 몫이다.
+웃는 사람은 이전 방향대로 '누군가'로 둔다.
+
+### 미드저니 (Editor, 영역별)
+
+공통 앞부분:
+
+```
+view from inside a department store display window, cinematic film photograph, cool teal tones, the red scarf is the only strong colour,
+```
+
+- **A · 마네킹 등:** `back of a black mannequin seen from inside, a dark coat fitted at the back with a neat row of silver dressmaker pins and two black clips gathering the fabric, a small paper price tag turned backwards on a string, the red scarf draped over the shoulder`
+- **B · 왼쪽 아래 전경:** `an out-of-focus hand reaching in from the bottom left edge, adjusting the red scarf on the mannequin's shoulder, dark knit sleeve, shallow depth of field`
+  - 미드저니의 손은 자주 어긋난다. 후지필름으로 자기 손을 같은 각도와 빛으로 찍어 합성하면 실제 지원자의 흔적이 된다.
+- **D · 조합 (선택):** `the mannequin wears a layered combination seen from behind: charcoal coat, grey knit collar, and the red scarf`
+- **울타리:** `low dark display plinth seen from behind`
+- **글자:** 앞 절의 반전 방법으로 `HYEOK JU`.
