@@ -39,6 +39,11 @@ DESC = {
 }
 
 
+def SRC(pid):
+    """그림 파일 경로. 다른 스크립트가 화면용 사본으로 바꿔 끼울 수 있다."""
+    return os.path.join(PHOTO, pid + '.jpg')
+
+
 def has(pid):
     return os.path.exists(os.path.join(PHOTO, pid + '.jpg'))
 
@@ -63,7 +68,7 @@ def photo(pid, x, y, w, h, focus=(0.5, 0.5), zoom=1.0, marks=''):
     oy = min(0, max(h - ih, h / 2 - focus[1] * ih))
     to = lambda px, py: (ox + px * s, oy + py * s)
     svg = marks(to, s) if callable(marks) else ''
-    src = 'file://' + os.path.join(PHOTO, pid + '.jpg')
+    src = 'file://' + SRC(pid)
     return div(x, y, w, h, f"<img src='{src}' style='left:{ox:.3f}mm;top:{oy:.3f}mm;width:{iw:.3f}mm;height:{ih:.3f}mm'>"
                + (f"<svg class='ov' viewBox='0 0 {w} {h}'>{svg}</svg>" if svg else ''), 'ph')
 
