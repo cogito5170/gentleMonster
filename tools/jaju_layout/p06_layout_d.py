@@ -30,18 +30,15 @@ ROWS = [('a)', '빨간 의자', '바닷가의 의자', '색 하나', 'PH-05'), (
 
 def opt_d():
     """rev2 — 큰 사진을 줄이고 작은 사진 둘을 키움(같은 크기). ETÉREO R4 · R9: 큰 사진 하나와 같은 크기의 작은 사진들이 엇갈린다."""
-    CX = 157.5                                # 위 · 아래 기준선 가운데 십자의 세로선
-    L, BY = 14, 22
-    BW = CX - L                               # 큰 사진 오른쪽 끝 = 가운데 십자 세로선 (사용자 rev3)
-    BH = round(BW / 1.78, 2)                  # 143.5 × 80.6
+    L, BW, BH, BY = 14, 149, 84, 22           # 큰 사진 149 × 84 (전 172 × 95) — 오른쪽 끝 = 작은 사진 왼쪽 끝(163)
     RX = L + BW + 10                          # 오른쪽 단 x 172
     RW = 301 - RX                             # 129
     SG = 6
-    SW = (301 - CX - SG) / 2                  # 작은 사진 둘 같은 크기, 왼쪽 끝도 십자 세로선 → 68.75 × 38.6
+    SW = 74                                   # 작은 사진 74 × 41.6 (rev2 66 × 37) — 둘이 같은 크기, 큰 사진의 약 1/4 넓이
     SH = round(SW / 1.78, 2)
     SY = 180.5 - 9 - SH                       # 아래 기준선 위에 바닥 맞춤
-    SX = CX                                   # x 157.5 · 232.25
-    rows = ''.join(f"<div class='r3'><span class='n'>{a}</span><b>{pt}</b><span class='s'>{fit} — {dif}</span></div>" for a, pt, fit, dif, _ in ROWS)
+    SX = 301 - 2 * SW - SG                    # 오른쪽 끝 맞춤 → x 147 · 227 (큰 사진 오른쪽 끝 163 보다 왼쪽으로 겹쳐 내려옴)
+    rows = ''.join(f"<div class='r4'><span class='n'>{a}</span><div class='t2'><b>{pt}</b><span class='s'>{fit} — {dif}</span></div></div>" for a, pt, fit, dif, _ in ROWS)
     BX = SX - 8                               # 왼쪽 아래 글 영역의 오른쪽 끝 (작은 사진 앞 8mm)
     o = [
         # 큰 사진 (왼쪽 위)
@@ -57,11 +54,12 @@ def opt_d():
         raw_t(RX, BY + BH - 19, RW, 10, '<i>A</i> red chair.', 'jt2'),
         raw_t(RX, BY + BH - 8.5, RW - 20, 10, po.MEASURE, 'cap6 wrap'),
         # 왼쪽 아래: 표 + 맺음 | 서술
-        raw_t(L, BY + BH + 10, 70, 4, '포인트 — 어울림 — 다름', 'lab6'),
-        raw_t(L, BY + BH + 15, 72, 24, rows, 'rows3'),
-        raw_t(L, 154, 72, 12, ''.join(f'<p>{s}</p>' for s in po.END), 'end6 s'),
-        raw_t(L, 166, 72, 9, po.END_EN, 'en6 wrap'),
-        raw_t(L + 78, BY + BH + 10, BX - L - 78, 64, ''.join(f'<p>{s}</p>' for s in po.DESC), 'desc s wrap'),
+        # 작은 사진이 커져 왼쪽 아래 폭이 줄어 — 표는 두 줄(포인트 / 어울림 — 다름), 서술은 좁은 단
+        raw_t(L, BY + BH + 10, 62, 4, '포인트 — 어울림 — 다름', 'lab6'),
+        raw_t(L, BY + BH + 15, 62, 30, rows, 'rows4'),
+        raw_t(L, 156.5, 62, 12, ''.join(f'<p>{s}</p>' for s in po.END), 'end6 s wrap'),
+        raw_t(L, 168.5, 62, 8, po.END_EN, 'en6 wrap'),
+        raw_t(L + 70, BY + BH + 10, BX - L - 70, 64, ''.join(f'<p>{s}</p>' for s in po.DESC), 'desc xs wrap'),
     ]
     # 오른쪽 아래 작은 사진 둘 (같은 크기)
     for i, (a, pt, fit, dif, pid) in enumerate(ROWS[1:]):
@@ -72,7 +70,12 @@ def opt_d():
 
 CSS = po.CSS + """
 .lab6{font-family:Mono,monospace;font-size:6.4pt;letter-spacing:.1em;color:#9A8F82;white-space:nowrap}
-.rows3 .s{font-size:7.6pt}.rows3 b{width:17mm}
+.rows4 .r4{position:static;display:flex;align-items:baseline;gap:2mm;padding:.8mm 0;border-top:.15mm solid #3a332c}
+.rows4 .r4:last-child{border-bottom:.15mm solid #3a332c}
+.rows4 .n{font-family:Mono,monospace;font-size:7pt;color:#D9773A;width:5mm;flex:none}
+.rows4 .t2{position:static}.rows4 b{display:block;font-family:'WenQuanYi Zen Hei',sans-serif;font-weight:700;font-size:9pt;line-height:13pt;color:#EFE3CB}
+.rows4 .s{display:block;font-family:'WenQuanYi Zen Hei',sans-serif;font-size:7pt;line-height:10pt;color:#A99F92;white-space:nowrap}
+.desc.xs{font-size:7pt;line-height:10.6pt}
 """
 
 
