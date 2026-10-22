@@ -27,41 +27,42 @@ OUT, TMP, PRINT = po.OUT, po.TMP, po.PRINT
 ROWS = [('a)', '빨간 의자', '바닷가의 의자', '색 하나', 'PH-05'), ('b)', '빨간 신호', '밤거리의 불빛', '빛 하나', 'PH-08'),
         ('c)', '초록 싹', '마른 잎 사이의 식물', '살아 있는 하나', 'PH-10')]
 
+END3 = ['진열도 같다.', '먼저 전체를 하나로 맞추고,', '그 안에 하나를 구분되게 둔다.']  # 좁은 단이라 세 줄로 끊음
+
 
 def opt_d():
-    """rev2 — 큰 사진을 줄이고 작은 사진 둘을 키움(같은 크기). ETÉREO R4 · R9: 큰 사진 하나와 같은 크기의 작은 사진들이 엇갈린다."""
-    L, BW, BH, BY = 14, 149, 84, 22           # 큰 사진 149 × 84 (전 172 × 95) — 오른쪽 끝 = 작은 사진 왼쪽 끝(163)
-    RX = L + BW + 10                          # 오른쪽 단 x 172
-    RW = 301 - RX                             # 129
-    SG = 6
-    SW = 74                                   # 작은 사진 74 × 41.6 (rev2 66 × 37) — 둘이 같은 크기, 큰 사진의 약 1/4 넓이
+    """rev5 — rev4 의 작은 사진(74 × 41.6) 그대로, 큰 사진 오른쪽 끝을 첫 작은 사진(b 빨간 신호)의 빨간 점 세로선까지 키움.
+    ETÉREO R4: 큰 사진 옆 단에 글 · 목록, 사진 바닥에 이탤릭 캡션. 왼쪽 아래 = 서술 | 맺음 두 단."""
+    SG, SW = 6, 74
     SH = round(SW / 1.78, 2)
-    SY = 180.5 - 9 - SH                       # 아래 기준선 위에 바닥 맞춤
-    SX = 301 - 2 * SW - SG                    # 오른쪽 끝 맞춤 → x 147 · 227 (큰 사진 오른쪽 끝 163 보다 왼쪽으로 겹쳐 내려옴)
-    rows = ''.join(f"<div class='r4'><span class='n'>{a}</span><div class='t2'><b>{pt}</b><span class='s'>{fit} — {dif}</span></div></div>" for a, pt, fit, dif, _ in ROWS)
-    BX = SX - 8                               # 왼쪽 아래 글 영역의 오른쪽 끝 (작은 사진 앞 8mm)
+    SY = 180.5 - 9 - SH
+    SX = 301 - 2 * SW - SG                    # x 147 · 227
+    L, BY = 14, 22
+    RED_X = 182.42                            # PH-08 빨간 신호 초점의 쪽 위 x (원본 880 px, focus 0.6 · zoom 1.6 으로 잰 값)
+    BW = RED_X - L                            # 168.4
+    BH = round(BW / 1.78, 2)                  # 94.6
+    RX = L + BW + 10                          # 오른쪽 단 x 192.4
+    RW = 301 - RX                             # 108.6
+    rows = ''.join(f"<div class='r3'><span class='n'>{a}</span><b>{pt}</b><span class='s'>{fit} — {dif}</span></div>" for a, pt, fit, dif, _ in ROWS)
     o = [
-        # 큰 사진 (왼쪽 위)
         po.card('PH-05', L, BY, BW, BH, 'a)&nbsp;&nbsp;PH-05', '포인트 — 빨간 의자', 'a', '1 / 3', '0.59% OF THE FRAME'),
-        # 오른쪽 단 위: 제목 · 질문 · 답
+        # 오른쪽 단: 제목 · 첫 문단 · 질문 · 답 · 영문 · 표
         raw_t(RX, 17, RW, 4, 'PART 1 OBSERVE&nbsp;&nbsp;/&nbsp;&nbsp;06', 'mono'),
         raw_t(RX, 22, RW + 10, 14, po.TITLE, 'jt'),
-        raw_t(RX, 40, RW, 8, po.FIRST, 'kb6 wrap'),
-        raw_t(RX, 50, RW, 7, po.Q, 'q6'),
-        raw_t(RX, 59, RW, 14, po.ANS, 'ans wrap'),
-        raw_t(RX, 67, RW - 4, 9, po.ANS_EN, 'en6 wrap'),
-        # 큰 사진 옆 이탤릭 캡션 (ETÉREO R4 의 *Architecture*) — 큰 사진 바닥에 맞춤
-        raw_t(RX, BY + BH - 19, RW, 10, '<i>A</i> red chair.', 'jt2'),
-        raw_t(RX, BY + BH - 8.5, RW - 20, 10, po.MEASURE, 'cap6 wrap'),
-        # 왼쪽 아래: 표 + 맺음 | 서술
-        # 작은 사진이 커져 왼쪽 아래 폭이 줄어 — 표는 두 줄(포인트 / 어울림 — 다름), 서술은 좁은 단
-        raw_t(L, BY + BH + 10, 62, 4, '포인트 — 어울림 — 다름', 'lab6'),
-        raw_t(L, BY + BH + 15, 62, 30, rows, 'rows4'),
-        raw_t(L, 156.5, 62, 12, ''.join(f'<p>{s}</p>' for s in po.END), 'end6 s wrap'),
-        raw_t(L, 168.5, 62, 8, po.END_EN, 'en6 wrap'),
-        raw_t(L + 70, BY + BH + 10, BX - L - 70, 64, ''.join(f'<p>{s}</p>' for s in po.DESC), 'desc xs wrap'),
+        raw_t(RX, 39, RW, 8, po.FIRST, 'kb6 wrap'),
+        raw_t(RX, 48, RW, 7, po.Q, 'q6'),
+        raw_t(RX, 56.5, RW, 14, po.ANS, 'ans wrap'),
+        raw_t(RX, 71, RW - 4, 9, po.ANS_EN, 'en6 wrap'),
+        raw_t(RX, 81, RW, 4, '포인트 — 어울림 — 다름', 'lab6'),
+        raw_t(RX, 85, RW, 18, rows, 'rows3'),
+        # 큰 사진 바닥에 맞춘 이탤릭 캡션 (ETÉREO R4)
+        raw_t(RX, BY + BH - 13.5, RW, 9, '<i>A</i> red chair.', 'jt2 s'),
+        raw_t(RX, BY + BH - 5, RW, 9, po.MEASURE, 'cap6 xs wrap'),
+        # 왼쪽 아래: 서술 | 맺음
+        raw_t(L, BY + BH + 10, 66, 52, ''.join(f'<p>{s}</p>' for s in po.DESC), 'desc xs wrap'),
+        raw_t(L + 74, BY + BH + 10, SX - 8 - L - 74, 22, ''.join(f'<p>{s}</p>' for s in END3), 'end6 s'),
+        raw_t(L + 74, BY + BH + 26, SX - 8 - L - 74, 14, po.END_EN, 'en6 wrap'),
     ]
-    # 오른쪽 아래 작은 사진 둘 (같은 크기)
     for i, (a, pt, fit, dif, pid) in enumerate(ROWS[1:]):
         x = SX + i * (SW + SG)
         o.append(po.card(pid, x, SY, SW, SH, f'{a}&nbsp;&nbsp;{pt}', dif, a[0], f'{i + 2} / 3', ''))
@@ -76,6 +77,8 @@ CSS = po.CSS + """
 .rows4 .t2{position:static}.rows4 b{display:block;font-family:'WenQuanYi Zen Hei',sans-serif;font-weight:700;font-size:9pt;line-height:13pt;color:#EFE3CB}
 .rows4 .s{display:block;font-family:'WenQuanYi Zen Hei',sans-serif;font-size:7pt;line-height:10pt;color:#A99F92;white-space:nowrap}
 .desc.xs{font-size:7pt;line-height:10.6pt}
+.rows3 .r3{padding:.8mm 0}.rows3 b{width:17mm;font-size:8.6pt}.rows3 .s{font-size:7.4pt}
+.jt2.s{font-size:19pt;line-height:21pt}.cap6.xs{font-size:7pt;line-height:10pt}
 """
 
 
