@@ -71,21 +71,30 @@ def place(node, x, y, w, h, out):
         pos += size + G
 
 
-def text_tile(x, y, w, h):
+def text_tile(x, y, w, h, tag=''):
+    if h < 55:  # 낮은 칸 — 세 줄로 줄이고 이름만
+        return div(x, y, w, h, ''.join([
+            t(4, 4, w - 8, 4, 'FROM THE INSIDE', 'wm'),
+            t(4, 8, w - 8, 4, tag, 'wm tag') if tag else '',
+            t(4, 14, w - 8, 14, '<p>가게 밖, 스쳐 지나가는</p><p>일상에서도 나는</p><p>사람들을 눈여겨본다.</p>', 'wk2'),
+            t(4, 27.5, w - 8, 10, 'Outside the shop, in everyday moments, I keep watching people.', 'we2 wrap'),
+            t(4, h - 6, w - 8, 4, NAME, 'wm'),
+        ]), 'tile')
     return div(x, y, w, h, ''.join([
         t(4, 4, w - 8, 4, 'FROM THE INSIDE', 'wm'),
+        t(4, 8, w - 8, 4, tag, 'wm tag') if tag else '',
         t(4, 14, w - 8, 30, '<p>가게 밖,</p><p>스쳐 지나가는</p><p>일상에서도 나는</p><p>사람들을</p><p>눈여겨본다.</p>', 'wk'),
         t(4, 38, w - 8, 14, 'Outside the shop, in everyday moments, I keep watching people.', 'we wrap'),
         t(4, h - 13, w - 8, 11, f'<p>PHOTO 17</p><p>ARCHITECTURE 10</p><p>STYLING 5</p><p>{NAME}</p>', 'wm'),
     ]), 'tile')
 
 
-def page():
+def page(rows=ROWS, tag=''):
     cells = []
-    place(ROWS, M, M, 297 - 2 * M, 210 - 2 * M, cells)
+    place(rows, M, M, 297 - 2 * M, 210 - 2 * M, cells)
     o = []
     for pid, x, y, w, h in cells:
-        o.append(text_tile(x, y, w, h) if pid == TEXT else photo(pid, round(x, 3), round(y, 3), round(w, 3), round(h, 3), focus=F.get(pid, (0.5, 0.5))))
+        o.append(text_tile(x, y, w, h, tag) if pid == TEXT else photo(pid, round(x, 3), round(y, 3), round(w, 3), round(h, 3), focus=F.get(pid, (0.5, 0.5))))
     used = [c[0] for c in cells if c[0] != TEXT]
     assert len(used) == len(set(used)) == 32, (len(used), len(set(used)))
     return ''.join(o)
@@ -94,8 +103,10 @@ def page():
 CSS = pe.CSS + """
 .sheet.wall{background:#0B0B0B}.wall .ph{background:#1a1a1a}
 .tile{background:#15120F;overflow:hidden}.tile div{position:absolute}
-.wm{font-family:Mono,monospace;font-size:4.6pt;line-height:6.4pt;letter-spacing:.1em;color:#9A8F82;white-space:nowrap}.wm.r{text-align:right}
+.wm{font-family:Mono,monospace;font-size:4.6pt;line-height:6.4pt;letter-spacing:.1em;color:#9A8F82;white-space:nowrap}.wm.r{text-align:right}.wm.tag{color:#D9773A}
 .wk{font-family:'WenQuanYi Zen Hei',sans-serif;font-weight:700;font-size:8.4pt;line-height:12.4pt;color:#EFE7DA}
+.wk2{font-family:'WenQuanYi Zen Hei',sans-serif;font-weight:700;font-size:7pt;line-height:10pt;color:#EFE7DA}
+.we2{font-family:Lora,serif;font-style:italic;font-size:5.4pt;line-height:7.4pt;color:#9A8F82}.we2 p{white-space:normal}
 .we{font-family:Lora,serif;font-style:italic;font-size:6pt;line-height:8.6pt;color:#9A8F82}.we p{white-space:normal}
 """
 
