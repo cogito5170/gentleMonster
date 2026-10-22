@@ -32,3 +32,7 @@
 - 글 단: 표지 글 `PROLOGUE / FROM THE INSIDE`(고정폭 회색) → 크림색 제목 두 줄 19pt → 부제 `A VMD WHO LOOKS OUT FROM THE INSIDE`(고정폭 크림)
   → 한국어 두 문단(보는 자리 / 멈추고 웃는 사람, 마지막 문장만 크림) → 영어 대문자 한 문단(사례의 대문자 본문). 양 가장자리에 필름 같은 옅은 숫자.
 - 최종 글꼴: 제목 Noto Serif KR Light(사례의 가는 세리프), 본문 Pretendard, 표지 글 · 부제 IBM Plex Mono, 영어 Instrument Sans.
+- InDesign (2026-10-22, 사용자 "인디자인 파일로 제공하라"): `indesign/p02_reportage/` (+ `.zip`) — `.idml` · `.jsx` · 기준 `.pdf` · `Links/` ·
+  `Document Fonts/`(IBM Plex Mono · Instrument Sans + OFL). 문단 스타일 6개(Label · Title · Sub · Body · English · Edge), 어둡게 하기는 검정 사각형 두 개의
+  그레이디언트 페더(위→아래 · 왼쪽→오른쪽), 가장자리 숫자는 90° 돌린 글 틀. 사진은 재단 여유까지 덮도록 약 3% 키움.
+  만드는 법 `python3 tools/jaju_layout/indd_p02_rep.py`. InDesign 으로 열어 보지 못했다.

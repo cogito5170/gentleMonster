@@ -108,6 +108,9 @@ ITEMS += [T(14, 199, 160, 4, [('Folio', 'FROM THE INSIDE')], 'folio left'),
 def image_box(it):
     """그림을 틀에 가득(cover), focus 점을 가운데로. 돌려주는 값: 그림 왼쪽 위(mm) · 크기(mm) · mm/px."""
     W0, H0 = it['px']
+    if it.get('place'):  # 그림의 자리 · 크기를 직접 (틀 밖으로 넘쳐도 된다)
+        ox, oy, iw, ih = it['place']
+        return ox, oy, iw, ih, iw / W0
     k = max(it['w'] / W0, it['h'] / H0)
     iw, ih = W0 * k, H0 * k
     fx, fy = it.get('focus', (0.5, 0.5))
@@ -125,8 +128,12 @@ def transparency(it):
         o += f'<BlendingSetting BlendMode="Normal" Opacity="{it["opacity"]}"/>'
     if it.get('feather'):
         stops = ''.join(f'<OpacityGradientStop Self="ogs{i}" Opacity="{op}" Location="{loc}" Midpoint="50"/>' for i, (loc, op) in enumerate(it['feather']))
-        o += (f'<GradientFeatherSetting Applied="true" Type="Linear" Angle="-90" Length="{it["h"] * MM:.4f}" '
-              f'GradientStart="{(it["x"] + it["w"] / 2) * MM:.4f} {it["y"] * MM:.4f}" HiliteAngle="0" HiliteLength="0">{stops}</GradientFeatherSetting>')
+        if it.get('feather_dir') == 'right':  # 왼쪽 → 오른쪽
+            ang, length, start = 0, it['w'] * MM, f'{it["x"] * MM:.4f} {(it["y"] + it["h"] / 2) * MM:.4f}'
+        else:  # 위 → 아래
+            ang, length, start = -90, it['h'] * MM, f'{(it["x"] + it["w"] / 2) * MM:.4f} {it["y"] * MM:.4f}'
+        o += (f'<GradientFeatherSetting Applied="true" Type="Linear" Angle="{ang}" Length="{length:.4f}" '
+              f'GradientStart="{start}" HiliteAngle="0" HiliteLength="0">{stops}</GradientFeatherSetting>')
     return o + '</TransparencySetting>'
 
 
@@ -147,6 +154,16 @@ def geom(pts, closed=True):
 
 def box(x, y, w, h):
     return geom([(x, y), (x, y + h), (x + w, y + h), (x + w, y)])
+
+
+def tf_transform(it):
+    if it.get('rotate') == 90:  # CSS rotate(90deg), transform-origin 0 0
+        return f'0 1 -1 0 {it["x"] * MM - WP / 2:.4f} {it["y"] * MM - HP / 2:.4f}'
+    return SPREAD_T
+
+
+def tf_box(it):
+    return box(0, 0, it['w'], it['h']) if it.get('rotate') == 90 else box(it['x'], it['y'], it['w'], it['h'])
 
 
 def build_idml(path_out):
@@ -208,7 +225,7 @@ def build_idml(path_out):
         else:
             sid = f'uS{n}'
             spread.append(f'<TextFrame Self="uT{n}" Name="{q(it["name"])}" ParentStory="{sid}" PreviousTextFrame="n" NextTextFrame="n" ContentType="TextType" ItemLayer="uL" Locked="false" '
-                          f'FillColor="Swatch/None" StrokeColor="Swatch/None" StrokeWeight="0" ItemTransform="{SPREAD_T}">{box(it["x"], it["y"], it["w"], it["h"])}'
+                          f'FillColor="Swatch/None" StrokeColor="Swatch/None" StrokeWeight="0" ItemTransform="{tf_transform(it)}">{tf_box(it)}'
                           '<TextFramePreference TextColumnCount="1" VerticalJustification="TopAlign" FirstBaselineOffset="AscentOffset" AutoSizingType="Off" '
                           'InsetSpacing="0 0 0 0"/></TextFrame>')
             rng = ''.join(f'<ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/{q(st)}"><CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]">'
@@ -272,7 +289,8 @@ def build_jsx(path_out):
             if it.get('opacity') is not None:
                 o.append(f'r.transparencySettings.blendingSettings.opacity = {it["opacity"]};')
             if it.get('feather'):
-                o.append('var g = r.transparencySettings.gradientFeatherSettings; g.applied = true; g.type = GradientType.LINEAR; g.angle = -90;')
+                ang = 0 if it.get('feather_dir') == 'right' else -90
+                o.append(f'var g = r.transparencySettings.gradientFeatherSettings; g.applied = true; g.type = GradientType.LINEAR; g.angle = {ang};')
                 o.append(f'while (g.opacityGradientStops.length < {len(it["feather"])}) g.opacityGradientStops.add();')
                 o += [f'g.opacityGradientStops[{i}].location = {loc}; g.opacityGradientStops[{i}].opacity = {op};' for i, (loc, op) in enumerate(it['feather'])]
         elif it['kind'] == 'image':
@@ -288,6 +306,9 @@ def build_jsx(path_out):
             o.append(f'var t = pg.textFrames.add({{geometricBounds: [{it["y"]:.3f}, {it["x"]}, {it["y"] + it["h"]:.3f}, {it["x"] + it["w"]}], contents: {js(content)}, name: {js(it["name"])}}});')
             o.append('t.textFramePreferences.insetSpacing = [0, 0, 0, 0]; t.textFramePreferences.firstBaselineOffset = FirstBaseline.ASCENT_OFFSET;')
             o += [f't.paragraphs[{i}].appliedParagraphStyle = S[{js(st)}];' for i, (st, _) in enumerate(it['paras'])]
+            if it.get('rotate') == 90:  # 위 왼쪽 모서리를 축으로 시계 방향 90°
+                o.append('t.transform(CoordinateSpaces.PASTEBOARD_COORDINATES, AnchorPoint.TOP_LEFT_ANCHOR, '
+                         'app.transformationMatrices.add({counterclockwiseRotationAngle: -90}));')
     o.append('})();')
     with open(path_out, 'w', encoding='utf-8') as f:
         f.write('\n'.join(o) + '\n')
