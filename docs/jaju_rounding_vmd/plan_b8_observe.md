@@ -1,8 +1,8 @@
-# B8 — B7 그대로, 02 Observe 의 한 문장만 바꾼 판
+# B8 — B7 그대로, 02 Observe 의 한 문장만 바꾼 판 (파일 이름: 같은 이름의 B8 이 다른 세션에 있어 _observe 로 옮김)
 
 작성일: 2026-10-21. 사용자: "기존으로 복구한다. 01 observe 의 concept 은 '일상에서 사람들을 관찰하는 시선을 가졌다.'의 맥락으로 간다.
 자기소개서, 포트폴리오를 참고하여 적절한 문장으로 임의 판단하에 수정한다."
-PDF: `layout/plan_b8.pdf` (17쪽 · 약 8.5MB) · `python3 tools/jaju_layout/plan_b8.py`. 장 1 재설정안(ch1_storyline_jaju.md)은 거뒀다 — 03–05 의 제목 · 사진 · 문장은 B7 그대로.
+PDF: `layout/plan_b8_observe.pdf` (17쪽 · 약 8.5MB) · `python3 tools/jaju_layout/plan_b8_observe.py`. 장 1 재설정안(ch1_storyline_jaju.md)은 거뒀다 — 03–05 의 제목 · 사진 · 문장은 B7 그대로.
 
 | | 문장 |
 |---|---|

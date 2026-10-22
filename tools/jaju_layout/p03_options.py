@@ -14,7 +14,7 @@ import subprocess
 
 from PIL import Image
 
-import plan_b8 as b8
+import plan_b8_observe as b8
 
 b7 = b8.b7
 pe, t, OUT, TMP, PRINT = b7.pe, b7.t, b7.OUT, b7.TMP, b7.PRINT
