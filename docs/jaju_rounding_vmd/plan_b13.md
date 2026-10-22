@@ -67,3 +67,11 @@
 - `indesign/p04_observe/` (+ `.zip`): `.idml` · `.jsx` · 기준 `.pdf`(plan_b17 4쪽) · `Links/PH-13_g1.jpg`(장 1 보정판) · `Document Fonts/`(Young Serif · Lora · IBM Plex Mono + OFL).
 - 문단 스타일 7개(Part Num · Part Word 118pt · Line KO · Line EN · Folio ×3), 사진 아래 어둡게 = 페더 사각형, 격자선 · 십자 · 뷰파인더 = 불투명도를 준 선. 쪽 번호 04.
 - 만드는 법 `python3 tools/jaju_layout/indd_p04.py` (빌더 indd_p03.py 에 꺾인 선 · 선 불투명도 추가). InDesign 으로 열어 보지 못했다.
+
+## 판형 315 × 195 mm (2026-10-22 결정)
+
+사용자: "화면 크기는 앞으로 315 x 195 로 맞추어 작업한다. 수정 후 보내라."
+- 앞으로 만드는 쪽은 모두 315 × 195 mm(재단 여유 3mm). 옮기는 규칙: 좌우 여백 14mm · 위 기준선 12mm · 아래 기준선 바닥에서 15mm(=180mm),
+  바닥 줄 184mm, 가운데 = 157.5mm, A4 판에서 아래에 붙은 글은 15mm 위로, 사진은 높이 기준으로 꽉 채움.
+- 4쪽 `/01 Observe.` InDesign(`indesign/p04_observe/`)을 315 × 195 로 다시 만들었다(기준 PDF 도 같은 판형).
+- 아직 A4(297 × 210)인 것: B17 PDF 전체, 3쪽 Prologue · 2쪽 메시지 안들의 InDesign 파일.
