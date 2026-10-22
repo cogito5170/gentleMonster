@@ -49,6 +49,9 @@ const data = await pg.evaluate(() => {
           if (c.display === 'inline-block' && !n.textContent.trim()) {  // 색 견본 같은 빈 칸
             visitBox(n); continue;
           }
+          if (c.display === 'inline-block' && parseFloat(c.borderTopWidth) > 0) {  // 동그라미 기호 — 테두리와 글자를 따로
+            visitBox(n); para(n, [...n.childNodes]); continue;
+          }
           collectRuns([...n.childNodes], runs);
         }
       }
@@ -73,6 +76,7 @@ const data = await pg.evaluate(() => {
       const lines = Math.max(1, Math.round(box.height / lh));
       items.push({ kind: 'text', box: mm(box), container: mm({ left: cr.left + padL, top: cr.top, width: cr.width - padL - padR, height: cr.height }),
                    align: cc.textAlign, lead: lh * 0.75, wrap: cc.whiteSpace !== 'nowrap' && lines > 1, lines, runs,
+                   hscale: (cc.transform.match(/^matrix\(([-\d.e]+)/) || [0, 1])[1] * 1,
                    opacity: +cc.opacity });
     };
     const visitBox = (el) => {  // 배경 · 테두리
@@ -83,10 +87,11 @@ const data = await pg.evaluate(() => {
       if (bi && bi !== 'none' && bi.includes('gradient')) items.push({ kind: 'gradient', rect: mm(r), css: bi });
       const bg = c.backgroundColor;
       if (bg && !/rgba\(.*,\s*0\)$/.test(bg) && bg !== 'transparent' && el !== sh)
-        items.push({ kind: 'rect', rect: mm(r), fill: bg, oval: parseFloat(c.borderTopLeftRadius) >= r.width / 2 - 0.5, opacity: +c.opacity });
+        items.push({ kind: 'rect', rect: mm(r), fill: bg, oval: c.borderTopLeftRadius.endsWith('%') ? parseFloat(c.borderTopLeftRadius) >= 50 : parseFloat(c.borderTopLeftRadius) >= r.width / 2 - 0.5, opacity: +c.opacity });
       const sides = ['Top', 'Right', 'Bottom', 'Left'].map((s) => ({ s, w: parseFloat(c['border' + s + 'Width']) || 0, col: c['border' + s + 'Color'], st: c['border' + s + 'Style'] }));
       const on = sides.filter((x) => x.w > 0 && x.st !== 'none');
-      if (on.length === 4) items.push({ kind: 'rect', rect: mm(r), fill: null, stroke: on[0].col, sw: on[0].w * PX, dashed: on[0].st === 'dashed' });
+      if (on.length === 4) items.push({ kind: 'rect', rect: mm(r), fill: null, stroke: on[0].col, sw: on[0].w * PX, dashed: on[0].st === 'dashed',
+                                        oval: c.borderTopLeftRadius.endsWith('%') ? parseFloat(c.borderTopLeftRadius) >= 50 : parseFloat(c.borderTopLeftRadius) >= r.width / 2 - 0.5 });
       else for (const x of on) {
         const p = { Top: [[r.left, r.top], [r.right, r.top]], Bottom: [[r.left, r.bottom], [r.right, r.bottom]],
                     Left: [[r.left, r.top], [r.left, r.bottom]], Right: [[r.right, r.top], [r.right, r.bottom]] }[x.s];
