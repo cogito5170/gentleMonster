@@ -50,3 +50,13 @@
 - 사진이 쪽보다 넓어(1.78 : 1.41) 좌우가 조금 잘린다(왼쪽 손 · 오른쪽 글 단 가장자리).
 - 본문 쪽 번호는 그대로(Prologue = 01) — 사진만 있는 두 쪽은 번호를 세지 않는다.
 - `layout/plan_b16.pdf` (18쪽 · 약 7.8MB) · `python3 tools/jaju_layout/plan_b16.py`.
+
+## B17 + 3쪽 InDesign (2026-10-22) — 현재본 (18쪽)
+
+사용자: "커버를 포함해서 페이지 수를 카운트한다. 3페이지를 인디자인 파일로 제공하라."
+- 쪽 번호 = 표지부터: 표지 1 · 책 사진 2 · Prologue 3 … 뒤표지 18. B17 은 바닥 줄 번호(01–15 → 03–17)와 쪽 참조
+  (프롤로그 p.04 · p.08 · p.11, Proposal ← 07 · 10 · 14)만 바꾼 판. `layout/plan_b17.pdf` · `python3 tools/jaju_layout/plan_b17.py`.
+- 3쪽(Prologue) InDesign: `indesign/p03_prologue/` (+ `indesign/p03_prologue.zip`) — `.idml`(열어서 .indd 로 저장) · `.jsx`(IDML 이 안 열릴 때
+  스크립트로 같은 쪽) · `.pdf`(기준 시안) · `Document Fonts/`(Young Serif · Lora · IBM Plex Mono + OFL). 만드는 법 `python3 tools/jaju_layout/indd_p03.py`.
+  - 한글은 Pretendard(Regular · Bold) — 이 환경에 없어 따로 설치해야 한다. 반투명 선 · 유령 글자는 바탕에 섞은 단색 스와치(Ghost · Rule · Cross).
+  - InDesign 이 이 환경에 없어 열어 보지 못했다(XML 구조만 검사).
