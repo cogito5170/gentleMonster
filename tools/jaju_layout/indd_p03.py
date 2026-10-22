@@ -105,6 +105,31 @@ ITEMS += [T(14, 199, 160, 4, [('Folio', 'FROM THE INSIDE')], 'folio left'),
           T(243, 199, 40, 4, [('Folio Right', '03')], 'folio number')]
 
 
+def image_box(it):
+    """그림을 틀에 가득(cover), focus 점을 가운데로. 돌려주는 값: 그림 왼쪽 위(mm) · 크기(mm) · mm/px."""
+    W0, H0 = it['px']
+    k = max(it['w'] / W0, it['h'] / H0)
+    iw, ih = W0 * k, H0 * k
+    fx, fy = it.get('focus', (0.5, 0.5))
+    ox = it['x'] + min(0, max(it['w'] - iw, it['w'] / 2 - fx * iw))
+    oy = it['y'] + min(0, max(it['h'] - ih, it['h'] / 2 - fy * ih))
+    return ox, oy, iw, ih, k
+
+
+def transparency(it):
+    """opacity(%) · feather(위에서 아래로 불투명도 단계 [(위치 %, 불투명도 %)])."""
+    if not (it.get('opacity') is not None or it.get('feather')):
+        return ''
+    o = '<TransparencySetting>'
+    if it.get('opacity') is not None:
+        o += f'<BlendingSetting BlendMode="Normal" Opacity="{it["opacity"]}"/>'
+    if it.get('feather'):
+        stops = ''.join(f'<OpacityGradientStop Self="ogs{i}" Opacity="{op}" Location="{loc}" Midpoint="50"/>' for i, (loc, op) in enumerate(it['feather']))
+        o += (f'<GradientFeatherSetting Applied="true" Type="Linear" Angle="-90" Length="{it["h"] * MM:.4f}" '
+              f'GradientStart="{(it["x"] + it["w"] / 2) * MM:.4f} {it["y"] * MM:.4f}" HiliteAngle="0" HiliteLength="0">{stops}</GradientFeatherSetting>')
+    return o + '</TransparencySetting>'
+
+
 # ── IDML ─────────────────────────────────────────────────────────────────────────────
 NS = 'xmlns:idPkg="http://ns.adobe.com/AdobeInDesign/idml/1.0/packaging" DOMVersion="8.0"'
 HDR = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
@@ -165,8 +190,17 @@ def build_idml(path_out):
     spread, stories = [], []
     for n, it in enumerate(ITEMS, 1):
         if it['kind'] == 'rect':
+            sc, sw = (f'Color/{it["stroke"][0]}', it['stroke'][1] * MM) if it.get('stroke') else ('Swatch/None', 0)
             spread.append(f'<Rectangle Self="uR{n}" Name="{q(it["name"])}" ContentType="Unassigned" ItemLayer="uL" Locked="false" FillColor="Color/{it["fill"]}" '
-                          f'StrokeColor="Swatch/None" StrokeWeight="0" ItemTransform="{SPREAD_T}">{box(it["x"], it["y"], it["w"], it["h"])}</Rectangle>')
+                          f'StrokeColor="{sc}" StrokeWeight="{sw:.4f}" ItemTransform="{SPREAD_T}">{box(it["x"], it["y"], it["w"], it["h"])}{transparency(it)}</Rectangle>')
+        elif it['kind'] == 'image':
+            ox, oy, iw, ih, k = image_box(it)
+            spread.append(
+                f'<Rectangle Self="uR{n}" Name="{q(it["name"])}" ContentType="GraphicType" ItemLayer="uL" Locked="false" FillColor="Swatch/None" StrokeColor="Swatch/None" StrokeWeight="0" ItemTransform="{SPREAD_T}">'
+                f'{box(it["x"], it["y"], it["w"], it["h"])}'
+                f'<Image Self="uI{n}" ItemTransform="{k * MM:.6f} 0 0 {k * MM:.6f} {ox * MM:.4f} {oy * MM:.4f}" Space="RGB" ActualPpi="72 72">'
+                f'<Properties><Profile type="string">$ID/Embedded</Profile><GraphicBounds Left="0" Top="0" Right="{it["px"][0]}" Bottom="{it["px"][1]}"/></Properties>'
+                f'<Link Self="uK{n}" LinkResourceURI="file:Links/{q(it["file"])}" LinkResourceFormat="$ID/JPEG" StoredState="Normal"/></Image></Rectangle>')
         elif it['kind'] == 'line':
             spread.append(f'<GraphicLine Self="uG{n}" Name="{q(it["name"])}" ItemLayer="uL" Locked="false" FillColor="Swatch/None" '
                           f'StrokeColor="Color/{it["color"]}" StrokeWeight="{it["weight"]:.4f}" ItemTransform="{SPREAD_T}">'
@@ -232,7 +266,20 @@ def build_jsx(path_out):
         o.append(f'S[{js(n)}] = ps({js(n)}, {js(s["font"])}, {js(s["style"])}, {s["size"]}, {s["lead"]}, {fill}, {just[s["align"]]}, {s.get("track", 0)}, {sc}, {s.get("before", 0)});')
     for it in ITEMS:
         if it['kind'] == 'rect':
-            o.append(f'pg.rectangles.add({{geometricBounds: [{it["y"]}, {it["x"]}, {it["y"] + it["h"]}, {it["x"] + it["w"]}], fillColor: C[{js(it["fill"])}], strokeWeight: 0, name: {js(it["name"])}}});')
+            o.append(f'var r = pg.rectangles.add({{geometricBounds: [{it["y"]}, {it["x"]}, {it["y"] + it["h"]}, {it["x"] + it["w"]}], fillColor: C[{js(it["fill"])}], strokeWeight: 0, name: {js(it["name"])}}});')
+            if it.get('stroke'):
+                o.append(f'r.strokeColor = C[{js(it["stroke"][0])}]; r.strokeWeight = "{it["stroke"][1]}mm";')
+            if it.get('opacity') is not None:
+                o.append(f'r.transparencySettings.blendingSettings.opacity = {it["opacity"]};')
+            if it.get('feather'):
+                o.append('var g = r.transparencySettings.gradientFeatherSettings; g.applied = true; g.type = GradientType.LINEAR; g.angle = -90;')
+                o.append(f'while (g.opacityGradientStops.length < {len(it["feather"])}) g.opacityGradientStops.add();')
+                o += [f'g.opacityGradientStops[{i}].location = {loc}; g.opacityGradientStops[{i}].opacity = {op};' for i, (loc, op) in enumerate(it['feather'])]
+        elif it['kind'] == 'image':
+            ox, oy, iw, ih, _ = image_box(it)
+            o.append(f'var r = pg.rectangles.add({{geometricBounds: [{it["y"]}, {it["x"]}, {it["y"] + it["h"]}, {it["x"] + it["w"]}], strokeWeight: 0, name: {js(it["name"])}}});')
+            o.append(f'var img = File(File($.fileName).parent + "/Links/{it["file"]}"); if (img.exists) {{ r.place(img); '
+                     f'r.graphics[0].geometricBounds = [{oy:.4f}, {ox:.4f}, {oy + ih:.4f}, {ox + iw:.4f}]; }} else alert("Links/{it["file"]} missing");')
         elif it['kind'] == 'line':
             o.append(f'var l = pg.graphicLines.add({{name: {js(it["name"])}}}); l.paths[0].pathPoints[0].anchor = [{it["x1"]}, {it["y1"]}]; '
                      f'l.paths[0].pathPoints[1].anchor = [{it["x2"]}, {it["y2"]}]; l.strokeColor = C[{js(it["color"])}]; l.strokeWeight = "{it["weight"]:.3f}pt";')

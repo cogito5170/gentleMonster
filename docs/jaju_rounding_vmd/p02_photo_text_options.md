@@ -14,3 +14,12 @@
 
 - 시안의 한글은 모두 문천역정흑(이 환경의 유일한 한글 글꼴). 쪽 오른쪽 위 '안' 표시는 비교용.
 - 2안은 사진 속 책이 이 포트폴리오 자신이라는 장치 — 책을 펼치면 첫 문장이 이미 그 면에 인쇄되어 있다.
+
+## 1안 · 3안 InDesign (2026-10-22)
+
+사용자: "1안 3안을 인디자인 파일로 보내라."
+- `indesign/p02_photo_galatasaray/` · `indesign/p02_photo_desjobert/` (+ 각 `.zip`): `.idml` · `.jsx` · 기준 `.pdf` · `Links/opening_book_dark.jpg` (3안은 `Document Fonts/` Lora Italic · IBM Plex Mono + OFL).
+- 사진 틀은 재단 여유 3mm 까지. 1안 검정 녹임 = 검정 사각형 + 그레이디언트 페더(위 30% 0% → 58% 75% → 72% 96%),
+  3안 글 상자 = 검정 72% 불투명도 + 0.15mm 회색 선. 1안 본문 끝 문장만 흰색. 쪽 번호 2.
+- 그레이디언트 페더 · 불투명도는 IDML 에 처음 넣는 효과라 InDesign 에서 확인이 필요하다. IDML 이 열리지 않거나 페더가 빠지면 같은 폴더의 `.jsx` 로 짓는다.
+- 만드는 법 `python3 tools/jaju_layout/indd_p02_photo.py` (빌더 indd_p03.py 에 사진 · 불투명도 · 페더 · 선을 더했다).
