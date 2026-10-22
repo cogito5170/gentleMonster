@@ -39,3 +39,10 @@
   Body KO Last(흰색) · Body EN(Instrument Sans 8/13). 모두 가운데 정렬. 쪽 번호 2.
 - 국문 명조는 Noto Serif KR(Light · Regular)로 지정 — 따로 설치. KoPub바탕을 쓰려면 문단 스타일 세 개의 글꼴만 바꾸면 된다.
 - 만드는 법 `python3 tools/jaju_layout/indd_p02.py` (빌더는 indd_p03.py). InDesign 으로 열어 보지는 못했다.
+
+## 1안 InDesign (2026-10-22)
+
+사용자: "1안도 인디자인 파일로 제공하라."
+- `indesign/p02_message_galatasaray/` (+ `.zip`): `.idml` · `.jsx` · 기준 `.pdf`('안' 표시 뺌).
+- 문단 스타일 2개: Title(Pretendard Bold 19/24, 흰색) · Body(Pretendard Regular 11/19, 회색). 본문은 한 문단, 마지막 문장만 글자 색 흰색. 쪽 번호 2.
+- Pretendard 는 따로 설치. 만드는 법 `python3 tools/jaju_layout/indd_p02_g.py`. InDesign 으로 열어 보지는 못했다.
