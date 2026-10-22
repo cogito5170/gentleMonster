@@ -60,3 +60,10 @@
   스크립트로 같은 쪽) · `.pdf`(기준 시안) · `Document Fonts/`(Young Serif · Lora · IBM Plex Mono + OFL). 만드는 법 `python3 tools/jaju_layout/indd_p03.py`.
   - 한글은 Pretendard(Regular · Bold) — 이 환경에 없어 따로 설치해야 한다. 반투명 선 · 유령 글자는 바탕에 섞은 단색 스와치(Ghost · Rule · Cross).
   - InDesign 이 이 환경에 없어 열어 보지 못했다(XML 구조만 검사).
+
+## 4쪽(/01 Observe.) InDesign (2026-10-22)
+
+사용자가 보낸 캡처의 바닥 번호 '02'는 표지부터 세기 전(B16 까지)의 본문 번호. B17 기준으로 이 쪽은 **4쪽**(표지 1 · 책 사진 2 · Prologue 3 · Observe 4).
+- `indesign/p04_observe/` (+ `.zip`): `.idml` · `.jsx` · 기준 `.pdf`(plan_b17 4쪽) · `Links/PH-13_g1.jpg`(장 1 보정판) · `Document Fonts/`(Young Serif · Lora · IBM Plex Mono + OFL).
+- 문단 스타일 7개(Part Num · Part Word 118pt · Line KO · Line EN · Folio ×3), 사진 아래 어둡게 = 페더 사각형, 격자선 · 십자 · 뷰파인더 = 불투명도를 준 선. 쪽 번호 04.
+- 만드는 법 `python3 tools/jaju_layout/indd_p04.py` (빌더 indd_p03.py 에 꺾인 선 · 선 불투명도 추가). InDesign 으로 열어 보지 못했다.

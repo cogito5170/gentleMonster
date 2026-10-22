@@ -221,7 +221,7 @@ def build_idml(path_out):
         elif it['kind'] == 'line':
             spread.append(f'<GraphicLine Self="uG{n}" Name="{q(it["name"])}" ItemLayer="uL" Locked="false" FillColor="Swatch/None" '
                           f'StrokeColor="Color/{it["color"]}" StrokeWeight="{it["weight"]:.4f}" ItemTransform="{SPREAD_T}">'
-                          f'{geom([(it["x1"], it["y1"]), (it["x2"], it["y2"])], closed=False)}</GraphicLine>')
+                          f'{geom(it.get("pts") or [(it["x1"], it["y1"]), (it["x2"], it["y2"])], closed=False)}{transparency(it)}</GraphicLine>')
         else:
             sid = f'uS{n}'
             spread.append(f'<TextFrame Self="uT{n}" Name="{q(it["name"])}" ParentStory="{sid}" PreviousTextFrame="n" NextTextFrame="n" ContentType="TextType" ItemLayer="uL" Locked="false" '
@@ -299,8 +299,11 @@ def build_jsx(path_out):
             o.append(f'var img = File(File($.fileName).parent + "/Links/{it["file"]}"); if (img.exists) {{ r.place(img); '
                      f'r.graphics[0].geometricBounds = [{oy:.4f}, {ox:.4f}, {oy + ih:.4f}, {ox + iw:.4f}]; }} else alert("Links/{it["file"]} missing");')
         elif it['kind'] == 'line':
-            o.append(f'var l = pg.graphicLines.add({{name: {js(it["name"])}}}); l.paths[0].pathPoints[0].anchor = [{it["x1"]}, {it["y1"]}]; '
-                     f'l.paths[0].pathPoints[1].anchor = [{it["x2"]}, {it["y2"]}]; l.strokeColor = C[{js(it["color"])}]; l.strokeWeight = "{it["weight"]:.3f}pt";')
+            pts = it.get('pts') or [(it['x1'], it['y1']), (it['x2'], it['y2'])]
+            o.append(f'var l = pg.graphicLines.add({{name: {js(it["name"])}}}); l.paths[0].entirePath = {js([list(p) for p in pts])}; '
+                     f'l.strokeColor = C[{js(it["color"])}]; l.strokeWeight = "{it["weight"]:.3f}pt";')
+            if it.get('opacity') is not None:
+                o.append(f'l.transparencySettings.blendingSettings.opacity = {it["opacity"]};')
         else:
             content = '\r'.join(t for _, t in it['paras'])
             o.append(f'var t = pg.textFrames.add({{geometricBounds: [{it["y"]:.3f}, {it["x"]}, {it["y"] + it["h"]:.3f}, {it["x"] + it["w"]}], contents: {js(content)}, name: {js(it["name"])}}});')
