@@ -30,3 +30,12 @@
 
 - 이 쪽이 들어가면 3쪽 Prologue 와 글이 같아진다. Prologue 를 뺄지, 다른 글로 바꿀지 정해야 한다.
 - 지금 2쪽의 책 사진(opening_book.jpg)을 이 쪽으로 바꾸는지, 그 뒤로 미는지.
+
+## 2안 InDesign (2026-10-22)
+
+사용자: "2안을 인디자인 파일로 제공하라."
+- `indesign/p02_message_nea/` (+ `.zip`): `.idml` · `.jsx` · 기준 `.pdf`('안' 표시 뺌) · `Document Fonts/`(Crimson Pro · Instrument Sans + OFL).
+- 문단 스타일 6개: Title(명조 17pt, 자간 20) · Subtitle(Crimson Pro 9pt, 자간 140) · Body KO(명조 Light 9.6/17) · Body KO Next(덩어리 사이 8pt) ·
+  Body KO Last(흰색) · Body EN(Instrument Sans 8/13). 모두 가운데 정렬. 쪽 번호 2.
+- 국문 명조는 Noto Serif KR(Light · Regular)로 지정 — 따로 설치. KoPub바탕을 쓰려면 문단 스타일 세 개의 글꼴만 바꾸면 된다.
+- 만드는 법 `python3 tools/jaju_layout/indd_p02.py` (빌더는 indd_p03.py). InDesign 으로 열어 보지는 못했다.

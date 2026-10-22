@@ -34,6 +34,7 @@ PT = 25.4 / 72
 import plan_c as pc  # noqa: E402
 
 BG = (21, 18, 15)
+PAGE_NO = 3  # 표지부터 센 쪽 번호
 
 
 def mix(c, a):
@@ -140,7 +141,7 @@ def build_idml(path_out):
         st = f' StrokeColor="Color/{s["stroke"][0]}" StrokeWeight="{s["stroke"][1]}"' if s.get('stroke') else ''
         ps += (f'<ParagraphStyle Self="ParagraphStyle/{q(n)}" Name="{q(n)}" Imported="false" NextStyle="ParagraphStyle/{q(n)}" KeyboardShortcut="0 0" '
                f'FontStyle="{s["style"]}" PointSize="{s["size"]}" FillColor="{col(s["color"])}"{st} Justification="{just[s["align"]]}" '
-               f'Hyphenation="false" Tracking="{s.get("track", 0)}" NoBreak="false">'
+               f'Hyphenation="false" Tracking="{s.get("track", 0)}" SpaceBefore="{s.get("before", 0)}" NoBreak="false">'
                f'<Properties><BasedOn type="string">$ID/[No paragraph style]</BasedOn><PreviewColor type="enumeration">Nothing</PreviewColor>'
                f'<AppliedFont type="string">{q(s["font"])}</AppliedFont><Leading type="unit">{s["lead"]}</Leading></Properties></ParagraphStyle>')
     styles = (HDR + f'<idPkg:Styles {NS}>'
@@ -183,14 +184,14 @@ def build_idml(path_out):
                                   '<StoryPreference OpticalMarginAlignment="false" OpticalMarginSize="12" FrameType="TextFrameType" StoryOrientation="Horizontal" StoryDirection="LeftToRightDirection"/>'
                             + rng + '</Story></idPkg:Story>'))
     spread_xml = (HDR + f'<idPkg:Spread {NS}><Spread Self="uSp0" PageCount="1" BindingLocation="0" AllowPageShuffle="true" ItemTransform="1 0 0 1 0 0" ShowMasterItems="true">'
-                  f'<Page Self="uP0" Name="3" AppliedMaster="n" GeometricBounds="0 0 {HP:.4f} {WP:.4f}" ItemTransform="{SPREAD_T}" OverrideList="" TabOrder="" GridStartingPoint="TopOutside" UseMasterGrid="true"/>'
+                  f'<Page Self="uP0" Name="{PAGE_NO}" AppliedMaster="n" GeometricBounds="0 0 {HP:.4f} {WP:.4f}" ItemTransform="{SPREAD_T}" OverrideList="" TabOrder="" GridStartingPoint="TopOutside" UseMasterGrid="true"/>'
                   + ''.join(spread) + '</Spread></idPkg:Spread>')
     design = (HDR + '<?aid style="50" type="document" readerVersion="6.0" featureSet="257" product="8.0(370)" ?>\n'
               f'<Document {NS} Self="d" StoryList="{" ".join(s for s, _ in stories)}" ZeroPoint="0 0" ActiveLayer="uL">'
               '<idPkg:Graphic src="Resources/Graphic.xml"/><idPkg:Styles src="Resources/Styles.xml"/><idPkg:Preferences src="Resources/Preferences.xml"/>'
               '<Layer Self="uL" Name="Layer 1" Visible="true" Locked="false" IgnoreWrap="false" ShowGuides="true" LockGuides="false" UI="true" Expendable="true" Printable="true"><Properties><LayerColor type="enumeration">LightBlue</LayerColor></Properties></Layer>'
               '<idPkg:Spread src="Spreads/Spread_uSp0.xml"/>'
-              '<Section Self="uSec" Length="1" Name="" ContinueNumbering="false" IncludeSectionPrefix="false" PageNumberStyle="Arabic" PageNumberStart="3" Marker="" PageStart="uP0" SectionPrefix=""/>'
+              f'<Section Self="uSec" Length="1" Name="" ContinueNumbering="false" IncludeSectionPrefix="false" PageNumberStyle="Arabic" PageNumberStart="{PAGE_NO}" Marker="" PageStart="uP0" SectionPrefix=""/>'
               + ''.join(f'<idPkg:Story src="Stories/Story_{s}.xml"/>' for s, _ in stories) + '</Document>')
     container = (HDR + '<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles>'
                  '<rootfile full-path="designmap.xml" media-type="text/xml"/></rootfiles></container>')
@@ -215,20 +216,20 @@ def build_jsx(path_out):
          f'var doc = app.documents.add({{documentPreferences: {{pageWidth: {W}, pageHeight: {H}, facingPages: false, pagesPerDocument: 1, documentBleedUniformSize: true, documentBleedTopOffset: {BLEED}}}}});',
          'doc.viewPreferences.horizontalMeasurementUnits = MeasurementUnits.MILLIMETERS; doc.viewPreferences.verticalMeasurementUnits = MeasurementUnits.MILLIMETERS;',
          'doc.viewPreferences.rulerOrigin = RulerOrigin.PAGE_ORIGIN; doc.zeroPoint = [0, 0];',
-         'doc.sections[0].continueNumbering = false; doc.sections[0].pageNumberStart = 3;',
+         f'doc.sections[0].continueNumbering = false; doc.sections[0].pageNumberStart = {PAGE_NO};',
          'var pg = doc.pages[0];',
          'function color(n, v) { var c = doc.colors.itemByName(n); if (!c.isValid) c = doc.colors.add({name: n, model: ColorModel.PROCESS, space: ColorSpace.RGB, colorValue: v}); return c; }',
          'var C = {None: doc.swatches.itemByName("None")};']
     o += [f'C[{js(n)}] = color({js(n)}, {list(c)});' for n, c in COLORS.items()]
-    o.append('function ps(n, f, fs, size, lead, fill, j, tr, sc, sw) { var s = doc.paragraphStyles.itemByName(n); if (!s.isValid) s = doc.paragraphStyles.add({name: n});'
+    o.append('function ps(n, f, fs, size, lead, fill, j, tr, sc, sw, sb) { var s = doc.paragraphStyles.itemByName(n); if (!s.isValid) s = doc.paragraphStyles.add({name: n});'
              ' try { s.appliedFont = f; } catch (e) {} try { s.fontStyle = fs; } catch (e) {}'
-             ' s.pointSize = size; s.leading = lead; s.fillColor = fill; s.justification = j; s.hyphenation = false; s.tracking = tr;'
+             ' s.pointSize = size; s.leading = lead; s.fillColor = fill; s.justification = j; s.hyphenation = false; s.tracking = tr; s.spaceBefore = sb + "pt";'
              ' if (sc) { s.strokeColor = sc; s.strokeWeight = sw; } return s; }')
     o.append('var S = {};')
     for n, s in STYLES.items():
         fill = 'C.None' if s['color'] == 'Swatch/None' else f'C[{js(s["color"])}]'
         sc = f'C[{js(s["stroke"][0])}], {s["stroke"][1]}' if s.get('stroke') else 'null, 0'
-        o.append(f'S[{js(n)}] = ps({js(n)}, {js(s["font"])}, {js(s["style"])}, {s["size"]}, {s["lead"]}, {fill}, {just[s["align"]]}, {s.get("track", 0)}, {sc});')
+        o.append(f'S[{js(n)}] = ps({js(n)}, {js(s["font"])}, {js(s["style"])}, {s["size"]}, {s["lead"]}, {fill}, {just[s["align"]]}, {s.get("track", 0)}, {sc}, {s.get("before", 0)});')
     for it in ITEMS:
         if it['kind'] == 'rect':
             o.append(f'pg.rectangles.add({{geometricBounds: [{it["y"]}, {it["x"]}, {it["y"] + it["h"]}, {it["x"] + it["w"]}], fillColor: C[{js(it["fill"])}], strokeWeight: 0, name: {js(it["name"])}}});')
