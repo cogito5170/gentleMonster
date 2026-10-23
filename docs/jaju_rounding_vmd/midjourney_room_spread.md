@@ -30,3 +30,11 @@ close-up photograph of an open magazine held by a hand at the right edge, soft g
 | 원래 잡지의 원 · 점선을 살리고 싶다 | `--no` 앞에 `thin green circles and dotted guide lines lightly printed in the page margins,` 를 넣는다 |
 
 미드저니는 세 이미지를 섞어서 다시 그린다. 모형이 원본과 똑같아야 하면 생성 결과를 바탕으로 쓰고 두 사진을 포토샵으로 합성한다.
+
+## 같은 방식: FA-02 (왼쪽) · FA-01 (오른쪽) (2026-10-23)
+
+첨부: Image Prompt ① 잡지 이미지 · ② FA-02 바닷가 카페 · ③ FA-01 밤 강변 · Style Reference 잡지 이미지. Weird · Chaos 0.
+
+```
+close-up photograph of an open magazine held by a hand at the right edge, soft green light over the whole scene, a deep center fold clearly splits two separate full-page printed photographs, the left page shows a young man in a white short-sleeve shirt and navy trousers sitting on a low cushioned bench inside a seaside cafe, looking out through a tall window at green grass, straw parasols, black volcanic rocks and the sea under a cloudy sky, a small green wooden table with two iced drinks and a woven tray, colourful patterned rugs, the right page shows a night photograph of a young man in a white face mask and a long olive parka over a black shirt and white tee, standing by a river, a lit bridge and city lights reflected in the water behind him, dark grey sky, the two photos do not connect across the fold, matte paper bending with the pages, soft shadow in the gutter, shallow depth of field, film grain --iw 2 --ar 16:9 --style raw --stylize 50 --no text, letters, words, single continuous scene
+```
