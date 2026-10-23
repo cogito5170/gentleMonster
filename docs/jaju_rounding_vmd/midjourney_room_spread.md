@@ -38,3 +38,11 @@ close-up photograph of an open magazine held by a hand at the right edge, soft g
 ```
 close-up photograph of an open magazine held by a hand at the right edge, soft green light over the whole scene, a deep center fold clearly splits two separate full-page printed photographs, the left page shows a young man in a white short-sleeve shirt and navy trousers sitting on a low cushioned bench inside a seaside cafe, looking out through a tall window at green grass, straw parasols, black volcanic rocks and the sea under a cloudy sky, a small green wooden table with two iced drinks and a woven tray, colourful patterned rugs, the right page shows a night photograph of a young man in a white face mask and a long olive parka over a black shirt and white tee, standing by a river, a lit bridge and city lights reflected in the water behind him, dark grey sky, the two photos do not connect across the fold, matte paper bending with the pages, soft shadow in the gutter, shallow depth of field, film grain --iw 2 --ar 16:9 --style raw --stylize 50 --no text, letters, words, single continuous scene
 ```
+
+## 같은 방식: FA-02 (왼쪽) · FA-03 (오른쪽) (2026-10-23)
+
+첨부: Image Prompt ① 잡지 이미지 · ② FA-02 바닷가 카페 · ③ FA-03 바위에 웅크린 뒷모습 · Style Reference 잡지 이미지. Weird · Chaos 0.
+
+```
+close-up photograph of an open magazine held by a hand at the right edge, soft green light over the whole scene, a deep center fold clearly splits two separate full-page printed photographs, the left page shows a young man in a white short-sleeve shirt and navy trousers sitting on a low cushioned bench inside a seaside cafe, looking out through a tall window at green grass, straw parasols, black volcanic rocks and the sea under a cloudy sky, a small green wooden table with two iced drinks and a woven tray, colourful patterned rugs, the right page shows a high angle photograph of a young man seen from behind, crouching on wet black volcanic rocks at the edge of the sea, wearing an oversized greige ribbed knit sweater and light blue denim, short dark hair, head bowed toward the rocks, white foam and waves around the rocks, low late afternoon sun, the two photos do not connect across the fold, matte paper bending with the pages, soft shadow in the gutter, shallow depth of field, film grain --iw 2 --ar 16:9 --style raw --stylize 50 --no text, letters, words, single continuous scene
+```
