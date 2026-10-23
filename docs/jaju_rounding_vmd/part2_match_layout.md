@@ -56,3 +56,14 @@
   층(아래 → 위): 종이 · 사진 N°01 · N°03 · N°04 · N°02 · 체크 띠 · PLACE. · MATCH. · OUTFIT. · 제목 · 리드 · 캡션 N°01–04 · 팔레트 · 접는 선 · 바닥 줄.
   층마다 같은 HTML 을 배경 없이 300dpi 로 구움(`tools/p1_layout/layer_shots.mjs`), 파일은 `psd_write.py`(PackBits, 층 이름 유니코드)가 씀.
   글은 그림 층(포토샵 글자 층 아님) — 글 고치기는 InDesign 파일에서. 검증: 층마다 풀어서 원본 PNG 와 0 차이, 합친 그림 0 차이(Pillow 로도 읽힘).
+
+## 9쪽 Front, or back? 진(STREET CULTURE) 판 (2026-10-23)
+
+사용자: "해당 페이지(사용자 InDesign 의 Front, or back? 쪽)를 두번째 이미지(STREET CULTURE)화 하여라. 레이아웃, 배치, 폰트 등을 참고하여 재가공하라. 인디자인과 포토샵으로 보내라."
+(앞서 '12쪽'으로 받은 요청은 소통 오류 — 사용자가 이 쪽으로 바로잡음. 만들던 Fill 표지 시안은 지움)
+→ `layout/p09_back_zine.pdf` · `indesign/p09_back_zine/`(.idml · .zip, 쪽 번호 9) · `photoshop/p09_back_zine.psd`(300dpi · 14층)
+  `python3 tools/jaju_layout/indd_p09b.py` · `python3 tools/jaju_layout/psd_page.py p09_back_zine`
+- 왼쪽: 앞모습 FA-04 를 살구색 종이에 먹 한 색 + 세로 결로 쪽 끝까지, 큰 먹색 'FRONT,', 접는 선까지 빨간 상자 '(A) FRONT' + 라벨 넷(사진의 빨간 점에서 지시선).
+- 오른쪽: 빨간 바탕, 큰 종이색 'OR BACK?', 낱말에 걸친 뒷모습 FA-03, 그 아래 큰 인용 · 영어(고정폭 양쪽 맞춤), 아래 니트의 결 · 어깨의 품 두 조각 + 끝 줄.
+- 글은 사용자 쪽 그대로. 바닥 줄은 새 구성(PART 2 MATCH · 09 · BREAKDOWN). 오려 낸 사람 사진은 새 그림이라 네모 사진으로.
+- 검증: 포토샵 층 14개를 풀어 원본과 0 차이 · Pillow 로 읽힘, InDesign 파일을 다시 그려 PDF 와 같은 자리.
