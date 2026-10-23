@@ -49,3 +49,6 @@
 - 사진: 왼쪽 큰 밤 강변(N°01), 오른쪽 위 넓은 놀이공원(N°03), 아래 가게 앞(N°02) · 바위(N°04). 캡션은 사진 안 종이색 고정폭.
 - 글 · 팔레트 값은 사용자 쪽 그대로(#261F0A · #070A10 · #72727F · #6D6F71). 바닥 줄은 PART 2 MATCH · 11.
 - 손 낙서 · 찢은 종이 가장자리는 새 그림이라 넣지 않음. 좁은 글꼴 대신 Instrument Sans Bold 장평 62%.
+- InDesign(10-23): `indesign/p11_zine/p11_zine.idml`(쪽 번호 11) · `python3 tools/jaju_layout/indd_p11z.py`.
+  파랑 두 톤 · 망점은 InDesign 이 CSS 혼합을 못 받으므로 링크 사진 파일(Links/*_duo.jpg)에 구워 넣었다 — 같은 식으로 PDF 도 다시 냄.
+  체크 띠는 곱하기 대신 보통으로(두 파일이 같게).

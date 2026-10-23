@@ -35,20 +35,37 @@ LEAD = ['나는 그날 갈 장소에 옷의 톤을 맞춘다.', '장소가 틀�
 PALETTE = [('OLIVE PARKA', '#261F0A'), ('BLACK COAT', '#070A10'), ('BEIGE JACKET', '#72727F'), ('GREY KNIT', '#6D6F71')]
 
 
+def _rgb(hx):
+    return [int(hx[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+
+
 def duo(pid, x, y, w, h, cx, cy, span, bright=1.12):
-    """사진을 파랑 한 색 + 망점으로 (사례의 리소 인쇄 꼴). 자르기는 part2_match.crop 과 같은 식."""
-    im = Image.open(os.path.join(FA, pid + '.jpg')).convert('RGB')
+    """사진을 파랑 한 색 + 망점으로 (사례의 리소 인쇄 꼴). 자르기는 part2_match.crop 과 같은 식.
+    색은 파일에 구워 넣는다(InDesign 에서도 같게): 회색 → 대비 1.35 · 밝기 → 파랑과 '스크린' → 종이와 '곱하기',
+    망점은 칸 0.85mm · 반지름 0.23칸의 파랑 점을 55% 로 곱한다 — 앞 판의 CSS 와 같은 식."""
+    import numpy as np
+    im = Image.open(os.path.join(FA, pid + '.jpg')).convert('L')
     IW, IH = im.size
     sh = span * h / w
     if sh > IH:
         span, sh = IH * w / h, IH
     lft, tp = max(0, min(IW - span, cx - span / 2)), max(0, min(IH - sh, cy - sh / 2))
     c = im.crop((int(lft), int(tp), int(lft + span), int(tp + sh)))
-    c.thumbnail((1100, 1100))
+    c.thumbnail((1400, 1400))
+    v = np.asarray(c, dtype=np.float32) / 255
+    v = np.clip(((v - .5) * 1.35 + .5) * bright, 0, 1)[..., None]
+    blue, paper = np.array(_rgb(INKB)), np.array(_rgb(PAPER))
+    out = (1 - (1 - blue) * (1 - v)) * paper
+    ppm = c.size[0] / w                                   # 픽셀 / mm
+    cell = .85 * ppm
+    yy, xx = np.mgrid[0:c.size[1], 0:c.size[0]]
+    dx, dy = (xx % cell) - cell / 2, (yy % cell) - cell / 2
+    dot = (np.hypot(dx, dy) < .23 * cell)[..., None]
+    out = np.where(dot, out * (1 - .55 + .55 * blue), out)
     os.makedirs(CROPS, exist_ok=True)
-    f = os.path.join(CROPS, f'zine_{pid}_{cx}_{cy}_{span:.0f}_{w:.0f}x{h:.0f}.jpg')
-    c.save(f, quality=86)
-    return d(x, y, w, h, f"<img src='file://{f}' style='filter:grayscale(1) contrast(1.35) brightness({bright})'><i class='ht'></i>", 'duo')
+    f = os.path.join(CROPS, f'zine_{pid}_{cx}_{cy}_{span:.0f}_{w:.0f}x{h:.0f}_duo.jpg')
+    Image.fromarray((out * 255).astype('uint8'), 'RGB').save(f, quality=88)
+    return d(x, y, w, h, f"<img src='file://{f}' style='position:absolute;left:0;top:0;width:{w}mm;height:{h}mm'>", 'duo')
 
 
 def checker(x, y, cols, rows, cell=3.6, seed=1, density=.5):
@@ -102,11 +119,8 @@ def page():
 
 KO = p2.KO
 CSS = p2.CSS + f"""
-.duo{{background:{INKB};mix-blend-mode:multiply;overflow:hidden}}
-.duo img{{position:absolute;left:0;top:0;width:100%;height:100%;filter:grayscale(1) contrast(1.35) brightness(1.12);mix-blend-mode:screen}}
-.duo .ht{{position:absolute;left:0;top:0;width:100%;height:100%;mix-blend-mode:multiply;opacity:.55;
-  background-image:radial-gradient(circle,{INKB} 32%,transparent 36%);background-size:.85mm .85mm}}
-.chk{{mix-blend-mode:multiply}}
+.duo{{overflow:hidden}}
+
 .zw{{font-family:Inst,sans-serif;font-weight:700;font-size:118pt;line-height:110pt;letter-spacing:-.01em;color:{RED};
   transform:scaleX(.62);transform-origin:0 0}}
 .zs{{font-family:Inst,sans-serif;font-weight:700;font-size:8pt;line-height:10pt;letter-spacing:.1em;color:{INK}}}
