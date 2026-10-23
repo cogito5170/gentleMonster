@@ -38,3 +38,14 @@
 ## 변환 도구
 - html2idml: SVG polygon(색 면 · 사선)을 InDesign Polygon 으로. 장평은 문단 위 상자의 transform 에서도 찾는다.
 - 색 견본은 글과 따로 한 상자로 둔다(InDesign 에서 글 사이 틈이 사라지지 않게).
+
+## 11쪽 진(zine) 판 (2026-10-23)
+
+사용자: "기존 첫번째 이미지(사용자 InDesign 의 Four places 쪽)의 페이지를 두번째 페이지(스케이트 진 PEACE. LOVE. SKATE.)의 레이아웃, 배치, 폰트 등을 참고하여 재가공하라. pdf로 보내라."
+→ `layout/p11_zine.pdf` · `python3 tools/jaju_layout/p11_zine.py`
+- 살구색 종이 #E6A58C + 사진은 파랑 한 색(#2C5F86) 두 톤 · 망점, 종이에 곱함. 파랑 체크 띠(세로 둘 · 가로 하나 · 조각 둘) + 단색 막대.
+- 빨간 좁은 대문자 낱말 셋(#E0352B): 왼쪽 가운데 PLACE. · 오른쪽 위 MATCH. · 오른쪽 아래 OUTFIT. (사례의 PEACE. / LOVE. / SKATE. 자리).
+  쪽 제목 'Four places, four outfits.' 는 왼쪽 아래 작은 줄.
+- 사진: 왼쪽 큰 밤 강변(N°01), 오른쪽 위 넓은 놀이공원(N°03), 아래 가게 앞(N°02) · 바위(N°04). 캡션은 사진 안 종이색 고정폭.
+- 글 · 팔레트 값은 사용자 쪽 그대로(#261F0A · #070A10 · #72727F · #6D6F71). 바닥 줄은 PART 2 MATCH · 11.
+- 손 낙서 · 찢은 종이 가장자리는 새 그림이라 넣지 않음. 좁은 글꼴 대신 Instrument Sans Bold 장평 62%.
