@@ -65,3 +65,18 @@ photograph of an open magazine lying almost flat, seen from nearly straight abov
 ```
 close-up photograph of an open magazine held by a hand at the right edge, soft green light over the whole scene, a deep center fold clearly splits two separate full-page printed photographs, the left page shows a young man in a white short-sleeve shirt and navy trousers sitting on a low cushioned bench inside a seaside cafe, looking out through a tall window at green grass, straw parasols, black volcanic rocks and the sea under a cloudy sky, a small green wooden table with two iced drinks and a woven tray, colourful patterned rugs, the right page shows a young man in a white face mask, a long black wool coat, navy trousers and grey sneakers standing in front of a small lit shop at dusk, a white awning with a dark lettered sign, a glass door and a large window with wooden shelves of jars, bottles and plants, a worn concrete wall, the two photos do not connect across the fold, matte paper bending with the pages, soft shadow in the gutter, shallow depth of field, film grain --iw 2 --ar 16:9 --style raw --stylize 50 --no text, letters, words, single continuous scene
 ```
+
+## 책 배치가 바뀐 원인과 다시 쓴 판 (2026-10-23)
+
+윗줄(FA-04) 결과는 3:2 비율이다. 책을 위에서 평평하게 본 구도로 나왔고, '왜곡을 줄인 판' 프롬프트에서 나온 것이다.
+아랫줄(FA-03)은 16:9 이고 잡지 이미지처럼 비스듬하다.
+배치를 바꾼 말: `lying almost flat, seen from nearly straight above` · `pages almost flat with very little curve` ·
+`thin straight center fold` · `reproduced faithfully with its original framing` · `--ar 3:2` · `--stylize 20` · `--no warped pages`.
+
+다시 쓴 판은 이전 방식에 아랫줄 구도를 글로 적어 고정한다 (비스듬한 낮은 각도, 대각선 접힘, 멀어지며 흐려지는 오른쪽 쪽).
+
+```
+close-up photograph of an open magazine seen from a low oblique angle, the book tilted diagonally across the frame, the left page curving up toward the top left corner, the center fold running diagonally from the top middle to the bottom right, the right page receding and slightly out of focus, a hand holding the right page edge, pale green background, soft green light over the whole scene, two separate full-page printed photographs, the left page shows a young man in a white short-sleeve shirt and navy trousers sitting on a low cushioned bench inside a seaside cafe, looking out through a tall window at green grass, straw parasols, black volcanic rocks and the sea under a cloudy sky, a small green wooden table with two iced drinks and a woven tray, colourful patterned rugs, the right page shows a young man in a white face mask, a long black wool coat, navy trousers and grey sneakers standing in front of a small lit shop at dusk, a white awning with a dark lettered sign, a glass door and a large window with wooden shelves of jars, bottles and plants, a worn concrete wall, the two photos do not connect across the fold, matte paper bending with the pages, soft shadow in the gutter, shallow depth of field, film grain --iw 2 --ar 16:9 --style raw --stylize 50 --no text, letters, words, single continuous scene, flat lay, top view
+```
+
+구도를 가장 확실히 고정하는 법: 마음에 든 아랫줄 결과 한 장을 잡지 이미지 대신 Image Prompt ① 과 Style Reference 에 넣는다.
