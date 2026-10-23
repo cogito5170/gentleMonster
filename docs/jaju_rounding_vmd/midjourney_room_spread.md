@@ -57,3 +57,11 @@ photograph of an open magazine lying almost flat, seen from nearly straight abov
 ```
 
 간판 글자는 깨질 수 있다. 실제 간판은 원본 사진으로 합성하거나 지면에서 고친다.
+
+## 같은 방식: FA-02 (왼쪽) · FA-04 (오른쪽), 이전 방식 그대로 (2026-10-23)
+
+'왜곡을 줄인 판'은 쓰지 않는다 (사용자 결정). 첨부 · 설정은 앞의 판들과 같다.
+
+```
+close-up photograph of an open magazine held by a hand at the right edge, soft green light over the whole scene, a deep center fold clearly splits two separate full-page printed photographs, the left page shows a young man in a white short-sleeve shirt and navy trousers sitting on a low cushioned bench inside a seaside cafe, looking out through a tall window at green grass, straw parasols, black volcanic rocks and the sea under a cloudy sky, a small green wooden table with two iced drinks and a woven tray, colourful patterned rugs, the right page shows a young man in a white face mask, a long black wool coat, navy trousers and grey sneakers standing in front of a small lit shop at dusk, a white awning with a dark lettered sign, a glass door and a large window with wooden shelves of jars, bottles and plants, a worn concrete wall, the two photos do not connect across the fold, matte paper bending with the pages, soft shadow in the gutter, shallow depth of field, film grain --iw 2 --ar 16:9 --style raw --stylize 50 --no text, letters, words, single continuous scene
+```
