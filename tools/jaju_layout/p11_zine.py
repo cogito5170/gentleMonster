@@ -79,42 +79,46 @@ def checker(x, y, cols, rows, cell=3.6, seed=1, density=.5):
     return r
 
 
-def page():
-    o = [f"<svg class='ov' viewBox='0 0 {W} {H}'><rect x='0' y='0' width='{W}' height='{H}' fill='{PAPER}'/></svg>",
-         # 왼쪽: 큰 사진(밤 강변) — 쪽 왼쪽 끝까지
-         duo('FA-01', 0, 8, 122, 150, 820, 1150, 1500, bright=1.9),
-         # 오른쪽 위 넓은 사진(놀이공원) · 오른쪽 아래(바위) · 그 사이 좁은 사진(가게 앞)
-         duo('FA-05', 176, 36, 139, 66, 640, 900, 1125),
-         duo('FA-03', 214, 114, 91, 64.5, 560, 700, 900),
-         duo('FA-04', 160, 112, 46, 66.5, 640, 900, 640)]
+def layers():
+    """쪽을 층으로 — 아래에서 위로 (이름, html, 보임). PDF · InDesign 은 모두 이어 붙이고, 포토샵 파일은 층마다 따로 굽는다."""
     blue = (checker(0, 0, 9, 14, seed=3, density=.45)            # 왼쪽 위 흩어진 체크
             + checker(106, 30, 4, 34, seed=7, density=.55)       # 왼쪽 쪽의 세로 띠
-            + f"<rect x='118' y='0' width='22' height='26'/>"     # 단색 막대(사례의 청록 막대)
+            + "<rect x='118' y='0' width='22' height='26'/>"      # 단색 막대(사례의 청록 막대)
             + checker(160, 66, 4, 31, seed=11, density=.55)      # 오른쪽 쪽의 세로 띠
             + checker(176, 104.6, 36, 2, seed=5, density=.6)     # 가로 띠
             + checker(268, 0, 13, 3, seed=9, density=.5))        # 오른쪽 위 조각
-    o.append(f"<svg class='ov' viewBox='0 0 {W} {H}'><g fill='{INKB}' class='chk'>{blue}</g></svg>")
-    # 빨간 낱말 셋 — 사례처럼 사진 · 체크 위를 가로지른다
-    o += [d(26, 62, 140, 40, '<p>PLACE.</p>', 't zw'),
-          d(170, 4, 140, 40, '<p>MATCH.</p>', 't zw'),
-          d(196, 140, 120, 40, '<p>OUTFIT.</p>', 't zw')]
-    # 작은 글 — 제목 · 리드 · 캡션 · 팔레트 (사용자 쪽의 글)
-    o += [d(14, 160, 100, 5, '<p>FOUR PLACES, FOUR OUTFITS.</p>', 't zs'),
-          d(14, 165.5, 120, 12, ''.join(f'<p>{s}</p>' for s in LEAD), 't zk'),
-          d(3, 152, 60, 4, '<p>N°01&nbsp;&nbsp;NIGHT&nbsp;&nbsp;RIVERSIDE</p>', 't zc pa'),
-          d(162.5, 173.5, 44, 4, '<p>N°02&nbsp;&nbsp;EVENING</p><p>SHOP FRONT</p>', 't zc pa'),
-          d(178.5, 97.5, 80, 4, '<p>N°03&nbsp;&nbsp;AFTERNOON PARK</p>', 't zc pa'),
-          d(216.5, 116.5, 80, 4, '<p>N°04&nbsp;&nbsp;SUNNY SEASIDE ROCKS</p>', 't zc pa')]
     sw = ''
     for i, (n, hx) in enumerate(PALETTE):
         x = 100 + i * 14
         sw += p2.sw(x, 166.5, hx, 12.6, 4.6) + d(x, 171.8, 14, 7, f'<p>{n.split()[0]}</p><p>{hx}</p>', 't zc s')
-    o.append(d(100, 161.6, 56, 4, '<p>PALETTE — 착장 사진에서 잰 색</p>', 't zc s'))
-    o.append(sw)
-    o.append(f"<svg class='ov' viewBox='0 0 {W} {H}'>"
-             f"<line x1='{CX}' y1='0' x2='{CX}' y2='{H}' style='stroke:{INK};stroke-opacity:.12;stroke-width:.3'/></svg>")
-    o.append(p2.folio(11, 'FOUR PLACES'))
-    return ''.join(o)
+    return [
+        ('종이', f"<svg class='ov' viewBox='0 0 {W} {H}'><rect x='0' y='0' width='{W}' height='{H}' fill='{PAPER}'/></svg>", True),
+        # 왼쪽: 큰 사진(밤 강변) — 쪽 왼쪽 끝까지 / 오른쪽 위 넓은 사진(놀이공원) · 오른쪽 아래(바위) · 그 사이 좁은 사진(가게 앞)
+        ('사진 N°01 밤 강변', duo('FA-01', 0, 8, 122, 150, 820, 1150, 1500, bright=1.9), True),
+        ('사진 N°03 놀이공원', duo('FA-05', 176, 36, 139, 66, 640, 900, 1125), True),
+        ('사진 N°04 바위', duo('FA-03', 214, 114, 91, 64.5, 560, 700, 900), True),
+        ('사진 N°02 가게 앞', duo('FA-04', 160, 112, 46, 66.5, 640, 900, 640), True),
+        ('체크 띠', f"<svg class='ov' viewBox='0 0 {W} {H}'><g fill='{INKB}' class='chk'>{blue}</g></svg>", True),
+        # 빨간 낱말 셋 — 사례처럼 사진 · 체크 위를 가로지른다
+        ('PLACE.', d(26, 62, 140, 40, '<p>PLACE.</p>', 't zw'), True),
+        ('MATCH.', d(170, 4, 140, 40, '<p>MATCH.</p>', 't zw'), True),
+        ('OUTFIT.', d(196, 140, 120, 40, '<p>OUTFIT.</p>', 't zw'), True),
+        # 작은 글 — 제목 · 리드 · 캡션 · 팔레트 (사용자 쪽의 글)
+        ('제목 · 리드', d(14, 160, 100, 5, '<p>FOUR PLACES, FOUR OUTFITS.</p>', 't zs')
+         + d(14, 165.5, 120, 12, ''.join(f'<p>{s}</p>' for s in LEAD), 't zk'), True),
+        ('캡션 N°01–04', d(3, 152, 60, 4, '<p>N°01&nbsp;&nbsp;NIGHT&nbsp;&nbsp;RIVERSIDE</p>', 't zc pa')
+         + d(162.5, 173.5, 44, 4, '<p>N°02&nbsp;&nbsp;EVENING</p><p>SHOP FRONT</p>', 't zc pa')
+         + d(178.5, 97.5, 80, 4, '<p>N°03&nbsp;&nbsp;AFTERNOON PARK</p>', 't zc pa')
+         + d(216.5, 116.5, 80, 4, '<p>N°04&nbsp;&nbsp;SUNNY SEASIDE ROCKS</p>', 't zc pa'), True),
+        ('팔레트', d(100, 161.6, 56, 4, '<p>PALETTE — 착장 사진에서 잰 색</p>', 't zc s') + sw, True),
+        ('접는 선', f"<svg class='ov' viewBox='0 0 {W} {H}'>"
+                  f"<line x1='{CX}' y1='0' x2='{CX}' y2='{H}' style='stroke:{INK};stroke-opacity:.12;stroke-width:.3'/></svg>", True),
+        ('바닥 줄', p2.folio(11, 'FOUR PLACES'), True),
+    ]
+
+
+def page():
+    return ''.join(h for _, h, _ in layers())
 
 
 KO = p2.KO

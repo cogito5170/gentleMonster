@@ -52,3 +52,7 @@
 - InDesign(10-23): `indesign/p11_zine/p11_zine.idml`(쪽 번호 11) · `python3 tools/jaju_layout/indd_p11z.py`.
   파랑 두 톤 · 망점은 InDesign 이 CSS 혼합을 못 받으므로 링크 사진 파일(Links/*_duo.jpg)에 구워 넣었다 — 같은 식으로 PDF 도 다시 냄.
   체크 띠는 곱하기 대신 보통으로(두 파일이 같게).
+- 포토샵(10-23): `photoshop/p11_zine.psd` · `python3 tools/jaju_layout/psd_p11z.py` — 315 × 195mm · 300dpi(3720 × 2303) · RGB · 14층.
+  층(아래 → 위): 종이 · 사진 N°01 · N°03 · N°04 · N°02 · 체크 띠 · PLACE. · MATCH. · OUTFIT. · 제목 · 리드 · 캡션 N°01–04 · 팔레트 · 접는 선 · 바닥 줄.
+  층마다 같은 HTML 을 배경 없이 300dpi 로 구움(`tools/p1_layout/layer_shots.mjs`), 파일은 `psd_write.py`(PackBits, 층 이름 유니코드)가 씀.
+  글은 그림 층(포토샵 글자 층 아님) — 글 고치기는 InDesign 파일에서. 검증: 층마다 풀어서 원본 PNG 와 0 차이, 합친 그림 0 차이(Pillow 로도 읽힘).
