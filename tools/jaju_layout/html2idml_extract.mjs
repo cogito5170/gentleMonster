@@ -107,7 +107,7 @@ const data = await pg.evaluate(() => {
       }
     };
     const visitSvg = (svg) => {
-      for (const el of svg.querySelectorAll('line,polyline,path,rect,circle,text')) {
+      for (const el of svg.querySelectorAll('line,polyline,polygon,path,rect,circle,text')) {
         const c = getComputedStyle(el);
         if (c.display === 'none') continue;
         const M = el.getScreenCTM();
@@ -121,6 +121,10 @@ const data = await pg.evaluate(() => {
           const nums = el.getAttribute('points').trim().split(/[\s,]+/).map(Number);
           const pts = []; for (let i = 0; i + 1 < nums.length; i += 2) pts.push(tp(nums[i], nums[i + 1]));
           items.push({ kind: 'line', pts, ...common });
+        } else if (tag === 'polygon') {  // 닫힌 색 면
+          const nums = el.getAttribute('points').trim().split(/[\s,]+/).map(Number);
+          const pts = []; for (let i = 0; i + 1 < nums.length; i += 2) pts.push(tp(nums[i], nums[i + 1]));
+          items.push({ kind: 'poly', pts, ...common, fill: c.fill === 'none' ? null : c.fill });
         } else if (tag === 'path') {
           const tok = el.getAttribute('d').match(/[MLHVZ]|-?[\d.]+(?:e-?\d+)?/gi);
           let x = 0, y = 0, cmd = 'M', i = 0; const pts = [];

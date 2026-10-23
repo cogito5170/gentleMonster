@@ -114,6 +114,14 @@ class Doc:
                 f'StrokeColor="{self.color(stroke) if stroke else "Swatch/None"}" StrokeWeight="{(it["sw"] * MM if stroke else 0):.4f}"{st} '
                 f'ItemTransform="{self.T}">{geom}{self.blend(op)}</{tag}>')
 
+    def poly(self, it):
+        fill = rgba(it.get('fill')) if it.get('fill') else None
+        if not fill or fill[3] * it.get('fop', 1) == 0:
+            return ''
+        op = it.get('opacity', 1) * fill[3] * it.get('fop', 1)
+        return (f'<Polygon Self="{self.uid("p")}" ContentType="Unassigned" ItemLayer="uL" FillColor="{self.color(fill)}" '
+                f'StrokeColor="Swatch/None" StrokeWeight="0" ItemTransform="{self.T}">{self.path(it["pts"])}{self.blend(op)}</Polygon>')
+
     def line(self, it):
         c = rgba(it.get('stroke'))
         if not c or not it.get('sw'):
@@ -257,7 +265,7 @@ class Doc:
         bg = rgba(pg['bg'])
         o = [self.rect(dict(rect=dict(x=-BL, y=-BL, w=self.W + 2 * BL, h=self.H + 2 * BL), fill=pg['bg']))] if bg else []
         for it in pg['items']:
-            o.append({'rect': self.rect, 'line': self.line, 'gradient': self.gradient, 'image': self.image, 'text': self.text}[it['kind']](it))
+            o.append({'rect': self.rect, 'poly': self.poly, 'line': self.line, 'gradient': self.gradient, 'image': self.image, 'text': self.text}[it['kind']](it))
         return ''.join(o)
 
 
