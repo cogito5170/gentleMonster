@@ -80,3 +80,19 @@ close-up photograph of an open magazine seen from a low oblique angle, the book 
 ```
 
 구도를 가장 확실히 고정하는 법: 마음에 든 아랫줄 결과 한 장을 잡지 이미지 대신 Image Prompt ① 과 Style Reference 에 넣는다.
+
+## 오른쪽 쪽(FA-04)이 다시 그려질 때 (2026-10-23)
+
+원인:
+1. 오른쪽 설명이 짧고 일반적이었다 (`a small lit shop`, `wooden shelves of jars`). 미드저니가 빈 곳을 자기 가게로 채웠다.
+2. `--no text, letters, words` 가 간판을 지우고, `a dark lettered sign` 과 부딪쳤다.
+3. `the right page receding and slightly out of focus` 가 오른쪽을 흐리게 다시 그리게 했다.
+4. 오른쪽 설명이 프롬프트 뒤쪽에 있었다. 미드저니는 앞쪽 말을 더 무겁게 본다.
+
+고침: 오른쪽을 먼저, 원본 사진의 배치대로 왼쪽 → 가운데 → 오른쪽 → 위 → 아래 순서로 적는다. 흐림을 빼고, `--no` 에서 글자를 뺀다.
+
+```
+close-up photograph of an open magazine seen from a low oblique angle, the book tilted diagonally across the frame, the left page curving up toward the top left corner, the center fold running diagonally from the top middle to the bottom right, a hand holding the right page edge, pale green background, soft green light over the whole scene, two separate full-page printed photographs, the right page shows a sharp full-length evening photograph of a white-framed shop front, a long white awning across the top with dark capital letters, on the left an open glass door into a bright warm interior with a small caged ceiling lamp above it, on the right a large two-pane display window with shelves of ceramic jugs, cups, two wine bottles and a small plant, rough grey concrete wall around the shop, in the middle a young man in a white face mask stands with hands in the pockets of a long black wool coat, navy trousers and grey sneakers, looking to the left, grey asphalt at the bottom with a white painted line on the left and a metal sawhorse bench on the right, the left page shows a young man in a white short-sleeve shirt and navy trousers sitting on a low cushioned bench inside a seaside cafe, looking out through a tall window at green grass, straw parasols, black volcanic rocks and the sea under a cloudy sky, a small green wooden table with two iced drinks and a woven tray, colourful patterned rugs, the two photos do not connect across the fold, matte paper bending with the pages, soft shadow in the gutter, film grain --iw 2 --ar 16:9 --style raw --stylize 50 --no headline typography, captions, single continuous scene, flat lay, top view
+```
+
+그래도 다시 그려지면: Image Prompt 에서 FA-04 를 ② 로, FA-02 를 ③ 으로 바꾼다.
