@@ -46,3 +46,14 @@ close-up photograph of an open magazine held by a hand at the right edge, soft g
 ```
 close-up photograph of an open magazine held by a hand at the right edge, soft green light over the whole scene, a deep center fold clearly splits two separate full-page printed photographs, the left page shows a young man in a white short-sleeve shirt and navy trousers sitting on a low cushioned bench inside a seaside cafe, looking out through a tall window at green grass, straw parasols, black volcanic rocks and the sea under a cloudy sky, a small green wooden table with two iced drinks and a woven tray, colourful patterned rugs, the right page shows a high angle photograph of a young man seen from behind, crouching on wet black volcanic rocks at the edge of the sea, wearing an oversized greige ribbed knit sweater and light blue denim, short dark hair, head bowed toward the rocks, white foam and waves around the rocks, low late afternoon sun, the two photos do not connect across the fold, matte paper bending with the pages, soft shadow in the gutter, shallow depth of field, film grain --iw 2 --ar 16:9 --style raw --stylize 50 --no text, letters, words, single continuous scene
 ```
+
+## 같은 방식: FA-02 (왼쪽) · FA-04 (오른쪽), 왜곡을 줄인 판 (2026-10-23)
+
+첨부: Image Prompt ① 잡지 이미지 · ② FA-02 바닷가 카페 · ③ FA-04 MUNCHIES AND GOODIES 가게 앞 · Style Reference 잡지 이미지. Weird · Chaos 0.
+왜곡 줄이기: 책을 거의 평평하게 펴고 정면 가까이서 본다 · 두 세로 사진이 들어가는 비율 3:2 · `--iw 2.5` · `--stylize 20`.
+
+```
+photograph of an open magazine lying almost flat, seen from nearly straight above with only a slight tilt, a hand holding the right edge, pale green surface, soft even green light, each page carries one full-page printed photograph reproduced faithfully with its original framing, proportions and colours, pages almost flat with very little curve, a thin straight center fold between the two photographs, the left page shows a young man in a white short-sleeve shirt and navy trousers sitting on a low cushioned bench inside a seaside cafe, looking out through a tall window at green grass, straw parasols, black volcanic rocks and the sea under a cloudy sky, a small green wooden table with two iced drinks and a woven tray, colourful patterned rugs, the right page shows a young man in a white face mask, a long black wool coat, navy trousers and grey sneakers standing in front of a small lit shop at dusk, a white awning with a dark lettered sign, a glass door and a large window with wooden shelves of jars, bottles and plants, a worn concrete wall, the two photos do not connect across the fold, matte paper, film grain --iw 2.5 --ar 3:2 --style raw --stylize 20 --no headline typography, captions, single continuous scene, warped pages
+```
+
+간판 글자는 깨질 수 있다. 실제 간판은 원본 사진으로 합성하거나 지면에서 고친다.
