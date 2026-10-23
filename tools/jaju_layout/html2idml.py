@@ -202,7 +202,7 @@ class Doc:
         if wrap:
             x, w = it['container']['x'], it['container']['w']
         else:
-            w = b['w'] + 3
+            w = b['w'] * 1.06 + 3  # 글꼴이 바뀌어 조금 넓어져도 한 줄로
             x = b['x'] if al == 'left' else b['x'] + b['w'] - w if al == 'right' else b['x'] - 1.5
         y, h = b['y'], b['h'] + lead / MM * 0.8
         font, fstyle = font_of(r0)
@@ -233,6 +233,8 @@ class Doc:
             if ghost:
                 sc = rgba(r['strokeColor'])
                 attrs += f' FillColor="Swatch/None" StrokeColor="{self.color(sc)}" StrokeWeight="{r["stroke"] * 0.75:.3f}"'
+            if it.get('hscale', 1) < 0.99:  # CSS scaleX → 장평
+                attrs += f' HorizontalScale="{it["hscale"] * 100:.0f}"'
             props = f'<Properties><AppliedFont type="string">{q(f)}</AppliedFont></Properties>' if f != font else ''
             txt = r['text'].upper() if r.get('upper') else r['text']
             parts = txt.split('\n')
