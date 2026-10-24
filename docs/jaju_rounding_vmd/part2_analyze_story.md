@@ -338,3 +338,23 @@ JAJU 매장에서도 이 순서로 보겠습니다. 마네킨 착장을 맡으�
 - (9.3) 원단 · (9.4) 디자인 칸의 낱말은 사진에 보이는 것(`assets.md`)에서 골랐다. 실제 원단 이름을 알면 바꾼다.
 - 여는 면 문장은 여는 따옴표(")만 있고 닫는 따옴표가 없다. 인용으로 둘지, 따옴표를 뺄지.
 - 쪽 순서(DESIGN → MOOD → 마네킹)는 2-1 에 보낸 rev3(Front, or back? → Selection → Four places)와 다르다. 이 판으로 할지 정해지면 2-1 에 보낸다.
+
+### rev4 — 문단으로 쓴 글 (2026-10-24)
+사용자: "문장으로 구성된 문단의 글을 작성하라." — 칸 · 목록 대신, 5쪽 WHY 처럼 쪽마다 한 문단(4–6문장).
+
+**9쪽 DESIGN. — 한 벌 안에서 맞춘다**
+> 한 벌을 입을 때 나는 먼저 색감과 원단, 디자인을 맞춘다. 색은 검정과 올리브, 베이지와 회색 안에서 고르고, 원색은 쓰지 않는다. 색을 줄이면 남은 차이는 원단과 디자인이 만든다. 같은 어두운 색이라도 니트의 굵은 결과 코트의 무게는 다르게 읽히고, 오버핏 롱코트와 와이드 팬츠는 길이와 품으로 실루엣을 정한다. 세 가지가 서로 맞을 때, 한 벌은 하나의 장면이 된다.
+> *When I dress, I match colour, fabric and design first. I keep to black, olive, beige and grey, with no primaries; with fewer colours, the difference comes from fabric and cut. When the three agree, one outfit becomes one scene.*
+
+**10쪽 MOOD. — 장소에 맞춘다**
+> 한 벌을 맞췄다면, 다음은 장소다. 나는 그날 갈 장소에 옷의 무드를 맞춘다. 밤 강변에는 어두운 올리브 파카를, 회색 바위가 있는 바다에는 회색 니트를, 따뜻한 불빛의 가게 앞에는 검정 롱코트를 입었다. 장소가 틀이라면, 옷은 그 틀을 채우는 조합이다. 옷은 혼자 완성되지 않고, 놓인 장소와 맞을 때 완성된다.
+> *Next is the place. I match the mood of my clothes to where I am going that day. If the place is the frame, the outfit is what fills it — clothes are complete only when they match the place.*
+
+**11쪽 Front, or back? — 마네킹에 맞춘다**
+> 나에게 맞추던 것을 이제 마네킹에 맞춘다. 매장도 하나의 장소이고, 마네킹은 그 장소에서 브랜드가 입는 한 벌이다. 그래서 그 시즌 앞세우는 색과 무늬를 먼저 살피고, 매장의 빛과 동선에 맞춰 입힌다. 매장 안의 손님은 마네킹의 등을 먼저 본다. 그래서 나는 앞만이 아니라 등까지 맞춘다.
+> *Now I match the mannequin, as I match myself. A store is a place too, and the mannequin is the outfit the brand wears there. Customers inside often meet its back first — so I match the back, too.*
+
+**파트 3 로 넘기는 한 줄 (11쪽 끝, 작게)**
+> 라운딩 VMD 는 브랜드의 기준을 매장마다 같은 모습으로 맞추는 사람이다. 그러려면 먼저, 그 매장의 공간을 알아야 한다.
+
+- 근거는 rev4 표와 같다(자기소개서 2번 · MY STYLE · 여는 면 문장). '매장의 빛과 동선에 맞춰 입힌다'는 VMD 의 일로 쓴 다짐이고, 겪은 일로 쓰지 않았다.
