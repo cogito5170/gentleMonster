@@ -37,6 +37,14 @@ const data = await pg.evaluate(() => {
                upper: c.textTransform === 'uppercase', dataFont: df ? df.getAttribute('data-font') : null,
                clip: (c.webkitBackgroundClip || c.backgroundClip) === 'text' };
     };
+    // CSS scaleX → 장평: 문단 상자 또는 그 위 상자(쪽 안)의 transform 에서 찾는다
+    const hscaleOf = (el) => {
+      for (let e = el; e && !e.classList.contains('sheet'); e = e.parentElement) {
+        const m = getComputedStyle(e).transform.match(/^matrix\(([-\d.e]+)/);
+        if (m) return +m[1];
+      }
+      return 1;
+    };
     const isInline = (n) => n.nodeType === 3 || (n.nodeType === 1 && INLINE.has(getComputedStyle(n).display) && n.tagName !== 'IMG' && n.tagName.toLowerCase() !== 'svg');
     const collectRuns = (nodes, runs) => {
       for (const n of nodes) {
@@ -76,7 +84,7 @@ const data = await pg.evaluate(() => {
       const lines = Math.max(1, Math.round(box.height / lh));
       items.push({ kind: 'text', box: mm(box), container: mm({ left: cr.left + padL, top: cr.top, width: cr.width - padL - padR, height: cr.height }),
                    align: cc.textAlign, lead: lh * 0.75, wrap: cc.whiteSpace !== 'nowrap' && lines > 1, lines, runs,
-                   hscale: (cc.transform.match(/^matrix\(([-\d.e]+)/) || [0, 1])[1] * 1,
+                   hscale: hscaleOf(container),
                    opacity: +cc.opacity });
     };
     const visitBox = (el) => {  // 배경 · 테두리
@@ -99,7 +107,7 @@ const data = await pg.evaluate(() => {
       }
     };
     const visitSvg = (svg) => {
-      for (const el of svg.querySelectorAll('line,polyline,path,rect,circle,text')) {
+      for (const el of svg.querySelectorAll('line,polyline,polygon,path,rect,circle,text')) {
         const c = getComputedStyle(el);
         if (c.display === 'none') continue;
         const M = el.getScreenCTM();
@@ -113,6 +121,10 @@ const data = await pg.evaluate(() => {
           const nums = el.getAttribute('points').trim().split(/[\s,]+/).map(Number);
           const pts = []; for (let i = 0; i + 1 < nums.length; i += 2) pts.push(tp(nums[i], nums[i + 1]));
           items.push({ kind: 'line', pts, ...common });
+        } else if (tag === 'polygon') {  // 닫힌 색 면
+          const nums = el.getAttribute('points').trim().split(/[\s,]+/).map(Number);
+          const pts = []; for (let i = 0; i + 1 < nums.length; i += 2) pts.push(tp(nums[i], nums[i + 1]));
+          items.push({ kind: 'poly', pts, ...common, fill: c.fill === 'none' ? null : c.fill });
         } else if (tag === 'path') {
           const tok = el.getAttribute('d').match(/[MLHVZ]|-?[\d.]+(?:e-?\d+)?/gi);
           let x = 0, y = 0, cmd = 'M', i = 0; const pts = [];
