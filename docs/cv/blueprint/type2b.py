@@ -326,7 +326,8 @@ def main():
     # InDesign only (user, 2026-10-25): white, and the grey of the Gentle Monster CV page 2
     import svg2idml
     ind = AI.parent / "indesign"
-    for tag, th in (("WHITE", WHITE), ("GRAY", GRAY)):
+    # IVORY = the light beige of the Gentle Monster CV page 2, first B option (bp.LIGHT, #E6E2DA) — user, 2026-10-25
+    for tag, th in (("WHITE", WHITE), ("GRAY", GRAY), ("IVORY", LIGHT)):
         svg = export(type2c_jaju, f"CV_TYPE2C_JAJU_{tag}", f"CV · TYPE 2C · JAJU ROUNDING VMD · {tag} · JEONG HYEOKJU",
                      th=th, out_dir=ind, ai=False)
         svg2idml.main(str(svg), str(ind / f"CV_TYPE2C_JAJU_{tag}.idml"))
