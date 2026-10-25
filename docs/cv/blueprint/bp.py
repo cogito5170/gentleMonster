@@ -95,6 +95,11 @@ def arrow(cx, cy, label, rr=1.9, pt=4.8, fill="text"):
 
 
 def hatch_pill(x, y, wd, h, label, pt=4.6):
+    """accent button: hatched while the colour is undecided, solid once the theme names an accent."""
+    if "accent" in TH:
+        r(x, y, wd, h, "accent", rx=0.8)
+        t(x + wd / 2, y + h / 2 + pt * PT * 0.36, label, pt, "on_accent", 600, "middle", ls=0.2)
+        return
     r(x, y, wd, h, "url(#hatch)", "text", 0.25, 0.8, "0.6 0.4")
     t(x + wd / 2, y + h / 2 + pt * PT * 0.36, label, pt, "text", 600, "middle", ls=0.2)
 
