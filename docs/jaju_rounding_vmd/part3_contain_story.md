@@ -136,3 +136,20 @@
 - 맺음(카페 홀 → JAJU 매장)은 사용자 경험(자기소개서 3 · 2번)이라 그대로 둘 수 있다.
 - Contain 쪽 '건축학부에서 배운 것은 공간을 보는 법이었다'는 인턴 작업도 함께 실리므로, '건축을 배우며 익힌 것은 …'으로 넓힐지 사용자 확인.
 - 확인 필요: From the city to the room. 의 다섯(City · Courtyard · Path · House · Hollow)과 AR-07 · 08 중 어느 것이 인턴 작업인지.
+
+## 9쪽 제목 (2026-10-25)
+
+사용자: "해당 이미지와 같이 수정하였다. 제목을 제시하라." — 사용자가 From the city to the room. 쪽 리드를 A안('학교에서는 건물의 틀을 그렸고, 인턴에서는
+그 안을 들여다봤다. / 실내에 무엇이 어떻게 놓이는지 여겨보았다.')으로 바꾸고, 캡션에 Design Studio 2-1 · 2-2 · 4-1 · 4-2 · INTERNSHIP_N'S HOUSE 를 넣음.
+리드가 '도시 → 방'(크기)에서 '틀 → 안'(학교 → 인턴)으로 바뀌어, 제목 From the city to the room. 은 글과 어긋난다.
+
+| 안 | 제목 | 리드와 | 책과 | 비고 |
+|---|---|---|---|---|
+| **A (권함)** | **From the frame to the inside.** | 상 — '건물의 틀' → '그 안' 그대로 | 상 — 책 제목 FROM THE INSIDE 에 닿는다 | 지금 제목의 꼴(From … to the ….)을 그대로 두고 낱말만 바꿈 |
+| B | Outside in. | 상 — 밖(건물)에서 안(실내)으로 | 상 — Prologue '밖에서 보면 … 안에서 보면 …' | 가장 짧다. 영어 관용구라 뜻이 넓게 읽힐 수 있음 |
+| C | Looking inside. | 중 — 둘째 줄 '여겨보았다'에 맞춤 | 중 | 학교(틀)의 몫이 빠진다 |
+| D | From the city to the room. (그대로) | 하 — 리드에 도시 · 방이 없다 | 중 | 사진의 크기 순서(도시 → 집)는 여전히 보임 |
+
+함께 고칠 곳(이미지에서 본 것)
+- 캡션 'Semeseter' → **Semester** (네 곳).
+- 바닥 줄 'PART 2 CONTAIN' → PART 3, 가운데 'CITY TO ROOM' → 제목에 맞춰(A: FRAME TO INSIDE · B: OUTSIDE IN).
