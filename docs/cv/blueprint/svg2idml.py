@@ -23,6 +23,7 @@ SVG = "{http://www.w3.org/2000/svg}"
 HANGUL = re.compile(r"[ㄱ-ㆎ가-힣]")
 INTER_W = {100: "Thin", 200: "ExtraLight", 300: "Light", 400: "Regular", 500: "Medium", 600: "SemiBold", 700: "Bold", 800: "ExtraBold"}
 NOTO_W = {100: "Thin", 200: "Light", 300: "Light", 400: "Regular", 500: "Medium", 600: "Bold", 700: "Bold", 800: "Black"}
+PRET_W = {100: "Thin", 200: "ExtraLight", 300: "Light", 400: "Regular", 500: "Medium", 600: "SemiBold", 700: "Bold", 800: "ExtraBold"}
 INTER_FILE = {"Thin": "Inter-Thin", "ExtraLight": "Inter-ExtraLight", "Light": "Inter-Light", "Regular": "Inter-Regular",
               "Medium": "Inter-Medium", "SemiBold": "Inter-SemiBold", "Bold": "Inter-Bold", "ExtraBold": "Inter-ExtraBold"}
 _fonts = {}
@@ -119,7 +120,9 @@ def convert(svg_path):
                     continue
                 size = float(ch.get("font-size")) / PT
                 wgt = int(ch.get("font-weight", 400))
-                if HANGUL.search(s):
+                if "Pretendard" in (ch.get("font-family") or ""):
+                    fam, style = "Pretendard", PRET_W.get(wgt, "Regular")
+                elif HANGUL.search(s):
                     fam, style = "Noto Sans KR", NOTO_W.get(wgt, "Regular")
                 else:
                     fam, style = "Inter", INTER_W.get(wgt, "Regular")
@@ -129,7 +132,7 @@ def convert(svg_path):
                 x = float(ch.get("x"))
                 x0 = x if anchor == "start" else x - w_ if anchor == "end" else x - w_ / 2
                 base = float(ch.get("y"))
-                asc = (0.969 if fam == "Inter" else 0.88) * size * PT
+                asc = (0.969 if fam == "Inter" else 0.93 if fam == "Pretendard" else 0.88) * size * PT
                 items.append(dict(kind="text", runs=[dict(text=s, size=size, family=fam, weight=wgt, italic=False, color=rgb(ch.get("fill")),
                                                           ls=ls_mm / (size * PT), dataFont=f"{fam}|{style}")],
                                   lead=size * 1.2, box=dict(x=x0, y=base - asc, w=w_, h=asc + 0.25 * size * PT),
