@@ -183,6 +183,112 @@ def type2c():
     zone_end()
 
 
+# ---- 2C · JAJU: same layout, content rebuilt from the JAJU rounding-VMD cover letter
+#   (session 1_자기소개서_완료, docs/portfolio/jaju/jaju_rounding_vmd_q1_FINAL.md 2026-10-24, q2 / q3 FINAL 2026-10-25)
+J_ROLE = ("ROUNDING VMD", "JAJU 라운딩 VMD 지원")
+J_IDENT = "건축에서 배운 공간감과 패션에 대한 안목을 접목하려는 지원자"                        # Q1
+J_TITLE = ("일상의 불편에서", "진열의 가능성을 찾다")                                           # Q1 subtitle
+J_PROFILE = ["옷에 대한 관심은 건축보다 먼저", "건축으로 공간의 크기와 거리를 가늠하는 감각", "옷과 매장이 어떻게 보일지 기획하는 VMD를 목표로"]  # Q1
+J_LOOK = ["어릴 때부터 매장에 들러 구경", "실내에 무엇이 어떻게 놓이는지", "스타일을 가리지 않고 입어 보기"]                    # Q1
+J_STRENGTHS = [
+    ("01", "OBSERVE", "일상의 불편", "일상의 작은 불편을 먼저 알아채고, 있는 것에서 바꿀 가능성을 찾습니다"),    # Q1
+    ("02", "SPACE", "공간감", "상품 하나보다 매장 전체의 흐름 안에서 자리를 봅니다"),                            # Q1
+    ("03", "STYLING", "패션에 대한 안목", "스타일을 가리지 않고 입어 보며 기른 안목 — 원단 · 디자인 · 색감"),      # Q1 + Q2
+    ("04", "PREVIEW", "구상을 미리 확인", "진열을 바꾸기 전에 배치를 3D로 미리 그려 확인합니다"),                # Q2
+]
+J_RECORD = [
+    ("____ – ____", "EDUCATION", ["____대학교 건축학과 (5년제)", "4학년 2학기 휴학 중"]),
+    ("____", "EXPERIENCE", ["건축사사무소 ____ · 인턴 — 현장 실측 · 모델링 · 주변 대지와 프로젝트 건물 구현",
+                            "실물 모형 제작 → 문화역서울284 기획전시 《돌봄의 디자인》 전시"]),                       # Q2
+    ("2024.08 – 11", "PART-TIME", ["베이글 카페 — 창고 정리 제안 · 홀 테이블 재배치 · 매대 구분"]),               # Q3
+]
+
+
+def type2c_jaju():
+    S, T = W_SIDE, TOP
+    zone("T2J_01_BACKGROUND")
+    r(0, 0, 210, 297, "bg")
+    zone("T2J_02_SIDEBAR")
+    r(0, 0, S, 297, "side")
+    photo(8, T, 48, 64, "PHOTO 01", "____ (48 × 64)", rx=1.2)
+    y0 = T + 64
+    t(8, y0 + 16, "JEONG", 30, "text", 200, ls=0.8)
+    t(8, y0 + 27.5, "HYEOKJU", 30, "text", 200, ls=0.8)
+    t(8, y0 + 34.5, J_ROLE[0], 5.8, "text", 600, ls=0.3)
+    t(8, y0 + 38.3, J_ROLE[1], 5.4, "sub", 400, fam=KR)
+    para(8, y0 + 44, J_IDENT, S - 16, 5.2, fill="sub", fam=KR)
+    menu = ["01  ABOUT", "02  WHAT I BRING", "03  EDUCATION · EXPERIENCE", "04  SKILLS", "05  PORTFOLIO"]
+    ym = y0 + 59
+    for i, s_ in enumerate(menu):
+        y = ym + i * 7
+        ln(8, y, S - 8, y, "line", 0.2)
+        t(8, y + 4.6, s_, 5.4, "text" if i == 0 else "sub", 600 if i == 0 else 500, ls=0.2)
+    ln(8, ym + 35, S - 8, ym + 35, "line", 0.2)
+    yn = ym + 49
+    t(8, yn, "NUMBERS", 5.6, "text", 600, ls=0.3)
+    for i, (lab, n, ko) in enumerate(NUMS):
+        x, y = 8 + (i % 2) * 29, yn + 14 + (i // 2) * 19
+        t(x, y, n, 20, "text", 200)
+        t(x + 8.5, y - 4.4, lab, 4.6, "sub", 600, ls=0.2)
+        t(x + 8.5, y - 0.6, ko, 4.8, "sub", 400, fam=KR)
+    ln(8, yn + 48, S - 8, yn + 48, "line", 0.2)
+    t(8, BOT - 25, "CONTACT", 5.6, "text", 600, ls=0.3)
+    lines(8, BOT - 19.5, CONTACT + ["LANGUAGE  ____"], 5.4, 1.6, fill="sub", fam=KR)
+    arrow(10, BOT, "GET IN TOUCH", 1.8)
+    X = S + 10
+    RW = 210 - X - 10
+
+    def sec(y, label, right=""):
+        ln(X, y, X + RW, y, "line", 0.25)
+        t(X, y + 5, label, 5, "sub", 600, ls=0.35)
+        if right:
+            t(X + RW, y + 5, right, 4.8, "sub", 500, "end", ls=0.15)
+    zone("T2J_03_ABOUT")
+    sec(T, "ABOUT", "자기소개서 1번")
+    t(X, T + 15, J_TITLE[0], 15, "text", 400, fam=KR)
+    t(X, T + 22.5, J_TITLE[1], 15, "text", 400, fam=KR)
+    t(X, T + 33, "PROFILE", 4.8, "text", 600, ls=0.25); lines(X, T + 37.2, J_PROFILE, 5.6, fill="sub", fam=KR)
+    t(X + 64, T + 33, "LOOKING AT", 4.8, "text", 600, ls=0.25); lines(X + 64, T + 37.2, J_LOOK, 5.6, fill="sub", fam=KR)
+    zone("T2J_04_STRENGTHS")
+    ys = T + 55
+    sec(ys, "WHAT I BRING  ·  강점", "자기소개서 1 · 2번")
+    for i, (n, en, ko, d) in enumerate(J_STRENGTHS):
+        y = ys + 9 + i * 11.5
+        t(X, y + 3.8, n, 6.4, "sub", 400)
+        t(X + 9, y + 3.8, f"{en}  ·  {ko}", 6.6, "text", 600, fam=KR, ls=0.1)
+        t(X + 9, y + 7.9, d, 5.6, "sub", 400, fam=KR)
+        ln(X, y + 11, X + RW, y + 11, "line", 0.15)
+    zone("T2J_05_EDUCATION_EXPERIENCE")
+    yr = ys + 61
+    sec(yr, "EDUCATION  ·  EXPERIENCE")
+    y = yr + 9
+    for per, title, body in J_RECORD:
+        t(X, y + 3.2, per, 5.6, "sub", 500)
+        t(X + 30, y + 3.2, title, 6.6, "text", 600, ls=0.2)
+        yy = y + 7.6
+        for s_ in body:
+            yy = para(X + 30, yy, s_, RW - 30, 5.6, fill="sub", fam=KR) + 0.6
+        y = max(yy, y + 12) + 3.4
+    zone("T2J_06_SKILLS")
+    yk = y + 2
+    sec(yk, "SKILLS", "LANGUAGE  ____")
+    t(X, yk + 9.5, FLOW, 4.6, "sub", 400, ls=0.1)
+    cw = RW / 3
+    for i, tool in enumerate(TOOLS):
+        skill_v(X + (i % 3) * cw, yk + 12.5 + (i // 3) * 24.5, cw, tool, rr=5.2)
+    zone("T2J_07_PORTFOLIO_LINK")
+    yc = BOT - 12
+    ln(X, yc, X + RW, yc, "line", 0.25)
+    t(X, BOT, "PORTFOLIO", 10, "text", 200, ls=0.3)
+    t(X + 30, BOT, "패션에 대한 안목은 포트폴리오에 — 별도 첨부", 5.4, "sub", 400, fam=KR)
+    arrow(X + RW - 14, BOT - 1, "VIEW", 2.0, 5)
+    zone("T2J_08_FOLIO")
+    t(X, FOLIO + 1.5, "JEONG HYEOKJU  ·  CV", 5, "sub", 500, ls=0.3)
+    t(X + RW, FOLIO + 1.5, "JAJU  ·  ROUNDING VMD", 5, "sub", 500, "end", ls=0.3)
+    zone_end()
+    return yk + 12.5 + 24.5 + 21      # bottom of the skill badges, for the fit check
+
+
 def export(fn, stem, title):
     bp.OUT.clear()
     w('<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">')
@@ -204,6 +310,7 @@ def export(fn, stem, title):
 def main():
     export(type2b, "CV_TYPE2B_SIDEBAR", "CV 1/2 · TYPE 2B SIDEBAR (photo 48 x 64) · JEONG HYEOKJU")
     export(type2c, "CV_TYPE2C_SIDEBAR", "CV 1/2 · TYPE 2C SIDEBAR (1/3, portfolio proportions) · JEONG HYEOKJU")
+    export(type2c_jaju, "CV_TYPE2C_JAJU", "CV · TYPE 2C · JAJU ROUNDING VMD · JEONG HYEOKJU")
 
 
 def _old_main():
