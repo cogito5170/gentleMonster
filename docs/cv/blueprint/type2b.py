@@ -210,6 +210,8 @@ def type2c_jaju():
     r(0, 0, 210, 297, "bg")
     zone("T2J_02_SIDEBAR")
     r(0, 0, S, 297, "side")
+    if TH.get("divider"):            # white version: sidebar keeps its width as a hairline, not a tint
+        ln(S, 0, S, 297, "line", 0.25)
     photo(8, T, 48, 64, "PHOTO 01", "____ (48 × 64)", rx=1.2)
     y0 = T + 64
     t(8, y0 + 16, "JEONG", 30, "text", 200, ls=0.8)
@@ -289,28 +291,45 @@ def type2c_jaju():
     return yk + 12.5 + 24.5 + 21      # bottom of the skill badges, for the fit check
 
 
-def export(fn, stem, title):
+WHITE = dict(bg="#FFFFFF", card="#F2F2F0", side="#FFFFFF", photo="#ECECEA", px="#D2D2CF",
+             text="#141414", sub="#6B6A67", line="#D6D6D3", grid="#E6E6E3", divider=True)
+# the grey adopted for the Gentle Monster CV page 2 (page2.GRAY): page #2E2E2E, sidebar one step lighter
+GRAY = dict(bg="#2E2E2E", card="#3A3A3A", side="#3A3A3A", photo="#444444", px="#555555",
+            text="#ECE8E1", sub="#A9A59F", line="#4A4A4A", grid="#3A3A3A")
+
+
+def export(fn, stem, title, th=None, out_dir=None, ai=True):
     bp.OUT.clear()
     w('<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">')
     w(f'<title>{title}</title>')
     w('<defs><pattern id="hatch" width="1.2" height="1.2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'
       '<rect width="1.2" height="1.2" fill="#262626"/><line x1="0" y1="0" x2="0" y2="1.2" stroke="#8E8B86" stroke-width="0.4"/></pattern></defs>')
-    theme(DARK)
+    theme(th or DARK)
     fn()
     w('</svg>')
-    svg = AI / f"{stem}.svg"
+    svg = Path(out_dir or AI) / f"{stem}.svg"
     svg.write_text("\n".join(bp.OUT), encoding="utf-8")
+    if not ai:
+        return svg
     pdf = svg.with_suffix(".pdf")
     subprocess.run(["inkscape", str(svg), "--export-type=pdf", "--export-pdf-version=1.5", f"--export-filename={pdf}"],
                    check=True, capture_output=True)
     pdf.replace(svg.with_suffix(".ai"))
     print(svg.with_suffix(".ai"))
+    return svg
 
 
 def main():
     export(type2b, "CV_TYPE2B_SIDEBAR", "CV 1/2 · TYPE 2B SIDEBAR (photo 48 x 64) · JEONG HYEOKJU")
     export(type2c, "CV_TYPE2C_SIDEBAR", "CV 1/2 · TYPE 2C SIDEBAR (1/3, portfolio proportions) · JEONG HYEOKJU")
     export(type2c_jaju, "CV_TYPE2C_JAJU", "CV · TYPE 2C · JAJU ROUNDING VMD · JEONG HYEOKJU")
+    # InDesign only (user, 2026-10-25): white, and the grey of the Gentle Monster CV page 2
+    import svg2idml
+    ind = AI.parent / "indesign"
+    for tag, th in (("WHITE", WHITE), ("GRAY", GRAY)):
+        svg = export(type2c_jaju, f"CV_TYPE2C_JAJU_{tag}", f"CV · TYPE 2C · JAJU ROUNDING VMD · {tag} · JEONG HYEOKJU",
+                     th=th, out_dir=ind, ai=False)
+        svg2idml.main(str(svg), str(ind / f"CV_TYPE2C_JAJU_{tag}.idml"))
 
 
 def _old_main():
