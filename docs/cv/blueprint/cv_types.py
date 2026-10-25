@@ -105,23 +105,31 @@ def type1():
 
 
 # ================================================================== TYPE 2 · SIDEBAR (ref 4 split + content refs)
-def type2():
+def type2(photo_size=None):
+    """photo_size=None: full-width sidebar photo 80 x 112. (w, h): a smaller framed photo at the sidebar
+    margin, and the name, lines and menu move up by the height saved."""
     zone("T2_01_BACKGROUND")
     r(0, 0, 210, 297, "bg")
     zone("T2_02_SIDEBAR")
     r(0, 0, 80, 297, "side")
-    photo(0, 0, 80, 112, "PHOTO 01", "인물 사진 ____ (세로 5:7)")
-    t(8, 128, "JEONG", 30, "text", 200, ls=0.8)
-    t(8, 139.5, "HYEOKJU", 30, "text", 200, ls=0.8)
-    t(8, 146.5, "SPATIAL DESIGNER", 5.8, "text", 600, ls=0.3)
-    t(8, 150.3, "공간 설계 디자이너 지원", 5.4, "sub", 400, fam=KR)
-    para(8, 156, IDENT, 62, 5.2, fill="sub", fam=KR)
+    if photo_size:
+        pw, ph = photo_size
+        photo(8, 12, pw, ph, "PHOTO 01", f"____ ({pw:g} × {ph:g})", rx=1.2)
+        dy = (12 + ph + 16) - 128
+    else:
+        photo(0, 0, 80, 112, "PHOTO 01", "인물 사진 ____ (세로 5:7)")
+        dy = 0
+    t(8, 128 + dy, "JEONG", 30, "text", 200, ls=0.8)
+    t(8, 139.5 + dy, "HYEOKJU", 30, "text", 200, ls=0.8)
+    t(8, 146.5 + dy, "SPATIAL DESIGNER", 5.8, "text", 600, ls=0.3)
+    t(8, 150.3 + dy, "공간 설계 디자이너 지원", 5.4, "sub", 400, fam=KR)
+    para(8, 156 + dy, IDENT, 62, 5.2, fill="sub", fam=KR)
     menu = ["01  ABOUT", "02  WHAT I BRING", "03  EDUCATION · EXPERIENCE", "04  SKILLS", "05  COVER LETTER  →  P.2"]
     for i, s in enumerate(menu):
-        y = 172 + i * 7
+        y = 172 + dy + i * 7
         ln(8, y, 72, y, "line", 0.2)
         t(8, y + 4.6, s, 5.4, "text" if i == 0 else "sub", 600 if i == 0 else 500, ls=0.2)
-    ln(8, 207, 72, 207, "line", 0.2)
+    ln(8, 207 + dy, 72, 207 + dy, "line", 0.2)
     t(8, 258, "CONTACT", 5.6, "text", 600, ls=0.3)
     lines(8, 263.5, CONTACT + ["LANGUAGE  ____"], 5.4, 1.6, fill="sub", fam=KR)
     arrow(10, 285, "GET IN TOUCH", 1.8)
