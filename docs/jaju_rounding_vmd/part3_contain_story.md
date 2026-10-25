@@ -66,3 +66,42 @@
 - 영어 (제안, 확인 전): *In architecture school, I learned how to see a space. To keep a brand the same in every store, I first read each store's space.*
 - 지금 쪽의 '멈춘 자리에는 늘 틀이 있었다. / 무엇을 채우고 무엇을 비울지가 그 안의 하루를 정한다.' · 'Where people stop, there is always a frame.' 을 이 두 줄로 바꾼다.
 - 남은 확인: '/02' → '/03' · 바닥 줄 PART 3, 파트 이름(Contain 그대로 / Fill), '담' 상자 옆 작은 글을 둘지, 영어 한 줄.
+
+## 다음 쪽 — A room, set like a display. (2026-10-25)
+
+사용자: "해당 이미지처럼 구성하였다(Contain 쪽 · From the city to the room. 쪽). 2번째 이미지의 페이지에서 이어질 내용을 작성하라."
+앞 쪽 글: '도시에서 마당으로, 마당에서 길과 집으로. / 틀을 좁혀 갈수록 그 안의 하루가 보인다.' — 캡션 꼴: 영어 한 낱말 + 한국어 짧은 설명 + AR 번호.
+→ 틀을 한 번 더 좁혀 **방 안**으로. 사진은 지금 그대로 AR-07 거실 · 식당 모형 + AR-08 주방 모형.
+
+**제목**: A room, set like a display. (그대로)
+
+**리드 (두 줄, 앞 쪽과 같은 꼴)**
+> 집에서 방으로 들어오면, 하루는 물건의 자리로 정해진다.
+> 무엇을 눈높이에 두고, 어디에 빛을 주고, 무엇을 한 자리에 모을지.
+
+**캡션 넷 (앞 쪽 캡션 꼴 — 영어 한 낱말 · 한국어 · 번호)**
+| 표시 | 영어 | 한국어 | 번호 |
+|---|---|---|---|
+| a) | Eye level | 눈이 머무는 높이 | AR-07 |
+| b) | Set | 식탁과 의자, 책 — 한 자리의 조합 | AR-07 |
+| c) | Light | 스탠드 하나가 모으는 빛 | AR-07 |
+| d) | Red point | 빨간 후드 — 시선이 먼저 닿는 곳 | AR-08 |
+
+**맺음 (아래, 두 줄 — 학교 밖 → JAJU)**
+> 학교 밖에서도 같았다. 카페 홀을 정리할 때 크기와 창문, 테이블 사이의 거리부터 보고, 있던 테이블의 자리만 다시 정했다.
+> JAJU 매장에서도 먼저 크기와 구조, 동선과 눈높이를 읽고, 그 자리에 옷과 생활용품을 놓겠다.
+
+**영어 (작게)**
+> *Inside the room, the day is set by where things sit — what meets the eye, where the light falls, what gathers in one place. In every JAJU store, I will read the size, structure, path and eye level first, then place the clothes and the living goods.*
+
+**흐름**
+| 쪽 | 틀 | 하는 말 |
+|---|---|---|
+| Contain | 공간 | 건축학부에서 배운 것은 공간을 보는 법 · 매장마다 다른 공간을 읽어야 한다 |
+| From the city to the room. | 도시 → 마당 → 길 → 집 | 틀을 좁혀 갈수록 그 안의 하루가 보인다 |
+| **A room, set like a display.** | **방 → 물건의 자리** | **하루는 물건의 자리로 정해진다 → 카페 홀 → JAJU 매장** |
+| (다음) Proposal | 매장의 한 칸 | 읽은 공간에 옷과 생활용품을 놓는 제안 |
+
+- '하루'는 앞 쪽('그 안의 하루')에서 받아 이어 쓴다. 맺음의 둘째 줄은 Contain 쪽 둘째 줄('매장마다 다른 공간을 읽어야 한다')을 돌려받는다(사례 1 ETÉREO — 앞의 말을 뒤에서 회수).
+- 근거: 자기소개서 3번(카페 홀 — 크기와 창문 위치, 테이블 사이 거리, 있던 테이블 재배치) · 2번(매장마다 다른 크기와 구조를 읽고) · 1 · 2번 '고객의 눈높이'.
+- 확인 필요: AR-07 · 08 이 학부 과제인지(인턴 작업이면 Contain 쪽 '건축학부에서'와 어긋남), 빨간 후드를 '시선이 먼저 닿는 곳'으로 둔 것은 사진에서 읽은 해석.
