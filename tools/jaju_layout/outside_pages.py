@@ -1,4 +1,6 @@
-"""JAJU 포트폴리오 맨 끝 두 쪽 — 학교 밖: 카페 · 창고 / 봉사 (315 × 195). 파트 3(Contain) 흐름을 잇는다.
+"""JAJU 포트폴리오 맨 끝 두 쪽(부록 A-1 · A-2) — 학교 밖: 카페 · 창고 / 봉사 (315 × 195). 파트 3(Contain) 흐름을 잇는다.
+
+사용자(10-26): "조금 더 밝은 그레이 톤으로 제작하라." "추가 첨부의 느낌을 주고자 한다." → 밝은 회색 종이 + 먹색 글, APPENDIX 꼬리표 · A-1 · A-2.
 
   python3 tools/jaju_layout/outside_pages.py   ->  docs/jaju_rounding_vmd/layout/outside_pages.pdf (2쪽)
 
@@ -28,7 +30,8 @@ import part2_match as p2  # noqa: E402
 d, W, H = p2.d, p2.W, p2.H
 OUT, TMP, PRINT, FONTS, CROPS = p2.OUT, p2.TMP, p2.PRINT, p2.FONTS, p2.CROPS
 SRC = os.path.join(p2.REPO, 'docs/jaju_rounding_vmd/assets/outside')
-BG, CR, MUTE = '#121110', '#EFE7DA', '#9A9188'
+BG, CR, MUTE = '#D7D6D3', '#1B1B1A', '#6E6A64'   # 부록: 밝은 회색 종이 + 먹색 (사용자 원래 카페 쪽 #C3C3C3 보다 한 톤 밝게)
+BODY, SUBK = '#34322F', '#4A4743'
 L, R, CX, FOLIO_Y = 14.0, 301.0, 157.5, 184.35
 
 HALL = ('카페 아르바이트를 하며, 공간이 가진 잠재력에 비해 테이블 배치가 아쉽다고 느꼈다. 홀의 규모와 창문, 테이블 간격을 바탕으로 '
@@ -66,10 +69,15 @@ def cap(x, y, w, word, ko, src):
             + d(x, y + 11.3, w, 4, f'<p>{src}</p>', 't cs'))
 
 
-def frame(name):
-    return (p2.rules(CR, .28)
-            + d(L, FOLIO_Y, 160, 4, '<p>FROM THE INSIDE&nbsp;&nbsp;—&nbsp;&nbsp;PART 3 CONTAIN</p>', 't ft')
-            + d(107.5, FOLIO_Y, 100, 4, f'<p>{name}</p>', 't ft c'))
+def frame(name, no):
+    """부록 표시: 오른쪽 위 'APPENDIX · A-n' 꼬리표, 바닥 줄 'FROM THE INSIDE — APPENDIX' · 쪽 이름 · A-n."""
+    return (p2.rules(CR, .35)
+            + d(R - 39.6, 14.1, 15.4, 4.4, '', 'tagbox')                 # 먹색 상자 — 글과 따로(InDesign 에서도 남게)
+            + d(R - 38.4, 14.75, 14, 4, '<p>APPENDIX</p>', 't tag w')
+            + d(R - 30, 14.75, 30, 4, f'<p>{no}&nbsp;&nbsp;·&nbsp;&nbsp;학교 밖</p>', 't tag')
+            + d(L, FOLIO_Y, 160, 4, '<p>FROM THE INSIDE&nbsp;&nbsp;—&nbsp;&nbsp;APPENDIX</p>', 't ft')
+            + d(107.5, FOLIO_Y, 100, 4, f'<p>{name}</p>', 't ft c')
+            + d(261, FOLIO_Y, 40, 4, f'<p>{no}</p>', 't ft r'))
 
 
 def page_space():
@@ -88,7 +96,7 @@ def page_space():
          place('ST-03', gx, gy + rh + gap, c1, rh), place('ST-04', gx + c1 + gap, gy + rh + gap, c2, rh),
          cap(gx, gy + 2 * rh + gap + 3, 90, 'Storage', '매장 지하 창고 — 그리드로 나눈 품목별 수납', 'STORE BASEMENT, PART-TIME'),
          d(R - 60, gy + 2 * rh + gap + 3, 60, 14, '<p>01 – 04</p><p>선반 · 품목별 칸</p>', 't cs r'),
-         frame('SAME SPACE')]
+         frame('SAME SPACE', 'A-1')]
     return ''.join(o)
 
 
@@ -105,7 +113,7 @@ def page_habitat():
          d(163, 128, 138, 12, '<p>JAJU 가 채우는 것도,</p><p>누군가의 하루가 머무는 공간이다.</p>', 't close'),
          d(163, 144, 138, 10, "<p>What JAJU fills, too, is a space where someone's day is lived.</p>", 't en'),
          d(163, 156, 138, 10, '<p>보고 → 맞추고 → 공간을 읽고 → 채운다</p>', 't cs'),
-         frame('A ROOM, MADE NEW')]
+         frame('A ROOM, MADE NEW', 'A-2')]
     return ''.join(o)
 
 
@@ -115,19 +123,21 @@ KO = p2.KO
 CSS = p2.CSS + f"""
 @font-face{{font-family:Lora;font-style:italic;src:url('file://{FONTS}/Lora-Italic.ttf')}}
 .ph{{overflow:hidden}}
-.ov .slot{{fill:none;stroke:{CR};stroke-opacity:.5;stroke-width:.25;stroke-dasharray:1.4 1}}
+.ov .slot{{fill:none;stroke:{CR};stroke-opacity:.45;stroke-width:.25;stroke-dasharray:1.4 1}}
 .ttl5{{font-family:Inst,sans-serif;font-weight:400;font-size:33pt;line-height:34pt;letter-spacing:-.01em;color:{CR}}}
 .lead{{font-family:{KO};font-size:9.6pt;line-height:15pt;color:{CR};word-break:keep-all}}
 .no{{font-family:Mono,monospace;font-size:6.6pt;letter-spacing:.08em;color:{MUTE}}}
-.body{{font-family:{KO};font-size:7.8pt;line-height:12.6pt;color:#CFC6B8;word-break:keep-all}}.body p{{white-space:normal}}
+.body{{font-family:{KO};font-size:7.8pt;line-height:12.6pt;color:{BODY};word-break:keep-all}}.body p{{white-space:normal}}
 .end{{font-family:{KO};font-size:8.6pt;line-height:13pt;color:{CR};word-break:keep-all;-webkit-text-stroke:.15pt {CR}}}.end p{{white-space:normal}}
 .cw{{font-family:Inst,sans-serif;font-weight:400;font-size:14pt;line-height:16pt;color:{CR}}}
-.ck{{font-family:{KO};font-size:6.8pt;line-height:9pt;color:#BDB4A8}}
+.ck{{font-family:{KO};font-size:6.8pt;line-height:9pt;color:{SUBK}}}
 .cs{{font-family:Inst,sans-serif;font-size:6.2pt;line-height:8.4pt;letter-spacing:.04em;color:{MUTE}}}.cs.r{{text-align:right}}
 .cap3{{font-family:{KO};font-size:6.4pt;color:{MUTE}}}
 .close{{font-family:{KO};font-size:15pt;line-height:21pt;color:{CR};-webkit-text-stroke:.25pt {CR}}}
 .en{{font-family:Lora,serif;font-style:italic;font-size:8pt;line-height:11pt;color:{MUTE}}}
-.ft{{color:{MUTE}}}
+.ft{{color:{MUTE}}}.ft.r{{text-align:right}}
+.tag{{font-family:Mono,monospace;font-size:6.4pt;letter-spacing:.08em;color:{CR};text-align:right;white-space:nowrap}}
+.tagbox{{background:{CR}}}.tag.w{{color:{BG};text-align:left}}
 """
 
 
