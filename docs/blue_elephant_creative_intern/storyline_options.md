@@ -135,3 +135,13 @@
 
 ## 8. 보류
 - 포트폴리오 2(제품 시안 묶음) · 3(건축 작업)은 1 을 마친 뒤 가능하면 만든다.
+
+### 7-1. 참고 포트폴리오 링크 (2026-10-30, 웹 검색 결과 — 이 환경에서는 열어 보지 못함)
+사용자: "참고할 포트폴리오 셋의 링크를 첨부하라. 텍스트로만 구성이 아닌 이미지를 확인한다."
+behance.net · contra.com 은 이 세션의 네트워크 설정에서 막혀 있어 페이지를 직접 열지 못했다. 아래 설명은 검색 결과 요약에서 읽은 것만.
+
+| 안 | 링크 | 검색 요약에서 읽은 내용 | 대안 |
+|---|---|---|---|
+| ① 커머스 카탈로그형 | Eyese — Eyewear E-commerce UI Design (Raj Chavada, Contra) https://contra.com/p/slrLPrrN-eyese-eyewear-e-commerce-ui-design | 안경 쇼핑몰의 홈 · 상품 목록 · **상품 상세페이지** · FAQ 화면 | — |
+| ② 캠페인 에디토리얼형 | Urban Frames – Eyewear Campaign (Clemara Studio, Contra) https://contra.com/p/N67qYo36-urban-frames-eyewear-campaign | 건축 · 산업 공간을 배경으로 한 안경 캠페인, 미니멀 · 도시 질감 · 에디토리얼 스타일링 | Etnia Barcelona (Behance) https://www.behance.net/gallery/130637829/Etnia-Barcelona — 헤리티지 캠페인 · 라이프스타일 사진 / Ray Ban X SGH 50th (Behance) https://www.behance.net/gallery/135034925/Ray-Ban-X-SGH-50th — 캠페인 사진에 문구 · 모델명을 얹은 배너 |
+| ③ SNS 아카이브형 | Optodex — Social Media Carousel, Meta Ads and Infographic Design (Contra) https://contra.com/p/W7BMc2eL-optodex-social-media-carousel-meta-ads-and-infographic-design | 캐러셀 · 메타 광고 · 인포그래픽 (안경 브랜드인지는 미확인) | Instagram Content Design for Captains Essentials (Contra) https://contra.com/p/lbBleXXv-instagram-content-design-for-captains-essentials — 안경은 아니지만 피드 재설계 사례 |
