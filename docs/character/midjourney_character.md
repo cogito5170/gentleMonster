@@ -35,3 +35,13 @@ stylized 3D animated character portrait of a young East Asian man, close-up self
 - 배경의 선반 · 철골이 사라진다: 배경 묘사를 프롬프트 앞쪽으로 옮긴다.
 
 `--cref` 는 미드저니가 만든 인물에서 가장 잘 맞고, 실제 사진에서는 닮음이 덜할 수 있다.
+
+## 얼굴 특징이 드러나는 강한 판 (2026-10-31)
+
+첫 결과는 얼굴이 갸름하고 눈이 큰 '잘생긴 일반 캐릭터'로 바뀌었다. 미드저니가 얼굴을 다듬었기 때문이다 (`--stylize 150`, 화풍 문구).
+고침: 실제 특징을 하나씩 적고 다듬기를 막는다 (`--style raw`, `--stylize 50`, `--no` 에 미화를 넣는다). 강하게 보이도록 얼굴이 화면을 채우는 근접 · 정면 플래시 · 정면 응시로 간다.
+Character Reference 에는 정면 사진 1 · 3번만 넣는다.
+
+```
+extreme close-up semi-realistic stylized 3D character portrait of a young East Asian man, his face fills the whole frame, slightly low wide-angle selfie view, deadpan stare straight into the lens, broad round face with full cheeks and a wide soft jaw, dark brown hair parted in the middle falling in heavy curtains over the temples with thin flyaway strands standing up on top, straight thick eyebrows, narrow single-lidded eyes, wide nose with a rounded tip and visible pores, full pink lips slightly parted, thin stubble on the upper lip and chin, a few small moles on the cheeks, grey translucent rectangular acetate glasses with lavender reflections on the lenses, navy check shirt collar at the bottom edge, harsh direct on-camera flash, deep shadows, cool blue shelf light behind, exaggerate his real features slightly like a caricature, sculpted detailed skin --cw 100 --iw 1.5 --ar 3:4 --style raw --stylize 50 --v 6.1 --no idealized face, slim face, big eyes, pretty, smooth skin, text, logo
+```
