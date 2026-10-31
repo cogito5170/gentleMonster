@@ -234,3 +234,33 @@ No text, no logo, no magazine title. Vertical 4:5.
 - 안경이 다르다 → `Use exactly the glasses from the second image: grey translucent rectangular acetate frame with clear lenses.`
 - 빛이 약하다 → `Make the side sunlight stronger and warmer, with a clear golden rim light on his hair and jaw.`
 - 글자가 생겼다 → `Remove all text and logos.`
+
+## 코트 이미지를 아이웨어 모델 화보로 (2026-10-31)
+
+안경이 주인공이 되도록: 가슴 위로 더 가까이, 안경에 초점, 깨끗한 스튜디오 빛, 렌즈와 테의 반사. 얼굴은 그대로.
+안경은 앞서 정한 회색 반투명 사각 아세테이트 (실제 셀카의 안경). 다른 안경을 원하면 그 문장만 바꾼다.
+
+### Gemini (권장, 얼굴을 지키기 쉽다) — 첨부: 1 코트 이미지 · 2 안경을 쓴 셀카 (안경만)
+
+```
+Turn the first image into an eyewear campaign photo for a fashion magazine.
+
+Keep the man exactly as he is: the same face, features, expression, skin and hair. Do not slim, smooth or beautify his face. Keep the rust wool coat and the black high neck top.
+
+He now wears the glasses from the second image: a grey translucent rectangular acetate frame with soft corners, small silver rivets at the front corners and clear lenses. Take only the glasses from the second image.
+
+Make the glasses the hero of the picture: a closer crop from the top of his head to the chest, his face slightly turned to the left with his eyes looking into the lens, the frame in razor-sharp focus with crisp edges and a clean highlight along the rims and on the lenses, his eyes clearly visible through the lenses. A plain warm off-white studio backdrop with a soft gradient, a large soft key light from the front left and a gentle rim light from behind, soft shadow under the frame on the cheeks. Natural skin texture, shallow depth of field, subtle film grain, quiet and confident mood. Remove the AI label in the top left corner. No text, no logo. Vertical 4:5.
+```
+
+같은 대화에서 고치는 말:
+- 얼굴이 바뀌었다 → `His face changed. Make it exactly the face from the first image and keep everything else.`
+- 안경이 다르다 → `Use exactly the glasses from the second image: grey translucent rectangular acetate frame with clear lenses.`
+- 안경이 덜 보인다 → `Crop closer and light the frame so the rims and lenses catch a clear highlight.`
+
+### 미드저니 V7 — 이미지 프롬프트: face_crop.jpg · 스타일 참조: 없음 (또는 원하는 아이웨어 화보 한 장)
+
+```
+eyewear campaign portrait for a fashion magazine, the same young East Asian man as in the image prompt, his exact face unchanged, oval face with a defined jaw, narrow single-lidded eyes, straight thick dark eyebrows, full lips, calm serious expression, short dark brown hair with volume and loose flyaway strands, wearing grey translucent rectangular acetate glasses with soft corners, small silver rivets and clear lenses, the glasses in razor-sharp focus with clean highlights on the rims, rust wool coat over a black high neck top, crop from the top of the head to the chest, face slightly turned left, eyes into the lens, plain warm off-white studio backdrop, large soft key light from the front left, gentle rim light, natural skin texture, shallow depth of field, subtle film grain --iw 3 --ar 4:5 --style raw --stylize 30 --no sunglasses, oval frames, tortoiseshell, text, logo, letters
+```
+
+스타일 참조 칸에 이미지를 넣었다면 `--sw 100` 을 덧붙인다. Weird · Chaos 는 0.
