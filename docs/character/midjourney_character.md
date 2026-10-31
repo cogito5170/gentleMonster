@@ -174,3 +174,13 @@ high fashion magazine cover portrait of the same young East Asian man as the ref
 2. Gemini 에 결과 이미지 + 코트 이미지 얼굴을 올리고 보낸다:
    `Replace only the face in the first image with the face of the man in the second image. Keep his exact features. Keep the glasses, hair, clothes, light, colours and background of the first image. Match the warm side light and film grain on the new face.`
 3. 마지막 수단: 포토샵에서 코트 이미지 얼굴을 얹고 커브 · 그레인으로 빛을 맞춘다.
+
+## V7 판 — `--cw` · `--ow` 없이 (2026-10-31)
+
+V7 은 `--cw` 와 `--ow` 를 지원하지 않는다. 얼굴은 이미지 프롬프트(`--iw 3`, V7 최대)와 글의 묘사로 지킨다. 캐릭터 레퍼런스 칸은 비워 둔다.
+
+첨부: 이미지 프롬프트 face_crop.jpg (+ face_bust_crop.jpg) · 스타일 참조 지난 결과 중 한 장 (없으면 비우고 `--sw` 를 지운다). Weird · Chaos 0.
+
+```
+high fashion magazine cover portrait of the same young East Asian man as in the image prompt, his exact face unchanged, oval face with a defined jaw, narrow single-lidded eyes, straight thick dark eyebrows, full lips, calm serious expression, short dark brown hair with volume on top, swept back and slightly to the side with loose flyaway strands, wearing grey translucent rectangular acetate glasses with thin clear lenses, black fine-knit high neck top, close-up from the chest up, head turned slightly to the left, eyes looking into the lens, strong low warm sunlight from the side, golden rim light along the hair and jaw, dark warm backdrop with a soft diagonal light beam, natural skin texture, shallow depth of field, 35mm film grain --iw 3 --sw 100 --ar 4:5 --style raw --stylize 30 --no oval sunglasses, tortoiseshell, round frames, text, logo, letters
+```
