@@ -130,3 +130,24 @@ photorealistic extreme close-up editorial portrait of a young East Asian man, th
 
 안경을 참고처럼 큰 타원형 선글라스로 바꾸려면 `grey translucent rectangular acetate glasses filling the upper part of the frame, lenses reflecting warm light,` 를
 `oversized oval dark tortoiseshell sunglasses with thick rims and smoky brown lenses,` 로 바꾸고 `--cw 50` 으로 내린다 (가상의 안경, 실제 제품을 따라 그리지 않는다).
+
+## 잡지 커버 촬영처럼 — 얼굴 · 머리 · 안경은 그대로 (2026-10-31)
+
+조건: 1번 같은 모델 잡지 커버 촬영 · 2번의 얼굴 · 머리 · 안경은 바꾸지 않는다 · 배경은 바꿔도 된다.
+미드저니 생성은 얼굴을 매번 다시 그리므로, 바꾸지 않으려면 Editor 에서 얼굴 · 머리 · 안경을 칠하지 않고 남겨야 한다.
+
+### A. Editor (권장, 얼굴 · 머리 · 안경 그대로)
+
+2번을 Editor 에 올리고 배경과 옷(목 아래)만 칠한다. 머리카락 가장자리와 안경 다리는 칠하지 않는다. Style Reference 칸에 1번(로고 · 메뉴를 잘라 낸 것).
+
+```
+high fashion magazine cover photo shoot, extreme close-up of a male model, dark warm-toned studio backdrop softly falling into shadow, strong low warm sunlight raking in from the side, golden rim light along the hair and jaw, black fine-knit high neck top, shallow depth of field, 35mm film grain, editorial luxury eyewear campaign --sw 150 --style raw --no text, logo, letters, store, shelves
+```
+
+### B. 생성 (커버 느낌을 더 강하게, 얼굴은 조금 달라질 수 있음)
+
+Image Prompt 2번 · Character Reference 2번 · Style Reference 1번(잘라 낸 것).
+
+```
+high fashion magazine cover photo shoot of a young East Asian male model, the same face, hair and glasses as the reference, broad round face with full cheeks, dark middle-parted hair with loose flyaway strands, grey translucent rectangular acetate glasses with lavender reflections, light stubble, face turned slightly to the left, eyes looking past the camera, extreme close-up with the frame cropping the top of the hair and the chin, strong low warm sunlight from the side, golden rim light, dark warm backdrop, black fine-knit high neck top, shallow depth of field, 35mm film grain, editorial luxury eyewear campaign --cw 100 --iw 2 --sw 150 --ar 16:9 --style raw --stylize 50 --v 6.1 --no text, logo, letters, store, shelves
+```
