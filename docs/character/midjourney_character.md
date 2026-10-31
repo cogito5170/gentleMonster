@@ -45,3 +45,11 @@ Character Reference 에는 정면 사진 1 · 3번만 넣는다.
 ```
 extreme close-up semi-realistic stylized 3D character portrait of a young East Asian man, his face fills the whole frame, slightly low wide-angle selfie view, deadpan stare straight into the lens, broad round face with full cheeks and a wide soft jaw, dark brown hair parted in the middle falling in heavy curtains over the temples with thin flyaway strands standing up on top, straight thick eyebrows, narrow single-lidded eyes, wide nose with a rounded tip and visible pores, full pink lips slightly parted, thin stubble on the upper lip and chin, a few small moles on the cheeks, grey translucent rectangular acetate glasses with lavender reflections on the lenses, navy check shirt collar at the bottom edge, harsh direct on-camera flash, deep shadows, cool blue shelf light behind, exaggerate his real features slightly like a caricature, sculpted detailed skin --cw 100 --iw 1.5 --ar 3:4 --style raw --stylize 50 --v 6.1 --no idealized face, slim face, big eyes, pretty, smooth skin, text, logo
 ```
+
+## 더 실사에 가까운 판 (2026-10-31)
+
+바꾼 것: 3D 캐릭터 · 캐리커처 · 조각 같은 피부 문구를 빼고, 실제 사진 용어(카메라 · 렌즈 · 플래시 · 필름 질감)로 바꾼다. `--no` 에 3D · CGI · 일러스트를 넣는다.
+
+```
+photorealistic extreme close-up portrait photograph of a young East Asian man, his face fills the whole frame, slightly low wide-angle selfie view, deadpan stare straight into the lens, broad round face with full cheeks and a wide soft jaw, dark brown hair parted in the middle falling in heavy curtains over the temples with thin flyaway strands standing up on top, straight thick eyebrows, narrow single-lidded eyes, wide nose with a rounded tip and visible pores, full pink lips slightly parted, thin stubble on the upper lip and chin, a few small moles on the cheeks, grey translucent rectangular acetate glasses with lavender reflections on the lenses, navy check shirt collar at the bottom edge, harsh direct on-camera flash, deep shadows, cool blue shelf light behind, natural skin texture with pores and fine hairs, shot on a 28mm lens, editorial fashion photography, subtle film grain --cw 100 --iw 1.5 --ar 3:4 --style raw --stylize 30 --v 6.1 --no 3D render, CGI, cartoon, illustration, plastic skin, idealized face, slim face, big eyes, smooth skin, text, logo
+```
