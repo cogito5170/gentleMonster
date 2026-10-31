@@ -115,3 +115,18 @@ From this higher angle the forehead and the top of the hair look a little larger
 ```
 same young man, slightly high angle selfie looking down on him from just above eye level, he looks up into the lens, round face with full cheeks, middle-parted dark hair with flyaway strands, light stubble, grey translucent glasses with lavender reflections, navy check shirt, eyewear store with lit white shelves behind, painted cel-shaded illustration style with sharp highlights on the skin --iw 2 --ar 3:4 --style raw --stylize 50 --no low angle, nostrils
 ```
+
+## 브랜드 웹 히어로 컷의 스타일로 (2026-10-31)
+
+참고(1번)에서 가져오는 것: 실사 사진 · 얼굴을 화면 가득 자른 극단적 근접 · 3/4 옆으로 돌린 얼굴과 비껴 보는 시선 · 옆에서 드는 강한 햇빛 · 따뜻한 필름 톤 · 어두운 배경 · 가로로 긴 화면.
+가져오지 않는 것: 로고 · 메뉴 · 글자, 참고 속 인물, 참고 속 실제 제품.
+1번은 상단 로고 · 메뉴를 잘라 내고 Style Reference 에 넣는다. Character Reference 는 2번보다 실제 셀카(정면 · 옆)가 실사에 맞다.
+
+첨부: Image Prompt 2번 · Style Reference 1번(잘라 낸 것) · Character Reference 실제 셀카 정면 · 옆.
+
+```
+photorealistic extreme close-up editorial portrait of a young East Asian man, the frame cuts through his forehead and chin, face turned three-quarters to the left, eyes looking down and away past the camera, broad round face with full cheeks, dark middle-parted hair falling over the temples with loose strands catching the light, light stubble, a small mole on the cheek, grey translucent rectangular acetate glasses filling the upper part of the frame, lenses reflecting warm light, strong low sunlight from the side, warm skin tones, natural skin texture with pores, dark soft background, shallow depth of field, 35mm film look, quiet confident mood --sw 150 --cw 80 --iw 1 --ar 16:9 --style raw --stylize 50 --v 6.1 --no text, logo, menu, letters, cel shading, illustration
+```
+
+안경을 참고처럼 큰 타원형 선글라스로 바꾸려면 `grey translucent rectangular acetate glasses filling the upper part of the frame, lenses reflecting warm light,` 를
+`oversized oval dark tortoiseshell sunglasses with thick rims and smoky brown lenses,` 로 바꾸고 `--cw 50` 으로 내린다 (가상의 안경, 실제 제품을 따라 그리지 않는다).
