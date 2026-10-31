@@ -210,3 +210,27 @@ Framing: tight close-up from just above the hair to the collarbone, head tilted 
 - 참고 속 여성처럼 됐다 → `Remove any trace of the woman's face and makeup from the third image. Only her lighting, visor and materials stay.`
 - 머리를 원래 색으로 → `Keep his hair dark brown as in the first image, only add a glossy wet sheen.`
 - 바이저가 눈을 가린다 → `Make the visor clearer so both eyes are visible through it.`
+
+## 잡지 커버 — Gemini 판 (2026-10-31)
+
+첨부 순서: 1 face_crop.jpg (얼굴 · 머리) · 2 안경을 쓴 정면 셀카 (안경만) · 3 미드저니 결과 중 따뜻한 빛 한 장 (빛 · 분위기만, 없으면 생략하고 마지막 문단의 3 을 지운다).
+
+```
+Create a high fashion magazine cover portrait of the man in the first image.
+
+Keep him exactly himself: the same face and features from the first image, oval face with a defined jaw, narrow single-lidded eyes, straight thick dark eyebrows, full lips, calm serious expression, and the same short dark brown hair with volume on top, swept back and slightly to the side with loose flyaway strands. Do not slim, smooth or beautify his face, and do not turn him into a different model.
+
+He wears the glasses from the second image: a grey translucent rectangular acetate frame with soft corners, small silver rivets at the front corners and clear lenses. Take only the glasses from the second image, not the face, hair, clothes or background. No sunglasses, no oval or tortoiseshell frames.
+
+Styling and set: a black fine-knit high neck top. A dark warm studio backdrop with a soft diagonal beam of light across it.
+
+Light and camera: strong low warm sunlight from the side, a golden rim light along his hair and jaw, deep soft shadows on the other side of the face. Close-up from the chest up, head turned slightly to the left, eyes looking into the lens. Natural skin texture with pores, shallow depth of field, 35mm film grain. Match the warm light and mood of the third image, but not its face or glasses.
+
+No text, no logo, no magazine title. Vertical 4:5.
+```
+
+같은 대화에서 고치는 말:
+- 얼굴이 바뀌었다 → `His face changed. Make it exactly the face from the first image and keep everything else.`
+- 안경이 다르다 → `Use exactly the glasses from the second image: grey translucent rectangular acetate frame with clear lenses.`
+- 빛이 약하다 → `Make the side sunlight stronger and warmer, with a clear golden rim light on his hair and jaw.`
+- 글자가 생겼다 → `Remove all text and logos.`
