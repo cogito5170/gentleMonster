@@ -151,3 +151,26 @@ Image Prompt 2번 · Character Reference 2번 · Style Reference 1번(잘라 낸
 ```
 high fashion magazine cover photo shoot of a young East Asian male model, the same face, hair and glasses as the reference, broad round face with full cheeks, dark middle-parted hair with loose flyaway strands, grey translucent rectangular acetate glasses with lavender reflections, light stubble, face turned slightly to the left, eyes looking past the camera, extreme close-up with the frame cropping the top of the hair and the chin, strong low warm sunlight from the side, golden rim light, dark warm backdrop, black fine-knit high neck top, shallow depth of field, 35mm film grain, editorial luxury eyewear campaign --cw 100 --iw 2 --sw 150 --ar 16:9 --style raw --stylize 50 --v 6.1 --no text, logo, letters, store, shelves
 ```
+
+## 얼굴이 바뀌는 원인과 얼굴을 지키는 판 (2026-10-31)
+
+원인 (결과 화면에서 확인):
+1. 브랜드 웹 캡처가 Image Prompt 칸에 들어갔다. 그 속 모델의 얼굴과 타원 선글라스가 그대로 섞였다.
+2. 얼굴은 셀 셰이딩 셀카에서만 왔다. 그림 질감이라 실사 얼굴로 옮겨지지 않았다.
+3. Weird 4 · Chaos 5 가 켜져 있었다.
+
+고침:
+- 얼굴: 코트 이미지에서 얼굴만 크게 잘라(머리 위 ~ 턱 아래, 'AI' 표시 없이, 긴 변 1000px 이상) Image Prompt 와 Character Reference 에 넣는다.
+- 분위기: 이번 결과 중 마음에 든 한 장을 Style Reference 에 넣는다 (빛 · 색은 같고 로고가 없다). 웹 캡처는 쓰지 않는다.
+- 안경: 이미지가 아니라 글로 적고, 타원 · 뿔테 선글라스를 `--no` 로 막는다.
+- Weird · Chaos 0, `--iw 2.5`, `--cw 100`, `--stylize 30`.
+
+```
+high fashion magazine cover portrait of the same young East Asian man as the reference photo, keep his exact face, oval face with a defined jaw, narrow single-lidded eyes, straight thick dark eyebrows, full lips, calm serious expression, short dark brown hair with volume on top, swept back and slightly to the side with loose flyaway strands, wearing grey translucent rectangular acetate glasses with thin clear lenses, black fine-knit high neck top, close-up from the chest up, head turned slightly to the left, eyes looking into the lens, strong low warm sunlight from the side, golden rim light along the hair and jaw, dark warm backdrop with a soft diagonal light beam, natural skin texture, shallow depth of field, 35mm film grain --iw 2.5 --cw 100 --sw 100 --ar 4:5 --style raw --stylize 30 --v 6.1 --no oval sunglasses, tortoiseshell, round frames, text, logo, letters
+```
+
+그래도 얼굴이 다르면 (얼굴만 되돌리기):
+1. 결과 중 구도 · 빛이 좋은 한 장을 고른다.
+2. Gemini 에 결과 이미지 + 코트 이미지 얼굴을 올리고 보낸다:
+   `Replace only the face in the first image with the face of the man in the second image. Keep his exact features. Keep the glasses, hair, clothes, light, colours and background of the first image. Match the warm side light and film grain on the new face.`
+3. 마지막 수단: 포토샵에서 코트 이미지 얼굴을 얹고 커브 · 그레인으로 빛을 맞춘다.
