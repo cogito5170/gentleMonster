@@ -184,3 +184,29 @@ V7 은 `--cw` 와 `--ow` 를 지원하지 않는다. 얼굴은 이미지 프롬�
 ```
 high fashion magazine cover portrait of the same young East Asian man as in the image prompt, his exact face unchanged, oval face with a defined jaw, narrow single-lidded eyes, straight thick dark eyebrows, full lips, calm serious expression, short dark brown hair with volume on top, swept back and slightly to the side with loose flyaway strands, wearing grey translucent rectangular acetate glasses with thin clear lenses, black fine-knit high neck top, close-up from the chest up, head turned slightly to the left, eyes looking into the lens, strong low warm sunlight from the side, golden rim light along the hair and jaw, dark warm backdrop with a soft diagonal light beam, natural skin texture, shallow depth of field, 35mm film grain --iw 3 --sw 100 --ar 4:5 --style raw --stylize 30 --no oval sunglasses, tortoiseshell, round frames, text, logo, letters
 ```
+
+## 참고 이미지 그래픽 스타일 — Gemini 판 (2026-10-31)
+
+첨부 순서: 1 지원자 정면 셀카 · 2 지원자 옆 거울 셀카 · 3 참고 이미지(은빛 단발 · 투명 바이저).
+
+```
+Create a new portrait of the man in the first and second images, in the visual style of the third image.
+
+Keep him exactly himself: the same face, broad round face with full cheeks and a soft wide jaw, narrow single-lidded eyes, straight thick eyebrows, wide nose with a rounded tip, full lips, light stubble on the upper lip and chin, small moles on the cheeks, and the same dark brown middle-parted hair falling over the temples. Do not slim, smooth or beautify his face. Take nothing of the woman's face from the third image.
+
+Take only the look of the third image:
+- His hair keeps its cut and shape but turns glossy metallic silver blue with a wet sheen.
+- A wraparound clear acrylic visor with a thin frame across his eyes, with a translucent holographic interface panel over one eye.
+- A vertical orange light streak reflected on the visor, and magenta and electric blue light spilling across his cheek and nose.
+- Dewy, glossy skin with visible pores and freckles, no makeup.
+- A high-neck clear PVC top wrapping his neck and shoulders.
+- A pale lavender grey studio background, soft and plain.
+
+Framing: tight close-up from just above the hair to the collarbone, head tilted slightly, calm half-lidded gaze toward the camera. Photorealistic beauty editorial photo, 85mm lens, shallow depth of field, crisp detail, vertical 9:16.
+```
+
+같은 대화에서 고치는 말:
+- 얼굴이 바뀌었다 → `His face changed. Make it exactly the face from the first image, round face and full cheeks, and keep the rest.`
+- 참고 속 여성처럼 됐다 → `Remove any trace of the woman's face and makeup from the third image. Only her lighting, visor and materials stay.`
+- 머리를 원래 색으로 → `Keep his hair dark brown as in the first image, only add a glossy wet sheen.`
+- 바이저가 눈을 가린다 → `Make the visor clearer so both eyes are visible through it.`
