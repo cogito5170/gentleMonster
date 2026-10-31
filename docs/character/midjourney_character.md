@@ -65,3 +65,28 @@ photorealistic futuristic beauty editorial close-up portrait of a young East Asi
 ```
 
 머리를 지원자 그대로 검은 머리로 두려면 `recoloured glossy metallic silver blue` 를 `with a glossy wet sheen` 으로 바꾼다.
+
+## 코트 이미지에 안경만 씌우기 (2026-10-31)
+
+- 바탕: 적갈색 코트를 입은 지원자 이미지 (흰 벽, 흐린 양옆).
+- 안경: 셀카 속 안경. 연기 낀 회갈색 반투명 아세테이트, 모서리가 둥근 직사각형, 중간 두께, 앞면 양 끝의 작은 은색 핀, 연보라 반사 코팅 렌즈.
+- 이 세션의 이미지는 Codex 로만 만들고, Codex 는 사진을 입력으로 받지 않는다. 얼굴 · 배경을 그대로 두는 편집은 Gemini (편집에 가장 강함) 또는 미드저니 Editor 로 한다.
+
+### Gemini (권장) — 첨부: 1 코트 이미지 · 2 셀카
+
+```
+Edit the first image. Add only a pair of glasses to the man's face. Keep everything else in the first image exactly the same: his face, features, expression, skin, hair, head angle, the rust wool coat, the black top, the white background, the blur at the sides, the framing, the light and the film grain. Do not redraw or retouch the face.
+
+The glasses are the ones worn in the second image: a smoky grey-brown translucent acetate frame, soft rectangular shape with rounded corners, medium-thick rims, a keyhole-free straight bridge, small silver rivets at the outer front corners, and clear lenses with a faint lavender anti-reflective sheen. Fit them naturally to his face at the right size and angle, resting on the nose with the temples going back over the ears, with soft shadows on the cheeks and a slight reflection of the white room in the lenses. His eyes stay visible through the lenses. Take nothing else from the second image.
+```
+
+같은 대화에서 고치는 말:
+- 얼굴이 바뀌었다 → `The face changed. Restore the exact face from the first image and only add the glasses.`
+- 안경이 다르다 → `Make the frame smoky grey-brown translucent acetate with rounded rectangular lenses, exactly like the second image.`
+- 렌즈가 너무 반사된다 → `Make the lenses clearer so his eyes are fully visible, keep only a faint lavender sheen.`
+
+### 미드저니 Editor — 1 코트 이미지를 올리고 눈 주변(눈썹 ~ 광대, 귀 앞)만 칠한다
+
+```
+smoky grey-brown translucent acetate glasses with soft rectangular rounded lenses, medium-thick rims, small silver rivets at the front corners, clear lenses with a faint lavender sheen, resting naturally on the nose, eyes visible through the lenses, same face, same lighting, film grain --style raw
+```
