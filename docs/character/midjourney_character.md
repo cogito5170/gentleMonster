@@ -90,3 +90,28 @@ The glasses are the ones worn in the second image: a smoky grey-brown translucen
 ```
 smoky grey-brown translucent acetate glasses with soft rectangular rounded lenses, medium-thick rims, small silver rivets at the front corners, clear lenses with a faint lavender sheen, resting naturally on the nose, eyes visible through the lenses, same face, same lighting, film grain --style raw
 ```
+
+## 카메라를 살짝 위에서 찍은 각도로 (2026-10-31)
+
+지금 이미지는 아래에서 올려다본 셀카 각도다(턱 · 콧구멍이 크게, 이마 · 천장이 보인다). 살짝 위(눈높이보다 15~20° 위)에서 내려다본 각도로 바꾼다.
+
+### Gemini — 첨부: 지금 이미지
+
+```
+Change only the camera angle of this image. Re-shoot the same moment from slightly above his eye level, about 15 to 20 degrees higher, with the camera tilted gently down toward his face, like a selfie held a little above the head. He keeps looking straight into the lens, so his eyes look slightly upward.
+
+Keep everything else the same: his face and features, the round face with full cheeks, the middle-parted hair with flyaway strands, the stubble, the moles, the expression, the grey translucent glasses with lavender reflections, the navy check shirt, the eyewear store behind him, the light, the colours and the painted, cel-shaded illustration style with sharp light patches on the skin.
+
+From this higher angle the forehead and the top of the hair look a little larger, the chin and the nostrils look smaller and partly hidden, the jaw line looks a little slimmer, the glasses sit slightly lower on the face, and more of the floor and the lower shelves show in the background while the ceiling mostly leaves the frame. Same vertical framing, head and shoulders.
+```
+
+같은 대화에서 고치는 말:
+- 얼굴이 바뀌었다 → `The face changed. Keep the exact face and features from the original, only the camera angle changes.`
+- 각도가 충분하지 않다 → `Raise the camera more, so we look clearly down onto his face.`
+- 화풍이 실사로 바뀌었다 → `Keep the same painted cel-shaded illustration style as the original.`
+
+### 미드저니 (대안) — Image Prompt: 지금 이미지
+
+```
+same young man, slightly high angle selfie looking down on him from just above eye level, he looks up into the lens, round face with full cheeks, middle-parted dark hair with flyaway strands, light stubble, grey translucent glasses with lavender reflections, navy check shirt, eyewear store with lit white shelves behind, painted cel-shaded illustration style with sharp highlights on the skin --iw 2 --ar 3:4 --style raw --stylize 50 --no low angle, nostrils
+```
