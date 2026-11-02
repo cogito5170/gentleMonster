@@ -36,7 +36,7 @@ CARDS = [
          b='I grew up wandering shops, asking how things should be placed to sell better.'),
     dict(label='Observe', img='graded_cafe.jpg', focus=(.5, .62), row=SHORT, t=['I look from the inside,', 'out to the people'],
          b='Behind the glass I watch what makes someone stop, look in and smile.'),
-    dict(label='Display', img='graded_shop.jpg', focus=(.5, .72), row=TALL, t=['A window should hold', 'the passer-by'],
+    dict(label='Display', img='graded_shop.jpg', focus=(.5, .66), zoom=1.22, row=TALL, t=['A window should hold', 'the passer-by'],
          b='Light, height and one point of colour — architecture taught me where the eye lands.'),
     dict(label='Styling', img='graded_park.jpg', focus=(.5, .48), row=SHORT, t=['Dressed for the place,', 'toned to the hour'],
          b='I match an outfit to where it will be seen, the way a store matches its season.'),
@@ -48,17 +48,32 @@ STYLES = {
     'Label Light': dict(size=17, lead=20, color='White', align='center'),
     'Card Title': dict(size=29, lead=34, color='White', align='left', track=-5),
     'Card Body': dict(size=16.5, lead=21, color='White', align='left', tint=90),
+    'Page Title': dict(size=118, lead=112, color='Ink', align='left', track=-35, fs='Bold'),
+    'Statement': dict(size=40, lead=50, color='Ink', align='left', track=-10),
+    'Small': dict(size=20, lead=26, color='Ink', align='left'),
+    'Button': dict(size=17, lead=20, color='White', align='left'),
 }
+
+
+# page head: title, button, statement and the small line (copy: docs/web_cards/page_copy.md)
+HEAD = dict(title=['Style &', 'Display.'], button='View More Passions  →',
+            statement=['Passions — showing how I watch', 'people, read spaces and style looks,', 'then turn what I see into windows', 'worth stopping for'],
+            small=['I build displays and outfits that make', 'people stop, look in and smile.'])
 
 
 def items():
     """Every object on the page, in drawing order (x, y, w, h in px)."""
     out = [dict(kind='rect', name='page', x=0, y=0, w=W, h=H, fill='Page')]
+    out.append(dict(kind='text', name='page title', x=M - 4, y=30, w=900, h=230, valign='top', paras=[('Page Title', t) for t in HEAD['title']]))
+    out.append(dict(kind='rect', name='button', x=M, y=270, w=262, h=56, radius=28, fill='Ink'))
+    out.append(dict(kind='text', name='button label', x=M + 30, y=270, w=220, h=56, valign='center', paras=[('Button', HEAD['button'])]))
+    out.append(dict(kind='text', name='statement', x=M + 2 * (CW + GAP), y=44, w=820, h=210, valign='top', paras=[('Statement', t) for t in HEAD['statement']]))
+    out.append(dict(kind='text', name='small line', x=M + 2 * (CW + GAP) + 220, y=272, w=520, h=56, valign='top', paras=[('Small', t) for t in HEAD['small']]))
     for i, c in enumerate(CARDS):
         x, (y, h) = M + i * (CW + GAP), c['row']
         tag = f'card {i + 1} {c["label"]}'
         if c['img']:
-            out.append(dict(kind='image', name=f'{tag} photo', x=x, y=y, w=CW, h=h, link=f'card{i + 1}.jpg', src=c['img'], focus=c['focus']))
+            out.append(dict(kind='image', name=f'{tag} photo', x=x, y=y, w=CW, h=h, link=f'card{i + 1}.jpg', src=c['img'], focus=c['focus'], zoom=c.get('zoom', 1)))
         else:
             out.append(dict(kind='rect', name=f'{tag} background', x=x, y=y, w=CW, h=h, fill='Card Black', radius=R_CARD))
         pw = round(len(c['label']) * 9.4 + 52)
@@ -85,7 +100,7 @@ def make_links(its):
             continue
         im = Image.open(os.path.join(TM, it['src'])).convert('RGB')
         tw, th = round(it['w'] * 2), round(it['h'] * 2)
-        s = max(tw / im.width, th / im.height); im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+        s = max(tw / im.width, th / im.height) * it['zoom']; im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
         fx, fy = it['focus']; left = min(max(round(im.width * fx - tw / 2), 0), im.width - tw); top = min(max(round(im.height * fy - th / 2), 0), im.height - th)
         a = np.asarray(im.crop((left, top, left + tw, top + th)), float)
         t = np.linspace(0, 1, th)[:, None, None]
@@ -127,7 +142,7 @@ def build_idml(its, path):
                '<StrokeStyle Self="StrokeStyle/$ID/Solid" Name="$ID/Solid"/></idPkg:Graphic>')
     just = {'left': 'LeftAlign', 'center': 'CenterAlign'}
     ps = ''.join(f'<ParagraphStyle Self="ParagraphStyle/{q(n)}" Name="{q(n)}" Imported="false" NextStyle="ParagraphStyle/{q(n)}" KeyboardShortcut="0 0" '
-                 f'FontStyle="Regular" PointSize="{s["size"]}" FillColor="Color/{s["color"]}" FillTint="{s.get("tint", -1)}" Justification="{just[s["align"]]}" Hyphenation="false" Tracking="{s.get("track", 0)}">'
+                 f'FontStyle="{s.get('fs', 'Regular')}" PointSize="{s["size"]}" FillColor="Color/{s["color"]}" FillTint="{s.get("tint", -1)}" Justification="{just[s["align"]]}" Hyphenation="false" Tracking="{s.get("track", 0)}">'
                  f'<Properties><BasedOn type="string">$ID/[No paragraph style]</BasedOn><PreviewColor type="enumeration">Nothing</PreviewColor>'
                  f'<AppliedFont type="string">{FONT}</AppliedFont><Leading type="unit">{s["lead"]}</Leading></Properties></ParagraphStyle>' for n, s in STYLES.items())
     styles = (HDR + f'<idPkg:Styles {NS}>'
@@ -203,10 +218,10 @@ def build_jsx(its, path):
          'function color(n, v) { var c = doc.colors.itemByName(n); if (!c.isValid) c = doc.colors.add({name: n, model: ColorModel.PROCESS, space: ColorSpace.RGB, colorValue: v}); return c; }',
          'var C = {};']
     L += [f'C[{js(n)}] = color({js(n)}, {list(c)});' for n, c in COLORS.items()]
-    L.append('function ps(n, size, lead, col, j, tr, tint) { var s = doc.paragraphStyles.add({name: n}); try { s.appliedFont = ' + js(FONT) + '; } catch (e) {}'
-             ' s.pointSize = size; s.leading = lead; s.fillColor = C[col]; if (tint > 0) s.fillTint = tint; s.justification = j; s.hyphenation = false; s.tracking = tr; return s; }')
+    L.append('function ps(n, size, lead, col, j, tr, tint, fs) { var s = doc.paragraphStyles.add({name: n}); try { s.appliedFont = ' + js(FONT) + '; } catch (e) {}'
+             ' if (fs) { try { s.fontStyle = fs; } catch (e) {} } s.pointSize = size; s.leading = lead; s.fillColor = C[col]; if (tint > 0) s.fillTint = tint; s.justification = j; s.hyphenation = false; s.tracking = tr; return s; }')
     L.append('var S = {};')
-    L += [f'S[{js(n)}] = ps({js(n)}, {s["size"]}, {s["lead"]}, {js(s["color"])}, {just[s["align"]]}, {s.get("track", 0)}, {s.get("tint", -1)});' for n, s in STYLES.items()]
+    L += [f'S[{js(n)}] = ps({js(n)}, {s["size"]}, {s["lead"]}, {js(s["color"])}, {just[s["align"]]}, {s.get("track", 0)}, {s.get("tint", -1)}, {js(s.get("fs", ""))});' for n, s in STYLES.items()]
     L.append('function round(r, rad) { if (!rad) return; r.topLeftCornerOption = r.topRightCornerOption = r.bottomLeftCornerOption = r.bottomRightCornerOption = CornerOptions.ROUNDED_CORNER;'
              ' r.topLeftCornerRadius = r.topRightCornerRadius = r.bottomLeftCornerRadius = r.bottomRightCornerRadius = rad; }')
     for it in its:
@@ -230,7 +245,7 @@ def build_jsx(its, path):
 # ── preview (same coordinates, HTML) ─────────────────────────────────────────────────
 def build_preview(its, base):
     from pathlib import Path
-    css = {n: f'font-size:{s["size"]}px;line-height:{s["lead"]}px;color:rgb{COLORS[s["color"]]};opacity:{s.get("tint", 100) / 100};text-align:{s["align"]};letter-spacing:{s.get("track", 0) / 1000}em' for n, s in STYLES.items()}
+    css = {n: f'font-size:{s["size"]}px;line-height:{s["lead"]}px;color:rgb{COLORS[s["color"]]};opacity:{s.get("tint", 100) / 100};text-align:{s["align"]};letter-spacing:{s.get("track", 0) / 1000}em;font-weight:{700 if s.get("fs") == "Bold" else 400}' for n, s in STYLES.items()}
     el = []
     for it in its:
         box = f'left:{it["x"]}px;top:{it["y"]}px;width:{it["w"]}px;height:{it["h"]}px'
