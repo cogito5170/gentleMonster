@@ -27,6 +27,7 @@ cover((36, 290, 236, 332), (440, 120, 690, 290))      # small label
 cover((36, 345, 670, 655), (440, 120, 690, 290))      # headline
 cover((50, 818, 232, 862), (60, 880, 232, 980))       # card 1 label
 cover((272, 813, 452, 888), (274, 895, 452, 985))     # card 2 number
+cover((158, 40, 425, 74), (440, 120, 690, 160))       # nav: Cases · Service · About
 im.save('${TMP}/clean.png')
 `]);
 
@@ -37,12 +38,13 @@ const exe = (() => { const b = process.env.PLAYWRIGHT_BROWSERS_PATH || '/opt/pw-
 
 // copy options: headline lines (about the same 46-49 characters as the draft's 48), label, two cards
 export const OPTS = {
-  A: { lines: ['SEEN FROM', 'THE INSIDE,', 'MADE FOR THE ONE', 'WHO STOPS.'], ko: '안에서 보고, 걸음을 멈춘 한 사람을 위해 만든다.', note: '지원자의 스토리(FROM THE INSIDE)를 한 줄로. 추천' },
-  B: { lines: ['FRAMES THAT', 'CATCH THE EYE', '& STAY ON', 'YOUR MIND.'], ko: '눈길을 잡고, 기억에 남는 프레임.', note: '아이웨어 직접형. 제품 페이지에 잘 맞는다' },
-  C: { lines: ['I WATCH', 'WHAT MAKES', 'PEOPLE STOP,', 'THEN I BUILD IT.'], ko: '사람을 멈추게 하는 것을 보고, 그것을 짓는다.', note: '일하는 방식(관찰 → 제작)을 문장으로' },
+  A: { lines: ['SEE DIFFERENTLY.', 'FRAMES CUT BOLD,', 'BUILT TO', 'LAST.'], ko: '다르게 보라. 대담하게 깎고, 오래가게 만든 테.', note: '브랜드 캠페인형 — 시즌과 상관없이 쓸 수 있다. 추천' },
+  B: { lines: ['NEW SEASON.', 'NEW FRAMES.', 'FIND THE ONE', 'THAT IS YOU.'], ko: '새 시즌, 새 테. 나다운 한 쌍을 찾으세요.', note: '시즌 런칭형 — 신상품 공개 때' },
+  C: { lines: ['HANDMADE', 'ACETATE FOR FACES', "THAT WON'T", 'BLEND IN.'], ko: '묻히지 않는 얼굴을 위한 수공 아세테이트.', note: '소재 · 제작형 — 제품 이야기를 앞에' },
 };
-const LABEL = '| Jeong Hyeokju', CARD1 = { k: '| About', t: 'Architecture student who photographs people and styles looks — then builds what makes them stop.' },
-  CARD2 = { n: '03', t: 'ways of seeing<br>Photo · Architecture · Fashion' };
+const LABEL = '| AW26 Collection', CARD1 = { k: '| Try On', t: 'Find your fit in store or with virtual try-on.<br><u>Book a fitting →</u>' },
+  CARD2 = { n: 'AW26', t: 'New frames, now in stores<br><u>Shop the collection →</u>' };
+const NAV = ['Shop', 'Collection', 'Stores'];
 
 const F = "'Liberation Sans',Arial,sans-serif";
 const page = o => `<!doctype html><html><head><meta charset="utf-8"><style>
@@ -50,8 +52,9 @@ html,body{margin:0;width:1812px;height:1014px;overflow:hidden} body{position:rel
 .a{position:absolute} .lab{left:44px;top:296px;font-size:21px;transform:scaleX(.88);transform-origin:0 0;text-shadow:0 1px 6px rgba(80,40,0,.25)}
 .h{left:44px;top:352px;font-weight:700;font-size:72px;line-height:75px;letter-spacing:-.5px;transform:scaleX(.84);transform-origin:0 0;white-space:nowrap;text-shadow:0 2px 14px rgba(80,40,0,.25)}
 .k{font-size:20px;transform:scaleX(.88);transform-origin:0 0} .ct{font-size:15.5px;line-height:21px;margin-top:12px;width:180px;opacity:.95}
-.n{font-weight:700;font-size:62px;line-height:62px;transform:scaleX(.86);transform-origin:0 0} .nt{font-size:15.5px;line-height:21px;margin-top:8px;width:180px;opacity:.95}
+.n{font-weight:700;font-size:62px;line-height:62px;transform:scaleX(.86);transform-origin:0 0} .nt{font-size:15.5px;line-height:21px;margin-top:8px;width:180px;opacity:.95} u{text-underline-offset:3px} .nav{top:44px;font-weight:700;font-size:21px;transform:scaleX(.86);transform-origin:0 0}
 </style></head><body>
+<div class="a nav" style="left:170px">${NAV[0]}</div><div class="a nav" style="left:240px">${NAV[1]}</div><div class="a nav" style="left:352px">${NAV[2]}</div>
 <div class="a lab">${LABEL}</div>
 <div class="a h">${o.lines.join('<br>')}</div>
 <div class="a" style="left:58px;top:824px"><div class="k">${CARD1.k}</div><div class="ct">${CARD1.t}</div></div>
@@ -86,34 +89,34 @@ const PW = 1812, PH = 1014;
 { const X = 10, Y = 22, W = 120, k = W / PW, H = PH * k, bx = (x0, y0, x1, y1, n) => { R(X + x0 * k, Y + y0 * k, (x1 - x0) * k, (y1 - y0) * k, .5, 'none', `stroke="${RED}"`); num(X + x1 * k + 3, Y + y0 * k + 2, n); };
   head(X, 14, '01', 'NOW — 지금 시안', 'red = text to replace or fill');
   IMG('current.jpg', X, Y, W, H);
-  bx(36, 290, 236, 332, '1'); bx(36, 345, 670, 655, '2'); bx(32, 804, 245, 998, '3'); bx(256, 804, 469, 998, '4');
-  [['1', '작은 라벨 · 템플릿 문구 (I Creative Agency)'], ['2', '헤드라인 · 48자, 4줄 · 오타 TOMORRW'], ['3', '카드 1 · 라벨만 있고 본문이 비어 있음'], ['4', '카드 2 · 근거 없는 숫자 95 %, 설명 없음']].forEach(([n, t], i) => {
-    const yy = Y + H + 5 + i * 4.3; num(X + 2.2, yy - .8, n); T(X + 6.5, yy, t, 1.85); });
+  bx(36, 290, 236, 332, '1'); bx(36, 345, 670, 655, '2'); bx(32, 804, 245, 998, '3'); bx(256, 804, 469, 998, '4'); bx(150, 36, 440, 78, '5');
+  [['1', '라벨 · 에이전시 템플릿 문구 (I Creative Agency)'], ['2', '헤드라인 · 에이전시 문구, 오타 TOMORRW'], ['3', '카드 1 · 본문이 비어 있음'], ['4', '카드 2 · 근거 없는 95 %'], ['5', '메뉴 · Cases · Service 는 에이전시 메뉴']].forEach(([n, t], i) => {
+    const yy = Y + H + 4.5 + i * 3.6; num(X + 2.2, yy - .8, n); T(X + 6.5, yy, t, 1.85); });
 }
 
 // 02 COPY
-{ const X = 142, Y = 22; head(X, 14, '02', 'COPY — 헤드라인 대안 (지금 48자 → 46–49자, 4줄)', 'same line rhythm as the draft: short · long · short · short');
+{ const X = 142, Y = 22; head(X, 14, '02', 'COPY — 아이웨어 홈페이지 문구 (지금 48자 → 47–49자, 4줄)', 'written like a real eyewear brand home page · no brand name, no invented numbers');
   T(X, Y + 3, 'NOW', 1.6, `${dim} letter-spacing=".3"`); T(X + 12, Y + 3, 'DESIGN THAT / CAPTIVATES TODAY / &amp; INSPIRES / TOMORRW.', 2, `font-family="${MONO}"`); T(X + 128, Y + 3, '48', 1.8, `fill="${RED}"`);
   Object.entries(OPTS).forEach(([k, op], i) => { const yy = Y + 11 + i * 17, s = op.lines.join(' '), col = k === 'A' ? OK : EYE;
     T(X, yy, k, 3.2, `${bold} fill="${col}"`); T(X + 6, yy, op.lines.join(' / ').replace(/&/g, '&amp;'), 2.15, `${bold} font-family="${MONO}"`); T(X + 128, yy, String(s.length), 1.8, `fill="${col}"`);
     T(X + 6, yy + 4.6, op.ko, 1.9); T(X + 6, yy + 8.6, op.note, 1.7, dim); });
   T(X, Y + 64, 'ALSO', 1.6, `${dim} letter-spacing=".3"`);
-  FO(X + 12, Y + 61.2, 118, 22, `<b>라벨</b> I Creative Agency → <b>${LABEL}</b><br><b>카드 1</b> ${CARD1.k} — ${CARD1.t}<br><b>카드 2</b> <b>${CARD2.n}</b> ${CARD2.t.replace('<br>', ' — ')}<br>숫자는 지어내지 않는다: 95 % 대신 포트폴리오의 세 장(사진 · 건축 · 패션)`);
+  FO(X + 12, Y + 61.2, 118, 22, `<b>메뉴</b> Home · Cases · Service · About → <b>Home · ${NAV.join(' · ')}</b><br><b>라벨</b> → <b>${LABEL}</b> (시즌 이름)<br><b>카드 1</b> ${CARD1.k} — ${CARD1.t.replace(/<[^>]+>/g, ' ')}<br><b>카드 2</b> <b>${CARD2.n}</b> — ${CARD2.t.replace(/<[^>]+>/g, ' ')}`);
 }
 
 // 03 AFTER (A, recommended) + B / C
 { const Y = 116; head(10, Y, '03', 'AFTER — A 반영 (추천)', 'the old text covered with the page\'s own background · new copy set on top');
   const W = 250, H = W * PH / PW; IMG('after_A.jpg', 10, Y + 6, W, H);
   head(268, Y, '', 'B · C', 'same layout, other headlines');
-  const w2 = 112, h2 = w2 * PH / PW; IMG('after_B.jpg', 284, Y + 6, w2, h2); T(284, Y + 9 + h2, 'B — FRAMES THAT CATCH THE EYE', 1.8, `${bold} fill="${EYE}"`);
-  IMG('after_C.jpg', 284, Y + 14 + h2, w2, h2); T(284, Y + 17 + 2 * h2, 'C — I WATCH WHAT MAKES PEOPLE STOP', 1.8, `${bold} fill="${EYE}"`);
+  const w2 = 112, h2 = w2 * PH / PW; IMG('after_B.jpg', 284, Y + 6, w2, h2); T(284, Y + 9 + h2, 'B — NEW SEASON. NEW FRAMES.', 1.8, `${bold} fill="${EYE}"`);
+  IMG('after_C.jpg', 284, Y + 14 + h2, w2, h2); T(284, Y + 17 + 2 * h2, 'C — HANDMADE ACETATE', 1.8, `${bold} fill="${EYE}"`);
 }
 
 // 04 cards spec + title
 { const X = 10, Y = 270; L(6, Y - 5, 414, Y - 5, .3);
-  T(X, Y, '04  CARDS — 좌측 하단 두 칸', 2.6, bold);
-  FO(X, Y + 2, 250, 16, `<b>카드 1 ${CARD1.k}</b> — 한 문장 소개: 건축을 공부하며 사람을 찍고 착장을 맞춘다, 그리고 사람을 멈추게 하는 것을 짓는다. · <b>카드 2 ${CARD2.n}</b> — 보는 방식 세 가지 (사진 · 건축 · 패션), 포트폴리오의 세 장과 같다. 카드를 누르면 각 장으로 간다.`);
-  const tx = 268; T(tx, Y, 'WEB HERO COPY', 5.4, `${bold} letter-spacing="-.1"`); T(tx, Y + 6, 'JEONG HYEOKJU — headline, label and cards for the hero draft', 2.2, bold);
+  T(X, Y, '04  CARDS — 좌측 하단 두 칸 = 할 일 두 가지', 2.6, bold);
+  FO(X, Y + 2, 250, 16, `<b>카드 1 Try On</b> — 매장 피팅 예약 · 가상 착용 (안경은 써 봐야 산다). · <b>카드 2 AW26</b> — 이번 시즌 컬렉션으로 가는 입구. 숫자 대신 시즌 코드를 크게 둔다 (95 % 는 근거가 없어 뺐다). 시즌 코드는 실제 시즌에 맞춰 바꾼다.`);
+  const tx = 268; T(tx, Y, 'EYEWEAR HOME', 5.4, `${bold} letter-spacing="-.1"`); T(tx, Y + 6, 'JEONG HYEOKJU — eyewear brand home page copy for the hero draft', 2.2, bold);
   T(tx, Y + 11, 'font: draft is a condensed sans; preview uses Liberation Sans narrowed (scaleX .84)', 1.6, dim);
   T(tx, Y + 15, 'docs/web_hero · tools/web_hero/build.mjs', 1.6, dim);
 }
