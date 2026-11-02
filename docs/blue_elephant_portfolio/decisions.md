@@ -13,3 +13,11 @@ JAJU 포트폴리오와는 별개 작업.
 - 권함: **MULTIFRAME** (여러 틀 — 다중 + 프레임). 다른 후보: RANGE · FACETS · PRISM · ACROSS · VERSATILE.
 - 11-02 추가 — 사용자: "VERSATILE과 같은 유의어를 더 추천해라. 강하고 직관적인 단어를 원한다."
   권함 **ADAPT**(매체에 맞춰 바꾼다 — 짧은 동사) · **ALL-ROUND**(만능). 그 밖에 FLEX('플렉스' 과시 뜻 주의) · SHIFT · AGILE · OMNI · MULTIPLY · CHAMELEON · PROTEAN(강하지만 덜 직관적).
+
+## 표지 PROTEAN — 버튼 글 · 디자인 요소 (2026-11-02)
+사용자: "포트폴리오 커버를 제작 중이다. 제목은 PROTEAN 으로 설정했다. 우측 하단 버튼에 사용자를 설명할 수 있는 영단어를 넣어라. 또한, 현재의 틀을 바탕으로 '디자인적' 요소를 추가할 수 있다면 추가한 안도 제안해라."
+→ `cover/cover_mock.pdf` (A 버튼 글 · B 디자인 요소) · `python3 tools/blue_elephant/cover_mock.py` · 바탕은 사용자 화면 `cover/cover_in_progress.jpg`
+- 버튼 글 권함: **SPACE · LENS · STYLE** (건축 · 사진과 안경 렌즈 · 패션 — 공고 우대 '패션 · 사진 · 건축', 인스타그램 소개 'DESIGNER'). 가운데 '2026' 은 오른쪽 위와 겹쳐 글로 바꿈.
+  다른 세트: ARCHITECTURE · PHOTOGRAPHY · FASHION (공고 낱말 그대로, 길다) / OBSERVE · FRAME · STYLE (하는 일, 동사) / DESIGNER · 2026 · PORTFOLIO (지금 틀 유지).
+- B 디자인 요소: 사전 뜻풀이 한 줄(pro·te·an … able to take many forms) · 제목 O 를 렌즈처럼 감싼 가는 원 · 버튼 번호 01–03 · 맨 위 눈금 기준선 · 네 모서리 뷰파인더 · 오른쪽 렌즈 초점 괄호 'LENS — 02' · 세로 'FAMILIAR UNFAMILIAR' · 'No. 00 / COVER'.
+- 제목 철자: 메시지의 'PROTEN' 이 아니라 화면대로 **PROTEAN** 이 맞다.
