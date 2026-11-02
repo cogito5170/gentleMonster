@@ -21,3 +21,10 @@ JAJU 포트폴리오와는 별개 작업.
   다른 세트: ARCHITECTURE · PHOTOGRAPHY · FASHION (공고 낱말 그대로, 길다) / OBSERVE · FRAME · STYLE (하는 일, 동사) / DESIGNER · 2026 · PORTFOLIO (지금 틀 유지).
 - B 디자인 요소: 사전 뜻풀이 한 줄(pro·te·an … able to take many forms) · 제목 O 를 렌즈처럼 감싼 가는 원 · 버튼 번호 01–03 · 맨 위 눈금 기준선 · 네 모서리 뷰파인더 · 오른쪽 렌즈 초점 괄호 'LENS — 02' · 세로 'FAMILIAR UNFAMILIAR' · 'No. 00 / COVER'.
 - 제목 철자: 메시지의 'PROTEN' 이 아니라 화면대로 **PROTEAN** 이 맞다.
+
+## 표지 문구 '나는 ~가 가능합니다' 세 안 (2026-11-02, 미정)
+사용자: 공고(담당업무 · 자격요건 · 우대사항)를 참고해 2–3줄 영어로 '나는 ~가 가능합니다!'를 전하는 세 안. 참고 꼴: "Shaping what's next. / Through bold digital identity."
+- A (권함) One eye, many forms. / From thumbnail to campaign, / I shape what every frame needs.
+- B Space trained my eye. The lens sharpened it. / Now it's ready for every screen — / detail page, banner, feed.
+- C Imagine it. Frame it. Deliver it. / Retouching, layout, AI-made visuals — / every file in place, every deadline met.
+- 쓰지 않은 것: Premiere · After Effects · Figma(사용자 답 UQ2 — 써 본 적 없음), 영상 편집. AI 는 사용자 결정(적극 활용)대로 넣음.
