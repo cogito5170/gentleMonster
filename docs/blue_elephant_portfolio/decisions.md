@@ -48,3 +48,9 @@ JAJU 포트폴리오와는 별개 작업.
 - 11-03: Skills 왼쪽 칸 순서를 사용자 지시대로 Photoshop · Illustrator · AutoCAD · Rhino · Enscape (InDesign 은 맨 아래 유지).
 - 11-03: Skills 다시 — 왼쪽 Photoshop · Illustrator · InDesign · AutoCAD · Rhino · Enscape, 오른쪽 Korean · English · AI imaging · Photography.
 - 11-03: Skills 오른쪽 칸 — Korean · English · (빈 칸) · AI imaging · Photography.
+
+## 마지막 쪽 Thank you. (2026-11-03)
+사용자: 사례(Thank you. · Contact)를 "사용자에 맞게 제작하고 일러스트로 제공하라."
+→ `thanks/thanks_page.svg` · `.pdf`(1920 × 1080 pt) · `.png` · `python3 tools/blue_elephant/thanks_page.py`
+- Contact: Name Jeong Hyeokju · Mail aa3391@naver.com · Phone +82 10-8582-3257 (이력서 CONTACT ME). LinkedIn · Behance 같은 링크 줄은 넣지 않음(URL 생략, D47).
+- 이력 쪽과 같은 글꼴 · 색 · 옅은 큰 글자. 왼쪽 세로 쪽 번호는 'P/ 00' 자리 표시 — 책 순서가 정해지면 바꿈.

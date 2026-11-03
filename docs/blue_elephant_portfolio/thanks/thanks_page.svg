@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920px" height="1080px" viewBox="0 0 1920 1080">
+  <defs><style>
+    text{font-family:'Instrument Sans',sans-serif}
+    .ghost{font-size:168px;font-weight:700;fill:#E4E4E4}
+    .title{font-size:84px;font-weight:700;fill:#1E1E1E;letter-spacing:-1px}
+    .h2{font-size:36px;font-weight:700;fill:#1E1E1E}
+    .lab{font-size:14.5px;font-style:italic;fill:#6B6B6B}
+    .val{font-size:15px;fill:#4A4A4A}
+    .side{font-family:'IBM Plex Mono',monospace;font-size:12px;fill:#9A9A9A;letter-spacing:1px}
+  </style></defs>
+  <g id='BACKGROUND'><rect x='0' y='0' width='1920' height='1080' fill='#F5F5F5'/></g>
+  <g id='TITLE'><text x='176' y='578' class='ghost' text-anchor='start' transform='translate(176 578) scale(.74 1) translate(-176 -578)'>Thank you.</text><text x='236' y='594' class='title' text-anchor='start'>Thank you.</text></g>
+  <g id='SIDE_TAB'><g transform='translate(32 520) rotate(-90)'><text x='0' y='0' class='side' text-anchor='middle'>P/ 00</text></g><line x1='26' y1='557' x2='38' y2='557' stroke='#BDBDBD' stroke-width='1'/><g transform='translate(32 610) rotate(-90)'><text x='0' y='0' class='side' text-anchor='middle'>Contact</text></g></g>
+  <g id='CONTACT'><text x='1187' y='529' class='h2' text-anchor='start'>Contact</text><text x='1187' y='586' class='lab' text-anchor='start'>Name</text><text x='1296' y='586' class='val' text-anchor='start'>Jeong Hyeokju</text><text x='1187' y='607' class='lab' text-anchor='start'>Mail</text><text x='1296' y='607' class='val' text-anchor='start'>aa3391@naver.com</text><text x='1187' y='628' class='lab' text-anchor='start'>Phone</text><text x='1296' y='628' class='val' text-anchor='start'>+82 10-8582-3257</text></g>
+</svg>
