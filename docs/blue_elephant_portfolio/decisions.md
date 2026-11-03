@@ -45,3 +45,4 @@ JAJU 포트폴리오와는 별개 작업.
 - Education: University of Seoul · 2020 – present · B.Arch 5년제 · 설계 7학기. Skills: AutoCAD · Rhino · Enscape · Photoshop · Illustrator · InDesign / Korean · English(리서치) · Photography · AI imaging.
 - Experiences: A.CO.LAB 인턴(2026.08, 실측 · 모델링 · 문화역서울284 전시 모형) · 설계 스튜디오(City · Courtyard · Path · Hollow) · 카페(창고 그리드 · 홀 재배치) · 해비타트 · 육군 병장(표창 2회).
 - 뺀 것: JAJU 라운딩 VMD 지원 줄 · VMD 말 · 휴학 연도 · 연락처. 확인 필요: 카페 영어 이름, 전시 영어 제목('Design of Care'), 'AI imaging'(사용한 도구 이름을 쓸지).
+- 11-03: Skills 왼쪽 칸 순서를 사용자 지시대로 Photoshop · Illustrator · AutoCAD · Rhino · Enscape (InDesign 은 맨 아래 유지).

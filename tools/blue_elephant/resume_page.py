@@ -24,8 +24,8 @@ PRINT = os.path.join(REPO, 'tools/p1_layout/print_pdf.mjs')
 W, H = 1920, 1080
 
 EDUCATION = [('University of Seoul', '2020 – present', ['Bachelor of Architecture (5-year program)', 'Seven design studios · 2D – 3D'])]
-SKILLS_L = [('Ac', 'AutoCAD', '2D drawing'), ('Rh', 'Rhino', '3D modeling'), ('En', 'Enscape', 'Rendering'),
-            ('Ps', 'Photoshop', 'Retouching'), ('Ai', 'Illustrator', 'Vector graphics'), ('Id', 'InDesign', 'Editorial layout')]
+SKILLS_L = [('Ps', 'Photoshop', 'Retouching'), ('Ai', 'Illustrator', 'Vector graphics'), ('Ac', 'AutoCAD', '2D drawing'),
+            ('Rh', 'Rhino', '3D modeling'), ('En', 'Enscape', 'Rendering'), ('Id', 'InDesign', 'Editorial layout')]  # 사용자 순서(11-03)
 SKILLS_R = [('Ko', 'Korean', 'Native'), ('En', 'English', 'Research reading'), ('CAM', 'Photography', ''), ('AI', 'AI imaging', 'Image generation')]
 EXPERIENCES = [
     ('A.CO.LAB', 'Architecture Office Intern  |  August 2026',
