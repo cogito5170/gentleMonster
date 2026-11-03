@@ -28,3 +28,10 @@ JAJU 포트폴리오와는 별개 작업.
 - B Space trained my eye. The lens sharpened it. / Now it's ready for every screen — / detail page, banner, feed.
 - C Imagine it. Frame it. Deliver it. / Retouching, layout, AI-made visuals — / every file in place, every deadline met.
 - 쓰지 않은 것: Premiere · After Effects · Figma(사용자 답 UQ2 — 써 본 적 없음), 영상 편집. AI 는 사용자 결정(적극 활용)대로 넣음.
+
+## SNS 쪽 — 겹친 아이폰 셋 (2026-11-03)
+사용자: 인스타그램 카드 셋 쪽을 TV Azteca 인스타그램 목업 꼴로 — 맨 위 로고 비움 · 아이폰 셋 안에 각 페이지 · 사례처럼 겹침 · 검은 바탕.
+→ `sns_phones/sns_phones.png`(3840 × 2160) · `sns_phones.pdf`(1920 × 1080) · `python3 tools/blue_elephant/sns_phones.py`
+- 가운데 휴대폰(격자 9장)이 앞에 크게, 양옆(바위 · 미술관)은 뒤에서 조금 위로. 화면 안은 인스타그램 화면(맨 위 줄 · 스토리 · 게시물 머리 · 사진 · 반응 · 아래 메뉴).
+- 맨 위 가운데(y 약 40–190px)는 로고 자리로 비워 둠. 좋아요 수 · 댓글 같은 지어낸 숫자와 글은 넣지 않음.
+- 사진은 사용자 카드 화면에서 잘라 냄(post_left · post_grid · post_right, 해상도 낮음) — 원본으로 바꾸면 더 선명.
