@@ -38,3 +38,10 @@ JAJU 포트폴리오와는 별개 작업.
 - 11-03: 사용자 "스크린의 좌측 상단 Jeonghyeokju 부터 우측 하단 저장 표시까지 화면을 흰색으로 변환하라. 3개 모두. 1920x1080(픽셀) 일러스트 파일로."
   → `sns_phones/sns_phones_blank.svg`(일러스트레이터에서 열면 층별 벡터, 1920 × 1080 px) · `.pdf`(1920 × 1080 pt = 일러스트레이터 1920 × 1080 px, 글꼴 포함) · `.png` 미리 보기.
   게시물 칸(아이디 줄 ~ 반응 · 저장 줄)을 흰 사각형 POST_AREA_LEFT · RIGHT · CENTER 로 — 쪽을 얹거나 클리핑 마스크로. 로고 자리 LOGO_AREA(빈 틀). `python3 tools/blue_elephant/sns_phones_blank.py`
+
+## 이력 쪽 Resume. (2026-11-03)
+사용자: "사용자의 이력서의 내용을 참고하여 사용자에게 맞추어진 1번 사례(Resume. · Education · Skills · Experiences)의 이미지를 제작하라. 일러스트 파일로 제공하라."
+→ `resume/resume_page.svg`(일러스트레이터 층별 벡터) · `.pdf`(1920 × 1080 pt) · `.png` · `python3 tools/blue_elephant/resume_page.py`
+- Education: University of Seoul · 2020 – present · B.Arch 5년제 · 설계 7학기. Skills: AutoCAD · Rhino · Enscape · Photoshop · Illustrator · InDesign / Korean · English(리서치) · Photography · AI imaging.
+- Experiences: A.CO.LAB 인턴(2026.08, 실측 · 모델링 · 문화역서울284 전시 모형) · 설계 스튜디오(City · Courtyard · Path · Hollow) · 카페(창고 그리드 · 홀 재배치) · 해비타트 · 육군 병장(표창 2회).
+- 뺀 것: JAJU 라운딩 VMD 지원 줄 · VMD 말 · 휴학 연도 · 연락처. 확인 필요: 카페 영어 이름, 전시 영어 제목('Design of Care'), 'AI imaging'(사용한 도구 이름을 쓸지).
