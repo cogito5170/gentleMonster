@@ -26,7 +26,7 @@ W, H = 1920, 1080
 EDUCATION = [('University of Seoul', '2020 – present', ['Bachelor of Architecture (5-year program)', 'Seven design studios · 2D – 3D'])]
 SKILLS_L = [('Ps', 'Photoshop', 'Retouching'), ('Ai', 'Illustrator', 'Vector graphics'), ('Id', 'InDesign', 'Editorial layout'),
             ('Ac', 'AutoCAD', '2D drawing'), ('Rh', 'Rhino', '3D modeling'), ('En', 'Enscape', 'Rendering')]  # 사용자 순서(11-03)
-SKILLS_R = [('Ko', 'Korean', 'Native'), ('En', 'English', 'Research reading'), ('AI', 'AI imaging', 'Image generation'), ('CAM', 'Photography', '')]
+SKILLS_R = [('Ko', 'Korean', 'Native'), ('En', 'English', 'Research reading'), None, ('AI', 'AI imaging', 'Image generation'), ('CAM', 'Photography', '')]  # None = 빈 칸
 EXPERIENCES = [
     ('A.CO.LAB', 'Architecture Office Intern  |  August 2026',
      ['Site survey and 3D modeling of the surrounding site and project buildings.',
@@ -83,7 +83,10 @@ def layers():
     for i, (m, n, d) in enumerate(SKILLS_L):
         yy = 652 + i * 46
         s += skill_box(172, yy, m) + t(231, yy + 22, n, 'sk') + t(346, yy + 22, d, 'skd')
-    for i, (m, n, d) in enumerate(SKILLS_R):
+    for i, item in enumerate(SKILLS_R):
+        if item is None:
+            continue
+        m, n, d = item
         yy = 652 + i * 46
         s += skill_box(470, yy, m) + t(529, yy + 22, n, 'sk') + (t(644, yy + 22, d, 'skd') if d else '')
     o['SKILLS'] = s

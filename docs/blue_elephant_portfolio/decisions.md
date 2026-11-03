@@ -47,3 +47,4 @@ JAJU 포트폴리오와는 별개 작업.
 - 뺀 것: JAJU 라운딩 VMD 지원 줄 · VMD 말 · 휴학 연도 · 연락처. 확인 필요: 카페 영어 이름, 전시 영어 제목('Design of Care'), 'AI imaging'(사용한 도구 이름을 쓸지).
 - 11-03: Skills 왼쪽 칸 순서를 사용자 지시대로 Photoshop · Illustrator · AutoCAD · Rhino · Enscape (InDesign 은 맨 아래 유지).
 - 11-03: Skills 다시 — 왼쪽 Photoshop · Illustrator · InDesign · AutoCAD · Rhino · Enscape, 오른쪽 Korean · English · AI imaging · Photography.
+- 11-03: Skills 오른쪽 칸 — Korean · English · (빈 칸) · AI imaging · Photography.
