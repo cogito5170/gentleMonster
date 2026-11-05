@@ -327,3 +327,4 @@
 - (2026-11-05, 사용자) 블루엘리펀트 포트폴리오 'PROTEAN'(14쪽): 썸네일 이미지 AI 제작, 포토샵·일러스트로 웹페이지 제작(FW26 컬렉션 첫 화면·Try On, Style & Display 소개 페이지), 렌더링·포토샵으로 사진 전시 표현, 렌더링·포토샵으로 미디어 파사드 제작, AI로 로고·그래픽 이미지 생성(ARCHITECTURE 로고·태그 목업, 유리 블록 그래픽), 일러스트·포토샵·인디자인으로 SNS 화면 제작, 인디자인 책자 'SPA'(Style·Picture·Architecture). 이력서 쪽에 스킬(Ps 리터칭, Ai, Id, AutoCAD, Rhino, Enscape, AI imaging, Photography, English research reading)
 
 - (2026-11-05, 사용자 확인) 포트폴리오의 책자 'SPA'(Style·Picture·Architecture)는 인디자인으로 만듦
+- (2026-11-05, 사용자) PROTEAN은 '변화무쌍한'이라는 뜻으로, 다양한 작업물을 담고자 이름을 붙임. 블루엘리펀트 3번에 넣는 안 채택(v3)
