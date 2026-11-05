@@ -325,3 +325,5 @@
 - (2026-11-05, 사용자 확인) 설계 수업에서 찾은 해외 자료를 그대로 나열하지 않고 하나의 컨셉으로 묶어 다이어그램·이미지로 정리해 발표함. 렌더링을 만들고 포토샵으로 후보정하며 재료와 색이 어떻게 보일지 미리 확인하고, 어색한 부분은 고침. 블루엘리펀트 2번 확정 → docs/portfolio/blue_elephant/blue_elephant_q2_FINAL.md
 
 - (2026-11-05, 사용자) 블루엘리펀트 포트폴리오 'PROTEAN'(14쪽): 썸네일 이미지 AI 제작, 포토샵·일러스트로 웹페이지 제작(FW26 컬렉션 첫 화면·Try On, Style & Display 소개 페이지), 렌더링·포토샵으로 사진 전시 표현, 렌더링·포토샵으로 미디어 파사드 제작, AI로 로고·그래픽 이미지 생성(ARCHITECTURE 로고·태그 목업, 유리 블록 그래픽), 일러스트·포토샵·인디자인으로 SNS 화면 제작, 인디자인 책자 'SPA'(Style·Picture·Architecture). 이력서 쪽에 스킬(Ps 리터칭, Ai, Id, AutoCAD, Rhino, Enscape, AI imaging, Photography, English research reading)
+
+- (2026-11-05, 사용자 확인) 포트폴리오의 책자 'SPA'(Style·Picture·Architecture)는 인디자인으로 만듦
