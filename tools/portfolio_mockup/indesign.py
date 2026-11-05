@@ -1,14 +1,18 @@
-"""The SPA portfolio mockup board as an InDesign file, 1920 x 1080 px (web intent, 1 px = 1 pt).
+"""Portfolio mockup board as an InDesign file, 1920 x 1080 px (web intent, 1 px = 1 pt).
+Cover in the middle, three open spreads on each side.
 
-python3 tools/portfolio_mockup/indesign.py
+python3 tools/portfolio_mockup/indesign.py [spa|vmd]      (default spa)
 
-  docs/portfolio_mockup/indesign/portfolio_mockup_1920x1080.idml   open in InDesign (File > Open), save as .indd
-  docs/portfolio_mockup/indesign/portfolio_mockup_1920x1080.jsx    builds the same page inside InDesign (File > Scripts)
-  docs/portfolio_mockup/indesign/Links/*.jpg                       background, cover and the 12 half-pages (2x)
-  docs/portfolio_mockup/indesign/portfolio_mockup_1920x1080.pdf/.jpg  preview of the same coordinates
-  docs/portfolio_mockup/portfolio_mockup_1920x1080_indesign.zip    all of the above in one folder
+  spa  docs/portfolio_mockup/        — SPA portfolio (A4 pages, portrait cover)
+  vmd  docs/portfolio_mockup_vmd/    — VMD portfolio (landscape pages read as spreads; cover = right half of page 1)
 
-Pages: docs/portfolio_mockup/pages (rendered from the applicant's own portfolio PDF).
+  <dir>/indesign/<name>.idml   open in InDesign (File > Open), save as .indd
+  <dir>/indesign/<name>.jsx    builds the same page inside InDesign (File > Scripts)
+  <dir>/indesign/Links/*.jpg   background, cover and the 12 half-pages (2x)
+  <dir>/indesign/<name>.pdf/.jpg  preview of the same coordinates
+  <dir>/<name>_indesign.zip    all of the above in one folder
+
+Pages: <dir>/pages (rendered from the applicant's own portfolio PDF).
 Live in InDesign: three layers (Background / Spreads / Cover), cream panels, page edges, every half-page
 as its own linked frame (relink to swap a spread), the cover rotated -6 deg with a drop shadow.
 Baked into the links only: the gutter shade on each half-page and the spine/gloss on the cover.
@@ -18,28 +22,39 @@ import json
 import math
 import os
 import subprocess
+import sys
 import zipfile
 
 import numpy as np
 from PIL import Image
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
-PAGES = os.path.join(REPO, 'docs/portfolio_mockup/pages')
-OUT = os.path.join(REPO, 'docs/portfolio_mockup/indesign')
+CONFIGS = {
+    'spa': dict(dir='docs/portfolio_mockup', name='portfolio_mockup_1920x1080', ratio=1.4155, sw=430, cover_h=860, cover_ratio=1273 / 1800,
+                left=[('STYLE', 'style.jpg'), ('PICTURE', 'picture.jpg'), ('I STOP', 'i_stop.jpg')],
+                right=[('ARCHITECTURE', 'architecture.jpg'), ('WEB DESIGN', 'web_design.jpg'), ('HAND-MADE MODEL', 'model.jpg')]),
+    # rows = chapters: left the opener, right its content page
+    'vmd': dict(dir='docs/portfolio_mockup_vmd', name='portfolio_vmd_mockup_1920x1080', ratio=2000 / 1238, sw=450, cover_h=800, cover_ratio=1303 / 1613,
+                left=[('OBSERVE', 'observe.jpg'), ('MATCH MOOD', 'match_mood.jpg'), ('CONTAIN', 'contain.jpg')],
+                right=[('WHERE PEOPLE STOP', 'where_people_stop.jpg'), ('MATCH', 'match.jpg'), ('ARCHITECTURE TO INTERIOR', 'architecture_interior.jpg')]),
+}
+CFG = CONFIGS[sys.argv[1] if len(sys.argv) > 1 else 'spa']
+BASE = os.path.join(REPO, CFG['dir'])
+PAGES = os.path.join(BASE, 'pages')
+OUT = os.path.join(BASE, 'indesign')
 LINKS = os.path.join(OUT, 'Links')
-NAME = 'portfolio_mockup_1920x1080'
+NAME = CFG['name']
 W, H = 1920, 1080
 
 # layout (px)
 PANEL_W, PANEL_H = 500, 330
 ROWS = [30, 375, 720]
 COLX = {'L': 40, 'R': W - 40 - PANEL_W}
-SW = 430
-SH = round(SW / 1.4155)
-LEFT = [('STYLE', 'style.jpg'), ('PICTURE', 'picture.jpg'), ('I STOP', 'i_stop.jpg')]
-RIGHT = [('ARCHITECTURE', 'architecture.jpg'), ('WEB DESIGN', 'web_design.jpg'), ('HAND-MADE MODEL', 'model.jpg')]
-COVER_H = 860
-COVER_W = round(COVER_H * 1273 / 1800)
+SW = CFG['sw']
+SH = round(SW / CFG['ratio'])
+LEFT, RIGHT = CFG['left'], CFG['right']
+COVER_H = CFG['cover_h']
+COVER_W = round(COVER_H * CFG['cover_ratio'])
 COVER_ANGLE = 6          # degrees, counter-clockwise (top leans left)
 COLORS = {'Board': (27, 27, 28), 'Cream': (238, 232, 216), 'Paper Edge': (217, 212, 200), 'Paper Edge Light': (243, 240, 233), 'Cover Edge': (190, 186, 178)}
 SHADOW = {'panel': (35, 0, 2, 5), 'spread': (40, 0, 6, 8), 'cover': (75, 16, 22, 34)}   # opacity, x, y, size
@@ -61,7 +76,7 @@ def items():
             out.append(dict(kind='image', layer='Spreads', name=f'{tag} right page', x=sx + SW / 2, y=sy, w=SW / 2, h=SH, link=f'{stem}_R.jpg', src=src, half='R', scale=.5))
     cx, cy = W / 2, H / 2
     out.append(dict(kind='rect', layer='Cover', name='cover thickness', x=cx - COVER_W / 2 + 4, y=cy - COVER_H / 2 + 4, w=COVER_W, h=COVER_H, fill='Cover Edge', rot=COVER_ANGLE, pivot=(cx, cy)))
-    out.append(dict(kind='image', layer='Cover', name='cover SPA', x=cx - COVER_W / 2, y=cy - COVER_H / 2, w=COVER_W, h=COVER_H, link='cover.jpg', src='cover.jpg', scale=.5, rot=COVER_ANGLE, pivot=(cx, cy), shadow='cover'))
+    out.append(dict(kind='image', layer='Cover', name='cover', x=cx - COVER_W / 2, y=cy - COVER_H / 2, w=COVER_W, h=COVER_H, link='cover.jpg', src='cover.jpg', scale=.5, rot=COVER_ANGLE, pivot=(cx, cy), shadow='cover'))
     return out
 
 
@@ -203,7 +218,7 @@ def build_idml(its, path):
 # ── JSX ──────────────────────────────────────────────────────────────────────────────
 def build_jsx(its, path):
     js = lambda v: json.dumps(v, ensure_ascii=True)
-    L = ['// SPA portfolio mockup board, 1920 x 1080 px. InDesign: File > Scripts > Scripts panel. Keep the Links folder next to this file.',
+    L = ['// Portfolio mockup board, 1920 x 1080 px. InDesign: File > Scripts > Scripts panel. Keep the Links folder next to this file.',
          '#target indesign', '(function () {', 'var here = File($.fileName).parent;',
          'app.scriptPreferences.measurementUnit = MeasurementUnits.PIXELS;',
          f'var doc = app.documents.add({{documentPreferences: {{pageWidth: {W}, pageHeight: {H}, facingPages: false, pagesPerDocument: 1, intent: DocumentIntentOptions.WEB_INTENT}}}});',
@@ -263,16 +278,16 @@ def main():
     its = items(); make_links(its)
     build_idml(its, os.path.join(OUT, NAME + '.idml'))
     build_jsx(its, os.path.join(OUT, NAME + '.jsx'))
-    tmp = os.path.join(REPO, 'out/portfolio_mockup'); os.makedirs(tmp, exist_ok=True)
+    tmp = os.path.join(REPO, 'out', os.path.basename(BASE)); os.makedirs(tmp, exist_ok=True)
     h = build_preview(its, os.path.join(tmp, NAME))
     subprocess.run(['node', os.path.join(REPO, 'tools/web_cards/preview.mjs'), h, os.path.join(OUT, NAME)], check=True)
-    z = os.path.join(REPO, 'docs/portfolio_mockup', NAME + '_indesign.zip')
+    z = os.path.join(BASE, NAME + '_indesign.zip')
     with zipfile.ZipFile(z, 'w', zipfile.ZIP_DEFLATED) as zz:
         for ext in ('.idml', '.jsx', '.pdf', '.jpg'):
             zz.write(os.path.join(OUT, NAME + ext), f'{NAME}/{NAME}{ext}')
         for f in sorted(os.listdir(LINKS)):
             zz.write(os.path.join(LINKS, f), f'{NAME}/Links/{f}')
-    print('산출물: docs/portfolio_mockup/indesign/ ·', os.path.relpath(z, REPO))
+    print('산출물:', os.path.relpath(OUT, REPO), '·', os.path.relpath(z, REPO))
 
 
 if __name__ == '__main__':

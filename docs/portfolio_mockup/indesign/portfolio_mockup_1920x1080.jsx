@@ -1,4 +1,4 @@
-// SPA portfolio mockup board, 1920 x 1080 px. InDesign: File > Scripts > Scripts panel. Keep the Links folder next to this file.
+// Portfolio mockup board, 1920 x 1080 px. InDesign: File > Scripts > Scripts panel. Keep the Links folder next to this file.
 #target indesign
 (function () {
 var here = File($.fileName).parent;
@@ -78,7 +78,7 @@ var r = pg.rectangles.add(LY["Spreads"], undefined, undefined, {geometricBounds:
 var f = File(here + "/Links/model_R.jpg"); if (f.exists) { r.place(f); r.fit(FitOptions.CONTENT_TO_FRAME); }
 var r = pg.rectangles.add(LY["Cover"], undefined, undefined, {geometricBounds: [114.0, 660.0, 974.0, 1268.0], fillColor: C["Cover Edge"], strokeWeight: 0, name: "cover thickness"});
 rot(r, 6);
-var r = pg.rectangles.add(LY["Cover"], undefined, undefined, {geometricBounds: [110.0, 656.0, 970.0, 1264.0], fillColor: doc.swatches.itemByName("None"), strokeWeight: 0, name: "cover SPA"});
+var r = pg.rectangles.add(LY["Cover"], undefined, undefined, {geometricBounds: [110.0, 656.0, 970.0, 1264.0], fillColor: doc.swatches.itemByName("None"), strokeWeight: 0, name: "cover"});
 var f = File(here + "/Links/cover.jpg"); if (f.exists) { r.place(f); r.fit(FitOptions.CONTENT_TO_FRAME); }
 shadow(r, 75, 16, 22, 34);
 rot(r, 6);
