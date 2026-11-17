@@ -58,3 +58,5 @@ JAJU 포트폴리오와는 별개 작업.
 ## 디자인 회사 이름 · 소개 글 (2026-11-17)
 - 사용자 결정: 회사 이름 **TEKTON DESIGNMENT** (tekton = 그리스어 '짓는 사람', architect 의 어원 / designment = design + -ment).
 - 참고 이미지(Nexus Logistics 소개 글, 다른 회사)의 꼴 — 낱말마다 첫 글자 대문자, 한 문단 — 로 디자인 회사 소개 글 세 안을 씀(A 권함: 건축 뿌리 · 짓는 사람의 정밀함 · 공간과 화면). 원문은 번역만 하고 쓰지 않음.
+- 11-17: 소개 글은 **A안**으로 결정 — "Tekton Designment Is A Thoughtful And Contemporary Design Studio With Roots In Architecture And A Practice In Visual Design, Shaping Every Frame With A Builder's Precision. We Are Dedicated To Crafting Clear And Imaginative Visuals For Brands Across Space And Screen, Ensuring Every Idea Is Built To Be Seen, Remembered And Lived In."
+- 11-17: 한 줄 문구('Nexus Logistics: Delivering With Radar-Like Precision Worldwide.' 꼴) 후보 — 권함 "Tekton Designment: Building Every Frame With A Builder's Precision." (A안의 'A Builder's Precision' 을 받음).
