@@ -54,3 +54,7 @@ JAJU 포트폴리오와는 별개 작업.
 → `thanks/thanks_page.svg` · `.pdf`(1920 × 1080 pt) · `.png` · `python3 tools/blue_elephant/thanks_page.py`
 - Contact: Name Jeong Hyeokju · Mail aa3391@naver.com · Phone +82 10-8582-3257 (이력서 CONTACT ME). LinkedIn · Behance 같은 링크 줄은 넣지 않음(URL 생략, D47).
 - 이력 쪽과 같은 글꼴 · 색 · 옅은 큰 글자. 왼쪽 세로 쪽 번호는 'P/ 00' 자리 표시 — 책 순서가 정해지면 바꿈.
+
+## 디자인 회사 이름 · 소개 글 (2026-11-17)
+- 사용자 결정: 회사 이름 **TEKTON DESIGNMENT** (tekton = 그리스어 '짓는 사람', architect 의 어원 / designment = design + -ment).
+- 참고 이미지(Nexus Logistics 소개 글, 다른 회사)의 꼴 — 낱말마다 첫 글자 대문자, 한 문단 — 로 디자인 회사 소개 글 세 안을 씀(A 권함: 건축 뿌리 · 짓는 사람의 정밀함 · 공간과 화면). 원문은 번역만 하고 쓰지 않음.
