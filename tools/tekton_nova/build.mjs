@@ -31,13 +31,13 @@ h1{margin-top:14px;font-family:'Inter Display',Inter,sans-serif;font-size:66px;l
 </style></head><body>
 <div class="bg"></div><div class="shade"></div><div class="logo"></div>
 <div class="txt">
-  <div class="eyebrow">INTRODUCING <b>TEKTON NOVA</b></div>
-  <h1>A Universe<br>In Your Hand.</h1>
-  <p class="body">Designed from the edge of light to the curve of glass,<br>NOVA brings the depth of the night sky<br>to the screen you hold every day.</p>
-  <p class="sub">Crafted Form. Endless Display.</p>
-  <p class="body2">A frameless display, a warm metal body<br>and a design that fits the way you move.</p>
+  <div class="eyebrow" id="eyebrow">INTRODUCING <b>TEKTON NOVA</b></div>
+  <h1 id="headline">A Universe<br>In Your Hand.</h1>
+  <p class="body" id="body1">Designed from the edge of light to the curve of glass,<br>NOVA brings the depth of the night sky<br>to the screen you hold every day.</p>
+  <p class="sub" id="subhead">Crafted Form. Endless Display.</p>
+  <p class="body2" id="body2">A frameless display, a warm metal body<br>and a design that fits the way you move.</p>
 </div>
-<div class="foot"><i></i>EXPERIENCE NOVA — NOW ON DISPLAY</div>
+<div class="foot"><i id="footline"></i><span id="foottext">EXPERIENCE NOVA — NOW ON DISPLAY</span></div>
 </body></html>`;
 
 fs.mkdirSync(path.join(ROOT, 'out/tekton_nova'), { recursive: true });
@@ -56,5 +56,19 @@ await pg.goto(pathToFileURL(htmlPath).href, { waitUntil: 'load' });
 await pg.waitForTimeout(300);
 await pg.screenshot({ path: path.join(OUT, 'screen_draft.jpg'), type: 'jpeg', quality: 92 });
 await pg.pdf({ path: path.join(OUT, 'screen_draft.pdf'), width: W + 'px', height: H + 'px', printBackground: true });
+// per-layer transparent renders for the PSD (tools/tekton_nova/psd.py)
+const LAYERS = ['eyebrow', 'headline', 'body1', 'subhead', 'body2', 'footline', 'foottext'];
+const LD = path.join(ROOT, 'out/tekton_nova/layers'); fs.mkdirSync(LD, { recursive: true });
+const boxes = {};
+await pg.addStyleTag({ content: 'html,body{background:transparent!important}.bg,.shade,.logo{display:none}' });
+for (const id of LAYERS) {
+  await pg.evaluate(ids => ids.forEach(([k, on]) => { document.getElementById(k).style.visibility = on ? 'visible' : 'hidden'; }), LAYERS.map(k => [k, k === id]));
+  const r = await pg.evaluate(k => { const b = document.getElementById(k).getBoundingClientRect(); return { x: b.x, y: b.y, w: b.width, h: b.height }; }, id);
+  const pad = 8, clip = { x: Math.max(0, Math.floor(r.x - pad)), y: Math.max(0, Math.floor(r.y - pad)) };
+  clip.width = Math.ceil(r.w + 2 * pad); clip.height = Math.ceil(r.h + 2 * pad);
+  await pg.screenshot({ path: path.join(LD, id + '.png'), clip, omitBackground: true });
+  boxes[id] = clip;
+}
+fs.writeFileSync(path.join(LD, 'boxes.json'), JSON.stringify({ scale: 2, boxes }, null, 1));
 await br.close();
 console.log('ok', path.join(OUT, 'screen_draft.jpg'));
