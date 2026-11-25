@@ -1,0 +1,220 @@
+"""Gentle Monster 공간 오브제 CV -> ADERERROR VISUAL 인턴: proposal sheet (PDF) + Markdown.
+
+    python3 docs/cv/blueprint/ader_visual_changes.py   # -> docs/cv/adererror_visual/ADER_VISUAL_CV_proposal.pdf / .md
+
+Posting: company analysis K0 (claude/gracious-edison-inoq0z:docs/company_analysis/adererror/01_scope_posting.md, 2026-11-17),
+same as the posting image the applicant sent on 2026-11-25.
+'Now' column = the GM 공간 오브제 CV PDF the applicant sent (2026-11-25).
+Proposed text comes only from the applicant's own writing: Blue Elephant Q1 final, the bagel-cafe storage answer (JAJU / SI Q3 finals),
+docs/portfolio/philosophy.md, the JAJU Q1 final, and the applicant's answers recorded in the ADERERROR analysis (05_user.md).
+Lengths stay close so the layout holds (widths checked with Noto Sans CJK metrics).
+"""
+import subprocess
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+import bp  # noqa: E402
+from bp import *  # noqa: F401,F403,E402
+from page2 import kwrap  # noqa: E402
+
+OUT = Path(__file__).resolve().parent.parent / "adererror_visual"
+TITLE = "젠틀몬스터 공간 오브제 이력서 → 아더에러 VISUAL 인턴 · 수정 제안"
+SUB = ("기준: 아더에러 VISUAL 인턴 공고 (기업 분석 K0, 2026-11-25 보내 주신 공고 이미지와 같음). 제안 글은 혁주님이 이미 쓴 글(블루엘리펀트 1번 · 창고 정리 문항 · "
+       "사진 노트 · 자주 1번)에서만. 글자 폭은 지금 칸 안에 들어가게.")
+HEADS = ["구역", "자리", "지금 (젠틀몬스터 공간 오브제)", "제안 (아더에러 VISUAL 인턴)", "공고 근거", "글의 출처"]
+
+# posting -> where the CV answers it
+POSTING = [
+    ("수행업무", "콘텐츠 및 이미지 보정 보조", "KEYWORDS 02 이미지 보정 · PROFILE 3 · SKILLS 흐름 줄 RETOUCH 맨 앞 (Photoshop 이 이미 첫 칸)"),
+    ("수행업무", "촬영 현장 지원 및 운영 보조", "PROFILE 2 사진 · INTERESTS 사진 촬영 · 경력의 현장 실측 (현장에서 일한 경험)"),
+    ("수행업무", "결재 문서 작성 · 서류 정리", "KEYWORDS 04 정리 · 경력의 카페 창고 정리"),
+    ("수행업무", "레퍼런스 및 아티스트 리서치", "KEYWORDS 01 영어 리서치 · INTERESTS 해외 레퍼런스 리서치"),
+    ("수행업무", "외주 업체 커뮤니케이션", "FIVE KEYWORD 05 소통 (그대로) — 직접 근거는 없음, 아래 '확인해 주실 것'"),
+    ("지원자격", "패션 · 포토 · 영상 업계 근무 경험", "근무 경험은 없음 → PROFILE 1 · KEYWORDS 03 패션 안목 · PROFILE 2 사진으로 관심을 보여 줌"),
+    ("지원자격", "Premiere Pro · After Effect · Photoshop", "Photoshop: SKILLS 첫 칸 · KEYWORDS 02. Premiere · AE: 써 본 적 없음 → 다른 안 KEYWORDS 04 '툴 습득'"),
+    ("우대사항", "관련학과 전공", "학력 '서울시립대학교 건축학과' (그대로)"),
+    ("우대사항", "영어 가능", "KEYWORDS 01 영어 리서치 (학부 리서치를 대부분 영어 자료로)"),
+]
+
+# (zone, place, now (GM object), proposal (ADERERROR visual), posting reason, fact source)
+CHANGES = [
+    ("사이드바", "직무 줄 1", "SPACE OBJECT DESIGNER", "VISUAL INTERN", "공고 제목 '[ADERERROR] VISUAL 인턴'", "—"),
+    ("사이드바", "직무 줄 2", "젠틀몬스터 공간 오브제 디자이너", "아더에러 VISUAL 인턴 지원", "공고 제목", "—"),
+    ("사이드바", "한 줄 소개", "오브제가 공간 속에서 하나의 장면이 되게 하려는 지원자", "한 장면이 하나의 이야기가 되게 하려는 지원자",
+     "수행업무 '콘텐츠 · 이미지' — 장면을 만드는 비주얼팀", "사진 노트 '한 장면 안의 요소들이 조화를 이루어 하나의 이야기가 되는 사진'"),
+    ("ABOUT", "제목 (2줄)", "건축에서 배운 감각으로 / 공간을 디자인하는 지원자", "스쳐 지나가던 일상을 / 사진으로 관찰하는 건축학도",
+     "지원자격 '포토' · 브랜드 'but near missed things' (놓치기 쉬운 것)", "사진 노트 '사진을 찍으면 스쳐 지나가던 일상을 계속 관찰하게 된다'"),
+    ("ABOUT", "PROFILE 1", "어릴적 부터의 옷에 대한 관심", "옷에 대한 관심은 건축보다 먼저", "지원자격 '패션'", "자주 1번 확정본 (띄어쓰기 오류도 함께 사라짐)"),
+    ("ABOUT", "PROFILE 2", "건축으로 배운 공간에 대한 이해와 구현", "평소 찍은 사진과 패션 사진을 SNS에 기록", "지원자격 '패션 · 포토'",
+     "블루엘리펀트 1번 '평소 찍은 사진과 패션 사진을 개인 SNS에 올리고'"),
+    ("ABOUT", "PROFILE 3", "아트 오브제와 가구, 마감재 기획을 목표로", "촬영과 보정으로 옷의 분위기를 전하는 일을 목표로",
+     "수행업무 '이미지 보정' · '촬영 현장'", "블루엘리펀트 1번 '그 분위기를 이미지로 직관적으로 전하는' (목표 문장)"),
+    ("ABOUT", "INTERESTS 3", "공간의 실내 마감", "해외 레퍼런스 리서치", "수행업무 '레퍼런스 리서치'", "블루엘리펀트 1번 '해외 레퍼런스 찾기에도 익숙합니다'"),
+    ("KEYWORDS", "01 제목", "기획", "영어 리서치", "수행업무 '리서치' · 우대 '영어'", "블루엘리펀트 1번 · 10-30 답 '학부 리서치 대다수 영어 자료'"),
+    ("KEYWORDS", "01 설명", "리서치와 분석으로 컨셉을 세우고, 하나의 생각을 끝까지 형태로 밀고 갑니다",
+     "학부 리서치를 대부분 영어 자료로 해 와, 해외 레퍼런스 찾기에 익숙합니다", "수행업무 '레퍼런스 및 아티스트 리서치'",
+     "블루엘리펀트 1번 '학부 리서치를 대부분 영어 자료로 해 와 해외 레퍼런스 찾기에도 익숙합니다'"),
+    ("KEYWORDS", "02 제목", "사전 확인", "이미지 보정", "수행업무 '이미지 보정 보조'", "블루엘리펀트 1번 '하나는 이미지 작업으로'"),
+    ("KEYWORDS", "02 설명", "꼴라주, 렌더링, 이미지 구현을 통해 실현 이전에 시각적으로 확인합니다",
+     "포토샵 · 일러스트 · 인디자인으로 시각화와 후보정을 해 왔습니다", "지원자격 'Photoshop' · 수행업무 '보정'",
+     "블루엘리펀트 1번 '포토샵과 일러스트, 인디자인으로 시각화와 후보정을 해 왔고' ('꼴라주' 오기도 함께 사라짐)"),
+    ("KEYWORDS", "04 제목", "다양한 툴의 사용", "정리", "수행업무 '결재 문서 · 서류 정리' (여섯 줄 중 세 줄이 운영)", "창고 정리 문항 (자주 · SI 3번 확정본)"),
+    ("KEYWORDS", "04 설명", "건축학과에서 배운 다양한 툴을 바탕으로 작업이 가능합니다", "품목마다 자리를 정해, 찾는 시간을 줄이는 정리를 해 왔습니다",
+     "수행업무 '서류 정리' · '운영 보조'", "SI 3번 '선반을 칸으로 나눠 품목마다 자리를 정하고 … 찾는 시간이 줄었고'"),
+    ("EDUCATION", "마지막 줄", "2026.11  젠틀몬스터 공간 오브제 디자이너 지원", "2026.11  아더에러 VISUAL 인턴 지원", "—",
+     "아더에러 지원서에 다른 회사 이름을 쓰지 않음 · 날짜는 실제 지원일로"),
+    ("EXPERIENCE", "인턴 설명 1", "실물 모형 제작 → 문화역서울284 기획전시 《돌봄의 (뒤가 잘림)",
+     "실물 모형 제작 → 문화역서울284 《돌봄의 디자인》 전시", "—", "잘린 줄 고침: '기획전시'를 빼 한 줄에 (경력 사실 그대로)"),
+    ("SKILLS", "흐름 줄", "2D → 3D → RENDER → RETOUCH → GRAPHIC → EDITORIAL", "RETOUCH · GRAPHIC · EDITORIAL · RENDER · 3D · AI",
+     "보정이 맨 앞 — 지금 배지 칸 순서(Photoshop → … → AI)와 같게", "SKILLS 칸의 설명 글 (후보정 · 벡터 그래픽 · 편집 · 렌더링 · 3D 모델링 · 이미지 생성)"),
+    ("SKILLS", "배지 글자", "Ac · Rh · En / Ps · Ai · Id (이름과 어긋남)", "Ps · Ai · Id / En · Rh · AI", "지원자격 'Photoshop' — 첫 배지가 틀리면 바로 보임",
+     "툴 이름 그대로 (스크립트가 이름 옆 배지를 찾아 고침)"),
+]
+ALTS = [
+    ("한 줄 소개", ["① 한 장면이 하나의 이야기가 되게 하려는 지원자 (기본 · 사진 노트)",
+                  "② 스쳐 지나가던 일상을 사진으로 관찰해 온 지원자 (사진 노트 — ABOUT 제목 ①과 겹치니 제목은 ②나 ③으로)",
+                  "③ 분위기를 이미지로 직관적으로 전하려는 지원자 (블루엘리펀트 1번)"]),
+    ("ABOUT 제목", ["① 스쳐 지나가던 일상을 / 사진으로 관찰하는 건축학도 (기본 · 사진 노트, 'but near missed things'와 이어짐)",
+                   "② 사진으로 관찰하고, / 이미지로 다듬는 건축학도 (사진 노트 · 블루엘리펀트 1번)",
+                   "③ 건축의 공간감에 / 패션의 안목을 더하는 지원자 (자주 이력서 한 줄 소개)"]),
+    ("KEYWORDS 04", ["① 정리 — 품목마다 자리를 정해, 찾는 시간을 줄이는 정리를 해 왔습니다 (기본 · 수행업무 운영 세 줄)",
+                    "② 툴 습득 — 여러 툴을 써 온 만큼 프리미어 · 애프터 이펙트도 빠르게 익히겠습니다 (지원자격 공백에 바로 답함 · 10-30 답)"]),
+]
+KEEP = ["이름 · 사진 · 연락처", "INTERESTS 1 · 2 '패션 · 사진 촬영' — 지원자격 '패션 · 포토'와 그대로 맞음",
+        "KEYWORDS 03 '패션에 대한 안목' — 패션 브랜드라 그대로", "FIVE KEYWORD 다섯 줄 (05 소통 = 외주 업체 커뮤니케이션)",
+        "NUMBERS (5 · 7 · 6 · 1)", "학력 1–5행 (건축학과 = 우대 '관련학과')", "경력: 인턴 설명 2 · 카페 아르바이트", "SKILLS 툴 6종과 칸 순서"]
+CHECK = ["Premiere Pro · After Effect 는 지원자격입니다. 써 본 적이 없다고 하셨으니 SKILLS 에 넣지 않았습니다 — "
+         "KEYWORDS 04 를 ② '툴 습득'으로 할지, 지원 전에 짧은 편집 작업물을 만들지 정해 주세요 (기업 분석 UQ3)",
+         "'패션 · 포토 · 영상 업계 근무 경험': 부모님 의류 회사에서 성수기마다 입출고 · 창고 수량을 맞춘 일을 경력에 넣을지 (한 줄이 늘어 레이아웃이 바뀜, UQ2)",
+         "외주 업체 · 거래처와 연락해 본 경험이 있으면 알려 주세요 (UQ7)",
+         "인턴 기간 '2026.08 – 08' — 한 달이면 '2026.08', 아니면 끝 달",
+         "EDUCATION 마지막 줄 날짜 '2026.11' — 실제 지원 날짜로",
+         "AI 툴을 이 공고에서도 내세울지 (SKILLS 의 AI · 흐름 줄 끝 'AI', UQ5)"]
+
+
+def sheet(path):
+    W, H, M = 297, 210, 12
+    pt, lh = 6.0, 6.0 * PT * 1.42
+    pages = []
+
+    def head(sub=True):
+        bp.OUT.clear()
+        w(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}mm" height="{H}mm" viewBox="0 0 {W} {H}">')
+        r(0, 0, W, H, "#FFFFFF")
+        t(M, 16, TITLE, 12, INK, 700, fam=KR)
+        if sub:
+            t(M, 21.5, SUB, 6.0, INK2, 400, fam=KR)
+
+    # page 1: posting map + first rows
+    head()
+    t(M, 31, "1  모집요강 → 이력서에서 답하는 자리", 8, INK, 700, fam=KR)
+    pc = [(M, 20), (M + 20, 78), (M + 98, 175)]
+    y = 37
+    for (x, wd), h in zip(pc, ["항목", "모집요강", "이력서 자리 (제안 반영 후)"]):
+        t(x, y, h, 6.4, INK, 700, fam=KR)
+    ln(M, y + 1.6, W - M, y + 1.6, INK, 0.3)
+    y += 5.6
+    for a, b, c in POSTING:
+        t(pc[0][0], y, a, pt, INK2, 400, fam=KR); t(pc[1][0], y, b, pt, INK, 700, fam=KR); t(pc[2][0], y, c, pt, INK, 400, fam=KR)
+        y += lh + 1.5
+        ln(M, y - 3.0, W - M, y - 3.0, RULE, 0.2)
+    y += 5
+    t(M, y, "2  바꿀 글", 8, INK, 700, fam=KR)
+    cols = [(M, 17), (M + 17, 22), (M + 39, 60), (M + 99, 66), (M + 165, 50), (M + 215, 58)]
+    heads = HEADS
+
+    def table_head(y):
+        for (x, _), h in zip(cols, heads):
+            t(x, y, h, 6.4, INK, 700, fam=KR)
+        ln(M, y + 1.6, W - M, y + 1.6, INK, 0.3)
+        return y + 5.6
+    y = table_head(y + 6)
+    for z, place, now, new, why, src in CHANGES:
+        cells = [z, f"{place}  ({len(now)}→{len(new)}자)" if now not in ("—",) and len(now) < 60 else place, now, new, why, src]
+        wrapped = [kwrap(cell, wd - 2.2, pt) for (x, wd), cell in zip(cols, cells)]
+        hrow = max(len(c) for c in wrapped) * lh + 2.2
+        if y + hrow > H - 12:
+            w('</svg>'); pages.append("\n".join(bp.OUT)); head(False); y = table_head(28)
+        for i, ((x, wd), ls) in enumerate(zip(cols, wrapped)):
+            fill = {2: INK2, 3: RED, 4: INK, 5: INK2}.get(i, INK)
+            weight = 700 if i in (0, 3) else 400
+            for j, s in enumerate(ls):
+                t(x, y + j * lh, s, pt, fill, weight, fam=KR)
+        y += hrow
+        ln(M, y - 3.0, W - M, y - 3.0, RULE, 0.2)
+    if y + 42 > H - 10:
+        w('</svg>'); pages.append("\n".join(bp.OUT)); head(False); y = 30
+    y += 4
+    t(M, y, "그대로 둔 것", 7, INK, 700, fam=KR)
+    t(M + 140, y, "확인해 주실 것", 7, RED, 700, fam=KR)
+    yy = y + 4.4
+    for s in KEEP:
+        for part in kwrap("· " + s, 132, pt):
+            t(M, yy, part, pt, INK, 400, fam=KR); yy += lh
+        yy += 0.5
+    yy = y + 4.4
+    for s in CHECK:
+        for part in kwrap("· " + s, 133, pt):
+            t(M + 140, yy, part, pt, INK, 400, fam=KR); yy += lh
+        yy += 0.5
+    yy = max(yy, y + 4.4 + sum(len(kwrap("· " + s, 132, pt)) * lh + 0.5 for s in KEEP)) + 3
+    if yy + 6 + sum(len(v) for _, v in ALTS) * (lh + 0.5) > H - 8:
+        w('</svg>'); pages.append("\n".join(bp.OUT)); head(False); yy = 30
+    t(M, yy, "다른 안 — 스크립트를 실행하면 처음 창에서 고를 수 있습니다", 7, INK, 700, fam=KR)
+    yy += 4.6
+    for k, opts in ALTS:
+        t(M, yy, k, pt, INK, 700, fam=KR)
+        for o in opts:
+            t(M + 24, yy, o, pt, RED if o.startswith("①") else INK, 400, fam=KR); yy += lh + 0.5
+        yy += 1.0
+    w('</svg>'); pages.append("\n".join(bp.OUT))
+    pdfs = []
+    for i, svg in enumerate(pages, 1):
+        p = OUT / f"_p{i}.svg"
+        p.write_text(svg, encoding="utf-8")
+        pdf = p.with_suffix(".pdf")
+        subprocess.run(["inkscape", str(p), "--export-type=pdf", f"--export-filename={pdf}"], check=True, capture_output=True)
+        pdfs.append(str(pdf)); p.unlink()
+    if len(pdfs) > 1:
+        subprocess.run(["pdfunite", *pdfs, str(path)], check=True)
+        for f in pdfs:
+            Path(f).unlink()
+    else:
+        Path(pdfs[0]).replace(path)
+    return len(pages)
+
+
+def markdown(path):
+    md = ["# 블루엘리펀트 이력서 → 젠틀몬스터 공간 오브제 디자이너 · 수정 제안", "",
+          "기준: 기업 분석 K0 모집요강 (`claude/gracious-edison-inoq0z:docs/company_analysis/gentle_monster/01_scope_posting.md`). "
+          "제안 글은 혁주님이 이미 쓴 글에서만 가져옴.", "", "## 모집요강 → 이력서 자리", "",
+          "| 항목 | 모집요강 | 이력서 자리 |", "|---|---|---|"]
+    md += [f"| {a} | {b} | {c} |" for a, b, c in POSTING]
+    md += ["", "## 바꿀 글", "", "| 구역 | 자리 | 지금 (블루엘리펀트) | 제안 (젠틀몬스터 공간 오브제) | 공고 근거 | 글의 출처 |", "|---|---|---|---|---|---|"]
+    md += [f"| {z} | {p} | {n} | **{b}** | {y} | {s} |" for z, p, n, b, y, s in CHANGES]
+    md += ["", "## 그대로 둔 것", ""] + [f"- {s}" for s in KEEP] + ["", "## 확인해 주실 것", ""] + [f"- {s}" for s in CHECK]
+    path.write_text("\n".join(md) + "\n", encoding="utf-8")
+
+
+def markdown(path):
+    md = ["# " + TITLE, "", SUB, "", "## 모집요강 → 이력서 자리", "", "| 항목 | 모집요강 | 이력서 자리 |", "|---|---|---|"]
+    md += [f"| {a} | {b} | {c} |" for a, b, c in POSTING]
+    md += ["", "## 바꿀 글", "", "| " + " | ".join(HEADS) + " |", "|---|---|---|---|---|---|"]
+    md += [f"| {z} | {p} | {n} | **{b}** | {y} | {s} |" for z, p, n, b, y, s in CHANGES]
+    md += ["", "## 다른 안 (스크립트 첫 창에서 선택)", ""]
+    for k, opts in ALTS:
+        md += [f"- **{k}**"] + [f"  - {o}" for o in opts]
+    md += ["", "## 그대로 둔 것", ""] + [f"- {s}" for s in KEEP] + ["", "## 확인해 주실 것", ""] + [f"- {s}" for s in CHECK]
+    path.write_text("\n".join(md) + "\n", encoding="utf-8")
+
+
+def main():
+    OUT.mkdir(exist_ok=True)
+    n = sheet(OUT / "ADER_VISUAL_CV_proposal.pdf")
+    markdown(OUT / "ADER_VISUAL_CV_proposal.md")
+    print(OUT / "ADER_VISUAL_CV_proposal.pdf", n, "page(s)")
+
+
+if __name__ == "__main__":
+    main()
